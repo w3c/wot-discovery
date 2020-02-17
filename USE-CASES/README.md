@@ -31,3 +31,29 @@ As a citizen of a city, I want to know what services are available generally, us
 #### Remote Query
 From a remote location, I would like to access data provided by a city for planning purposes (e.g. planning a trip,
 ecological studies, etc.).  Relates to support of open data portal.
+
+### Database of Devices and Digital Twins
+Find databases and digital twins associated with a device or service.
+
+### Discovery of historical data from a device
+I may want to access historical records of data associated with a device.
+Note: is this a discovery use case?
+
+### Smart Home
+
+#### Handoff
+Buy a home, want to hand off all devices to a new user.
+
+#### Access Control
+Who gets access to what?
+Owner, children, visitors, meter reader, third-party manager, user-defined roles, emergency services, etc.
+See also: Stakeholders defined in Arch and Security
+
+### Proxies
+I want to make a local device (or a subset of its functionality) discoverable through a proxy to an external entity or network.
+
+### Bridges
+I want to discover devices supported in a particular ecosystem a I would like to discover devices available via a bridge.
+
+### Permission Management
+?
