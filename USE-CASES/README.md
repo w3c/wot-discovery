@@ -1,3 +1,5 @@
+# WoT Discovery
+
 ## Possible Use Cases - Brainstorming
 
 ### Onboarding 
