@@ -6,3 +6,8 @@ Repository for WoT discovery discussion.
 * [Background](background.md): Survey of existing standards and technologies.
 * [References](references.md): Normative and informative references.
 * [Proposals](proposals/README.md): Proposals.
+
+To propose changes, create a PR following the procedures given in the [wot repo](https://github.com/w3c/wot).
+Also please create issues to note problems in the current content for which a solution is needed (ideally
+issues propose a suitable solution.  It should also be clear under what condition issues have been resolved
+so they can be closed when those conditions are met).
