@@ -1,5 +1,6 @@
 # WoT Discovery
 Repository for WoT discovery discussion.
+In this context, "discovery" is an automated process by which WoT Thing Descriptions may be obtained.
 
 * [Use cases](USE-CASES/README.md): List of use cases.
 * [Requirements](requirements.md): List of requirements.
