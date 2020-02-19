@@ -1,4 +1,4 @@
-# wot-discovery
+# WoT Discovery
 Repository for WoT discovery discussion.
 
 * [Use cases](USE-CASES/README.md): List of use cases.
