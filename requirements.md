@@ -1,4 +1,4 @@
-# WoT Discovery
+# WoT Discovery (Preliminary)
 
 ## Requirements
 
