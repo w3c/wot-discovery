@@ -2,15 +2,17 @@
 
 ## Possible Use Cases - Brainstorming
 
+Those with names next to them have been priortized and will be written up using the full template.
+
 ### Onboarding 
 
-#### Discovery of Directory
+#### Discovery of Directory (McCool)
 When onboarding a device, the device may need to discover the directory service to register with.
 
 #### Discovery of Devices by Onboarding Tool
 In OCF, "unowned" devices in a special "onboarding" state can be discovered by an onboarding tool and provisioned with keys.
 
-### Peer-to-Peer
+### Peer-to-Peer (McCool)
 Have an existing IoT installation.  While physically present or near the device, or on the same local network, 
 want to find out what I can do with it using a browser or another tool.
 
@@ -22,7 +24,7 @@ I may also be interested in services that use these devices, so may want to do a
 ### Cloud Services
 I want to know what devices and services are accessible from a certain cloud provider or service.
 
-### Smart City Services
+### Smart City Services (McCool)
 
 #### As a Visitor
 As a visitor to a city, I want to know what services are available in a certain location, using my mobile device.
@@ -62,7 +64,7 @@ I want to discover devices supported in a particular ecosystem a I would like to
 
 ## Semantic Discovery
 
-### Filtering and Adaptation
+### Filtering and Adaptation (Koster)
 Use semantic categories such as those defined by iotschema or ODM to select interactions by type rather than name,
 as part of the discovery, e.g. filter parameters in a directory query.
 Within an interaction, select data fields by type rather than structure.
