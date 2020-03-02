@@ -59,3 +59,17 @@ I want to discover devices supported in a particular ecosystem a I would like to
 
 ### Permission Management
 ?
+
+## Semantic Discovery
+
+### Filtering and Adaptation
+Use semantic categories such as those defined by iotschema or ODM to select interactions by type rather than name,
+as part of the discovery, e.g. filter parameters in a directory query.
+Within an interaction, select data fields by type rather than structure.
+Specific example: find an RGB light and extract data fields for each color channel
+independent of the name of the property name and structure of the payload (e.g. map vs array).
+Extension: additionally perform adaptation on units and scale, for instance lumens vs. percentages.
+Colored lights also raise issues of color space conversion, possible nonlinear mappings, clipping, lossy conversions, etc.
+A simpler motivating example would be a binary switch that adaptation still raises many questions on in the representation
+of the switch state (boolean, integer, enums, etc).
+
