@@ -45,6 +45,7 @@ Colored lights also raise issues of color space conversion, possible nonlinear m
 A simpler motivating example would be a binary switch that adaptation still raises many questions on in the representation
 of the switch state (boolean, integer, enums, etc).
 
+### Recipes
 **Title:** Recipes for easing application development<br>
 **Description:** Often, IoT applications do one and the same job but must be instantiated in a different manner. An example which might serve here is a light-switch connected to a light-bulb and the light-bulb connected to a motion detection such that light on/off is triggered by manual switch, motion detection, or timer. Instead of programming the logic again and again, prepare a template that comes to life be adding the concrete instances available in the environment.<br>
 **Actors:** Programmers being responsible for application development<br>
@@ -60,6 +61,7 @@ of the switch state (boolean, integer, enums, etc).
 **Use case history:** 3/11/2020, v0.1, Christian Glomb<br>
 
 ## Discovery in Plant Automation
+### Understand an existing installation
 **Title:** Discover features of installed devices and interaction between devices<br>
 **Description:** Have a set of devices in an installation, and want to survey what devices exist and what can be done with them, what capabilities they support, with the goal of automating activities. May also be interested in services that use these devices.<br>
 **Actors:** Technicians responsible for maintaining the plant operation, engineers being responsible for designing the plant<br>
