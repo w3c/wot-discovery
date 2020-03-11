@@ -58,7 +58,7 @@ of the switch state (boolean, integer, enums, etc).
 **Normal flow:** Start a graphical user interface (see e.g. https://github.com/danicic/iotschema-node-red), load an application template, do a semantic search on the set of TDs available, instantiate the template, and run the application.<br>
 **Alternative flow:**<br>
 **Remarks:**<br>
-**Use case history:** 3/11/2020, v0.1, Christian Glomb<br>
+**Use case history:** 3/11/2020, v0.1, @wiresio<br>
 
 ## Discovery in Plant Automation
 ### Understand an existing installation
@@ -74,7 +74,7 @@ of the switch state (boolean, integer, enums, etc).
 **Normal flow:** Given a defined access point to the plant, the Thing Directory is queried in an appropriate manner. The way in which it can be queried can be manifold: It can be a precise SPARQL query send from a program, it can be a "Google like" freetext search narrowing down results in multiple stages and being carried out by a human, or something mixed eventually underpinned by ML or heuristics.<br>
 **Alternative flow:**<br>
 **Remarks:**<br>
-**Use case history:** 3/11/2020, v0.1, Christian Glomb<br>
+**Use case history:** 3/11/2020, v0.1, @wiresio<br>
 
 ## Discovery in the Backend
 
