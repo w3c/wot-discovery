@@ -52,7 +52,7 @@ of the switch state (boolean, integer, enums, etc).
 **Status:** v0.1<br>
 **Includes:** Semantic discovery<br>
 **Rationale / trigger:** Speed up application development by using well defined and well tested templates.<br>
-**Precondition:** Thing Descriptions for the devices in the concrete environment, semantically annotated.<br>
+**Precondition:** Standardized WoT Scripting API; Thing Descriptions for the devices in the concrete environment, semantically annotated.<br>
 **Invariants:**<br>
 **Postcondition:**<br>
 **Normal flow:** Start a graphical user interface (see e.g. https://github.com/danicic/iotschema-node-red), load an application template, do a semantic search on the set of TDs available, instantiate the template, and run the application.<br>
@@ -68,7 +68,7 @@ of the switch state (boolean, integer, enums, etc).
 **Status:** v0.1<br>
 **Includes:** Semantic discovery, eventually Recipes<br>
 **Rationale / trigger:** Understanding an existing installation by reading manuals or doing reverse engineering can be a cumbersome job. Discovery mechanisms might support or even replace these tasks.<br>
-**Precondition:** Thing Descriptions for all devices, semantically annotated. Relations between things described as links in the TDs. Thing Directory storing all TDs and being located in the plant network.<br>
+**Precondition:** Use protocol inherent discovery mechanisms like browsing of data points, use network discovery. Thing Descriptions for all devices, semantically annotated. Relations between things described as links in the TDs. Thing Directory storing all TDs and being located in the plant network.<br>
 **Invariants:**<br>
 **Postcondition:**<br>
 **Normal flow:** Given a defined access point to the plant, the Thing Directory is queried in an appropriate manner. The way in which it can be queried can be manifold: It can be a precise SPARQL query send from a program, it can be a "Google like" freetext search narrowing down results in multiple stages and being carried out by a human, or something mixed eventually underpinned by ML or heuristics.<br>
