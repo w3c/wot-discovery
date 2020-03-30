@@ -1,5 +1,10 @@
 ## WoT Discovery General Topics and Use Cases
 
+### Scope
+* Limit to metadata discovery (as opposed to data discovery).
+** Search of historical data is useful
+   but is a separate problem with additional privacy implications and goes beyond our charter.
+
 ### Template
 
 Please select to which category your use case belongs and describe your use case with the help of this template:
