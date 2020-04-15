@@ -4,10 +4,12 @@ Eclipse Vorto is an OpenSource project for semantic IoT device modelling. It con
 2. [Repository](https://vorto.eclipse.org/) - manage, edit and distribute Vorto models
 3. [Plugins](https://vorto.eclipse.org/#/generators) - transform Vorto models (i.e. into code, request templates, other representations, ...)
 
-The goal is an alignment between the Vorto and WoT to create interoperability between both ecosystems. 
+The goal of this proposal is an alignment between the Vorto and WoT to create interoperability between both ecosystems. 
 The first steps are to identify the similarities and differences in the concepts, create a mapping of 
 the vocabularies to get a common understanding and compare examples of models in both representations 
 as described in [this issue](https://github.com/w3c/wot-discovery/issues/7). 
+It is also proposed that a Vorto example, for example using a Vorto vocabulary extension for search,
+be added to the final document, however this would be informative only.
 
 ## Conceptual Comparison
 Common approach:

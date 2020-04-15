@@ -3,4 +3,4 @@
 ## Proposals
 
 * [Two-Phase Directory-Based Discovery](directory.md)
-* [Vorto](vorto/vorto.md)
+* Informative example application: [How to use extension vocabularies for semantic search](vorto/vorto.md)
