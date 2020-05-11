@@ -167,7 +167,7 @@ In this scenario, energy-related IoT devices monitor the energy use and income i
 
   
 
-- i) Query is expressed with specific-domain terms (not only with terms from the Thing Description vocabulary),
+- i) Query is expressed with specific-domain terms (not only with terms from the Thing Description vocabulary).
 
   
 
