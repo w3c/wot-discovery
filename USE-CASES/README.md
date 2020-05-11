@@ -1,5 +1,9 @@
 ## WoT Discovery General Topics and Use Cases
 
+NOTE: Future use-cases should use the template at
+https://github.com/w3c/wot-architecture/tree/master/USE-CASES
+and should be submitted to the wot-architecture repo.
+
 ### Scope
 * Limit to metadata discovery (as opposed to data discovery).
 ** Search of historical data is useful
