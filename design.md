@@ -8,7 +8,7 @@ The introduction phase can use existing discovery mechanisms and its main output
 an exploration service, but it should not provide detailed metadata for actual devices.
 Instead, the exploration service should provide detailed per-device metadata after authentication.
 
-Resolution: TO LINK
+Resolution: https://www.w3.org/2020/05/11-wot-discovery-minutes.html#resolution01
 
 #### Notes:
 1. in specialized use cases, if the exploration service is otherwise protected, authentication can be omitted.
