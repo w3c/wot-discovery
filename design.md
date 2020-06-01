@@ -152,6 +152,11 @@ Notes:
    payload, and only parts of them may be returned in some cases.
 
 #### Pagination Support
+Pagination at result granularity (up to full TD).
+This would be a mandatory feature to support low-power devices.
+This in the worst case might require buffering query results inside
+the directory, but in cases of directories supporting queries we would
+expect these to be running on relatively larger device.
 
 #### JSONPath Query Support
 
@@ -159,3 +164,47 @@ Notes:
 
 #### SPARQL Query Support
 
+#### Multiple Results
+Directories that support queries may return more than one result.
+This requires a "wrapper" structure (eg a JSON array) and possibly pagination (see above).
+There may also be metadata to be associated with each result, and we will have to 
+specify that the order may be non-deterministic.
+
+#### Partial Results
+Some query mechanisms, eg. JSONPath, naturally support returns of partial results, eg "part-of-TD" TD fragments.
+This should be allowed as it is useful in many cases, in particular searching for the IDs and titles
+of TDs matching some description, then fetching full TDs only for TDs that seem relevant in the results.
+Note that other requirements e.g. for JSON LD 1.1 (if we require it) may mean that some elements, such as the `@context`,
+would be mandatory in any return fragment.
+
+#### Authentication/Authorization
+The following security schemes may be supported to control access to directories:
+* Basic authentication (`basic` scheme) 
+* Digest authentication (`digest` scheme) 
+* JWT Tokens (`bearer` scheme) 
+* OAuth2 (similar to JWT tokens, but provides information about where to get the tokens)
+    - TODO: which flow?  Client?  Device?
+    
+In general, `none` should be disallowed except in development environments.
+
+#### Directory Network API will be Described in a TD
+General Directory API design will be given in a TD Template,
+with instances having a concrete TDs.
+We will intercept "TD next" to allow for new features.
+
+This raises the possibility of directories indexing other directories.
+We need to consider how to index semantic information.
+We need some way to "summarize" information to enable scalability (TODO: review RDF summary approaches).
+Directories should also support self-description, using the "well-known-location" approach.
+
+## Under Discussion
+* Use of JSON-LD 1.1 to encode results from directory services
+** Note that this would require adding `@context` elements to TD fragments.
+** Also metadata in "wrapper" JSON elements mean a global context would also be needed.
+** This would not add any extra requirements to devices that return a single TD (their own), since TDs are already JSON-LD.
+* Allow use of WebID (certificate rather a token; would need "cert" scheme) for directory service authentication
+* Use of out-of-band information model
+** avoid modification of TDs in case of signed TDs for timestamps, etc.
+* Query support (and format? Perhaps can just start with desired capabilities)
+* Name/type registrations: DID link types, DHCP records, DNS-SD types, etc. for both devices and directories
+* Kinds of directory services: fixed (.well-known), basic (keyword query, eg JSONPath/XPath), advanced (SPARQL).
