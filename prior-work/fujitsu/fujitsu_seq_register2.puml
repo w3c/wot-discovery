@@ -14,15 +14,15 @@ group Register to directory
     RDirectory -> LDirectory : (14) Res OK+TD\n201 Created
 end
 group Look up 
-    Consumer -> RDirectory   : (15) Look up deviceName list\nGET /Things\nBody: none
-    RDirectory -> Consumer   : (16) Res OK+deviceName list\n200 OK\nBody: list of deviceName of registered things\ne.g. [FujitsuAirConditioner, PanasonicAirConditioner, …]
-    Consumer -> RDirectory   : (17) Look up TD\nGET /Things/{deviceName}\nBody: none
+    Consumer -> RDirectory   : (15) Look up id list\nGET /Things\nBody: none
+    RDirectory -> Consumer   : (16) Res OK+id list\n200 OK\nBody: list of ID of registered things\ne.g. ["urn:com:fujitsu:iot:WiFi-Sensor:3C71BF428EFC", …]
+    Consumer -> RDirectory   : (17) Look up TD\nGET /Things/{id}\nBody: none
     RDirectory -> Consumer   : (18) Res OK+TD\n200 OK\nBody: TD
 end
 group Unregister
-    Thing -> LDirectory      : (19) Unregister TD\nDELETE /Things/{deviceName}\nBody: none
-    LDirectory -> Thing      : (20) RES OK+TD\n200 OK\nBody: none
-    LDirectory -> RDirectory : (21) Unregister TD\nDELETE /Things/{deviceName}\nBody: none
-    RDirectory -> LDirectory : (22) RES OK+TD\n200 OK\nBody: none
+    Thing -> LDirectory      : (19) Unregister TD\nDELETE /Things/{id}\nBody: none
+    LDirectory -> Thing      : (20) RES OK\n200 OK\nBody: none
+    LDirectory -> RDirectory : (21) Unregister TD\nDELETE /Things/{id}\nBody: none
+    RDirectory -> LDirectory : (22) RES OK\n200 OK\nBody: none
 end
 @enduml
