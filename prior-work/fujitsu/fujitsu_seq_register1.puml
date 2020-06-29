@@ -1,0 +1,22 @@
+@startuml
+skinparam defaultFontName "Noto Sans"
+participant "Thing" as Thing
+participant "Directory" as Directory
+participant "Consumer" as Consumer
+
+group Register to directory
+    Thing -> Directory : (1) Register TD\nPOST /Things/register\nBody: Thing Description
+    note over Directory : Registered
+    Directory -> Thing : (2) Res OK+TD\n201 Created
+end
+group Look up 
+    Consumer -> Directory : (3) Look up deviceName list\nGET /Things\nBody: none
+    Directory -> Consumer : (4) Res OK+deviceName list\n200 OK\nBody: list of deviceName of registered things\ne.g. [FujitsuAirConditioner, PanasonicAirConditioner, …]
+    Consumer -> Directory : (5) Look up TD\nGET /Things/{deviceName}\nBody: none
+    Directory -> Consumer : (6) Res OK+TD\n200 OK\nBody: TD
+end
+group Unregister
+    Thing -> Directory : (7) Unregister TD\nDELETE /Things/{deviceName}\nBody: none
+    Directory -> Thing : (8) RES OK+TD\n200 OK\nBody: none
+end
+@enduml

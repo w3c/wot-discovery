@@ -1,7 +1,10 @@
-# Fujitsu's Thing Discovery implementation
+# Fujitsu's Thing Discovery / Directory implementation
 
-- Author: Takahisa Suzuki (@tksuzuki0604) (original text: https://github.com/w3c/wot-discovery/issues/5 )
-- Editor: Kunihiko Toumura (@k-toumura)
+- Author: 
+  - Takahisa Suzuki (@tksuzuki0604) (original text: https://github.com/w3c/wot-discovery/issues/5 )
+  - Ryuichi Matsukura (@mryuichi) (original text: https://github.com/w3c/wot-testing/blob/master/events/plugfest/2018-bundang/preparation-fujitsu.md )
+- Editor:
+  - Kunihiko Toumura (@k-toumura)
 
 ## Use-case
 
@@ -61,3 +64,23 @@ Text record: “retrieve=/Things“ “register=/Things/register”
 ![Example Sequences](tksuzuki-discovery.svg)
 
 - [PlantUML source file for above diagram](tksuzuki-discovery.puml)
+
+## Directory API Detail
+
+### Operations in case of a single network
+
+A device servient registers its own TD to the TD directory.
+The TD directory returns OK with the URL of TD if succeeded.
+An application servient can lookup TDs registered the remote proxy servient with its URI.
+If the URI indicates the servient, it returns the list of the devices connected.
+If the URI specifies the devices registered on the proxy servient, it returns TD of it.
+
+![Sequence of TD Discovery in a single network](./fujitsu_seq_register1.svg)
+
+- [PlantUML source file for above diagram](./fujitsu_seq_register1.puml)
+
+### Operations in case of separated networks
+
+![Sequence of TD Discovery in separated networks](./fujitsu_seq_register2.svg)
+
+- [PlantUML source file for above diagram](./fujitsu_seq_register2.puml)

@@ -1,0 +1,28 @@
+@startuml
+skinparam defaultFontName "Noto Sans"
+participant "Thing" as Thing
+participant "Directory on\nlocal network" as LDirectory
+participant "Directory on\nthe Internet" as RDirectory
+participant "Consumer" as Consumer
+
+group Register to directory
+    Thing -> LDirectory      : (11) Register TD\nPOST /Things/register\nBody: Thing Description
+    note over LDirectory     : Registered
+    LDirectory -> Thing      : (12) Res OK+TD\n201 Created
+    LDirectory -> RDirectory : (13) Register TD\nPOST /Things/register\nBody: Thing Description
+    note over RDirectory     : Registered
+    RDirectory -> LDirectory : (14) Res OK+TD\n201 Created
+end
+group Look up 
+    Consumer -> RDirectory   : (15) Look up deviceName list\nGET /Things\nBody: none
+    RDirectory -> Consumer   : (16) Res OK+deviceName list\n200 OK\nBody: list of deviceName of registered things\ne.g. [FujitsuAirConditioner, PanasonicAirConditioner, …]
+    Consumer -> RDirectory   : (17) Look up TD\nGET /Things/{deviceName}\nBody: none
+    RDirectory -> Consumer   : (18) Res OK+TD\n200 OK\nBody: TD
+end
+group Unregister
+    Thing -> LDirectory      : (19) Unregister TD\nDELETE /Things/{deviceName}\nBody: none
+    LDirectory -> Thing      : (20) RES OK+TD\n200 OK\nBody: none
+    LDirectory -> RDirectory : (21) Unregister TD\nDELETE /Things/{deviceName}\nBody: none
+    RDirectory -> LDirectory : (22) RES OK+TD\n200 OK\nBody: none
+end
+@enduml
