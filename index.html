@@ -94,7 +94,7 @@ img.wot-diagram {
     </section>
     <section id="introduction">
         <h1>Introduction</h1>
-        <p>To do.
+        <p>To Do.
 	</p>
     </section>
     <section id="conformance"></section>
@@ -196,55 +196,60 @@ img.wot-diagram {
         <p>Two-Phase approach.
         </p>
     </section>
-    <section id="introduction" class="normative">
-        <h1>Introductions</h1>
+    <section id="introduction-mech" class="normative">
+        <h1>Introduction Mechanisms</h1>
         <p>Description of supported introductions, and requirements for 
         new introduction mechanisms.
         </p>
     </section>
-    <section id="exploration" class="normative">
-        <h1>Exploration</h1>
+    <section id="exploration-mech" class="normative">
+        <h1>Exploration Mechanisms</h1>
         <p>Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
-        <section id="information" class="normative">
+        <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
             <p>Mechanism for devices to self-describe, hosting their own TDs.
             </p>
         </section>
-        <section id="information" class="normative">
+        <section id="exploration-directory" class="normative">
             <h2>Directory</h2>
             <p>Mechanism for TDs to be hosted in a searchable directory service.
             </p>
-            <section id="information" class="normative">
-                <h1>Directory Information Model</h1>
+            <section id="exploration-directory-info" class="normative">
+                <h3>Information Model</h3>
                 <p>Description of conceptual data organization in a directory.
                 </p>
             </section>
-            <section id="api" class="normative">
-                <h1>Directory Service API</h1>
+            <section id="exploration-directory-api" class="normative">
+                <h3>Directory Service API</h3>
                 <p>API of directory service.
                 </p>
-                <section id="api-registration" class="normative">
-                    <h1>Registration</h1>
+                <section id="exploration-directory-api-registration" class="normative">
+                    <h4>Registration</h4>
                     <p>Sub-API to register a TD (or a link).
                     </p>
                 </section>
-                <section id="api-management" class="normative">
-                    <h1>Management</h1>
+                <section id="exploration-directory-api-management" class="normative">
+                    <h4>Management</h4>
                     <p>Sub-API to manage existing records, and perhaps other functions.
                     </p>
                 </section>
-                <section id="api-notification" class="normative">
-                    <h1>Notification</h1>
+                <section id="exploration-directory-api-notification" class="normative">
+                    <h4>Notification</h4>
                     <p>Sub-API to notify clients of events, such as updates to TDs.
                     </p>
                 </section>
-                <section id="api-search" class="normative">
-                    <h1>Search</h1>
+                <section id="exploration-directory-api-search" class="normative">
+                    <h4>Search</h4>
                     <p>Sub-API to search a directory, e.g. issue a query.
                     </p>
                 </section>
+            </section>
+            <section id="exploration-directory-security" class="normative">
+                <h3>Security and Privacy</h3>
+                <p>Minimum security and privacy requirements for confidentiality, authentication, access control, etc.
+                </p>
             </section>
         </section>
     </section>
