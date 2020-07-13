@@ -201,6 +201,34 @@ img.wot-diagram {
         <p>Description of supported introductions, and requirements for 
         new introduction mechanisms.
         </p>
+        <section id="introduction-direct" class="normative">
+            <h2>Direct</h2>
+            <p>Any mechanism that results in a single URL.
+               This includes Bluetooth beacons, QR codes, and written URLs to be 
+               typed by a user.
+               A GET on all such URLs MUST result in a TD.
+               For self-describing Things, this can be the TD of the Thing itself.
+               If the URL references a Directory, this MUST be the TD of the
+               Directory service.
+               A Directory can be distinguished from a Thing by the use of an
+               <code>@type</code> including the semantic term <code>WoT-Directory</code>.
+            </p>
+        </section>
+        <section id="introduction-dns-sd" class="normative">
+            <h2>DNS-SD</h2>
+            <p>To Do.
+            </p>
+        </section>
+        <section id="introduction-core-rd" class="normative">
+            <h2>CoRE Resource Directory</h2>
+            <p>To Do.
+            </p>
+        </section>
+        <section id="introduction-did" class="normative">
+            <h2>DID Documents</h2>
+            <p>To Do.
+            </p>
+        </section>
     </section>
     <section id="exploration-mech" class="normative">
         <h1>Exploration Mechanisms</h1>
