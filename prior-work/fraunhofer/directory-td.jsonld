@@ -11,8 +11,18 @@
     },
     "security": "bearer_sc",
     "actions": {
-      "td": {
-        "description": "Add, modify, or remove a Thing Description",
+      "postTD": {
+        "description": "Add an anonymous Thing Description (without ID)",
+        "forms": [
+          {
+            "href": "/td",
+            "htv:methodName": "POST",
+            "contentType": "application/ld+json"
+          }
+        ]
+      },
+      "putTD": {
+        "description": "Add or modify a Thing Description",
         "uriVariables": {
           "id": {
             "title": "Thing Description ID",
@@ -22,20 +32,39 @@
         },
         "forms": [
           {
-            "href": "/td",
-            "htv:methodName": "POST",
-            "contentType": "application/ld+json"
-          },
-          {
             "href": "/td/{id}",
             "htv:methodName": "PUT",
             "contentType": "application/ld+json"
-          },
+          }
+        ]
+      },
+      "patchTD": {
+        "description": "Modify parts of a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
           {
             "href": "/td/{id}",
             "htv:methodName": "PATCH",
             "contentType": "application/ld+json"
-          },
+          }
+        ]
+      },
+      "deleteTD": {
+        "description": "Remove a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
           {
             "href": "/td/{id}",
             "htv:methodName": "DELETE"
