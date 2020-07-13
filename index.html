@@ -106,15 +106,27 @@ img.wot-diagram {
         <dl>
             <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
             </dt>
-            <dd>To Do.
+            <dd>In the WoT context, the process of finding and retrieving Thing metadata
+            in the form of Thing Descriptions for Things satisfying some criteria of interest.
             </dd>
             <dt><dfn data-lt="WoT Exploration">Exploration</dfn>
             </dt>
-            <dd>To Do.
+            <dd>A discovery mechanism that provides access to detailed metadata in the 
+            form of one or more Thing Descriptions.  Exploration mechanisms are in
+            general protected by security mechansism and are accessible only to authorized users.
             </dd>
             <dt><dfn data-lt="WoT Introduction">Introduction</dfn>
             </dt>
-            <dd>To Do.
+            <dd>A "first contact" discovery mechanism, whose result is a URL that
+            references an exploration mechanism.  Introduction mechanisms themselves
+            should not directly provide metadata, and in general are designed to be 
+            open.
+            </dd>
+            <dt><dfn data-lt="WoT Thing Description Directory">Thing Description Directory (TDD)</dfn>
+            </dt>
+            <dd>A directory service with a prescribed API that allows the 
+            registration, management, and search of a database of Thing Descriptions.
+            Note that the acronym should be TDD, not TD, to avoid confusion with Thing Descriptions (TDs).
             </dd>
         </dl>
     </section>
@@ -140,39 +152,49 @@ img.wot-diagram {
         </p>
     </section>
     <section id="exploration" class="normative">
-        <h1>Exploration
+        <h1>Exploration</h1>
         <p>Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
-    </section>
-    <section id="information" class="normative">
-        <h1>Directory Information Model</h1>
-        <p>Description of conceptual data organization in a directory.
-        </p>
-    </section>
-    <section id="api" class="normative">
-        <h1>Directory Service API</h1>
-        <p>API of directory service.
-        </p>
-        <section id="api-registration" class="normative">
-            <h1>Registration</h1>
-            <p>Sub-API to register a TD (or a link).
+        <section id="information" class="normative">
+            <h2>Self-description</h2>
+            <p>Mechanism for devices to self-describe, hosting their own TDs.
             </p>
         </section>
-        <section id="api-management" class="normative">
-            <h1>Management</h1>
-            <p>Sub-API to manage existing records, and perhaps other functions.
+        <section id="information" class="normative">
+            <h2>Directory</h2>
+            <p>Mechanism for TDs to be hosted in a searchable directory service.
             </p>
-        </section>
-        <section id="api-notification" class="normative">
-            <h1>Notification</h1>
-            <p>Sub-API to notify clients of events, such as updates to TDs.
-            </p>
-        </section>
-        <section id="api-search" class="normative">
-            <h1>Search</h1>
-            <p>Sub-API to search a directory, e.g. issue a query.
-            </p>
+            <section id="information" class="normative">
+                <h1>Directory Information Model</h1>
+                <p>Description of conceptual data organization in a directory.
+                </p>
+            </section>
+            <section id="api" class="normative">
+                <h1>Directory Service API</h1>
+                <p>API of directory service.
+                </p>
+                <section id="api-registration" class="normative">
+                    <h1>Registration</h1>
+                    <p>Sub-API to register a TD (or a link).
+                    </p>
+                </section>
+                <section id="api-management" class="normative">
+                    <h1>Management</h1>
+                    <p>Sub-API to manage existing records, and perhaps other functions.
+                    </p>
+                </section>
+                <section id="api-notification" class="normative">
+                    <h1>Notification</h1>
+                    <p>Sub-API to notify clients of events, such as updates to TDs.
+                    </p>
+                </section>
+                <section id="api-search" class="normative">
+                    <h1>Search</h1>
+                    <p>Sub-API to search a directory, e.g. issue a query.
+                    </p>
+                </section>
+            </section>
         </section>
     </section>
     <section id="security-considerations" class="informative">
