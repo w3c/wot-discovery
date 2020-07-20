@@ -1,0 +1,127 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "title": "LinkSmart Thing Directory",
+    "securityDefinitions": {
+      "bearer_sc": {
+        "scheme": "bearer"
+      },
+      "basic_sc": {
+        "scheme": "basic"
+      }
+    },
+    "security": "bearer_sc",
+    "actions": {
+      "postTD": {
+        "description": "Add an anonymous Thing Description (without ID)",
+        "forms": [
+          {
+            "href": "/td",
+            "htv:methodName": "POST",
+            "contentType": "application/ld+json"
+          }
+        ]
+      },
+      "putTD": {
+        "description": "Add or modify a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
+          {
+            "href": "/td/{id}",
+            "htv:methodName": "PUT",
+            "contentType": "application/ld+json"
+          }
+        ]
+      },
+      "patchTD": {
+        "description": "Modify parts of a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
+          {
+            "href": "/td/{id}",
+            "htv:methodName": "PATCH",
+            "contentType": "application/ld+json"
+          }
+        ]
+      },
+      "deleteTD": {
+        "description": "Remove a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
+          {
+            "href": "/td/{id}",
+            "htv:methodName": "DELETE"
+          }
+        ]
+      }
+    },
+    "properties": {
+      "td": {
+        "description": "Retrieve a Thing Description",
+        "uriVariables": {
+          "id": {
+            "title": "Thing Description ID",
+            "type": "string",
+            "format": "iri-reference"
+          }
+        },
+        "forms": [
+          {
+            "href": "/td/{id}",
+            "htv:methodName": "GET",
+            "contentType": "application/ld+json"
+          }
+        ]
+      },
+      "catalog": {
+        "description": "List and filter Thing Descriptions",
+        "uriVariables": {
+          "page": {
+            "title": "Catalog page",
+            "type": "number",
+            "minimum": 1
+          },
+          "per_page": {
+            "title": "Catalog items per page",
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "oneOf": {
+            "xpath": {
+              "title": "XPath query expression",
+              "type": "string"
+            },
+            "jsonpath": {
+              "title": "JSONPath query expression",
+              "type": "string"
+            }
+          }
+        },
+        "forms": [
+          {
+            "href": "/td{?page,per_page,xpath,jsonpath}",
+            "htv:methodName": "GET",
+            "contentType": "application/json"
+          }
+        ]
+      }
+    }
+  }
