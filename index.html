@@ -32,6 +32,7 @@
         // previousMaturity: "CR",
         editors : [ {
             name : "Andrea Cimmino",
+            w3cid : "115672",
             company : "Universidad Politécnica de Madrid",
             companyURL : "https://www.upm.es/"
         }, {
@@ -41,10 +42,12 @@
             companyURL : "https://www.intel.com/"
         }, {
             name : "Farshid Tavakolizadeh",
+            w3cid : "122520",
             company : "Fraunhofer-Gesellschaft",
             companyURL : "https://www.fraunhofer.de/"
         }, {
             name : "Kunihiko Toumura",
+            w3cid : "83488",
             company : "Hitachi, Ltd.",
             companyURL : "https://www.hitach.com/"
         } ],
@@ -153,6 +156,7 @@ img.wot-diagram {
             <p><ul>
             <li>Support various forms of query,
                 including keyword, template, and semantic queries.</li>
+            <li>Support spatial and sub-net limited queries.</li>
             <li>Be scalable to large databases of TDs.</li>
             </ul></p>
         </section>
@@ -254,11 +258,16 @@ img.wot-diagram {
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
                     <p>Sub-API to register a TD (or a link).
+                    Manage existing records.
+                    Basically CRUD operations on TD records.
                     </p>
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
                     <h4>Management</h4>
-                    <p>Sub-API to manage existing records, and perhaps other functions.
+                    <p>Other administrative functions not having to do with CRUD of individual records,
+                    for example, security configuration.
+                    Also, administrator roles may expand the capabilities of administrators for
+                    management of records (for instance, the ability to delete a record they did not create).
                     </p>
                 </section>
                 <section id="exploration-directory-api-notification" class="normative">
@@ -269,7 +278,24 @@ img.wot-diagram {
                 <section id="exploration-directory-api-search" class="normative">
                     <h4>Search</h4>
                     <p>Sub-API to search a directory, e.g. issue a query.
+                    There are different forms and levels of query possible, for example,
+                    syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
+                    and the more advanced query types may not be 
+                    supported by all directories.   
+                    So this API will have further subsections,
+                    some of which will be optional.
+                    Search also includes a sub-API for managing listing the contents (eg returned by
+                    a query) including handling pagination, etc.
+                    Note that one special form of query will be able to return everything.
+                    Results may be subject to the requestor's authorization.
                     </p>
+                    <p>
+                    To discuss further:
+                    <ul>
+                    <li>Federated queries to other TDDs</li>
+                    <li>Spatial and network-limited queries</li>
+                    <li>Links</li>
+                    </ul>
                 </section>
             </section>
             <section id="exploration-directory-security" class="normative">
