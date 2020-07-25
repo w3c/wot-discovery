@@ -60,7 +60,17 @@
                     } ]
                 }],
         localBiblio : {
-           /// none yet
+            "REST-IOT" : {
+                  title: "RESTful Design for Internet of Things System"
+                , href: "https://tools.ietf.org/id/draft-keranen-t2trg-rest-iot-05.html"
+                , authors:  [
+                    "A. Keranen"
+                  , "M. Kovatsch"
+                  , "K. Hartke"
+                  ]
+                , publisher: "IETF"
+                , date: "14 September 2017"
+            }
         }
     };
 </script>
@@ -261,6 +271,56 @@ img.wot-diagram {
                     Manage existing records.
                     Basically CRUD operations on TD records.
                     </p>
+                    <p>
+                        The Registration API uses the HTTP [[?RFC7231]] protocol and provides a RESTful
+                        design inline with [[?REST-IOT]]. The serialization format for all request and
+                        response bodies is JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax to support
+                        extensions and semantic processing.
+                    </p>
+
+                    <h5>Create a TD</h5>
+                    <p>
+                        The API allows registration of a TD object passed as request body.
+                        A TD which is identified with an `id` attribute (known TD) is handled 
+                        differently with one that has no `id` (anonymous TD).
+                    </p>
+                    <p>
+                        A known TD is submitted to the directory using an HTTP `PUT` request at a  
+                        unique target location specified in the path. Upon successful processing, the 
+                        server shall respond with a 201 (Created) status. Note: If the target location 
+                        corresponds to an existing TD, the request shall instead proceed as an Update 
+                        operation.
+                    </p>
+                    <p>
+                        An anonymous TD is submitted to the directory using an HTTP `POST` request. 
+                        Upon successful processing, the server shall respond with a 201 (Created) status
+                        and a Location header containing an identifier for the TD.
+                    </p>
+                    <h5>Read a TD</h5>
+                    <p>
+                        A TD is retrieved from the directory using an HTTP `GET` request. The request
+                        should include the identifier of the TD as part of the path. A successful response
+                        shall contain the TD in body and have a 200 (OK) status.
+                    </p>
+                    <h5>Update a TD</h5>
+                    <p>
+                        A modified TD replaces an existing when submitted using an HTTP `PUT` request
+                        to the location corresponding to the existing TD. Upon success, the server
+                        responds with a 204 (No Content) status.
+                    </p>
+                    <p>
+                        A TD is partially modified when the modified parts are submitted using an HTTP `PATCH`
+                        request. The modified parts must conform to the original TD structure and may include
+                        other existing parts of the TD. Upon success, the server responds with a 204 (No Content)
+                        status.
+                    </p>
+                    <h5>Delete a TD</h5>
+                    <p>
+                        A TD is removed from the directory using an HTTP `DELETE` request. The request
+                        should include the identifier of the TD as part of the path. A successful response
+                        shall have a 204 (No Content) status.
+                    </p>
+
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
                     <h4>Management</h4>
