@@ -1,0 +1,186 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "@type": "WoT-Directory", // namespace?
+    "title": "Thing Description Directory (TDD)",
+    "securityDefinitions": {
+        "oauth2_code": {
+            "scheme": "oauth2",
+            "flow": "code",
+            "authorization": "https://auth.example.com/authorization",
+            "token": "https://auth.example.com/token",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        }
+    },
+    "security": "oauth2_code",
+    "base": "https://tdd.example.com",
+    "actions": {
+        "createTD": {
+            "description": "Add a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}", // use /registrations instead?
+                    "htv:methodName": "PUT",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 201
+                    },
+                    "scopes": "write"
+                },
+                {
+                    "href": "/td",
+                    "htv:methodName": "POST",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:headers": [
+                            {
+                                "description": "System-generated UUID (version 4) URN", // need to define vocab?
+                                "htv:fieldName": "Location",
+                                "htv:fieldValue": ""
+                            }
+                        ],
+                        "htv:statusCodeValue": 201
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "updateTD": {
+            "description": "Modify an Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "PUT",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "updatePartialTD": {
+            "description": "Modify parts of a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "PATCH",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "deleteTD": {
+            "description": "Remove a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "DELETE",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        }
+    },
+    "properties": {
+        "readTD": {
+            "description": "Retrieve a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "GET",
+                    "htv:statusCodeValue": 200,
+                    "contentType": "application/td+json",
+                    "scopes": "read"
+                }
+            ]
+        },
+        "listTD": {
+            "description": "List and filter Thing Descriptions",
+            "uriVariables": {
+                "per_page": {
+                    "title": "Number of TDs in response catalog page",
+                    "type": "number",
+                    "minimum": 1,
+                    "maximum": 100
+                },
+                "page": {
+                    "title": "Response catalog page",
+                    "type": "number",
+                    "minimum": 1
+                },
+                "oneOf": {
+                    "xpath": {
+                        "title": "XPath query expression",
+                        "type": "string"
+                    },
+                    "jsonpath": {
+                        "title": "JSONPath query expression",
+                        "type": "string"
+                    },
+                    "sparql": {
+                        "title": "SPARQL query",
+                        "type": "string"
+                    }
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td{?page,per_page,xpath,jsonpath,sparql}",
+                    "htv:methodName": "GET",
+                    "htv:statusCodeValue": 200,
+                    "contentType": "application/json",
+                    "scopes": "search"
+                }
+            ]
+        }
+    }
+}
