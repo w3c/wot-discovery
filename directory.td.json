@@ -2,6 +2,9 @@
     "@context": "https://www.w3.org/2019/wot/td/v1",
     "@type": "WoT-Directory", // namespace?
     "title": "Thing Description Directory (TDD)",
+    "version": {
+        "instance": "1.0.0-alpha"
+    },
     "securityDefinitions": {
         "oauth2_code": {
             "scheme": "oauth2",
@@ -19,7 +22,7 @@
     "base": "https://tdd.example.com",
     "actions": {
         "createTD": {
-            "description": "Add a Thing Description",
+            "description": "Create a Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -58,7 +61,7 @@
             ]
         },
         "updateTD": {
-            "description": "Modify an Thing Description",
+            "description": "Update an Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -80,7 +83,7 @@
             ]
         },
         "updatePartialTD": {
-            "description": "Modify parts of a Thing Description",
+            "description": "Update parts of a Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -102,7 +105,7 @@
             ]
         },
         "deleteTD": {
-            "description": "Remove a Thing Description",
+            "description": "Delete a Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -124,7 +127,7 @@
         }
     },
     "properties": {
-        "readTD": {
+        "retrieveTD": {
             "description": "Retrieve a Thing Description",
             "uriVariables": {
                 "id": {
@@ -137,23 +140,26 @@
                 {
                     "href": "/td/{id}",
                     "htv:methodName": "GET",
-                    "htv:statusCodeValue": 200,
-                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/td+json"
+                    },
                     "scopes": "read"
                 }
             ]
         },
-        "listTD": {
-            "description": "List and filter Thing Descriptions",
+        "listTDs": {
+            "description": "List and filter Thing Descriptions, paginated as a catalog",
             "uriVariables": {
                 "per_page": {
-                    "title": "Number of TDs in response catalog page",
+                    "title": "Number of TDs in each catalog page",
                     "type": "number",
                     "minimum": 1,
                     "maximum": 100
                 },
                 "page": {
-                    "title": "Response catalog page",
+                    "title": "Page number of the catalog",
                     "type": "number",
                     "minimum": 1
                 },
@@ -166,7 +172,7 @@
                         "title": "JSONPath query expression",
                         "type": "string"
                     },
-                    "sparql": {
+                    "sparql": { // can sparql results be paginated with query params?
                         "title": "SPARQL query",
                         "type": "string"
                     }
@@ -176,8 +182,11 @@
                 {
                     "href": "/td{?page,per_page,xpath,jsonpath,sparql}",
                     "htv:methodName": "GET",
-                    "htv:statusCodeValue": 200,
-                    "contentType": "application/json",
+                    "response": {
+                        "description": "Success response", // need to define vocab?
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/json"
+                    },
                     "scopes": "search"
                 }
             ]
