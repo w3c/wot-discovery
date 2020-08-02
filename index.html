@@ -300,23 +300,33 @@ img.wot-diagram {
                     </p>
                     <p>
                         The Registration API is a RESTful HTTP API in accordance with the recommendations
-                        defined in [[?RFC7231]] and [[?REST-IOT]]. The default serialization format for 
-                        all request and response bodies is JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax
-                        to support extensions and semantic processing. The Registration API must 
-                        provide create, retrieve, update, delete (CRUD) interfaces based on the following 
-                        specification:
+                        defined in [[?RFC7231]] and [[?REST-IOT]].
+                        <span class="rfc2119-assertion" id="tdd-default-representation">
+                            The default serialization format for all request and response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax to support extensions and semantic
+                            processing.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-additional-representation">
+                            Directories MAY accept additional representations based on request's indicated
+                            Content-Type or Content-Encoding, and provide additional representations through
+                            server-driven content negotiation.
+                        </span>
+                    </p>
+                    <p>
+                        The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces 
+                        based on the following specification:
                     </p>
 
                     <dl><dt>Create a TD:</dt><dd>
                         <p>
-                            The API must allow registration of a TD object passed as request body. The request
-                            should contain `application/td+json` Content-Type header. The TD object should be
-                            validated syntactically using the 
+                            The API MUST allow registration of a TD object passed as request body. The request
+                            SHOULD contain `application/td+json` Content-Type header for JSON serialization of TD.
+                            The TD object SHOULD be validated syntactically using the 
                             <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
                             [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
                         </p>
                         <p>
-                            A TD which is identified with an `id` attribute must be handled 
+                            A TD which is identified with an `id` attribute MUST be handled 
                             differently with one that has no identifier (<a>Anonymous TD</a>). The create operations
                             are specified as `createTD` action in 
                             <a href="#directory-thing-description">Directory's Thing Description</a>
@@ -324,19 +334,19 @@ img.wot-diagram {
                         </p>
                         <ul>
                             <li>
-                                A TD is submitted to the directory using an HTTP `PUT` request at a  
+                                A TD MUST be submitted to the directory using an HTTP `PUT` request at a  
                                 target location (HTTP path) containing the unique TD `id`. 
-                                Upon successful processing, the server shall respond with
+                                Upon successful processing, the server MUST respond with
                                 201 (Created) status.                             
                                 <br>Note: If the target location corresponds to an existing TD,
                                 the request shall instead proceed as an Update operation and respond
                                 the appropriate status code (see Update section).
                             </li>
                             <li>
-                                An <a>Anonymous TD</a> is submitted to the directory using an HTTP `POST` request. 
-                                Upon successful processing, the server shall respond with 201 (Created) status
+                                An <a>Anonymous TD</a> MUST be submitted to the directory using an HTTP `POST` request. 
+                                Upon successful processing, the server MUST respond with 201 (Created) status
                                 and a Location header containing a system-generated identifier for the TD.
-                                The identifier should be a Version 4 UUID URN [[RFC4122]].
+                                The identifier SHOULD be a Version 4 UUID URN [[RFC4122]].
                             </li>
                         </ul>
 
@@ -360,9 +370,9 @@ img.wot-diagram {
                     
                     <dl><dt>Retrieve a TD:</dt><dd>
                         <p>
-                            A TD must be retrieved from the directory using an HTTP `GET` request. The request
-                            must include the identifier of the TD as part of the path. A successful response
-                            shall have 200 (OK) status, contain `application/td+json` Content-Type header,
+                            A TD MUST be retrieved from the directory using an HTTP `GET` request. The request
+                            MUST include the identifier of the TD as part of the path. A successful response
+                            MUST have 200 (OK) status, contain `application/td+json` Content-Type header,
                             and the requested TD in body. The retrieve operation is specified as `retrieveTD` 
                             property in 
                             <a href="#directory-thing-description">Directory's Thing Description</a>.
@@ -386,34 +396,36 @@ img.wot-diagram {
                     
                     <dl><dt>Update a TD:</dt><dd>
                         <p>
-                            The API must allow modifications to existing TDs as full replacement or partial updates.
-                            The request should contain `application/td+json` Content-Type header. The update operations
-                            are described below:
+                            The API MUST allow modifications to existing TDs as full replacement or partial updates.
+                            The request SHOULD contain `application/td+json` Content-Type header for JSON serialization
+                            of TD. The update operations are described below:
                         </p>
 
                         <ul>
                             <li>
-                                A modified TD must replace an existing when submitted using an HTTP `PUT` request
-                                to the location corresponding to the existing TD. The TD object should be
+                                A modified TD MUST replace an existing when submitted using an HTTP `PUT` request
+                                to the location corresponding to the existing TD. The TD object SHOULD be
                                 validated syntactically using the 
                                 <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
                                 [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
-                                Upon success, the server responds with 204 (No Content) status. 
+                                Upon success, the server MUST respond with 204 (No Content) status. 
                                 This operation is specified as `updateTD` property in 
                                 <a href="#directory-thing-description">Directory's Thing Description</a>.
                                 <br>Note: If the target location does not correspond to an existing TD,
                                 the request shall instead proceed as a Create operation and respond
-                                the appropriate status code (see Create section).
+                                the appropriate status code (see Create section). In other words, an HTTP `PUT`
+                                request acts as a create or update operation. An HTTP `PATCH` may be used for
+                                an update-only operation.
                             </li>
                             <li>
-                                A TD must be partially modified when the modified parts are submitted using an 
-                                HTTP `PATCH` request. The modified parts must conform to the original TD structure 
+                                An existing TD MUST be partially modified when the modified parts are submitted using an 
+                                HTTP `PATCH` request. The modified parts MUST conform to the original TD structure 
                                 and may include other existing parts of the TD. After applying the modifications,
-                                the TD object should be validated syntactically using the 
+                                the TD object SHOULD be validated syntactically using the 
                                 <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
                                 [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
-                                Upon success, the server responds with a 204 (No Content) status.
-                                The partial update operation is specified as `updatePartialTD` property in 
+                                Upon success, the server MUST respond with a 204 (No Content) status.
+                                This operation is specified as `updatePartialTD` property in 
                                 <a href="#directory-thing-description">Directory's Thing Description</a>.
                             </li>
                         </ul>
@@ -424,6 +436,9 @@ img.wot-diagram {
                                 <li>
                                     400 (Bad Request): Invalid serialization or TD.
                                     This is accompanied by an appropriate response message.
+                                </li>
+                                <li>
+                                    404 (Not Found): TD with the given `id` not found (for `PATCH` only). 
                                 </li>
                                 <li>
                                     401 (Unauthorized): Rejecting a request without appropriate authentication.
@@ -439,7 +454,7 @@ img.wot-diagram {
                         <p>
                             A TD must be removed from the directory using an HTTP `DELETE` request.
                             The request should include the identifier of the TD as part of the path. 
-                            A successful response shall have 204 (No Content) status.
+                            A successful response MUST have 204 (No Content) status.
                             The retrieve operation is specified as `deleteTD` property in
                             <a href="#directory-thing-description">Directory's Thing Description</a>.
                         </p>
