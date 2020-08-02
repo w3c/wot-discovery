@@ -1,6 +1,6 @@
 {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "@type": "WoT-Directory", // namespace?
+    "@type": "WoT-Directory",
     "title": "Thing Description Directory (TDD)",
     "version": {
         "instance": "1.0.0-alpha"
@@ -32,11 +32,11 @@
             },
             "forms": [
                 {
-                    "href": "/td/{id}", // use /registrations instead?
+                    "href": "/td/{id}",
                     "htv:methodName": "PUT",
                     "contentType": "application/td+json",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:statusCodeValue": 201
                     },
                     "scopes": "write"
@@ -46,10 +46,10 @@
                     "htv:methodName": "POST",
                     "contentType": "application/td+json",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:headers": [
                             {
-                                "description": "System-generated UUID (version 4) URN", // need to define vocab?
+                                "description": "System-generated UUID (version 4) URN",
                                 "htv:fieldName": "Location",
                                 "htv:fieldValue": ""
                             }
@@ -75,7 +75,7 @@
                     "htv:methodName": "PUT",
                     "contentType": "application/td+json",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
                     "scopes": "write"
@@ -97,7 +97,7 @@
                     "htv:methodName": "PATCH",
                     "contentType": "application/td+json",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
                     "scopes": "write"
@@ -118,7 +118,7 @@
                     "href": "/td/{id}",
                     "htv:methodName": "DELETE",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
                     "scopes": "write"
@@ -141,53 +141,11 @@
                     "href": "/td/{id}",
                     "htv:methodName": "GET",
                     "response": {
-                        "description": "Success response", // need to define vocab?
+                        "description": "Success response",
                         "htv:statusCodeValue": 200,
                         "contentType": "application/td+json"
                     },
                     "scopes": "read"
-                }
-            ]
-        },
-        "listTDs": {
-            "description": "List and filter Thing Descriptions, paginated as a catalog",
-            "uriVariables": {
-                "per_page": {
-                    "title": "Number of TDs in each catalog page",
-                    "type": "number",
-                    "minimum": 1,
-                    "maximum": 100
-                },
-                "page": {
-                    "title": "Page number of the catalog",
-                    "type": "number",
-                    "minimum": 1
-                },
-                "oneOf": {
-                    "xpath": {
-                        "title": "XPath query expression",
-                        "type": "string"
-                    },
-                    "jsonpath": {
-                        "title": "JSONPath query expression",
-                        "type": "string"
-                    },
-                    "sparql": { // can sparql results be paginated with query params?
-                        "title": "SPARQL query",
-                        "type": "string"
-                    }
-                }
-            },
-            "forms": [
-                {
-                    "href": "/td{?page,per_page,xpath,jsonpath,sparql}",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response", // need to define vocab?
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/json"
-                    },
-                    "scopes": "search"
                 }
             ]
         }
