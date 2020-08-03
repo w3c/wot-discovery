@@ -1,6 +1,6 @@
 {
     "@context": "https://www.w3.org/2019/wot/td/v1",
-    "@type": "WoT-Directory",
+    "@type": "Directory",
     "title": "Thing Description Directory (TDD)",
     "version": {
         "instance": "1.0.0-alpha"
