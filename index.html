@@ -152,7 +152,7 @@ img.wot-diagram {
             </dd>
             <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
             </dt>
-            <dd>A Thing Description without identifier (`id` attribute).
+            <dd>A Thing Description without an identifier (`id` attribute).
             </dd>
         </dl>
     </section>
@@ -289,32 +289,44 @@ img.wot-diagram {
                 
                 <aside class="example" id="directory-thing-description" title="Thing Description of the Directory">
                     <pre><div data-include='directory.td.json'></div></pre>
+
+                    <p class="ednote" title="Normative JSON Block">
+                        Need to add a css class for normative code blocks, instead of using the `example` class.
+                    </p>
+                    <p class="ednote" title="ID Type">
+                        The `id` variable need to have a defined type for semantic association with TD's `id` attribute.
+                    </p>
+                    <p class="ednote" title="Scopes">
+                        The scopes may need to be more concrete to able to allow updates but prevent creation.
+                    </p>
+                    
                 </aside>
+
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
-                    <p class="ednote">
-                        Must define a schema for error responses:
-                        [[?RFC7807]] may be a good option.
-                        
-                        <br>Should error objects be JSON-LD?
+                    <p class="ednote" title="Schema for error objects">
+                        [[?RFC7807]] may be a good option.<br>
+                        Should error objects be JSON-LD?
                     </p>
                     <p>
                         The Registration API is a RESTful HTTP API in accordance with the recommendations
                         defined in [[?RFC7231]] and [[?REST-IOT]].
-                        <span class="rfc2119-assertion" id="tdd-default-representation">
+                        <span class="rfc2119-assertion" id="tdd-reg-default-representation">
                             The default serialization format for all request and response bodies MUST be
                             JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax to support extensions and semantic
                             processing.
                         </span>
-                        <span class="rfc2119-assertion" id="tdd-additional-representation">
+                        <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
                             Directories MAY accept additional representations based on request's indicated
                             Content-Type or Content-Encoding, and provide additional representations through
                             server-driven content negotiation.
                         </span>
                     </p>
                     <p>
-                        The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces 
-                        based on the following specification:
+                        <span class="rfc2119-assertion" id="tdd-reg-operations">
+                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces 
+                            based on the following specification:
+                        </span>
                     </p>
 
                     <dl><dt>Create a TD:</dt><dd>
@@ -367,6 +379,11 @@ img.wot-diagram {
                         </p>
                       
                     </dd></dl>
+
+                    <p class="ednote" title="Deduplication">
+                        The server should employ a mechanism to eliminate duplication of TDs submitted with
+                        a `POST` request. The spec need to have recommendations on how to perform this.
+                    </p>
                     
                     <dl><dt>Retrieve a TD:</dt><dd>
                         <p>
