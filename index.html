@@ -679,6 +679,32 @@ img.wot-diagram {
                     <li>Spatial and network-limited queries</li>
                     <li>Links</li>
                     </ul>
+		    <h5>Semanitc Search</h5>
+			The API MUST implement the SPARQL 1.1. protocol for SELECT, ASK, DESCRIBE, and CONSTRUCT queries. Requests MUST use the methods HTTP <code>GET</code> or HTTP <code>POST</code> containing a valid query written according to the SPARQL 1.1 Query Language. The HTTP <code>GET</code> MUST encode the query under the parameter 'query' as a URL. The HTTP <code>POST</code> MUST have the <code>application/sparql-query</code> Content-Type header and MUST have contain the query as body. Alternativelly, HTTP <code>POST</code> MUST have the <code>application/x-www-form-urlencoded</code> Content-Type header and MUST encode the query in the BODY as a URL under the argument 'query'.
+			Content-negotiation for SELECT and ASK queries:
+			<ul>
+				<li>Accept : <code>application/sparql-results+xml</code> or <code>application/xml</code>outputs tue query answer in XML</li>
+				<li>Accept : <code>application/sparql-results+json</code> or <code>application/json</code>outputs the query answer in JSON</li>
+				<li>Accept : <code>text/csv</code> outputs the query answer in CSV</li>
+				<li>Accept : <code>text/tab-separated-values</code>outputs the query answer in TSV</li>
+			</ul>
+			Content-negotiation for CONSTRUCT and DESCRIBE queries:
+			<ul>
+				<li>Accept : <code>application/rdf+xml</code> outputs the query answer in RDF/XML</li>
+				<li>Accept : <code>application/n-triples</code> outputs the query answer in N-TRIPLES</li>
+				<li>Accept : <code>application/n-quads</code> or <code>text/x-nquads</code> outputs the query answer in NQuads</li>
+				<li>Accept : <code>application/x-turtle</code> or <code>text/turtle</code> or <code>application/turtle</code> outputs the query answer in TURTLE</li>
+				<li>Accept : <code>application/trig</code> outputs the query answer in TriG</li>
+				<li>Accept : <code>application/ld+json</code> outputs the query answer in JSON-LD</li>
+				<li>Accept : <code>application/trix</code> outputs the query answer in Trix</li>
+				<li>Accept : <code>text/n3</code> outputs the query answer in N3</li>
+			</ul>
+			List of errors:
+			<ul>
+				<li>400(Bad Request): if the SPARQL query contains syntax or grammar errors</li>
+				<li>500(Internal Server Error): if the service fails executing the query</li>
+			</ul>
+			<h5>Syntactic Search</h5>
                 </section>
             </section>
             <section id="exploration-directory-security" class="normative">
