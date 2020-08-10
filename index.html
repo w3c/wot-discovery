@@ -60,7 +60,28 @@
                     } ]
                 }],
         localBiblio : {
-           /// none yet
+            "REST-IOT" : {
+                  title: "RESTful Design for Internet of Things System"
+                , href: "https://tools.ietf.org/id/draft-keranen-t2trg-rest-iot-05.html"
+                , authors:  [
+                    "A. Keranen"
+                  , "M. Kovatsch"
+                  , "K. Hartke"
+                  ]
+                , publisher: "IETF"
+                , date: "14 September 2017"
+            },
+            "WOT-SECURITY-GUIDELINES" : {
+                title: "Web of Things (WoT) Security and Privacy Guidelines"
+                //, href: "https://www.w3.org/TR/wot-security/"
+                , href: "https://w3c.github.io/wot-security/"
+                , authors:  [
+                  , "Michael McCool"
+                  , "Elena Reshetova"
+                  ]
+                , publisher: "W3C"
+                , date: "March 2019"
+                }
         }
     };
 </script>
@@ -73,6 +94,9 @@ a[href].internalDFN {
 img.wot-diagram {
     max-width: 90%;
     height: auto;
+}
+.rfc2119-assertion {
+  background-color: rgb(230,230,230)
 }
 </style>
 </head>
@@ -128,6 +152,10 @@ img.wot-diagram {
             <dd>A directory service with a prescribed API that allows the 
             registration, management, and search of a database of Thing Descriptions.
             Note that the acronym should be TDD, not TD, to avoid confusion with Thing Descriptions (TDs).
+            </dd>
+            <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
+            </dt>
+            <dd>A Thing Description without an identifier (`id` attribute).
             </dd>
         </dl>
     </section>
@@ -213,7 +241,7 @@ img.wot-diagram {
                If the URL references a Directory, this MUST be the TD of the
                Directory service.
                A Directory can be distinguished from a Thing by the use of an
-               <code>@type</code> including the semantic term <code>WoT-Directory</code>.
+               <code>@type</code> including the semantic term <code>Directory</code>.
             </p>
         </section>
         <section id="introduction-dns-sd" class="normative">
@@ -253,14 +281,276 @@ img.wot-diagram {
             </section>
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
-                <p>API of directory service.
-                </p>
+                The Directory APIs must use secure protocols guaranteeing 
+                <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
+                authenticity and confidentiality (see [[?WOT-SECURITY-GUIDELINES]]).
+                <span class="rfc2119-assertion" id="tdd-https"> 
+                    All HTTP APIs MUST be exposed over HTTPS (HTTP Over TLS).
+                </span>
+                
+                <aside class="example" id="directory-thing-description" title="Thing Description of the Directory">
+                    <pre><div data-include='directory.td.json'></div></pre>
+
+                    <p class="ednote" title="Normative JSON Block">
+                        Need to add a css class for normative code blocks, instead of using the `example` class.
+                    </p>
+                    <p class="ednote" title="ID Type">
+                        The `id` variable need to have a defined type for semantic association with TD's `id` attribute.
+                    </p>
+                    <p class="ednote" title="Scopes">
+                        The scopes may need to be more concrete to able to allow updates but prevent creation.
+                    </p>
+                    
+                </aside>
+
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
-                    <p>Sub-API to register a TD (or a link).
-                    Manage existing records.
-                    Basically CRUD operations on TD records.
+                    <p class="ednote" title="Schema for error objects">
+                        [[?RFC7807]] may be a good option.<br>
+                        Should error objects be JSON-LD?
                     </p>
+                    <p>
+                        The Registration API is a RESTful HTTP API in accordance with the recommendations
+                        defined in [[?RFC7231]] and [[?REST-IOT]].
+                        <span class="rfc2119-assertion" id="tdd-reg-default-representation">
+                            The default serialization format for all request and response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax to support extensions and semantic
+                            processing.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
+                            Directories MAY accept additional representations based on request's indicated
+                            Content-Type or Content-Encoding, and provide additional representations through
+                            server-driven content negotiation.
+                        </span>
+                    </p>
+                    <p>
+                        <span class="rfc2119-assertion" id="tdd-reg-operations">
+                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces 
+                            based on the following specification:
+                        </span>
+                    </p>
+
+                    <dl><dt>Create a TD:</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-body">
+                                The API MUST allow registration of a TD object passed as request body.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-contenttype">
+                                The request SHOULD contain `application/td+json` Content-Type header for 
+                                JSON serialization of TD.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-validation">
+                                The TD object SHOULD be validated syntactically using the 
+                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
+                            </span>
+                        </p>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-types"> 
+                                A TD which is identified with an `id` attribute MUST be handled 
+                                differently with one that has no identifier (<a>Anonymous TD</a>).
+                            </span>
+                            The create operations are specified as `createTD` action in 
+                            <a href="#directory-thing-description">Directory's Thing Description</a>
+                            and elaborated below:
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
+                                    A TD MUST be submitted to the directory using an HTTP `PUT` request at a  
+                                    target location (HTTP path) containing the unique TD `id`.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td-resp">  
+                                    Upon successful processing, the server MUST respond with
+                                    201 (Created) status.                           
+                                </span>
+
+                                <p>
+                                    Note: If the target location corresponds to an existing TD,
+                                    the request shall instead proceed as an Update operation and respond
+                                    the appropriate status code (see Update section).
+                                </p>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
+                                    An <a>Anonymous TD</a> MUST be submitted to the directory using an HTTP `POST` request. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-resp">
+                                    Upon successful processing, the server MUST respond with 201 (Created) status
+                                    and a Location header containing a system-generated identifier for the TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
+                                    The identifier SHOULD be a Version 4 UUID URN [[RFC4122]].
+                                </span>
+                            </li>
+                        </ul>
+
+                        <p>
+                            Error responses:
+                            <ul>
+                                <li>
+                                    400 (Bad Request): Invalid serialization or TD.
+                                    This is accompanied by an appropriate response message.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+                      
+                    </dd></dl>
+
+                    <p class="ednote" title="Deduplication">
+                        The server should employ a mechanism to eliminate duplication of TDs submitted with
+                        a `POST` request. The spec need to have recommendations on how to perform this.
+                    </p>
+                    
+                    <dl><dt>Retrieve a TD:</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-retrieve">
+                                A TD MUST be retrieved from the directory using an HTTP `GET` request,
+                                including the identifier of the TD as part of the path.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
+                                A successful response MUST have 200 (OK) status, contain `application/td+json`
+                                Content-Type header, and the requested TD in body.
+                            </span>
+                            The retrieve operation is specified as `retrieveTD` property in 
+                            <a href="#directory-thing-description">Directory's Thing Description</a>.
+                        </p>
+
+                        <p>
+                            Error responses:  
+                            <ul>
+                                <li>
+                                    404 (Not Found): TD with the given `id` not found.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+                    </dd></dl>
+                    
+                    <dl><dt>Update a TD:</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-types">
+                                The API MUST allow modifications to existing TDs as full replacement or partial updates.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
+                                The request SHOULD contain `application/td+json` Content-Type header for JSON
+                                serialization of TD.
+                            </span>
+                            The update operations are described below:
+                        </p>
+
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-update">
+                                    A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
+                                    to the location corresponding to the existing TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-validation">
+                                    The TD object SHOULD be
+                                    validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-resp">
+                                    Upon success, the server MUST respond with 204 (No Content) status. 
+                                </span>
+                                This operation is specified as `updateTD` property in 
+                                <a href="#directory-thing-description">Directory's Thing Description</a>.
+
+                                <p>
+                                    Note: If the target location does not correspond to an existing TD,
+                                    the request shall instead proceed as a Create operation and respond
+                                    the appropriate status code (see Create section). In other words, an HTTP `PUT`
+                                    request acts as a create or update operation. An HTTP `PATCH` may be used for
+                                    an update-only operation.
+                                </p>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial">
+                                    An existing TD MUST be partially modified when the modified parts are submitted using an 
+                                    HTTP `PATCH` request to the location corresponding to the existing TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
+                                    The modified parts MUST conform to the original TD structure. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-fulltd">
+                                    The input MAY include other existing parts of the TD or the whole TD object.
+                                </span>
+                                When the whole TD object is provided as input, the operation acts as an update-only action.
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-validation">
+                                    After applying the modifications,
+                                    the TD object SHOULD be validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
+                                    Upon success, the server MUST respond with a 204 (No Content) status.
+                                </span>
+                                This operation is specified as `updatePartialTD` property in 
+                                <a href="#directory-thing-description">Directory's Thing Description</a>.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Error responses:
+                            <ul>
+                                <li>
+                                    400 (Bad Request): Invalid serialization or TD.
+                                    This is accompanied by an appropriate response message.
+                                </li>
+                                <li>
+                                    404 (Not Found): TD with the given `id` not found (for `PATCH` only). 
+                                </li>
+                                <li>
+                                    401 (Unauthorized): Rejecting a request without appropriate authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Rejecting a request due to insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+                    </dd></dl>
+                    
+                    <dl><dt>Delete a TD:</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-delete">
+                                A TD MUST be removed from the directory when an HTTP `DELETE` request
+                                is submitted to the location corresponding to the existing TD.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-delete">
+                                A successful response MUST have 204 (No Content) status.
+                            </span>
+                            The retrieve operation is specified as `deleteTD` property in
+                            <a href="#directory-thing-description">Directory's Thing Description</a>.
+                        </p>
+
+                        <p>
+                            Error responses:
+                            <ul>
+                                <li>
+                                    404 (Not Found): TD with the given `id` not found.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+                    </dd></dl>
+
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
                     <h4>Management</h4>
@@ -305,12 +595,7 @@ img.wot-diagram {
             </section>
         </section>
     </section>
-    <section id="exploration-mech" class="normative">
-        <h1>Exploration Mechanisms</h1>
-        <p>
-            To do.
-        </p>
-    </section>
+
     <section id="security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
         <p>

@@ -1,0 +1,153 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "@type": "Directory",
+    "title": "Thing Description Directory (TDD)",
+    "version": {
+        "instance": "1.0.0-alpha"
+    },
+    "securityDefinitions": {
+        "oauth2_code": {
+            "scheme": "oauth2",
+            "flow": "code",
+            "authorization": "https://auth.example.com/authorization",
+            "token": "https://auth.example.com/token",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        }
+    },
+    "security": "oauth2_code",
+    "base": "https://tdd.example.com",
+    "actions": {
+        "createTD": {
+            "description": "Create a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "PUT",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 201
+                    },
+                    "scopes": "write"
+                },
+                {
+                    "href": "/td",
+                    "htv:methodName": "POST",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response",
+                        "htv:headers": [
+                            {
+                                "description": "System-generated UUID (version 4) URN",
+                                "htv:fieldName": "Location",
+                                "htv:fieldValue": ""
+                            }
+                        ],
+                        "htv:statusCodeValue": 201
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "updateTD": {
+            "description": "Update an Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "PUT",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "updatePartialTD": {
+            "description": "Update parts of a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "PATCH",
+                    "contentType": "application/td+json",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        },
+        "deleteTD": {
+            "description": "Delete a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "DELETE",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 204
+                    },
+                    "scopes": "write"
+                }
+            ]
+        }
+    },
+    "properties": {
+        "retrieveTD": {
+            "description": "Retrieve a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td/{id}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/td+json"
+                    },
+                    "scopes": "read"
+                }
+            ]
+        }
+    }
+}
