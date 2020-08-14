@@ -103,12 +103,35 @@ img.wot-diagram {
 <body>
     <section id="abstract">
         <p>The W3C Web of Things (WoT) is intended to enable
-            interoperability across IoT platforms and application
-            domains.
+           interoperability across IoT platforms and application
+           domains.  One key mechanism for accomplishing this goal
+           is the definition and use of metadata describing the
+           interactions an IoT device or service makes available
+           over the network at a suitable level of abstraction.  
+           The WoT Thing Description specification satisfies this objective.
         </p>
-        <p>This <em>WoT Discovery</em> specification...
-        <p>
-            To do.
+        <p>However, in order to use a Thing its Thing Description
+           first has to be obtained.  The <em>WoT Discovery</em> process described 
+           in this document addresses this problem.
+           WoT Discovery needs to support the distribution of WoT Thing Descriptions
+           in a variety of use cases.  This includes ad-hoc and engineered systems;
+           during development and at runtime; and on both local and global networks.
+           The process also needs to work with existing discovery mechanisms,
+           be secure, protect private information, and be able to efficiently
+           handle updates to WoT Thing Descriptions and the 
+           dynamic and diverse nature of the IoT ecosystem.
+        </p>
+        <p>The WoT Discovery process is divided into two phases,
+           Introduction, and Exploration.  The Introduction phase 
+           leverages existing discovery mechanisms but does not directly
+           expose metadata; they are simply used to discover Exploration
+           services, which provide metadata but only after secure authentication
+           and authorization.  This document normatively defines two Exploration
+           services, one for WoT Thing self-description with a single 
+           WoT Thing Description and a searchable WoT Thing Directory
+           service for collections of Thing Descriptions.
+           A variety of Introduction services are also described and where
+           necessary normative definitions are given to support them.
         </p>
 
     </section>
@@ -122,7 +145,8 @@ img.wot-diagram {
         <p>To Do.
 	</p>
     </section>
-    <section id="conformance"></section>
+    <section id="conformance">
+    </section>
     <section id="terminology" class="informative">
         <h1>Terminology</h1>
         <p>This specification uses the following terms as defined here.
