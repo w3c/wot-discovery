@@ -285,9 +285,37 @@ img.wot-diagram {
                 <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
                 authenticity and confidentiality (see [[?WOT-SECURITY-GUIDELINES]]).
                 <span class="rfc2119-assertion" id="tdd-https"> 
-                    All HTTP APIs MUST be exposed over HTTPS (HTTP Over TLS).
+                    The HTTP API MUST be exposed over HTTPS (HTTP Over TLS).
                 </span>
+                <p>
+                    The HTTP API responses must use appropriate status codes described in 
+                    this section for success and error responses.
+                    <span class="rfc2119-assertion" id="tdd-http-errors"> 
+                        The HTTP API MUST use the Problem Details [[?RFC7807]] format to carry
+                        error details in HTTP client error (4xx) and server error (5xx) responses.
+                    </span>
+                    This enables both machines and humans to know the high-level error class
+                    and fine-grained details.
+
+                    <p class="ednote" title="WoT-specific error types">
+                        The Problem Details error `type` field is a URI reference which 
+                        could used to map the occurred error to WoT-specific error class. 
+                        There are few open issues raising the lack of WoT-specific error types:
+                        <a href="https://github.com/w3c/wot-discovery/issues/44">wot-discovery#44</a>,
+                        <a href="https://github.com/w3c/wot-thing-description/issues/303">wot-thing-description#303</a>,
+                        <a href="https://github.com/w3c/wot-scripting-api/issues/200">wot-scripting-api#200</a>.
+                        <br>
+                        For now, `type` can be omitted which defaults to "about:blank", and `title`
+                        should be set to HTTP status text.
+                    </p>
+                </p>
                 
+                <p>Below is a generic Thing Description for the Directory HTTP API
+                    with OAuth2 security. The Thing Description alone should not be
+                    considered as the full specification to implement or interact with
+                    a directory. Additional details for every interaction are described
+                    in human-readable form in the subsequent sections.
+                </p>
                 <aside class="example" id="directory-thing-description" title="Thing Description of the Directory">
                     <pre><div data-include='directory.td.json'></div></pre>
 
@@ -305,10 +333,6 @@ img.wot-diagram {
 
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
-                    <p class="ednote" title="Schema for error objects">
-                        [[?RFC7807]] may be a good option.<br>
-                        Should error objects be JSON-LD?
-                    </p>
                     <p>
                         The Registration API is a RESTful HTTP API in accordance with the recommendations
                         defined in [[?RFC7231]] and [[?REST-IOT]].
