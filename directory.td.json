@@ -149,5 +149,34 @@
                 }
             ]
         }
+    },
+    "events": {
+        "registration": {
+            "description": "TD registration events",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string"
+                },
+                "types": {
+                    "title": "Event Type",
+                    "type": "string",
+                    "enum": [
+                        "createdTD",
+                        "updatedTD",
+                        "deletedTD"
+                    ]
+                }
+            }
+        },
+        "forms": [
+            {
+                "op": "subscribeevent",
+                "href": "https://tdd.example.com/events{/id}{?type}",
+                "subprotocol": "sse",
+                "contentType": "text/event-stream",
+                "scopes": "notifications"
+            }
+        ]
     }
 }
