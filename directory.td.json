@@ -10,15 +10,41 @@
             "scheme": "oauth2",
             "flow": "code",
             "authorization": "https://auth.example.com/authorization",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        },
+        "oauth2_client": {
+            "scheme": "oauth2",
+            "flow": "client",
             "token": "https://auth.example.com/token",
             "scopes": [
                 "write",
                 "read",
                 "search"
             ]
+        },
+        "oauth2_device": {
+            "scheme": "oauth2",
+            "flow": "device",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        },
+        "combination": {
+            "scheme": "combination",
+            "oneOf": [
+                "oauth2_code",
+                "oauth2_client",
+                "oauth2_device"
+            ]
         }
     },
-    "security": "oauth2_code",
+    "security": "combination",
     "base": "https://tdd.example.com",
     "actions": {
         "createTD": {
