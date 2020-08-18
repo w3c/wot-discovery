@@ -10,6 +10,7 @@
             "scheme": "oauth2",
             "flow": "code",
             "authorization": "https://auth.example.com/authorization",
+            "token": "https://auth.example.com/token",
             "scopes": [
                 "write",
                 "read",
@@ -29,6 +30,8 @@
         "oauth2_device": {
             "scheme": "oauth2",
             "flow": "device",
+            "authorization": "https://auth.example.com/device_authorization",
+            "token": "https://auth.example.com/token",
             "scopes": [
                 "write",
                 "read",
