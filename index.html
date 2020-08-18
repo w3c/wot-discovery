@@ -682,7 +682,13 @@ img.wot-diagram {
 		    <span class="rfc2119-assertion" id="tdd-search-apis">
 			    The Directory counts with three different APIs to perform the search: the JSONPath search, the XPath search, and the semantic search. The Directory MUST implement the JSONPath search or the XPath search, and SHOULD implement the semantic search.</p>
 		    </span>
-			
+			<aside class="example" id="directory-thing-description-search" title="Thing Description of the Search in the Directory">
+			    <pre><div data-include='directory-search.td.json'></div></pre>
+
+			    <p class="ednote" title="Normative JSON Block">
+				Review the APIs.
+			    </p>
+			</aside>
 		    <section id="jsonpath-semantic" class="normative">
 			<h4>JSONPath search</h4>
 			<span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST receive as valid HTTP request using the <code>GET</code> method.</span> 
@@ -712,6 +718,7 @@ img.wot-diagram {
 			<span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST implement the SPARQL 1.1. protocol for SELECT, ASK, DESCRIBE, and CONSTRUCT queries. Requests MUST use the methods HTTP <code>GET</code> or HTTP <code>POST</code> containing a valid query written according to the SPARQL 1.1 Query Language. </span>
 			<span class="rfc2119-assertion" id="tdd-search-semantic-parameter"> The HTTP <code>GET</code> MUST encode the query under the parameter 'query' as a URL. The HTTP <code>POST</code> MUST have the <code>application/sparql-query</code> Content-Type header and MUST have contain the query as body. Alternativelly, HTTP <code>POST</code> MUST have the <code>application/x-www-form-urlencoded</code> Content-Type header and MUST encode the query in the BODY as a URL under the argument 'query'.</span>
 			<br>
+			<br>
 			<span class="rfc2119-assertion" id="tdd-search-semantic-contenttype"> Content-negotiation for SELECT and ASK queries (by default is JSON):
 			<ul>
 				<li>Accept : <code>application/sparql-results+xml</code> or <code>application/xml</code> outputs tue query answer in XML</li>
@@ -719,7 +726,6 @@ img.wot-diagram {
 				<li>Accept : <code>text/csv</code> outputs the query answer in CSV</li>
 				<li>Accept : <code>text/tab-separated-values</code>outputs the query answer in TSV</li>
 			</ul>
-			<br>
 			Content-negotiation for CONSTRUCT and DESCRIBE queries (by default is JSON-LD 1.1):
 			<ul>
 				<li>Accept : <code>application/rdf+xml</code> outputs the query answer in RDF/XML</li>
