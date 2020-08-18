@@ -678,24 +678,24 @@ img.wot-diagram {
                     <li>Federated queries to other TDDs</li>
                     <li>Spatial and network-limited queries</li>
                     <li>Links</li>
-		    <p>The Directory counts with three different APIs to perform the search: the JSONPath search, the XPath search, and the semantic search. The Directory must implement the JSONPath search API, and should implement the XPath and semantic search APIs.</p>
-                    </ul>
-		    <section id="search-semantic" class="normative">
-			<h4>XPath search</h4>
-			<p>The API must receive as valid HTTP request using the GET method. As parameter, the request must provide as input a valid XPath expression.</p>
-			<p>List of errors:</p>
-			<ul>
-				<li>400(Bad Request): if the XPath contains syntax or grammar errors</li>
-				<li>500(Internal Server Error): if the service fails executing the XPath</li>
-			</ul>
-			</section>
-			<section id="search-semantic" class="normative">
+		    </ul>
+		    <p>The Directory counts with three different APIs to perform the search: the JSONPath search, the XPath search, and the semantic search. The Directory MUST implement the JSONPath search or the XPath search, and SHOULD implement the semantic search.</p>
+		    <section id="jsonpath-semantic" class="normative">
 			<h4>JSONPath search</h4>
-			<p>The API must receive as valid HTTP request using the GET method. As parameter, the request must provide as input a valid XPath expression.</p>
+			    <p>The API MUST receive as valid HTTP request using the <code>GET</code> method. As parameter, the request MUST provide as valid JSONPath expression. The JSONPath search MUST output an array of json elements as result that can be either json values or json documents.</p>
 			<p>List of errors:</p>
 			<ul>
 				<li>400(Bad Request): if the JSONPath contains syntax or grammar errors</li>
 				<li>500(Internal Server Error): if the service fails executing the JSONPath</li>
+			</ul>
+		    </section>
+		    <section id="xpath-semantic" class="normative">
+			<h4>XPath search</h4>
+			<p>The API MUST receive as valid HTTP request using the <code>GET</code> method. As parameter, the request MUST provide as valid expression written acording to the standard XPath 3.1 []. The XPath search MUST output a set of items as result that can be either atomic values or nodes.</p>
+			<p>List of errors:</p>
+			<ul>
+				<li>400(Bad Request): if the XPath contains syntax or grammar errors</li>
+				<li>500(Internal Server Error): if the service fails executing the XPath</li>
 			</ul>
 		    </section>
 		    <section id="search-semantic" class="normative">
@@ -703,8 +703,8 @@ img.wot-diagram {
 			<p>The API MUST implement the SPARQL 1.1. protocol for SELECT, ASK, DESCRIBE, and CONSTRUCT queries. Requests MUST use the methods HTTP <code>GET</code> or HTTP <code>POST</code> containing a valid query written according to the SPARQL 1.1 Query Language. The HTTP <code>GET</code> MUST encode the query under the parameter 'query' as a URL. The HTTP <code>POST</code> MUST have the <code>application/sparql-query</code> Content-Type header and MUST have contain the query as body. Alternativelly, HTTP <code>POST</code> MUST have the <code>application/x-www-form-urlencoded</code> Content-Type header and MUST encode the query in the BODY as a URL under the argument 'query'.</p>
 			    <p>Content-negotiation for SELECT and ASK queries:</p>
 			<ul>
-				<li>Accept : <code>application/sparql-results+xml</code> or <code>application/xml</code>outputs tue query answer in XML</li>
-				<li>Accept : <code>application/sparql-results+json</code> or <code>application/json</code>outputs the query answer in JSON</li>
+				<li>Accept : <code>application/sparql-results+xml</code> or <code>application/xml</code> outputs tue query answer in XML</li>
+				<li>Accept : <code>application/sparql-results+json</code> or <code>application/json</code> outputs the query answer in JSON</li>
 				<li>Accept : <code>text/csv</code> outputs the query answer in CSV</li>
 				<li>Accept : <code>text/tab-separated-values</code>outputs the query answer in TSV</li>
 			</ul>
