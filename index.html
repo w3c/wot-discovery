@@ -685,9 +685,9 @@ img.wot-diagram {
 			
 		    <section id="jsonpath-semantic" class="normative">
 			<h4>JSONPath search</h4>
-			<span class="rfc2119-assertion" id="tdd-search-json.method"> The API MUST receive as valid HTTP request using the <code>GET</code> method.</span> 
-			<span class="rfc2119-assertion" id="tdd-search-json-parameter"> As parameter, the request MUST provide as valid JSONPath expression. </span>
-			<span class="rfc2119-assertion" id="tdd-search-json-contenttype"> JSONPath search MUST output an array, contaning json elements that can be either json values or json documents.</span>
+			<span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST receive as valid HTTP request using the <code>GET</code> method.</span> 
+			<span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> As parameter, the request MUST provide as valid JSONPath expression. </span>
+			<span class="rfc2119-assertion" id="tdd-search-jsonpath-contenttype"> JSONPath search MUST output an array, contaning json elements that can be either json values or json documents.</span>
 			<p>List of errors:
 				<ul>
 					<li>400(Bad Request): if the JSONPath contains syntax or grammar errors</li>
@@ -697,7 +697,9 @@ img.wot-diagram {
 		    </section>
 		    <section id="xpath-semantic" class="normative">
 			<h4>XPath search</h4>
-			<p>The API MUST receive as valid HTTP request using the <code>GET</code> method. As parameter, the request MUST provide as valid expression written acording to the standard XPath 3.1 []. The XPath search MUST output an array, contaning json elements that can be either json values or json documents.</p>
+			<span class="rfc2119-assertion" id="tdd-search-xpath-method">The API MUST receive as valid HTTP request using the <code>GET</code> method. </span>
+			<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> As parameter, the request MUST provide as valid expression written acording to the standard XPath 3.1 []. </span>
+			<span class="rfc2119-assertion" id="tdd-search-xpath-contenttype"> The XPath search MUST output an array, contaning json elements that can be either json values or json documents. </span>
 			<p>List of errors:
 				<ul>
 					<li>400(Bad Request): if the XPath contains syntax or grammar errors</li>
@@ -707,15 +709,17 @@ img.wot-diagram {
 		    </section>
 		    <section id="search-semantic" class="normative">
 			<h4>Semantic search</h4>
-			<p>The API MUST implement the SPARQL 1.1. protocol for SELECT, ASK, DESCRIBE, and CONSTRUCT queries. Requests MUST use the methods HTTP <code>GET</code> or HTTP <code>POST</code> containing a valid query written according to the SPARQL 1.1 Query Language. The HTTP <code>GET</code> MUST encode the query under the parameter 'query' as a URL. The HTTP <code>POST</code> MUST have the <code>application/sparql-query</code> Content-Type header and MUST have contain the query as body. Alternativelly, HTTP <code>POST</code> MUST have the <code>application/x-www-form-urlencoded</code> Content-Type header and MUST encode the query in the BODY as a URL under the argument 'query'.</p>
-			    <p>Content-negotiation for SELECT and ASK queries (by default is JSON):</p>
+			<span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST implement the SPARQL 1.1. protocol for SELECT, ASK, DESCRIBE, and CONSTRUCT queries. Requests MUST use the methods HTTP <code>GET</code> or HTTP <code>POST</code> containing a valid query written according to the SPARQL 1.1 Query Language. </span>
+			<span class="rfc2119-assertion" id="tdd-search-semantic-parameter"> The HTTP <code>GET</code> MUST encode the query under the parameter 'query' as a URL. The HTTP <code>POST</code> MUST have the <code>application/sparql-query</code> Content-Type header and MUST have contain the query as body. Alternativelly, HTTP <code>POST</code> MUST have the <code>application/x-www-form-urlencoded</code> Content-Type header and MUST encode the query in the BODY as a URL under the argument 'query'.</span>
+			<span class="rfc2119-assertion" id="tdd-search-semantic-contenttype"> Content-negotiation for SELECT and ASK queries (by default is JSON):
 			<ul>
 				<li>Accept : <code>application/sparql-results+xml</code> or <code>application/xml</code> outputs tue query answer in XML</li>
 				<li>Accept : <code>application/sparql-results+json</code> or <code>application/json</code> outputs the query answer in JSON</li>
 				<li>Accept : <code>text/csv</code> outputs the query answer in CSV</li>
 				<li>Accept : <code>text/tab-separated-values</code>outputs the query answer in TSV</li>
 			</ul>
-			<p>Content-negotiation for CONSTRUCT and DESCRIBE queries (by default is JSON-LD 1.1):</p>
+			
+			Content-negotiation for CONSTRUCT and DESCRIBE queries (by default is JSON-LD 1.1):
 			<ul>
 				<li>Accept : <code>application/rdf+xml</code> outputs the query answer in RDF/XML</li>
 				<li>Accept : <code>application/n-triples</code> outputs the query answer in N-TRIPLES</li>
@@ -726,6 +730,7 @@ img.wot-diagram {
 				<li>Accept : <code>application/trix</code> outputs the query answer in Trix</li>
 				<li>Accept : <code>text/n3</code> outputs the query answer in N3</li>
 			</ul>
+			</span>
 			<p>List of errors:</p>
 			<ul>
 				<li>400(Bad Request): if the SPARQL query contains syntax or grammar errors</li>
