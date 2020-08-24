@@ -70,18 +70,7 @@
                   ]
                 , publisher: "IETF"
                 , date: "14 September 2017"
-            },
-            "WOT-SECURITY-GUIDELINES" : {
-                title: "Web of Things (WoT) Security and Privacy Guidelines"
-                //, href: "https://www.w3.org/TR/wot-security/"
-                , href: "https://w3c.github.io/wot-security/"
-                , authors:  [
-                  , "Michael McCool"
-                  , "Elena Reshetova"
-                  ]
-                , publisher: "W3C"
-                , date: "March 2019"
-                }
+            }
         }
     };
 </script>
@@ -103,29 +92,109 @@ img.wot-diagram {
 <body>
     <section id="abstract">
         <p>The W3C Web of Things (WoT) is intended to enable
-            interoperability across IoT platforms and application
-            domains.
+           interoperability across IoT platforms and application
+           domains.  One key mechanism for accomplishing this goal
+           is the definition and use of metadata describing the
+           interactions an IoT device or service makes available
+           over the network at a suitable level of abstraction.  
+           The WoT Thing Description specification satisfies this objective.
         </p>
-        <p>This <em>WoT Discovery</em> specification...
-        <p>
-            To do.
+        <p>However, in order to use a Thing its Thing Description
+           first has to be obtained.  The <em>WoT Discovery</em> process described 
+           in this document addresses this problem.
+           WoT Discovery needs to support the distribution of WoT Thing Descriptions
+           in a variety of use cases.  This includes ad-hoc and engineered systems;
+           during development and at runtime; and on both local and global networks.
+           The process also needs to work with existing discovery mechanisms,
+           be secure, protect private information, and be able to efficiently
+           handle updates to WoT Thing Descriptions and the 
+           dynamic and diverse nature of the IoT ecosystem.
         </p>
-
+        <p>The WoT Discovery process is divided into two phases,
+           Introduction, and Exploration.  The Introduction phase 
+           leverages existing discovery mechanisms but does not directly
+           expose metadata; they are simply used to discover Exploration
+           services, which provide metadata but only after secure authentication
+           and authorization.  This document normatively defines two Exploration
+           services, one for WoT Thing self-description with a single 
+           WoT Thing Description and a searchable WoT Thing Directory
+           service for collections of Thing Descriptions.
+           A variety of Introduction services are also described and where
+           necessary normative definitions are given to support them.
+        </p>
     </section>
-    <section id="sotd">
-        <p>
-          To do.
-        </p>
-    </section>
+    <!-- The following will be filled in by ReSpec -->
+    <section id="sotd"></section>
     <section id="introduction">
         <h1>Introduction</h1>
-        <p>To Do.
+        <p>The Web of Things (WoT) defines an architecture that supports the integration
+           and use of web technologies with IoT devices.
+           The WoT Architecture [[wot-architecture]] document defines the basic
+           concepts and patterns of usage supported.
+           However, the WoT Thing Description [[wot-thing-description]] is a key
+           specification for WoT Discovery since it is the purpose of WoT Discovery
+           to make WoT Thing Descriptions available.
+           Specifically, WoT Discovery has to allow authenticated and authorized entities
+           (and only those entities) to find WoT Thing Descriptions satisfying a set of
+           criteria, such as being near a certain location, or having certain semantics,
+           or containing certain interactions.  Conversely, in order to support
+           security and privacy objectives, the WoT Discovery process must not
+           leak information to unauthorized entities.  This includes leaking information
+           that a given entity is requesting certain information, not just the information
+           distributed in the Thing Descriptions themselves.
 	</p>
+        <p>There are already a number of discovery mechanisms defined, so we have to 
+           establish why we are proposing a new one.  First, many existing 
+           discovery mechanisms have relatively weak security and privacy protections.
+           One of our objectives is to establish a mechanism that not only uses best
+           practices to protect metadata, but that can be upgraded to support future
+           best practices as needed.
+           Second, we are using discovery in a broad sense to include both local and
+           non-local mechanisms.  While a local mechanism might use a broadcast protocol,
+           non-local mechanisms might go beyond the current network segment where broadcast
+           is not scalable, and so a different approach, such as a search service, is needed. 
+           Our approach is to use existing mechanisms as needed to bootstrap into a more 
+           general and secure metadata distribution system.
+           Third, the metadata we are distributing, the WoT Thing Description, is highly
+           structured and includes rich data such as data schemas and semantic annotations.
+           Existing discovery mechanisms based on a list of simple key-value pairs are 
+           not appropriate.  
+           At the same time, 
+           use of existing standards for semantic data query, 
+           such as SPARQL [sparql], 
+           while potentially suitable for some advanced use cases, 
+           might require to much effort for many anticipated IoT applications.
+           Therefore in order to address more basic applications,
+           we also define some simpler query mechanisms. 
+        </p>
+        <p>After defining some basic terminology, we will summarize the basic use cases and
+           requirements for WoT Discovery.  These are a subset of the more detailed and
+           exhaustive use cases and requirements presented in the WoT Use Cases [[wot-usecases]] and 
+           WoT Architecture [[wot-architecture]] documents.
+           Then we will describe the basic architecture of the WoT Discovery process,
+           which uses a two-phase Introduction/Exploration approach.  The basic goal of this
+           architecture is to be able to use existing discovery standards to bootstrap
+           access to protected discovery services, but to distribute detailed metadata only to 
+           authorized users, and to also protect those making queries from eavesdroppers 
+           as much as possible.
+           We then describe details of specific Introduction and Exploration mechanisms.
+           In particular, we define in detail a normative API for a 
+           WoT Thing Description Directory (WoT TDD) service that provides a search mechanism for
+           collections of WoT Thing Descriptions that can be dynamically registered by Things or
+           entities acting on their behalf.  The WoT Discovery mechanism however also supports
+           self-description by individual Things and one issue we address is how to distinguish
+           between these two approaches.
+           Finally, we discuss some security and privacy considerations, including a set of 
+           potential risks and mitigations.
+        </p>
     </section>
+    <!-- The following will be filled in by ReSpec -->
     <section id="conformance"></section>
     <section id="terminology" class="informative">
         <h1>Terminology</h1>
-        <p>This specification uses the following terms as defined here.
+        <p>The present document uses the terminology defined in
+           the WoT Architecture [[wot-architecture]] document,
+           and also the additional terms defined here.
            The WoT prefix is used to avoid ambiguity for terms that are
            (re)defined specifically for Web of Things concepts.</p>
         <dl>
