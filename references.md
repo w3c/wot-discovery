@@ -30,7 +30,9 @@
 * [EddyStone](https://github.com/google/eddystone/blob/master/protocol-specification.md)
 * [iBeacon](https://developer.apple.com/ibeacon/)
 * [BLE](https://web.archive.org/web/20140214120404/http://www.bluetooth.com/Pages/low-energy-tech-info.aspx) TODO: fix link
-
+* [BLE](https://web.archive.org/web/20140214120404/http://www.bluetooth.com/Pages/low-energy-tech-info.aspx) TODO: fix link
+* [XML Path Language (XPath)](https://www.w3.org/TR/1999/REC-xpath-19991116/) TODO: fix link
+* [JSON Path]() TODO: fix link
 
 ### Informative
 * [WoT-Arch: W3C Web of Things (WoT) Architecture](https://www.w3.org/TR/wot-architecture/)
