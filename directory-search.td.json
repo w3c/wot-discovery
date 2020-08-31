@@ -1,0 +1,91 @@
+{
+  "@context": "https://www.w3.org/2019/wot/td/v1",
+  "@type": "Directory",
+  "title": "Thing Description Directory (TDD)",
+  "version": {
+    "instance": "1.0.0-alpha"
+  },
+  "securityDefinitions": {
+    "oauth2_code": {
+      "scheme": "oauth2",
+      "flow": "code",
+      "authorization": "https://auth.example.com/authorization",
+      "token": "https://auth.example.com/token",
+      "scopes": [
+        "write",
+        "read",
+        "search"
+      ]
+    }
+  },
+  "security": "oauth2_code",
+  "base": "https://tdd.example.com",
+  "actions": {
+    "jsonpathSearch": {
+      "description": "Filters the Thing Descriptions using a JSONPath expression",
+      "uriVariables": {
+        "jsonpath": {
+          "title": "A JSONPath expression",
+          "type": "string",
+          "format": "iri-reference"
+        }
+      },
+      "forms": [
+        {
+          "href": "/search/{jsonpath}",
+          "htv:methodName": "GET",
+          "response": {
+            "description": "Success response",
+            "htv:statusCodeValue": 200,
+            "contentType": "application/json"
+          },
+          "scopes": "read"
+        }
+      ]
+    },
+    "xpathSearch": {
+      "description": "Filters the Thing Descriptions using a XPath expression",
+      "uriVariables": {
+        "xpath": {
+          "title": "A XPath expression",
+          "type": "string",
+          "format": "iri-reference"
+        }
+      },
+      "forms": [
+        {
+          "href": "/search/{xpath}",
+          "htv:methodName": "GET",
+          "response": {
+            "description": "Success response",
+            "htv:statusCodeValue": 200,
+            "contentType": "application/json"
+          },
+          "scopes": "read"
+        }
+      ]
+    },
+    "semanticSearch": {
+      "description": "Filters the Thing Descriptions using a SPARQL query",
+      "uriVariables": {
+        "sparql": {
+          "title": "A XPath expression",
+          "type": "string",
+          "format": "iri-reference"
+        }
+      },
+      "forms": [
+        {
+          "href": "/search/{sparql}",
+          "htv:methodName": "GET",
+          "response": {
+            "description": "Success response",
+            "htv:statusCodeValue": 200,
+            "contentType": "application/json"
+          },
+          "scopes": "read"
+        }
+      ]
+    }
+  }
+}
