@@ -38,7 +38,7 @@
                 "search"
             ]
         },
-        "combination": {
+        "combo_sc": {
             "scheme": "combination",
             "oneOf": [
                 "oauth2_code",
@@ -47,7 +47,7 @@
             ]
         }
     },
-    "security": "combination",
+    "security": "combo_sc",
     "base": "https://tdd.example.com",
     "actions": {
         "createTD": {
