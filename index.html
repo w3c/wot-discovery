@@ -228,68 +228,6 @@ img.wot-diagram {
             </dd>
         </dl>
     </section>
-    <section id="use-cases" class="informative">
-        <h1>Use Cases</h1>
-        <p>Examples of why we need discovery.
-        </p>
-    </section>
-    <section id="requirements" class="informative">
-        <h1>Requirements</h1>
-        <p>The WoT discovery process should have the following capabilities:
-        </p>
-        <section id="requirements-system" class="informative">
-            <h2>System</h2>
-            <p><ul>
-            <li>Support peer-to-peer (self-identifying),
-                local (network segment),
-                and global (internet-wide) discovery.</li>
-            <li>Support discovery via third-party services
-                (e.g. a directory service) in order to support sleeping devices.</li>
-            <li>Be compatible with the WoT Scripting Discovery API.</li>
-            </ul></p>
-        </section>
-        <section id="requirements-search" class="informative">
-            <h2>Search</h2>
-            <p><ul>
-            <li>Support various forms of query,
-                including keyword, template, and semantic queries.</li>
-            <li>Support spatial and sub-net limited queries.</li>
-            <li>Be scalable to large databases of TDs.</li>
-            </ul></p>
-        </section>
-        <section id="requirements-data" class="informative">
-            <h2>Data Management</h2>
-            <p><ul>
-            <li>Support both Dynamic and Static TDs.</li>
-            <li>Support explicit deletion and access control management of TDs.</li>
-            <li>Automatically clean up TDs for devices that are no longer accessible.</li>
-            </ul></p>
-        </section>
-        <section id="requirements-security" class="informative">
-            <h2>Security</h2>
-            <p><ul>
-            <li>Support best known methods for confidentiality and authentication.</li>
-            <li>Support authorization and role management.</li>
-            </ul></p>
-        </section>
-        <section id="requirements-privacy" class="informative">
-            <h2>Privacy</h2>
-            <p><ul>
-            <li>Support authentication and authorization mechanisms that do not reveal user identities.</li>
-            <li>Support device and information lifecycle, trust management, access controls.</li>
-            <li>Distribute TDs and other metadata only to authenticated and authorized users.</li>
-            <li>Don’t leak metadata or queries to unauthorized entities.</li>
-            </ul></p>
-        </section>
-        <section id="requirements-alignment" class="informative">
-            <h2>Alignment with Existing Standards</h2>
-            <p><ul>
-            <li>Align with IETF CoRE Resource Directories, CoRE Link Format, and DID.</li>
-            <li>Be accessible via a variety of existing discovery mechanisms,
-                including DNS-SD, DNS-SRV, DHCP, QR codes, and Bluetooth beacons.</li>
-            </ul></p>
-        </section>
-    </section>
     <section id="architecture" class="informative">
         <h1>Architecture</h1>
         <p>Two-Phase approach.
