@@ -154,17 +154,17 @@
         "registration": {
             "description": "TD registration events",
             "uriVariables": {
-                "id": {
-                    "title": "Thing Description ID",
+                "td_id": {
+                    "title": "Identifier of TD in directory",
                     "type": "string"
                 },
-                "types": {
-                    "title": "Event Type",
+                "type": {
+                    "title": "Event type",
                     "type": "string",
                     "enum": [
-                        "createdTD",
-                        "updatedTD",
-                        "deletedTD"
+                        "created_td",
+                        "updated_td",
+                        "deleted_td"
                     ]
                 }
             }
@@ -172,9 +172,16 @@
         "forms": [
             {
                 "op": "subscribeevent",
-                "href": "https://tdd.example.com/events{/id}{?type}",
+                "href": "/events{?type,td_id}",
                 "subprotocol": "sse",
                 "contentType": "text/event-stream",
+                "htv:headers": [
+                    {
+                        "description": "ID of the last event for reconnection",
+                        "htv:fieldName": "Last-Event-ID",
+                        "htv:fieldValue": ""
+                    }
+                ],
                 "scopes": "notifications"
             }
         ]
