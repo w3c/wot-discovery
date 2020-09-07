@@ -298,7 +298,7 @@ img.wot-diagram {
                     The HTTP API responses must use appropriate status codes described in 
                     this section for success and error responses.
                     <span class="rfc2119-assertion" id="tdd-http-errors"> 
-                        The HTTP API MUST use the Problem Details [[?RFC7807]] format to carry
+                        The HTTP API MUST use the Problem Details [[RFC7807]] format to carry
                         error details in HTTP client error (4xx) and server error (5xx) responses.
                     </span>
                     This enables both machines and humans to know the high-level error class
@@ -342,10 +342,10 @@ img.wot-diagram {
                     <h4>Registration</h4>
                     <p>
                         The Registration API is a RESTful HTTP API in accordance with the recommendations
-                        defined in [[?RFC7231]] and [[?REST-IOT]].
+                        defined in [[RFC7231]] and [[?REST-IOT]].
                         <span class="rfc2119-assertion" id="tdd-reg-default-representation">
                             The default serialization format for all request and response bodies MUST be
-                            JSON, with JSON-LD 1.1 [[?JSON-LD11]] syntax to support extensions and semantic
+                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
                             processing.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
@@ -356,12 +356,13 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-operations">
-                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces 
-                            based on the following specification:
+                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces. 
                         </span>
+                        The operations are described below:
                     </p>
 
-                    <dl><dt>Create a TD:</dt><dd>
+                    <dl>
+                        <dt>TD Creation</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-create-body">
                                 The API MUST allow registration of a TD object passed as request body.
@@ -432,14 +433,13 @@ img.wot-diagram {
                             </ul>
                         </p>
                       
-                    </dd></dl>
-
-                    <p class="ednote" title="Deduplication">
-                        The server should employ a mechanism to eliminate duplication of TDs submitted with
-                        a `POST` request. The spec need to have recommendations on how to perform this.
-                    </p>
+                        <p class="ednote" title="Deduplication">
+                            The server should employ a mechanism to eliminate duplication of TDs submitted with
+                            a `POST` request. The spec need to have recommendations on how to perform this.
+                        </p>
+                        </dd>
                     
-                    <dl><dt>Retrieve a TD:</dt><dd>
+                        <dt>TD Retrieval</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
                                 A TD MUST be retrieved from the directory using an HTTP `GET` request,
@@ -467,9 +467,9 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                    </dd></dl>
+                        </dd>
                     
-                    <dl><dt>Update a TD:</dt><dd>
+                        <dt>TD Update</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-update-types">
                                 The API MUST allow modifications to existing TDs as full replacement or partial updates.
@@ -513,7 +513,8 @@ img.wot-diagram {
                                     HTTP `PATCH` request to the location corresponding to the existing TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
-                                    The modified parts MUST conform to the original TD structure. 
+                                    The modified parts MUST be in <a>Partial TD</a> form and conform to the
+                                    original TD structure. 
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-fulltd">
                                     The input MAY include other existing parts of the TD or the whole TD object.
@@ -551,15 +552,15 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                    </dd></dl>
+                        </dd>
                     
-                    <dl><dt>Delete a TD:</dt><dd>
+                        <dt>TD Deletion</dt><dd>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-update-delete">
+                            <span class="rfc2119-assertion" id="tdd-reg-delete">
                                 A TD MUST be removed from the directory when an HTTP `DELETE` request
                                 is submitted to the location corresponding to the existing TD.
                             </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-update-delete">
+                            <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
                                 A successful response MUST have 204 (No Content) status.
                             </span>
                             The retrieve operation is specified as `deleteTD` property in
@@ -580,7 +581,8 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                    </dd></dl>
+                        </dd>
+                    </dl>
 
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
