@@ -651,19 +651,24 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-change-unsupported">
-                                        When the server which does not support the inclusion of changes inside event
+                                        When a server which does not support the inclusion of changes inside event
                                         data object is requested with a `include_changes` query parameter, it MUST
                                         reject the request with 501 (Not Implemented) status.
                                     </span>
                                 </li>
                             </ul>
-                            
-                            
-                            
-                            
-
                         </dd>
                     </dl>
+
+                    <p class="ednote" title="SSE Authorization Header">
+                        Some early SSE implementations (including HTML5 EventSource) do not allow
+                        setting custom headers in the initial HTTP request. Authorization header 
+                        is required in few OAuth2 flows and passing it as a query parameter is
+                        <a href="https://tools.ietf.org/html/rfc6750#section-2.3">not advised</a>.
+
+                        There are polyfills for browsers and modern libraries which allow 
+                        setting Authorization header.
+                    </p>
                     
 
                 </section>
