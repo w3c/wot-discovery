@@ -595,8 +595,115 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-api-notification" class="normative">
                     <h4>Notification</h4>
-                    <p>Sub-API to notify clients of events, such as updates to TDs.
+                    <p>The Notification API is to notify clients about the changes
+                        to Thing Descriptions maintained within the directory.
+                        <span class="rfc2119-assertion" id="tdd-notification-sse">
+                            The Notification API MUST follow the Server-Sent Events [[EVENTSOURCE]]
+                            specifications to serve events to clients. 
+                        </span>
+                        In particular, the server responds to successful requests with 200 (OK) status
+                        and `text/event-stream` Content Type. Re-connecting clients may continue from
+                        the last event by providing the last event ID as `Last-Event-ID` header value.
+                        This API is specified as `registration` event in [[[#directory-thing-description]]].
                     </p>
+
+                    <dl>
+                        <dt>Event Types</dt>
+                        <dd>
+                            <span class="rfc2119-assertion" id="tdd-notification-event-types">
+                                The server MUST produce events for creation, update, and deletion of
+                                Thing Descriptions represented by `created_td`, `updated_td`, `deleted_td`
+                                keywords respectively.
+                            </span>
+                        </dd>
+
+                        <dt>Event Filtering</dt>
+                        <dd>
+                            The API supports server-side filtering of events to reduce resource consumption
+                            by delivering only the events required by clients.
+                            The filtering is based on query parameters passed to the server at 
+                            connection time. The filtering behavior is described below:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-type">
+                                        The server MUST support event filtering based on the 
+                                        event types passed as one or more `type` query parameters.
+                                    </span>
+                                    For example, in response to query `?type=created_td&type=deleted_td`,
+                                    the server must only deliver events of types `created_td` and `deleted_td`.
+                                    At the absence of any `type` query parameter, the server must deliver all
+                                    types of events.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-tdid">
+                                        The server MUST support event filtering based on the 
+                                        Thing Description identifier passed as one or more `td_id` query parameters.
+                                    </span>
+                                    For example, the query `?type=updated_td&td_id=urn:example:1234` must
+                                    result in `updated_td` events for the TD identified with `urn:example:1234`.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search">
+                                        The server MAY support event filtering based on the 
+                                        search expressions passed as one of `jsonpath`, `xpath`, 
+                                        or `sparql` query parameters.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search-unsupported">
+                                        If the server does not support a given search query parameter, it
+                                        MUST reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
+                            </ul>
+                        </dd>
+                        <dt>Event Data</dt>
+                        <dd>
+                            <span class="rfc2119-assertion" id="tdd-notification-data">
+                                The event data MUST contain the JSON serialization of the event object.
+                            </span>
+                            The event data object is defined by the following rules:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-tdid">
+                                        The event data object MUST at least include the identifier of the
+                                        TD created, updated, or deleted at that event as value of `td_id` field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-createdtd">
+                                        When `include_changes` query parameter is set to `true`, the create
+                                        event data object MAY include the created TD as the value of `created_td`
+                                        field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-tdupdates">
+                                        When `include_changes` query parameter is set to `true`, the update
+                                        event data object MAY include the updated parts of the TD in
+                                        <a>Partial TD</a> form as the value of `td_updates` field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-change-unsupported">
+                                        When a server which does not support the inclusion of changes inside event
+                                        data object is requested with a `include_changes` query parameter, it MUST
+                                        reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+
+                    <p class="ednote" title="SSE Authorization Header">
+                        Some early SSE implementations (including HTML5 EventSource) do not allow
+                        setting custom headers in the initial HTTP request. Authorization header 
+                        is required in few OAuth2 flows and passing it as a query parameter is
+                        <a href="https://tools.ietf.org/html/rfc6750#section-2.3">not advised</a>.
+
+                        There are polyfills for browsers and modern libraries which allow 
+                        setting Authorization header.
+                    </p>
+                    
+
                 </section>
                 <section id="exploration-directory-api-search" class="normative">
                     <h4>Search</h4>
