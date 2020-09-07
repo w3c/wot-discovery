@@ -198,6 +198,10 @@ img.wot-diagram {
            The WoT prefix is used to avoid ambiguity for terms that are
            (re)defined specifically for Web of Things concepts.</p>
         <dl>
+            <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
+            </dt>
+            <dd>A Thing Description without an identifier (`id` attribute).
+            </dd>
             <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
             </dt>
             <dd>In the WoT context, the process of finding and retrieving Thing metadata
@@ -222,9 +226,10 @@ img.wot-diagram {
             registration, management, and search of a database of Thing Descriptions.
             Note that the acronym should be TDD, not TD, to avoid confusion with Thing Descriptions (TDs).
             </dd>
-            <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
+            <dt><dfn data-lt="WoT Partial Thing Description">Partial TD</dfn>
             </dt>
-            <dd>A Thing Description without an identifier (`id` attribute).
+            <dd>A data model partially conformant to the Thing Description schema by including 
+            only a subset of the attributes.
             </dd>
         </dl>
     </section>
