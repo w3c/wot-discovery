@@ -149,10 +149,10 @@
         }
       ]
     },
-    "searchJsonPath": {
+    "searchJSONPath": {
       "description": "Json Path syntactic search",
       "uriVariables": {
-        "expression": {
+        "query": {
           "title": "A valid Json Path expression",
           "type": "string",
           "format": "iri-reference"
@@ -160,7 +160,7 @@
       },
       "forms": [
         {
-          "href": "/search?jsonpath={expression}",
+          "href": "/search/jsonpath?query={expression}",
           "htv:methodName": "GET",
           "response": {
             "description": "Success response",
@@ -173,7 +173,7 @@
     "searchXPath": {
       "description": "XPath syntactic search",
       "uriVariables": {
-        "expression": {
+        "query": {
           "title": "A valid XPath expression",
           "type": "string",
           "format": "iri-reference"
@@ -181,7 +181,7 @@
       },
       "forms": [
         {
-          "href": "/search?xpath={expression}",
+          "href": "/search/xpath?query={expression}",
           "htv:methodName": "GET",
           "response": {
             "description": "Success response",
@@ -191,7 +191,7 @@
         }
       ]
     },
-    "searchSparql": {
+    "searchSPARQL": {
       "description": "SPARQL semantic search",
       "uriVariables": {
         "query": {
@@ -202,7 +202,7 @@
       },
       "forms": [
         {
-          "href": "/search?query={query}",
+          "href": "/search/sparql?query={query}",
           "htv:methodName": "GET",
           "response": {
             "description": "Success response",
@@ -211,7 +211,7 @@
          "scopes": "search"
         },
         {
-          "href": "/search",
+          "href": "/search/sparql",
           "htv:methodName": "POST",
           "response": {
             "description": "Success response",
