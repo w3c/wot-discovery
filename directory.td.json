@@ -166,7 +166,7 @@
             "description": "Success response",
             "htv:statusCodeValue": 200
           },
-         "scopes": "read"
+         "scopes": "search"
         }
       ]
     },
@@ -187,7 +187,7 @@
             "description": "Success response",
             "htv:statusCodeValue": 200
           },
-         "scopes": "read"
+         "scopes": "search"
         }
       ]
     },
@@ -208,7 +208,7 @@
             "description": "Success response",
             "htv:statusCodeValue": 200
           },
-         "scopes": "read"
+         "scopes": "search"
         }
       ]
     }
