@@ -679,16 +679,16 @@ img.wot-diagram {
                     <li>Spatial and network-limited queries</li>
                     <li>Links</li>
 		    </ul>
-        The Directory has three search APIs: syntactic search with <code>JSON Path</code> [[JSON Path]] or <code>XPath</code> [[XML Path Language (XPath)]], and semantic search with <code>SPARQL</code> [[sparql11-overview]].
+        The Directory has three search APIs: syntactic search with JSON Path [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
 		    <span class="rfc2119-assertion" id="tdd-search-apis">
-			     The Directory MUST implement at least one syntactic search either <code>XPath</code> or <code>JSON Path</code>, and MAY implement semantic search with <code>SPARQL</code>.</p>
+			     The Directory MUST implement the JSON Path syntactic search, SHOULD implement the XPath syntactic search, and MAY implement the SPARQL semantic search.</p>
 		    </span>
-        <p class="ednote" title="Normative JSON Block">JSON Path should be a MUST, but we lack of a solid referece for that.</p>
+        <p class="ednote" title="Normative JSON Block">Should we have the previous sentence splitted into three different assertions?.</p>
     		<section id="xpath-semantic" class="normative">
     			<h4>Syntactic search: XPath</h4>
     			<span class="rfc2119-assertion" id="tdd-search-xpath-method">The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span>
-    			<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> The request MUST contain a valid <code>XPath</code> [[XML Path Language (XPath)]] under the <code>?xPath=</code> parameter.</span>
-    			<span class="rfc2119-assertion" id="tdd-search-xpath-response"> A successful response MUST have 200 (OK) status, contain <code>application/td+json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
+    			<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> The request MUST contain a valid XPath [[xpath-31]] under the <code>?xPath=</code> parameter.</span>
+    			<span class="rfc2119-assertion" id="tdd-search-xpath-response"> A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
     			<p>List of errors:
     				<ul>
     					<li>400(Bad Request): if the provided <code>XPath</code> contains syntax errors.</li>
@@ -702,7 +702,7 @@ img.wot-diagram {
           <h4>Syntactic search: JSONPath</h4>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span> 
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSON Path expression [[JSON Path]] under the <code>?jsonPath=</code> parameter.</span>
-          <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/td+json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
+          <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
           <p>List of errors:
             <ul>
               <li>400(Bad Request): if the provided <code>JSON Path</code> contains syntax errors.</li>
@@ -713,12 +713,10 @@ img.wot-diagram {
         </section>
 		    <section id="search-semantic" class="normative">
       			<h4>Semantic search: SPARQL</h4>
-      			<span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST allow searching TDs using the <code>SPARQL</code> protocol [[SPARQL: SPARQL 1.1 Overview]]. The API MUST implement the protocol using <code>GET</code> requests, <code>POST</code> requests, or both.</span>
+      			<span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]]. The API MUST implement the protocol using <code>GET</code> requests, and MAY implement the protocol for <code>POST</code> requests.</span>
             <span class="rfc2119-assertion" id="tdd-search-semantic-out-scope"><code>UPDATE</code> queries are out of the scope for the API.</span>
-      			<span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response MUST have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/sparql-results+json</code> for <code>SELECT</code> or <code>ASK</code>. The response body MAY contain TD elements or a set of TDs depending on the query.</span>
-      			<p class="ednote" title="Normative JSON Block">
-              <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries should return <code>application/td+json</code> maybe, but <code>application/ld+json</code> is the normative.
-            </p>
+      			<span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response MUST have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>. The response body MAY contain TD elements or a set of TDs depending on the query.</span>
+      			
       			<p>List of errors:
               <ul>
                 <li>400(Bad Request): if the provided <code>SPARQL</code> query contains syntax errors.</li>
