@@ -181,7 +181,7 @@
       },
       "forms": [
         {
-          "href": "/search?xpath={query}",
+          "href": "/search?xpath={expression}",
           "htv:methodName": "GET",
           "response": {
             "description": "Success response",
@@ -209,6 +209,15 @@
             "htv:statusCodeValue": 200
           },
          "scopes": "search"
+        },
+        {
+          "href": "/search",
+          "htv:methodName": "POST",
+          "response": {
+            "description": "Success response",
+            "htv:statusCodeValue": 200
+          },
+          "scopes": "search"
         }
       ]
     }
