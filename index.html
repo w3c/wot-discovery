@@ -681,31 +681,16 @@ img.wot-diagram {
 		    </ul>
         The Directory has three search APIs: syntactic search with JSON Path [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
 		    <span class="rfc2119-assertion" id="tdd-search-apis">
-			     The Directory MUST implement the syntactic search with JSON Path, SHOULD implement the syntactic search with XPath, and MAY implement semantic search with SPARQL.</p>
+			The Directory MUST implement the syntactic search with JSON Path, SHOULD implement the syntactic search with XPath, and MAY implement semantic search with SPARQL.
 		    </span>
         <p class="ednote" title="Normative JSON Block">Should we have the previous sentence splitted into three different assertions?.</p>
-    		<section id="xpath-semantic" class="normative">
-    			<h4>Syntactic search: XPath</h4>
-    			<span class="rfc2119-assertion" id="tdd-search-xpath-method">The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span>
-    			<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> The request MUST contain a valid XPath [[xpath-31]] as searching parameter.</span>
-    			<span class="rfc2119-assertion" id="tdd-search-xpath-response"> A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
-			The syntactic search with JSON Path is specified as `searchJsonPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
-                            
-			<p>List of errors:
-    				<ul>
-    					<li>400(Bad Request): if the provided <code>XPath</code> contains syntax errors.</li>
-              <li>401 (Unauthorized): No authentication.</li>
-              <li>403 (Forbidden): Insufficient rights to the resource.</li>
-    				</ul>
-    			</p>
-          
-		    </section>
+    		
         <section id="jsonpath-semantic" class="normative">
           <h4>Syntactic search: JSONPath</h4>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span> 
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSON Path [[JSON Path]] as searching parameter.</span>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
-          The syntactic search with XPath is specified as `searchXPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+          The syntactic search with JSON Path is specified as `searchJSONPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
 
 	  <p>List of errors:
             <ul>
@@ -715,12 +700,27 @@ img.wot-diagram {
             </ul>
           </p>
         </section>
+	<section id="xpath-semantic" class="normative">
+    	<h4>Syntactic search: XPath</h4>
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-method">The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span>
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> The request MUST contain a valid XPath [[xpath-31]] as searching parameter.</span>
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-response"> A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD elements.</span>
+	The syntactic search with XPath is specified as `searchXPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+                            
+	 <p>List of errors:
+    	  <ul>
+    	   <li>400(Bad Request): if the provided <code>XPath</code> contains syntax errors.</li>
+           <li>401 (Unauthorized): No authentication.</li>
+           <li>403 (Forbidden): Insufficient rights to the resource.</li>
+    	  </ul>
+    	 </p>
+        </section>
 	<section id="search-semantic" class="normative">
       	 <h4>Semantic search: SPARQL</h4>
       	 <span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]]. The API MUST implement the protocol using <code>GET</code> requests, and MAY implement the protocol for <code>POST</code> requests.</span>
          <span class="rfc2119-assertion" id="tdd-search-semantic-out-scope"><code>UPDATE</code> queries are out of the scope for the API.</span>
       	 <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response MUST have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>. The response body MAY contain TD elements or a set of TDs depending on the query.</span>
-      	 The semantic search with SPARQL is specified as `searchSparql` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+      	 The semantic search with SPARQL is specified as `searchSPARQL` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
 	 <p>List of errors:
               <ul>
                 <li>400(Bad Request): if the provided <code>SPARQL</code> query contains syntax errors.</li>
