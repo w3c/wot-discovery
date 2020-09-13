@@ -294,7 +294,7 @@ img.wot-diagram {
                 and the second label describes the protocol.
             </p>
             <p>
-                The Service Name to indicate the Thing MUST be <code>_thing._sub._wot</code>.
+                The Service Name to indicate the Thing or Directory Service MUST be <code>_wot</code>.
                 And the Service Name to indicate the Directory Service MUST be <code>_directory._sub._wot</code>.
             </p>
             <p class="ednote" title="Service Names in existing implementations">
@@ -312,7 +312,10 @@ img.wot-diagram {
                 record that is pointed to by the Service Instance Name:
                 <dl>
                     <dt><code>td</code></dt>
-                    <dd></dd>Absolute pathname of the Thing Description of the Thing or Directory Service.
+                    <dd>Absolute pathname of the Thing Description of the Thing or Directory Service.</dd>
+                    <dt><code>type</code></dt>
+                    <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                    If omitted, the type is assumed to be <code>Thing</code>.</dd>
                 </dl>
             </p>
             <p class="ednote" title="Usage of a TXT record in existing implementations">
@@ -330,14 +333,22 @@ img.wot-diagram {
                     Value of 1 if the Web Thing supports connections via HTTPS.<br/>
             </p>
             <p>
-                <a href="#sequence-dnssd"></a> shows an example sequence of discovery of Thing using DNS-SD and mDNS. 
+                <a href="#sequence-dnssd-thing"></a> and <a href="#sequence-dnssd-directory"></a> shows example sequences
+                of discovery of Thing and Directory Service using DNS-SD and mDNS. 
             </p>
-            <figure id="sequence-dnssd">
-                <img src="images/sequence-dnssd.png"
-                    srcset="images/sequence-dnssd.svg"
+            <figure id="sequence-dnssd-thing">
+                <img src="images/sequence-dnssd-thing.png"
+                    srcset="images/sequence-dnssd-thing.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of Thing using DNS-SD and mDNS" />
                 <figcaption>An example sequence of discovery of Thing using DNS-SD and mDNS</figcaption>
+            </figure>
+            <figure id="sequence-dnssd-directory">
+                <img src="images/sequence-dnssd-directory.png"
+                    srcset="images/sequence-dnssd-directory.svg"
+                    class="wot-diagram"
+                    alt="An example sequence of discovery of Directory Service using DNS-SD and mDNS" />
+                <figcaption>An example sequence of discovery of Directory Service using DNS-SD and mDNS</figcaption>
             </figure>
 
         </section>
@@ -366,8 +377,21 @@ img.wot-diagram {
             </p>
             <p>
                 The DID Document obtained by resolving the DID of a Thing or Directory Service MUST
-                contain the Thing Description of the Thing or Directory Service.
+                contains a Service Endpoint which point to Thing Description of the Thing or Directory Service.
             </p>
+            <aside class="example" title="A Example Service Endpoint in a DID Document">
+                <pre>
+                    {
+                        "service": [{
+                            "id": "did:example:wotdiscoveryexample#td",
+                            "type": "WotThingDescription",
+                            "serviceEndpoint":
+                                "https://wot.example.com/.well-known/wot-thing-description"
+                        }]
+                    }
+                </pre>
+            </aside>
+            <div class="issue" data-number="65"></div>
         </section>
     </section>
     <section id="exploration-mech" class="normative">
