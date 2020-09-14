@@ -12,3 +12,5 @@ To propose changes, create a PR following the procedures given in the [wot repo]
 Also please create issues to note problems in the current content for which a solution is needed (ideally
 issues propose a suitable solution.  It should also be clear under what condition issues have been resolved
 so they can be closed when those conditions are met).
+
+The latest editor's draft is available [here](https://w3c.github.io/wot-discovery/).
