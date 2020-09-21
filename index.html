@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <title>Web of Things (WoT) Discovery</title>
 <script 
-    src="https://www.w3.org/Tools/respec/respec-w3c-common"
+    src="https://www.w3.org/Tools/respec/respec-w3c"
     class="remove"
     defer
 ></script>
@@ -174,7 +174,7 @@ img.wot-diagram {
            not appropriate.  
            At the same time, 
            use of existing standards for semantic data query, 
-           such as SPARQL [sparql], 
+           such as SPARQL [[SPARQL11-OVERVIEW]], 
            while potentially suitable for some advanced use cases, 
            might require to much effort for many anticipated IoT applications.
            Therefore in order to address more basic applications,
@@ -422,7 +422,7 @@ img.wot-diagram {
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
                 <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
-                authenticity and confidentiality (see [[?WOT-SECURITY-GUIDELINES]]).
+                authenticity and confidentiality (see [[?WOT-SECURITY]]).
                 <span class="rfc2119-assertion" id="tdd-https"> 
                     The HTTP API MUST be exposed over HTTPS (HTTP Over TLS).
                 </span>
