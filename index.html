@@ -679,7 +679,7 @@ img.wot-diagram {
                     <li>Spatial and network-limited queries</li>
                     <li>Links</li>
 		    </ul>
-        The Directory has three search APIs: syntactic search with JSON Path [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
+        The Directory has three search APIs: syntactic search with JSONPath [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
 		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
 			The Directory MUST implement the syntactic search with JSONPath.
 		    </span>
@@ -699,7 +699,7 @@ img.wot-diagram {
 
 	  <p>List of errors:
             <ul>
-              <li>400(Bad Request): if a <code>JSONPath</code> is not provided or contains syntax errors.</li>
+              <li>400(Bad Request): if a JSONPath is not provided or contains syntax errors.</li>
               <li>401 (Unauthorized): No authentication.</li>
               <li>403 (Forbidden): Insufficient rights to the resource.</li>
             </ul>
@@ -714,7 +714,7 @@ img.wot-diagram {
                             
 	 <p>List of errors:
     	  <ul>
-    	   <li>400(Bad Request): if a <code>XPath</code> is not provided or contains syntax errors.</li>
+    	   <li>400(Bad Request): if a XPath is not provided or contains syntax errors.</li>
            <li>401 (Unauthorized): No authentication.</li>
            <li>403 (Forbidden): Insufficient rights to the resource.</li>
     	  </ul>
@@ -728,7 +728,7 @@ img.wot-diagram {
       	 The semantic search with SPARQL is specified as `searchSPARQL` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
 	 <p>List of errors:
               <ul>
-                <li>400(Bad Request): if a <code>SPARQL</code> query is not provided or contains syntax errors.</li>
+                <li>400(Bad Request): if a SPARQL query is not provided or contains syntax errors.</li>
                 <li>401 (Unauthorized): No authentication.</li>
                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
               </ul>
