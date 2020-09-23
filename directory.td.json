@@ -179,77 +179,77 @@
             ]
         },
         "searchJSONPath": {
-      "description": "Json Path syntactic search",
-      "uriVariables": {
-        "query": {
-          "title": "A valid Json Path expression",
-          "type": "string",
-          "format": "iri-reference"
-        }
-      },
-      "forms": [
-        {
-          "href": "/search/jsonpath?query={expression}",
-          "htv:methodName": "GET",
-          "response": {
-            "description": "Success response",
-            "htv:statusCodeValue": 200
+          "description": "Json Path syntactic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid Json Path expression",
+              "type": "string",
+              "format": "iri-reference"
+            }
           },
-         "scopes": "search"
-        }
-      ]
-    },
-    "searchXPath": {
-      "description": "XPath syntactic search",
-      "uriVariables": {
-        "query": {
-          "title": "A valid XPath expression",
-          "type": "string",
-          "format": "iri-reference"
-        }
-      },
-      "forms": [
-        {
-          "href": "/search/xpath?query={expression}",
-          "htv:methodName": "GET",
-          "response": {
-            "description": "Success response",
-            "htv:statusCodeValue": 200
-          },
-         "scopes": "search"
-        }
-      ]
-    },
-    "searchSPARQL": {
-      "description": "SPARQL semantic search",
-      "uriVariables": {
-        "query": {
-          "title": "A valid SPARQL 1.1. query",
-          "type": "string",
-          "format": "iri-reference"
-        }
-      },
-      "forms": [
-        {
-          "href": "/search/sparql?query={query}",
-          "htv:methodName": "GET",
-          "response": {
-            "description": "Success response",
-            "htv:statusCodeValue": 200
-          },
-         "scopes": "search"
+          "forms": [
+            {
+              "href": "/search/jsonpath?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            }
+          ]
         },
-        {
-          "href": "/search/sparql",
-          "htv:methodName": "POST",
-          "response": {
-            "description": "Success response",
-            "htv:statusCodeValue": 200
+        "searchXPath": {
+          "description": "XPath syntactic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid XPath expression",
+              "type": "string",
+              "format": "iri-reference"
+            }
           },
-          "scopes": "search"
+          "forms": [
+            {
+              "href": "/search/xpath?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            }
+          ]
+        },
+        "searchSPARQL": {
+          "description": "SPARQL semantic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid SPARQL 1.1. query",
+              "type": "string",
+              "format": "iri-reference"
+            }
+          },
+          "forms": [
+            {
+              "href": "/search/sparql?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            },
+            {
+              "href": "/search/sparql",
+              "htv:methodName": "POST",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+              "scopes": "search"
+            }
+          ]
         }
-      ]
-    }
     },
     "events": {
         "registration": {
