@@ -22,13 +22,13 @@
 * [Push-API](https://w3c.github.io/push-api/)
 * [RFC8030: Generic Event Delivery Using HTTP Push](https://datatracker.ietf.org/doc/rfc8030/)
 * [SIR: Sensor Instance Registry Discussion Paper](https://portal.opengeospatial.org/files/?artifact_id=40609)
-* [SPARQL: SPARQL 1.1 Overview](https://www.w3.org/TR/sparql11-overview/)
 * [RFC7650: A Constrained Application Protocol (CoAP) Usage for REsource LOcation And Discovery (RELOAD)](https://datatracker.ietf.org/doc/rfc7650/)
 * [A Distributed Resource Directory (DRD)](https://datatracker.ietf.org/doc/draft-jimenez-t2trg-drd/)
 * [SOS: Sensor Observation Service](https://www.opengeospatial.org/standards/sos)
 * [UriBeacon](https://github.com/google/uribeacon/)
 * [EddyStone](https://github.com/google/eddystone/blob/master/protocol-specification.md)
 * [iBeacon](https://developer.apple.com/ibeacon/)
+* [BLE](https://web.archive.org/web/20140214120404/http://www.bluetooth.com/Pages/low-energy-tech-info.aspx) TODO: fix link
 * [BLE](https://web.archive.org/web/20140214120404/http://www.bluetooth.com/Pages/low-energy-tech-info.aspx) TODO: fix link
 
 
