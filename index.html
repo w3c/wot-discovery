@@ -731,7 +731,8 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
                     <h4>Management</h4>
-                    <p>Other administrative functions not having to do with CRUD of individual records,
+                    <p class="ednote" title="Management API">
+                      To do: Other administrative functions not having to do with CRUD of individual records,
                     for example, security configuration.
                     Also, administrator roles may expand the capabilities of administrators for
                     management of records (for instance, the ability to delete a record they did not create).
@@ -851,7 +852,9 @@ img.wot-diagram {
                 </section>
           <section id="exploration-directory-api-search" class="normative">
                     <h4>Search</h4>
-                    <p>Sub-API to search a directory, e.g. issue a query.
+                    
+                    <p class="ednote" title="Search API Overview">
+                    Sub-API to search a directory, e.g. issue a query.
                     There are different forms and levels of query possible, for example,
                     syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
                     and the more advanced query types may not be 
@@ -862,14 +865,10 @@ img.wot-diagram {
                     a query) including handling pagination, etc.
                     Note that one special form of query will be able to return everything.
                     Results may be subject to the requestor's authorization.
-                    </p>
-                    <p>
+                    <br>
                     To discuss further:
-                    <ul>
-                    <li>Federated queries to other TDDs</li>
-                    <li>Spatial and network-limited queries</li>
-                    <li>Links</li>
-		    </ul>
+                    Federated queries to other TDDs, Spatial and network-limited queries, Links
+                    </p>
         The Directory has three search APIs: syntactic search with JSONPath [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
 		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
 			The Directory MUST implement the syntactic search with JSONPath.
@@ -930,7 +929,8 @@ img.wot-diagram {
             </section>
             <section id="exploration-directory-security" class="normative">
                 <h3>Security and Privacy</h3>
-                <p>Minimum security and privacy requirements for confidentiality, authentication, access control, etc.
+                <p class="ednote" title="Security Considerations Overview">
+                    Minimum security and privacy requirements for confidentiality, authentication, access control, etc.
                 </p>
             </section>
         </section>
