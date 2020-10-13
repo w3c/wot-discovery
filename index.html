@@ -535,7 +535,7 @@ img.wot-diagram {
                                 differently with one that has no identifier (<a>Anonymous TD</a>).
                             </span>
                             The create operations are specified as `createTD` action in 
-                            <a href="#directory-thing-description">Directory's Thing Description</a>
+                            [[[#directory-thing-description]]]
                             and elaborated below:
                         </p>
                         <ul>
@@ -602,7 +602,7 @@ img.wot-diagram {
                                 Content-Type header, and the requested TD in body.
                             </span>
                             The retrieve operation is specified as `retrieveTD` property in 
-                            <a href="#directory-thing-description">Directory's Thing Description</a>.
+                            [[[#directory-thing-description]]].
                         </p>
 
                         <p>
@@ -649,7 +649,7 @@ img.wot-diagram {
                                     Upon success, the server MUST respond with 204 (No Content) status. 
                                 </span>
                                 This operation is specified as `updateTD` property in 
-                                <a href="#directory-thing-description">Directory's Thing Description</a>.
+                                [[[#directory-thing-description]]].
 
                                 <p>
                                     Note: If the target location does not correspond to an existing TD,
@@ -682,7 +682,7 @@ img.wot-diagram {
                                     Upon success, the server MUST respond with a 204 (No Content) status.
                                 </span>
                                 This operation is specified as `updatePartialTD` property in 
-                                <a href="#directory-thing-description">Directory's Thing Description</a>.
+                                [[[#directory-thing-description]]].
                             </li>
                         </ul>
 
@@ -716,7 +716,7 @@ img.wot-diagram {
                                 A successful response MUST have 204 (No Content) status.
                             </span>
                             The retrieve operation is specified as `deleteTD` property in
-                            <a href="#directory-thing-description">Directory's Thing Description</a>.
+                            [[[#directory-thing-description]]].
                         </p>
 
                         <p>
@@ -893,7 +893,8 @@ img.wot-diagram {
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span> 
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSONPath [[JSON Path]] as searching parameter.</span>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
-          The syntactic search with JSONPath is specified as `searchJSONPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+          The syntactic search with JSONPath is specified as `searchJSONPath` property in
+          [[[#directory-thing-description]]].
 
 	  <p>List of errors:
             <ul>
@@ -908,7 +909,8 @@ img.wot-diagram {
     	<span class="rfc2119-assertion" id="tdd-search-xpath-method">The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span>
     	<span class="rfc2119-assertion" id="tdd-search-xpath-parameter"> The request MUST contain a valid XPath [[xpath-31]] as searching parameter.</span>
     	<span class="rfc2119-assertion" id="tdd-search-xpath-response"> A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
-	The syntactic search with XPath is specified as `searchXPath` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+    The syntactic search with XPath is specified as `searchXPath` property in
+    [[[#directory-thing-description]]].
                             
 	 <p>List of errors:
     	  <ul>
@@ -923,7 +925,8 @@ img.wot-diagram {
       	 <span class="rfc2119-assertion" id="tdd-search-semantic-method"> The API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]].</span><span class="rfc2119-assertion" id="tdd-search-semantic-method-get"> The API MUST implement the protocol using <code>GET</code> requests,</span><span class="rfc2119-assertion" id="tdd-search-semantic-method-post"> and MAY implement the protocol for <code>POST</code> requests.</span>
          <span class="rfc2119-assertion" id="tdd-search-semantic-out-scope"><code>UPDATE</code> queries are out of the scope for the API.</span>
       	 <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response MUST have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>. The response body MAY contain TD fragments or a set of TDs depending on the query.</span>
-      	 The semantic search with SPARQL is specified as `searchSPARQL` property in <a href="#directory-thing-description">Directory's Thing Description</a>.
+           The semantic search with SPARQL is specified as `searchSPARQL` property in
+           [[[#directory-thing-description]]].
 	 <p>List of errors:
               <ul>
                 <li>400(Bad Request): if a SPARQL query is not provided or contains syntax errors.</li>
