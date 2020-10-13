@@ -510,6 +510,12 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="tdd-reg-operations">
                             The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces. 
                         </span>
+                        <div class="issue" data-number="16">
+                            The API needs to offer a mechanism to efficiently query all TDs.
+                            The search API may offer the expected functionality by searching for everything
+                            and adding protocol-specific pagination arguments. However, that is hardly RESTful.
+                            We could instead extend the registration API to CRUDL, adding Listing operation.   
+                        </div>
                         The operations are described below:
                     </p>
 
