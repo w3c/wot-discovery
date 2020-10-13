@@ -898,7 +898,7 @@ img.wot-diagram {
 
 	  <p>List of errors:
             <ul>
-              <li>400(Bad Request): if a JSONPath is not provided or contains syntax errors.</li>
+              <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
               <li>401 (Unauthorized): No authentication.</li>
               <li>403 (Forbidden): Insufficient rights to the resource.</li>
             </ul>
@@ -915,9 +915,10 @@ img.wot-diagram {
                             
 	 <p>List of errors:
     	  <ul>
-    	   <li>400(Bad Request): if a XPath is not provided or contains syntax errors.</li>
+    	   <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
            <li>401 (Unauthorized): No authentication.</li>
            <li>403 (Forbidden): Insufficient rights to the resource.</li>
+           <li>501 (Not Implemented): XPath API not supported.</li>
     	  </ul>
     	 </p>
         </section>
@@ -932,9 +933,10 @@ img.wot-diagram {
            [[[#directory-thing-description]]].
 	 <p>List of errors:
               <ul>
-                <li>400(Bad Request): if a SPARQL query is not provided or contains syntax errors.</li>
+                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
                 <li>401 (Unauthorized): No authentication.</li>
                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                <li>501 (Not Implemented): SPARQL API not supported.</li>
               </ul>
             </p>
       			</section>
