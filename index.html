@@ -81,6 +81,17 @@
                   ]
                 , publisher: "IETF"
                 , date: "13 July 2020"
+            },
+            "JSONPATH" : {
+                  title: "JSONPath -- XPath for JSON"
+                , href: "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html"
+                , authors: [
+                    "S. Gössner"
+                  , "C. Bormann, Ed."
+                  ]
+                , publisher: "IETF"
+                , date: "12 July 2020"
+                , status: "DRAFT",
             }
         }
     };
@@ -883,7 +894,7 @@ img.wot-diagram {
                     To discuss further:
                     Federated queries to other TDDs, Spatial and network-limited queries, Links
                     </p>
-        The Directory has three search APIs: syntactic search with JSONPath [[JSON Path]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
+        The Directory has three search APIs: syntactic search with JSONPath [[?JSONPATH]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
 		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
 			The Directory MUST implement the syntactic search with JSONPath.
 		    </span>
@@ -897,7 +908,7 @@ img.wot-diagram {
         <section id="jsonpath-semantic" class="normative">
           <h4>Syntactic search: JSONPath</h4>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span> 
-          <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSONPath [[JSON Path]] as searching parameter.</span>
+          <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSONPath [[?JSONPATH]] as searching parameter.</span>
           <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
           The syntactic search with JSONPath is specified as `searchJSONPath` property in
           [[[#directory-thing-description]]].
@@ -909,6 +920,9 @@ img.wot-diagram {
               <li>403 (Forbidden): Insufficient rights to the resource.</li>
             </ul>
           </p>
+          <div class="issue" data-number="56">
+              The standardization of JSONPath expressions is in progress by an independent working group.
+          </div>
         </section>
 	<section id="xpath-semantic" class="normative">
         <h4>Syntactic search: XPath</h4>
