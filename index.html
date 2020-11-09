@@ -956,8 +956,9 @@ img.wot-diagram {
     	 </p>
         </section>
 	<section id="search-semantic" class="normative">
-      	 <h4>Semantic search: SPARQL</h4>
-         <span class="rfc2119-assertion" id="tdd-search-semantic-method">The optional SPARQL search API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]].</span>
+           <h4>Semantic search: SPARQL</h4>
+           The support for SPARQL Search API is optional.
+         <span class="rfc2119-assertion" id="tdd-search-semantic-protocol">If implemented, the SPARQL search API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]].</span>
          <span class="rfc2119-assertion" id="tdd-search-semantic-method-get">The SPARQL API MUST accept queries using HTTP <code>GET</code> requests.</span>
          <span class="rfc2119-assertion" id="tdd-search-semantic-method-post">The support for SPARQL search using HTTP <code>POST</code> method is OPTIONAL.</span>
          <code>UPDATE</code> queries are out of the scope for the API.
