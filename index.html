@@ -654,11 +654,7 @@ img.wot-diagram {
                         <dt>TD Update</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-update-types">
-                                The API MUST allow modifications to existing TDs as full replacement or partial updates.
-                            </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
-                                The request SHOULD contain `application/td+json` Content-Type header for JSON
-                                serialization of TD.
+                                The API MUST allow modifications to an existing TD as full replacement or partial updates.
                             </span>
                             The update operations are described below:
                         </p>
@@ -668,6 +664,10 @@ img.wot-diagram {
                                 <span class="rfc2119-assertion" id="tdd-reg-update">
                                     A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
                                     to the location corresponding to the existing TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
+                                    The request SHOULD contain `application/td+json` Content-Type header for JSON
+                                    serialization of TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-validation">
                                     The TD object SHOULD be
@@ -685,8 +685,7 @@ img.wot-diagram {
                                     Note: If the target location does not correspond to an existing TD,
                                     the request shall instead proceed as a Create operation and respond
                                     the appropriate status code (see Create section). In other words, an HTTP `PUT`
-                                    request acts as a create or update operation. An HTTP `PATCH` may be used for
-                                    an update-only operation.
+                                    request acts as a create or update operation.
                                 </p>
                             </li>
                             <li>
@@ -694,14 +693,25 @@ img.wot-diagram {
                                     An existing TD MUST be partially modified when the modified parts are submitted using an 
                                     HTTP `PATCH` request to the location corresponding to the existing TD.
                                 </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-mergepatch">
+                                    The partial update MUST be processed using the JSON merge patch format 
+                                    format described in [[RFC7396]].
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-contenttype">
+                                    The request MUST contain `application/merge-patch+json` Content-Type header for JSON
+                                    serialization of the merge patch document.
+                                </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
-                                    The modified parts MUST be in <a>Partial TD</a> form and conform to the
+                                    The input MUST be in <a>Partial TD</a> form and conform to the
                                     original TD structure. 
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-fulltd">
-                                    The input MAY include other existing parts of the TD or the whole TD object.
-                                </span>
-                                When the whole TD object is provided as input, the operation acts as an update-only action.
+                                
+                                If the input contains members that appear in the original TD, 
+                                their values are replaced. If a member do not appear in the 
+                                original TD, that member is added. If the member is set to `null` 
+                                but appear in the original TD, that member is removed. 
+                                Members with object values are processed recursively.
+                                
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-validation">
                                     After applying the modifications,
                                     the TD object SHOULD be validated syntactically using the 
