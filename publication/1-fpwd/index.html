@@ -1,0 +1,2324 @@
+<!DOCTYPE html><html lang="en-US"><head>
+<meta charset="utf-8">
+<meta name="generator" content="ReSpec 25.18.3">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+span.example-title{text-transform:none}
+aside.example,div.example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+aside.example,div.example{padding:.5em;border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+aside.example div.example span.example-title{color:#999}
+</style>
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font:small Helvetica Neue,sans-serif,Droid Sans Fallback;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+
+
+<title>Web of Things (WoT) Discovery</title>
+
+
+
+<style type="text/css">
+
+a[href].internalDFN {
+        color: inherit;
+        border-bottom: 1px solid #99c;
+        text-decoration: none;
+}
+img.wot-diagram {
+    max-width: 90%;
+    height: auto;
+}
+.rfc2119-assertion {
+  background-color: rgb(230,230,230)
+}
+
+</style>
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+.hljs{background:0 0!important}
+a abbr,h1 abbr,h2 abbr,h3 abbr,h4 abbr,h5 abbr,h6 abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+code{color:#c63501}
+th code{color:inherit}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+a[href].self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+h2,h3,h4,h5,h6{position:relative}
+aside.example .marker>a.self-link{color:inherit}
+h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{border:none;color:inherit;font-size:83%;height:2em;left:-1.6em;opacity:.5;position:absolute;text-align:center;text-decoration:none;top:0;transition:opacity .2s;width:2em}
+h2>a.self-link::before,h3>a.self-link::before,h4>a.self-link::before,h5>a.self-link::before,h6>a.self-link::before{content:"§";display:block}
+@media (max-width:767px){
+dd{margin-left:0}
+h2>a.self-link,h3>a.self-link,h4>a.self-link,h5>a.self-link,h6>a.self-link{left:auto;top:auto}
+}
+@media print{
+.removeOnSave{display:none}
+}
+</style>
+<meta name="description" content="The W3C Web of Things (WoT) is intended to enable
+           interoperability across IoT platforms and application
+           domains.  One key mechanism for accomplishing this goal
+           is the definition and use of metadata describing the
+           interactions an IoT device or service makes available
+           over the network at a suitable level of abstraction.  
+           The WoT Thing Description specification satisfies this objective.">
+<link rel="canonical" href="https://www.w3.org/TR/wot-discovery/">
+<script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en-US",
+      "w3p": "http://www.w3.org/2001/02pd/rec54#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/wot-discovery/",
+  "type": [
+    "TechArticle"
+  ],
+  "name": "Web of Things (WoT) Discovery",
+  "inLanguage": "en-US",
+  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "datePublished": "2020-11-09",
+  "copyrightHolder": {
+    "name": "World Wide Web Consortium",
+    "url": "https://www.w3.org/"
+  },
+  "discussionUrl": "https://github.com/w3c/wot-discovery/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "",
+  "description": "The W3C Web of Things (WoT) is intended to enable\n           interoperability across IoT platforms and application\n           domains.  One key mechanism for accomplishing this goal\n           is the definition and use of metadata describing the\n           interactions an IoT device or service makes available\n           over the network at a suitable level of abstraction.  \n           The WoT Thing Description specification satisfies this objective.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Andrea Cimmino",
+      "worksFor": {
+        "name": "Universidad Politécnica de Madrid",
+        "url": "https://www.upm.es/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Michael McCool",
+      "worksFor": {
+        "name": "Intel Corp.",
+        "url": "https://www.intel.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Farshid Tavakolizadeh",
+      "worksFor": {
+        "name": "Fraunhofer-Gesellschaft",
+        "url": "https://www.fraunhofer.de/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Kunihiko Toumura",
+      "worksFor": {
+        "name": "Hitachi, Ltd.",
+        "url": "https://www.hitachi.com/"
+      }
+    }
+  ],
+  "citation": [
+    {
+      "id": "https://www.w3.org/TR/wot-architecture/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Architecture",
+      "url": "https://www.w3.org/TR/wot-architecture/",
+      "creator": [
+        {
+          "name": "Matthias Kovatsch"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Toru Kawaguchi"
+        },
+        {
+          "name": "Kunihiko Toumura"
+        },
+        {
+          "name": "Kazuo Kajimoto"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-thing-description/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Thing Description",
+      "url": "https://www.w3.org/TR/wot-thing-description/",
+      "creator": [
+        {
+          "name": "Sebastian Käbisch"
+        },
+        {
+          "name": "Takuki Kamiya"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Victor Charpenay"
+        },
+        {
+          "name": "Matthias Kovatsch"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/sparql11-overview/",
+      "type": "TechArticle",
+      "name": "SPARQL 1.1 Overview",
+      "url": "https://www.w3.org/TR/sparql11-overview/",
+      "creator": [
+        {
+          "name": "The W3C SPARQL Working Group"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://w3c.github.io/wot-usecases/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT): Use Cases",
+      "url": "https://w3c.github.io/wot-usecases/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Tomoaki Mizushima"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc8615",
+      "type": "TechArticle",
+      "name": "Well-Known Uniform Resource Identifiers (URIs)",
+      "url": "https://tools.ietf.org/html/rfc8615",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc6763",
+      "type": "TechArticle",
+      "name": "DNS-Based Service Discovery",
+      "url": "https://tools.ietf.org/html/rfc6763",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc6762",
+      "type": "TechArticle",
+      "name": "Multicast DNS",
+      "url": "https://tools.ietf.org/html/rfc6762",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc2782",
+      "type": "TechArticle",
+      "name": "A DNS RR for specifying the location of services (DNS SRV)",
+      "url": "https://tools.ietf.org/html/rfc2782",
+      "creator": [
+        {
+          "name": "A. Gulbrandsen"
+        },
+        {
+          "name": "P. Vixie"
+        },
+        {
+          "name": "L. Esibov"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc6690",
+      "type": "TechArticle",
+      "name": "Constrained RESTful Environments (CoRE) Link Format",
+      "url": "https://tools.ietf.org/html/rfc6690",
+      "creator": [
+        {
+          "name": "Z. Shelby"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-25",
+      "type": "TechArticle",
+      "name": "CoRE Resource Directory",
+      "url": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-25",
+      "creator": [
+        {
+          "name": "Zach Shelby"
+        },
+        {
+          "name": "Michael Koster"
+        },
+        {
+          "name": "Carsten Bormann"
+        },
+        {
+          "name": "Peter van der Stok"
+        },
+        {
+          "name": "Christian Amsüss"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/did-core/",
+      "type": "TechArticle",
+      "name": "Decentralized Identifiers (DIDs) v1.0",
+      "url": "https://www.w3.org/TR/did-core/",
+      "creator": [
+        {
+          "name": "Drummond Reed"
+        },
+        {
+          "name": "Manu Sporny"
+        },
+        {
+          "name": "Markus Sabadello"
+        },
+        {
+          "name": "Dave Longley"
+        },
+        {
+          "name": "Christopher Allen"
+        },
+        {
+          "name": "Jonathan Holt"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc7807",
+      "type": "TechArticle",
+      "name": "Problem Details for HTTP APIs",
+      "url": "https://tools.ietf.org/html/rfc7807",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        },
+        {
+          "name": "E. Wilde"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7231.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content",
+      "url": "https://httpwg.org/specs/rfc7231.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/json-ld11/",
+      "type": "TechArticle",
+      "name": "JSON-LD 1.1",
+      "url": "https://www.w3.org/TR/json-ld11/",
+      "creator": [
+        {
+          "name": "Gregg Kellogg"
+        },
+        {
+          "name": "Pierre-Antoine Champin"
+        },
+        {
+          "name": "Dave Longley"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc4122",
+      "type": "TechArticle",
+      "name": "A Universally Unique IDentifier (UUID) URN Namespace",
+      "url": "https://tools.ietf.org/html/rfc4122",
+      "creator": [
+        {
+          "name": "P. Leach"
+        },
+        {
+          "name": "M. Mealling"
+        },
+        {
+          "name": "R. Salz"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/eventsource/",
+      "type": "TechArticle",
+      "name": "Server-Sent Events",
+      "url": "https://www.w3.org/TR/eventsource/",
+      "creator": [
+        {
+          "name": "Ian Hickson"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/xpath-31/",
+      "type": "TechArticle",
+      "name": "XML Path Language (XPath) 3.1",
+      "url": "https://www.w3.org/TR/xpath-31/",
+      "creator": [
+        {
+          "name": "Jonathan Robie"
+        },
+        {
+          "name": "Michael Dyck"
+        },
+        {
+          "name": "Josh Spiegel"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc2119",
+      "type": "TechArticle",
+      "name": "Key words for use in RFCs to Indicate Requirement Levels",
+      "url": "https://tools.ietf.org/html/rfc2119",
+      "creator": [
+        {
+          "name": "S. Bradner"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc8174",
+      "type": "TechArticle",
+      "name": "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words",
+      "url": "https://tools.ietf.org/html/rfc8174",
+      "creator": [
+        {
+          "name": "B. Leiba"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/rfc8552",
+      "type": "TechArticle",
+      "name": "Scoped Interpretation of DNS Resource Records through \"Underscored\" Naming of Attribute Leaves",
+      "url": "https://tools.ietf.org/html/rfc8552",
+      "creator": [
+        {
+          "name": "D. Crocker"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-security/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Security and Privacy Guidelines",
+      "url": "https://www.w3.org/TR/wot-security/",
+      "creator": [
+        {
+          "name": "Elena Reshetova"
+        },
+        {
+          "name": "Michael McCool"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "type": "TechArticle",
+      "name": "RESTful Design for Internet of Things Systems",
+      "url": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "creator": [
+        {
+          "name": "Ari Keranen"
+        },
+        {
+          "name": "Matthias Kovatsch"
+        },
+        {
+          "name": "Klaus Hartke"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html",
+      "type": "TechArticle",
+      "name": "JSONPath -- XPath for JSON",
+      "url": "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html",
+      "creator": [
+        {
+          "name": "S. Gössner"
+        },
+        {
+          "name": "C. Bormann, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    }
+  ]
+}</script>
+<style>
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+</style>
+<script id="initialUserConfig" type="application/json">{
+  "lint": {
+    "check-punctuation": true,
+    "local-refs-exist": true,
+    "no-http-props": true,
+    "no-headingless-sections": true
+  },
+  "doJsonLd": true,
+  "specStatus": "ED",
+  "shortName": "wot-discovery",
+  "copyrightStart": 2017,
+  "group": "wg/wot",
+  "wgPublicList": "public-wot-wg",
+  "github": {
+    "repoURL": "https://github.com/w3c/wot-discovery",
+    "branch": "master"
+  },
+  "editors": [
+    {
+      "name": "Andrea Cimmino",
+      "w3cid": "115672",
+      "company": "Universidad Politécnica de Madrid",
+      "companyURL": "https://www.upm.es/"
+    },
+    {
+      "name": "Michael McCool",
+      "w3cid": "93137",
+      "company": "Intel Corp.",
+      "companyURL": "https://www.intel.com/"
+    },
+    {
+      "name": "Farshid Tavakolizadeh",
+      "w3cid": "122520",
+      "company": "Fraunhofer-Gesellschaft",
+      "companyURL": "https://www.fraunhofer.de/"
+    },
+    {
+      "name": "Kunihiko Toumura",
+      "w3cid": "83488",
+      "company": "Hitachi, Ltd.",
+      "companyURL": "https://www.hitachi.com/"
+    }
+  ],
+  "otherLinks": [
+    {
+      "key": "Participate",
+      "data": [
+        {
+          "value": "GitHub w3c/wot-discovery",
+          "href": "https://github.com/w3c/wot-discovery/"
+        },
+        {
+          "value": "File a bug",
+          "href": "https://github.com/w3c/wot-discovery/issues/"
+        },
+        {
+          "value": "Commit history",
+          "href": "https://github.com/w3c/wot-discovery/commits/master"
+        },
+        {
+          "value": "Pull requests",
+          "href": "https://github.com/w3c/wot-discovery/pulls/"
+        }
+      ]
+    },
+    {
+      "key": "Contributors",
+      "data": [
+        {
+          "value": "In the GitHub repository",
+          "href": "https://github.com/w3c/wot-discovery/graphs/contributors"
+        }
+      ]
+    }
+  ],
+  "localBiblio": {
+    "REST-IOT": {
+      "title": "RESTful Design for Internet of Things Systems",
+      "href": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "authors": [
+        "Ari Keranen",
+        "Matthias Kovatsch",
+        "Klaus Hartke"
+      ],
+      "publisher": "IETF",
+      "date": "11 May 2020",
+      "id": "rest-iot"
+    },
+    "CoRE-RD": {
+      "title": "CoRE Resource Directory",
+      "href": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-25",
+      "authors": [
+        "Zach Shelby",
+        "Michael Koster",
+        "Carsten Bormann",
+        "Peter van der Stok",
+        "Christian Amsüss"
+      ],
+      "publisher": "IETF",
+      "date": "13 July 2020",
+      "id": "core-rd"
+    },
+    "JSONPATH": {
+      "title": "JSONPath -- XPath for JSON",
+      "href": "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html",
+      "authors": [
+        "S. Gössner",
+        "C. Bormann, Ed."
+      ],
+      "publisher": "IETF",
+      "date": "12 July 2020",
+      "status": "DRAFT",
+      "id": "jsonpath"
+    },
+    "wot-usecases": {
+      "title": "Web of Things (WoT): Use Cases",
+      "href": "https://w3c.github.io/wot-usecases/",
+      "authors": [
+        "Michael Lagally",
+        "Michael McCool",
+        "Ryuichi Matsukura",
+        "Tomoaki Mizushima"
+      ],
+      "publisher": "W3C",
+      "date": "15 October 2020",
+      "status": "Editor's Draft",
+      "id": "wot-usecases"
+    }
+  },
+  "publishISODate": "2020-11-09T00:00:00.000Z",
+  "generatedSubtitle": "Editor's Draft 09 November 2020"
+}</script>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2016/W3C-ED"></head>
+<body class="h-entry toc-inline"><div class="head">
+    <a class="logo" href="https://www.w3.org/"><img alt="W3C" width="72" height="48" src="https://www.w3.org/StyleSheets/TR/2016/logos/W3C"></a> <h1 id="title" class="title">Web of Things (WoT) Discovery</h1>
+    
+    <h2>
+      W3C Editor's Draft
+      <time class="dt-published" datetime="2020-11-09">09 November 2020</time>
+    </h2>
+    <dl>
+      <dt>This version:</dt><dd>
+              <a class="u-url" href="https://w3c.github.io/wot-discovery/">https://w3c.github.io/wot-discovery/</a>
+            </dd><dt>Latest published version:</dt><dd>
+              <a href="https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a>
+            </dd>
+      <dt>Latest editor's draft:</dt><dd><a href="https://w3c.github.io/wot-discovery/">https://w3c.github.io/wot-discovery/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Editors:</dt>
+      <dd class="p-author h-card vcard" data-editor-id="115672"><span class="p-name fn">Andrea Cimmino</span>
+            (<a class="p-org org h-org h-card" href="https://www.upm.es/">Universidad Politécnica de Madrid</a>)
+          </dd><dd class="p-author h-card vcard" data-editor-id="93137"><span class="p-name fn">Michael McCool</span>
+            (<a class="p-org org h-org h-card" href="https://www.intel.com/">Intel Corp.</a>)
+          </dd><dd class="p-author h-card vcard" data-editor-id="122520"><span class="p-name fn">Farshid Tavakolizadeh</span>
+            (<a class="p-org org h-org h-card" href="https://www.fraunhofer.de/">Fraunhofer-Gesellschaft</a>)
+          </dd><dd class="p-author h-card vcard" data-editor-id="83488"><span class="p-name fn">Kunihiko Toumura</span>
+            (<a class="p-org org h-org h-card" href="https://www.hitachi.com/">Hitachi, Ltd.</a>)
+          </dd>
+      
+      
+      <dt>Participate:</dt><dd>
+    <a href="https://github.com/w3c/wot-discovery/">GitHub w3c/wot-discovery</a>
+  </dd><dd>
+    <a href="https://github.com/w3c/wot-discovery/issues/">File a bug</a>
+  </dd><dd>
+    <a href="https://github.com/w3c/wot-discovery/commits/master">Commit history</a>
+  </dd><dd>
+    <a href="https://github.com/w3c/wot-discovery/pulls/">Pull requests</a>
+  </dd><dt>Contributors:</dt><dd>
+    <a href="https://github.com/w3c/wot-discovery/graphs/contributors">In the GitHub repository</a>
+  </dd>
+    </dl>
+    
+    
+    
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2017-2020
+    
+    <a href="https://www.w3.org/"><abbr title="World Wide Web Consortium">W3C</abbr></a><sup>®</sup> (<a href="https://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>,
+    <a href="https://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>, <a href="https://www.keio.ac.jp/">Keio</a>,
+    <a href="https://ev.buaa.edu.cn/">Beihang</a>). 
+    W3C <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document">permissive document license</a> rules
+    apply.
+  </p>
+    <hr title="Separator for header">
+  </div>
+    <section id="abstract" class="introductory"><h2>Abstract</h2>
+        <p>The <abbr title="World Wide Web Consortium">W3C</abbr> Web of Things (WoT) is intended to enable
+           interoperability across IoT platforms and application
+           domains.  One key mechanism for accomplishing this goal
+           is the definition and use of metadata describing the
+           interactions an IoT device or service makes available
+           over the network at a suitable level of abstraction.  
+           The WoT Thing Description specification satisfies this objective.
+        </p>
+        <p>However, in order to use a Thing its Thing Description
+           first has to be obtained.  The <em>WoT Discovery</em> process described 
+           in this document addresses this problem.
+           WoT Discovery needs to support the distribution of WoT Thing Descriptions
+           in a variety of use cases.  This includes ad-hoc and engineered systems;
+           during development and at runtime; and on both local and global networks.
+           The process also needs to work with existing discovery mechanisms,
+           be secure, protect private information, and be able to efficiently
+           handle updates to WoT Thing Descriptions and the 
+           dynamic and diverse nature of the IoT ecosystem.
+        </p>
+        <p>The WoT Discovery process is divided into two phases,
+           Introduction, and Exploration.  The Introduction phase 
+           leverages existing discovery mechanisms but does not directly
+           expose metadata; they are simply used to discover Exploration
+           services, which provide metadata but only after secure authentication
+           and authorization.  This document normatively defines two Exploration
+           services, one for WoT Thing self-description with a single 
+           WoT Thing Description and a searchable WoT Thing Directory
+           service for collections of Thing Descriptions.
+           A variety of Introduction services are also described and where
+           necessary normative definitions are given to support them.
+        </p>
+    </section>
+    
+    <section id="sotd" class="introductory"><h2>Status of This Document</h2><p><em>This section describes the status of this
+      document at the time of its publication. Other documents may supersede
+      this document. A list of current <abbr title="World Wide Web Consortium">W3C</abbr> publications and the latest revision
+      of this technical report can be found in the
+      <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
+      https://www.w3.org/TR/.</em></p><p>
+    This document was published by the <a href="https://www.w3.org/WoT/WG/">Web of Things Working Group</a> as an
+    Editor's Draft. 
+    
+  </p><p>
+    <a href="https://github.com/w3c/wot-discovery/issues/">GitHub Issues</a> are preferred for
+          discussion of this specification.
+        
+    Alternatively, you can send comments to our mailing list.
+          Please send them to
+          <a href="mailto:public-wot-wg@w3.org">public-wot-wg@w3.org</a>
+          (<a href="https://lists.w3.org/Archives/Public/public-wot-wg/">archives</a>).
+        
+  </p><p>
+      Publication as an Editor's Draft does not imply endorsement
+      by the <abbr title="World Wide Web Consortium">W3C</abbr> Membership. 
+    </p><p>This is a draft document and may be updated, replaced
+  or obsoleted by other documents at any time. It is inappropriate to cite this
+  document as other than work in progress.
+  </p><p></p><p>
+    
+        This document was produced by a group
+        operating under the
+        <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/">1 August 2017 <abbr title="World Wide Web Consortium">W3C</abbr> Patent
+          Policy</a>.
+       
+    
+                <abbr title="World Wide Web Consortium">W3C</abbr> maintains a
+                <a rel="disclosure" href="https://www.w3.org/2004/01/pp-impl/95969/status">public list of any patent disclosures</a>
+          made in connection with the deliverables of
+          the group; that page also includes
+          instructions for disclosing a patent. An individual who has actual
+          knowledge of a patent which the individual believes contains
+          <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#def-essential">Essential Claim(s)</a>
+          must disclose the information in accordance with
+          <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/#sec-Disclosure">section 6 of the <abbr title="World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
+        
+    
+  </p><p>
+                  This document is governed by the
+                  <a id="w3c_process_revision" href="https://www.w3.org/2020/Process-20200915/">15 September 2020 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4. </bdi>Architecture</a></li><li class="tocline"><a class="tocxref" href="#introduction-mech"><bdi class="secno">5. </bdi>Introduction Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-direct"><bdi class="secno">5.1 </bdi>Direct</a></li><li class="tocline"><a class="tocxref" href="#introduction-well-known"><bdi class="secno">5.2 </bdi>Well-Known URIs</a></li><li class="tocline"><a class="tocxref" href="#introduction-dns-sd"><bdi class="secno">5.3 </bdi>DNS-Based Service Discovery</a></li><li class="tocline"><a class="tocxref" href="#introduction-core-rd"><bdi class="secno">5.4 </bdi>CoRE Link Format and CoRE Resource Directory</a></li><li class="tocline"><a class="tocxref" href="#introduction-did"><bdi class="secno">5.5 </bdi>DID Documents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-mech"><bdi class="secno">6. </bdi>Exploration Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-self"><bdi class="secno">6.1 </bdi>Self-description</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory"><bdi class="secno">6.2 </bdi>Directory</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-info"><bdi class="secno">6.2.1 </bdi>Information Model</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api"><bdi class="secno">6.2.2 </bdi>Directory Service API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-registration"><bdi class="secno">6.2.2.1 </bdi>Registration</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-management"><bdi class="secno">6.2.2.2 </bdi>Management</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-notification"><bdi class="secno">6.2.2.3 </bdi>Notification</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-search"><bdi class="secno">6.2.2.4 </bdi>Search</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonpath-semantic"><bdi class="secno">6.2.2.4.1 </bdi>Syntactic search: JSONPath</a></li><li class="tocline"><a class="tocxref" href="#xpath-semantic"><bdi class="secno">6.2.2.4.2 </bdi>Syntactic search: XPath</a></li><li class="tocline"><a class="tocxref" href="#search-semantic"><bdi class="secno">6.2.2.4.3 </bdi>Semantic search: SPARQL</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-security"><bdi class="secno">6.2.3 </bdi>Security and Privacy</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">7. </bdi>Security and Privacy Considerations</a></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">A. </bdi>Recent Specification Changes</a></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+    <section id="introduction">
+        <h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction<a class="self-link" aria-label="§" href="#introduction"></a></h2>
+        <p>The Web of Things (WoT) defines an architecture that supports the integration
+           and use of web technologies with IoT devices.
+           The WoT Architecture [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-architecture" title="Web of Things (WoT) Architecture">wot-architecture</a></cite>] document defines the basic
+           concepts and patterns of usage supported.
+           However, the WoT Thing Description [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description" title="Web of Things (WoT) Thing Description">wot-thing-description</a></cite>] is a key
+           specification for WoT Discovery since it is the purpose of WoT Discovery
+           to make WoT Thing Descriptions available.
+           Specifically, WoT Discovery has to allow authenticated and authorized entities
+           (and only those entities) to find WoT Thing Descriptions satisfying a set of
+           criteria, such as being near a certain location, or having certain semantics,
+           or containing certain interactions.  Conversely, in order to support
+           security and privacy objectives, the WoT Discovery process must not
+           leak information to unauthorized entities.  This includes leaking information
+           that a given entity is requesting certain information, not just the information
+           distributed in the Thing Descriptions themselves.
+	</p>
+        <p>There are already a number of discovery mechanisms defined, so we have to 
+           establish why we are proposing a new one.  First, many existing 
+           discovery mechanisms have relatively weak security and privacy protections.
+           One of our objectives is to establish a mechanism that not only uses best
+           practices to protect metadata, but that can be upgraded to support future
+           best practices as needed.
+           Second, we are using discovery in a broad sense to include both local and
+           non-local mechanisms.  While a local mechanism might use a broadcast protocol,
+           non-local mechanisms might go beyond the current network segment where broadcast
+           is not scalable, and so a different approach, such as a search service, is needed. 
+           Our approach is to use existing mechanisms as needed to bootstrap into a more 
+           general and secure metadata distribution system.
+           Third, the metadata we are distributing, the WoT Thing Description, is highly
+           structured and includes rich data such as data schemas and semantic annotations.
+           Existing discovery mechanisms based on a list of simple key-value pairs are 
+           not appropriate.  
+           At the same time, 
+           use of existing standards for semantic data query, 
+           such as SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-sparql11-overview" title="SPARQL 1.1 Overview">SPARQL11-OVERVIEW</a></cite>], 
+           while potentially suitable for some advanced use cases, 
+           might require to much effort for many anticipated IoT applications.
+           Therefore in order to address more basic applications,
+           we also define some simpler query mechanisms. 
+        </p>
+        <p>After defining some basic terminology, we will summarize the basic use cases and
+           requirements for WoT Discovery.  These are a subset of the more detailed and
+           exhaustive use cases and requirements presented in the WoT Use Cases [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-usecases" title="Web of Things (WoT): Use Cases">wot-usecases</a></cite>] and 
+           WoT Architecture [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-architecture" title="Web of Things (WoT) Architecture">wot-architecture</a></cite>] documents.
+           Then we will describe the basic architecture of the WoT Discovery process,
+           which uses a two-phase Introduction/Exploration approach.  The basic goal of this
+           architecture is to be able to use existing discovery standards to bootstrap
+           access to protected discovery services, but to distribute detailed metadata only to 
+           authorized users, and to also protect those making queries from eavesdroppers 
+           as much as possible.
+           We then describe details of specific Introduction and Exploration mechanisms.
+           In particular, we define in detail a normative API for a 
+           WoT Thing Description Directory (WoT TDD) service that provides a search mechanism for
+           collections of WoT Thing Descriptions that can be dynamically registered by Things or
+           entities acting on their behalf.  The WoT Discovery mechanism however also supports
+           self-description by individual Things and one issue we address is how to distinguish
+           between these two approaches.
+           Finally, we discuss some security and privacy considerations, including a set of 
+           potential risks and mitigations.
+        </p>
+    </section>
+    
+    <section id="conformance"><h2 id="x2-conformance"><bdi class="secno">2. </bdi>Conformance<a class="self-link" aria-label="§" href="#conformance"></a></h2><p>As well as sections marked as non-normative, all authoring guidelines, diagrams, examples, and notes in this specification are non-normative. Everything else in this specification is normative.</p><p>
+        The key words <em class="rfc2119">MAY</em>, <em class="rfc2119">MUST</em>, <em class="rfc2119">OPTIONAL</em>, and <em class="rfc2119">SHOULD</em> in this document
+        are to be interpreted as described in
+        <a href="https://tools.ietf.org/html/bcp14">BCP 14</a>
+        [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC2119</a></cite>] [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8174" title="Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words">RFC8174</a></cite>]
+        when, and only when, they appear in all capitals, as shown here.
+      </p></section>
+    <section id="terminology" class="informative">
+        <h2 id="x3-terminology"><bdi class="secno">3. </bdi>Terminology<a class="self-link" aria-label="§" href="#terminology"></a></h2><p><em>This section is non-normative.</em></p>
+        <p>The present document uses the terminology defined in
+           the WoT Architecture [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-architecture" title="Web of Things (WoT) Architecture">wot-architecture</a></cite>] document,
+           and also the additional terms defined here.
+           The WoT prefix is used to avoid ambiguity for terms that are
+           (re)defined specifically for Web of Things concepts.</p>
+        <dl>
+            <dt><dfn data-lt="WoT Anonymous Thing Description|Anonymous TD" id="dfn-wot-anonymous-thing-description">Anonymous TD</dfn>
+            </dt>
+            <dd>A Thing Description without an identifier (<code>id</code> attribute).
+            </dd>
+            <dt><dfn data-lt="WoT Discovery|Discovery" id="dfn-wot-discovery">Discovery</dfn>
+            </dt>
+            <dd>In the WoT context, the process of finding and retrieving Thing metadata
+            in the form of Thing Descriptions for Things satisfying some criteria of interest.
+            </dd>
+            <dt><dfn data-lt="WoT Exploration|Exploration" id="dfn-wot-exploration">Exploration</dfn>
+            </dt>
+            <dd>A discovery mechanism that provides access to detailed metadata in the 
+            form of one or more Thing Descriptions.  Exploration mechanisms are in
+            general protected by security mechansism and are accessible only to authorized users.
+            </dd>
+            <dt><dfn data-lt="WoT Introduction|Introduction" id="dfn-wot-introduction">Introduction</dfn>
+            </dt>
+            <dd>A "first contact" discovery mechanism, whose result is a URL that
+            references an exploration mechanism.  Introduction mechanisms themselves
+            should not directly provide metadata, and in general are designed to be 
+            open.
+            </dd>
+            <dt><dfn data-lt="WoT Thing Description Directory|Thing Description Directory (TDD)" id="dfn-wot-thing-description-directory">Thing Description Directory (TDD)</dfn>
+            </dt>
+            <dd>A directory service with a prescribed API that allows the 
+            registration, management, and search of a database of Thing Descriptions.
+            Note that the acronym should be TDD, not TD, to avoid confusion with Thing Descriptions (TDs).
+            </dd>
+            <dt><dfn data-lt="WoT Partial Thing Description|Partial TD" id="dfn-wot-partial-thing-description">Partial TD</dfn>
+            </dt>
+            <dd>A data model partially conformant to the Thing Description schema by including 
+            only a subset of the attributes.
+            </dd>
+        </dl>
+    </section>
+    <section id="architecture" class="informative">
+        <h2 id="x4-architecture"><bdi class="secno">4. </bdi>Architecture<a class="self-link" aria-label="§" href="#architecture"></a></h2><p><em>This section is non-normative.</em></p>
+        <a href="#discovery-overview" class="fig-ref" title="Discovery process overview">Figure <bdi class="figno">1</bdi></a> shows an overview of discovery process.
+        <figure id="discovery-overview">
+            <img src="images/overview.png" srcset="images/overview.svg" class="wot-diagram" alt="Discovery process overview">
+            <figcaption>Figure <bdi class="figno">1</bdi> <span class="fig-title">Discovery process overview</span></figcaption>
+        </figure>
+        <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="3"><span>Editor's note</span><span class="issue-label">: Discovery Architecture Overview</span></div><p class="">
+        To do: an overview of the two-phase approach and its purpose, which is to support
+        controlled and authenticated access to metadata by authorized users only.
+        </p></div>
+    </section>
+    <section id="introduction-mech" class="normative">
+        <h2 id="x5-introduction-mechanisms"><bdi class="secno">5. </bdi>Introduction Mechanisms<a class="self-link" aria-label="§" href="#introduction-mech"></a></h2>
+        <p>This chapter describes a mechanism for discovering a Thing or a Directory Service.
+           The following mechanism is provided by the Thing or the Directory Service so that
+           Consumer can discover the Thing Description or a URL that point to the Thing Description.
+        </p>
+        <section id="introduction-direct" class="normative">
+            <h3 id="x5-1-direct"><bdi class="secno">5.1 </bdi>Direct<a class="self-link" aria-label="§" href="#introduction-direct"></a></h3>
+            <p>Any mechanism that results in a single URL.
+               This includes Bluetooth beacons, QR codes, and written URLs to be 
+               typed by a user.
+               A GET on all such URLs <em class="rfc2119">MUST</em> result in a TD.
+               For self-describing Things, this can be the TD of the Thing itself.
+               If the URL references a Directory, this <em class="rfc2119">MUST</em> be the TD of the
+               Directory service.
+            </p>
+        </section>
+        <section id="introduction-well-known" class="normative">
+            <h3 id="x5-2-well-known-uris"><bdi class="secno">5.2 </bdi>Well-Known URIs<a class="self-link" aria-label="§" href="#introduction-well-known"></a></h3>
+            <p>
+                A Thing or Directory Service <em class="rfc2119">MAY</em> use the Well-Known Uniform Resource Identifier [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8615" title="Well-Known Uniform Resource Identifiers (URIs)">RFC8615</a></cite>]
+                to advertise its presence.  The Thing or Directory Service registers its own Thing Description
+                into the following path:
+                <code>/.well-known/wot-thing-description</code>.
+            </p><p>
+                When the HTTP GET access is made to the above path, the HTTP server <em class="rfc2119">MUST</em> return
+                a Thing Description with the <code>content-type</code> set to <code>application/td+json</code>.
+            </p>
+            <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="4"><span>Editor's note</span><span class="issue-label">: Registration of Well-known URI</span></div><p class="">
+                The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
+                "Well-Known URIs" registry and contents of registration request is described in Section 3.1 of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8615" title="Well-Known Uniform Resource Identifiers (URIs)">RFC8615</a></cite>].
+            </p></div>
+
+        </section>
+        <section id="introduction-dns-sd" class="normative">
+            <h3 id="x5-3-dns-based-service-discovery"><bdi class="secno">5.3 </bdi>DNS-Based Service Discovery<a class="self-link" aria-label="§" href="#introduction-dns-sd"></a></h3>
+            <p>A Thing or Directory Service <em class="rfc2119">MAY</em> use the DNS-Based Service Discovery (DNS-SD)[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6763" title="DNS-Based Service Discovery">RFC6763</a></cite>].
+                This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6762" title="Multicast DNS">RFC6762</a></cite>].
+            </p>
+            <p>
+                In DNS-SD, format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
+                The Service part is a pair of labels following the conventions of [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc2782" title="A DNS RR for specifying the location of services (DNS SRV)">RFC2782</a></cite>].
+                The first label has an underscore followed by the Service Name,
+                and the second label describes the protocol.
+            </p>
+            <p>
+                The Service Name to indicate the Thing or Directory Service <em class="rfc2119">MUST</em> be <code>_wot</code>.
+                And the Service Name to indicate the Directory Service <em class="rfc2119">MUST</em> be <code>_directory._sub._wot</code>.
+            </p>
+            <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="4"><span>Editor's note</span><span class="issue-label">: Service Names in existing implementations</span></div><p class="">
+                The Service Names <code>_wot</code> and <code>_directory._sub._wot</code>
+                are tentative. The following Service Names are used in the existing implementations:
+                <code>_wot</code>,
+                <code>_device._sub._wot</code>,
+                <code>_directory._sub._wot</code>,
+                <code>_webthing</code>.
+                To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
+                Registry [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8552" title="Scoped Interpretation of DNS Resource Records through &quot;Underscored&quot; Naming of Attribute Leaves">RFC8552</a></cite>] is required.
+            </p></div>
+            <p>
+                In addition, the following information <em class="rfc2119">MUST</em> be included in the <code>TXT</code>
+                record that is pointed to by the Service Instance Name:
+                </p><dl>
+                    <dt><code>td</code></dt>
+                    <dd>Absolute pathname of the Thing Description of the Thing or Directory Service.</dd>
+                    <dt><code>type</code></dt>
+                    <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                    If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                </dl>
+            <p></p>
+            <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="4"><span>Editor's note</span><span class="issue-label">: Usage of a TXT record in existing implementations</span></div><p class="">
+                The following key/value pairs are used in the existing implementations:<br>
+                <code>retrieve</code>:
+                        Absolute path name of the API to get an array of Thing Description IDs
+                        from the Directory Service.<br>
+                <code>register</code>:
+                    Absolute path name of the API to register a Thing Description with the Directory Service.<br>
+                <code>path</code>:
+                    The URI of the thing description on the Web Thing's web server<br>
+                <code>td</code>:
+                    Prefix of Directory Service API<br>
+                <code>tls</code>:
+                    Value of 1 if the Web Thing supports connections via HTTPS.<br>
+            </p></div>
+            <p>
+                <a href="#sequence-dnssd-thing" class="fig-ref" title="An example sequence of discovery of Thing using DNS-SD and mDNS">Figure <bdi class="figno">2</bdi></a> and <a href="#sequence-dnssd-directory" class="fig-ref" title="An example sequence of discovery of Directory Service using DNS-SD and mDNS">Figure <bdi class="figno">3</bdi></a> shows example sequences
+                of discovery of Thing and Directory Service using DNS-SD and mDNS. 
+            </p>
+            <figure id="sequence-dnssd-thing">
+                <img src="images/sequence-dnssd-thing.png" srcset="images/sequence-dnssd-thing.svg" class="wot-diagram" alt="An example sequence of discovery of Thing using DNS-SD and mDNS">
+                <figcaption>Figure <bdi class="figno">2</bdi> <span class="fig-title">An example sequence of discovery of Thing using DNS-SD and mDNS</span></figcaption>
+            </figure>
+            <figure id="sequence-dnssd-directory">
+                <img src="images/sequence-dnssd-directory.png" srcset="images/sequence-dnssd-directory.svg" class="wot-diagram" alt="An example sequence of discovery of Directory Service using DNS-SD and mDNS">
+                <figcaption>Figure <bdi class="figno">3</bdi> <span class="fig-title">An example sequence of discovery of Directory Service using DNS-SD and mDNS</span></figcaption>
+            </figure>
+
+        </section>
+        <section id="introduction-core-rd" class="normative">
+            <h3 id="x5-4-core-link-format-and-core-resource-directory"><bdi class="secno">5.4 </bdi>CoRE Link Format and CoRE Resource Directory<a class="self-link" aria-label="§" href="#introduction-core-rd"></a></h3>
+            <p>
+                A Thing or Directory Service <em class="rfc2119">MAY</em> advertise its presence using the
+                Constrained RESTful Environment (CoRE) Link Format [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6690" title="Constrained RESTful Environments (CoRE) Link Format">RFC6690</a></cite>].
+                And, a Thing or Directory Service <em class="rfc2119">MAY</em> use the CoRE Resource Directory [<cite><a class="bibref" data-link-type="biblio" href="#bib-core-rd" title="CoRE Resource Directory">CoRE-RD</a></cite>]
+                to register a link to the Thing Description.
+            </p>
+            <p>
+                The endpoint type(<code>et</code>) of the Link that targets the Thing Description of the Thing
+                <em class="rfc2119">MUST</em> be <code>wot.thing</code>. 
+                The endpoint type of the Link that targets the Thing Description of the Directory Service
+                <em class="rfc2119">MUST</em> be <code>wot.directory</code>.
+            </p>
+            <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="4"><span>Editor's note</span></div><p class="">
+                The endpoint types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
+            </p></div>
+        </section>
+        <section id="introduction-did" class="normative">
+            <h3 id="x5-5-did-documents"><bdi class="secno">5.5 </bdi>DID Documents<a class="self-link" aria-label="§" href="#introduction-did"></a></h3>
+            <p>A Thing or Directory Service <em class="rfc2119">MAY</em> advertise its presence using 
+                the Decentralized Identifier (DID) [<cite><a class="bibref" data-link-type="biblio" href="#bib-did-core" title="Decentralized Identifiers (DIDs) v1.0">DID-CORE</a></cite>].
+            </p>
+            <p>
+                The DID Document obtained by resolving the DID of a Thing or Directory Service <em class="rfc2119">MUST</em>
+                contains a Service Endpoint which point to Thing Description of the Thing or Directory Service.
+            </p>
+            <aside class="example" id="example-1-a-example-service-endpoint-in-a-did-document"><div class="marker">
+    <a class="self-link" href="#example-1-a-example-service-endpoint-in-a-did-document">Example<bdi> 1</bdi></a><span class="example-title">: A Example Service Endpoint in a DID Document</span>
+  </div>
+                <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"service"</span>: [{
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"did:example:wotdiscoveryexample#td"</span>,
+        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"WotThingDescription"</span>,
+        <span class="hljs-attr">"serviceEndpoint"</span>:
+            <span class="hljs-string">"https://wot.example.com/.well-known/wot-thing-description"</span>
+    }]
+}</code></pre>
+            </aside>
+            <div class="issue" id="issue-container-number-65"><div role="heading" class="issue-title marker" id="h-issue" aria-level="4"><a href="https://github.com/w3c/wot-discovery/issues/65"><span class="issue-number">Issue 65</span></a><span class="issue-label" aria-label="This issue is labelled as DID.">: Create typed links in DID Documents for WoT Directories <a class="respec-gh-label" href="https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22DID%22" style="background-color: rgb(252, 201, 146); color: rgb(0, 0, 0);">DID</a></span></div><p>These should be consistent with a general model that we should also use for similar things, i.e. CoRE-RD and DNS-SD.   We should discuss with DID the process for how to document a link type for use in DID Documents.</p></div>
+        </section>
+    </section>
+    <section id="exploration-mech" class="normative">
+        <h2 id="x6-exploration-mechanisms"><bdi class="secno">6. </bdi>Exploration Mechanisms<a class="self-link" aria-label="§" href="#exploration-mech"></a></h2>
+        <div class="note" id="issue-container-generatedID-4"><div role="heading" class="ednote-title marker" id="h-ednote-4" aria-level="3"><span>Editor's note</span><span class="issue-label">: Exploration Mechanism Overview</span></div><p class="">
+        To do: Description of supported explorations, and requirements for 
+        new exploration mechanisms.
+        </p></div>
+        <section id="exploration-self" class="normative">
+            <h3 id="x6-1-self-description"><bdi class="secno">6.1 </bdi>Self-description<a class="self-link" aria-label="§" href="#exploration-self"></a></h3>
+            <div class="note" id="issue-container-generatedID-5"><div role="heading" class="ednote-title marker" id="h-ednote-5" aria-level="4"><span>Editor's note</span><span class="issue-label">: Self-Description Overview</span></div><p class="">
+            To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
+            </p></div>
+        </section>
+        <section id="exploration-directory" class="normative">
+            <h3 id="x6-2-directory"><bdi class="secno">6.2 </bdi>Directory<a class="self-link" aria-label="§" href="#exploration-directory"></a></h3>
+            <div class="note" id="issue-container-generatedID-6"><div role="heading" class="ednote-title marker" id="h-ednote-6" aria-level="4"><span>Editor's note</span><span class="issue-label">: Directory Overview</span></div><p class="">
+            To do: Describe mechanisms for TDs to be hosted in a searchable directory service.
+            </p></div>
+            <p>
+                A Directory can be distinguished from a Thing by the use of an
+                <code>@type</code> including the semantic term <code>Directory</code>.
+            </p>
+
+            <section id="exploration-directory-info" class="normative">
+                <h4 id="x6-2-1-information-model"><bdi class="secno">6.2.1 </bdi>Information Model<a class="self-link" aria-label="§" href="#exploration-directory-info"></a></h4>
+                <div class="note" id="issue-container-generatedID-7"><div role="heading" class="ednote-title marker" id="h-ednote-7" aria-level="5"><span>Editor's note</span><span class="issue-label">: Directory Information Model</span></div><p class="">
+                To Do: Formal definition of information contained in a directory and its organization.
+                </p></div>
+            </section>
+            <section id="exploration-directory-api" class="normative">
+                <h4 id="x6-2-2-directory-service-api"><bdi class="secno">6.2.2 </bdi>Directory Service API<a class="self-link" aria-label="§" href="#exploration-directory-api"></a></h4>
+                The Directory APIs must use secure protocols guaranteeing 
+                <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
+                authenticity and confidentiality (see [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-security" title="Web of Things (WoT) Security and Privacy Guidelines">WOT-SECURITY</a></cite>]).
+                <span class="rfc2119-assertion" id="tdd-https"> 
+                    The HTTP API <em class="rfc2119">MUST</em> be exposed over HTTPS (HTTP Over TLS).
+                </span>
+                <p>
+                    The HTTP API responses must use appropriate status codes described in 
+                    this section for success and error responses.
+                    <span class="rfc2119-assertion" id="tdd-http-errors"> 
+                        The HTTP API <em class="rfc2119">MUST</em> use the Problem Details [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7807" title="Problem Details for HTTP APIs">RFC7807</a></cite>] format to carry
+                        error details in HTTP client error (4xx) and server error (5xx) responses.
+                    </span>
+                    This enables both machines and humans to know the high-level error class
+                    and fine-grained details.
+
+                    </p><div class="note" id="issue-container-generatedID-8"><div role="heading" class="ednote-title marker" id="h-ednote-8" aria-level="5"><span>Editor's note</span><span class="issue-label">: WoT-specific error types</span></div><p class="">
+                        The Problem Details error <code>type</code> field is a URI reference which 
+                        could used to map the occurred error to WoT-specific error class. 
+                        There are few open issues raising the lack of WoT-specific error types:
+                        <a href="https://github.com/w3c/wot-discovery/issues/44">wot-discovery#44</a>,
+                        <a href="https://github.com/w3c/wot-thing-description/issues/303">wot-thing-description#303</a>,
+                        <a href="https://github.com/w3c/wot-scripting-api/issues/200">wot-scripting-api#200</a>.
+                        <br>
+                        For now, <code>type</code> can be omitted which defaults to "about:blank", and <code>title</code>
+                        should be set to HTTP status text.
+                    </p></div>
+                <p></p>
+                
+                <p>Below is a generic Thing Description for the Directory HTTP API
+                    with OAuth2 security. The Thing Description alone should not be
+                    considered as the full specification to implement or interact with
+                    a directory. Additional details for every interaction are described
+                    in human-readable form in the subsequent sections.
+                </p>
+                <aside class="example" id="directory-thing-description"><div class="marker">
+    <a class="self-link" href="#directory-thing-description">Example<bdi> 2</bdi></a><span class="example-title">: Thing Description of the Directory</span>
+  </div>
+                    <pre aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"@context"</span>: <span class="hljs-string">"https://www.w3.org/2019/wot/td/v1"</span>,
+    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"Directory"</span>,
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description Directory (TDD)"</span>,
+    <span class="hljs-attr">"version"</span>: {
+        <span class="hljs-attr">"instance"</span>: <span class="hljs-string">"1.0.0-alpha"</span>
+    },
+    <span class="hljs-attr">"securityDefinitions"</span>: {
+        <span class="hljs-attr">"oauth2_code"</span>: {
+            <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"oauth2"</span>,
+            <span class="hljs-attr">"flow"</span>: <span class="hljs-string">"code"</span>,
+            <span class="hljs-attr">"authorization"</span>: <span class="hljs-string">"https://auth.example.com/authorization"</span>,
+            <span class="hljs-attr">"token"</span>: <span class="hljs-string">"https://auth.example.com/token"</span>,
+            <span class="hljs-attr">"scopes"</span>: [
+                <span class="hljs-string">"write"</span>,
+                <span class="hljs-string">"read"</span>,
+                <span class="hljs-string">"search"</span>
+            ]
+        },
+        <span class="hljs-attr">"oauth2_client"</span>: {
+            <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"oauth2"</span>,
+            <span class="hljs-attr">"flow"</span>: <span class="hljs-string">"client"</span>,
+            <span class="hljs-attr">"token"</span>: <span class="hljs-string">"https://auth.example.com/token"</span>,
+            <span class="hljs-attr">"scopes"</span>: [
+                <span class="hljs-string">"write"</span>,
+                <span class="hljs-string">"read"</span>,
+                <span class="hljs-string">"search"</span>
+            ]
+        },
+        <span class="hljs-attr">"oauth2_device"</span>: {
+            <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"oauth2"</span>,
+            <span class="hljs-attr">"flow"</span>: <span class="hljs-string">"device"</span>,
+            <span class="hljs-attr">"authorization"</span>: <span class="hljs-string">"https://auth.example.com/device_authorization"</span>,
+            <span class="hljs-attr">"token"</span>: <span class="hljs-string">"https://auth.example.com/token"</span>,
+            <span class="hljs-attr">"scopes"</span>: [
+                <span class="hljs-string">"write"</span>,
+                <span class="hljs-string">"read"</span>,
+                <span class="hljs-string">"search"</span>
+            ]
+        },
+        <span class="hljs-attr">"combo_sc"</span>: {
+            <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"combination"</span>,
+            <span class="hljs-attr">"oneOf"</span>: [
+                <span class="hljs-string">"oauth2_code"</span>,
+                <span class="hljs-string">"oauth2_client"</span>,
+                <span class="hljs-string">"oauth2_device"</span>
+            ]
+        }
+    },
+    <span class="hljs-attr">"security"</span>: <span class="hljs-string">"combo_sc"</span>,
+    <span class="hljs-attr">"base"</span>: <span class="hljs-string">"https://tdd.example.com"</span>,
+    <span class="hljs-attr">"actions"</span>: {
+        <span class="hljs-attr">"createTD"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Create a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PUT"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">201</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"write"</span>
+                },
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"POST"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:headers"</span>: [
+                            {
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"System-generated UUID (version 4) URN"</span>,
+                                <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Location"</span>,
+                                <span class="hljs-attr">"htv:fieldValue"</span>: <span class="hljs-string">""</span>
+                            }
+                        ],
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">201</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"write"</span>
+                }
+            ]
+        },
+        <span class="hljs-attr">"updateTD"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Update an Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PUT"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"write"</span>
+                }
+            ]
+        },
+        <span class="hljs-attr">"updatePartialTD"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Update parts of a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PATCH"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"write"</span>
+                }
+            ]
+        },
+        <span class="hljs-attr">"deleteTD"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Delete a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"DELETE"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"write"</span>
+                }
+            ]
+        }
+    },
+    <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"retrieveTD"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Retrieve a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/td/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"read"</span>
+                }
+            ]
+        },
+        <span class="hljs-attr">"searchJSONPath"</span>: {
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Json Path syntactic search"</span>,
+          <span class="hljs-attr">"uriVariables"</span>: {
+            <span class="hljs-attr">"query"</span>: {
+              <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid Json Path expression"</span>,
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+              <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+            }
+          },
+          <span class="hljs-attr">"forms"</span>: [
+            {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/jsonpath?query={query}"</span>,
+              <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+              <span class="hljs-attr">"response"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+              },
+             <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"search"</span>
+            }
+          ]
+        },
+        <span class="hljs-attr">"searchXPath"</span>: {
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"XPath syntactic search"</span>,
+          <span class="hljs-attr">"uriVariables"</span>: {
+            <span class="hljs-attr">"query"</span>: {
+              <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid XPath expression"</span>,
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+              <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+            }
+          },
+          <span class="hljs-attr">"forms"</span>: [
+            {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/xpath?query={query}"</span>,
+              <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+              <span class="hljs-attr">"response"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+              },
+             <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"search"</span>
+            }
+          ]
+        },
+        <span class="hljs-attr">"searchSPARQL"</span>: {
+          <span class="hljs-attr">"description"</span>: <span class="hljs-string">"SPARQL semantic search"</span>,
+          <span class="hljs-attr">"uriVariables"</span>: {
+            <span class="hljs-attr">"query"</span>: {
+              <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid SPARQL 1.1. query"</span>,
+              <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+              <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+            }
+          },
+          <span class="hljs-attr">"forms"</span>: [
+            {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/sparql?query={query}"</span>,
+              <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+              <span class="hljs-attr">"response"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+              },
+             <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"search"</span>
+            },
+            {
+              <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/sparql"</span>,
+              <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"POST"</span>,
+              <span class="hljs-attr">"response"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+              },
+              <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"search"</span>
+            }
+          ]
+        }
+    },
+    <span class="hljs-attr">"events"</span>: {
+        <span class="hljs-attr">"registration"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"TD registration events"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"type"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Event type"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"enum"</span>: [
+                        <span class="hljs-string">"created_td"</span>,
+                        <span class="hljs-string">"updated_td"</span>,
+                        <span class="hljs-string">"deleted_td"</span>
+                    ]
+                },
+                <span class="hljs-attr">"td_id"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Identifier of TD in directory"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+                },
+                <span class="hljs-attr">"include_changes"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Include TD changes inside event data"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"boolean"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"op"</span>: <span class="hljs-string">"subscribeevent"</span>,
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/events{?type,td_id,include_changes}"</span>,
+                    <span class="hljs-attr">"subprotocol"</span>: <span class="hljs-string">"sse"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"text/event-stream"</span>,
+                    <span class="hljs-attr">"htv:headers"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of the last event for reconnection"</span>,
+                            <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Last-Event-ID"</span>,
+                            <span class="hljs-attr">"htv:fieldValue"</span>: <span class="hljs-string">""</span>
+                        }
+                    ],
+                    <span class="hljs-attr">"data"</span>: {
+                        <span class="hljs-attr">"oneOf"</span>:[
+                            {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema of event data"</span>,
+                                <span class="hljs-attr">"properties"</span>: {
+                                    <span class="hljs-attr">"td_id"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>,
+                                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Identifier of TD in directory"</span>
+                                    }
+                                }
+                            },
+                            {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema of create event data including the created TD"</span>,
+                                <span class="hljs-attr">"properties"</span>: {
+                                    <span class="hljs-attr">"td_id"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>,
+                                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Identifier of TD in directory"</span>
+                                    },
+                                    <span class="hljs-attr">"td"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The created TD in a create event"</span>
+                                    }
+                                }
+                            },
+                            {
+                                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema of the update event data including the updates to TD"</span>,
+                                <span class="hljs-attr">"properties"</span>: {
+                                    <span class="hljs-attr">"td_id"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                                        <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>,
+                                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Identifier of TD in directory"</span>
+                                    },
+                                    <span class="hljs-attr">"td_updates"</span>: {
+                                        <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The partial TD composed of modified TD parts in an update event"</span> 
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    <span class="hljs-attr">"scopes"</span>: <span class="hljs-string">"notifications"</span>
+                }
+            ]
+        }
+    }
+}
+</code></pre>
+
+                    <div class="note" id="issue-container-generatedID-9"><div role="heading" class="ednote-title marker" id="h-ednote-9" aria-level="5"><span>Editor's note</span><span class="issue-label">: Normative JSON Block</span></div><p class="">
+                        Need to add a css class for normative code blocks, instead of using the <code>example</code> class.
+                    </p></div>
+                    <div class="note" id="issue-container-generatedID-10"><div role="heading" class="ednote-title marker" id="h-ednote-10" aria-level="5"><span>Editor's note</span><span class="issue-label">: ID Type</span></div><p class="">
+                        The <code>id</code> variable need to have a defined type for semantic association with TD's <code>id</code> attribute.
+                    </p></div>
+                    <div class="note" id="issue-container-generatedID-11"><div role="heading" class="ednote-title marker" id="h-ednote-11" aria-level="5"><span>Editor's note</span><span class="issue-label">: Scopes</span></div><p class="">
+                        The scopes may need to be more concrete to able to allow updates but prevent creation.
+                    </p></div>
+                    
+                </aside>
+                <div class="issue" id="issue-container-number-82"><div role="heading" class="issue-title marker" id="h-issue-0" aria-level="5"><a href="https://github.com/w3c/wot-discovery/issues/82"><span class="issue-number">Issue 82</span></a><span class="issue-label">: Creation of OpenAPI spec from Directory TD</span></div><p class="">
+                    Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
+                    <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>. If yes, a sentence may be added indicating
+                    this possibility.
+                </p></div>
+
+                <section id="exploration-directory-api-registration" class="normative">
+                    <h5 id="x6-2-2-1-registration"><bdi class="secno">6.2.2.1 </bdi>Registration<a class="self-link" aria-label="§" href="#exploration-directory-api-registration"></a></h5>
+                    <p>
+                        The Registration API is a RESTful HTTP API in accordance with the recommendations
+                        defined in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7231" title="Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content">RFC7231</a></cite>] and [<cite><a class="bibref" data-link-type="biblio" href="#bib-rest-iot" title="RESTful Design for Internet of Things Systems">REST-IOT</a></cite>].
+                        <span class="rfc2119-assertion" id="tdd-reg-default-representation">
+                            The default serialization format for all request and response bodies <em class="rfc2119">MUST</em> be
+                            JSON, with JSON-LD 1.1 [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>] syntax to support extensions and semantic
+                            processing.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
+                            Directories <em class="rfc2119">MAY</em> accept additional representations based on request's indicated
+                            Content-Type or Content-Encoding, and provide additional representations through
+                            server-driven content negotiation.
+                        </span>
+                    </p>
+                    <p>
+                        <span class="rfc2119-assertion" id="tdd-reg-operations">
+                            The Registration API <em class="rfc2119">MUST</em> provide create, retrieve, update, delete (CRUD) interfaces. 
+                        </span>
+                        </p><div class="issue" id="issue-container-number-16"><div role="heading" class="issue-title marker" id="h-issue-1" aria-level="6"><a href="https://github.com/w3c/wot-discovery/issues/16"><span class="issue-number">Issue 16</span></a><span class="issue-label">: Handle huge set of Thing Descriptions</span></div><div class="">
+                            The API needs to offer a mechanism to efficiently query all TDs.
+                            The search API may offer the expected functionality by searching for everything
+                            and adding protocol-specific pagination arguments. However, that is hardly RESTful.
+                            We could instead extend the registration API to CRUDL, adding Listing operation.   
+                        </div></div>
+                        The operations are described below:
+                    <p></p>
+
+                    <dl>
+                        <dt>TD Creation</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-body">
+                                The API <em class="rfc2119">MUST</em> allow registration of a TD object passed as request body.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-contenttype">
+                                The request <em class="rfc2119">SHOULD</em> contain <code>application/td+json</code> Content-Type header for 
+                                JSON serialization of TD.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-create-validation">
+                                The TD object <em class="rfc2119">SHOULD</em> be validated syntactically using the 
+                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description" title="Web of Things (WoT) Thing Description">WoT-Thing-Description</a></cite>]. 
+                            </span>
+                        </p>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-types"> 
+                                A TD which is identified with an <code>id</code> attribute <em class="rfc2119">MUST</em> be handled 
+                                differently with one that has no identifier (<a href="#dfn-wot-anonymous-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-anonymous-thing-description-1">Anonymous TD</a>).
+                            </span>
+                            The create operations are specified as <code>createTD</code> action in 
+                            <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>
+                            and elaborated below:
+                        </p>
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
+                                    A TD <em class="rfc2119">MUST</em> be submitted to the directory using an HTTP <code>PUT</code> request at a  
+                                    target location (HTTP path) containing the unique TD <code>id</code>.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td-resp">  
+                                    Upon successful processing, the server <em class="rfc2119">MUST</em> respond with
+                                    201 (Created) status.                           
+                                </span>
+
+                                <p>
+                                    Note: If the target location corresponds to an existing TD,
+                                    the request shall instead proceed as an Update operation and respond
+                                    the appropriate status code (see Update section).
+                                </p>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
+                                    An <a href="#dfn-wot-anonymous-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-anonymous-thing-description-2">Anonymous TD</a> <em class="rfc2119">MUST</em> be submitted to the directory using an HTTP <code>POST</code> request. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-resp">
+                                    Upon successful processing, the server <em class="rfc2119">MUST</em> respond with 201 (Created) status
+                                    and a Location header containing a system-generated identifier for the TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
+                                    The identifier <em class="rfc2119">SHOULD</em> be a Version 4 UUID URN [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc4122" title="A Universally Unique IDentifier (UUID) URN Namespace">RFC4122</a></cite>].
+                                
+                            </li>
+                        </ul>
+
+                        <p>
+                            Error responses:
+                            </p><ul>
+                                <li>
+                                    400 (Bad Request): Invalid serialization or TD.
+                                    This is accompanied by an appropriate response message.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        <p></p>
+                      
+                        <div class="note" id="issue-container-generatedID-12"><div role="heading" class="ednote-title marker" id="h-ednote-12" aria-level="6"><span>Editor's note</span><span class="issue-label">: Deduplication</span></div><p class="">
+                            The server should employ a mechanism to eliminate duplication of TDs submitted with
+                            a <code>POST</code> request. The spec need to have recommendations on how to perform this.
+                        </p></div>
+                        </dd>
+                    
+                        <dt>TD Retrieval</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-retrieve">
+                                A TD <em class="rfc2119">MUST</em> be retrieved from the directory using an HTTP <code>GET</code> request,
+                                including the identifier of the TD as part of the path.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
+                                A successful response <em class="rfc2119">MUST</em> have 200 (OK) status, contain <code>application/td+json</code>
+                                Content-Type header, and the requested TD in body.
+                            </span>
+                            The retrieve operation is specified as <code>retrieveTD</code> property in 
+                            <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+                        </p>
+
+                        <p>
+                            Error responses:  
+                            </p><ul>
+                                <li>
+                                    404 (Not Found): TD with the given <code>id</code> not found.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        <p></p>
+                        </dd>
+                    
+                        <dt>TD Update</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-types">
+                                The API <em class="rfc2119">MUST</em> allow modifications to existing TDs as full replacement or partial updates.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
+                                The request <em class="rfc2119">SHOULD</em> contain <code>application/td+json</code> Content-Type header for JSON
+                                serialization of TD.
+                            </span>
+                            The update operations are described below:
+                        </p>
+
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-update">
+                                    A modified TD <em class="rfc2119">MUST</em> replace an existing one when submitted using an HTTP <code>PUT</code> request
+                                    to the location corresponding to the existing TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-validation">
+                                    The TD object <em class="rfc2119">SHOULD</em> be
+                                    validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description" title="Web of Things (WoT) Thing Description">WoT-Thing-Description</a></cite>]. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-resp">
+                                    Upon success, the server <em class="rfc2119">MUST</em> respond with 204 (No Content) status. 
+                                </span>
+                                This operation is specified as <code>updateTD</code> property in 
+                                <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+
+                                <p>
+                                    Note: If the target location does not correspond to an existing TD,
+                                    the request shall instead proceed as a Create operation and respond
+                                    the appropriate status code (see Create section). In other words, an HTTP <code>PUT</code>
+                                    request acts as a create or update operation. An HTTP <code>PATCH</code> may be used for
+                                    an update-only operation.
+                                </p>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial">
+                                    An existing TD <em class="rfc2119">MUST</em> be partially modified when the modified parts are submitted using an 
+                                    HTTP <code>PATCH</code> request to the location corresponding to the existing TD.
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
+                                    The modified parts <em class="rfc2119">MUST</em> be in <a href="#dfn-wot-partial-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-partial-thing-description-1">Partial TD</a> form and conform to the
+                                    original TD structure. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-fulltd">
+                                    The input <em class="rfc2119">MAY</em> include other existing parts of the TD or the whole TD object.
+                                </span>
+                                When the whole TD object is provided as input, the operation acts as an update-only action.
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-validation">
+                                    After applying the modifications,
+                                    the TD object <em class="rfc2119">SHOULD</em> be validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description" title="Web of Things (WoT) Thing Description">WoT-Thing-Description</a></cite>]. 
+                                </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
+                                    Upon success, the server <em class="rfc2119">MUST</em> respond with a 204 (No Content) status.
+                                </span>
+                                This operation is specified as <code>updatePartialTD</code> property in 
+                                <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Error responses:
+                            </p><ul>
+                                <li>
+                                    400 (Bad Request): Invalid serialization or TD.
+                                    This is accompanied by an appropriate response message.
+                                </li>
+                                <li>
+                                    404 (Not Found): TD with the given <code>id</code> not found (for <code>PATCH</code> only). 
+                                </li>
+                                <li>
+                                    401 (Unauthorized): Rejecting a request without appropriate authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Rejecting a request due to insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        <p></p>
+                        </dd>
+                    
+                        <dt>TD Deletion</dt><dd>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-delete">
+                                A TD <em class="rfc2119">MUST</em> be removed from the directory when an HTTP <code>DELETE</code> request
+                                is submitted to the location corresponding to the existing TD.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
+                                A successful response <em class="rfc2119">MUST</em> have 204 (No Content) status.
+                            </span>
+                            The retrieve operation is specified as <code>deleteTD</code> property in
+                            <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+                        </p>
+
+                        <p>
+                            Error responses:
+                            </p><ul>
+                                <li>
+                                    404 (Not Found): TD with the given <code>id</code> not found.
+                                </li>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        <p></p>
+                        </dd>
+                    </dl>
+
+                </section>
+                <section id="exploration-directory-api-management" class="normative">
+                    <h5 id="x6-2-2-2-management"><bdi class="secno">6.2.2.2 </bdi>Management<a class="self-link" aria-label="§" href="#exploration-directory-api-management"></a></h5>
+                    <div class="note" id="issue-container-generatedID-13"><div role="heading" class="ednote-title marker" id="h-ednote-13" aria-level="6"><span>Editor's note</span><span class="issue-label">: Management API</span></div><p class="">
+                      To do: Other administrative functions not having to do with CRUD of individual records,
+                    for example, security configuration.
+                    Also, administrator roles may expand the capabilities of administrators for
+                    management of records (for instance, the ability to delete a record they did not create).
+                    </p></div>
+                </section>
+                <section id="exploration-directory-api-notification" class="normative">
+                    <h5 id="x6-2-2-3-notification"><bdi class="secno">6.2.2.3 </bdi>Notification<a class="self-link" aria-label="§" href="#exploration-directory-api-notification"></a></h5>
+                    <p>The Notification API is to notify clients about the changes
+                        to Thing Descriptions maintained within the directory.
+                        <span class="rfc2119-assertion" id="tdd-notification-sse">
+                            The Notification API <em class="rfc2119">MUST</em> follow the Server-Sent Events [<cite><a class="bibref" data-link-type="biblio" href="#bib-eventsource" title="Server-Sent Events">EVENTSOURCE</a></cite>]
+                            specifications to serve events to clients. 
+                        </span>
+                        In particular, the server responds to successful requests with 200 (OK) status
+                        and <code>text/event-stream</code> Content Type. Re-connecting clients may continue from
+                        the last event by providing the last event ID as <code>Last-Event-ID</code> header value.
+                        This API is specified as <code>registration</code> event in <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+                    </p>
+
+                    <dl>
+                        <dt>Event Types</dt>
+                        <dd>
+                            <span class="rfc2119-assertion" id="tdd-notification-event-types">
+                                The server <em class="rfc2119">MUST</em> produce events for creation, update, and deletion of
+                                Thing Descriptions represented by <code>created_td</code>, <code>updated_td</code>, <code>deleted_td</code>
+                                keywords respectively.
+                            </span>
+                        </dd>
+
+                        <dt>Event Filtering</dt>
+                        <dd>
+                            The API supports server-side filtering of events to reduce resource consumption
+                            by delivering only the events required by clients.
+                            The filtering is based on query parameters passed to the server at 
+                            connection time. The filtering behavior is described below:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-type">
+                                        The server <em class="rfc2119">MUST</em> support event filtering based on the 
+                                        event types passed as one or more <code>type</code> query parameters.
+                                    </span>
+                                    For example, in response to query <code>?type=created_td&amp;type=deleted_td</code>,
+                                    the server must only deliver events of types <code>created_td</code> and <code>deleted_td</code>.
+                                    At the absence of any <code>type</code> query parameter, the server must deliver all
+                                    types of events.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-tdid">
+                                        The server <em class="rfc2119">MUST</em> support event filtering based on the 
+                                        Thing Description identifier passed as one or more <code>td_id</code> query parameters.
+                                    </span>
+                                    For example, the query <code>?type=updated_td&amp;td_id=urn:example:1234</code> must
+                                    result in <code>updated_td</code> events for the TD identified with <code>urn:example:1234</code>.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search">
+                                        The server <em class="rfc2119">MAY</em> support event filtering based on the 
+                                        search expressions passed as one of <code>jsonpath</code>, <code>xpath</code>, 
+                                        or <code>sparql</code> query parameters.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search-unsupported">
+                                        If the server does not support a given search query parameter, it
+                                        <em class="rfc2119">MUST</em> reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
+                            </ul>
+                        </dd>
+                        <dt>Event Data</dt>
+                        <dd>
+                            <span class="rfc2119-assertion" id="tdd-notification-data">
+                                The event data <em class="rfc2119">MUST</em> contain the JSON serialization of the event object.
+                            </span>
+                            The event data object is defined by the following rules:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-tdid">
+                                        The event data object <em class="rfc2119">MUST</em> at least include the identifier of the
+                                        TD created, updated, or deleted at that event as value of <code>td_id</code> field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-createdtd">
+                                        When <code>include_changes</code> query parameter is set to <code>true</code>, the create
+                                        event data object <em class="rfc2119">MAY</em> include the created TD as the value of <code>created_td</code>
+                                        field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-tdupdates">
+                                        When <code>include_changes</code> query parameter is set to <code>true</code>, the update
+                                        event data object <em class="rfc2119">MAY</em> include the updated parts of the TD in
+                                        <a href="#dfn-wot-partial-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-partial-thing-description-2">Partial TD</a> form as the value of <code>td_updates</code> field.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-change-unsupported">
+                                        When a server which does not support the inclusion of changes inside event
+                                        data object is requested with a <code>include_changes</code> query parameter, it <em class="rfc2119">MUST</em>
+                                        reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
+                            </ul>
+                        </dd>
+                    </dl>
+
+                    <div class="note" id="issue-container-generatedID-14"><div role="heading" class="ednote-title marker" id="h-ednote-14" aria-level="6"><span>Editor's note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
+                        Some early SSE implementations (including HTML5 EventSource) do not allow
+                        setting custom headers in the initial HTTP request. Authorization header 
+                        is required in few OAuth2 flows and passing it as a query parameter is
+                        <a href="https://tools.ietf.org/html/rfc6750#section-2.3">not advised</a>.
+
+                        There are polyfills for browsers and modern libraries which allow 
+                        setting Authorization header.
+                    </p></div>
+                    
+
+                </section>
+          <section id="exploration-directory-api-search" class="normative">
+                    <h5 id="x6-2-2-4-search"><bdi class="secno">6.2.2.4 </bdi>Search<a class="self-link" aria-label="§" href="#exploration-directory-api-search"></a></h5>
+                    
+                    <div class="note" id="issue-container-generatedID-15"><div role="heading" class="ednote-title marker" id="h-ednote-15" aria-level="6"><span>Editor's note</span><span class="issue-label">: Search API Overview</span></div><p class="">
+                    Sub-API to search a directory, e.g. issue a query.
+                    There are different forms and levels of query possible, for example,
+                    syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
+                    and the more advanced query types may not be 
+                    supported by all directories.   
+                    So this API will have further subsections,
+                    some of which will be optional.
+                    Search also includes a sub-API for managing listing the contents (eg returned by
+                    a query) including handling pagination, etc.
+                    Note that one special form of query will be able to return everything.
+                    Results may be subject to the requestor's authorization.
+                    <br>
+                    To discuss further:
+                    Federated queries to other TDDs, Spatial and network-limited queries, Links
+                    </p></div>
+        The Directory has three search APIs: syntactic search with JSONPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-jsonpath" title="JSONPath -- XPath for JSON">JSONPATH</a></cite>] or XPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-xpath-31" title="XML Path Language (XPath) 3.1">xpath-31</a></cite>], and semantic search with SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-sparql11-overview" title="SPARQL 1.1 Overview">sparql11-overview</a></cite>].
+		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
+			The Directory <em class="rfc2119">MUST</em> implement the syntactic search with JSONPath.
+		    </span>
+		    <span class="rfc2119-assertion" id="tdd-search-apis-xPath">
+			The Directory <em class="rfc2119">SHOULD</em> implement the syntactic search with XPath.
+		    </span>
+		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
+			 The Directory <em class="rfc2119">MAY</em> implement semantic search with SPARQL.
+		    </span>
+    		
+        <section id="jsonpath-semantic" class="normative">
+          <h6 id="x6-2-2-4-1-syntactic-search-jsonpath"><bdi class="secno">6.2.2.4.1 </bdi>Syntactic search: JSONPath<a class="self-link" aria-label="§" href="#jsonpath-semantic"></a></h6>
+          <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API <em class="rfc2119">MUST</em> allow searching TDs using an HTTP <code>GET</code> request.</span> 
+          <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request <em class="rfc2119">MUST</em> contain a valid JSONPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-jsonpath" title="JSONPath -- XPath for JSON">JSONPATH</a></cite>] as searching parameter.</span>
+          <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response <em class="rfc2119">MUST</em> have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
+          The syntactic search with JSONPath is specified as <code>searchJSONPath</code> property in
+          <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+
+	  <p>List of errors:
+            </p><ul>
+              <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
+              <li>401 (Unauthorized): No authentication.</li>
+              <li>403 (Forbidden): Insufficient rights to the resource.</li>
+            </ul>
+          <p></p>
+          <div class="issue" id="issue-container-number-56"><div role="heading" class="issue-title marker" id="h-issue-2" aria-level="7"><a href="https://github.com/w3c/wot-discovery/issues/56"><span class="issue-number">Issue 56</span></a><span class="issue-label" aria-label="This issue is labelled as T2TRG.">: Reach out to JSONPath community <a class="respec-gh-label" href="https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22T2TRG%22" style="background-color: rgb(198, 129, 55); color: rgb(0, 0, 0);">T2TRG</a></span></div><div class="">
+              The standardization of JSONPath expressions is in progress by an independent working group.
+          </div></div>
+        </section>
+	<section id="xpath-semantic" class="normative">
+        <h6 id="x6-2-2-4-2-syntactic-search-xpath"><bdi class="secno">6.2.2.4.2 </bdi>Syntactic search: XPath<a class="self-link" aria-label="§" href="#xpath-semantic"></a></h6>
+        The support for XPath Search API is recommended.
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-method">If implemented, the XPath query API <em class="rfc2119">MUST</em> allow searching TDs using an HTTP <code>GET</code> request.</span>
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-parameter">The request <em class="rfc2119">MUST</em> contain a valid XPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-xpath-31" title="XML Path Language (XPath) 3.1">xpath-31</a></cite>] as search parameter.</span>
+    	<span class="rfc2119-assertion" id="tdd-search-xpath-response">A successful response <em class="rfc2119">MUST</em> have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
+    The syntactic search with XPath is specified as <code>searchXPath</code> property in
+    <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+                            
+	 <p>List of errors:
+    	  </p><ul>
+    	   <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
+           <li>401 (Unauthorized): No authentication.</li>
+           <li>403 (Forbidden): Insufficient rights to the resource.</li>
+           <li>501 (Not Implemented): XPath API not supported.</li>
+    	  </ul>
+    	 <p></p>
+        </section>
+	<section id="search-semantic" class="normative">
+           <h6 id="x6-2-2-4-3-semantic-search-sparql"><bdi class="secno">6.2.2.4.3 </bdi>Semantic search: SPARQL<a class="self-link" aria-label="§" href="#search-semantic"></a></h6>
+           The support for SPARQL Search API is optional.
+         <span class="rfc2119-assertion" id="tdd-search-semantic-protocol">If implemented, the SPARQL search API <em class="rfc2119">MUST</em> allow searching TDs using the SPARQL protocol [<cite><a class="bibref" data-link-type="biblio" href="#bib-sparql11-overview" title="SPARQL 1.1 Overview">sparql11-overview</a></cite>].</span>
+         <span class="rfc2119-assertion" id="tdd-search-semantic-method-get">The SPARQL API <em class="rfc2119">MUST</em> accept queries using HTTP <code>GET</code> requests.</span>
+         <span class="rfc2119-assertion" id="tdd-search-semantic-method-post">The support for SPARQL search using HTTP <code>POST</code> method is <em class="rfc2119">OPTIONAL</em>.</span>
+         <code>UPDATE</code> queries are out of the scope for the API.
+      	 <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response <em class="rfc2119">MUST</em> have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>. The response body <em class="rfc2119">MAY</em> contain TD fragments or a set of TDs depending on the query.</span>
+           The semantic search with SPARQL is specified as <code>searchSPARQL</code> property in
+           <a href="#directory-thing-description" class="box-ref">Example<bdi> 2</bdi></a>.
+	 <p>List of errors:
+              </p><ul>
+                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
+                <li>401 (Unauthorized): No authentication.</li>
+                <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                <li>501 (Not Implemented): SPARQL API not supported.</li>
+              </ul>
+            <p></p>
+      			</section>
+			
+            </section>
+            </section>
+            <section id="exploration-directory-security" class="normative">
+                <h4 id="x6-2-3-security-and-privacy"><bdi class="secno">6.2.3 </bdi>Security and Privacy<a class="self-link" aria-label="§" href="#exploration-directory-security"></a></h4>
+                <div class="note" id="issue-container-generatedID-16"><div role="heading" class="ednote-title marker" id="h-ednote-16" aria-level="5"><span>Editor's note</span><span class="issue-label">: Security Considerations Overview</span></div><p class="">
+                    Minimum security and privacy requirements for confidentiality, authentication, access control, etc.
+                </p></div>
+            </section>
+        </section>
+    </section>
+
+    <section id="security-considerations" class="informative">
+        <h2 id="x7-security-and-privacy-considerations"><bdi class="secno">7. </bdi>Security and Privacy Considerations<a class="self-link" aria-label="§" href="#security-considerations"></a></h2><p><em>This section is non-normative.</em></p>
+        <p>
+            Security and privacy are cross-cutting issues that need to be considered
+            in all WoT building blocks and WoT implementations. This chapter
+            summarizes some general issues and guidelines to help
+            preserve the security and privacy of concrete WoT discovery implementations.
+            For a more detailed and complete analysis of security and
+            privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
+            specification [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-security" title="Web of Things (WoT) Security and Privacy Guidelines">WOT-SECURITY</a></cite>].
+        </p>
+        <div class="note" id="issue-container-generatedID-17"><div role="heading" class="ednote-title marker" id="h-ednote-17" aria-level="3"><span>Editor's note</span><span class="issue-label">: Discovery Security and Privacy Concerns and Mitigations</span></div><p class="">
+        To do, some discussion of general security and privacy concerns and mitigations.
+        Note that the architecture above is designed to address many such points, for
+        example the two-phase approach and "authorization before metadata release"
+        principles, so this would be 
+        a summary and a recap.
+        </p></div>
+    </section>
+
+    <section id="changes" class="appendix">
+      <h2 id="a-recent-specification-changes"><bdi class="secno">A. </bdi>Recent Specification Changes<a class="self-link" aria-label="§" href="#changes"></a></h2>
+
+      <ul>
+      <li>Initial draft.</li>
+      </ul>
+    </section>
+
+    <section id="acknowledgements" class="appendix normative">
+        <h2 id="b-acknowledgments"><bdi class="secno">B. </bdi>Acknowledgments<a class="self-link" aria-label="§" href="#acknowledgements"></a></h2>
+
+        <p>
+            Many thanks to the <abbr title="World Wide Web Consortium">W3C</abbr> staff and all other active Participants of the <abbr title="World Wide Web Consortium">W3C</abbr> Web
+            of Things Interest Group (WoT IG) and Working Group (WoT WG) for their
+            support, technical input and suggestions that led to improvements to
+            this document.
+        </p>
+    </section>
+
+
+<section id="references" class="appendix"><h2 id="c-references"><bdi class="secno">C. </bdi>References<a class="self-link" aria-label="§" href="#references"></a></h2><section id="normative-references">
+    <h3 id="c-1-normative-references"><bdi class="secno">C.1 </bdi>Normative references<a class="self-link" aria-label="§" href="#normative-references"></a></h3>
+    <dl class="bibliography"><dt id="bib-core-rd">[CoRE-RD]</dt><dd><a href="https://tools.ietf.org/html/draft-ietf-core-resource-directory-25"><cite>CoRE Resource Directory</cite></a>. Zach Shelby; Michael Koster; Carsten Bormann; Peter van der Stok; Christian Amsüss.  IETF. 13 July 2020. URL: <a href="https://tools.ietf.org/html/draft-ietf-core-resource-directory-25">https://tools.ietf.org/html/draft-ietf-core-resource-directory-25</a></dd><dt id="bib-did-core">[DID-CORE]</dt><dd><a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Drummond Reed; Manu Sporny; Markus Sabadello; Dave Longley; Christopher Allen; Jonathan Holt.  W3C. 7 September 2020. W3C Working Draft. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd><dt id="bib-eventsource">[EVENTSOURCE]</dt><dd><a href="https://www.w3.org/TR/eventsource/"><cite>Server-Sent Events</cite></a>. Ian Hickson.  W3C. 3 February 2015. W3C Recommendation. URL: <a href="https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a></dd><dt id="bib-json-ld11">[JSON-LD11]</dt><dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 5 March 2020. W3C Candidate Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a></dd><dt id="bib-rfc2119">[RFC2119]</dt><dd><a href="https://tools.ietf.org/html/rfc2119"><cite>Key words for use in RFCs to Indicate Requirement Levels</cite></a>. S. Bradner.  IETF. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a></dd><dt id="bib-rfc2782">[RFC2782]</dt><dd><a href="https://tools.ietf.org/html/rfc2782"><cite>A DNS RR for specifying the location of services (DNS SRV)</cite></a>. A. Gulbrandsen; P. Vixie; L. Esibov.  IETF. February 2000. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc2782">https://tools.ietf.org/html/rfc2782</a></dd><dt id="bib-rfc4122">[RFC4122]</dt><dd><a href="https://tools.ietf.org/html/rfc4122"><cite>A Universally Unique IDentifier (UUID) URN Namespace</cite></a>. P. Leach; M. Mealling; R. Salz.  IETF. July 2005. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc4122">https://tools.ietf.org/html/rfc4122</a></dd><dt id="bib-rfc6690">[RFC6690]</dt><dd><a href="https://tools.ietf.org/html/rfc6690"><cite>Constrained RESTful Environments (CoRE) Link Format</cite></a>. Z. Shelby.  IETF. August 2012. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6690">https://tools.ietf.org/html/rfc6690</a></dd><dt id="bib-rfc6762">[RFC6762]</dt><dd><a href="https://tools.ietf.org/html/rfc6762"><cite>Multicast DNS</cite></a>. S. Cheshire; M. Krochmal.  IETF. February 2013. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6762">https://tools.ietf.org/html/rfc6762</a></dd><dt id="bib-rfc6763">[RFC6763]</dt><dd><a href="https://tools.ietf.org/html/rfc6763"><cite>DNS-Based Service Discovery</cite></a>. S. Cheshire; M. Krochmal.  IETF. February 2013. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc6763">https://tools.ietf.org/html/rfc6763</a></dd><dt id="bib-rfc7231">[RFC7231]</dt><dd><a href="https://httpwg.org/specs/rfc7231.html"><cite>Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content</cite></a>. R. Fielding, Ed.; J. Reschke, Ed..  IETF. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7231.html">https://httpwg.org/specs/rfc7231.html</a></dd><dt id="bib-rfc7807">[RFC7807]</dt><dd><a href="https://tools.ietf.org/html/rfc7807"><cite>Problem Details for HTTP APIs</cite></a>. M. Nottingham; E. Wilde.  IETF. March 2016. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc7807">https://tools.ietf.org/html/rfc7807</a></dd><dt id="bib-rfc8174">[RFC8174]</dt><dd><a href="https://tools.ietf.org/html/rfc8174"><cite>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</cite></a>. B. Leiba.  IETF. May 2017. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc8174">https://tools.ietf.org/html/rfc8174</a></dd><dt id="bib-rfc8615">[RFC8615]</dt><dd><a href="https://tools.ietf.org/html/rfc8615"><cite>Well-Known Uniform Resource Identifiers (URIs)</cite></a>. M. Nottingham.  IETF. May 2019. Proposed Standard. URL: <a href="https://tools.ietf.org/html/rfc8615">https://tools.ietf.org/html/rfc8615</a></dd><dt id="bib-sparql11-overview">[SPARQL11-OVERVIEW]</dt><dd><a href="https://www.w3.org/TR/sparql11-overview/"><cite>SPARQL 1.1 Overview</cite></a>. The W3C SPARQL Working Group.  W3C. 21 March 2013. W3C Recommendation. URL: <a href="https://www.w3.org/TR/sparql11-overview/">https://www.w3.org/TR/sparql11-overview/</a></dd><dt id="bib-wot-architecture">[wot-architecture]</dt><dd><a href="https://www.w3.org/TR/wot-architecture/"><cite>Web of Things (WoT) Architecture</cite></a>. Matthias Kovatsch; Ryuichi Matsukura; Michael Lagally; Toru Kawaguchi; Kunihiko Toumura; Kazuo Kajimoto.  W3C. 9 April 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/wot-architecture/">https://www.w3.org/TR/wot-architecture/</a></dd><dt id="bib-wot-thing-description">[wot-thing-description]</dt><dd><a href="https://www.w3.org/TR/wot-thing-description/"><cite>Web of Things (WoT) Thing Description</cite></a>. Sebastian Käbisch; Takuki Kamiya; Michael McCool; Victor Charpenay; Matthias Kovatsch.  W3C. 9 April 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/wot-thing-description/">https://www.w3.org/TR/wot-thing-description/</a></dd><dt id="bib-wot-usecases">[wot-usecases]</dt><dd><a href="https://w3c.github.io/wot-usecases/"><cite>Web of Things (WoT): Use Cases</cite></a>. Michael Lagally; Michael McCool; Ryuichi Matsukura; Tomoaki Mizushima.  W3C. 15 October 2020. Editor's Draft. URL: <a href="https://w3c.github.io/wot-usecases/">https://w3c.github.io/wot-usecases/</a></dd><dt id="bib-xpath-31">[xpath-31]</dt><dd><a href="https://www.w3.org/TR/xpath-31/"><cite>XML Path Language (XPath) 3.1</cite></a>. Jonathan Robie; Michael Dyck; Josh Spiegel.  W3C. 21 March 2017. W3C Recommendation. URL: <a href="https://www.w3.org/TR/xpath-31/">https://www.w3.org/TR/xpath-31/</a></dd></dl>
+  </section><section id="informative-references">
+    <h3 id="c-2-informative-references"><bdi class="secno">C.2 </bdi>Informative references<a class="self-link" aria-label="§" href="#informative-references"></a></h3>
+    <dl class="bibliography"><dt id="bib-jsonpath">[JSONPATH]</dt><dd><a href="https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html"><cite>JSONPath -- XPath for JSON</cite></a>. S. Gössner; C. Bormann, Ed..  IETF. 12 July 2020. DRAFT. URL: <a href="https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html">https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html</a></dd><dt id="bib-rest-iot">[REST-IOT]</dt><dd><a href="https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06"><cite>RESTful Design for Internet of Things Systems</cite></a>. Ari Keranen; Matthias Kovatsch; Klaus Hartke.  IETF. 11 May 2020. URL: <a href="https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06">https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06</a></dd><dt id="bib-rfc8552">[RFC8552]</dt><dd><a href="https://tools.ietf.org/html/rfc8552"><cite>Scoped Interpretation of DNS Resource Records through "Underscored" Naming of Attribute Leaves</cite></a>. D. Crocker.  IETF. March 2019. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc8552">https://tools.ietf.org/html/rfc8552</a></dd><dt id="bib-wot-security">[WOT-SECURITY]</dt><dd><a href="https://www.w3.org/TR/wot-security/"><cite>Web of Things (WoT) Security and Privacy Guidelines</cite></a>. Elena Reshetova; Michael McCool.  W3C. 6 November 2019. W3C Note. URL: <a href="https://www.w3.org/TR/wot-security/">https://www.w3.org/TR/wot-security/</a></dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Back to Top">↑</abbr></a>
+  </p><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-anonymous-thing-description">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-anonymous-thing-description">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-wot-anonymous-thing-description-1">6.2.2.1 Registration</a> <a href="#ref-for-dfn-wot-anonymous-thing-description-2">(2)</a> 
+  </li>
+  </ul>
+    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-discovery">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-discovery">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-exploration">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-exploration">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-introduction">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-introduction">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-thing-description-directory">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-thing-description-directory">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+      <li>Not referenced in this document.</li>
+    </ul>
+    </aside><aside class="dfn-panel" hidden="" id="dfn-panel-for-dfn-wot-partial-thing-description">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-wot-partial-thing-description">Permalink</a>
+         
+      </div>
+      <b>Referenced in:</b>
+      <ul>
+    <li>
+    <a href="#ref-for-dfn-wot-partial-thing-description-1">6.2.2.1 Registration</a> 
+  </li><li>
+    <a href="#ref-for-dfn-wot-partial-thing-description-2">6.2.2.3 Notification</a> 
+  </li>
+  </ul>
+    </aside><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(dfnPanel);
+} else {
+  dfnPanel();
+}
+
+function dfnPanel() {
+  /** @type {HTMLElement} */
+  let panel;
+  document.body.addEventListener("click", event => {
+    if (!(event.target instanceof HTMLElement)) return;
+
+    /** @type {HTMLElement} */
+    const el = event.target;
+
+    const action = deriveAction(el);
+    switch (action) {
+      case "show": {
+        if (panel) hidePanel(panel);
+        /** @type {HTMLElement} */
+        const dfn = el.closest("dfn, .index-term");
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        displayPanel(dfn, panel, { x: event.clientX, y: event.clientY });
+        break;
+      }
+      case "dock": {
+        panel.style.left = null;
+        panel.style.top = null;
+        panel.classList.add("docked");
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        break;
+      }
+    }
+  });
+}
+
+/** @param {HTMLElement} clickTarget */
+function deriveAction(clickTarget) {
+  const hitALink = !!clickTarget.closest("a");
+  if (clickTarget.closest("dfn, .index-term")) {
+    return hitALink ? null : "show";
+  }
+  if (clickTarget.closest(".dfn-panel")) {
+    if (hitALink) {
+      const clickedSelfLink = clickTarget.classList.contains("self-link");
+      return clickedSelfLink ? "hide" : "dock";
+    }
+    const panel = clickTarget.closest(".dfn-panel");
+    return panel.classList.contains("docked") ? "hide" : null;
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return null;
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement} */
+    const caret = panel.querySelector(".caret");
+    caret.style.left = `${newCaretOffset}px`;
+  }
+}
+
+/** @param {HTMLElement} panel */
+function hidePanel(panel) {
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><script src="https://www.w3.org/scripts/TR/2016/fixup.js"></script></body></html>
