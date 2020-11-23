@@ -183,8 +183,7 @@
           "uriVariables": {
             "query": {
               "title": "A valid JSONPath expression",
-              "type": "string",
-              "format": "iri-reference"
+              "type": "string"
             }
           },
           "forms": [
@@ -204,8 +203,7 @@
           "uriVariables": {
             "query": {
               "title": "A valid XPath expression",
-              "type": "string",
-              "format": "iri-reference"
+              "type": "string"
             }
           },
           "forms": [
@@ -225,8 +223,7 @@
           "uriVariables": {
             "query": {
               "title": "A valid SPARQL 1.1. query",
-              "type": "string",
-              "format": "iri-reference"
+              "type": "string"
             }
           },
           "forms": [
