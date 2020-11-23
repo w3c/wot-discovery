@@ -179,10 +179,10 @@
             ]
         },
         "searchJSONPath": {
-          "description": "Json Path syntactic search",
+          "description": "JSONPath syntactic search",
           "uriVariables": {
             "query": {
-              "title": "A valid Json Path expression",
+              "title": "A valid JSONPath expression",
               "type": "string",
               "format": "iri-reference"
             }
