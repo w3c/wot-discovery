@@ -90,7 +90,7 @@
             ]
         },
         "updateTD": {
-            "description": "Update an Thing Description",
+            "description": "Update a Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -124,7 +124,7 @@
                 {
                     "href": "/td/{id}",
                     "htv:methodName": "PATCH",
-                    "contentType": "application/td+json",
+                    "contentType": "application/merge-patch+json",
                     "response": {
                         "description": "Success response",
                         "htv:statusCodeValue": 204
