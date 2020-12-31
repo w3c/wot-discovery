@@ -553,11 +553,7 @@ img.wot-diagram {
                                 The request SHOULD contain `application/td+json` Content-Type header for 
                                 JSON serialization of TD.
                             </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-create-validation">
-                                The TD object SHOULD be validated syntactically using the 
-                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                                [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
-                            </span>
+                            The TD object must be validated in accordance with [[[#validation]]].
                         </p>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-types"> 
@@ -669,12 +665,7 @@ img.wot-diagram {
                                     The request SHOULD contain `application/td+json` Content-Type header for JSON
                                     serialization of TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-validation">
-                                    The TD object SHOULD be
-                                    validated syntactically using the 
-                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
-                                </span>
+                                The TD object must be validated in accordance with [[[#validation]]].
                                 <span class="rfc2119-assertion" id="tdd-reg-update-resp">
                                     Upon success, the server MUST respond with 204 (No Content) status. 
                                 </span>
@@ -712,12 +703,7 @@ img.wot-diagram {
                                 but appear in the original TD, that member is removed. 
                                 Members with object values are processed recursively.
                                 
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-validation">
-                                    After applying the modifications,
-                                    the TD object SHOULD be validated syntactically using the 
-                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
-                                </span>
+                                After applying the modifications, the TD object must be validated in accordance with [[[#validation]]].
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
                                     Upon success, the server MUST respond with a 204 (No Content) status.
                                 </span>
@@ -775,6 +761,30 @@ img.wot-diagram {
                         </p>
                         </dd>
                     </dl>
+
+                    <section id="validation" class="normative">
+                        <h4>Validation</h4>
+                        <span class="rfc2119-assertion" id="td-validation-syntactic">
+                            The syntactic validation of TD objects before storage is RECOMMENDED to
+                            prevent common erroneous submissions.
+                        </span>
+                        <span class="rfc2119-assertion" id="td-validation-jsonschema">
+                            The server MAY use
+                            <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                            to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
+
+                        </span>
+                        <span class="rfc2119-assertion" id="td-validation-result">
+                            If the server fails to validate the TD object, it MUST inform the client
+                            with necessary details to identify and resolve the errors.
+                        </span>
+
+                        <p class="ednote" title="Validation Example">
+                            It would be nice to include an example validation result in
+                            the uniform error format (i.e. RFC7807 Problem Details).
+                        </p>
+                        <div class="issue" data-number="99"></div>
+                    </section>
 
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
