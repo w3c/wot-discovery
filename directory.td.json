@@ -39,7 +39,7 @@
             ]
         },
         "combo_sc": {
-            "scheme": "combination",
+            "scheme": "combo",
             "oneOf": [
                 "oauth2_code",
                 "oauth2_client",
