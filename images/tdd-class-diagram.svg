@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="342px" preserveAspectRatio="none" style="width:473px;height:342px;" version="1.1" viewBox="0 0 473 342" width="473px" zoomAndPan="magnify"><defs><filter height="300%" id="f1wpkqcbyz9fg0" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><path d="M6,308 L6,333.3105 A0,0 0 0 0 6,333.3105 L211,333.3105 A0,0 0 0 0 211,333.3105 L211,318 L201,308 L126.8317,308 L191.7439,247.1661 L118.8317,308 L6,308 A0,0 0 0 0 6,308 " fill="#FBFB77" filter="url(#f1wpkqcbyz9fg0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M201,308 L201,318 L211,318 L201,308 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="184" x="12" y="325.5684">TD that describes a Directory</text><path d="M246.5,308 L246.5,333.3105 A0,0 0 0 0 246.5,333.3105 L464.5,333.3105 A0,0 0 0 0 464.5,333.3105 L464.5,318 L454.5,308 L357.0431,308 L341.2296,247.1661 L349.0431,308 L246.5,308 A0,0 0 0 0 246.5,308 " fill="#FBFB77" filter="url(#f1wpkqcbyz9fg0)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M454.5,308 L454.5,318 L464.5,318 L454.5,308 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="197" x="252.5" y="325.5684">TD that references a remote TD</text><!--MD5=[6a8e0b5db991f1a21efadff2b50a92fd]
+class TDD--><rect codeLine="10" fill="#FEFECE" filter="url(#f1wpkqcbyz9fg0)" height="32" id="TDD" style="stroke:#A80036;stroke-width:1.5;" width="105" x="213" y="7"/><ellipse cx="228" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M230.4731,29.1431 Q229.8921,29.4419 229.2529,29.5913 Q228.6138,29.7407 227.9082,29.7407 Q225.4014,29.7407 224.0815,28.0889 Q222.7617,26.437 222.7617,23.3159 Q222.7617,20.1865 224.0815,18.5347 Q225.4014,16.8828 227.9082,16.8828 Q228.6138,16.8828 229.2612,17.0322 Q229.9087,17.1816 230.4731,17.4805 L230.4731,20.2031 Q229.8423,19.6221 229.2488,19.3523 Q228.6553,19.0825 228.0244,19.0825 Q226.6797,19.0825 225.9949,20.1492 Q225.3101,21.2158 225.3101,23.3159 Q225.3101,25.4077 225.9949,26.4744 Q226.6797,27.541 228.0244,27.541 Q228.6553,27.541 229.2488,27.2712 Q229.8423,27.0015 230.4731,26.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="73" x="242" y="27.5352">TD Directory</text><!--MD5=[f66eb5cd0a27e450a5267fbcb4094f6d]
+class TD--><rect codeLine="16" fill="#FEFECE" filter="url(#f1wpkqcbyz9fg0)" height="32" id="TD" style="stroke:#A80036;stroke-width:1.5;" width="49" x="241" y="116"/><ellipse cx="256" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M258.4731,138.1431 Q257.8921,138.4419 257.2529,138.5913 Q256.6138,138.7407 255.9082,138.7407 Q253.4014,138.7407 252.0815,137.0889 Q250.7617,135.437 250.7617,132.3159 Q250.7617,129.1865 252.0815,127.5347 Q253.4014,125.8828 255.9082,125.8828 Q256.6138,125.8828 257.2612,126.0322 Q257.9087,126.1816 258.4731,126.4805 L258.4731,129.2031 Q257.8423,128.6221 257.2488,128.3523 Q256.6553,128.0825 256.0244,128.0825 Q254.6797,128.0825 253.9949,129.1492 Q253.3101,130.2158 253.3101,132.3159 Q253.3101,134.4077 253.9949,135.4744 Q254.6797,136.541 256.0244,136.541 Q256.6553,136.541 257.2488,136.2712 Q257.8423,136.0015 258.4731,135.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="17" x="270" y="136.5352">TD</text><!--MD5=[8e7fff75841614e5b69b8fd2cbc40ad5]
+class RegistrationInfo--><rect codeLine="25" fill="#FEFECE" filter="url(#f1wpkqcbyz9fg0)" height="32" id="RegistrationInfo" style="stroke:#A80036;stroke-width:1.5;" width="121" x="325" y="116"/><ellipse cx="340" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M342.4731,138.1431 Q341.8921,138.4419 341.2529,138.5913 Q340.6138,138.7407 339.9082,138.7407 Q337.4014,138.7407 336.0815,137.0889 Q334.7617,135.437 334.7617,132.3159 Q334.7617,129.1865 336.0815,127.5347 Q337.4014,125.8828 339.9082,125.8828 Q340.6138,125.8828 341.2612,126.0322 Q341.9087,126.1816 342.4731,126.4805 L342.4731,129.2031 Q341.8423,128.6221 341.2488,128.3523 Q340.6553,128.0825 340.0244,128.0825 Q338.6797,128.0825 337.9949,129.1492 Q337.3101,130.2158 337.3101,132.3159 Q337.3101,134.4077 337.9949,135.4744 Q338.6797,136.541 340.0244,136.541 Q340.6553,136.541 341.2488,136.2712 Q341.8423,136.0015 342.4731,135.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="89" x="354" y="136.5352">RegistrationInfo</text><!--MD5=[9bd2b2bc45261200a440e1ecb7c43192]
+class Directory--><rect codeLine="32" fill="#FEFECE" filter="url(#f1wpkqcbyz9fg0)" height="38.2656" id="Directory" style="stroke:#A80036;stroke-width:1.5;" width="84" x="171.5" y="209"/><ellipse cx="186.5" cy="228.1328" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M188.9731,234.2759 Q188.3921,234.5747 187.7529,234.7241 Q187.1138,234.8735 186.4082,234.8735 Q183.9014,234.8735 182.5815,233.2217 Q181.2617,231.5698 181.2617,228.4487 Q181.2617,225.3193 182.5815,223.6675 Q183.9014,222.0156 186.4082,222.0156 Q187.1138,222.0156 187.7612,222.165 Q188.4087,222.3145 188.9731,222.6133 L188.9731,225.3359 Q188.3423,224.7549 187.7488,224.4851 Q187.1553,224.2153 186.5244,224.2153 Q185.1797,224.2153 184.4949,225.282 Q183.8101,226.3486 183.8101,228.4487 Q183.8101,230.5405 184.4949,231.6072 Q185.1797,232.6738 186.5244,232.6738 Q187.1553,232.6738 187.7488,232.4041 Q188.3423,232.1343 188.9731,231.5532 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="212" y="225.6016">«TD»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="52" x="200.5" y="239.7344">Directory</text><!--MD5=[d189332174d53557e6def82bbd003869]
+class Link--><rect codeLine="38" fill="#FEFECE" filter="url(#f1wpkqcbyz9fg0)" height="38.2656" id="Link" style="stroke:#A80036;stroke-width:1.5;" width="57" x="309" y="209"/><ellipse cx="324" cy="228.1328" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M326.4731,234.2759 Q325.8921,234.5747 325.2529,234.7241 Q324.6138,234.8735 323.9082,234.8735 Q321.4014,234.8735 320.0815,233.2217 Q318.7617,231.5698 318.7617,228.4487 Q318.7617,225.3193 320.0815,223.6675 Q321.4014,222.0156 323.9082,222.0156 Q324.6138,222.0156 325.2612,222.165 Q325.9087,222.3145 326.4731,222.6133 L326.4731,225.3359 Q325.8423,224.7549 325.2488,224.4851 Q324.6553,224.2153 324.0244,224.2153 Q322.6797,224.2153 321.9949,225.282 Q321.3101,226.3486 321.3101,228.4487 Q321.3101,230.5405 321.9949,231.6072 Q322.6797,232.6738 324.0244,232.6738 Q324.6553,232.6738 325.2488,232.4041 Q325.8423,232.1343 326.4731,231.5532 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="29" x="336" y="225.6016">«TD»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="23" x="339" y="239.7344">Link</text><!--MD5=[74ac689d3d60466a94517f6df0afa6e3]
+link TDD to TD--><path codeLine="4" d="M265.5,39.0833 C265.5,59.6916 265.5,95.2107 265.5,115.8507 " fill="none" id="TDD-TD" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="54" x="266.5" y="82.5684">contains</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="8" x="256.175" y="59.5151">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="34" x="225.6563" y="105.343">many</text><!--MD5=[2bcccfdfcc613e863c707ba5fdab2748]
+reverse link TD to RegistrationInfo--><path codeLine="5" d="M303.577,132 C310.6887,132 317.8005,132 324.9122,132 " fill="none" id="TD-backto-RegistrationInfo" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="290.3438,132,296.3438,136,302.3438,132,296.3438,128,290.3438,132" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9779aab7ce731d5c722d45877901322d]
+reverse link TD to Directory--><path codeLine="6" d="M246.9553,166.2364 C239.1652,180.6181 230.3998,196.8004 223.7959,208.9923 " fill="none" id="TD-backto-Directory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="240.9981,162.5369,256.6789,148.2851,253.3082,169.2049,240.9981,162.5369" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c5f708eb5ee0d04bad1e80197c84e17b]
+reverse link TD to Link--><path codeLine="7" d="M289.7152,164.287 C300.854,179.1387 313.6847,196.2462 323.2442,208.9923 " fill="none" id="TD-backto-Link" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="284.1139,168.4851,277.7138,148.2851,295.3139,160.0851,284.1139,168.4851" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b3576b67c9d0d87b4ae807d0d5fdd2d4]
+@startuml TDD Conceptual Class Diagram
+class TDD as "TD Directory"
+
+/' relations '/
+TDD "1" - - "many" TD: contains
+TD *-right- RegistrationInfo
+TD <|- - Directory
+TD <|- - Link
+
+/' classes and notes '/
+class TDD {
+    ' +create()
+    ' +list()
+    ' +search()
+    ' +subscribe()
+}
+class TD {
+    tdd:registration: RegistrationInfo
+    ...
+    ' +create()
+    ' +read()
+    ' +update()
+    ' +patch()
+    ' +delete()
+}
+class RegistrationInfo {
+    +tdd:created
+    +tdd:modified
+    +tdd:ttl
+    +tdd:expires
+}
+together {
+    class Directory <<TD>> {
+        @type = tdd:Directory
+        ...
+    }
+    note bottom: TD that describes a Directory
+
+    class Link <<TD>> {
+        @type = tdd:Link
+        ...
+    }
+    note bottom: TD that references a remote TD
+}
+
+/' configurations '/
+' hide TDD members
+hide members
+hide methods
+@enduml
+
+@startuml TDD Conceptual Class Diagram
+class TDD as "TD Directory"
+
+TDD "1" - - "many" TD: contains
+TD *-right- RegistrationInfo
+TD <|- - Directory
+TD <|- - Link
+
+class TDD {
+}
+class TD {
+    tdd:registration: RegistrationInfo
+    ...
+}
+class RegistrationInfo {
+    +tdd:created
+    +tdd:modified
+    +tdd:ttl
+    +tdd:expires
+}
+together {
+    class Directory <<TD>> {
+        @type = tdd:Directory
+        ...
+    }
+    note bottom: TD that describes a Directory
+
+    class Link <<TD>> {
+        @type = tdd:Link
+        ...
+    }
+    note bottom: TD that references a remote TD
+}
+
+hide members
+hide methods
+@enduml
+
+PlantUML version 1.2020.22(Sun Dec 06 10:36:27 CET 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

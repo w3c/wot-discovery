@@ -1,0 +1,50 @@
+@startuml TDD Conceptual Class Diagram
+class TDD as "TD Directory"
+
+/' relations '/
+TDD "1" -- "many" TD: contains
+TD *-right- RegistrationInfo
+TD <|-- Directory
+TD <|-- Link
+
+/' classes and notes '/
+class TDD {
+    ' +create()
+    ' +list()
+    ' +search()
+    ' +subscribe()
+}
+class TD {
+    tdd:registration: RegistrationInfo
+    ...
+    ' +create()
+    ' +read()
+    ' +update()
+    ' +patch()
+    ' +delete()
+}
+class RegistrationInfo {
+    +tdd:created
+    +tdd:modified
+    +tdd:ttl
+    +tdd:expires
+}
+together {
+    class Directory <<TD>> {
+        @type = tdd:Directory
+        ...
+    }
+    note bottom: TD that describes a Directory
+
+    class Link <<TD>> {
+        @type = tdd:Link
+        ...
+    }
+    note bottom: TD that references a remote TD
+}
+
+/' configurations '/
+' hide TDD members
+hide members
+hide methods
+@enduml
