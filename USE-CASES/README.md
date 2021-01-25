@@ -1,35 +1,19 @@
 ## WoT Discovery General Topics and Use Cases
 
 NOTE: Future use-cases should use the template at
-https://github.com/w3c/wot-architecture/tree/master/USE-CASES
-and should be submitted to the wot-architecture repo.
+https://github.com/w3c/wot-usecases/tree/master/USE-CASES
+and should be submitted to the wot-usecases repo.
 
 ### Scope
 * Limit to metadata discovery (as opposed to data discovery).
 ** Search of historical data is useful
    but is a separate problem with additional privacy implications and goes beyond our charter.
 
-### Template
-
-Please select to which category your use case belongs and describe your use case with the help of this template:
-
-**Title:**<br>
-**Description:**<br>
-**Actors:**<br>
-**Status:**<br>
-**Includes (other use case):**<br>
-**Rationale / trigger:**<br>
-**Precondition:**<br>
-**Invariants:**<br>
-**Postcondition:**<br>
-**Normal flow:**<br>
-**Alternative flow:**<br>
-**Remarks:**<br>
-**Use case history:**<br>
-
 ## General Discovery Topics
 
-### Onboarding 
+The following contains some historical brainstorming. Needs to be revisited to ensure that it is all included in the official use cases document.
+
+### Onboarding
 
 #### Discovery of Directory (McCool)
 When onboarding a device, the device may need to discover the directory service to register with.
@@ -38,7 +22,7 @@ When onboarding a device, the device may need to discover the directory service 
 In OCF, "unowned" devices in a special "onboarding" state can be discovered by an onboarding tool and provisioned with keys.
 
 ### Peer-to-Peer (McCool)
-Have an existing IoT installation.  While physically present or near the device, or on the same local network, 
+Have an existing IoT installation.  While physically present or near the device, or on the same local network,
 want to find out what I can do with it using a browser or another tool.
 
 ### Semantic Discovery
@@ -133,102 +117,102 @@ I want to discover devices supported in a particular ecosystem a I would like to
 
 ##  Discovery in a Smart Campus
 
-  
+
 
 **Title:** Cross-Domain Discovery in a Smart Campus
 
-  
+
 
 **Description:** A campus has a wide range of IoT devices distributed across their grounds. These IoT devices belong to very different domains in a smart city, such as, energy, buildings, environment, water, wearable, etc. The IoT devices are distributed across the campus and belong to different infrastructures or even to individuals. A sample topology of this scenario could be the following:
 
-  
+
 
 ![Topology](https://drive.upm.es/index.php/s/ryXZAChj7VGbCCi/download)
 
-  
+
 
 In this scenario, energy-related IoT devices monitor the energy use and income in the campus, among other things. From these measurements, an Energy Management System may predict a negative peak of incoming energy that would entail the failure of the whole system. In this case, a Service or a User needs to discover all those IoT devices that are not critical for the normal functioning of the campus (such as indoor or outdoor illumination, HVAC systems, or water heaters) and interact with them in order to save energy, by switching them off or reducing their consumption. Besides, the same Service or User will look for those IoT devices that are critical for the well-functioning of the campus (such as magnetic locks, water distribution system, or fire/smoke sensors) and ensure that they are up and running. Additionally, the Service or the User, will discover relevant people's wearable to warn them about the situation.
 
-  
+
 
 **Actors:** Services or Users
 
-  
+
 
 **Status:** v0.1
 
-  
+
 
 **Includes:** Semantic discovery
 
-  
+
 
 **Rationale / trigger:** A (SPARQL) query is sent in order to discover suitable IoT devices.
 
-  
+
 
 **Preconditions:**
 
-  
+
 
 - i) Query is expressed with specific-domain terms (not only with terms from the Thing Description vocabulary).
 
-  
+
 
 - ii) IoT devices are registered into middle-nodes that store their Thing Descriptions, as presented in the sample topology.
 
-  
+
 
 - iii) Middle-Nodes are registered into others conforming different topology shapes, e.g., a tree-like topology. The Middle-Nodes *know* others thanks to this registration.
 
-  
+
 
 - iv) Middle-nodes must only know a sub-set of the Middle-nodes in the network, i.e., the topology is not a set of hyper connected Middle-Nodes instead Middle-Nodes should tend to have a low connectivity.
 
-  
+
 
 - v) Query could be answered either completely, or partially with those IoT devices registered in middle-nodes.
 
-  
+
 
 - vi) Middle-Nodes are able to act, or interact, only with those IoT devices connected directly to them. Therefore, discovery must rely on the cooperation of Middle-Nodes, first to find suitable IoT devices for a given searching criteria. Then, if a query to actuate must be issued, such query must be forwarded to the proper Middle-Node that can perform actions over the suitable IoT devices.
 
-  
+
 
 Notice that this scenario can not be solved using regular query federation. On the one hand, query federation would only broadcast the query from one Middle-Node to the others known by the former, this prevents Middle-Nodes such as the Middle-Node B to find Energy IoT devices due to the distance in the network. On the other hand, broadcasting all the queries in the network could potentially flood the network, instead this scenario requires a more guided discovery rather than broadcasting.
 
-  
+
 
 **Invariants:** -
 
-  
+
 
 **Postcondition:** Query results are provided to the request and results are correct in terms of syntax and grammar. Query results can be provided either synchronously or asynchronously.
 
-  
+
 
 **Normal flow:** A service, or a user, sends a (SPARQL) query to the discovery endpoint of a known Middle-Node (which can be wrapped by a GUI). The Middle-Node will try to answer the query first checking the Thing Descriptions of the IoT devices registered in such Middle-Node. Then, if the query requires further discovery, or it was not successfully answered the Middle-Node will forward the query to its *known* Middle-Nodes. Recursively, the Middle-Nodes will try to answer the query and/or forward the query to their known Middle-Nodes. When one Middle-Node is able to answer the query it will forward back to the former Middle-Node the partial query answer. Finally, when the discovery task finishes, the former Middle-Node will join all the partial query answers producing an unified view (which could be synchronous or asynchronous).
 
-  
+
 
 *For instance, assuming Middle-Node F receives a query that asks about all the discoverable Building IoT devices in the campus. First, the Middle-Node F will try to answer the query with the Thing Descriptions of the IoT registered within. Since Middle-Node F contains some Building IoT devices a partial query answer is achieved. However, since they query asked about all the discoverable Building IoT devices Middle-Node F should forward the query to its other known Middle-Nodes, i.e., Middle-Node G. This process will be repeated by the Middle-Nodes until the query reaches the Middle-Nodes H and B which are the ones that have registered Thing Descriptions about IoT buildings. Therefore, the query will travel through the topology as follows:*
 
-  
+
 
 ![Sample](https://drive.upm.es/index.php/s/cVPExnRNIFXJA0j/download)
 
-  
+
 
 *Finally, when Middle Nodes B and H compute two partial query answers, those answers will be forwarded back to Middle-Node F which will join them with its former partial query answer obtained from its registered Thing Descriptions. Finally, a global query answer will be provided.*
 
-  
+
 
 **Alternative flow:** -
 
-  
+
 
 **Remarks:** This scenario requires that discovery does not only happen locally when a Middle-Node receives the query and checks if some Thing Description registered is suitable to answer the query. Instead, the scenario requires also that the Middle-Node forwards the query through the network (topology conformed by the middle-nodes) in order to find those Middle-Nodes that actually contain relevant Thing Descriptions. Notice from the previous example that the query is not broadcasted in the network to prevent flooding, instead the Middle-Nodes follow some discovery heuristic to know where the query should be forwarded. Also, notice that in this scenario not all the Middle-Nodes have IoT registered within, they are Middle-Nodes collectors, such as Middle-Node C, I, G, and D.
 
-  
+
 
 **Use case history:** 17/03/2020, v0.1, Andrea Cimmino & Raúl García Castro (Universidad Politécnica de Madrid)
