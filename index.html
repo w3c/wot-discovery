@@ -450,12 +450,127 @@ img.wot-diagram {
                 A Directory can be distinguished from a Thing by the use of an
                 <code>@type</code> including the semantic term <code>Directory</code>.
             </p>
-
+            
             <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
+                <figure id="tdd-class-diagram">
+                    <img src="images/tdd-class-diagram.png"
+                        srcset="images/tdd-class-diagram.svg"
+                        class="wot-diagram"
+                        alt="Thing Description Directory conceptual class diagram" />
+                    <figcaption>The conceptual class diagram of the Thing Description Directory</figcaption>
+                </figure>
+
+                <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
+                <aside class="example" id="example-td-directory-type" title="Example TD with Directory type, describing a remote TD Directory">
+                    <pre>
+                        {
+                            "@context": [
+                                "https://www.w3.org/2019/wot/td/v1",
+                                {
+                                    "tdd": "https://www.w3.org/2021/wot/discovery#"
+                                }
+                            ],
+                            "@type": "tdd:Directory",
+                            "id": "urn:example:directory-td",
+                            "security": "basic_sc",
+                            "securityDefinitions": {
+                                "basic_sc": {
+                                    "scheme": "basic"
+                                }
+                            },
+                            "title": "Example TD with Directory type"
+                        }
+                    </pre>                    
+                </aside>
+
+                <aside class="example" id="example-td-link-type" title="Example TD with Link type, describing a remote TD Directory">
+                    <pre>
+                        {
+                            "@context": [
+                                "https://www.w3.org/2019/wot/td/v1",
+                                {
+                                    "tdd": "https://www.w3.org/2021/wot/discovery#"
+                                }
+                            ],
+                            "@type": "tdd:Link",
+                            "id": "urn:example:link-td",
+                            "links": [{
+                                "rel": "describedby",
+                                "href": "https://example.com/direct-introduction-endpoint",
+                                "type": "application/td+json"
+                            }],
+                            "security": "basic_sc",
+                            "securityDefinitions": {
+                                "basic_sc": {
+                                    "scheme": "basic"
+                                }
+                            },
+                            "title": "Example TD with Link type"
+                        }
+                    </pre>                    
+                </aside>
+
+                The following example shows a TD with a time-to-live (TTL) value,
+                resulting in a TD with limited lifetime inside the directory. The
+                directory may remove this TD after the specified TTL seconds has
+                elapsed from the last modification time.
+                <aside class="example" id="example-td-registration-info-submission" title="Example TD with TTL">
+                    <pre>
+                        {
+                            "@context": [
+                                "https://www.w3.org/2019/wot/td/v1",
+                                {
+                                    "tdd": "https://www.w3.org/2021/wot/discovery#"
+                                }
+                            ],
+                            "id": "urn:example:simple-td",
+                            "security": "basic_sc",
+                            "securityDefinitions": {
+                                "basic_sc": {
+                                    "scheme": "basic"
+                                }
+                            },
+                            "tdd:registration": {
+                                "tdd:ttl": 600
+                            },
+                            "title": "Simple TD"
+                        }
+                    </pre>                    
+                </aside>
+
+                [[[#example-td-registration-info-submission]]] shows the user-defined object submitted to the directory.
+                If queried, the TD may include additional registration information:
+                <aside class="example" id="example-td-registration-info-retrieval" title="Example TD with Registration Info">
+                    <pre>
+                        {
+                            "@context": [
+                                "https://www.w3.org/2019/wot/td/v1",
+                                {
+                                    "tdd": "https://www.w3.org/2021/wot/discovery#"
+                                }
+                            ],
+                            "id": "urn:example:simple-td",
+                            "security": "basic_sc",
+                            "securityDefinitions": {
+                                "basic_sc": {
+                                    "scheme": "basic"
+                                }
+                            },
+                            "tdd:registration": {
+                                "tdd:created": "2021-01-19T17:02:00Z",
+                                "tdd:expires": "2021-01-19T17:12:00Z",
+                                "tdd:id": "urn:example:simple-td",
+                                "tdd:modified": "2021-01-19T17:02:00Z",
+                                "tdd:ttl": 600
+                            },
+                            "title": "Simple TD"
+                        }
+                    </pre>                    
+                </aside>
             </section>
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
