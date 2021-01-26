@@ -457,8 +457,8 @@ img.wot-diagram {
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
                 <figure id="tdd-class-diagram">
-                    <img src="images/tdd-class-diagram.png"
-                        srcset="images/tdd-class-diagram.svg"
+                    <img src="images/tdd-class-diagram.svg"
+                        
                         class="wot-diagram"
                         alt="Thing Description Directory conceptual class diagram" />
                     <figcaption>The conceptual class diagram of the Thing Description Directory</figcaption>
@@ -474,15 +474,15 @@ img.wot-diagram {
                                     "tdd": "https://www.w3.org/2021/wot/discovery#"
                                 }
                             ],
-                            "@type": "tdd:Directory",
-                            "id": "urn:example:directory-td",
+                            "@type": "tdd:DirectoryDescription",
+                            "id": "urn:example:directory",
                             "security": "basic_sc",
                             "securityDefinitions": {
                                 "basic_sc": {
                                     "scheme": "basic"
                                 }
                             },
-                            "title": "Example TD with Directory type"
+                            "title": "Example TD of a directory"
                         }
                     </pre>                    
                 </aside>
@@ -496,8 +496,8 @@ img.wot-diagram {
                                     "tdd": "https://www.w3.org/2021/wot/discovery#"
                                 }
                             ],
-                            "@type": "tdd:Link",
-                            "id": "urn:example:link-td",
+                            "@type": "tdd:LinkDescription",
+                            "id": "urn:example:link",
                             "links": [{
                                 "rel": "describedby",
                                 "href": "https://example.com/direct-introduction-endpoint",
@@ -509,7 +509,7 @@ img.wot-diagram {
                                     "scheme": "basic"
                                 }
                             },
-                            "title": "Example TD with Link type"
+                            "title": "Example TD which references another TD"
                         }
                     </pre>                    
                 </aside>

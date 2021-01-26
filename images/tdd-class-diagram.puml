@@ -1,46 +1,42 @@
 @startuml TDD Conceptual Class Diagram
-class TDD as "TD Directory"
+class TDD as "Directory"
+class TD as "td:Thing"
+class DD as "tdd:DirectoryDescription"
+class LD as "tdd:LinkDescription"
+class RI as "tdd:RegistrationInfo"
 
 /' relations '/
 TDD "1" -- "many" TD: contains
-TD *-right- RegistrationInfo
-TD <|-- DirectoryTD
-TD <|-- LinkTD
+TD *-right- RI
+TD <|-- DD
+TD <|-- LD
 
 /' classes and notes '/
 class TDD {
-    create(TD): ID
-    list(page, page size)
-    search(query)
-    subscribe(event type, TD ID)
+
 }
 class TD {
-    tdd:registration: RegistrationInfo
+    tdd:registration
     ...
-    create(ID, TD)
-    read(ID): TD
-    update(ID, TD)
-    ' patch(ID, TD patch)
-    delete(ID)
 }
-class RegistrationInfo {
-    tdd:created
-    tdd:modified
+note left: Thing Description (TD)
+class RI {
+    tdd:created {readOnly}
+    tdd:expires {readOnly}
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
     tdd:ttl
-    tdd:expires
 }
 together {
-    class DirectoryTD <<TD>> {
-        @type = tdd:Directory
+    class DD {
         ...
     }
-    note bottom: TD that describes a Directory
+    note bottom: TD that describes\na Directory
 
-    class LinkTD <<TD>> {
-        @type = tdd:Link
+    class LD {
         ...
     }
-    note bottom: TD that references a remote TD
+    note bottom: TD that describes\na reference to another TD
 }
 
 /' configurations '/
