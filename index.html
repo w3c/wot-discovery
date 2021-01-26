@@ -985,11 +985,6 @@ img.wot-diagram {
             </p>
 	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic">A WoT Thing Description Directory MAY implement federation in its SPARQL query API.</span>
 	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic-imp">If implemented, the SPARQL API MUST implement the SPARQL 1.1 Federated Query standard [[sparql11-overview]].</span>
-	<p class="ednote" title="SPARQL DDoS attacks">
-             The WoT Thing Directory should implement mechanisms to mitigate DDoS attacks in the SPARQL search API,
-	     such as limiting the number or complexity of queries;
-             this should be addressed in the Security Considerations section, where we should recommend some specific mitigations.
-        </p>
 	</section>
 			
             </section>
@@ -1021,6 +1016,15 @@ img.wot-diagram {
         principles, so this would be 
         a summary and a recap.
         </p>
+	<section id="security-consideration-ddos">
+	<p>
+        Search queries require resources to execute and this can be used to launch DDoS attacks against
+	WoT Thing Descriptoin Directory services.
+        A WoT Thing Description Directory should therefore implement mechanisms to mitigate DDoS attacks in search APIs,
+        such as limiting the number or complexity of queries, and using a watchdog timer to abort queries that use more than
+	a certain amount of time.  In these cases appropriate error responses should be returned.
+	</p>
+        </section>
     </section>
 
     <section id="changes" class="appendix">
