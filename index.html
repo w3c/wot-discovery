@@ -591,7 +591,13 @@ img.wot-diagram {
                         }
                     </pre>                    
                 </aside>
-            </section>
+            
+            <!-- <section id="exploration-directory-info" class="normative">
+                <h3>Information Model</h3>
+                <p class="ednote" title="Directory Information Model">
+                To Do: Formal definition of information contained in a directory and its organization.
+                </p>
+            </section> -->
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
@@ -678,8 +684,8 @@ img.wot-diagram {
                         The operations are described below:
                     </p>
 
-                    <dl>
-                        <dt>TD Creation</dt><dd>
+                    <section id="exploration-directory-api-registration-creation" class="normative">
+                        <h4>Creation</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-create-body">
                                 The API MUST allow registration of a TD object passed as request body.
@@ -750,9 +756,10 @@ img.wot-diagram {
                             The server should employ a mechanism to eliminate duplication of TDs submitted with
                             a `POST` request. The spec need to have recommendations on how to perform this.
                         </p>
-                        </dd>
-                    
-                        <dt>TD Retrieval</dt><dd>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-retrieval" class="normative">
+                        <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
                                 A TD MUST be retrieved from the directory using an HTTP `GET` request,
@@ -780,9 +787,10 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    
-                        <dt>TD Update</dt><dd>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-update" class="normative">
+                        <h4>Update</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-update-types">
                                 The API MUST allow modifications to an existing TD as full replacement or partial updates.
@@ -865,9 +873,10 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    
-                        <dt>TD Deletion</dt><dd>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-deletion" class="normative">
+                        <h4>Deletion</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-delete">
                                 A TD MUST be removed from the directory when an HTTP `DELETE` request
@@ -894,8 +903,7 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    </dl>
+                    </section>
 
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
