@@ -1,18 +1,18 @@
-@startuml TDD Conceptual Class Diagram
-class TDD as "Directory"
+@startuml exploration-class-diagram
 class TD as "td:Thing"
-class DD as "tdd:DirectoryDescription"
-class LD as "tdd:LinkDescription"
+class DD as "discovery:DirectoryDescription"
+class LD as "discovery:LinkDescription"
 class RI as "tdd:RegistrationInfo"
 
 /' relations '/
-TDD "1" -- "many" TD: contains
+Thing "1" -- "0..1 " TD: exposes
+Directory "1 " -- "0..*" TD: contains
 TD *-right- RI
 TD <|-- DD
 TD <|-- LD
 
 /' classes and notes '/
-class TDD {
+class Directory {
 
 }
 class TD {
@@ -40,7 +40,8 @@ together {
 }
 
 /' configurations '/
-hide TDD members
+hide Directory members
+hide Thing members
 ' hide members
 hide methods
 @enduml
