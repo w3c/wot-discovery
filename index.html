@@ -524,74 +524,17 @@ img.wot-diagram {
             </p>
 
             <p>
-                [[[#exploration-class-diagram]]] showed the information model of the directory.
-                The directory may contain one or more TDs exposed via an API described in 
-                [[[#exploration-directory-api]]].
+                [[[#exploration-class-diagram]]] shows the information model of the directory.
+                The directory may contain zero or more TDs.
                 For every TD, the directory maintains the registration information for
                 bookkeeping and search purposes. Consumers may request this information
                 to know about time of registration and latest updates. The information
-                also includes the unique identifier of the TD within the directory. 
-                When submitting a TD, the provider may set a time-to-live value. In this case,
-                the registration info shall also contain the time-to-live value as well as an
-                expiration time.
+                also includes the unique identifier of the TD within the directory.
+                This is useful for when a TD has been registered under an identifier
+                which differs from the internal `id` field.
             </p>
             
-            
 
-                The following example shows a TD with a time-to-live (TTL) value,
-                resulting in a TD with limited lifetime inside the directory. The
-                directory may remove this TD after the specified TTL seconds has
-                elapsed from the last modification time.
-                <aside class="example" id="example-td-registration-info-submission" title="Example TD with TTL">
-                    <pre>
-                        {
-                            "@context": [
-                                "https://www.w3.org/2019/wot/td/v1",
-                                "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                            ],
-                            "id": "urn:example:simple-td",
-                            "security": "basic_sc",
-                            "securityDefinitions": {
-                                "basic_sc": {
-                                    "scheme": "basic"
-                                }
-                            },
-                            "tdd:registration": {
-                                "tdd:ttl": 600
-                            },
-                            "title": "Simple TD"
-                        }
-                    </pre>                    
-                </aside>
-
-                [[[#example-td-registration-info-submission]]] shows the user-defined object submitted to the directory.
-                If queried, the TD may include additional registration information:
-                <aside class="example" id="example-td-registration-info-retrieval" title="Example TD with Registration Info">
-                    <pre>
-                        {
-                            "@context": [
-                                "https://www.w3.org/2019/wot/td/v1",
-                                "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                            ],
-                            "id": "urn:example:simple-td",
-                            "security": "basic_sc",
-                            "securityDefinitions": {
-                                "basic_sc": {
-                                    "scheme": "basic"
-                                }
-                            },
-                            "tdd:registration": {
-                                "tdd:created": "2021-01-19T17:02:00Z",
-                                "tdd:expires": "2021-01-19T17:12:00Z",
-                                "tdd:id": "urn:example:simple-td",
-                                "tdd:modified": "2021-01-19T17:02:00Z",
-                                "tdd:ttl": 600
-                            },
-                            "title": "Simple TD"
-                        }
-                    </pre>                    
-                </aside>
-            
             <!-- <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
                 <p class="ednote" title="Directory Information Model">
@@ -751,6 +694,19 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
+
+                        In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
+                        the registration may benefit from an expiration time. 
+                        The expiration time may be set explicity or relative to the registration time
+                        as a time-to-live (TTL) value.
+
+                        <span class="rfc2119-assertion" id="tdd-reg-">
+                            When TTL is set, the server MUST calculate the expiration time relative 
+                            to creation time.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-reg-">
+                            The server MAY
+                        </span>
                       
                         <p class="ednote" title="Deduplication">
                             The server should employ a mechanism to eliminate duplication of TDs submitted with
@@ -787,6 +743,36 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
+
+                        <p class="ednote" title="Registration Info query argument">
+                            Need to specify and describe the query argument to toggle
+                            enrichment of TD with registration info.
+                        </p>
+
+                        The following is an example queried TD, enriched with the registration info per request:
+                        <aside class="example" id="example-td-registration-info" title="Example TD with Registration Info">
+                            <pre>
+                                {
+                                    "@context": [
+                                        "https://www.w3.org/2019/wot/td/v1",
+                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                    ],
+                                    "id": "urn:example:simple-td",
+                                    "security": "basic_sc",
+                                    "securityDefinitions": {
+                                        "basic_sc": {
+                                            "scheme": "basic"
+                                        }
+                                    },
+                                    "tdd:registration": {
+                                        "tdd:created": "2021-01-19T17:02:00Z",
+                                        "tdd:id": "urn:example:simple-td",
+                                        "tdd:modified": "2021-01-19T17:02:00Z"
+                                    },
+                                    "title": "Simple TD"
+                                }
+                            </pre>                    
+                        </aside>
                     </section>
 
                     <section id="exploration-directory-api-registration-update" class="normative">

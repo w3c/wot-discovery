@@ -22,10 +22,10 @@ class TD {
 note left: Thing Description (TD)
 class RI {
     tdd:created {readOnly}
-    tdd:expires {readOnly}
+    ' tdd:expires
     tdd:id {readOnly}
     tdd:modified {readOnly}
-    tdd:ttl
+    ' tdd:ttl
 }
 together {
     class DD {
