@@ -5,16 +5,15 @@ class LD as "discovery:LinkDescription"
 class RI as "tdd:RegistrationInfo"
 
 /' relations '/
-Thing "1" -- "0..1 " TD: exposes
-Directory "1 " -- "0..*" TD: contains
+Thing "1" --> "0..1 " TD: exposes
+Directory "1 " --> "0..*" TD: contains
 TD *-right- RI
 TD <|-- DD
 TD <|-- LD
 
 /' classes and notes '/
-class Directory {
-
-}
+class Thing << service >> 
+class Directory << service >>
 class TD {
     tdd:registration
     ...
