@@ -1,6 +1,9 @@
 {
-    "@context": "https://www.w3.org/2019/wot/td/v1",
-    "@type": "Directory",
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+    ],
+    "@type": "DirectoryDescription",
     "title": "Thing Description Directory (TDD)",
     "version": {
         "instance": "1.0.0-alpha"
