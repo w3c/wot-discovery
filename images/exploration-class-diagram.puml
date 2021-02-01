@@ -1,0 +1,46 @@
+@startuml exploration-class-diagram
+class TD as "td:Thing"
+class DD as "discovery:DirectoryDescription"
+class LD as "discovery:LinkDescription"
+class RI as "tdd:RegistrationInfo"
+
+/' relations '/
+Thing "1" --> "0..1 " TD: exposes
+Directory "1 " --> "0..*" TD: contains
+TD *-right- RI
+TD <|-- DD
+TD <|-- LD
+
+/' classes and notes '/
+class Thing << service >> 
+class Directory << service >>
+class TD {
+    tdd:registration
+    ...
+}
+note left: Thing Description (TD)
+class RI {
+    tdd:created {readOnly}
+    ' tdd:expires
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
+    ' tdd:ttl
+}
+together {
+    class DD {
+        ...
+    }
+    note bottom: TD that describes\na Directory
+
+    class LD {
+        ...
+    }
+    note bottom: TD that describes\na reference to another TD
+}
+
+/' configurations '/
+hide Directory members
+hide Thing members
+' hide members
+hide methods
+@enduml

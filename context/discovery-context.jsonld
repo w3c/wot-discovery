@@ -1,0 +1,12 @@
+{
+    "@context": {
+      "discovery": "https://www.w3.org/2021/wot/discovery#",
+      "tdd": "https://www.w3.org/2021/wot/discovery#",
+      "DirectoryDescription": {
+        "@id": "discovery:DirectoryDescription"
+      },
+      "LinkDescription": {
+        "@id": "discovery:LinkDescription"
+      }
+    }
+  }

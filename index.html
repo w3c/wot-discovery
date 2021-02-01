@@ -435,28 +435,112 @@ img.wot-diagram {
         To do: Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
+
+        [[[#exploration-class-diagram]]] depicts the information model for
+        Thing Descriptions which are self-described or collected in a directory.
+        The exploration mechanisms are described in
+        [[[#exploration-self]]] and [[[#exploration-directory]]].
+        
+        <figure id="exploration-class-diagram">
+            <img src="images/exploration-class-diagram.svg"
+                class="wot-diagram"
+                alt="Exploration mechanisms conceptual class diagram" />
+            <figcaption>The conceptual class diagram of the exploration mechanisms</figcaption>
+        </figure>
+
+        This specification defines two new Thing Description classes which may be
+        used to model special exploratory metadata:
+
+        <dt>Directory Description</dt><dd>
+            A TD which describes a directory instance.
+            <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
+                The Directory Description MUST use type `DirectoryDescription` from the
+                discovery context or URI `https://www.w3.org/2021/wot/discovery#DirectoryDescription`.
+            </span>
+            <p>
+                [[[#directory-thing-description]]] which describes the API of the
+                Thing Description Directory is an example of this TD type.
+            </p>
+        </dd>
+        
+        <dt>Link Description</dt><dd>
+            A TD which describes a reference to another TD.
+            <span class="rfc2119-assertion" id="exploration-link-description-type"> 
+                The Link Description MUST use type `LinkDescription` from the
+                discovery context or URI `https://www.w3.org/2021/wot/discovery#LinkDescription`.
+            </span>
+            <span class="rfc2119-assertion" id="exploration-link-description-link"> 
+                The Link Description MUST define the reference TD as a Link with
+                `describedby` link relation type, `application/td+json` media type
+                and `href` set to the target URL.
+            </span>
+
+            <p>
+                [[[#example-td-link-type]]] is an example Link Description.
+            </p>
+
+            <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
+            <aside class="example" id="example-td-link-type" title="Example Link Description">
+                <pre>
+                    {
+                        "@context": [
+                            "https://www.w3.org/2019/wot/td/v1",
+                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                        ],
+                        "@type": "LinkDescription",
+                        "id": "urn:example:link",
+                        "links": [{
+                            "rel": "describedby",
+                            "href": "https://example.com/td.jsonld",
+                            "type": "application/td+json"
+                        }],
+                        "security": "basic_sc",
+                        "securityDefinitions": {
+                            "basic_sc": {
+                                "scheme": "basic"
+                            }
+                        },
+                        "title": "Example TD referencing another"
+                    }
+                </pre>                    
+            </aside>
+        </dd>
+        
+        <p class="issue" data-number="54">
+            The context and type URIs are tentative and subject to change.
+        </p>
+        
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
             <p class="ednote" title="Self-Description Overview">
             To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
             </p>
+
         </section>
         <section id="exploration-directory" class="normative">
             <h2>Directory</h2>
             <p class="ednote" title="Directory Overview">
             To do: Describe mechanisms for TDs to be hosted in a searchable directory service.
             </p>
-            <p>
-                A Directory can be distinguished from a Thing by the use of an
-                <code>@type</code> including the semantic term <code>Directory</code>.
-            </p>
 
-            <section id="exploration-directory-info" class="normative">
+            <p>
+                [[[#exploration-class-diagram]]] shows the information model of the directory.
+                The directory may contain zero or more TDs.
+                For every TD, the directory maintains the registration information for
+                bookkeeping and search purposes. Consumers may request this information
+                to know about time of registration and latest updates. The information
+                also includes the unique identifier of the TD within the directory.
+                This is useful for when a TD has been registered under an identifier
+                which differs from the internal `id` field.
+            </p>
+            
+
+            <!-- <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
-            </section>
+            </section> -->
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
@@ -543,8 +627,8 @@ img.wot-diagram {
                         The operations are described below:
                     </p>
 
-                    <dl>
-                        <dt>TD Creation</dt><dd>
+                    <section id="exploration-directory-api-registration-creation" class="normative">
+                        <h4>Creation</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-create-body">
                                 The API MUST allow registration of a TD object passed as request body.
@@ -610,14 +694,28 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
+
+                        In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
+                        the registration may benefit from an expiration time. 
+                        The expiration time may be set explicity or relative to the registration time
+                        as a time-to-live (TTL) value.
+
+                        <span class="rfc2119-assertion" id="tdd-reg-">
+                            When TTL is set, the server MUST calculate the expiration time relative 
+                            to creation time.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-reg-">
+                            The server MAY
+                        </span>
                       
                         <p class="ednote" title="Deduplication">
                             The server should employ a mechanism to eliminate duplication of TDs submitted with
                             a `POST` request. The spec need to have recommendations on how to perform this.
                         </p>
-                        </dd>
-                    
-                        <dt>TD Retrieval</dt><dd>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-retrieval" class="normative">
+                        <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
                                 A TD MUST be retrieved from the directory using an HTTP `GET` request,
@@ -645,9 +743,40 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    
-                        <dt>TD Update</dt><dd>
+
+                        <p class="ednote" title="Registration Info query argument">
+                            Need to specify and describe the query argument to toggle
+                            enrichment of TD with registration info.
+                        </p>
+
+                        The following is an example queried TD, enriched with the registration info per request:
+                        <aside class="example" id="example-td-registration-info" title="Example TD with Registration Info">
+                            <pre>
+                                {
+                                    "@context": [
+                                        "https://www.w3.org/2019/wot/td/v1",
+                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                    ],
+                                    "id": "urn:example:simple-td",
+                                    "security": "basic_sc",
+                                    "securityDefinitions": {
+                                        "basic_sc": {
+                                            "scheme": "basic"
+                                        }
+                                    },
+                                    "tdd:registration": {
+                                        "tdd:created": "2021-01-19T17:02:00Z",
+                                        "tdd:id": "urn:example:simple-td",
+                                        "tdd:modified": "2021-01-19T17:02:00Z"
+                                    },
+                                    "title": "Simple TD"
+                                }
+                            </pre>                    
+                        </aside>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-update" class="normative">
+                        <h4>Update</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-update-types">
                                 The API MUST allow modifications to an existing TD as full replacement or partial updates.
@@ -730,9 +859,10 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    
-                        <dt>TD Deletion</dt><dd>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-deletion" class="normative">
+                        <h4>Deletion</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-delete">
                                 A TD MUST be removed from the directory when an HTTP `DELETE` request
@@ -759,8 +889,7 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                        </dd>
-                    </dl>
+                    </section>
 
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
