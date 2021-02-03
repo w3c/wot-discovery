@@ -1148,22 +1148,94 @@ img.wot-diagram {
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
         </p>
-        <p class="ednote" title="Discovery Security and Privacy Concerns and Mitigations">
-        To do, some discussion of general security and privacy concerns and mitigations.
-        Note that the architecture above is designed to address many such points, for
-        example the two-phase approach and "authorization before metadata release"
-        principles, so this would be 
-        a summary and a recap.
+        <p>
+        The WoT discovery architecture is designed to avoid a dependence on the security
+        and privacy of existing discovery schemes by using a two-phase approach and
+        requiring authorization before metadata release.  However several security and
+        privacy risks still exist.  These are listed below along with possible mitigations.
+        The level of risk to privacy in particular depends on the use case and whether
+        there is a risk that information related to a person might be distributed in
+        a fashion inconsistent with the privacy desires of that person. 
+        We distinguish the following broad classes of use case scenarios:
+        <dl>
+        <dt>Institutional</dt><dd>Both the Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by an institution or 
+        representatives of an institution.  Example: Automation in a factory where
+        a control system is accessing the state of an assembly line in order to
+        evaluate quality.
+        </dd>
+        <dt>Service</dt><dd>The Things producing metadata  
+        are owned and controlled by an institution or representatives of an institution
+        while the consumers are individuals.  Example: driver of an electric vehicle 
+        accessing the TD for a charge station in order to check status of a charge.
+        </dd>
+        <dt>Personal</dt><dd>Both the Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by the same individual.
+        Example: A smart home control system for charging an electric car from
+        home-attached solar panels, both home and car owned by the same person.
+        </dd>
+        <dt>Personal Peer-to-Peer</dt><dd>The Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by different individuals.
+        Example: A smart home control system for charging a guest's electric car from
+        home-attached solar panels.
+        </dd>
+        <dt>Institutional Peer-to-Peer</dt><dd>The Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by different institutions.
+        Example: A utility provides and manages power delivered to a factory, and
+        the factory provides an interface for the utility to negotiate on-demand power
+        usage reductions.
+        </dd>
+        <dt>Client</dt><dd>The Things producing metadata  
+        are owned and controlled by an individual
+        while the consumers are an institution or representatives of an institution.
+        Example: A personal electric vehicle exposes an interface to a public charging station 
+        so that the charging station can evaluate the charge status of the vehicle.
+        </dd>
+        </dl>
+        <p>All of these in fact carry privacy risks.  Even in the case of factory
+        automation, there is the chance that data about employee performance would
+        be captured and would have to be managed appropriately.
+        </p>
+        <p>With these categories established, we will now discuss some specific
+        risks and potential mitigations.
         </p>
 	<section id="security-consideration-ddos">
 	<h2>Denial of Service</h2>
 	<p>
-        Certain functions of the directory service, in
-        particular search queries, require resources to execute and this can be used to launch DDoS attacks against
+        Certain functions of the directory service,
+        in particular search queries,
+        may require significant resources to execute and this fact
+        can be used to launch DDoS attacks against
 	WoT Thing Description Directory services.
-        A WoT Thing Description Directory implementation should therefore include mechanisms to mitigate DDoS attacks in search APIs,
-        such as limiting the number or complexity of queries, and using a watchdog timer to abort queries that are taking more than
-	a certain maximum (implementation-configurable) amount of time.  In these cases appropriate error responses should be returned.
+        </p><p>
+        This is mostly of concern in the Service scenario, where the 
+        metadata requester is a private individual and the provider is an institution.
+        In some cases this risk may appear in Peer-to-Peer scenarios as well.
+        <dl>
+        <dt>Mitigations:</dt><dd>
+        A WoT Thing Description Directory implementation should 
+        <ul>
+        <li>Limit the number of queries per unit time from the same reqeuestor</li>
+        <li>Limit the complexity of queries (for example, the total length of the query 
+        expression or its depth)</li>
+        <li>Use a watchdog timer to abort queries that take more than
+	a certain maximum (implementation-configurable) amount of time.</li> 
+        </ul>
+        In cases where queries are refused or aborted 
+        appropriate error responses should be returned.
+        <dd></dl>
+	</p>
+        </section>
+	<section id="security-consideration-template">
+	<h2>TEMPLATE</h2>
+	<p>
+        Description.
+        </p><p>
+        Applicable scenarios.
+        <dl>
+        <dt>Mitigations:</dt><dd>
+        Dealing with it.
+        <dd></dl>
 	</p>
         </section>
     </section>
