@@ -512,8 +512,38 @@ img.wot-diagram {
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
-            <p class="ednote" title="Self-Description Overview">
+            <!-- <p class="ednote" title="Self-Description Overview">
             To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
+            </p> -->
+            Self-describing devices are those which serve a Thing Description
+            and expose it at a URL. The URL may be advertised via one of the
+            [[[#introduction-mech]]] or a [[[#exploration-directory]]]. 
+            
+            <p>
+                <span class="rfc2119-assertion" id="self-retrieve"> 
+                    A self-describing device MUST expose its TD over HTTPS (HTTP Over TLS)
+                    via an HTTP `GET` method.
+                </span>
+                <span class="rfc2119-assertion" id="self-retrieve-resp">
+                    A successful response MUST have 200 (OK) status, contain `application/td+json`
+                    Content-Type header, and the TD in body.
+                </span>
+                <span class="rfc2119-assertion" id="self-retrieve-access">
+                    The server SHOULD serve the requests after performing necessary 
+                    authentication and authorization.
+                </span>
+            </p>
+            
+            <p>
+                Error responses:  
+                <ul>
+                    <li>
+                        401 (Unauthorized): No authentication.
+                    </li>
+                    <li>
+                        403 (Forbidden): Insufficient rights to the resource.
+                    </li>
+                </ul>
             </p>
 
         </section>
