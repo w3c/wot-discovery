@@ -227,11 +227,22 @@ img.wot-diagram {
     <section id="conformance"></section>
     <section id="terminology" class="informative">
         <h1>Terminology</h1>
-        <p>The present document uses the terminology defined in
-           the WoT Architecture [[wot-architecture]] document,
-           and also the additional terms defined here.
-           The WoT prefix is used to avoid ambiguity for terms that are
-           (re)defined specifically for Web of Things concepts.</p>
+
+        <p>
+            The fundamental WoT terminology such as
+            <dfn>Thing</dfn>,
+            <dfn>Thing Description</dfn> (<dfn>TD</dfn>),
+            <dfn>Property</dfn>,
+            <dfn>Action</dfn>,
+            <dfn>Event</dfn>
+            are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
+            of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
+        </p>
+        
+        <p>
+            In addition, this specification introduces the following definitions:
+        </p>
+        
         <dl>
             <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
             </dt>
@@ -255,7 +266,11 @@ img.wot-diagram {
             should not directly provide metadata, and in general are designed to be 
             open.
             </dd>
-            <dt><dfn data-lt="WoT Thing Description Directory">Thing Description Directory (TDD)</dfn>
+            <dt><dfn data-lt="WoT TDD">TDD</dfn>
+            </dt>
+            <dd>Short for Thing Description Directory.
+            </dd>
+            <dt><dfn data-lt="WoT Thing Description Directory">Thing Description Directory</dfn>
             </dt>
             <dd>A directory service with a prescribed API that allows the 
             registration, management, and search of a database of Thing Descriptions.
