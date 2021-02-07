@@ -304,12 +304,18 @@ img.wot-diagram {
            The following mechanism is provided by the Thing or the Directory Service so that
            Consumer can discover the Thing Description or a URL that point to the Thing Description.
         </p>
+        <p class="ednote" title="Missing assertion blocks">
+            The following sub-sections define assertions without
+            using the `rfc2119-assertion` class.
+        </p>
+
         <section id="introduction-direct" class="normative">
             <h2>Direct</h2>
             <p>Any mechanism that results in a single URL.
                This includes Bluetooth beacons, QR codes, and written URLs to be 
                typed by a user.
-               A GET on all such URLs MUST result in a TD.
+               A request on all such URLs MUST result in a TD as prescribed in
+               [[[#exploration-self]]].
                For self-describing Things, this can be the TD of the Thing itself.
                If the URL references a Directory, this MUST be the TD of the
                Directory service.
@@ -323,8 +329,8 @@ img.wot-diagram {
                 into the following path:
                 <code>/.well-known/wot-thing-description</code>.
             <p>
-                When the HTTP GET access is made to the above path, the HTTP server MUST return
-                a Thing Description with the <code>content-type</code> set to <code>application/td+json</code>.
+                When a request is made at the above path, the server MUST return
+                a Thing Description as prescribed in [[[#exploration-self]]].
             </p>
             <p class="ednote" title="Registration of Well-known URI">
                 The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
@@ -530,36 +536,63 @@ img.wot-diagram {
             <!-- <p class="ednote" title="Self-Description Overview">
             To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
             </p> -->
-            Self-describing devices are those which serve a Thing Description
-            and expose it at a URL. The URL may be advertised via one of the
-            [[[#introduction-mech]]] or a [[[#exploration-directory]]]. 
-            
             <p>
-                <span class="rfc2119-assertion" id="self-retrieve"> 
-                    A self-describing device MUST expose its TD over HTTPS (HTTP Over TLS)
-                    via an HTTP `GET` method.
-                </span>
-                <span class="rfc2119-assertion" id="self-retrieve-resp">
-                    A successful response MUST have 200 (OK) status, contain `application/td+json`
-                    Content-Type header, and the TD in body.
-                </span>
-                <span class="rfc2119-assertion" id="self-retrieve-access">
-                    The server SHOULD serve the requests after performing necessary 
-                    authentication and authorization.
-                </span>
+                The self-description is an exploration mechanism in which a <a>Thing</a>
+                hosts its own <a>TD</a> and exposes it at a URL or
+                through others means. 
+                If exposed at a URL (e.g. over HTTP or COAP), the URL may be advertised
+                via one of the [[[#introduction-mech]]].
+                The hosted TD may also be registered inside a <a>Thing Description Directory</a>
+                as prescribed in [[[#exploration-directory]]]. 
             </p>
             
             <p>
-                Error responses:  
-                <ul>
-                    <li>
-                        401 (Unauthorized): No authentication.
-                    </li>
-                    <li>
-                        403 (Forbidden): Insufficient rights to the resource.
-                    </li>
-                </ul>
+                The self-description must use secure protocols guaranteeing 
+                <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
+                authenticity and confidentiality (see [[?WOT-SECURITY]]).
             </p>
+            
+            The self-description using the following protocols must be according
+            to the given specification:
+            <dl>
+                <dt>HTTP</dt>
+                <dd>
+                    <p>
+                        <span class="rfc2119-assertion" id="self-http-secure"> 
+                            The HTTP-based self-description MUST be over HTTPS (HTTP Over TLS).
+                        </span>
+                        <span class="rfc2119-assertion" id="self-http-method"> 
+                            The HTTP server MUST serve the TD with a `GET` method.
+                        </span>
+                        <span class="rfc2119-assertion" id="self-http-resp">
+                            A successful response MUST have 200 (OK) status, contain `application/td+json`
+                            Content-Type header, and the TD in body.
+                        </span>
+                        <span class="rfc2119-assertion" id="self-http-alternate-content">
+                            The server MAY provide alternative representations through
+                            server-driven content negotiation, that is by honouring the 
+                            request's Accept header and responding with the supported
+                            TD serialization and equivalent Content-Type header.
+                        </span>
+                        <span class="rfc2119-assertion" id="self-http-access-control">
+                            The server SHOULD serve the requests after performing necessary 
+                            authentication and authorization.
+                        </span>
+                    </p>
+                    
+                    <p>
+                        Error responses:  
+                        <ul>
+                            <li>
+                                401 (Unauthorized): No authentication.
+                            </li>
+                            <li>
+                                403 (Forbidden): Insufficient rights to the resource.
+                            </li>
+                        </ul>
+                    </p>
+                </dd>
+            </dl>
 
         </section>
         <section id="exploration-directory" class="normative">
