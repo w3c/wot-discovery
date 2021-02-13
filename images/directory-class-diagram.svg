@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="222px" preserveAspectRatio="none" style="width:305px;height:222px;" version="1.1" viewBox="0 0 305 222" width="305px" zoomAndPan="magnify"><defs><filter height="300%" id="f1h266cmrzongw" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[9bd2b2bc45261200a440e1ecb7c43192]
+class Directory--><rect codeLine="4" fill="#FEFECE" filter="url(#f1h266cmrzongw)" height="46.2656" id="Directory" style="stroke:#A80036;stroke-width:1.5;" width="84" x="13" y="7"/><ellipse cx="28" cy="26.1328" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M30.4731,32.2759 Q29.8921,32.5747 29.2529,32.7241 Q28.6138,32.8735 27.9082,32.8735 Q25.4014,32.8735 24.0815,31.2217 Q22.7617,29.5698 22.7617,26.4487 Q22.7617,23.3193 24.0815,21.6675 Q25.4014,20.0156 27.9082,20.0156 Q28.6138,20.0156 29.2612,20.165 Q29.9087,20.3145 30.4731,20.6133 L30.4731,23.3359 Q29.8423,22.7549 29.2488,22.4851 Q28.6553,22.2153 28.0244,22.2153 Q26.6797,22.2153 25.9949,23.282 Q25.3101,24.3486 25.3101,26.4487 Q25.3101,28.5405 25.9949,29.6072 Q26.6797,30.6738 28.0244,30.6738 Q28.6553,30.6738 29.2488,30.4041 Q29.8423,30.1343 30.4731,29.5532 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="52" x="42" y="23.6016">«service»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52" x="42" y="37.7344">Directory</text><line style="stroke:#A80036;stroke-width:1.5;" x1="14" x2="96" y1="45.2656" y2="45.2656"/><!--MD5=[95af8c7c8ba034aaf541810ac2c49e0d]
+class EnrichedTD--><rect codeLine="7" fill="#FEFECE" filter="url(#f1h266cmrzongw)" height="72.1758" id="EnrichedTD" style="stroke:#A80036;stroke-width:1.5;" width="96" x="7" y="134.5"/><ellipse cx="24.7" cy="153.6328" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M27.1731,159.7759 Q26.5921,160.0747 25.9529,160.2241 Q25.3138,160.3735 24.6082,160.3735 Q22.1014,160.3735 20.7815,158.7217 Q19.4617,157.0698 19.4617,153.9487 Q19.4617,150.8193 20.7815,149.1675 Q22.1014,147.5156 24.6082,147.5156 Q25.3138,147.5156 25.9612,147.665 Q26.6087,147.8145 27.1731,148.1133 L27.1731,150.8359 Q26.5423,150.2549 25.9488,149.9851 Q25.3553,149.7153 24.7244,149.7153 Q23.3797,149.7153 22.6949,150.782 Q22.0101,151.8486 22.0101,153.9487 Q22.0101,156.0405 22.6949,157.1072 Q23.3797,158.1738 24.7244,158.1738 Q25.3553,158.1738 25.9488,157.9041 Q26.5423,157.6343 27.1731,157.0532 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="62" x="37.3" y="151.1016">«enriched»</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="44.3" y="165.2344">td:Thing</text><line style="stroke:#A80036;stroke-width:1.5;" x1="8" x2="102" y1="172.7656" y2="172.7656"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="13" y="187.4004">tdd:registration</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="9" x="13" y="200.3555">...</text><!--MD5=[b0d235383f18272a9799c4b40fc1822a]
+class RI--><rect codeLine="12" fill="#FEFECE" filter="url(#f1h266cmrzongw)" height="78.8652" id="RI" style="stroke:#A80036;stroke-width:1.5;" width="145" x="146.5" y="130"/><ellipse cx="161.5" cy="146" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M163.9731,152.1431 Q163.3921,152.4419 162.7529,152.5913 Q162.1138,152.7407 161.4082,152.7407 Q158.9014,152.7407 157.5815,151.0889 Q156.2617,149.437 156.2617,146.3159 Q156.2617,143.1865 157.5815,141.5347 Q158.9014,139.8828 161.4082,139.8828 Q162.1138,139.8828 162.7612,140.0322 Q163.4087,140.1816 163.9731,140.4805 L163.9731,143.2031 Q163.3423,142.6221 162.7488,142.3523 Q162.1553,142.0825 161.5244,142.0825 Q160.1797,142.0825 159.4949,143.1492 Q158.8101,144.2158 158.8101,146.3159 Q158.8101,148.4077 159.4949,149.4744 Q160.1797,150.541 161.5244,150.541 Q162.1553,150.541 162.7488,150.2712 Q163.3423,150.0015 163.9731,149.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="113" x="175.5" y="150.5352">tdd:RegistrationInfo</text><line style="stroke:#A80036;stroke-width:1.5;" x1="147.5" x2="290.5" y1="162" y2="162"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="121" x="152.5" y="176.6348">tdd:created {readOnly}</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="91" x="152.5" y="189.5898">tdd:id {readOnly}</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="128" x="152.5" y="202.5449">tdd:modified {readOnly}</text><!--MD5=[bf032586e29ae7f8c671ce04dd8aca3f]
+link Directory to EnrichedTD--><path codeLine="20" d="M55,53.0356 C55,72.6147 55,101.2824 55,125.2756 " fill="none" id="Directory-to-EnrichedTD" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="55,130.3196,59,121.3196,55,125.3196,51,121.3196,55,130.3196" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="56" y="96.5684">contains</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="45.925" y="73.8164">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="22" x="32.0547" y="123.7962">0..*</text><!--MD5=[61b1c4b94974b10549ecc41dc4f899f8]
+reverse link EnrichedTD to RI--><path codeLine="21" d="M103,182.5 C117.0841,187.1152 132.0707,189.5194 146.4316,190.2326 " fill="none" id="EnrichedTD-backto-RI" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="103,182.5,107.4561,188.1695,114.4034,186.2368,109.9473,180.5673,103,182.5" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[ac33cf476f010c21d33609f6cf90f015]
+@startuml directory-class-diagram
+/' global configurations '/
+hide methods
+
+class Directory <<service>>
+
+
+class EnrichedTD as "td:Thing" <<enriched>> {
+    tdd:registration
+    ...
+}
+
+class RI as "tdd:RegistrationInfo" {
+    tdd:created {readOnly}
+    ' tdd:expires
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
+    ' tdd:ttl
+}
+
+Directory "1" - -> "0..*" EnrichedTD: contains
+EnrichedTD::registration *-right- RI
+
+
+@enduml
+
+@startuml directory-class-diagram
+hide methods
+
+class Directory <<service>>
+
+
+class EnrichedTD as "td:Thing" <<enriched>> {
+    tdd:registration
+    ...
+}
+
+class RI as "tdd:RegistrationInfo" {
+    tdd:created {readOnly}
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
+}
+
+Directory "1" - -> "0..*" EnrichedTD: contains
+EnrichedTD::registration *-right- RI
+
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,25 @@
+@startuml directory-class-diagram
+/' global configurations '/
+hide methods
+
+class Directory <<service>>
+
+
+class EnrichedTD as "td:Thing" <<enriched>> {
+    tdd:registration
+    ...
+}
+
+class RI as "tdd:RegistrationInfo" {
+    tdd:created {readOnly}
+    ' tdd:expires
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
+    ' tdd:ttl
+}
+
+Directory "1" --> "0..*" EnrichedTD: contains
+EnrichedTD::registration *-right- RI
+
+
+@enduml
