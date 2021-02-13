@@ -1,46 +1,43 @@
 @startuml exploration-class-diagram
-class TD as "td:Thing"
-class DD as "discovery:DirectoryDescription"
-class LD as "discovery:LinkDescription"
-class RI as "tdd:RegistrationInfo"
+/' global configurations '/
+hide methods
 
-/' relations '/
-Thing "1" --> "0..1 " TD: exposes
-Directory "1 " --> "0..*" TD: contains
-TD *-right- RI
-TD <|-- DD
-TD <|-- LD
+class Thing <<service>>
+class SelfDesc as "Self-describing Thing" <<service>>
+class Directory <<service>>
+together {
+    class TD as "td:Thing"
+    note left: Thing Description (TD)
 
-/' classes and notes '/
-class Thing << service >> 
-class Directory << service >>
-class TD {
-    tdd:registration
-    ...
+    class DD as "discovery:DirectoryDescription"
+    ' note left: TD that describes\na Directory
+
+    class LD as "discovery:LinkDescription"
+    ' note right: TD that describes\na reference to another TD
+
+    class EnrichedTD as "td:Thing" <<enriched>> {
+        tdd:registration
+        ...
+    }
 }
-note left: Thing Description (TD)
-class RI {
+class RI as "tdd:RegistrationInfo" {
     tdd:created {readOnly}
     ' tdd:expires
     tdd:id {readOnly}
     tdd:modified {readOnly}
     ' tdd:ttl
 }
-together {
-    class DD {
-        ...
-    }
-    note bottom: TD that describes\na Directory
 
-    class LD {
-        ...
-    }
-    note bottom: TD that describes\na reference to another TD
-}
+/' relations '/
+Thing <|-- SelfDesc
+Thing <|-- Directory
+SelfDesc "1" --> "0..1" TD: serves
+TD <|-- DD
+TD <|-- LD
+EnrichedTD -up-|> DD
+EnrichedTD -up-|> LD
+Directory "1" --> "0..*" EnrichedTD: contains
+EnrichedTD::registration *-right- RI
 
-/' configurations '/
-hide Directory members
-hide Thing members
-' hide members
-hide methods
+
 @enduml
