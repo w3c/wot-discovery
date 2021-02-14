@@ -540,16 +540,10 @@ img.wot-diagram {
                 The self-description is an exploration mechanism in which a <a>Thing</a>
                 hosts its own <a>TD</a> and exposes it at a URL or
                 through others means. 
-                If exposed at a URL (e.g. over HTTP or COAP), the URL may be advertised
+                If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
                 via one of the [[[#introduction-mech]]].
                 The hosted TD may also be registered inside a <a>Thing Description Directory</a>
                 as prescribed in [[[#exploration-directory]]]. 
-            </p>
-            
-            <p>
-                The self-description must use secure protocols guaranteeing 
-                <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
-                authenticity and confidentiality (see [[?WOT-SECURITY]]).
             </p>
             
             The self-description using the following protocols must be according
@@ -559,7 +553,7 @@ img.wot-diagram {
                 <dd>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-secure"> 
-                            The HTTP-based self-description MUST be over HTTPS (HTTP Over TLS).
+                            The HTTP-based self-description SHOULD be over HTTPS (HTTP Over TLS).
                         </span>
                         <span class="rfc2119-assertion" id="self-http-method"> 
                             The HTTP server MUST serve the TD with a `GET` method.
@@ -593,6 +587,7 @@ img.wot-diagram {
                     </p>
                 </dd>
             </dl>
+            <!-- add additional protocols for self-description here -->
 
         </section>
         <section id="exploration-directory" class="normative">
