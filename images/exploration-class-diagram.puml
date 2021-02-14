@@ -22,10 +22,10 @@ together {
 /' relations '/
 Thing <|-- SelfDesc
 Thing <|-- Directory
-SelfDesc "1" --> "0..1  " TD: serves
+SelfDesc "1" o-- "0..1  " TD: provides
 TD <|-- DD
 TD <|-- LD
-Directory "1" --> "0..*" TD: contains
+Directory "1" o-- "0..*" TD: contains
 
 
 @enduml

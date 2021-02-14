@@ -3,12 +3,11 @@
 hide methods
 
 class Directory <<service>>
+hide Directory members
 
-
-class EnrichedTD as "td:Thing" <<enriched>> {
-    tdd:registration
-    ...
-}
+class TD as "td:Thing"
+hide TD members
+note left: Thing Description (TD)
 
 class RI as "tdd:RegistrationInfo" {
     tdd:created {readOnly}
@@ -18,8 +17,8 @@ class RI as "tdd:RegistrationInfo" {
     ' tdd:ttl
 }
 
-Directory "1" --> "0..*" EnrichedTD: contains
-EnrichedTD::registration *-right- RI
+Directory "1" o-- "0..*" TD: contains
+TD "1" *-- "0..1" RI
 
 
 @enduml
