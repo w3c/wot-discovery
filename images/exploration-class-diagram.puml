@@ -1,46 +1,31 @@
 @startuml exploration-class-diagram
+/' global configurations '/
+hide methods
+hide members
+
+class Thing <<service>>
+together {
+    class SelfDesc as "Self-describing Thing" <<service>>
+    class Directory <<service>>
+}
+
 class TD as "td:Thing"
-class DD as "discovery:DirectoryDescription"
-class LD as "discovery:LinkDescription"
-class RI as "tdd:RegistrationInfo"
+note right: Thing Description (TD)
+together {
+    class DD as "discovery:DirectoryDescription"
+    ' note bottom: TD that describes\na Directory
+
+    class LD as "discovery:LinkDescription"
+    ' note bottom: TD that describes\na reference to another TD
+}
 
 /' relations '/
-Thing "1" --> "0..1 " TD: exposes
-Directory "1 " --> "0..*" TD: contains
-TD *-right- RI
+Thing <|-- SelfDesc
+Thing <|-- Directory
+SelfDesc "1" o-- "0..1  " TD: provides
 TD <|-- DD
 TD <|-- LD
+Directory "1" o-- "0..*" TD: contains
 
-/' classes and notes '/
-class Thing << service >> 
-class Directory << service >>
-class TD {
-    tdd:registration
-    ...
-}
-note left: Thing Description (TD)
-class RI {
-    tdd:created {readOnly}
-    ' tdd:expires
-    tdd:id {readOnly}
-    tdd:modified {readOnly}
-    ' tdd:ttl
-}
-together {
-    class DD {
-        ...
-    }
-    note bottom: TD that describes\na Directory
 
-    class LD {
-        ...
-    }
-    note bottom: TD that describes\na reference to another TD
-}
-
-/' configurations '/
-hide Directory members
-hide Thing members
-' hide members
-hide methods
 @enduml
