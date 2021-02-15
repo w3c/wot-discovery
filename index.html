@@ -253,6 +253,10 @@ img.wot-diagram {
             <dd>In the WoT context, the process of finding and retrieving Thing metadata
             in the form of Thing Descriptions for Things satisfying some criteria of interest.
             </dd>
+            <dt><dfn data-lt="WoT Enriched Thing Description">Enriched TD</dfn>
+            </dt>
+            <dd>A Thing Description embedded with additional attributes for bookkeeping and discovery. 
+            </dd>
             <dt><dfn data-lt="WoT Exploration">Exploration</dfn>
             </dt>
             <dd>A discovery mechanism that provides access to detailed metadata in the 
@@ -457,16 +461,16 @@ img.wot-diagram {
         new exploration mechanisms.
         </p>
 
-        [[[#exploration-class-diagram]]] depicts the information model for
-        Thing Descriptions which are self-described or collected in a directory.
-        The exploration mechanisms are described in
+        [[[#exploration-class-diagram]]] depicts the high-level information 
+        model for self-describing and directory services.
+        These exploration mechanisms are described in
         [[[#exploration-self]]] and [[[#exploration-directory]]].
         
         <figure id="exploration-class-diagram">
             <img src="images/exploration-class-diagram.svg"
                 class="wot-diagram"
-                alt="Exploration mechanisms conceptual class diagram" />
-            <figcaption>The conceptual class diagram of the exploration mechanisms</figcaption>
+                alt="Exploration mechanisms high-level class diagram" />
+            <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
         </figure>
 
         This specification defines two new Thing Description classes which may be
@@ -596,24 +600,34 @@ img.wot-diagram {
             To do: Describe mechanisms for TDs to be hosted in a searchable directory service.
             </p>
 
-            <p>
-                [[[#exploration-class-diagram]]] shows the information model of the directory.
-                The directory may contain zero or more TDs.
-                For every TD, the directory maintains the registration information for
-                bookkeeping and search purposes. Consumers may request this information
-                to know about time of registration and latest updates. The information
-                also includes the unique identifier of the TD within the directory.
-                This is useful for when a TD has been registered under an identifier
-                which differs from the internal `id` field.
-            </p>
-            
-
-            <!-- <section id="exploration-directory-info" class="normative">
+            <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
-            </section> -->
+            </section>
+
+            <figure id="directory-class-diagram">
+                <img src="images/directory-class-diagram.svg"
+                    class="wot-diagram"
+                    alt="Directory service class diagram" />
+                <figcaption>The class diagram of the directory service</figcaption>
+            </figure>
+
+            <p>
+                [[[#directory-class-diagram]]] shows the information model of the
+                <a>Thing Description Directory</a>.
+                A directory can contain zero or more <a>TD</a>s.
+                For every TD, the directory may maintain the registration information for
+                bookkeeping and search purposes. The information may also include the
+                unique identifier of the TD within the directory.
+                This is useful for when a TD has been registered under an identifier
+                which differs from TD's internal `id` field.
+                When available, consumers may request the registration information
+                via the respective API.
+                A TD which embeds the registration information is called an <a>Enriched TD</a>.
+            </p>
+            
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
