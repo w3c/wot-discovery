@@ -1313,6 +1313,75 @@ img.wot-diagram {
         <dd></dl>
 	</p>
         </section>
+<!-- Notes from issue https://github.com/w3c/wot-security/issues/196
+* Sensitivity of geolocation information (when we have it) for privacy when device is associated with a person, 
+i.e. location of a personal vehicle. This also includes inferred location, e.g. directory estimates location of device based on wifi range.
+* Sensitivity of directory metadata, e.g. last update (watch, periodic TD updates, time of last update can be used to infer if someone is home...).  Note: similar to DHCP metadata risk.
+* Sensitivity of thing ids (again, when device is associated with a person)
+* Query injection (SPARQL and javascript fragments in JSON path) allowing execution of arbitrary code on the server
+    - SPARQL is language-sandboxed but DDoS is possible
+    - JSONpath needs to have its power limited, e.g. should not allow arbitrary embedded JS but 
+      instead only specific expressions, e.g. string and numeric comparison; 
+      regex's are a challenge, we need to look at specific features of regexes, e.g. embedded script execution. 
+      A JSON path standard that already deals with this would be useful, but... 
+    - To do: look at Xpath spec to see if these issues are dealt with. 
+      One path here is to only allow features in JSON Path that are equivalent to some feature in Xpath, 
+      assuming Xpath has already had its power suitably limited
+* Access control for directories; 
+  directories have authentication, maybe some information is limited to certain categories of users; 
+  should the standard specify an admin interface to control this?
+Should "nosec" be allowed as a security scheme in some circumstances?
+* Good access control can mitigate some of the other risks.
+* Location may be implicit. 
+  If a TD simply appears in a directory, 
+  then we know the Thing is in range (e.g. of WiFi) so it can register with the TDD
+* Sensitivity of client IDs associated with some security schemes. 
+  These may be harder to rotate than Thing IDs. 
+  Mitigation: hide IDs by treating them as private information (see "uri" examples)
+* Mitigations for a lot of these are mitigated by access control. However...
+  This still allows tracking by "authorized" parties, 
+  which if you don't own the hardware could be anyone 
+  (e.g. the police, a random guy in the IT department of the traffic department, etc). Options:
+     * Turn off registration; this however just disables discovery
+     * Encrypt the TD; makes search, validation, etc. impossible
+       Also still requires some way to identify the TD, which could then be used for tracking by a third party.
+     * Move location information to a property of the Thing and don't store in the directory. 
+       This however would disable geospatial discovery
+  In general, "disabling" geolocation for personal devices may be necessary, 
+  although it still is useful for institutional use cases
+* Another option would be to use a "code generator" to generate IDs (perhaps in combination with encrypted TDs) 
+  that is synchronized between the device and another application available to the user. 
+  So, for example, a user could use an app on their laptop to generate the current ID 
+  and then do a discovery search to find the location of their car, 
+  which had registered an encrypted TD with that (rotating) ID with a discovery service.
+* We should study how/if there are any solutions for this in phones, etc.
+* Probably we need to allow "nosec" although it's probably a very bad idea except for development use cases. 
+     * We could perhaps add an assertion that 
+       "If a TDD service is available to anyone other than the developer and supports 
+       registration of third-party TDs then it MUST NOT use the "nosec" scheme."
+     * Some non-nosec options are still insecure so perhaps we should be more specific about good options. 
+       We could just refer to the "security best practices" and say 
+       "one of the recommended best-practice security schemes should be used"
+     * Encrypted TDs would not be able to support many features of discovery, 
+       including queries (except for retrieving TDs by ID), validation
+     * We would also have to disable notifications in the directory because when an ID is updated, 
+       we want to delete the old TD and create a new one with a new TD. 
+       Sending notifications of an update would defeat the purpose.
+     * A tracker could still watch for deletions followed immediately by creations and "guess" 
+       that this is an update (and update their tracker to the new ID). 
+     * The tracker would have to be the owner of the directory in this case. 
+     * This however, by itself, just allows the persistent presence of a device to be inferred. 
+     * However, it might be possible to combine this with other information eg. from DHCP logs 
+       (granting IPs to a new device with a known MAC), proxy logs, 
+       IP address of registration request to the directory. 
+     * Similar risk with phones (MAC address), similar mitigations (e.g. rotate MAC address).
+* Need to clarify use cases
+     * Institutional (factory, smart city) - publishing public services
+     * Private (personal use) - services that you want available from remote locations (e.g. access car in parking garage charging station from cafe, e.g. to check status of charge)
+* Alternative to encrypted TDs: Private Directories.
+     * Register personal devices only to directories that only you have access rights to, 
+       e.g. hosted in your personal home gateway
+-->
 	<section id="security-consideration-template">
 	<h2>TEMPLATE</h2>
 	<p>
