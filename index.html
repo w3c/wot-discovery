@@ -1327,10 +1327,11 @@ i.e. location of a personal vehicle. This also includes inferred location, e.g. 
     - To do: look at Xpath spec to see if these issues are dealt with. 
       One path here is to only allow features in JSON Path that are equivalent to some feature in Xpath, 
       assuming Xpath has already had its power suitably limited
+    - Not actually a risk; it's something we should design out!
 * Access control for directories; 
   directories have authentication, maybe some information is limited to certain categories of users; 
   should the standard specify an admin interface to control this?
-Should "nosec" be allowed as a security scheme in some circumstances?
+* Should "nosec" be allowed as a security scheme in some circumstances?
 * Good access control can mitigate some of the other risks.
 * Location may be implicit. 
   If a TD simply appears in a directory, 
@@ -1381,6 +1382,10 @@ i.e. location of a personal vehicle. This also includes inferred location, e.g. 
 * Alternative to encrypted TDs: Private Directories.
      * Register personal devices only to directories that only you have access rights to, 
        e.g. hosted in your personal home gateway
+
+Note: not all of the above risks belong in this section.  In particular, if a risk can be designed out
+(e.g. making it impossible to do query injection) then we should do so.  Access controls should also
+be discussed elsewhere and perhaps mentioned as tools for addressing the following. 
 -->
 	<section id="security-consideration-location-tracking">
 	<h2>Location Tracking</h2>
@@ -1435,6 +1440,12 @@ i.e. location of a personal vehicle. This also includes inferred location, e.g. 
         Also, updating an ID might be observable to the owner of the directory service, who could track
         and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
         inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
+        In general, however, generating new IDs at least for each service or person to which a TD is supplied
+        makes it harder to connect registration events at different locations and times.
+        </li>
+        <li>The problem of negative location inferencing can be mitigated by limiting access to 
+        private directories, for example in the home.  If an attacker cannot access the service,
+        they cannot retreive information to infer location.</li>
         </ul>
         </dd></dl>
 	</p>
