@@ -1310,7 +1310,7 @@ img.wot-diagram {
         </ul>
         In cases where queries are refused or aborted 
         appropriate error responses should be returned.
-        <dd></dl>
+        </dd></dl>
 	</p>
         </section>
 <!-- Notes from issue https://github.com/w3c/wot-security/issues/196
@@ -1382,16 +1382,61 @@ i.e. location of a personal vehicle. This also includes inferred location, e.g. 
      * Register personal devices only to directories that only you have access rights to, 
        e.g. hosted in your personal home gateway
 -->
-	<section id="security-consideration-template">
-	<h2>TEMPLATE</h2>
+	<section id="security-consideration-location-tracking">
+	<h2>Location Tracking</h2>
 	<p>
-        Description.
+        A discovery service may potentially allow the approximate location of a person to be determined without
+        their consent.  This risk occurs in some specific circumstances which can be avoided or
+        mitigated.  It is also similar to the risk posed by other network services such as DHCP and DNS.
         </p><p>
-        Applicable scenarios.
+        For this risk to occur, there first has to be an IoT device that can be reliably associated
+        with a person's location, such as a necessary medical device or a vehicle.  
+        Note that the risk only applies to personal use cases, not institutional ones.
+        Secondly, the
+        device has to be configured to register automatically with the nearest directory service.
+        In this case, the location of the device can be inferred from the network range of the directory
+        service and the location of the person inferred from the location of the device.
+        </p><p>
+        There are a few variants of this: 
+        <ul>
+        <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
+        <li>A directory could support actual search by location;</li>
+        <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
+            times out and is removed from a directory, that means the device has not been present for
+            a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
+            home.</li>
+        </ul>
+        </p><p>
+        Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
+        requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
+        address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
+        access to the DHCP server in, say, a cafe, could use this information to track someone's phone and
+        infer their location.
+        </p>
         <dl>
         <dt>Mitigations:</dt><dd>
-        Dealing with it.
-        <dd></dl>
+        There are a few options to mitigate this risk:
+        <ul>
+        <li>Disable registration with public directories.  Registration would still be possible with 
+        personal directories, for example, a home gateway, but a user could disable registration at other
+        locations.  This has the disadvantage that functionality is lost: personal devices cannot be
+        discovered in public locations.  This could be addressed by having internet-accessible private
+        discovery services (e.g. the home gateway could provide an internet-accessible service, but with
+        access control limiting use to authorized users.</li>
+        <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
+        also occurs in DHCP with MAC address and there is a similar partial mitigation: 
+        generate new random IDs periodically.
+        There are however, a few issues.  First of all, other identification information in the TD needs to be 
+        hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
+        they cannot be easily rotated.  Second, if the device rotates the ID, the user may still need to 
+        know the current ID to find the device via discovery.  This can be accomplished however by generating new
+        IDs using a deterministic cryptographic generator that is a function of the current time.
+        However, note that rotating IDs alone does not make tracking impossible since a TD might be fingerprinted.
+        Also, updating an ID might be observable to the owner of the directory service, who could track
+        and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
+        inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
+        </ul>
+        </dd></dl>
 	</p>
         </section>
     </section>
