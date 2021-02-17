@@ -102,7 +102,7 @@ WoT Thing Description.
 Object name: `position`
 
 Description: Latitude and longitude (spherical Cartesian),
-following [WGS85](https://en.wikipedia.org/wiki/World_Geodetic_System).
+following [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System).
 Values are given as signed numbers with north being positive for
 latitude, and east being positive for longitude.  Units for latitude
 and longitude are always degrees.  Accuracy is also given but as a distance,
@@ -115,7 +115,7 @@ Elements:
 | `latitude`     | number |  -90 |   90 |         | Degrees north of the equator; negative numbers used for south of the equator |
 | `longitude`    | number | -180 |  180 |         | Degrees east of the meridian; negative numbers used for west of the meridian |
 | `accuracy`     | number |    0 |      |       0 | Distance from point tangent to Earth's surface; the true location has at least a 90% probability of being within this distance.  A value of 0 implies the accuracy is not actually known. |
-| `accuracyUnits`  | qudt:Length |     |      | qudt:m | The units of accuracy; must be a linear length. |
+| `accuracyUnit` | qudt:Length |     |      | qudt:m | The units of accuracy; must be a linear length. |
 
 We will actually be using the term "Position" as shorthand for "2D Position".
 In particular, in the data encoding the "position" element is just the 2D element of
@@ -146,6 +146,21 @@ mean sea level.
 
 If an elevation is also given, then the depth is relative to that elevation
 instead of the surface.
+
+Elements:
+
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `elevation`    | number |      |      | local surface altitude | Altitude above mean sea level as defined by WGS84                           |
+| `elevationUnit`  | qudt:Length |     |      | qudt:m | The units of elevation; must be a linear length. |
+| `elevationAccuracy`     | number |    0 |      |       0 | Radius of interval around given elevation value; the true elevation has at least a 90% probability of being within this radius.  A value of 0 implies the accuracy is not actually known. |
+| `elevationAccuracyUnit` | qudt:Length |     |      | qudt:m | The units of elevation accuracy; must be a linear length. |
+
+
+| `depth`        | number |      |      |       0 | Altitude above elevation |
+| `depthAccuracy`     | number |    0 |      |       0 | Radius of interval around given depth value; the true depth has at least a 90% probability of being within this radius.  A value of 0 implies the accuracy is not actually known. |
+| `depthUnit`  | qudt:Length |     |      | qudt:m | The units of depth; must be a linear length. |
+| `depthAccuracyUnit` | qudt:Length |     |      | qudt:m | The units of depth accuracy; must be a linear length. |
 
 *Note:* OGC GeoPose uses "height" but this is relative to a frame, and it's not clear
 if that frame is at sealevel or at surface level.  In the future, if we can resolve
