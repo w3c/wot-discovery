@@ -76,13 +76,27 @@ This information model is designed only to be used on the surface of
 the Earth.  Extraterrestrial applications will have to use a different
 information model.
 
+In general, each geolocation record will be an object with a set of
+fields for different aspects of geolocation.  Each field has 
+additional elements specifying properties of that aspect such as
+accuracy and units.  Some elements have default values.  If an element
+does not, then it is mandatory.  Some numerical elements have upper and lower
+bounds.  An element may also have no bounds or only one of the two bounds.
+
 Useful references:
-* [OGC Geopose](https://www.ogc.org/pressroom/pressreleases/3132)
+* [OGC GeoPose Announcement](https://www.ogc.org/pressroom/pressreleases/3132)
+* [OGC GeoPose Draft](https://github.com/opengeospatial/GeoPose)
 
 Note: it is very likely that we will update the following to align with
-the OGC Geopose JSON encoding, which has goals aligned with this proposal.
+the OGC GeoPose JSON encoding, which has goals aligned with this proposal.
 Therefore this data model should be considered merely a provisional
 strawman to gather requirements and to perform tests.
+However, the OGC GeoPose draft currently only specifies position (based on
+latitude, longitude, and height) and orientation (either Euler angles or
+quaternion) and does not deal with other elements we have considered here,
+such as velocity, heading, or accuracy.  Also, the OGC spec uses UNIX epoch for
+timestamps as opposed to ISO times and dates as used in the rest of the 
+WoT Thing Description.
 
 #### Position
 Object name: `position`
@@ -90,24 +104,33 @@ Object name: `position`
 Description: Latitude and longitude (spherical Cartesian),
 following [WGS85](https://en.wikipedia.org/wiki/World_Geodetic_System).
 Values are given as signed numbers with north being positive for
-latitude, and east being positive for longitude.
+latitude, and east being positive for longitude.  Units for latitude
+and longitude are always degrees.  Accuracy is also given but as a distance,
+so the area of uncertainty is a cylinder perpendicular to the Earth's surface.
 
-Object elements:
-| Element Name | Type   | Description                                                                  |
-| latitude     | number | degrees north of the equator; negative numbers used for south of the equator |
-| longitude    | number | degrees east of the meridian; negative numbers used for west of the meridian |
+Elements:
 
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `latitude`     | number |  -90 |   90 |         | Degrees north of the equator; negative numbers used for south of the equator |
+| `longitude`    | number | -180 |  180 |         | Degrees east of the meridian; negative numbers used for west of the meridian |
+| `accuracy`     | number |    0 |      |       0 | Distance from point tangent to Earth's surface; the true location has at least a 90% probability of being within this distance.  A value of 0 implies the accuracy is not actually known. |
+| `accuracyUnits`  | qudt:Length |     |      | qudt:m | The units of accuracy; must be a linear length. |
 
 We will actually be using the term "Position" as shorthand for "2D Position".
 In particular, in the data encoding the "position" element is just the 2D element of
 geolocation.
 
+These are consistent with the corresponding elements of the OGC GeoPose draft.
+
 #### Altitude
-Altitude is given relative to the Earth's surface using WGS85.
+*Object name:* `altitude`
+
+*Description:* Altitude is given relative to the Earth's surface using WGS84.
 It can be given either absolutely, relative to the mean sea level
 at that point, or relative to the actual surface.  
 
-* Height above mean sealevel (elevation, WGS85)
+* Height above mean sealevel (elevation, WGS84)
 * Height above or below surface (depth)
 
 Depth is easier to measure when a device is installed and allows the 
@@ -118,9 +141,15 @@ If depth is given at a location over water, it means above/below the surface of 
 Negative numbers indicate locations below the surface.
 This should be relative to the "natural" surface before man-made excavations.
 For example, a location in a basement should have a negative depth.
+Elevations may also be negative, in which case the reference is to a point below
+mean sea level.
 
 If an elevation is also given, then the depth is relative to that elevation
 instead of the surface.
+
+*Note:* OGC GeoPose uses "height" but this is relative to a frame, and it's not clear
+if that frame is at sealevel or at surface level.  In the future, if we can resolve
+this, we may update one of "elevation" or "depth" to "height".
 
 #### Orientation
 Both 
