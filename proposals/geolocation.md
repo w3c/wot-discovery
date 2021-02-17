@@ -155,11 +155,9 @@ Elements:
 | `elevationUnit`  | qudt:Length |     |      | qudt:m | The units of elevation; must be a linear length. |
 | `elevationAccuracy`     | number |    0 |      |       0 | Radius of interval around given elevation value; the true elevation has at least a 90% probability of being within this radius.  A value of 0 implies the accuracy is not actually known. |
 | `elevationAccuracyUnit` | qudt:Length |     |      | qudt:m | The units of elevation accuracy; must be a linear length. |
-
-
 | `depth`        | number |      |      |       0 | Altitude above elevation |
-| `depthAccuracy`     | number |    0 |      |       0 | Radius of interval around given depth value; the true depth has at least a 90% probability of being within this radius.  A value of 0 implies the accuracy is not actually known. |
 | `depthUnit`  | qudt:Length |     |      | qudt:m | The units of depth; must be a linear length. |
+| `depthAccuracy`     | number |    0 |      |       0 | Radius of interval around given depth value; the true depth has at least a 90% probability of being within this radius.  A value of 0 implies the accuracy is not actually known. |
 | `depthAccuracyUnit` | qudt:Length |     |      | qudt:m | The units of depth accuracy; must be a linear length. |
 
 *Note:* OGC GeoPose uses "height" but this is relative to a frame, and it's not clear
