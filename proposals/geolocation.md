@@ -108,7 +108,7 @@ latitude, and east being positive for longitude.  Units for latitude
 and longitude are always degrees.  Accuracy is also given but as a distance,
 so the area of uncertainty is a cylinder perpendicular to the Earth's surface.
 
-Elements:
+*Elements:*
 
 | Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
 |----------------|--------|------|------|---------|------------------------------------------------------------------------------|
@@ -147,7 +147,7 @@ mean sea level.
 If an elevation is also given, then the depth is relative to that elevation
 instead of the surface.
 
-Elements:
+*Elements:*
 
 | Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
 |----------------|--------|------|------|---------|------------------------------------------------------------------------------|
@@ -165,30 +165,112 @@ if that frame is at sealevel or at surface level.  In the future, if we can reso
 this, we may update one of "elevation" or "depth" to "height".
 
 #### Orientation
-Both 
-* 2D Heading (azimuth) - angle from north
-* Incline (elevation) - deviation from vertical
-* Tilt (rotation around heading)
-Issues:
-* Singularies e.g. at the pole
-* Interpolation
-* Alignment with Web API
-* Represention: Euler angles, Quaternions, Vector/Angle
-* Default values
+To fully specify a pose in addition to location we need the
+three-dimensional orientation relative to the Earth's surface.  There are two key ways to 
+specify this: Euler angles (rotations, in sequence, around coordinate system axes) and quaternions
+(essentially a vector and a twist angle around that vector).  To be consistent with OGC GeoPose
+we can allow either, but only one should be given.
+
+Note that both are in fact specified with respect to the local tangent frame and as such will
+inherit the singularities of that frame.  In particular, at the poles the Z rotation (heading)
+will be ambiguous.  To resolve the ambiguity, the poles will be treated as a special case with 
+the meridian being treated as a heading of 0.  This is not a continuous mapping.
+
+##### Rotations
+*Object name:* `rotations`
+
+*Description:* Rotations around the coordinate system axes given by the local surface tangent frame, 
+in Z, Y, X order, corresponding to
+Yaw, Pitch, and Roll.  Note that the rotation around Z is consistent with "heading" used in
+the Web Geolocation API.
+
+*Elements:*
+
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `angles`    | array of 3 numbers |      |      | [0,0,0] | Euler angles as defined in OGC GeoPose (ZYX order), in degrees                   |
+| `angleAccuracy`    | array of 3 numbers |      |      | [0,0,0] | 90% confidence radii for each element of angles                  |
+
+*Notes:* 
+1. This is semantically consistent with Euler angle specification of orientation in OCG GeoPose,
+   but the object structure is a little different so the angles can be differentiated from the 
+   accuracy and unit information in a consistent way.
+2. It might be nicer to give these individual names like `heading`, `inclination` and `tilt` 
+   (or `yaw`, `pitch`, and `roll`) and allow ones not used to be omitted and given default values
+   individually.  
+   In particular the last two elements will often be zero if we only care about the heading.
+   In fact the Web API for Geolocation only mentions heading.   If we have to translate from 
+   data given by the Web API, we will have to specify numbers for the other two elements when they
+   are in fact unknown.
+
+##### Quaternion
+*Object name:* `quaternion`
+
+*Description:* A 3D orientation specified as a unit quaternion relative to the local surface
+tangent frame.
+
+*Elements:*
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `elements`    | array of 4 numbers |      |      | [1,0,0,0] | Unit quaternion                   |
+| `elementAccuracy`    | array of 4 numbers |      |      | [0,0,0,0] | 90% confidence radius for each element                 |
+
+*Notes:* 
+1. Consistent with quaternion specification of orientation in OCG GeoPose.
+2. Quaternions are (mostly, except for point 4 below) mathematically equivalent to 
+   a unit vector and a twist angle around that vector.
+3. Even though there are four numbers, there are only three degrees of freedom as 
+   a unit quaternion must have a length of 1 in 4-space.
+4. There are two possible unit quaternions specifying each possible 3D orientation.
+   Algebraically, unit quaternions do not map exactly the same algebraic structure
+   as 3D orientation.
+   Without loss of generality, the unit quaternion with the first element positive 
+   should be used.
+5. The default value corresponds to no rotation.
+6. Quaternions are unitless.  
+7. An alternative way to specify accuracy would be to give a single number giving
+   a radius on the "surface" of the unit 4-sphere defined by the set of unit quaternions.
 
 #### Velocity
-While velocity can be estimated from two successive positions,
-if known directly it can be reported.
-This is a 3D vector value defined in the coordinate system
-given by the orientation.
+*Object name:* `velocity`
+
+*Description:* While velocity can be estimated from two successive positions,
+if known directly (e.g. via a sensor on a robot) it can be reported.
+This is a 3D vector value defined relative to the coordinate system
+given by the orientation.   If the orientation is not given, the default
+implies that the velocity will be relative to the local surface tangent frame.
+
+*Elements:*
+
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `elements`    | array of 3 numbers |      |      | [0,0,0] | Unit quaternion                   |
+| `elementsAccuracy`    | array of 3 numbers |      |      | [0,0,0] | 90% confidence radius for each element                 |
+| `elementsUnit`  | qudt:Speed |     |      | qudt:m_"s | The units of element; must be length per unit time (speed). |
+
+*Notes:*
+1. Only one of velocity or speed should be given.
+2. Alternative design: have a single "velocity" object, but have mutually exclusive vector and scalar fields.
 
 #### Speed
-An alternative simple specification of velocity when the 
+*Object name:* `speed`
+
+*Description:* An alternative simple specification of velocity when the 
 velocity vector is the same as the orientation.  In this case
 only a scalar providing the length of the velocity vector is given.
 
+*Elements:*
+
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `value`    | number |     0 |      | 0 | length of velocity vector in direction provided by orientation                  |
+| `valueAccuracy`    | number |      |      | 0 | 90% confidence radius                 |
+| `valueUnit`  | qudt:Speed |     |      | qudt:m_s | The units of value; must be length per unit time (speed). |
+
 #### Acceleration
-While this can be estimated from two successive velocity vectors
+*Object name:* `acceleration`
+
+*Description:* While this can be estimated from two successive velocity vectors
 or three locations, if it can be measured at a point it can be 
 reported directly.  It is useful for projecting trajectories
 into the future.  Reported accelerations should subtract a 
@@ -199,13 +281,33 @@ precision, this known constant can be added back in and a
 more accurate estimate of gravity at that location subtracted
 instead.
 
+*Elements:*
+
+To do.  Similar to velocity.  
+
+*Notes:* 
+1. Similar scalar/vector design choices.
+
 #### Time
-For dynamic data, a timestamp should be provided along with the 
+*Object name:* `time`
+
+*Description:* For dynamic data, a timestamp should be provided along with the 
 data so that the time of last update is known.  In combination
 with motion information (velocity, acceleration) this can be used
 to project uncertainty into the future.
 
-Useful references:
+*Elements:*
+
+To do.
+
+*Notes:* 
+1. This is a complex subject and half the OGC Geopose draft is on management of
+   time and timeseries.
+2. OGC Geopose uses the Unix epoch for time but this is inconsistent with the 
+   use of ISO timedate in the rest of the WoT specification.  For consistency
+   we will probably want to use ISO timedate.
+
+*Useful references:*
 * [ISO 8601 Time and Date Format](https://en.wikipedia.org/wiki/ISO_8601)
 * [OWL Time](https://www.w3.org/TR/owl-time/)
 
@@ -218,23 +320,25 @@ in which case this is considered to be the location of the point
 being measured, and the corresponding "plain" value,
 e.g. "location", is the location of the sensor.
 
-Useful references:
+*Useful references:*
 * [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
 * [SOSA Ontology](https://www.w3.org/2015/spatial/wiki/SOSA_Ontology)
 
 #### Accuracy
-Clear about radius vs. interval e.g. for lat/long.
-Probability of inclusion in region.
+We need to be clear about radius vs. interval e.g. for lat/long.
+We need to define probability of inclusion in region.
 Alternatives variance, prob distribution (eg. Gaussian).
 Can apply accuracy to any of the above measurements.
+Should be consistent (if possible) with the Web Geolocation API.
 
-Useful references:
+*Useful references:*
 * [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
 
 #### Units
 Need to be able to specify units but should also have clear defaults.
+QUDT is just one of several possible choices for a unit ontology as well.
 
-Useful references:
+*Useful references:*
 * [QUDT Ontology](http://www.qudt.org/)
 
 #### Logical Regions and Relationships
@@ -251,9 +355,12 @@ connections and adjacencies between the above, although this
 information model is primarily concerned with using region labels defined 
 by another system that manages this information.
 
-Useful references:
+*Useful references:*
 * [Indoor GML](http://www.indoorgml.net/)
 * [An approach based on the ifcOWL ontology to support indoor navigation](https://www.sciencedirect.com/science/article/pii/S1110866520301122)
+
+In general, BIMs (Building Information Management systems) define ontologies for
+logical relationships indoors.
 
 ### JSON-LD Examples in TD
 
