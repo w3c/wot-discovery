@@ -363,6 +363,8 @@ In general, BIMs (Building Information Management systems) define ontologies for
 logical relationships indoors.
 
 ### JSON-LD Examples in TD
+*To do:* Examples are not consistent with definitions above, e.g. use of `x`, `y`, and `z` for
+elements of `velocity`, etc.  Needs to be fixed.
 
 #### Static Location
 Static locations may not change or only be infrequently updated.
