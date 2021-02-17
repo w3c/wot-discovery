@@ -76,15 +76,37 @@ This information model is designed only to be used on the surface of
 the Earth.  Extraterrestrial applications will have to use a different
 information model.
 
-#### 2D Position
-Latitude and longitude (spherical Cartesian), following WGS85.
+Useful references:
+* [OGC Geopose](https://www.ogc.org/pressroom/pressreleases/3132)
+
+Note: it is very likely that we will update the following to align with
+the OGC Geopose JSON encoding, which has goals aligned with this proposal.
+Therefore this data model should be considered merely a provisional
+strawman to gather requirements and to perform tests.
+
+#### Position
+Object name: `position`
+
+Description: Latitude and longitude (spherical Cartesian),
+following [WGS85](https://en.wikipedia.org/wiki/World_Geodetic_System).
 Values are given as signed numbers with north being positive for
 latitude, and east being positive for longitude.
+
+Object elements:
+| Element Name | Type   | Description                                                                  |
+| latitude     | number | degrees north of the equator; negative numbers used for south of the equator |
+| longitude    | number | degrees east of the meridian; negative numbers used for west of the meridian |
+
+
+We will actually be using the term "Position" as shorthand for "2D Position".
+In particular, in the data encoding the "position" element is just the 2D element of
+geolocation.
 
 #### Altitude
 Altitude is given relative to the Earth's surface using WGS85.
 It can be given either absolutely, relative to the mean sea level
 at that point, or relative to the actual surface.  
+
 * Height above mean sealevel (elevation, WGS85)
 * Height above or below surface (depth)
 
@@ -141,6 +163,10 @@ data so that the time of last update is known.  In combination
 with motion information (velocity, acceleration) this can be used
 to project uncertainty into the future.
 
+Useful references:
+* [ISO 8601 Time and Date Format](https://en.wikipedia.org/wiki/ISO_8601)
+* [OWL Time](https://www.w3.org/TR/owl-time/)
+
 #### Feature of Interest
 The location of a sensor and the location of the thing being
 measured may not be the same.  If only one location is given they
@@ -150,14 +176,24 @@ in which case this is considered to be the location of the point
 being measured, and the corresponding "plain" value,
 e.g. "location", is the location of the sensor.
 
+Useful references:
+* [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
+* [SOSA Ontology](https://www.w3.org/2015/spatial/wiki/SOSA_Ontology)
+
 #### Accuracy
 Clear about radius vs. interval e.g. for lat/long.
 Probability of inclusion in region.
 Alternatives variance, prob distribution (eg. Gaussian).
 Can apply accuracy to any of the above measurements.
 
+Useful references:
+* [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
+
 #### Units
 Need to be able to specify units but should also have clear defaults.
+
+Useful references:
+* [QUDT Ontology](http://www.qudt.org/)
 
 #### Logical Regions and Relationships
 Sometimes is it more convenient to refer to a labelled region or zone
@@ -172,7 +208,10 @@ It may also be useful to represent
 connections and adjacencies between the above, although this
 information model is primarily concerned with using region labels defined 
 by another system that manages this information.
-See Indoor GML.
+
+Useful references:
+* [Indoor GML](http://www.indoorgml.net/)
+* [An approach based on the ifcOWL ontology to support indoor navigation](https://www.sciencedirect.com/science/article/pii/S1110866520301122)
 
 ### JSON-LD Examples in TD
 
