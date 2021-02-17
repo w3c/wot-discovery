@@ -3,34 +3,54 @@
 Geolocation support for discovery includes two loosely-coupled
 specifications: an information model for geolocation data itself,
 which might be encoded in TDs or returned as data from properties,
-and a query mechanism to filter such data by location and time.
+and a query mechanism to filter such data by location and time
+during discovery.
 
-Note: filtering by time of last update potentially could be broken out
+Filtering by time of last update potentially could be broken out
 as a separate proposal since it is applicable to data other than
-location.  However, location is special since the Directory needs to
+location.  However, location is special since the discovery mechanism needs to
 track it to provide geolocation queries.  Queries over other kinds of
-data would require additional requirements in the Directory e.g. a 
-time-series database, and this is currently out of scope.
+data would require additional requirements for discovery e.g. a 
+time-series database for arbitrary structured data, 
+and this is currently out of scope.
 
 ### Use Cases
 The following use cases are relevant to geolocation.  Details 
-are in the [WoT Use Cases and Requirements](link) document, we
+are in the [WoT Use Cases and Requirements](https://w3c.github.io/wot-usecases/) document, we
 only summarize here.
-#### Smart City Dashboard
-A Smart City dashboard locates infrastructure data and data from sensors
-together on a map.  This has many applications:
+#### Smart City
+Geolocation shows up in many [Smart City use cases](https://w3c.github.io/wot-usecases/).
+For example, a [Smart City dashboard](https://w3c.github.io/wot-usecases/) 
+colocates infrastructure data and (ideally live) data from sensors
+on a map.  This alone has many applications:
 * City planning 
 * Emergency response
 * Pollution monitoring
 * Sensor placement and orientation during installation
 * Building permits - "call before digging"
+Some of these use cases, e.g. emergency response, may also involve
+control of actuators through the dashboard.
+Other Smart City use cases for geolocation are health monitoring and logistics tracking.
 #### AR Guide
+An [AR Guide](https://w3c.github.io/wot-usecases/) presents data on a display overlaid with the real word
+and needs to associate data with its real-world location.  Note in
+addition that it is the location of the feature of interest that matters,
+not the location of the sensor.  For some "remote" sensor types (for example, an
+IR camera measuring the temperature of water in a river) these are not the 
+same thing.
 * Situational awareness
 * Tourism
 * Maintenance and Repair
 #### Accessibility
+Location is often important for [accessiblity services](https://w3c.github.io/wot-usecases/) in particular if they
+support mobility or if the user needs to navigate to them.
 * Location of accessible services
 * Navigational assistance
+#### Agriculture
+[Open-field agriculture](https://w3c.github.io/wot-usecases/) involves tracking many 
+sensors (e.g. moisture sensors) and actuators (e.g. sprinklers) distributed over
+an outdoor space.  In this case, the geolocation data is often relative to a local reference (for example the
+most useful depth reference is the ground surface, not absolute elevation) and over a relatively small area.
 
 ### Usage Patterns
 #### Static
