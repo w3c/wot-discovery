@@ -71,26 +71,28 @@
             },
             "CoRE-RD" : {
                   title: "CoRE Resource Directory"
-                , href: "https://tools.ietf.org/html/draft-ietf-core-resource-directory-25"
+                , href: "https://tools.ietf.org/html/draft-ietf-core-resource-directory-26"
                 , authors: [
-                    "Zach Shelby"
+                    "Christian Amsüss"
+                  , "Zach Shelby"
                   , "Michael Koster"
                   , "Carsten Bormann"
                   , "Peter van der Stok"
-                  , "Christian Amsüss"
                   ]
                 , publisher: "IETF"
-                , date: "13 July 2020"
+                , date: "2 November 2020"
             },
             "JSONPATH" : {
-                  title: "JSONPath -- XPath for JSON"
-                , href: "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html"
+                  title: "JavaScript Object Notation (JSON) Path"
+                , href: "https://tools.ietf.org/html/draft-normington-jsonpath-00"
                 , authors: [
-                    "S. Gössner"
-                  , "C. Bormann, Ed."
+                    "Glyn Normington"
+                  , "Edward Surov"
+                  , "Marko Mikulicic"
+                  , "Stefan Gössner"
                   ]
                 , publisher: "IETF"
-                , date: "12 July 2020"
+                , date: "7 December 2020"
                 , status: "DRAFT",
             },
             "wot-usecases" : {
@@ -304,13 +306,9 @@ img.wot-diagram {
     </section>
     <section id="introduction-mech" class="normative">
         <h1>Introduction Mechanisms</h1>
-        <p>This chapter describes a mechanism for discovering a Thing or a Directory Service.
-           The following mechanism is provided by the Thing or the Directory Service so that
+        <p>This chapter describes a mechanism for discovering a Thing or a <a>Thing Description Directory</a>.
+           The following mechanism is provided by the Thing or the <a>Thing Description Directory</a> so that
            Consumer can discover the Thing Description or a URL that point to the Thing Description.
-        </p>
-        <p class="ednote" title="Missing assertion blocks">
-            The following sub-sections define assertions without
-            using the `rfc2119-assertion` class.
         </p>
 
         <section id="introduction-direct" class="normative">
@@ -318,23 +316,29 @@ img.wot-diagram {
             <p>Any mechanism that results in a single URL.
                This includes Bluetooth beacons, QR codes, and written URLs to be 
                typed by a user.
-               A request on all such URLs MUST result in a TD as prescribed in
-               [[[#exploration-self]]].
-               For self-describing Things, this can be the TD of the Thing itself.
-               If the URL references a Directory, this MUST be the TD of the
-               Directory service.
+                <span class="rfc2119-assertion" id="introduction-direct-thing-description">
+                    A request on all such URLs MUST result in a TD as prescribed in
+                    [[[#exploration-self]]].
+                </span>
+                For self-describing Things, this can be the TD of the Thing itself.
+                <span class="rfc2119-assertion" id="introduction-direct-directory-description">
+                   If the URL references a <a>Thing Description Directory</a>, this MUST be the Directory Description of the
+                    <a>Thing Description Directory</a>.
+                </span>
             </p>
         </section>
         <section id="introduction-well-known" class="normative">
             <h2>Well-Known URIs</h2>
             <p>
-                A Thing or Directory Service MAY use the Well-Known Uniform Resource Identifier [[RFC8615]]
-                to advertise its presence.  The Thing or Directory Service registers its own Thing Description
+                A Thing or <a>Thing Description Directory</a> may use the Well-Known Uniform Resource Identifier [[RFC8615]]
+                to advertise its presence.  The Thing or <a>Thing Description Directory</a> registers its own Thing or Directory Description
                 into the following path:
                 <code>/.well-known/wot-thing-description</code>.
             <p>
-                When a request is made at the above path, the server MUST return
-                a Thing Description as prescribed in [[[#exploration-self]]].
+                <span class="rfc2119-assertion" id="introduction-well-known-path">
+                    When a request is made at the above Well-Known URI, the server MUST return
+                    a Thing Description as prescribed in [[[#exploration-self]]].
+                </span>
             </p>
             <p class="ednote" title="Registration of Well-known URI">
                 The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
@@ -344,7 +348,7 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p>A Thing or Directory Service MAY use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].
+            <p>A Thing or <a>Thing Description Directory</a> may use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].
                 This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
@@ -354,8 +358,12 @@ img.wot-diagram {
                 and the second label describes the protocol.
             </p>
             <p>
-                The Service Name to indicate the Thing or Directory Service MUST be <code>_wot</code>.
-                And the Service Name to indicate the Directory Service MUST be <code>_directory._sub._wot</code>.
+                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name">
+                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.
+                </span>
+                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
+                    And the Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
+                </span>
             </p>
             <p class="ednote" title="Service Names in existing implementations">
                 The Service Names <code>_wot</code> and <code>_directory._sub._wot</code>
@@ -363,20 +371,23 @@ img.wot-diagram {
                 <code>_wot</code>,
                 <code>_device._sub._wot</code>,
                 <code>_directory._sub._wot</code>,
-                <code>_webthing</code>.
+                <code>_webthing</code>,
+                <code>_wot-servient</code>.
                 To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
                 Registry [[RFC8552]] is required.
             </p>
             <p>
-                In addition, the following information MUST be included in the <code>TXT</code>
-                record that is pointed to by the Service Instance Name:
-                <dl>
-                    <dt><code>td</code></dt>
-                    <dd>Absolute pathname of the Thing Description of the Thing or Directory Service.</dd>
-                    <dt><code>type</code></dt>
-                    <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
-                    If omitted, the type is assumed to be <code>Thing</code>.</dd>
-                </dl>
+                <span class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
+                    In addition, the following information MUST be included in the <code>TXT</code>
+                    record that is pointed to by the Service Instance Name:
+                    <dl>
+                        <dt><code>td</code></dt>
+                        <dd>Absolute pathname of the Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.</dd>
+                        <dt><code>type</code></dt>
+                        <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                        If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                    </dl>
+                </span>
             </p>
             <p class="ednote" title="Usage of a TXT record in existing implementations">
                 The following key/value pairs are used in the existing implementations:<br/>
@@ -384,17 +395,17 @@ img.wot-diagram {
                         Absolute path name of the API to get an array of Thing Description IDs
                         from the Directory Service.<br/>
                 <code>register</code>:
-                    Absolute path name of the API to register a Thing Description with the Directory Service.<br/>
+                    Absolute path name of the API to register a Directory Description with the <a>Thing Description Directory</a>.<br/>
                 <code>path</code>:
                     The URI of the thing description on the Web Thing's web server<br/>
                 <code>td</code>:
-                    Prefix of Directory Service API<br/>
+                    Prefix of directory service API<br/>
                 <code>tls</code>:
                     Value of 1 if the Web Thing supports connections via HTTPS.<br/>
             </p>
             <p>
                 <a href="#sequence-dnssd-thing"></a> and <a href="#sequence-dnssd-directory"></a> shows example sequences
-                of discovery of Thing and Directory Service using DNS-SD and mDNS. 
+                of discovery of Thing and <a>Thing Description Directory</a> using DNS-SD and mDNS. 
             </p>
             <figure id="sequence-dnssd-thing">
                 <img src="images/sequence-dnssd-thing.png"
@@ -408,36 +419,43 @@ img.wot-diagram {
                     srcset="images/sequence-dnssd-directory.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of Directory Service using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of Directory Service using DNS-SD and mDNS</figcaption>
+                <figcaption>An example sequence of discovery of <a>Thing Description Directory</a> using DNS-SD and mDNS</figcaption>
             </figure>
 
         </section>
         <section id="introduction-core-rd" class="normative">
             <h2>CoRE Link Format and CoRE Resource Directory</h2>
             <p>
-                A Thing or Directory Service MAY advertise its presence using the
+                A Thing or <a>Thing Description Directory</a> may advertise its presence using the
                 Constrained RESTful Environment (CoRE) Link Format [[RFC6690]].
-                And, a Thing or Directory Service MAY use the CoRE Resource Directory [[CoRE-RD]]
-                to register a link to the Thing Description.
+                And, a Thing or <a>Thing Description Directory</a> may use the CoRE Resource Directory [[CoRE-RD]]
+                to register a link to the Thing or Directory Description.
             </p>
             <p>
-                The endpoint type(<code>et</code>) of the Link that targets the Thing Description of the Thing
-                MUST be <code>wot.thing</code>. 
-                The endpoint type of the Link that targets the Thing Description of the Directory Service
-                MUST be <code>wot.directory</code>.
+                <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-thing">
+                    The resource type(<code>rt</code>) of the Link that targets the Thing Description of the Thing
+                    MUST be <code>wot.thing</code>. 
+                </span>
+                <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-directory">
+                    The resource type of the Link that targets the Directory Description of the <a>Thing Directory Service</a>
+                    MUST be <code>wot.directory</code>.
+                </span>
             </p>
             <p class="ednote">
-                The endpoint types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
+                The resource types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
+                See also <a href="#iana-considerations"></a>.
             </p>
         </section>
         <section id="introduction-did" class="normative">
             <h2>DID Documents</h2>
-            <p>A Thing or Directory Service MAY advertise its presence using 
+            <p>A Thing or <a>Thing Description Directory</a> may advertise its presence using 
                 the Decentralized Identifier (DID) [[DID-CORE]].
             </p>
             <p>
-                The DID Document obtained by resolving the DID of a Thing or Directory Service MUST
-                contains a Service Endpoint which point to Thing Description of the Thing or Directory Service.
+                <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
+                    The DID Document obtained by resolving the DID of a Thing or <a>Thing Description Directory</a> MUST
+                    contains a Service Endpoint which point to Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.
+                </span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document">
                 <pre>
@@ -1252,6 +1270,40 @@ img.wot-diagram {
         such as limiting the number or complexity of queries, and using a watchdog timer to abort queries that are taking more than
 	a certain maximum (implementation-configurable) amount of time.  In these cases appropriate error responses should be returned.
 	</p>
+        </section>
+    </section>
+    
+    <section id="iana-considerations" class="normative">
+        <h1>IANA Considerations</h1>
+        <section id="core-resource-type">
+            <h2>CoRE Resource Types Registration</h2>
+            <p>
+                IANA will be asked to allocate the following values into the Resource Type(<code>rt=</code>)
+                Link Target Attribute Values sub-registry of the Constrained Restful Environments (CoRE)
+                Parameters registry defined in [[RFC6690]].
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th>Reference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>wot.thing</code></td>
+                        <td>Thing Description of a Thing</td>
+                        <td>[[wot-discovery]], <a href="#introduction-core-rd"></a></td>
+                    </tr>
+                    <tr>
+                        <td><code>wot.directory</code></td>
+                        <td>Directory Description of a <a>Thing Description Directory</a></td>
+                        <td>[[wot-discovery]], <a href="#introduction-core-rd"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+
         </section>
     </section>
 
