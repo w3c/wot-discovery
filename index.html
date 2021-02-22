@@ -1444,8 +1444,17 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
         makes it harder to connect registration events at different locations and times.
         </li>
         <li>The problem of negative location inferencing can be mitigated by limiting access to 
-        private directories, for example in the home.  If an attacker cannot access the service,
-        they cannot retreive information to infer location.</li>
+        private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
+        they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
+        should be appropriately time-limited.
+        Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
+        directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
+        providing new services, and the time-to-live might be set at one month (covering most absences).
+        </li>
+        <li>When explicit location information is available, whether stored in a TD or available in a property,
+        additional care should be taken to only share the TD and/or access to the device with trusted partners,
+        including directories.  If the TD must be shared with a public directory, the location information can be 
+        stripped.
         </ul>
         </dd></dl>
 	</p>
