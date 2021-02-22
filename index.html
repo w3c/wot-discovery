@@ -1253,22 +1253,228 @@ img.wot-diagram {
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
         </p>
-        <p class="ednote" title="Discovery Security and Privacy Concerns and Mitigations">
-        To do, some discussion of general security and privacy concerns and mitigations.
-        Note that the architecture above is designed to address many such points, for
-        example the two-phase approach and "authorization before metadata release"
-        principles, so this would be 
-        a summary and a recap.
+        <p>
+        The WoT discovery architecture is designed to avoid a dependence on the security
+        and privacy of existing discovery schemes by using a two-phase approach and
+        requiring authorization before metadata release.  However several security and
+        privacy risks still exist.  These are listed below along with possible mitigations.
+        The level of risk to privacy in particular depends on the use case and whether
+        there is a risk that information related to a person might be distributed in
+        a fashion inconsistent with the privacy desires of that person. 
+        We distinguish the following broad classes of use case scenarios:
+        <dl>
+        <dt>Institutional</dt><dd>Both the Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by an institution or 
+        representatives of an institution.  Example: Automation in a factory where
+        a control system is accessing the state of an assembly line in order to
+        evaluate quality.
+        </dd>
+        <dt>Service</dt><dd>The Things producing metadata  
+        are owned and controlled by an institution or representatives of an institution
+        while the consumers are individuals.  Example: driver of an electric vehicle 
+        accessing the TD for a charge station in order to check status of a charge.
+        </dd>
+        <dt>Personal</dt><dd>Both the Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by the same individual.
+        Example: A smart home control system for charging an electric car from
+        home-attached solar panels, both home and car owned by the same person.
+        </dd>
+        <dt>Personal Peer-to-Peer</dt><dd>The Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by different individuals.
+        Example: A smart home control system for charging a guest's electric car from
+        home-attached solar panels.
+        </dd>
+        <dt>Institutional Peer-to-Peer</dt><dd>The Things producing metadata and 
+        the Consumers of that metadata are owned and controlled by different institutions.
+        Example: A utility provides and manages power delivered to a factory, and
+        the factory provides an interface for the utility to negotiate on-demand power
+        usage reductions.
+        </dd>
+        <dt>Client</dt><dd>The Things producing metadata  
+        are owned and controlled by an individual
+        while the consumers are an institution or representatives of an institution.
+        Example: A personal electric vehicle exposes an interface to a public charging station 
+        so that the charging station can evaluate the charge status of the vehicle.
+        </dd>
+        </dl>
+        <p>All of these in fact carry privacy risks.  Even in the case of factory
+        automation, there is the chance that data about employee performance would
+        be captured and would have to be managed appropriately.
+        </p>
+        <p>With these categories established, we will now discuss some specific
+        risks and potential mitigations.
         </p>
 	<section id="security-consideration-ddos">
 	<h2>Denial of Service</h2>
 	<p>
-        Certain functions of the directory service, in
-        particular search queries, require resources to execute and this can be used to launch DDoS attacks against
+        Certain functions of the directory service,
+        in particular search queries,
+        may require significant resources to execute and this fact
+        can be used to launch DDoS attacks against
 	WoT Thing Description Directory services.
-        A WoT Thing Description Directory implementation should therefore include mechanisms to mitigate DDoS attacks in search APIs,
-        such as limiting the number or complexity of queries, and using a watchdog timer to abort queries that are taking more than
-	a certain maximum (implementation-configurable) amount of time.  In these cases appropriate error responses should be returned.
+        </p><p>
+        This is mostly of concern in the Service scenario, where the 
+        metadata requester is a private individual and the provider is an institution.
+        In some cases this risk may appear in Peer-to-Peer scenarios as well.
+        <dl>
+        <dt>Mitigations:</dt><dd>
+        A WoT Thing Description Directory implementation should 
+        <ul>
+        <li>Limit the number of queries per unit time from the same reqeuestor</li>
+        <li>Limit the complexity of queries (for example, the total length of the query 
+        expression or its depth)</li>
+        <li>Use a watchdog timer to abort queries that take more than
+	a certain maximum (implementation-configurable) amount of time.</li> 
+        </ul>
+        In cases where queries are refused or aborted 
+        appropriate error responses should be returned.
+        </dd></dl>
+	</p>
+        </section>
+<!-- Notes from issue https://github.com/w3c/wot-security/issues/196
+* Sensitivity of geolocation information (when we have it) for privacy when device is associated with a person, 
+i.e. location of a personal vehicle. This also includes inferred location, e.g. directory estimates location of device based on wifi range.
+* Sensitivity of directory metadata, e.g. last update (watch, periodic TD updates, time of last update can be used to infer if someone is home...).  Note: similar to DHCP metadata risk.
+* Sensitivity of thing ids (again, when device is associated with a person)
+* Query injection (SPARQL and javascript fragments in JSON path) allowing execution of arbitrary code on the server
+    - SPARQL is language-sandboxed but DDoS is possible
+    - JSONpath needs to have its power limited, e.g. should not allow arbitrary embedded JS but 
+      instead only specific expressions, e.g. string and numeric comparison; 
+      regex's are a challenge, we need to look at specific features of regexes, e.g. embedded script execution. 
+      A JSON path standard that already deals with this would be useful, but... 
+    - To do: look at Xpath spec to see if these issues are dealt with. 
+      One path here is to only allow features in JSON Path that are equivalent to some feature in Xpath, 
+      assuming Xpath has already had its power suitably limited
+    - Not actually a risk; it's something we should design out!
+* Access control for directories; 
+  directories have authentication, maybe some information is limited to certain categories of users; 
+  should the standard specify an admin interface to control this?
+* Should "nosec" be allowed as a security scheme in some circumstances?
+* Good access control can mitigate some of the other risks.
+* Location may be implicit. 
+  If a TD simply appears in a directory, 
+  then we know the Thing is in range (e.g. of WiFi) so it can register with the TDD
+* Sensitivity of client IDs associated with some security schemes. 
+  These may be harder to rotate than Thing IDs. 
+  Mitigation: hide IDs by treating them as private information (see "uri" examples)
+* Mitigations for a lot of these are mitigated by access control. However...
+  This still allows tracking by "authorized" parties, 
+  which if you don't own the hardware could be anyone 
+  (e.g. the police, a random guy in the IT department of the traffic department, etc). Options:
+     * Turn off registration; this however just disables discovery
+     * Encrypt the TD; makes search, validation, etc. impossible
+       Also still requires some way to identify the TD, which could then be used for tracking by a third party.
+     * Move location information to a property of the Thing and don't store in the directory. 
+       This however would disable geospatial discovery
+  In general, "disabling" geolocation for personal devices may be necessary, 
+  although it still is useful for institutional use cases
+* Another option would be to use a "code generator" to generate IDs (perhaps in combination with encrypted TDs) 
+  that is synchronized between the device and another application available to the user. 
+  So, for example, a user could use an app on their laptop to generate the current ID 
+  and then do a discovery search to find the location of their car, 
+  which had registered an encrypted TD with that (rotating) ID with a discovery service.
+* We should study how/if there are any solutions for this in phones, etc.
+* Probably we need to allow "nosec" although it's probably a very bad idea except for development use cases. 
+     * We could perhaps add an assertion that 
+       "If a TDD service is available to anyone other than the developer and supports 
+       registration of third-party TDs then it MUST NOT use the "nosec" scheme."
+     * Some non-nosec options are still insecure so perhaps we should be more specific about good options. 
+       We could just refer to the "security best practices" and say 
+       "one of the recommended best-practice security schemes should be used"
+     * Encrypted TDs would not be able to support many features of discovery, 
+       including queries (except for retrieving TDs by ID), validation
+     * We would also have to disable notifications in the directory because when an ID is updated, 
+       we want to delete the old TD and create a new one with a new TD. 
+       Sending notifications of an update would defeat the purpose.
+     * A tracker could still watch for deletions followed immediately by creations and "guess" 
+       that this is an update (and update their tracker to the new ID). 
+     * The tracker would have to be the owner of the directory in this case. 
+     * This however, by itself, just allows the persistent presence of a device to be inferred. 
+     * However, it might be possible to combine this with other information eg. from DHCP logs 
+       (granting IPs to a new device with a known MAC), proxy logs, 
+       IP address of registration request to the directory. 
+     * Similar risk with phones (MAC address), similar mitigations (e.g. rotate MAC address).
+* Need to clarify use cases
+     * Institutional (factory, smart city) - publishing public services
+     * Private (personal use) - services that you want available from remote locations (e.g. access car in parking garage charging station from cafe, e.g. to check status of charge)
+* Alternative to encrypted TDs: Private Directories.
+     * Register personal devices only to directories that only you have access rights to, 
+       e.g. hosted in your personal home gateway
+
+Note: not all of the above risks belong in this section.  In particular, if a risk can be designed out
+(e.g. making it impossible to do query injection) then we should do so.  Access controls should also
+be discussed elsewhere and perhaps mentioned as tools for addressing the following. 
+-->
+	<section id="security-consideration-location-tracking">
+	<h2>Location Tracking</h2>
+	<p>
+        A discovery service may potentially allow the approximate location of a person to be determined without
+        their consent.  This risk occurs in some specific circumstances which can be avoided or
+        mitigated.  It is also similar to the risk posed by other network services such as DHCP and DNS.
+        </p><p>
+        For this risk to occur, there first has to be an IoT device that can be reliably associated
+        with a person's location, such as a necessary medical device or a vehicle.  
+        Note that the risk only applies to personal use cases, not institutional ones.
+        Secondly, the
+        device has to be configured to register automatically with the nearest directory service.
+        In this case, the location of the device can be inferred from the network range of the directory
+        service and the location of the person inferred from the location of the device.
+        </p><p>
+        There are a few variants of this: 
+        <ul>
+        <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
+        <li>A directory could support actual search by location;</li>
+        <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
+            times out and is removed from a directory, that means the device has not been present for
+            a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
+            home.</li>
+        </ul>
+        </p><p>
+        Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
+        requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
+        address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
+        access to the DHCP server in, say, a cafe, could use this information to track someone's phone and
+        infer their location.
+        </p>
+        <dl>
+        <dt>Mitigations:</dt><dd>
+        There are a few options to mitigate this risk:
+        <ul>
+        <li>Disable registration with public directories.  Registration would still be possible with 
+        personal directories, for example, a home gateway, but a user could disable registration at other
+        locations.  This has the disadvantage that functionality is lost: personal devices cannot be
+        discovered in public locations.  This could be addressed by having internet-accessible private
+        discovery services (e.g. the home gateway could provide an internet-accessible service, but with
+        access control limiting use to authorized users.</li>
+        <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
+        also occurs in DHCP with MAC address and there is a similar partial mitigation: 
+        generate new random IDs periodically.
+        There are however, a few issues.  First of all, other identification information in the TD needs to be 
+        hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
+        they cannot be easily rotated.  Second, if the device rotates the ID, the user may still need to 
+        know the current ID to find the device via discovery.  This can be accomplished however by generating new
+        IDs using a deterministic cryptographic generator that is a function of the current time.
+        However, note that rotating IDs alone does not make tracking impossible since a TD might be fingerprinted.
+        Also, updating an ID might be observable to the owner of the directory service, who could track
+        and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
+        inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
+        In general, however, generating new IDs at least for each service or person to which a TD is supplied
+        makes it harder to connect registration events at different locations and times.
+        </li>
+        <li>The problem of negative location inferencing can be mitigated by limiting access to 
+        private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
+        they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
+        should be appropriately time-limited.
+        Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
+        directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
+        providing new services, and the time-to-live might be set at one month (covering most absences).
+        </li>
+        <li>When explicit location information is available, whether stored in a TD or available in a property,
+        additional care should be taken to only share the TD and/or access to the device with trusted partners,
+        including directories.  If the TD must be shared with a public directory, the location information can be 
+        stripped.
+        </ul>
+        </dd></dl>
 	</p>
         </section>
     </section>
