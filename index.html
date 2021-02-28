@@ -154,8 +154,8 @@ img.wot-diagram {
            services, which provide metadata but only after secure authentication
            and authorization.  This document normatively defines two Exploration
            services, one for WoT Thing self-description with a single 
-           WoT Thing Description and a searchable WoT Thing Directory
-           service for collections of Thing Descriptions.
+           WoT Thing Description and a searchable WoT Thing Description Directory
+           for collections of Thing Descriptions.
            A variety of Introduction services are also described and where
            necessary normative definitions are given to support them.
         </p>
@@ -393,7 +393,7 @@ img.wot-diagram {
                 The following key/value pairs are used in the existing implementations:<br/>
                 <code>retrieve</code>:
                         Absolute path name of the API to get an array of Thing Description IDs
-                        from the Directory Service.<br/>
+                        from the directory service.<br/>
                 <code>register</code>:
                     Absolute path name of the API to register a Directory Description with the <a>Thing Description Directory</a>.<br/>
                 <code>path</code>:
@@ -418,7 +418,7 @@ img.wot-diagram {
                 <img src="images/sequence-dnssd-directory.png"
                     srcset="images/sequence-dnssd-directory.svg"
                     class="wot-diagram"
-                    alt="An example sequence of discovery of Directory Service using DNS-SD and mDNS" />
+                    alt="An example sequence of discovery of directory service using DNS-SD and mDNS" />
                 <figcaption>An example sequence of discovery of <a>Thing Description Directory</a> using DNS-SD and mDNS</figcaption>
             </figure>
 
@@ -437,7 +437,7 @@ img.wot-diagram {
                     MUST be <code>wot.thing</code>. 
                 </span>
                 <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-directory">
-                    The resource type of the Link that targets the Directory Description of the <a>Thing Directory Service</a>
+                    The resource type of the Link that targets the Directory Description of the <a>Thing Description Directory</a>
                     MUST be <code>wot.directory</code>.
                 </span>
             </p>
