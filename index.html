@@ -996,6 +996,78 @@ img.wot-diagram {
                         </p>
                     </section>
 
+                    <section id="exploration-directory-api-registration-listing" class="normative">
+                        <h4>Listing</h4>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-list">
+                                The list of TDs MUST be retrieved from the directory using an
+                                HTTP `GET` request to the root endpoint of the registration API.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-list-resp">
+                                A successful response MUST have 200 (OK) status, contain `application/json`
+                                Content-Type header, and a set of complete TDs in body.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-list-resp-pagination">
+                                The default response MUST be paginated to limit the
+                                set of enclosed TDs and reduce server-client load.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-list-resp-pagination-max">
+                                The total number of TDs in a single response page MUST be capped 
+                                at 100 entries.
+                            </span>
+                            
+                            <span class="rfc2119-assertion" id="tdd-reg-list-resp-alternative"></span>
+                                The server which supports alternative mechanisms (such as streaming)
+                                MAY rely on server-driven content negotiation and respond accordingly.
+                            </span>
+                            
+                            The list operation is specified as `listTD` property in 
+                            [[[#directory-thing-description]]].
+                        </p>
+
+                        <p>
+                            Error responses:  
+                            <ul>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+
+                        <p class="ednote" title="Registration Info query argument">
+                            Need to specify and describe the query argument to toggle
+                            enrichment of TD with registration info.
+                        </p>
+
+                        The following is an example queried TD, enriched with the registration info per request:
+                        <aside class="example" id="example-td-registration-info" title="Example TD with Registration Info">
+                            <pre>
+                                {
+                                    "@context": [
+                                        "https://www.w3.org/2019/wot/td/v1",
+                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                    ],
+                                    "id": "urn:example:simple-td",
+                                    "security": "basic_sc",
+                                    "securityDefinitions": {
+                                        "basic_sc": {
+                                            "scheme": "basic"
+                                        }
+                                    },
+                                    "tdd:registration": {
+                                        "tdd:created": "2021-01-19T17:02:00Z",
+                                        "tdd:id": "urn:example:simple-td",
+                                        "tdd:modified": "2021-01-19T17:02:00Z"
+                                    },
+                                    "title": "Simple TD"
+                                }
+                            </pre>                    
+                        </aside>
+                    </section>
+
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
                         <span class="rfc2119-assertion" id="td-validation-syntactic">
