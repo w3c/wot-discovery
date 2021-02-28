@@ -800,18 +800,13 @@ img.wot-diagram {
                             </ul>
                         </p>
 
-                        In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
+                        <div class="issue" data-number="18">
+                            In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
                         the registration may benefit from an expiration time. 
                         The expiration time may be set explicity or relative to the registration time
                         as a time-to-live (TTL) value.
-
-                        <span class="rfc2119-assertion" id="tdd-reg-">
-                            When TTL is set, the server MUST calculate the expiration time relative 
-                            to creation time.
-                        </span>
-                        <span class="rfc2119-assertion" id="tdd-reg-">
-                            The server MAY
-                        </span>
+                        </div>
+                        
                       
                         <p class="ednote" title="Deduplication">
                             The server should employ a mechanism to eliminate duplication of TDs submitted with
