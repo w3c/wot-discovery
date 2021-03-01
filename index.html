@@ -1027,12 +1027,8 @@ img.wot-diagram {
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
                                         The number of TDs in each response MUST match the requested number.
                                     </span>
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-max">
-                                        The server SHOULD enforce an appropriate or configurable maximum number
-                                        of TDs per request to manage the processing load on the server side.
-                                    </span>
+                                    The server should enforce an appropriate or configurable maximum number
+                                    of TDs per request to manage the processing load on the server side.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total-default">
@@ -1041,12 +1037,16 @@ img.wot-diagram {
                                     This is to avoid unintended traffic and load on memory-constrained clients.
                                 </li>
                                 <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-id">
+                                        The collection object MUST contains an `id` attribute
+                                        pointing to the current page (self link).
+                                    </span>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-links">
                                         The collection object MUST contains a `nextLink` attribute
                                         for querying the next page, when present.
                                     </span>
-                                    Inclusion of other links such as `selfLink` is optional.
-                                    The links may be relative to directory API base URL, or be an absolute URLs.
+                                    The links may be relative to directory API base URL, or be absolute URLs.
+                                    These links may include additional arguments for ordering or session keys.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
@@ -1054,11 +1054,31 @@ img.wot-diagram {
                                         equal to total number of TDs within the directory.
                                     </span>
                                 </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
+                                        By default, the collection MUST be sorted alphanumerically 
+                                        by the unique identifiers of TDs.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
+                                        The server MAY support sorting by other TD attributes (e.g. `created` field) and 
+                                        different sorting orders (i.e. ascendingly/descendingly).
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-unsupported">
+                                        If the server does not support a given sorting argument, 
+                                        it MUST reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
                             </ul>
                         </p>
-                        <p>    
+
+                        <!-- <p>    
                             The paginated list operation is specified as `listTD` property in 
                             [[[#directory-thing-description]]].
+                        </p> -->
+                        <p class="ednote" title="Registration listing query arguments">
+                            Need to specify and describe the query arguments to paginate
+                            and get total. The paginated list operation should be specified as `listTD` 
+                            property in [[[#directory-thing-description]]].
                         </p>
                         
 
@@ -1079,12 +1099,36 @@ img.wot-diagram {
                             </ul>
                         </p>
 
-                        <p class="ednote" title="Registration listing query arguments">
-                            Need to specify and describe the query arguments to paginate
-                            and get total.
-                        </p>
-
-                        
+                        The following is an example paginated list response with total:
+                        <aside class="example" id="example-td-registration-info" title="Example response for a paginated list with total">
+                            <pre>
+                                {
+                                    "@context": "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld",
+                                    "id": "/td?offset=0&limit=10",
+                                    "type": "Collection",
+                                    "items": [ 
+                                        {
+                                            "@context": "https://www.w3.org/2019/wot/td/v1",
+                                            "id": "urn:example:simple-td",
+                                            "title": "Simple TD",
+                                            "security": "basic_sc",
+                                            "securityDefinitions": {
+                                                "basic_sc": {
+                                                    "scheme": "basic"
+                                                }
+                                            }
+                                        }, 
+                                        ...
+                                    ],
+                                    "total": 350,
+                                    "nextLink": "/td?offset=10&limit=10"
+                                }
+                            </pre>
+                            <p class="ednote" title="Collection context">
+                                The collection may require a context independent of discovery context that is for use by the TDs.
+                                It is also unclear if nested contexts are allowed and what are the consequences.
+                            </p>                    
+                        </aside>
                     </section>
 
                     <section id="validation" class="normative">
