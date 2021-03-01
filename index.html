@@ -721,14 +721,9 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-operations">
-                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces. 
+                            The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
                         </span>
-                        <div class="issue" data-number="16">
-                            The API needs to offer a mechanism to efficiently query all TDs.
-                            The search API may offer the expected functionality by searching for everything
-                            and adding protocol-specific pagination arguments. However, that is hardly RESTful.
-                            We could instead extend the registration API to CRUDL, adding Listing operation.   
-                        </div>
+
                         The operations are described below:
                     </p>
 
@@ -1123,11 +1118,7 @@ img.wot-diagram {
                                     "total": 350,
                                     "nextLink": "/td?offset=10&limit=10"
                                 }
-                            </pre>
-                            <p class="ednote" title="Collection context">
-                                The collection may require a context independent of discovery context that is for use by the TDs.
-                                It is also unclear if nested contexts are allowed and what are the consequences.
-                            </p>                    
+                            </pre>                  
                         </aside>
                     </section>
 
