@@ -721,14 +721,9 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-operations">
-                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces. 
+                            The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
                         </span>
-                        <div class="issue" data-number="16">
-                            The API needs to offer a mechanism to efficiently query all TDs.
-                            The search API may offer the expected functionality by searching for everything
-                            and adding protocol-specific pagination arguments. However, that is hardly RESTful.
-                            We could instead extend the registration API to CRUDL, adding Listing operation.   
-                        </div>
+
                         The operations are described below:
                     </p>
 
@@ -994,6 +989,137 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
+                    </section>
+
+                    <section id="exploration-directory-api-registration-listing" class="normative">
+                        <h4>Listing</h4>
+                        <p>
+                            <span class="rfc2119-assertion" id="tdd-reg-list">
+                                The list of TDs MUST be retrieved from the directory using an
+                                HTTP `GET` request to the root endpoint of the registration API.
+                            </span>
+                        </p>
+                        <p> <!-- paginated listing -->
+                            <span class="rfc2119-assertion" id="tdd-reg-list-resp-pagination">
+                                The default response MUST be paginated to limit the
+                                set of enclosed TDs in a single response.
+                            </span>
+                            The pagination must be based on the following rules:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-resp">
+                                        A successful response MUST have 200 (OK) status, contain `application/ld+json`
+                                        Content-Type header, and a set of TDs in a collection object in body.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-envelop">
+                                        The TDs MUST be complete TD objects inside an array
+                                        called `items` enclosed in the collection object. 
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
+                                        The number of TDs in each response MUST match the requested number.
+                                    </span>
+                                    The server should enforce an appropriate or configurable maximum number
+                                    of TDs per request to manage the processing load on the server side.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total-default">
+                                        When a total number is not given in a request, it MUST default to 1.
+                                    </span>
+                                    This is to avoid unintended traffic and load on memory-constrained clients.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-id">
+                                        The collection object MUST contains an `id` attribute
+                                        pointing to the current page (self link).
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-links">
+                                        The collection object MUST contains a `nextLink` attribute
+                                        for querying the next page, when present.
+                                    </span>
+                                    The links may be relative to directory API base URL, or be absolute URLs.
+                                    These links may include additional arguments for ordering or session keys.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
+                                        When requested, the collection object MUST contain a `total` attribute 
+                                        equal to total number of TDs within the directory.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
+                                        By default, the collection MUST be sorted alphanumerically 
+                                        by the unique identifiers of TDs.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
+                                        The server MAY support sorting by other TD attributes (e.g. `created` field) and 
+                                        different sorting orders (i.e. ascendingly/descendingly).
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-unsupported">
+                                        If the server does not support a given sorting argument, 
+                                        it MUST reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                </li>
+                            </ul>
+                        </p>
+
+                        <!-- <p>    
+                            The paginated list operation is specified as `listTD` property in 
+                            [[[#directory-thing-description]]].
+                        </p> -->
+                        <p class="ednote" title="Registration listing query arguments">
+                            Need to specify and describe the query arguments to paginate
+                            and get total. The paginated list operation should be specified as `listTD` 
+                            property in [[[#directory-thing-description]]].
+                        </p>
+                        
+
+                        <span class="rfc2119-assertion" id="tdd-reg-list-resp-alternative">
+                            A server which supports alternative mechanisms (such as streaming)
+                            MAY rely on server-driven content negotiation and respond accordingly.
+                        </span>
+
+                        <p>
+                            Error responses:  
+                            <ul>
+                                <li>
+                                    401 (Unauthorized): No authentication.
+                                </li>
+                                <li>
+                                    403 (Forbidden): Insufficient rights to the resource.
+                                </li>
+                            </ul>
+                        </p>
+
+                        The following is an example paginated list response with total:
+                        <aside class="example" id="example-td-registration-info" title="Example response for a paginated list with total">
+                            <pre>
+                                {
+                                    "@context": "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld",
+                                    "id": "/td?offset=0&limit=10",
+                                    "type": "Collection",
+                                    "items": [ 
+                                        {
+                                            "@context": "https://www.w3.org/2019/wot/td/v1",
+                                            "id": "urn:example:simple-td",
+                                            "title": "Simple TD",
+                                            "security": "basic_sc",
+                                            "securityDefinitions": {
+                                                "basic_sc": {
+                                                    "scheme": "basic"
+                                                }
+                                            }
+                                        }, 
+                                        ...
+                                    ],
+                                    "total": 350,
+                                    "nextLink": "/td?offset=10&limit=10"
+                                }
+                            </pre>                  
+                        </aside>
                     </section>
 
                     <section id="validation" class="normative">

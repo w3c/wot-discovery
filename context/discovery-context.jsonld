@@ -7,6 +7,14 @@
       },
       "LinkDescription": {
         "@id": "discovery:LinkDescription"
-      }
+      },
+      "Collection": {
+        "@id": "discovery:TDCollection"
+      },
+      "id": "@id",
+      "type": "@type",
+      "items": "discovery:contains",
+      "total": "discovery:collectionSize",
+      "nextLink": "discovery:nextTDCollection"
     }
   }
