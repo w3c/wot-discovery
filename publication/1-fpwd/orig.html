@@ -26,8 +26,8 @@
             repoURL: "https://github.com/w3c/wot-discovery",
             branch: "master"
         },
-        previousPublishDate: "2020-11-24",
-        previousMaturity: "FPWD",
+        // previousPublishDate: "2019-05-16",
+        // previousMaturity: "CR",
         editors : [ {
             name : "Andrea Cimmino",
             w3cid : "115672",
@@ -71,28 +71,26 @@
             },
             "CoRE-RD" : {
                   title: "CoRE Resource Directory"
-                , href: "https://tools.ietf.org/html/draft-ietf-core-resource-directory-26"
+                , href: "https://tools.ietf.org/html/draft-ietf-core-resource-directory-25"
                 , authors: [
-                    "Christian Amsüss"
-                  , "Zach Shelby"
+                    "Zach Shelby"
                   , "Michael Koster"
                   , "Carsten Bormann"
                   , "Peter van der Stok"
+                  , "Christian Amsüss"
                   ]
                 , publisher: "IETF"
-                , date: "2 November 2020"
+                , date: "13 July 2020"
             },
             "JSONPATH" : {
-                  title: "JavaScript Object Notation (JSON) Path"
-                , href: "https://tools.ietf.org/html/draft-normington-jsonpath-00"
+                  title: "JSONPath -- XPath for JSON"
+                , href: "https://tools.ietf.org/id/draft-goessner-dispatch-jsonpath-00.html"
                 , authors: [
-                    "Glyn Normington"
-                  , "Edward Surov"
-                  , "Marko Mikulicic"
-                  , "Stefan Gössner"
+                    "S. Gössner"
+                  , "C. Bormann, Ed."
                   ]
                 , publisher: "IETF"
-                , date: "7 December 2020"
+                , date: "12 July 2020"
                 , status: "DRAFT",
             },
             "wot-usecases" : {
@@ -154,7 +152,7 @@ img.wot-diagram {
            services, which provide metadata but only after secure authentication
            and authorization.  This document normatively defines two Exploration
            services, one for WoT Thing self-description with a single 
-           WoT Thing Description and a searchable WoT Thing Description Directory
+           WoT Thing Description and a searchable WoT Thing Directory
            service for collections of Thing Descriptions.
            A variety of Introduction services are also described and where
            necessary normative definitions are given to support them.
@@ -229,22 +227,11 @@ img.wot-diagram {
     <section id="conformance"></section>
     <section id="terminology" class="informative">
         <h1>Terminology</h1>
-
-        <p>
-            The fundamental WoT terminology such as
-            <dfn>Thing</dfn>,
-            <dfn>Thing Description</dfn> (<dfn>TD</dfn>),
-            <dfn>Property</dfn>,
-            <dfn>Action</dfn>,
-            <dfn>Event</dfn>
-            are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
-            of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
-        </p>
-        
-        <p>
-            In addition, this specification introduces the following definitions:
-        </p>
-        
+        <p>The present document uses the terminology defined in
+           the WoT Architecture [[wot-architecture]] document,
+           and also the additional terms defined here.
+           The WoT prefix is used to avoid ambiguity for terms that are
+           (re)defined specifically for Web of Things concepts.</p>
         <dl>
             <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
             </dt>
@@ -254,10 +241,6 @@ img.wot-diagram {
             </dt>
             <dd>In the WoT context, the process of finding and retrieving Thing metadata
             in the form of Thing Descriptions for Things satisfying some criteria of interest.
-            </dd>
-            <dt><dfn data-lt="WoT Enriched Thing Description">Enriched TD</dfn>
-            </dt>
-            <dd>A Thing Description embedded with additional attributes for bookkeeping and discovery. 
             </dd>
             <dt><dfn data-lt="WoT Exploration">Exploration</dfn>
             </dt>
@@ -272,11 +255,7 @@ img.wot-diagram {
             should not directly provide metadata, and in general are designed to be 
             open.
             </dd>
-            <dt><dfn data-lt="WoT TDD">TDD</dfn>
-            </dt>
-            <dd>Short for Thing Description Directory.
-            </dd>
-            <dt><dfn data-lt="WoT Thing Description Directory">Thing Description Directory</dfn>
+            <dt><dfn data-lt="WoT Thing Description Directory">Thing Description Directory (TDD)</dfn>
             </dt>
             <dd>A directory service with a prescribed API that allows the 
             registration, management, and search of a database of Thing Descriptions.
@@ -306,39 +285,31 @@ img.wot-diagram {
     </section>
     <section id="introduction-mech" class="normative">
         <h1>Introduction Mechanisms</h1>
-        <p>This chapter describes a mechanism for discovering a Thing or a <a>Thing Description Directory</a>.
-           The following mechanism is provided by the Thing or the <a>Thing Description Directory</a> so that
-           Consumers can discover the Thing Description or a URL that point to the Thing Description.
+        <p>This chapter describes a mechanism for discovering a Thing or a Directory Service.
+           The following mechanism is provided by the Thing or the Directory Service so that
+           Consumer can discover the Thing Description or a URL that point to the Thing Description.
         </p>
-
         <section id="introduction-direct" class="normative">
             <h2>Direct</h2>
             <p>Any mechanism that results in a single URL.
                This includes Bluetooth beacons, QR codes, and written URLs to be 
                typed by a user.
-                <span class="rfc2119-assertion" id="introduction-direct-thing-description">
-                    A request on all such URLs MUST result in a TD as prescribed in
-                    [[[#exploration-self]]].
-                </span>
-                For self-describing Things, this can be the TD of the Thing itself.
-                <span class="rfc2119-assertion" id="introduction-direct-directory-description">
-                   If the URL references a <a>Thing Description Directory</a>, this MUST be the Directory Description of the
-                    <a>Thing Description Directory</a>.
-                </span>
+               A GET on all such URLs MUST result in a TD.
+               For self-describing Things, this can be the TD of the Thing itself.
+               If the URL references a Directory, this MUST be the TD of the
+               Directory service.
             </p>
         </section>
         <section id="introduction-well-known" class="normative">
             <h2>Well-Known URIs</h2>
             <p>
-                A Thing or <a>Thing Description Directory</a> may use the Well-Known Uniform Resource Identifier [[RFC8615]]
-                to advertise its presence.  The Thing or <a>Thing Description Directory</a> registers its own Thing or Directory Description
+                A Thing or Directory Service MAY use the Well-Known Uniform Resource Identifier [[RFC8615]]
+                to advertise its presence.  The Thing or Directory Service registers its own Thing Description
                 into the following path:
                 <code>/.well-known/wot-thing-description</code>.
             <p>
-                <span class="rfc2119-assertion" id="introduction-well-known-path">
-                    When a request is made at the above Well-Known URI, the server MUST return
-                    a Thing Description as prescribed in [[[#exploration-self]]].
-                </span>
+                When the HTTP GET access is made to the above path, the HTTP server MUST return
+                a Thing Description with the <code>content-type</code> set to <code>application/td+json</code>.
             </p>
             <p class="ednote" title="Registration of Well-known URI">
                 The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
@@ -348,7 +319,7 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p>A Thing or <a>Thing Description Directory</a> may use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].
+            <p>A Thing or Directory Service MAY use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].
                 This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
@@ -358,12 +329,8 @@ img.wot-diagram {
                 and the second label describes the protocol.
             </p>
             <p>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name">
-                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.
-                </span>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
-                    And the Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
-                </span>
+                The Service Name to indicate the Thing or Directory Service MUST be <code>_wot</code>.
+                And the Service Name to indicate the Directory Service MUST be <code>_directory._sub._wot</code>.
             </p>
             <p class="ednote" title="Service Names in existing implementations">
                 The Service Names <code>_wot</code> and <code>_directory._sub._wot</code>
@@ -371,41 +338,38 @@ img.wot-diagram {
                 <code>_wot</code>,
                 <code>_device._sub._wot</code>,
                 <code>_directory._sub._wot</code>,
-                <code>_webthing</code>,
-                <code>_wot-servient</code>.
+                <code>_webthing</code>.
                 To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
                 Registry [[RFC8552]] is required.
             </p>
             <p>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
-                    In addition, the following information MUST be included in the <code>TXT</code>
-                    record that is pointed to by the Service Instance Name:
-                    <dl>
-                        <dt><code>td</code></dt>
-                        <dd>Absolute pathname of the Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.</dd>
-                        <dt><code>type</code></dt>
-                        <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
-                        If omitted, the type is assumed to be <code>Thing</code>.</dd>
-                    </dl>
-                </span>
+                In addition, the following information MUST be included in the <code>TXT</code>
+                record that is pointed to by the Service Instance Name:
+                <dl>
+                    <dt><code>td</code></dt>
+                    <dd>Absolute pathname of the Thing Description of the Thing or Directory Service.</dd>
+                    <dt><code>type</code></dt>
+                    <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                    If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                </dl>
             </p>
             <p class="ednote" title="Usage of a TXT record in existing implementations">
                 The following key/value pairs are used in the existing implementations:<br/>
                 <code>retrieve</code>:
                         Absolute path name of the API to get an array of Thing Description IDs
-                        from the directory service.<br/>
+                        from the Directory Service.<br/>
                 <code>register</code>:
-                    Absolute path name of the API to register a Directory Description with the <a>Thing Description Directory</a>.<br/>
+                    Absolute path name of the API to register a Thing Description with the Directory Service.<br/>
                 <code>path</code>:
                     The URI of the thing description on the Web Thing's web server<br/>
                 <code>td</code>:
-                    Prefix of directory service API<br/>
+                    Prefix of Directory Service API<br/>
                 <code>tls</code>:
                     Value of 1 if the Web Thing supports connections via HTTPS.<br/>
             </p>
             <p>
                 <a href="#sequence-dnssd-thing"></a> and <a href="#sequence-dnssd-directory"></a> shows example sequences
-                of discovery of Thing and <a>Thing Description Directory</a> using DNS-SD and mDNS. 
+                of discovery of Thing and Directory Service using DNS-SD and mDNS. 
             </p>
             <figure id="sequence-dnssd-thing">
                 <img src="images/sequence-dnssd-thing.png"
@@ -418,44 +382,37 @@ img.wot-diagram {
                 <img src="images/sequence-dnssd-directory.png"
                     srcset="images/sequence-dnssd-directory.svg"
                     class="wot-diagram"
-                    alt="An example sequence of discovery of directory service using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of <a>Thing Description Directory</a> using DNS-SD and mDNS</figcaption>
+                    alt="An example sequence of discovery of Directory Service using DNS-SD and mDNS" />
+                <figcaption>An example sequence of discovery of Directory Service using DNS-SD and mDNS</figcaption>
             </figure>
 
         </section>
         <section id="introduction-core-rd" class="normative">
             <h2>CoRE Link Format and CoRE Resource Directory</h2>
             <p>
-                A Thing or <a>Thing Description Directory</a> may advertise its presence using the
+                A Thing or Directory Service MAY advertise its presence using the
                 Constrained RESTful Environment (CoRE) Link Format [[RFC6690]].
-                And, a Thing or <a>Thing Description Directory</a> may use the CoRE Resource Directory [[CoRE-RD]]
-                to register a link to the Thing or Directory Description.
+                And, a Thing or Directory Service MAY use the CoRE Resource Directory [[CoRE-RD]]
+                to register a link to the Thing Description.
             </p>
             <p>
-                <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-thing">
-                    The resource type (<code>rt</code>) of the Link that targets the Thing Description of the Thing
-                    MUST be <code>wot.thing</code>. 
-                </span>
-                <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-directory">
-                    The resource type of the Link that targets the Directory Description of the <a>Thing Description Directory</a>
-                    MUST be <code>wot.directory</code>.
-                </span>
+                The endpoint type(<code>et</code>) of the Link that targets the Thing Description of the Thing
+                MUST be <code>wot.thing</code>. 
+                The endpoint type of the Link that targets the Thing Description of the Directory Service
+                MUST be <code>wot.directory</code>.
             </p>
             <p class="ednote">
-                The resource types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
-                See also <a href="#iana-considerations"></a>.
+                The endpoint types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
             </p>
         </section>
         <section id="introduction-did" class="normative">
             <h2>DID Documents</h2>
-            <p>A Thing or <a>Thing Description Directory</a> may advertise its presence using 
+            <p>A Thing or Directory Service MAY advertise its presence using 
                 the Decentralized Identifier (DID) [[DID-CORE]].
             </p>
             <p>
-                <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
-                    The DID Document obtained by resolving the DID of a Thing or <a>Thing Description Directory</a> MUST
-                    contains a Service Endpoint which point to Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.
-                </span>
+                The DID Document obtained by resolving the DID of a Thing or Directory Service MUST
+                contains a Service Endpoint which point to Thing Description of the Thing or Directory Service.
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document">
                 <pre>
@@ -478,144 +435,20 @@ img.wot-diagram {
         To do: Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
-
-        [[[#exploration-class-diagram]]] depicts the high-level information 
-        model for self-describing and directory services.
-        These exploration mechanisms are described in
-        [[[#exploration-self]]] and [[[#exploration-directory]]].
-        
-        <figure id="exploration-class-diagram">
-            <img src="images/exploration-class-diagram.svg"
-                class="wot-diagram"
-                alt="Exploration mechanisms high-level class diagram" />
-            <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
-        </figure>
-
-        This specification defines two new Thing Description classes which may be
-        used to model special exploratory metadata:
-
-        <dt>Directory Description</dt><dd>
-            A TD which describes a directory instance.
-            <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
-                The Directory Description MUST use type `DirectoryDescription` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#DirectoryDescription`.
-            </span>
-            <p>
-                [[[#directory-thing-description]]] which describes the API of the
-                Thing Description Directory is an example of this TD type.
-            </p>
-        </dd>
-        
-        <dt>Link Description</dt><dd>
-            A TD which describes a reference to another TD.
-            <span class="rfc2119-assertion" id="exploration-link-description-type"> 
-                The Link Description MUST use type `LinkDescription` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#LinkDescription`.
-            </span>
-            <span class="rfc2119-assertion" id="exploration-link-description-link"> 
-                The Link Description MUST define the reference TD as a Link with
-                `describedby` link relation type, `application/td+json` media type
-                and `href` set to the target URL.
-            </span>
-
-            <p>
-                [[[#example-td-link-type]]] is an example Link Description.
-            </p>
-
-            <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
-            <aside class="example" id="example-td-link-type" title="Example Link Description">
-                <pre>
-                    {
-                        "@context": [
-                            "https://www.w3.org/2019/wot/td/v1",
-                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                        ],
-                        "@type": "LinkDescription",
-                        "id": "urn:example:link",
-                        "links": [{
-                            "rel": "describedby",
-                            "href": "https://example.com/td.jsonld",
-                            "type": "application/td+json"
-                        }],
-                        "security": "basic_sc",
-                        "securityDefinitions": {
-                            "basic_sc": {
-                                "scheme": "basic"
-                            }
-                        },
-                        "title": "Example TD referencing another"
-                    }
-                </pre>                    
-            </aside>
-        </dd>
-        
-        <p class="issue" data-number="54">
-            The context and type URIs are tentative and subject to change.
-        </p>
-        
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
-            <!-- <p class="ednote" title="Self-Description Overview">
+            <p class="ednote" title="Self-Description Overview">
             To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
-            </p> -->
-            <p>
-                The self-description is an exploration mechanism in which a <a>Thing</a>
-                hosts its own <a>TD</a> and exposes it at a URL or
-                through others means. 
-                If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
-                via one of the [[[#introduction-mech]]].
-                The hosted TD may also be registered inside a <a>Thing Description Directory</a>
-                as prescribed in [[[#exploration-directory]]]. 
             </p>
-            
-            The self-description using the following protocols must be according
-            to the given specification:
-            <dl>
-                <dt>HTTP</dt>
-                <dd>
-                    <p>
-                        <span class="rfc2119-assertion" id="self-http-secure"> 
-                            The HTTP-based self-description SHOULD be over HTTPS (HTTP Over TLS).
-                        </span>
-                        <span class="rfc2119-assertion" id="self-http-method"> 
-                            The HTTP server MUST serve the TD with a `GET` method.
-                        </span>
-                        <span class="rfc2119-assertion" id="self-http-resp">
-                            A successful response MUST have 200 (OK) status, contain `application/td+json`
-                            Content-Type header, and the TD in body.
-                        </span>
-                        <span class="rfc2119-assertion" id="self-http-alternate-content">
-                            The server MAY provide alternative representations through
-                            server-driven content negotiation, that is by honouring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </span>
-                        <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server SHOULD serve the requests after performing necessary 
-                            authentication and authorization.
-                        </span>
-                    </p>
-                    
-                    <p>
-                        Error responses:  
-                        <ul>
-                            <li>
-                                401 (Unauthorized): No authentication.
-                            </li>
-                            <li>
-                                403 (Forbidden): Insufficient rights to the resource.
-                            </li>
-                        </ul>
-                    </p>
-                </dd>
-            </dl>
-            <!-- add additional protocols for self-description here -->
-
         </section>
         <section id="exploration-directory" class="normative">
             <h2>Directory</h2>
             <p class="ednote" title="Directory Overview">
             To do: Describe mechanisms for TDs to be hosted in a searchable directory service.
+            </p>
+            <p>
+                A Directory can be distinguished from a Thing by the use of an
+                <code>@type</code> including the semantic term <code>Directory</code>.
             </p>
 
             <section id="exploration-directory-info" class="normative">
@@ -624,28 +457,6 @@ img.wot-diagram {
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
             </section>
-
-            <figure id="directory-class-diagram">
-                <img src="images/directory-class-diagram.svg"
-                    class="wot-diagram"
-                    alt="Directory service class diagram" />
-                <figcaption>The class diagram of the directory service</figcaption>
-            </figure>
-
-            <p>
-                [[[#directory-class-diagram]]] shows the information model of the
-                <a>Thing Description Directory</a>.
-                A directory can contain zero or more <a>TD</a>s.
-                For every TD, the directory may maintain the registration information for
-                bookkeeping and search purposes. The information may also include the
-                unique identifier of the TD within the directory.
-                This is useful for when a TD has been registered under an identifier
-                which differs from TD's internal `id` field.
-                When available, consumers may request the registration information
-                via the respective API.
-                A TD which embeds the registration information is called an <a>Enriched TD</a>.
-            </p>
-            
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
@@ -721,14 +532,19 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-operations">
-                            The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
+                            The Registration API MUST provide create, retrieve, update, delete (CRUD) interfaces. 
                         </span>
-
+                        <div class="issue" data-number="16">
+                            The API needs to offer a mechanism to efficiently query all TDs.
+                            The search API may offer the expected functionality by searching for everything
+                            and adding protocol-specific pagination arguments. However, that is hardly RESTful.
+                            We could instead extend the registration API to CRUDL, adding Listing operation.   
+                        </div>
                         The operations are described below:
                     </p>
 
-                    <section id="exploration-directory-api-registration-creation" class="normative">
-                        <h4>Creation</h4>
+                    <dl>
+                        <dt>TD Creation</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-create-body">
                                 The API MUST allow registration of a TD object passed as request body.
@@ -737,7 +553,11 @@ img.wot-diagram {
                                 The request SHOULD contain `application/td+json` Content-Type header for 
                                 JSON serialization of TD.
                             </span>
-                            The TD object must be validated in accordance with [[[#validation]]].
+                            <span class="rfc2119-assertion" id="tdd-reg-create-validation">
+                                The TD object SHOULD be validated syntactically using the 
+                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
+                            </span>
                         </p>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-types"> 
@@ -794,23 +614,14 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-
-                        <div class="issue" data-number="18">
-                            In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
-                        the registration may benefit from an expiration time. 
-                        The expiration time may be set explicity or relative to the registration time
-                        as a time-to-live (TTL) value.
-                        </div>
-                        
                       
                         <p class="ednote" title="Deduplication">
                             The server should employ a mechanism to eliminate duplication of TDs submitted with
                             a `POST` request. The spec need to have recommendations on how to perform this.
                         </p>
-                    </section>
-
-                    <section id="exploration-directory-api-registration-retrieval" class="normative">
-                        <h4>Retrieval</h4>
+                        </dd>
+                    
+                        <dt>TD Retrieval</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
                                 A TD MUST be retrieved from the directory using an HTTP `GET` request,
@@ -838,43 +649,16 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-
-                        <p class="ednote" title="Registration Info query argument">
-                            Need to specify and describe the query argument to toggle
-                            enrichment of TD with registration info.
-                        </p>
-
-                        The following is an example queried TD, enriched with the registration info per request:
-                        <aside class="example" id="example-td-registration-info" title="Example TD with Registration Info">
-                            <pre>
-                                {
-                                    "@context": [
-                                        "https://www.w3.org/2019/wot/td/v1",
-                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                                    ],
-                                    "id": "urn:example:simple-td",
-                                    "security": "basic_sc",
-                                    "securityDefinitions": {
-                                        "basic_sc": {
-                                            "scheme": "basic"
-                                        }
-                                    },
-                                    "tdd:registration": {
-                                        "tdd:created": "2021-01-19T17:02:00Z",
-                                        "tdd:id": "urn:example:simple-td",
-                                        "tdd:modified": "2021-01-19T17:02:00Z"
-                                    },
-                                    "title": "Simple TD"
-                                }
-                            </pre>                    
-                        </aside>
-                    </section>
-
-                    <section id="exploration-directory-api-registration-update" class="normative">
-                        <h4>Update</h4>
+                        </dd>
+                    
+                        <dt>TD Update</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-update-types">
-                                The API MUST allow modifications to an existing TD as full replacement or partial updates.
+                                The API MUST allow modifications to existing TDs as full replacement or partial updates.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
+                                The request SHOULD contain `application/td+json` Content-Type header for JSON
+                                serialization of TD.
                             </span>
                             The update operations are described below:
                         </p>
@@ -885,11 +669,12 @@ img.wot-diagram {
                                     A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
                                     to the location corresponding to the existing TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
-                                    The request SHOULD contain `application/td+json` Content-Type header for JSON
-                                    serialization of TD.
+                                <span class="rfc2119-assertion" id="tdd-reg-update-validation">
+                                    The TD object SHOULD be
+                                    validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
                                 </span>
-                                The TD object must be validated in accordance with [[[#validation]]].
                                 <span class="rfc2119-assertion" id="tdd-reg-update-resp">
                                     Upon success, the server MUST respond with 204 (No Content) status. 
                                 </span>
@@ -900,7 +685,8 @@ img.wot-diagram {
                                     Note: If the target location does not correspond to an existing TD,
                                     the request shall instead proceed as a Create operation and respond
                                     the appropriate status code (see Create section). In other words, an HTTP `PUT`
-                                    request acts as a create or update operation.
+                                    request acts as a create or update operation. An HTTP `PATCH` may be used for
+                                    an update-only operation.
                                 </p>
                             </li>
                             <li>
@@ -908,26 +694,20 @@ img.wot-diagram {
                                     An existing TD MUST be partially modified when the modified parts are submitted using an 
                                     HTTP `PATCH` request to the location corresponding to the existing TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-mergepatch">
-                                    The partial update MUST be processed using the JSON merge patch format 
-                                    format described in [[RFC7396]].
-                                </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-contenttype">
-                                    The request MUST contain `application/merge-patch+json` Content-Type header for JSON
-                                    serialization of the merge patch document.
-                                </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
-                                    The input MUST be in <a>Partial TD</a> form and conform to the
+                                    The modified parts MUST be in <a>Partial TD</a> form and conform to the
                                     original TD structure. 
                                 </span>
-                                
-                                If the input contains members that appear in the original TD, 
-                                their values are replaced. If a member do not appear in the 
-                                original TD, that member is added. If the member is set to `null` 
-                                but appear in the original TD, that member is removed. 
-                                Members with object values are processed recursively.
-                                
-                                After applying the modifications, the TD object must be validated in accordance with [[[#validation]]].
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-fulltd">
+                                    The input MAY include other existing parts of the TD or the whole TD object.
+                                </span>
+                                When the whole TD object is provided as input, the operation acts as an update-only action.
+                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-validation">
+                                    After applying the modifications,
+                                    the TD object SHOULD be validated syntactically using the 
+                                    <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                    [[WoT-Thing-Description]]. <!-- any way to add anchor to citations? -->
+                                </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
                                     Upon success, the server MUST respond with a 204 (No Content) status.
                                 </span>
@@ -954,10 +734,9 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                    </section>
-
-                    <section id="exploration-directory-api-registration-deletion" class="normative">
-                        <h4>Deletion</h4>
+                        </dd>
+                    
+                        <dt>TD Deletion</dt><dd>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-delete">
                                 A TD MUST be removed from the directory when an HTTP `DELETE` request
@@ -984,162 +763,8 @@ img.wot-diagram {
                                 </li>
                             </ul>
                         </p>
-                    </section>
-
-                    <section id="exploration-directory-api-registration-listing" class="normative">
-                        <h4>Listing</h4>
-                        <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-list">
-                                The list of TDs MUST be retrieved from the directory using an
-                                HTTP `GET` request to the root endpoint of the registration API.
-                            </span>
-                        </p>
-                        <p> <!-- paginated listing -->
-                            <span class="rfc2119-assertion" id="tdd-reg-list-resp-pagination">
-                                The default response MUST be paginated to limit the
-                                set of enclosed TDs in a single response.
-                            </span>
-                            The pagination must be based on the following rules:
-                            <ul>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-resp">
-                                        A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                        Content-Type header, and a set of TDs in a collection object in body.
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-envelop">
-                                        The TDs MUST be complete TD objects inside an array
-                                        called `items` enclosed in the collection object. 
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
-                                        The number of TDs in each response MUST match the requested number.
-                                    </span>
-                                    The server should enforce an appropriate or configurable maximum number
-                                    of TDs per request to manage the processing load on the server side.
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total-default">
-                                        When a total number is not given in a request, it MUST default to 1.
-                                    </span>
-                                    This is to avoid unintended traffic and load on memory-constrained clients.
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-id">
-                                        The collection object MUST contains an `id` attribute
-                                        pointing to the current page (self link).
-                                    </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-links">
-                                        The collection object MUST contains a `nextLink` attribute
-                                        for querying the next page, when present.
-                                    </span>
-                                    The links may be relative to directory API base URL, or be absolute URLs.
-                                    These links may include additional arguments for ordering or session keys.
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-total">
-                                        When requested, the collection object MUST contain a `total` attribute 
-                                        equal to total number of TDs within the directory.
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
-                                        By default, the collection MUST be sorted alphanumerically 
-                                        by the unique identifiers of TDs.
-                                    </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
-                                        The server MAY support sorting by other TD attributes (e.g. `created` field) and 
-                                        different sorting orders (i.e. ascendingly/descendingly).
-                                    </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-unsupported">
-                                        If the server does not support a given sorting argument, 
-                                        it MUST reject the request with 501 (Not Implemented) status.
-                                    </span>
-                                </li>
-                            </ul>
-                        </p>
-
-                        <!-- <p>    
-                            The paginated list operation is specified as `listTD` property in 
-                            [[[#directory-thing-description]]].
-                        </p> -->
-                        <p class="ednote" title="Registration listing query arguments">
-                            Need to specify and describe the query arguments to paginate
-                            and get total. The paginated list operation should be specified as `listTD` 
-                            property in [[[#directory-thing-description]]].
-                        </p>
-                        
-
-                        <span class="rfc2119-assertion" id="tdd-reg-list-resp-alternative">
-                            A server which supports alternative mechanisms (such as streaming)
-                            MAY rely on server-driven content negotiation and respond accordingly.
-                        </span>
-
-                        <p>
-                            Error responses:  
-                            <ul>
-                                <li>
-                                    401 (Unauthorized): No authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Insufficient rights to the resource.
-                                </li>
-                            </ul>
-                        </p>
-
-                        The following is an example paginated list response with total:
-                        <aside class="example" id="example-td-registration-info" title="Example response for a paginated list with total">
-                            <pre>
-                                {
-                                    "@context": "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld",
-                                    "id": "/td?offset=0&limit=10",
-                                    "type": "Collection",
-                                    "items": [ 
-                                        {
-                                            "@context": "https://www.w3.org/2019/wot/td/v1",
-                                            "id": "urn:example:simple-td",
-                                            "title": "Simple TD",
-                                            "security": "basic_sc",
-                                            "securityDefinitions": {
-                                                "basic_sc": {
-                                                    "scheme": "basic"
-                                                }
-                                            }
-                                        }, 
-                                        ...
-                                    ],
-                                    "total": 350,
-                                    "nextLink": "/td?offset=10&limit=10"
-                                }
-                            </pre>                  
-                        </aside>
-                    </section>
-
-                    <section id="validation" class="normative">
-                        <h4>Validation</h4>
-                        <span class="rfc2119-assertion" id="td-validation-syntactic">
-                            The syntactic validation of TD objects before storage is RECOMMENDED to
-                            prevent common erroneous submissions.
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-jsonschema">
-                            The server MAY use
-                            <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                            to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
-
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-result">
-                            If the server fails to validate the TD object, it MUST inform the client
-                            with necessary details to identify and resolve the errors.
-                        </span>
-
-                        <p class="ednote" title="Validation Example">
-                            It would be nice to include an example validation result in
-                            the uniform error format (i.e. RFC7807 Problem Details).
-                        </p>
-                        <div class="issue" data-number="99"></div>
-                    </section>
+                        </dd>
+                    </dl>
 
                 </section>
                 <section id="exploration-directory-api-management" class="normative">
@@ -1289,7 +914,7 @@ img.wot-diagram {
 		    <span class="rfc2119-assertion" id="tdd-search-apis-xPath">
 			The Directory SHOULD implement the syntactic search with XPath.
 		    </span>
-		    <span class="rfc2119-assertion" id="tdd-search-apis-sparql">
+		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
 			 The Directory MAY implement semantic search with SPARQL.
 		    </span>
     		
@@ -1348,9 +973,7 @@ img.wot-diagram {
                 <li>501 (Not Implemented): SPARQL API not supported.</li>
               </ul>
             </p>
-	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic">A WoT Thing Description Directory MAY implement federation in its SPARQL query API.</span>
-	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic-imp">If implemented, the SPARQL API MUST implement the SPARQL 1.1 Federated Query standard [[sparql11-overview]].</span>
-	</section>
+      			</section>
 			
             </section>
             </section>
@@ -1374,264 +997,13 @@ img.wot-diagram {
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
         </p>
-        <p>
-        The WoT discovery architecture is designed to avoid a dependence on the security
-        and privacy of existing discovery schemes by using a two-phase approach and
-        requiring authorization before metadata release.  However several security and
-        privacy risks still exist.  These are listed below along with possible mitigations.
-        The level of risk to privacy in particular depends on the use case and whether
-        there is a risk that information related to a person might be distributed in
-        a fashion inconsistent with the privacy desires of that person. 
-        We distinguish the following broad classes of use case scenarios:
-        <dl>
-        <dt>Institutional</dt><dd>Both the Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by an institution or 
-        representatives of an institution.  Example: Automation in a factory where
-        a control system is accessing the state of an assembly line in order to
-        evaluate quality.
-        </dd>
-        <dt>Service</dt><dd>The Things producing metadata  
-        are owned and controlled by an institution or representatives of an institution
-        while the consumers are individuals.  Example: driver of an electric vehicle 
-        accessing the TD for a charge station in order to check status of a charge.
-        </dd>
-        <dt>Personal</dt><dd>Both the Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by the same individual.
-        Example: A smart home control system for charging an electric car from
-        home-attached solar panels, both home and car owned by the same person.
-        </dd>
-        <dt>Personal Peer-to-Peer</dt><dd>The Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by different individuals.
-        Example: A smart home control system for charging a guest's electric car from
-        home-attached solar panels.
-        </dd>
-        <dt>Institutional Peer-to-Peer</dt><dd>The Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by different institutions.
-        Example: A utility provides and manages power delivered to a factory, and
-        the factory provides an interface for the utility to negotiate on-demand power
-        usage reductions.
-        </dd>
-        <dt>Client</dt><dd>The Things producing metadata  
-        are owned and controlled by an individual
-        while the consumers are an institution or representatives of an institution.
-        Example: A personal electric vehicle exposes an interface to a public charging station 
-        so that the charging station can evaluate the charge status of the vehicle.
-        </dd>
-        </dl>
-        <p>All of these in fact carry privacy risks.  Even in the case of factory
-        automation, there is the chance that data about employee performance would
-        be captured and would have to be managed appropriately.
+        <p class="ednote" title="Discovery Security and Privacy Concerns and Mitigations">
+        To do, some discussion of general security and privacy concerns and mitigations.
+        Note that the architecture above is designed to address many such points, for
+        example the two-phase approach and "authorization before metadata release"
+        principles, so this would be 
+        a summary and a recap.
         </p>
-        <p>With these categories established, we will now discuss some specific
-        risks and potential mitigations.
-        </p>
-	<section id="security-consideration-ddos">
-	<h2>Denial of Service</h2>
-	<p>
-        Certain functions of the directory service,
-        in particular search queries,
-        may require significant resources to execute and this fact
-        can be used to launch DDoS attacks against
-	WoT Thing Description Directory services.
-        </p><p>
-        This is mostly of concern in the Service scenario, where the 
-        metadata requester is a private individual and the provider is an institution.
-        In some cases this risk may appear in Peer-to-Peer scenarios as well.
-        <dl>
-        <dt>Mitigations:</dt><dd>
-        A WoT Thing Description Directory implementation should 
-        <ul>
-        <li>Limit the number of queries per unit time from the same reqeuestor</li>
-        <li>Limit the complexity of queries (for example, the total length of the query 
-        expression or its depth)</li>
-        <li>Use a watchdog timer to abort queries that take more than
-	a certain maximum (implementation-configurable) amount of time.</li> 
-        </ul>
-        In cases where queries are refused or aborted 
-        appropriate error responses should be returned.
-        </dd></dl>
-	</p>
-        </section>
-<!-- Notes from issue https://github.com/w3c/wot-security/issues/196
-* Sensitivity of geolocation information (when we have it) for privacy when device is associated with a person, 
-i.e. location of a personal vehicle. This also includes inferred location, e.g. directory estimates location of device based on wifi range.
-* Sensitivity of directory metadata, e.g. last update (watch, periodic TD updates, time of last update can be used to infer if someone is home...).  Note: similar to DHCP metadata risk.
-* Sensitivity of thing ids (again, when device is associated with a person)
-* Query injection (SPARQL and javascript fragments in JSON path) allowing execution of arbitrary code on the server
-    - SPARQL is language-sandboxed but DDoS is possible
-    - JSONpath needs to have its power limited, e.g. should not allow arbitrary embedded JS but 
-      instead only specific expressions, e.g. string and numeric comparison; 
-      regex's are a challenge, we need to look at specific features of regexes, e.g. embedded script execution. 
-      A JSON path standard that already deals with this would be useful, but... 
-    - To do: look at Xpath spec to see if these issues are dealt with. 
-      One path here is to only allow features in JSON Path that are equivalent to some feature in Xpath, 
-      assuming Xpath has already had its power suitably limited
-    - Not actually a risk; it's something we should design out!
-* Access control for directories; 
-  directories have authentication, maybe some information is limited to certain categories of users; 
-  should the standard specify an admin interface to control this?
-* Should "nosec" be allowed as a security scheme in some circumstances?
-* Good access control can mitigate some of the other risks.
-* Location may be implicit. 
-  If a TD simply appears in a directory, 
-  then we know the Thing is in range (e.g. of WiFi) so it can register with the TDD
-* Sensitivity of client IDs associated with some security schemes. 
-  These may be harder to rotate than Thing IDs. 
-  Mitigation: hide IDs by treating them as private information (see "uri" examples)
-* Mitigations for a lot of these are mitigated by access control. However...
-  This still allows tracking by "authorized" parties, 
-  which if you don't own the hardware could be anyone 
-  (e.g. the police, a random guy in the IT department of the traffic department, etc). Options:
-     * Turn off registration; this however just disables discovery
-     * Encrypt the TD; makes search, validation, etc. impossible
-       Also still requires some way to identify the TD, which could then be used for tracking by a third party.
-     * Move location information to a property of the Thing and don't store in the directory. 
-       This however would disable geospatial discovery
-  In general, "disabling" geolocation for personal devices may be necessary, 
-  although it still is useful for institutional use cases
-* Another option would be to use a "code generator" to generate IDs (perhaps in combination with encrypted TDs) 
-  that is synchronized between the device and another application available to the user. 
-  So, for example, a user could use an app on their laptop to generate the current ID 
-  and then do a discovery search to find the location of their car, 
-  which had registered an encrypted TD with that (rotating) ID with a discovery service.
-* We should study how/if there are any solutions for this in phones, etc.
-* Probably we need to allow "nosec" although it's probably a very bad idea except for development use cases. 
-     * We could perhaps add an assertion that 
-       "If a TDD service is available to anyone other than the developer and supports 
-       registration of third-party TDs then it MUST NOT use the "nosec" scheme."
-     * Some non-nosec options are still insecure so perhaps we should be more specific about good options. 
-       We could just refer to the "security best practices" and say 
-       "one of the recommended best-practice security schemes should be used"
-     * Encrypted TDs would not be able to support many features of discovery, 
-       including queries (except for retrieving TDs by ID), validation
-     * We would also have to disable notifications in the directory because when an ID is updated, 
-       we want to delete the old TD and create a new one with a new TD. 
-       Sending notifications of an update would defeat the purpose.
-     * A tracker could still watch for deletions followed immediately by creations and "guess" 
-       that this is an update (and update their tracker to the new ID). 
-     * The tracker would have to be the owner of the directory in this case. 
-     * This however, by itself, just allows the persistent presence of a device to be inferred. 
-     * However, it might be possible to combine this with other information eg. from DHCP logs 
-       (granting IPs to a new device with a known MAC), proxy logs, 
-       IP address of registration request to the directory. 
-     * Similar risk with phones (MAC address), similar mitigations (e.g. rotate MAC address).
-* Need to clarify use cases
-     * Institutional (factory, smart city) - publishing public services
-     * Private (personal use) - services that you want available from remote locations (e.g. access car in parking garage charging station from cafe, e.g. to check status of charge)
-* Alternative to encrypted TDs: Private Directories.
-     * Register personal devices only to directories that only you have access rights to, 
-       e.g. hosted in your personal home gateway
-
-Note: not all of the above risks belong in this section.  In particular, if a risk can be designed out
-(e.g. making it impossible to do query injection) then we should do so.  Access controls should also
-be discussed elsewhere and perhaps mentioned as tools for addressing the following. 
--->
-	<section id="security-consideration-location-tracking">
-	<h2>Location Tracking</h2>
-	<p>
-        A discovery service may potentially allow the approximate location of a person to be determined without
-        their consent.  This risk occurs in some specific circumstances which can be avoided or
-        mitigated.  It is also similar to the risk posed by other network services such as DHCP and DNS.
-        </p><p>
-        For this risk to occur, there first has to be an IoT device that can be reliably associated
-        with a person's location, such as a necessary medical device or a vehicle.  
-        Note that the risk only applies to personal use cases, not institutional ones.
-        Secondly, the
-        device has to be configured to register automatically with the nearest directory service.
-        In this case, the location of the device can be inferred from the network range of the directory
-        service and the location of the person inferred from the location of the device.
-        </p><p>
-        There are a few variants of this: 
-        <ul>
-        <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
-        <li>A directory could support actual search by location;</li>
-        <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
-            times out and is removed from a directory, that means the device has not been present for
-            a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
-            home.</li>
-        </ul>
-        </p><p>
-        Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
-        requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
-        address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
-        access to the DHCP server in, say, a cafe, could use this information to track someone's phone and
-        infer their location.
-        </p>
-        <dl>
-        <dt>Mitigations:</dt><dd>
-        There are a few options to mitigate this risk:
-        <ul>
-        <li>Disable registration with public directories.  Registration would still be possible with 
-        personal directories, for example, a home gateway, but a user could disable registration at other
-        locations.  This has the disadvantage that functionality is lost: personal devices cannot be
-        discovered in public locations.  This could be addressed by having internet-accessible private
-        discovery services (e.g. the home gateway could provide an internet-accessible service, but with
-        access control limiting use to authorized users.</li>
-        <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
-        also occurs in DHCP with MAC address and there is a similar partial mitigation: 
-        generate new random IDs periodically.
-        There are however, a few issues.  First of all, other identification information in the TD needs to be 
-        hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
-        they cannot be easily rotated.  Second, if the device rotates the ID, the user may still need to 
-        know the current ID to find the device via discovery.  This can be accomplished however by generating new
-        IDs using a deterministic cryptographic generator that is a function of the current time.
-        However, note that rotating IDs alone does not make tracking impossible since a TD might be fingerprinted.
-        Also, updating an ID might be observable to the owner of the directory service, who could track
-        and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
-        inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
-        In general, however, generating new IDs at least for each service or person to which a TD is supplied
-        makes it harder to connect registration events at different locations and times.
-        </li>
-        <li>The problem of negative location inferencing can be mitigated by limiting access to 
-        private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
-        they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
-        should be appropriately time-limited.
-        Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
-        directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
-        providing new services, and the time-to-live might be set at one month (covering most absences).
-        </li>
-        <li>When explicit location information is available, whether stored in a TD or available in a property,
-        additional care should be taken to only share the TD and/or access to the device with trusted partners,
-        including directories.  If the TD must be shared with a public directory, the location information can be 
-        stripped.
-        </ul>
-        </dd></dl>
-	</p>
-        </section>
-    </section>
-    
-    <section id="iana-considerations" class="normative">
-        <h1>IANA Considerations</h1>
-        <section id="core-resource-type">
-            <h2>CoRE Resource Types Registration</h2>
-            <p>
-                IANA will be asked to allocate the following values into the Resource Type (<code>rt=</code>)
-                Link Target Attribute Values sub-registry of the Constrained Restful Environments (CoRE)
-                Parameters registry defined in [[RFC6690]].
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Value</th>
-                        <th>Description</th>
-                        <th>Reference</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>wot.thing</code></td>
-                        <td>Thing Description of a Thing</td>
-                        <td>[[wot-discovery]], <a href="#introduction-core-rd"></a></td>
-                    </tr>
-                    <tr>
-                        <td><code>wot.directory</code></td>
-                        <td>Directory Description of a <a>Thing Description Directory</a></td>
-                        <td>[[wot-discovery]], <a href="#introduction-core-rd"></a></td>
-                    </tr>
-                </tbody>
-            </table>
-
-        </section>
     </section>
 
     <section id="changes" class="appendix">

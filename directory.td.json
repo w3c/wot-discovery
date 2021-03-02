@@ -1,6 +1,9 @@
 {
-    "@context": "https://www.w3.org/2019/wot/td/v1",
-    "@type": "Directory",
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+    ],
+    "@type": "DirectoryDescription",
     "title": "Thing Description Directory (TDD)",
     "version": {
         "instance": "1.0.0-alpha"
@@ -16,9 +19,38 @@
                 "read",
                 "search"
             ]
+        },
+        "oauth2_client": {
+            "scheme": "oauth2",
+            "flow": "client",
+            "token": "https://auth.example.com/token",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        },
+        "oauth2_device": {
+            "scheme": "oauth2",
+            "flow": "device",
+            "authorization": "https://auth.example.com/device_authorization",
+            "token": "https://auth.example.com/token",
+            "scopes": [
+                "write",
+                "read",
+                "search"
+            ]
+        },
+        "combo_sc": {
+            "scheme": "combo",
+            "oneOf": [
+                "oauth2_code",
+                "oauth2_client",
+                "oauth2_device"
+            ]
         }
     },
-    "security": "oauth2_code",
+    "security": "combo_sc",
     "base": "https://tdd.example.com",
     "actions": {
         "createTD": {
@@ -61,7 +93,7 @@
             ]
         },
         "updateTD": {
-            "description": "Update an Thing Description",
+            "description": "Update a Thing Description",
             "uriVariables": {
                 "id": {
                     "title": "Thing Description ID",
@@ -95,7 +127,7 @@
                 {
                     "href": "/td/{id}",
                     "htv:methodName": "PATCH",
-                    "contentType": "application/td+json",
+                    "contentType": "application/merge-patch+json",
                     "response": {
                         "description": "Success response",
                         "htv:statusCodeValue": 204
@@ -146,6 +178,160 @@
                         "contentType": "application/td+json"
                     },
                     "scopes": "read"
+                }
+            ]
+        },
+        "searchJSONPath": {
+          "description": "JSONPath syntactic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid JSONPath expression",
+              "type": "string"
+            }
+          },
+          "forms": [
+            {
+              "href": "/search/jsonpath?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            }
+          ]
+        },
+        "searchXPath": {
+          "description": "XPath syntactic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid XPath expression",
+              "type": "string"
+            }
+          },
+          "forms": [
+            {
+              "href": "/search/xpath?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            }
+          ]
+        },
+        "searchSPARQL": {
+          "description": "SPARQL semantic search",
+          "uriVariables": {
+            "query": {
+              "title": "A valid SPARQL 1.1. query",
+              "type": "string"
+            }
+          },
+          "forms": [
+            {
+              "href": "/search/sparql?query={query}",
+              "htv:methodName": "GET",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+             "scopes": "search"
+            },
+            {
+              "href": "/search/sparql",
+              "htv:methodName": "POST",
+              "response": {
+                "description": "Success response",
+                "htv:statusCodeValue": 200
+              },
+              "scopes": "search"
+            }
+          ]
+        }
+    },
+    "events": {
+        "registration": {
+            "description": "TD registration events",
+            "uriVariables": {
+                "type": {
+                    "title": "Event type",
+                    "type": "string",
+                    "enum": [
+                        "created_td",
+                        "updated_td",
+                        "deleted_td"
+                    ]
+                },
+                "td_id": {
+                    "title": "Identifier of TD in directory",
+                    "type": "string"
+                },
+                "include_changes": {
+                    "title": "Include TD changes inside event data",
+                    "type": "boolean"
+                }
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events{?type,td_id,include_changes}",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID",
+                            "htv:fieldValue": ""
+                        }
+                    ],
+                    "data": {
+                        "oneOf":[
+                            {
+                                "type": "object",
+                                "description": "The schema of event data",
+                                "properties": {
+                                    "td_id": {
+                                        "type": "string",
+                                        "format": "iri-reference",
+                                        "description": "Identifier of TD in directory"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "description": "The schema of create event data including the created TD",
+                                "properties": {
+                                    "td_id": {
+                                        "type": "string",
+                                        "format": "iri-reference",
+                                        "description": "Identifier of TD in directory"
+                                    },
+                                    "td": {
+                                        "type": "object",
+                                        "description": "The created TD in a create event"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "description": "The schema of the update event data including the updates to TD",
+                                "properties": {
+                                    "td_id": {
+                                        "type": "string",
+                                        "format": "iri-reference",
+                                        "description": "Identifier of TD in directory"
+                                    },
+                                    "td_updates": {
+                                        "type": "object",
+                                        "description": "The partial TD composed of modified TD parts in an update event" 
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "scopes": "notifications"
                 }
             ]
         }

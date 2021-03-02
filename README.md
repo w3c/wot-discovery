@@ -6,9 +6,12 @@ In this context, "discovery" is an automated process by which WoT Thing Descript
 * [Requirements](requirements.md): List of requirements.
 * [Background](background.md): Survey of existing standards and technologies.
 * [References](references.md): Normative and informative references.
-* [Proposals](proposals/README.md): Proposals.
+* [Proposals](proposals/README.md): Detailed feature proposals.
+* [Implementations](implementations/README.md): Links to implementations.
 
 To propose changes, create a PR following the procedures given in the [wot repo](https://github.com/w3c/wot).
 Also please create issues to note problems in the current content for which a solution is needed (ideally
 issues propose a suitable solution.  It should also be clear under what condition issues have been resolved
 so they can be closed when those conditions are met).
+
+The latest editor's draft is available [here](https://w3c.github.io/wot-discovery/).
