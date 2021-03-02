@@ -626,7 +626,7 @@ img.wot-diagram {
             </section>
 
             <figure id="directory-class-diagram">
-                <img src="images/directory-class-diagram.svg"
+                <img src="images/ontology-diagram.svg"
                     class="wot-diagram"
                     alt="Directory service class diagram" />
                 <figcaption>The class diagram of the directory service</figcaption>
@@ -635,15 +635,13 @@ img.wot-diagram {
             <p>
                 [[[#directory-class-diagram]]] shows the information model of the
                 <a>Thing Description Directory</a>.
-                A directory can contain zero or more <a>TD</a>s.
-                For every TD, the directory may maintain the registration information for
-                bookkeeping and search purposes. The information may also include the
-                unique identifier of the TD within the directory.
-                This is useful for when a TD has been registered under an identifier
-                which differs from TD's internal `id` field.
-                When available, consumers may request the registration information
-                via the respective API.
+                A directory can contain zero or more <a>TD</a>s. 
+		The directory organises the <a>TD</a>s in one or more thing pages.
+		Each thing page has a number of <a>TD</a>s and may reference another thing page that contains more <a>TD</a>s.
+                For every <a>TD</a>, the directory may associate the registration information for
+                bookkeeping and search purposes.
                 A TD which embeds the registration information is called an <a>Enriched TD</a>.
+		A directory allow to specify if a <a>TD</a> is specifically describing a directory or a link description.
             </p>
             
             <section id="exploration-directory-api" class="normative">
