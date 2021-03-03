@@ -55,57 +55,90 @@ most useful depth reference is the ground surface, not absolute elevation) and o
 ### Usage Patterns
 #### Static
 Location and orientation are set during installation of device.
-May support periodic but infrequent updates.
+This usage pattern may include periodic but infrequent updates.
 
 In this case, location and orientation can be embedded in the TD.
 
 #### Dynamic
-Location and orientation are changing over time.
-Implies need for timestamps.
-May want to support history.
-May want to estimate or predict trajectories.
-Accuracy becomes a cone of uncertainty projected into the future.
+In this usage pattern location and orientation are changing over time 
+at a frequency incompatible with updating data in the TD.
+Data associated with particular times implies need for timestamps,
+and history may also be useful in order to
+estimate or predict trajectories.
+Due to changes over time,
+when predicting trajectories,
+accuracy becomes a cone of uncertainty projected into the future.
 
-In this case, location and orientation can be embedded may be accessible as
+In this case, location and orientation may be accessible as
 a property, or a combination of low-accuracy information in the TD updated 
 at a low rate combined with more accurate data available from the Thing 
-directly.
+directly.  The latter can be used to support geospatial queries
+in directories, then the consumer would have to access the more
+accurate and up-to-date information from the Thing itself as needed.
 
 ### Information Model
-This information model is designed only to be used on the surface of
+Note: This information model is designed only to be used on the surface of
 the Earth.  Extraterrestrial applications will have to use a different
 information model.
+
+Geolocation is given in a "geolocation record" that is either 
+embedded in the TD, returned by a property, or both (in the hybrid 
+low-accuracy/high-accuracy scheme mentioned above for dynamic location).
 
 In general, each geolocation record will be an object with a set of
 fields for different aspects of geolocation.  Each field has 
 additional elements specifying properties of that aspect such as
 accuracy and units.  Some elements have default values.  If an element
-does not, then it is mandatory.  Some numerical elements have upper and lower
-bounds.  An element may also have no bounds or only one of the two bounds.
+does not have a default value, then it is mandatory.  
+However, aspects themselves may be optional.
+Some numerical elements have upper and lower
+bounds.  
+An element may also have no bounds or only one of the two bounds.
 
+In general, aspects are designed to correspond to existing standards.
+This proposal does not map exactly onto an existing standard but is
+designed to allow data from other standard to be expressed using
+the information model proposed.
 Useful references:
 * [OGC GeoPose Announcement](https://www.ogc.org/pressroom/pressreleases/3132)
 * [OGC GeoPose Draft](https://github.com/opengeospatial/GeoPose)
+* [OGC GeoSPARQL](https://www.ogc.org/standards/geosparql)
 
-Note: it is very likely that we will update the following to align with
-the OGC GeoPose JSON encoding, which has goals aligned with this proposal.
+In particular it is very likely that we will update the following to align with
+the OGC GeoPose JSON encoding, as well as the OGC GeoSPARQL geospatial
+query extensions and vocabulary for SPARQL and RDF, 
+both of which have goals aligned with this proposal.
 Therefore this data model should be considered merely a provisional
 strawman to gather requirements and to perform tests.
+
 However, the OGC GeoPose draft currently only specifies position (based on
 latitude, longitude, and height) and orientation (either Euler angles or
 quaternion) and does not deal with other elements we have considered here,
 such as velocity, heading, or accuracy.  Also, the OGC spec uses UNIX epoch for
 timestamps as opposed to ISO times and dates as used in the rest of the 
 WoT Thing Description.
+Finally, we want to be able to support geospatial filters in
+conjunction with JSON Path and XPath queries, not just SPARQL.
+
+The following sections detail the various aspects of
+geolocation supported by the information model.
+
+In all aspects "accuracy" elements are to be interpreted in
+alignment with the definition given in the W3C SSN Recommendation.
+Accuracy defines a region (typically using a radius or an interval centered on
+a reference point) that the true value has a probability of being contained
+within at a 90% or greater probability.
 
 #### Position
-Object name: `position`
+*Object name:* `position`
 
-Description: Latitude and longitude (spherical Cartesian),
+*Description:* Latitude and longitude (spherical Cartesian coordinates)
+are given together
 following [WGS84](https://en.wikipedia.org/wiki/World_Geodetic_System).
-Values are given as signed numbers with north being positive for
-latitude, and east being positive for longitude.  Units for latitude
-and longitude are always degrees.  Accuracy is also given but as a distance,
+Values are given as signed floating point numbers with north being positive for
+latitude, and east being positive for longitude.
+Units for latitude and longitude are always degrees.
+Accuracy is also given but as a distance,
 so the area of uncertainty is a cylinder perpendicular to the Earth's surface.
 
 *Elements:*
@@ -117,8 +150,9 @@ so the area of uncertainty is a cylinder perpendicular to the Earth's surface.
 | `accuracy`     | number |    0 |      |       0 | Distance from point tangent to Earth's surface; the true location has at least a 90% probability of being within this distance.  A value of 0 implies the accuracy is not actually known. |
 | `accuracyUnit` | qudt:Length |     |      | qudt:m | The units of accuracy; must be a linear length. |
 
-We will actually be using the term "Position" as shorthand for "2D Position".
-In particular, in the data encoding the "position" element is just the 2D element of
+We will actually be using the term "position" as shorthand for "2D position".
+In particular, 
+in the data encoding the "position" aspect is just the 2D element of
 geolocation.
 
 These are consistent with the corresponding elements of the OGC GeoPose draft.
@@ -136,15 +170,20 @@ at that point, or relative to the actual surface.
 Depth is easier to measure when a device is installed and allows the 
 true elevation to be computed with a device with more geographical information.
 Depth is also more convenient when trying to locate a device.
-If depth is given at a location on land, it means above/below the ground surface.
-If depth is given at a location over water, it means above/below the surface of the water.
+If depth is given at a location on land,
+it means above/below the ground surface.
+If depth is given at a location over water,
+it means above/below the mean surface level of the water.
 Negative numbers indicate locations below the surface.
 This should be relative to the "natural" surface before man-made excavations.
 For example, a location in a basement should have a negative depth.
-Elevations may also be negative, in which case the reference is to a point below
+Elevations may also be negative, 
+in which case the reference is to a point below
 mean sea level.
 
-If an elevation is also given, then the depth is relative to that elevation
+One of either elevation or depth must be given.
+If both are given,
+then the depth is relative to that elevation
 instead of the surface.
 
 *Elements:*
@@ -166,42 +205,48 @@ this, we may update one of "elevation" or "depth" to "height".
 
 #### Orientation
 To fully specify a pose in addition to location we need the
-three-dimensional orientation relative to the Earth's surface.  There are two key ways to 
+three-dimensional orientation relative to the Earth's surface.
+There are two key ways to 
 specify this: Euler angles (rotations, in sequence, around coordinate system axes) and quaternions
-(essentially a vector and a twist angle around that vector).  To be consistent with OGC GeoPose
+(essentially a vector and a twist angle around that vector).
+To be consistent with OGC GeoPose
 we can allow either, but only one should be given.
 
 Note that both are in fact specified with respect to the local tangent frame and as such will
-inherit the singularities of that frame.  In particular, at the poles the Z rotation (heading)
-will be ambiguous.  To resolve the ambiguity, the poles will be treated as a special case with 
-the meridian being treated as a heading of 0.  This is not a continuous mapping.
+inherit the singularities of that frame.
+In particular, at the poles the Z rotation (heading)
+will be ambiguous.
+To resolve the ambiguity, the poles will be treated as a special case with 
+the meridian being treated as a heading of 0.
+This is not a continuous mapping.
 
 ##### Rotations
 *Object name:* `rotations`
 
-*Description:* Rotations around the coordinate system axes given by the local surface tangent frame, 
-in Z, Y, X order, corresponding to
-Yaw, Pitch, and Roll.  Note that the rotation around Z is consistent with "heading" used in
+*Description:* Rotations around the coordinate system axes given by the local surface tangent frame.
+Rotations should be applied in Z, Y, X order, corresponding respectively to
+Yaw, Pitch, and Roll.  
+Note that the rotation around Z is consistent with "heading" used in
 the Web Geolocation API.
 
 *Elements:*
 
 | Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
 |----------------|--------|------|------|---------|------------------------------------------------------------------------------|
-| `angles`    | array of 3 numbers |      |      | [0,0,0] | Euler angles as defined in OGC GeoPose (ZYX order), in degrees                   |
-| `angleAccuracy`    | array of 3 numbers |      |      | [0,0,0] | 90% confidence radii for each element of angles                  |
+| `x`            | number |      |      |       0 | Euler angles as defined in OGC GeoPose (X axis), in degrees                  |
+| `xAccuracy`    | number |      |      |       0 | 90% confidence radii for each X axis angle                                   |
+| `y`            | number |      |      |       0 | Euler angles as defined in OGC GeoPose (Y axis), in degrees                  |
+| `yAccuracy`    | number |      |      |       0 | 90% confidence radii for each Y axis angle                                   |
+| `z`            | number |      |      |       0 | Euler angles as defined in OGC GeoPose (Z axis), in degrees                  |
+| `zAccuracy`    | number |      |      |       0 | 90% confidence radii for each Z axis angle                                   |
 
 *Notes:* 
 1. This is semantically consistent with Euler angle specification of orientation in OCG GeoPose,
    but the object structure is a little different so the angles can be differentiated from the 
    accuracy and unit information in a consistent way.
-2. It might be nicer to give these individual names like `heading`, `inclination` and `tilt` 
-   (or `yaw`, `pitch`, and `roll`) and allow ones not used to be omitted and given default values
-   individually.  
-   In particular the last two elements will often be zero if we only care about the heading.
-   In fact the Web API for Geolocation only mentions heading.   If we have to translate from 
-   data given by the Web API, we will have to specify numbers for the other two elements when they
-   are in fact unknown.
+2. Note the Web API for Geolocation only mentions heading, corresponding to the "z" element.   
+   If we have to translate from 
+   data given by the Web API, values for the other two elements should be omitted and treated as unknown.  
 
 ##### Quaternion
 *Object name:* `quaternion`
@@ -210,10 +255,10 @@ the Web Geolocation API.
 tangent frame.
 
 *Elements:*
-| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
-|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
-| `elements`    | array of 4 numbers |      |      | [1,0,0,0] | Unit quaternion                   |
-| `elementAccuracy`    | array of 4 numbers |      |      | [0,0,0,0] | 90% confidence radius for each element                 |
+| Element Name   |               Type |  Min |  Max |   Default | Description                                          |
+|----------------|--------------------|------|------|-----------|------------------------------------------------------|
+| `elements`     | array of 4 numbers |      |      | [1,0,0,0] | Unit quaternion                                      |
+| `accuracy`     | number             |      |      |         0 | 90% confidence radius on surface of 4-sphere         |
 
 *Notes:* 
 1. Consistent with quaternion specification of orientation in OCG GeoPose.
@@ -228,25 +273,29 @@ tangent frame.
    should be used.
 5. The default value corresponds to no rotation.
 6. Quaternions are unitless.  
-7. An alternative way to specify accuracy would be to give a single number giving
-   a radius on the "surface" of the unit 4-sphere defined by the set of unit quaternions.
+7. The way accuracy is specified is consistent with the way accuracy is specified
+   for position, as a "distance" on the surface of a 4-sphere (hypersphere).
 
 #### Velocity
 *Object name:* `velocity`
 
 *Description:* While velocity can be estimated from two successive positions,
-if known directly (e.g. via a sensor on a robot) it can be reported.
+if known directly at particular point in time (e.g. via a wheel tachometer on a robot) it can be reported.
 This is a 3D vector value defined relative to the coordinate system
-given by the orientation.   If the orientation is not given, the default
+given by the orientation.
+If the orientation is not given, the default
 implies that the velocity will be relative to the local surface tangent frame.
 
 *Elements:*
 
 | Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
 |----------------|--------|------|------|---------|------------------------------------------------------------------------------|
-| `elements`    | array of 3 numbers |      |      | [0,0,0] | Unit quaternion                   |
-| `elementsAccuracy`    | array of 3 numbers |      |      | [0,0,0] | 90% confidence radius for each element                 |
-| `elementsUnit`  | qudt:Speed |     |      | qudt:m_"s | The units of element; must be length per unit time (speed). |
+| `x`            | number |      |      |       0 | X component of velocity                                                      |
+| `y`            | number |      |      |       0 | Y component of velocity                                                      |
+| `z`            | number |      |      |       0 | Z component of velocity                                                      |
+| `unit`         | qudt:Speed |  |      | qudt:M-PER-SEC | The units of all elements; must be length per unit time (speed).      |
+| `accuracy`     | number |      |      |       0 | 90% confidence radius for velocity vector                                    |
+| `accuracyUnit` | qudt:Speed |  |      | qudt:M-PER-SEC | unit of accuracy radius for velocity vector                           |
 
 *Notes:*
 1. Only one of velocity or speed should be given.
@@ -263,9 +312,10 @@ only a scalar providing the length of the velocity vector is given.
 
 | Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
 |----------------|--------|------|------|---------|------------------------------------------------------------------------------|
-| `value`    | number |     0 |      | 0 | length of velocity vector in direction provided by orientation                  |
-| `valueAccuracy`    | number |      |      | 0 | 90% confidence radius                 |
-| `valueUnit`  | qudt:Speed |     |      | qudt:m_s | The units of value; must be length per unit time (speed). |
+| `value`        | number |    0 |      |       0 | length of velocity vector in direction provided by orientation               |
+| `unit`         | qudt:Speed |  |      | qudt:M-PER-SEC | The units of value; must be length per unit time (speed).             |
+| `accuracy`     | number |      |      |       0 | 90% confidence radius                                                        |
+| `accuracyUnit` | qudt:Speed |  |      | qudt:M-PER-SEC | unit of accuracy radius                                               |
 
 #### Acceleration
 *Object name:* `acceleration`
@@ -283,7 +333,14 @@ instead.
 
 *Elements:*
 
-To do.  Similar to velocity.  
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `x`            | number |      |      |       0 | X component of acceleration                                                  |
+| `y`            | number |      |      |       0 | Y component of acceleration                                                      |
+| `z`            | number |      |      |       0 | Z component of acceleration                                                      |
+| `unit`         | qudt:Acceleration |  |      | qudt:M-PER-SEC2 | The units of all elements; must be length per unit time squared (acceleration).      |
+| `accuracy`     | number |      |      |       0 | 90% confidence radius for acceleration vector                                    |
+| `accuracyUnit` | qudt:Acceleration |  |      | qudt:M-PER-SEC2 | unit of accuracy radius for acceleration vector                           |
 
 *Notes:* 
 1. Similar scalar/vector design choices.
@@ -298,7 +355,10 @@ to project uncertainty into the future.
 
 *Elements:*
 
-To do.
+| Element Name   | Type   |  Min |  Max | Default | Description                                                                  |
+|----------------|--------|------|------|---------|------------------------------------------------------------------------------|
+| `value`        | xsd:timedate |     |      |        | time in ISO timedate format               |
+| `accuracy`     | number |      |      |       0 | 90% confidence radius in seconds                                                    |
 
 *Notes:* 
 1. This is a complex subject and half the OGC Geopose draft is on management of
@@ -315,21 +375,19 @@ To do.
 The location of a sensor and the location of the thing being
 measured may not be the same.  If only one location is given they
 are assumed to be coincident.  However, for all values
-versions with "foi" prepended, e.g. "foiLocation" may be used
-in which case this is considered to be the location of the point
+versions with "foi" prepended, e.g. "foiPosition" may be used
+in which case this is considered to be the position of the point
 being measured, and the corresponding "plain" value,
-e.g. "location", is the location of the sensor.
+e.g. "position", is the position of the sensor.
 
 *Useful references:*
 * [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
 * [SOSA Ontology](https://www.w3.org/2015/spatial/wiki/SOSA_Ontology)
 
 #### Accuracy
-We need to be clear about radius vs. interval e.g. for lat/long.
-We need to define probability of inclusion in region.
-Alternatives variance, prob distribution (eg. Gaussian).
-Can apply accuracy to any of the above measurements.
-Should be consistent (if possible) with the Web Geolocation API.
+Can apply accuracy to any of the above measurements, and
+should be consistent (if possible) with the Web Geolocation API
+and SSN.
 
 *Useful references:*
 * [SSN Ontology](https://www.w3.org/TR/vocab-ssn/)
@@ -362,9 +420,21 @@ by another system that manages this information.
 In general, BIMs (Building Information Management systems) define ontologies for
 logical relationships indoors.
 
+### Links
+Data may be encoded in the TD, as a property, or both.
+To make it easier to find geolocation data a link can (must?) be given
+with the relation type "geolocationOf" that consistents of a URL pointing 
+at a TD and a JSON fragment specifier given as a JSON pointer.  If only
+the fragment identifier is given (the URL starts with a "#") the reference 
+is to be interpreted as being within the current TD.
+More than one geolocation link can be given.  The specific use case for
+this is when low-frequency, low-accuracy information is given in the TD (used by
+a TD Directory service to perform geospatial queries) but the Thing itself provides
+high-quality information in a property.  It is also possible to use a link
+to refer from a Thing to another associated Thing that provides geolocation
+information.
+
 ### JSON-LD Examples in TD
-*To do:* Examples are not consistent with definitions above, e.g. use of `x`, `y`, and `z` for
-elements of `velocity`, etc.  Needs to be fixed.
 
 #### Static Location
 Static locations may not change or only be infrequently updated.
@@ -388,6 +458,7 @@ Accuracy can be specified in units different from that of the
 item to which it is attached.   For latitude and longitude,
 accuracy is given as a distance perpendicular to the gravity vector
 at that location, i.e. the region of uncertainty is a cylinder.
+Note that the "geolocation" link points to the TD itself.
 ```
 {
   "@context": [
@@ -400,7 +471,7 @@ at that location, i.e. the region of uncertainty is a cylinder.
   ...
   "links": [
      {
-         "href": "./g:geolocation",
+         "href": "#/g:geolocation",
          "rel": "g:geolocationOf"
      }
   ],
@@ -431,10 +502,13 @@ at that location, i.e. the region of uncertainty is a cylinder.
 When location is dynamic, i.e. for a vehicle, then it may be 
 better to use a property on the actual device to retrieve this
 information.  In this case the link is updated to point at the
-property of the device that can be used to retreive location and
+property of the device that can be used to retrieve location and
 orientation.
 Note that such a property could be internal to a Thing, or
 could be a service referenced by other Things as in the next section.
+In this case there may also be low-accuracy information (updated at
+a lower rate) embedded in the TD itself.
+Two links can be used to refer to both sources of location information.
 ```json
 {
   "@context": ["https://www.w3.org/2019/wot/td/v1",
@@ -447,10 +521,18 @@ could be a service referenced by other Things as in the next section.
   ...
   "links": [
      {
-        "href": "./properties/location",
+        "href": "#/geolocation",
+        "rel": "g:geolocationOf"
+     },
+     {
+        "href": "#/properties/location",
         "rel": "g:geolocationOf"
      }
   ],
+   ...
+  "g:geolocation": {
+     ...
+  },
    ...
   "properties": {
     "location": {
@@ -564,6 +646,9 @@ could be a service referenced by other Things as in the next section.
 A Thing may not have a built-in capability to determine its location but
 may be associated with an external device, e.g. a tracker in a car.  In this
 case the link can refer to a properties in an external Thing.
+In this case the URL has a non-empty base value (here "https://geolocator.thing/td",
+but it should be a URL that resolves to an actual TD) followed by a JSON pointer
+fragment identifier.
 ```json
 {
   "@context": ["https://www.w3.org/2019/wot/td/v1",
@@ -575,7 +660,7 @@ case the link can refer to a properties in an external Thing.
   ...
   "links": [
      {
-        "href": "https://geolocator/properties/location",
+        "href": "https://geolocator.thing/td#/properties/location",
         "rel": "g:geolocationOf"
      }
   ],
@@ -610,5 +695,9 @@ Both one-side and two-sided.
 * Protection of queries
 
 ### References
-* AR GeoPose
+To Do
+* WGS84
+* OGC GeoPose
 * Indoor GML
+* OGC GeoSPARQL
+* IETF JSON Pointer
