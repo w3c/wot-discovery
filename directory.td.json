@@ -17,6 +17,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search"
             ]
         },
@@ -27,6 +28,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search"
             ]
         },
@@ -38,6 +40,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search"
             ]
         },
@@ -178,6 +181,49 @@
                         "contentType": "application/td+json"
                     },
                     "scopes": "read"
+                }
+            ]
+        },
+        "retrieveTDs": {
+            "description": "Paginate and retrieve Thing Descriptions",
+            "uriVariables": {
+                "offset": {
+                    "description": "The number of TDs to skip before the collection",
+                    "type": "number",
+                    "default": 0
+                },
+                "limit": {
+                    "description": "The number of TDs in the collection",
+                    "type": "number",
+                    "default": 1 
+                },
+                "count": {
+                    "description": "Request the total number of TDs",
+                    "type": "boolean",
+                    "default": false
+                },
+                "sortBy": {
+                    "description": "The TD attribute used as comparator for sorting",
+                    "type": "boolean",
+                    "default": false
+                },
+                "sortOrder": {
+                    "description": "Sorting order",
+                    "type": "string",
+                    "enum": ["ASC", "DESC"],
+                    "default": "ASC"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/td{?offset,limit,count,sortBy,sortOrder}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json"
+                    },
+                    "scopes": "readAll"
                 }
             ]
         },
