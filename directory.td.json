@@ -1,6 +1,6 @@
 {
     "@context": [
-        "https://www.w3.org/2019/wot/td/v1",
+        "http://www.w3.org/ns/td",
         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
     ],
     "@type": "DirectoryDescription",
@@ -71,6 +71,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 201
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 },
                 {
@@ -88,6 +95,13 @@
                         ],
                         "htv:statusCodeValue": 201
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -110,6 +124,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -132,6 +153,18 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        },
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -153,6 +186,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -177,6 +217,13 @@
                         "htv:statusCodeValue": 200,
                         "contentType": "application/td+json"
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "read"
                 }
             ]
@@ -195,8 +242,16 @@
               "htv:methodName": "GET",
               "response": {
                 "description": "Success response",
+                "contentType": "application/json",
                 "htv:statusCodeValue": 200
               },
+              "additionalResponses": [
+                {
+                    "description": "JSONPath expression not provided or contains syntax errors",
+                    "contentType": "application/problem+json",
+                    "htv:statusCodeValue": 400
+                }
+             ],
              "scopes": "search"
             }
           ]
@@ -215,8 +270,16 @@
               "htv:methodName": "GET",
               "response": {
                 "description": "Success response",
+                "contentType": "application/json",
                 "htv:statusCodeValue": 200
               },
+              "additionalResponses": [
+                {
+                    "description": "JSONPath expression not provided or contains syntax errors",
+                    "contentType": "application/problem+json",
+                    "htv:statusCodeValue": 400
+                }
+             ],
              "scopes": "search"
             }
           ]
@@ -237,6 +300,13 @@
                 "description": "Success response",
                 "htv:statusCodeValue": 200
               },
+              "additionalResponses": [
+                {
+                    "description": "JSONPath expression not provided or contains syntax errors",
+                    "contentType": "application/problem+json",
+                    "htv:statusCodeValue": 400
+                }
+             ],
              "scopes": "search"
             },
             {
@@ -244,8 +314,16 @@
               "htv:methodName": "POST",
               "response": {
                 "description": "Success response",
+                "contentType": "application/json",
                 "htv:statusCodeValue": 200
               },
+              "additionalResponses": [
+                {
+                    "description": "JSONPath expression not provided or contains syntax errors",
+                    "contentType": "application/problem+json",
+                    "htv:statusCodeValue": 400
+                }
+              ],
               "scopes": "search"
             }
           ]
