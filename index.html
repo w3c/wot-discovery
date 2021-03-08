@@ -491,7 +491,7 @@ img.wot-diagram {
             <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
         </figure>
 
-        This specification defines two new Thing Description classes which may be
+	The <a>Thing  Description Directory</a> ontology defines two new Thing Description classes that may be
         used to model special exploratory metadata:
 
         <dt>Directory Description</dt><dd>
@@ -625,25 +625,21 @@ img.wot-diagram {
                 </p>
             </section>
 
-            <figure id="directory-class-diagram">
-                <img src="images/directory-class-diagram.svg"
+            <figure id="enriched-td-class-diagram">
+                <img src="images/registration-information-diagram.svg"
                     class="wot-diagram"
                     alt="Directory service class diagram" />
                 <figcaption>The class diagram of the directory service</figcaption>
             </figure>
 
             <p>
-                [[[#directory-class-diagram]]] shows the information model of the
-                <a>Thing Description Directory</a>.
-                A directory can contain zero or more <a>TD</a>s.
-                For every TD, the directory may maintain the registration information for
-                bookkeeping and search purposes. The information may also include the
-                unique identifier of the TD within the directory.
-                This is useful for when a TD has been registered under an identifier
-                which differs from TD's internal `id` field.
-                When available, consumers may request the registration information
-                via the respective API.
-                A TD which embeds the registration information is called an <a>Enriched TD</a>.
+                [[[#enriched-td-class-diagram]]] shows the diagram of the
+                <a>Thing Description Directory</a> ontology.
+                A directory can contain zero or more <a>TD</a>s. For every TD, the directory may maintain the registration information for
+                bookkeeping and search purposes.
+		When available, consumers may request the registration information via the respective API.
+		A TD which embeds the registration information is called an <a>Enriched TD</a>. 
+		The registration information that can be specified in a TD is defined in the <a>Thing Description Directory</a> ontology [[[#enriched-td-class-diagram]]].
             </p>
             
             <section id="exploration-directory-api" class="normative">
