@@ -1,0 +1,18 @@
+@startuml
+hide members
+class "td:Thing"
+
+class "tdd:RegistrationInformation" {
+  dc:created : xsd:datetime
+  dc:modified : xsd:datetime
+}
+
+
+note left of "td:Thing" 
+  Thing Description (TD)
+end note
+
+"td:Thing" --> "tdd:RegistrationInformation" : "tdd:hasRegistrationInfo"
+
+show "tdd:RegistrationInformation" attributes
+@enduml
