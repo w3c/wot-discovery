@@ -12,7 +12,7 @@ note left of "td:Thing"
   Thing Description (TD)
 end note
 
-"td:Thing" --> "tdd:RegistrationInformation" : "tdd:hasRegistrationInfo"
+"td:Thing" --> "tdd:RegistrationInformation" : "tdd:hasRegistrationInformation"
 
 show "tdd:RegistrationInformation" attributes
 @enduml
