@@ -491,7 +491,7 @@ img.wot-diagram {
             <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
         </figure>
 
-        This specification defines two new Thing Description classes which may be
+        This specification defines two new Thing Description classes in the tdd ontology that may be
         used to model special exploratory metadata:
 
         <dt>Directory Description</dt><dd>
@@ -626,7 +626,7 @@ img.wot-diagram {
             </section>
 
             <figure id="directory-class-diagram">
-                <img src="images/ontology-diagram.svg"
+                <img src="images/registration_info-diagram.svg"
                     class="wot-diagram"
                     alt="Directory service class diagram" />
                 <figcaption>The class diagram of the directory service</figcaption>
@@ -635,13 +635,11 @@ img.wot-diagram {
             <p>
                 [[[#directory-class-diagram]]] shows the information model of the
                 <a>Thing Description Directory</a>.
-                A directory can contain zero or more <a>TD</a>s. 
-		The directory organises the <a>TD</a>s in one or more thing pages.
-		Each thing page has a number of <a>TD</a>s and may reference another thing page that contains more <a>TD</a>s.
-                For every <a>TD</a>, the directory may associate the registration information for
+                A directory can contain zero or more <a>TD</a>s. For every TD, the directory may maintain the registration information for
                 bookkeeping and search purposes.
-                A TD which embeds the registration information is called an <a>Enriched TD</a>.
-		A directory allow to specify if a <a>TD</a> is specifically describing a directory or a link description.
+		When available, consumers may request the registration information via the respective API.
+		A TD which embeds the registration information is called an <a>Enriched TD</a>. 
+		The registration information that can be specified for a TD is defined in the tdd ontology.
             </p>
             
             <section id="exploration-directory-api" class="normative">
