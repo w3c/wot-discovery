@@ -1,6 +1,6 @@
 {
     "@context": [
-        "https://www.w3.org/2019/wot/td/v1",
+        "http://www.w3.org/ns/td",
         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
     ],
     "@type": "DirectoryDescription",
@@ -71,6 +71,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 201
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 },
                 {
@@ -88,6 +95,13 @@
                         ],
                         "htv:statusCodeValue": 201
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -110,6 +124,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -132,6 +153,18 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid serialization or TD",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        },
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -153,6 +186,13 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 204
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "write"
                 }
             ]
@@ -177,78 +217,116 @@
                         "htv:statusCodeValue": 200,
                         "contentType": "application/td+json"
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
                     "scopes": "read"
                 }
             ]
         },
         "searchJSONPath": {
-          "description": "JSONPath syntactic search",
-          "uriVariables": {
-            "query": {
-              "title": "A valid JSONPath expression",
-              "type": "string"
-            }
-          },
-          "forms": [
-            {
-              "href": "/search/jsonpath?query={query}",
-              "htv:methodName": "GET",
-              "response": {
-                "description": "Success response",
-                "htv:statusCodeValue": 200
-              },
-             "scopes": "search"
-            }
-          ]
+            "description": "JSONPath syntactic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid JSONPath expression",
+                    "type": "string"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/search/jsonpath?query={query}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "contentType": "application/json",
+                        "htv:statusCodeValue": 200
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "search"
+                }
+            ]
         },
         "searchXPath": {
-          "description": "XPath syntactic search",
-          "uriVariables": {
-            "query": {
-              "title": "A valid XPath expression",
-              "type": "string"
-            }
-          },
-          "forms": [
-            {
-              "href": "/search/xpath?query={query}",
-              "htv:methodName": "GET",
-              "response": {
-                "description": "Success response",
-                "htv:statusCodeValue": 200
-              },
-             "scopes": "search"
-            }
-          ]
+            "description": "XPath syntactic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid XPath expression",
+                    "type": "string"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/search/xpath?query={query}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "contentType": "application/json",
+                        "htv:statusCodeValue": 200
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "search"
+                }
+            ]
         },
         "searchSPARQL": {
-          "description": "SPARQL semantic search",
-          "uriVariables": {
-            "query": {
-              "title": "A valid SPARQL 1.1. query",
-              "type": "string"
-            }
-          },
-          "forms": [
-            {
-              "href": "/search/sparql?query={query}",
-              "htv:methodName": "GET",
-              "response": {
-                "description": "Success response",
-                "htv:statusCodeValue": 200
-              },
-             "scopes": "search"
+            "description": "SPARQL semantic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid SPARQL 1.1. query",
+                    "type": "string"
+                }
             },
-            {
-              "href": "/search/sparql",
-              "htv:methodName": "POST",
-              "response": {
-                "description": "Success response",
-                "htv:statusCodeValue": 200
-              },
-              "scopes": "search"
-            }
-          ]
+            "forms": [
+                {
+                    "href": "/search/sparql?query={query}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "search"
+                },
+                {
+                    "href": "/search/sparql",
+                    "htv:methodName": "POST",
+                    "response": {
+                        "description": "Success response",
+                        "contentType": "application/json",
+                        "htv:statusCodeValue": 200
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "search"
+                }
+            ]
         }
     },
     "events": {
@@ -287,7 +365,7 @@
                         }
                     ],
                     "data": {
-                        "oneOf":[
+                        "oneOf": [
                             {
                                 "type": "object",
                                 "description": "The schema of event data",
@@ -325,7 +403,7 @@
                                     },
                                     "td_updates": {
                                         "type": "object",
-                                        "description": "The partial TD composed of modified TD parts in an update event" 
+                                        "description": "The partial TD composed of modified TD parts in an update event"
                                     }
                                 }
                             }
