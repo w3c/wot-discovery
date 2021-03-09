@@ -210,8 +210,8 @@
                 "sort_order": {
                     "description": "Sorting order",
                     "type": "string",
-                    "enum": ["ASC", "DESC"],
-                    "default": "ASC"
+                    "enum": ["asc", "desc"],
+                    "default": "asc"
                 }
             },
             "forms": [
