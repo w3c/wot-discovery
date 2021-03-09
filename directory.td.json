@@ -231,6 +231,13 @@
                             }
                         ],
                     },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid query arguments",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "readAll"
                 }
             ]
