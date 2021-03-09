@@ -202,12 +202,12 @@
                     "type": "boolean",
                     "default": false
                 },
-                "sortBy": {
+                "sort_by": {
                     "description": "The TD attribute used as comparator for sorting",
-                    "type": "boolean",
-                    "default": false
+                    "type": "string",
+                    "default": "id"
                 },
-                "sortOrder": {
+                "sort_order": {
                     "description": "Sorting order",
                     "type": "string",
                     "enum": ["ASC", "DESC"],
@@ -216,12 +216,20 @@
             },
             "forms": [
                 {
-                    "href": "/td{?offset,limit,count,sortBy,sortOrder}",
+                    "href": "/td{?offset,limit,count,sort_by,sort_order}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
                         "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json"
+                        "contentType": "application/ld+json",
+                        "htv:headers": [
+                            {
+                                "htv:fieldName": "Link"
+                            },
+                            {
+                                "htv:fieldName": "Content-Range"
+                            }
+                        ],
                     },
                     "scopes": "readAll"
                 }
