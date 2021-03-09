@@ -229,7 +229,7 @@
                             {
                                 "htv:fieldName": "Content-Range"
                             }
-                        ],
+                        ]
                     },
                     "additionalResponses": [
                         {
