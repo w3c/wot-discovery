@@ -95,18 +95,6 @@
                 , date: "7 December 2020"
                 , status: "DRAFT",
             },
-            "LDP-Paging" : {
-                  title: "Linked Data Platform Paging"
-                , href: "https://www.w3.org/TR/ldp-paging/"
-                , authors: [
-                    "Steve Speicher"
-                  , "John Arwe"
-                  , "Ashok Malhotra"
-                  ]
-                , publisher: "W3C"
-                , date: "30 June 2015"
-                , status: "Note",
-            },
             "wot-usecases" : {
                   title: "Web of Things (WoT): Use Cases"
                 , href: "https://w3c.github.io/wot-usecases/"
@@ -1024,8 +1012,9 @@ img.wot-diagram {
                         </p>
                         <p>
 
-                            The paginated response is inspired by [[?LDP-Paging]].
-                            It must be based on the following rules:
+                            The paginated mechanism is based on [[?LDP-Paging]], utilizing Link [[RFC8288]] 
+                            and Content-Range [[RFC7233]] headers in responses.
+                            The pagination must be based on the following rules:
                             <ul>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination">
@@ -1062,11 +1051,14 @@ img.wot-diagram {
                                         The response header MUST contain a Link header with
                                         `next` relation type for querying the remaining set of TDs, when present.
                                     </span>
-                                    For example, 
-                                    `Link: <&#47;td?offset=10&limit=10>; rel="next"` 
-                                    describes a link to retrieve up to 10 remaining TDs.
+                                    [[[#example-header-next-link]]] describes a link to retrieve up to 10 remaining TDs.
                                     The next link may be absolute or relative to directory API's base URL.
                                     This link should include additional arguments for ordering or session keys.
+                                    <aside class="example" id="example-header-next-link" title="Link header with the relative next link">
+                                        <pre>
+                                            Link: <&#47;td?offset=10&limit=10>; rel="next"
+                                        </pre>
+                                    </aside>
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-canonicallink">
@@ -1074,12 +1066,30 @@ img.wot-diagram {
                                         pointing to the collection and include an `etag` parameter to represent
                                         the current state of the collection.
                                     </span>
-                                    For example,
-                                    `Link: <&#47;td>; rel="canonical"; etag="v1"`
-                                    contains the link to the collection and a `etag` set to "v1".
+                                    [[[#example-header-canonical-link]]] contains the link to the collection and 
+                                    a `etag` set to "v1".
                                     The canonical link may be absolute or relative to directory API's base URL.
                                     The `etag` value could be a version, timestamp, or UUIDv4, reset whenever the TD
                                     collection changes i.e. after creation, deletion, update of TDs.
+                                    <aside class="example" id="example-header-canonical-link" title="Link header with the relative canonical link">
+                                        <pre>
+                                            Link: <&#47;td>; rel="canonical"; etag="v1"
+                                        </pre>
+                                    </aside>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-typelinks">
+                                        The response header MAY contain the two Link headers with 
+                                        `type` relation types and URI references set to 
+                                        `http://www.w3.org/ns/td#Thing` and `http://www.w3.org/ns/ldp#Page`
+                                        to classify the represented resource.
+                                    </span>
+                                    [[[#example-header-type-links]]] shows the Link headers with two `type` links.
+                                    <aside class="example" id="example-header-type-links" title="Link header with type links">
+                                        <pre>
+                                            Link: &#x3C;http://www.w3.org/ns/td#Thing&#x3E;; rel=&#x22;type&#x22;, &#x3C;http://www.w3.org/ns/ldp#Page&#x3E;; rel=&#x22;type&#x22;
+                                        </pre>
+                                    </aside>                                    
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-contentrange">
@@ -1087,11 +1097,10 @@ img.wot-diagram {
                                         range of TDs in response body and if requested, the total number of TDs
                                         present in the collection.
                                     </span>
-                                    For example,
-                                    `Content-Range: TDs 0-9/*` indicates that the page contains the first 10 TDs
-                                    and an unknown total. Comparatively, 
-                                    `Content-Range: TDs 0-9/35` also indicates that the collection contains 35 TDs
-                                    in total. 
+                                    [[[#example-header-content-range-without-size]]] indicates that
+                                    the page contains the first 10 TDs and an unknown total. 
+                                    Comparatively, [[[#example-header-content-range]]]
+                                    also indicates that the collection contains 35 TDs in total. 
                                     
                                     The total is useful for parallel paginated requests instead of sequential
                                     queries and next link traversals. In practice, a client which intends to know the
@@ -1100,7 +1109,18 @@ img.wot-diagram {
                                         The total number of TDs in a collection MUST be requested by setting
                                         `count` query parameter to `true`.
                                     </span>
-                                    
+                                    <aside class="example" id="example-header-content-range-without-size" 
+                                        title="Content-Range header for range 0-9 and unknown size">
+                                        <pre>
+                                            Content-Range: TDs 0-9/*                                        
+                                        </pre>
+                                    </aside>    
+                                    <aside class="example" id="example-header-content-range"
+                                        title="Content-Range header for range 0-9 and size 35">
+                                        <pre>
+                                            Content-Range: TDs 0-9/35                                       
+                                        </pre>
+                                    </aside> 
                                 </li>
                                 
                                 <li>
@@ -1126,9 +1146,22 @@ img.wot-diagram {
                             [[[#directory-thing-description]]].
                         </p>
 
+                        <p class="ednote" title="Status codes">
+                            It may be appropriate to use 206 (Partial Content) for paginated 
+                            responses and 416 (Range Not Satisfiable) for out of
+                            range requests. These are suggested by 
+                            <a href=https://tools.ietf.org/html/rfc7233#section-4>RFC7233 Range Requests</a>
+                            in response to range requests.
+                            <br/>
+                            The current specs mandates 200 and 400 respectively.
+                        </p>
+
                         <p>
                             Error responses:  
                             <ul>
+                                <li>
+                                    400 (Bad Request): Invalid query arguments.
+                                </li>
                                 <li>
                                     401 (Unauthorized): No authentication.
                                 </li>
