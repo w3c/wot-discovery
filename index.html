@@ -654,7 +654,7 @@ img.wot-diagram {
                     The HTTP API responses must use appropriate status codes described in 
                     this section for success and error responses.
                     <span class="rfc2119-assertion" id="tdd-http-errors"> 
-                        The HTTP API MUST use the Problem Details [[RFC7807]] format to carry
+                        The HTTP API SHOULD use the Problem Details [[RFC7807]] format to carry
                         error details in HTTP client error (4xx) and server error (5xx) responses.
                     </span>
                     This enables both machines and humans to know the high-level error class
@@ -1115,25 +1115,61 @@ img.wot-diagram {
 
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
-                        <span class="rfc2119-assertion" id="td-validation-syntactic">
-                            The syntactic validation of TD objects before storage is RECOMMENDED to
-                            prevent common erroneous submissions.
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-jsonschema">
-                            The server MAY use
-                            <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                            to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
-
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-result">
-                            If the server fails to validate the TD object, it MUST inform the client
-                            with necessary details to identify and resolve the errors.
-                        </span>
-
-                        <p class="ednote" title="Validation Example">
-                            It would be nice to include an example validation result in
-                            the uniform error format (i.e. RFC7807 Problem Details).
+                        <p>
+                           <span class="rfc2119-assertion" id="td-validation-syntactic">
+                                The syntactic validation of TD objects before storage is RECOMMENDED to
+                                prevent common erroneous submissions.
+                            </span>
+                            <span class="rfc2119-assertion" id="td-validation-jsonschema">
+                                The server MAY use
+                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
+                            </span>
                         </p>
+                        <p>
+                            <span class="rfc2119-assertion" id="td-validation-result">
+                                If the server fails to validate the TD object, it MUST inform the client
+                                with necessary details to identify and resolve the errors.
+                            </span>
+    
+                            Validation errors are described as Problem Details [[RFC7807]], similar to all other
+                            response errors.
+                            <span class="rfc2119-assertion" id="td-validation-response">
+                                The validation error SHOULD be described as Problem Details [[RFC7807]]
+                                and contain an `invalid-params` field set to an array of objects
+                                with `name` and `reason` fields to represent the error in a
+                                machine-readable way. 
+                            </span>
+                        </p>
+                        
+                        [[[#example-validation-error]]] is an example error response with two validation errors.
+                        <aside class="example" id="example-validation-error" title="Example validation error response">
+                            <pre>
+                                {
+                                    "title": "Invalid Registration",
+                                    "status": 400,
+                                    "detail": "Validation against JSON Schema detected one or more errors",
+                                    "instance": "/error/123e4567-e89b-12d3-a456-426655440000",
+                                    "invalid-params": [
+                                        {
+                                            "name": "security",
+                                            "reason": "security is required"
+                                        },
+                                        {
+                                            "name": "properties.lightInformation.properties.state.properties.lastupdated.type",
+                                            "reason": "properties.lightInformation.properties.state.properties.lastupdated.type must be one of the following: \"boolean\", \"integer\", \"number\", \"string\", \"object\", \"array\", \"null\""
+                                        }
+                                    ]
+                                }                         
+                            </pre>
+                            <p class="ednote" title="Validation error type">
+                                This example skips the type field 
+                                due to the lack of specific error types. See notes in [[[#exploration-directory-api]]].
+                            </p>
+                        </aside>
+                        
+                        
+
                         <div class="issue" data-number="99"></div>
                     </section>
 
