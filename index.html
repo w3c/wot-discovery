@@ -1132,12 +1132,10 @@ img.wot-diagram {
                                 with necessary details to identify and resolve the errors.
                             </span>
     
-                            Validation errors are described as Problem Details [[RFC7807]], similar to all other
-                            response errors.
                             <span class="rfc2119-assertion" id="td-validation-response">
                                 The validation error SHOULD be described as Problem Details [[RFC7807]]
-                                and contain an `invalid-params` field set to an array of objects
-                                with `name` and `reason` fields to represent the error in a
+                                and extended with a `validationErrors` array of objects
+                                with `field` and `description` fields to represent the error in a
                                 machine-readable way. 
                             </span>
                         </p>
@@ -1146,25 +1144,26 @@ img.wot-diagram {
                         <aside class="example" id="example-validation-error" title="Example validation error response">
                             <pre>
                                 {
-                                    "title": "Invalid Registration",
+                                    "title": "Bad Request",
                                     "status": 400,
-                                    "detail": "Validation against JSON Schema detected one or more errors",
-                                    "instance": "/error/123e4567-e89b-12d3-a456-426655440000",
-                                    "invalid-params": [
+                                    "detail": "The input did not pass the JSON Schema validation",
+                                    "instance": "/errors/30585584-cce2-4d04-8079-67b33ffdafbc",
+                                    "validationErrors": [
                                         {
-                                            "name": "security",
-                                            "reason": "security is required"
+                                            "field": "(root)",
+                                            "description": "security is required"
                                         },
                                         {
-                                            "name": "properties.lightInformation.properties.state.properties.lastupdated.type",
-                                            "reason": "properties.lightInformation.properties.state.properties.lastupdated.type must be one of the following: \"boolean\", \"integer\", \"number\", \"string\", \"object\", \"array\", \"null\""
+                                            "field": "properties.status.forms.0.href",
+                                            "description": "Invalid type. Expected: string, given: integer"
                                         }
                                     ]
-                                }                         
+                                }                      
                             </pre>
                             <p class="ednote" title="Validation error type">
-                                This example skips the type field 
-                                due to the lack of specific error types. See notes in [[[#exploration-directory-api]]].
+                                This example skips the `type` field 
+                                due to the current lack of specific error types. 
+                                See notes in [[[#exploration-directory-api]]].
                             </p>
                         </aside>
                         
