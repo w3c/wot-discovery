@@ -1153,16 +1153,12 @@ img.wot-diagram {
                             
                             <aside class="example" id="example-pagination"
                                 title="Query 12 TDs with page size 10.">
-                                The client requests the list and the total count of TDs, with a `limit` of 10.
+                                The client requests the list and the total count of TDs, with a `limit` of 10:
                                 <pre>
                                     GET /td?limit=10&count=true HTTP/1.1   
                                     Host: tdd.example.com
                                 </pre>
-
-                                The server response has a Content-Range header with the range values (0-9),
-                                total TDs (12), JSON-LD Content-Type, a `next` Link to query the remaining 2,
-                                the `canonical` Link with `etag` value set to a UUIDv4 representing the collection 
-                                state, and two other Links for `type` relations. The body is an array of 10 TDs.
+                                Response:
                                 <pre>
                                     HTTP/1.1 200 OK
                                     Content-Range: TDs 0-9/12
@@ -1174,18 +1170,23 @@ img.wot-diagram {
 
                                     [{ TD }, ...9 other TDs... ]
                                 </pre>
-
+                                The server response has a Content-Range header with range values and
+                                total count of TDs. The Content-Type indicates that the response is JSON-LD. 
+                                There are several Links: `next` Link to query the remaining TDs,
+                                `canonical` Link pointing to the collection endpoint with `etag` value set
+                                to a UUID representing the current state of the collection
+                                state, and two other Links for `type` relations. 
+                                The body is an array of 10 TDs.
+                                
+                                <br><br>
                                 The client requests the next page, either by programmatically
-                                constructing it or by using the `next` Link from the previous response.
+                                constructing the URL or by using the `next` Link from the previous response:
                                 <pre>
                                     GET /td?offset=10&limit=10 HTTP/1.1   
                                     Host: tdd.example.com
                                 </pre>
 
-                                The server response has the remaining two TDs. The Content-Range shows the range
-                                but no total, since the count was not requested. There is no `next` Link,
-                                since this is, the last page. The client should check the `etag` value to
-                                detect if the collection has changed between the two requests.
+                                Response:
                                 <pre>
                                     HTTP/1.1 200 OK
                                     Content-Range: TDs 10-12/*
@@ -1196,7 +1197,11 @@ img.wot-diagram {
     
                                     [{ TD }, { TD }]
                                 </pre>
-
+                                The server response has the remaining two TDs. The Content-Range shows the range
+                                but no total, since the count was not requested. There is no `next` Link,
+                                because this is the last page. The client should check the `etag` value to
+                                detect if the collection has changed between the two requests and decide
+                                whether it should query from the beginning.
                             </aside>  
                         </p>
 
