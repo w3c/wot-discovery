@@ -1146,6 +1146,60 @@ img.wot-diagram {
                             [[[#directory-thing-description]]].
                         </p>
 
+
+                        <p>
+                            The following example provides a walk-through of the paginated
+                            retrieval of TDs:
+                            
+                            <aside class="example" id="example-pagination"
+                                title="Query 12 TDs with page size 10.">
+                                The client requests the list and the total count of TDs, with a `limit` of 10.
+                                <pre>
+                                    GET /td?limit=10&count=true HTTP/1.1   
+                                    Host: tdd.example.com
+                                </pre>
+
+                                The server response has a Content-Range header with the range values (0-9),
+                                total TDs (12), JSON-LD Content-Type, a `next` Link to query the remaining 2,
+                                the `canonical` Link with `etag` value set to a UUIDv4 representing the collection 
+                                state, and two other Links for `type` relations. The body is an array of 10 TDs.
+                                <pre>
+                                    HTTP/1.1 200 OK
+                                    Content-Range: TDs 0-9/12
+                                    Content-Type: application/ld+json
+                                    Link: &#x3C;https://tdd.example.com/td?offset=10&#x26;limit=10&#x3E;; rel=&#x22;next&#x22;
+                                    Link: &#x3C;https://tdd.example.com/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;842542a4-abf4-4fca-a38d-ff48f6dc3088&#x22;
+                                    Link: &#x3C;http://www.w3.org/ns/td#Thing&#x3E;; rel=&#x22;type&#x22;,
+                                        &#x3C;http://www.w3.org/ns/ldp#Page&#x3E;; rel=&#x22;type&#x22;
+
+                                    [{ TD }, ...9 other TDs... ]
+                                </pre>
+
+                                The client requests the next page, either by programmatically
+                                constructing it or by using the `next` Link from the previous response.
+                                <pre>
+                                    GET /td?offset=10&limit=10 HTTP/1.1   
+                                    Host: tdd.example.com
+                                </pre>
+
+                                The server response has the remaining two TDs. The Content-Range shows the range
+                                but no total, since the count was not requested. There is no `next` Link,
+                                since this is, the last page. The client should check the `etag` value to
+                                detect if the collection has changed between the two requests.
+                                <pre>
+                                    HTTP/1.1 200 OK
+                                    Content-Range: TDs 10-12/*
+                                    Content-Type: application/ld+json
+                                    Link: &#x3C;https://tdd.example.com/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;842542a4-abf4-4fca-a38d-ff48f6dc3088&#x22;
+                                    Link: &#x3C;http://www.w3.org/ns/td#Thing&#x3E;; rel=&#x22;type&#x22;,
+                                        &#x3C;http://www.w3.org/ns/ldp#Page&#x3E;; rel=&#x22;type&#x22;
+    
+                                    [{ TD }, { TD }]
+                                </pre>
+
+                            </aside>  
+                        </p>
+
                         <p class="ednote" title="Status codes">
                             It may be appropriate to use 206 (Partial Content) for paginated 
                             responses and 416 (Range Not Satisfiable) for out of
