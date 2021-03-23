@@ -228,6 +228,21 @@
                 }
             ]
         },
+        "retrieveTDs": {
+            "description": "Retrieve all Thing Descriptions",
+            "forms": [
+                {
+                    "href": "/td",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json",
+                    },
+                    "scopes": "readAll"
+                }
+            ]
+        },
         "searchJSONPath": {
             "description": "JSONPath syntactic search",
             "uriVariables": {
