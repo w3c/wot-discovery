@@ -654,7 +654,7 @@ img.wot-diagram {
                     The HTTP API responses must use appropriate status codes described in 
                     this section for success and error responses.
                     <span class="rfc2119-assertion" id="tdd-http-errors"> 
-                        The HTTP API SHOULD use the Problem Details [[RFC7807]] format to carry
+                        The HTTP API MUST use the Problem Details [[RFC7807]] format to carry
                         error details in HTTP client error (4xx) and server error (5xx) responses.
                     </span>
                     This enables both machines and humans to know the high-level error class
@@ -1133,11 +1133,11 @@ img.wot-diagram {
                             </span>
     
                             <span class="rfc2119-assertion" id="td-validation-response">
-                                The validation error SHOULD be described as Problem Details [[RFC7807]]
-                                and extended with a `validationErrors` array of objects
-                                with `field` and `description` fields to represent the error in a
-                                machine-readable way. 
+                                The validation error MUST be described as Problem Details [[RFC7807]]
+                                with an extension field called `validationErrors`, set to an array of objects
+                                with `field` and `description` fields.
                             </span>
+                            This is necessary to represent the error in a machine-readable way. 
                         </p>
                         
                         [[[#example-validation-error]]] is an example error response with two validation errors.
