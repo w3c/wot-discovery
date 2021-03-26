@@ -1017,11 +1017,11 @@ img.wot-diagram {
                             Memory-constrained applications which require the full list
                             should consider processing the received data incrementally.
 
-                            <p class="ednote" title="HTTP/2 chunking">
-                                This should be tested before turned into an assertion:<br>
-                                Chunked transfer encoding is not supported in HTTP/2.
-                                HTTP/2 servers SHOULD respond the data incrementally using frames.
-                            </p>
+                            Chunked transfer encoding is not supported in HTTP/2.
+                            <span class="rfc2119-assertion" id="tdd-reg-list-http2">
+                                HTTP/2 servers SHOULD respond the data incrementally using 
+                                <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
+                            </span>
                         </p>
 
                         <p>    
