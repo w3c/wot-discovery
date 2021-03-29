@@ -1115,25 +1115,60 @@ img.wot-diagram {
 
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
-                        <span class="rfc2119-assertion" id="td-validation-syntactic">
-                            The syntactic validation of TD objects before storage is RECOMMENDED to
-                            prevent common erroneous submissions.
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-jsonschema">
-                            The server MAY use
-                            <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
-                            to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
-
-                        </span>
-                        <span class="rfc2119-assertion" id="td-validation-result">
-                            If the server fails to validate the TD object, it MUST inform the client
-                            with necessary details to identify and resolve the errors.
-                        </span>
-
-                        <p class="ednote" title="Validation Example">
-                            It would be nice to include an example validation result in
-                            the uniform error format (i.e. RFC7807 Problem Details).
+                        <p>
+                           <span class="rfc2119-assertion" id="td-validation-syntactic">
+                                The syntactic validation of TD objects before storage is RECOMMENDED to
+                                prevent common erroneous submissions.
+                            </span>
+                            <span class="rfc2119-assertion" id="td-validation-jsonschema">
+                                The server MAY use
+                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
+                                to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
+                            </span>
                         </p>
+                        <p>
+                            <span class="rfc2119-assertion" id="td-validation-result">
+                                If the server fails to validate the TD object, it MUST inform the client
+                                with necessary details to identify and resolve the errors.
+                            </span>
+    
+                            <span class="rfc2119-assertion" id="td-validation-response">
+                                The validation error MUST be described as Problem Details [[RFC7807]]
+                                with an extension field called `validationErrors`, set to an array of objects
+                                with `field` and `description` fields.
+                            </span>
+                            This is necessary to represent the error in a machine-readable way. 
+                        </p>
+                        
+                        [[[#example-validation-error]]] is an example error response with two validation errors.
+                        <aside class="example" id="example-validation-error" title="Example validation error response">
+                            <pre>
+                                {
+                                    "title": "Bad Request",
+                                    "status": 400,
+                                    "detail": "The input did not pass the JSON Schema validation",
+                                    "instance": "/errors/30585584-cce2-4d04-8079-67b33ffdafbc",
+                                    "validationErrors": [
+                                        {
+                                            "field": "(root)",
+                                            "description": "security is required"
+                                        },
+                                        {
+                                            "field": "properties.status.forms.0.href",
+                                            "description": "Invalid type. Expected: string, given: integer"
+                                        }
+                                    ]
+                                }                      
+                            </pre>
+                            <p class="ednote" title="Validation error type">
+                                This example skips the `type` field 
+                                due to the current lack of specific error types. 
+                                See notes in [[[#exploration-directory-api]]].
+                            </p>
+                        </aside>
+                        
+                        
+
                         <div class="issue" data-number="99"></div>
                     </section>
 
