@@ -179,7 +179,7 @@ img.wot-diagram {
            leak information to unauthorized entities.  This includes leaking information
            that a given entity is requesting certain information, not just the information
            distributed in the Thing Descriptions themselves.
-	</p>
+	    </p>
         <p>There are already a number of discovery mechanisms defined, so we have to 
            establish why we are proposing a new one.  First, many existing 
            discovery mechanisms have relatively weak security and privacy protections.
@@ -491,10 +491,11 @@ img.wot-diagram {
             <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
         </figure>
 
-	The <a>Thing  Description Directory</a> ontology defines two new Thing Description classes that may be
+	    The <a>Thing  Description Directory</a> ontology defines two new Thing Description classes that may be
         used to model special exploratory metadata:
 
-        <dt>Directory Description</dt><dd>
+        <dt>Directory Description</dt>
+        <dd>
             A TD which describes a directory instance.
             <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
                 The Directory Description MUST use type `DirectoryDescription` from the
@@ -506,7 +507,8 @@ img.wot-diagram {
             </p>
         </dd>
         
-        <dt>Link Description</dt><dd>
+        <dt>Link Description</dt>
+        <dd>
             A TD which describes a reference to another TD.
             <span class="rfc2119-assertion" id="exploration-link-description-type"> 
                 The Link Description MUST use type `LinkDescription` from the
@@ -783,20 +785,16 @@ img.wot-diagram {
                                     400 (Bad Request): Invalid serialization or TD.
                                     This is accompanied by an appropriate response message.
                                 </li>
-                                <li>
-                                    401 (Unauthorized): No authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Insufficient rights to the resource.
-                                </li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
 
                         <div class="issue" data-number="18">
                             In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
-                        the registration may benefit from an expiration time. 
-                        The expiration time may be set explicity or relative to the registration time
-                        as a time-to-live (TTL) value.
+                            the registration may benefit from an expiration time. 
+                            The expiration time may be set explicity or relative to the registration time
+                            as a time-to-live (TTL) value.
                         </div>
                         
                       
@@ -824,15 +822,9 @@ img.wot-diagram {
                         <p>
                             Error responses:  
                             <ul>
-                                <li>
-                                    404 (Not Found): TD with the given `id` not found.
-                                </li>
-                                <li>
-                                    401 (Unauthorized): No authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Insufficient rights to the resource.
-                                </li>
+                                <li>404 (Not Found): TD with the given `id` not found.</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
 
@@ -939,15 +931,9 @@ img.wot-diagram {
                                     400 (Bad Request): Invalid serialization or TD.
                                     This is accompanied by an appropriate response message.
                                 </li>
-                                <li>
-                                    404 (Not Found): TD with the given `id` not found (for `PATCH` only). 
-                                </li>
-                                <li>
-                                    401 (Unauthorized): Rejecting a request without appropriate authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Rejecting a request due to insufficient rights to the resource.
-                                </li>
+                                <li>404 (Not Found): TD with the given `id` not found (for `PATCH` only).</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
                     </section>
@@ -969,15 +955,9 @@ img.wot-diagram {
                         <p>
                             Error responses:
                             <ul>
-                                <li>
-                                    404 (Not Found): TD with the given `id` not found.
-                                </li>
-                                <li>
-                                    401 (Unauthorized): No authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Insufficient rights to the resource.
-                                </li>
+                                <li>404 (Not Found): TD with the given `id` not found.</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
                     </section>
@@ -1032,12 +1012,8 @@ img.wot-diagram {
                         <p>
                             Error responses:  
                             <ul>
-                                <li>
-                                    401 (Unauthorized): No authentication.
-                                </li>
-                                <li>
-                                    403 (Forbidden): Insufficient rights to the resource.
-                                </li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
 
@@ -1107,10 +1083,10 @@ img.wot-diagram {
                 <section id="exploration-directory-api-management" class="normative">
                     <h4>Management</h4>
                     <p class="ednote" title="Management API">
-                      To do: Other administrative functions not having to do with CRUD of individual records,
-                    for example, security configuration.
-                    Also, administrator roles may expand the capabilities of administrators for
-                    management of records (for instance, the ability to delete a record they did not create).
+                        To do: Other administrative functions not having to do with CRUD of individual records,
+                        for example, security configuration.
+                        Also, administrator roles may expand the capabilities of administrators for
+                        management of records (for instance, the ability to delete a record they did not create).
                     </p>
                 </section>
                 <section id="exploration-directory-api-notification" class="normative">
@@ -1225,96 +1201,131 @@ img.wot-diagram {
                     
 
                 </section>
-          <section id="exploration-directory-api-search" class="normative">
+                <section id="exploration-directory-api-search" class="normative">
                     <h4>Search</h4>
                     
                     <p class="ednote" title="Search API Overview">
-                    Sub-API to search a directory, e.g. issue a query.
-                    There are different forms and levels of query possible, for example,
-                    syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
-                    and the more advanced query types may not be 
-                    supported by all directories.   
-                    So this API will have further subsections,
-                    some of which will be optional.
-                    Search also includes a sub-API for managing listing the contents (eg returned by
-                    a query) including handling pagination, etc.
-                    Note that one special form of query will be able to return everything.
-                    Results may be subject to the requestor's authorization.
-                    <br>
-                    To discuss further:
-                    Federated queries to other TDDs, Spatial and network-limited queries, Links
+                        Sub-API to search a directory, e.g. issue a query.
+                        There are different forms and levels of query possible, for example,
+                        syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
+                        and the more advanced query types may not be 
+                        supported by all directories.   
+                        So this API will have further subsections,
+                        some of which will be optional.
+                        Search also includes a sub-API for managing listing the contents (eg returned by
+                        a query) including handling pagination, etc.
+                        Note that one special form of query will be able to return everything.
+                        Results may be subject to the requestor's authorization.
+                        <br>
+                        To discuss further:
+                        Federated queries to other TDDs, Spatial and network-limited queries, Links
                     </p>
-        The Directory has three search APIs: syntactic search with JSONPath [[?JSONPATH]] or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
-		    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
-			The Directory MUST implement the syntactic search with JSONPath.
-		    </span>
-		    <span class="rfc2119-assertion" id="tdd-search-apis-xPath">
-			The Directory SHOULD implement the syntactic search with XPath.
-		    </span>
-		    <span class="rfc2119-assertion" id="tdd-search-apis-sparql">
-			 The Directory MAY implement semantic search with SPARQL.
-		    </span>
+                    The Directory has three search APIs: syntactic search with JSONPath [[?JSONPATH]]
+                    or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
+                    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
+                        The Directory MUST implement the syntactic search with JSONPath.
+                    </span>
+                    <span class="rfc2119-assertion" id="tdd-search-apis-xPath">
+                        The Directory SHOULD implement the syntactic search with XPath.
+                    </span>
+                    <span class="rfc2119-assertion" id="tdd-search-apis-sparql">
+                        The Directory MAY implement semantic search with SPARQL.
+                    </span>
     		
-        <section id="jsonpath-semantic" class="normative">
-          <h4>Syntactic search: JSONPath</h4>
-          <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> The API MUST allow searching TDs using an HTTP <code>GET</code> request.</span> 
-          <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> The request MUST contain a valid JSONPath [[?JSONPATH]] as searching parameter.</span>
-          <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">  A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
-          The syntactic search with JSONPath is specified as `searchJSONPath` property in
-          [[[#directory-thing-description]]].
+                    <section id="jsonpath-semantic" class="normative">
+                        <h4>Syntactic search: JSONPath</h4>
+                        <span class="rfc2119-assertion" id="tdd-search-jsonpath-method">
+                            The API MUST allow searching TDs using an HTTP <code>GET</code> request.
+                        </span> 
+                        <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter">
+                            The request MUST contain a valid JSONPath [[?JSONPATH]] as searching parameter.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-search-jsonpath-response">
+                            A successful response MUST have 200 (OK) status, contain
+                            <code>application/json</code> Content-Type header, and in
+                            the body a set of complete TDs or a set of TD fragments.
+                        </span>
+                        The syntactic search with JSONPath is specified as `searchJSONPath` property in
+                        [[[#directory-thing-description]]].
 
-	  <p>List of errors:
-            <ul>
-              <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
-              <li>401 (Unauthorized): No authentication.</li>
-              <li>403 (Forbidden): Insufficient rights to the resource.</li>
-            </ul>
-          </p>
-          <div class="issue" data-number="56">
-              The standardization of JSONPath expressions is in progress by an independent working group.
-          </div>
-        </section>
-	<section id="xpath-semantic" class="normative">
-        <h4>Syntactic search: XPath</h4>
-        The support for XPath Search API is recommended.
-    	<span class="rfc2119-assertion" id="tdd-search-xpath-method">If implemented, the XPath query API MUST allow searching TDs using an HTTP <code>GET</code> request.</span>
-    	<span class="rfc2119-assertion" id="tdd-search-xpath-parameter">The request MUST contain a valid XPath [[xpath-31]] as search parameter.</span>
-    	<span class="rfc2119-assertion" id="tdd-search-xpath-response">A successful response MUST have 200 (OK) status, contain <code>application/json</code> Content-Type header, and in the body a set of complete TDs or a set of TD fragments.</span>
-    The syntactic search with XPath is specified as `searchXPath` property in
-    [[[#directory-thing-description]]].
-                            
-	 <p>List of errors:
-    	  <ul>
-    	   <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
-           <li>401 (Unauthorized): No authentication.</li>
-           <li>403 (Forbidden): Insufficient rights to the resource.</li>
-           <li>501 (Not Implemented): XPath API not supported.</li>
-    	  </ul>
-    	 </p>
-        </section>
-	<section id="search-semantic" class="normative">
-           <h4>Semantic search: SPARQL</h4>
-           The support for SPARQL Search API is optional.
-         <span class="rfc2119-assertion" id="tdd-search-semantic-protocol">If implemented, the SPARQL search API MUST allow searching TDs using the SPARQL protocol [[sparql11-overview]].</span>
-         <span class="rfc2119-assertion" id="tdd-search-semantic-method-get">The SPARQL API MUST accept queries using HTTP <code>GET</code> requests.</span>
-         <span class="rfc2119-assertion" id="tdd-search-semantic-method-post">The support for SPARQL search using HTTP <code>POST</code> method is OPTIONAL.</span>
-         <code>UPDATE</code> queries are out of the scope for the API.
-      	 <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">A successful response MUST have 200 (OK) status, and depending on the type of query contain by default as Content-Type header <code>application/ld+json</code> for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>. The response body MAY contain TD fragments or a set of TDs depending on the query.</span>
-           The semantic search with SPARQL is specified as `searchSPARQL` property in
-           [[[#directory-thing-description]]].
-	 <p>List of errors:
-              <ul>
-                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
-                <li>401 (Unauthorized): No authentication.</li>
-                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                <li>501 (Not Implemented): SPARQL API not supported.</li>
-              </ul>
-            </p>
-	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic">A WoT Thing Description Directory MAY implement federation in its SPARQL query API.</span>
-	<span class="rfc2119-assertion" id="tdd-distributed-search-semantic-imp">If implemented, the SPARQL API MUST implement the SPARQL 1.1 Federated Query standard [[sparql11-overview]].</span>
-	</section>
-			
-            </section>
+                        <p>List of errors:
+                            <ul>
+                                <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                            </ul>
+                        </p>
+                        <div class="issue" data-number="56">
+                            The standardization of JSONPath expressions is in progress by an independent working group.
+                        </div>
+                    </section>
+                    <section id="xpath-semantic" class="normative">
+                        <h4>Syntactic search: XPath</h4>
+                        The support for XPath Search API is recommended.
+                        <span class="rfc2119-assertion" id="tdd-search-xpath-method">
+                            If implemented, the XPath query API MUST allow searching TDs using an
+                            HTTP <code>GET</code> request.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-search-xpath-parameter">
+                            The request MUST contain a valid XPath [[xpath-31]] as search parameter.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-search-xpath-response">
+                            A successful response MUST have 200 (OK) status, contain
+                            <code>application/json</code> Content-Type header, and in
+                            the body a set of complete TDs or a set of TD fragments.
+                        </span>
+                        The syntactic search with XPath is specified as `searchXPath` property in
+                        [[[#directory-thing-description]]].
+                                
+                        <p>List of errors:
+                            <ul>
+                                <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>501 (Not Implemented): XPath API not supported.</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section id="search-semantic" class="normative">
+                        <h4>Semantic search: SPARQL</h4>
+                        The support for SPARQL Search API is optional.
+                        <span class="rfc2119-assertion" id="tdd-search-semantic-protocol">
+                            If implemented, the SPARQL search API MUST allow searching TDs using
+                            the SPARQL protocol [[sparql11-overview]].
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-search-semantic-method-get">
+                            The SPARQL API MUST accept queries using HTTP <code>GET</code> requests.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-search-semantic-method-post">
+                            The support for SPARQL search using HTTP <code>POST</code> method is OPTIONAL.
+                        </span>
+                        <code>UPDATE</code> queries are out of the scope for the API.
+                        <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">
+                            A successful response MUST have 200 (OK) status, and depending on the type
+                            of query contain by default as Content-Type header <code>application/ld+json</code>
+                            for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or
+                            <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>.
+                            The response body MAY contain TD fragments or a set of TDs depending on the query.
+                        </span>
+                        The semantic search with SPARQL is specified as `searchSPARQL` property in
+                        [[[#directory-thing-description]]].
+                        <p>List of errors:
+                            <ul>
+                                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
+                                <li>401 (Unauthorized): No authentication.</li>
+                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>501 (Not Implemented): SPARQL API not supported.</li>
+                            </ul>
+                        </p>
+                        <span class="rfc2119-assertion" id="tdd-distributed-search-semantic">
+                            A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
+                        </span>
+                        <span class="rfc2119-assertion" id="tdd-distributed-search-semantic-imp">
+                            If implemented, the SPARQL API MUST implement the
+                            SPARQL 1.1 Federated Query standard [[sparql11-overview]].
+                        </span>
+                    </section>
+                </section>
             </section>
             <section id="exploration-directory-security" class="normative">
                 <h3>Security and Privacy</h3>
@@ -1337,82 +1348,88 @@ img.wot-diagram {
             specification [[?WOT-SECURITY]].
         </p>
         <p>
-        The WoT discovery architecture is designed to avoid a dependence on the security
-        and privacy of existing discovery schemes by using a two-phase approach and
-        requiring authorization before metadata release.  However several security and
-        privacy risks still exist.  These are listed below along with possible mitigations.
-        The level of risk to privacy in particular depends on the use case and whether
-        there is a risk that information related to a person might be distributed in
-        a fashion inconsistent with the privacy desires of that person. 
-        We distinguish the following broad classes of use case scenarios:
+            The WoT discovery architecture is designed to avoid a dependence on the security
+            and privacy of existing discovery schemes by using a two-phase approach and
+            requiring authorization before metadata release.  However several security and
+            privacy risks still exist.  These are listed below along with possible mitigations.
+            The level of risk to privacy in particular depends on the use case and whether
+            there is a risk that information related to a person might be distributed in
+            a fashion inconsistent with the privacy desires of that person. 
+            We distinguish the following broad classes of use case scenarios:
+        </p>
         <dl>
-        <dt>Institutional</dt><dd>Both the Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by an institution or 
-        representatives of an institution.  Example: Automation in a factory where
-        a control system is accessing the state of an assembly line in order to
-        evaluate quality.
-        </dd>
-        <dt>Service</dt><dd>The Things producing metadata  
-        are owned and controlled by an institution or representatives of an institution
-        while the consumers are individuals.  Example: driver of an electric vehicle 
-        accessing the TD for a charge station in order to check status of a charge.
-        </dd>
-        <dt>Personal</dt><dd>Both the Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by the same individual.
-        Example: A smart home control system for charging an electric car from
-        home-attached solar panels, both home and car owned by the same person.
-        </dd>
-        <dt>Personal Peer-to-Peer</dt><dd>The Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by different individuals.
-        Example: A smart home control system for charging a guest's electric car from
-        home-attached solar panels.
-        </dd>
-        <dt>Institutional Peer-to-Peer</dt><dd>The Things producing metadata and 
-        the Consumers of that metadata are owned and controlled by different institutions.
-        Example: A utility provides and manages power delivered to a factory, and
-        the factory provides an interface for the utility to negotiate on-demand power
-        usage reductions.
-        </dd>
-        <dt>Client</dt><dd>The Things producing metadata  
-        are owned and controlled by an individual
-        while the consumers are an institution or representatives of an institution.
-        Example: A personal electric vehicle exposes an interface to a public charging station 
-        so that the charging station can evaluate the charge status of the vehicle.
-        </dd>
+            <dt>Institutional</dt>
+            <dd>Both the Things producing metadata and 
+            the Consumers of that metadata are owned and controlled by an institution or 
+            representatives of an institution.  Example: Automation in a factory where
+            a control system is accessing the state of an assembly line in order to
+            evaluate quality.
+            </dd>
+            <dt>Service</dt><dd>The Things producing metadata  
+            are owned and controlled by an institution or representatives of an institution
+            while the consumers are individuals.  Example: driver of an electric vehicle 
+            accessing the TD for a charge station in order to check status of a charge.
+            </dd>
+            <dt>Personal</dt><dd>Both the Things producing metadata and 
+            the Consumers of that metadata are owned and controlled by the same individual.
+            Example: A smart home control system for charging an electric car from
+            home-attached solar panels, both home and car owned by the same person.
+            </dd>
+            <dt>Personal Peer-to-Peer</dt><dd>The Things producing metadata and 
+            the Consumers of that metadata are owned and controlled by different individuals.
+            Example: A smart home control system for charging a guest's electric car from
+            home-attached solar panels.
+            </dd>
+            <dt>Institutional Peer-to-Peer</dt><dd>The Things producing metadata and 
+            the Consumers of that metadata are owned and controlled by different institutions.
+            Example: A utility provides and manages power delivered to a factory, and
+            the factory provides an interface for the utility to negotiate on-demand power
+            usage reductions.
+            </dd>
+            <dt>Client</dt><dd>The Things producing metadata  
+            are owned and controlled by an individual
+            while the consumers are an institution or representatives of an institution.
+            Example: A personal electric vehicle exposes an interface to a public charging station 
+            so that the charging station can evaluate the charge status of the vehicle.
+            </dd>
         </dl>
-        <p>All of these in fact carry privacy risks.  Even in the case of factory
-        automation, there is the chance that data about employee performance would
-        be captured and would have to be managed appropriately.
+        <p>
+            All of these in fact carry privacy risks.  Even in the case of factory
+            automation, there is the chance that data about employee performance would
+            be captured and would have to be managed appropriately.
         </p>
-        <p>With these categories established, we will now discuss some specific
-        risks and potential mitigations.
+        <p>
+            With these categories established, we will now discuss some specific
+            risks and potential mitigations.
         </p>
-	<section id="security-consideration-ddos">
-	<h2>Denial of Service</h2>
-	<p>
-        Certain functions of the directory service,
-        in particular search queries,
-        may require significant resources to execute and this fact
-        can be used to launch DDoS attacks against
-	WoT Thing Description Directory services.
-        </p><p>
-        This is mostly of concern in the Service scenario, where the 
-        metadata requester is a private individual and the provider is an institution.
-        In some cases this risk may appear in Peer-to-Peer scenarios as well.
-        <dl>
-        <dt>Mitigations:</dt><dd>
-        A WoT Thing Description Directory implementation should 
-        <ul>
-        <li>Limit the number of queries per unit time from the same reqeuestor</li>
-        <li>Limit the complexity of queries (for example, the total length of the query 
-        expression or its depth)</li>
-        <li>Use a watchdog timer to abort queries that take more than
-	a certain maximum (implementation-configurable) amount of time.</li> 
-        </ul>
-        In cases where queries are refused or aborted 
-        appropriate error responses should be returned.
-        </dd></dl>
-	</p>
+        <section id="security-consideration-ddos">
+            <h2>Denial of Service</h2>
+            <p>
+                Certain functions of the directory service,
+                in particular search queries,
+                may require significant resources to execute and this fact
+                can be used to launch DDoS attacks against
+            WoT Thing Description Directory services.
+            </p>
+            <p>
+                This is mostly of concern in the Service scenario, where the 
+                metadata requester is a private individual and the provider is an institution.
+                In some cases this risk may appear in Peer-to-Peer scenarios as well.
+                <dl>
+                    <dt>Mitigations:</dt><dd>
+                    A WoT Thing Description Directory implementation should 
+                    <ul>
+                    <li>Limit the number of queries per unit time from the same reqeuestor</li>
+                    <li>Limit the complexity of queries (for example, the total length of the query 
+                    expression or its depth)</li>
+                    <li>Use a watchdog timer to abort queries that take more than
+                a certain maximum (implementation-configurable) amount of time.</li> 
+                    </ul>
+                    In cases where queries are refused or aborted 
+                    appropriate error responses should be returned.
+                    </dd>
+                </dl>
+            </p>
         </section>
 <!-- Notes from issue https://github.com/w3c/wot-security/issues/196
 * Sensitivity of geolocation information (when we have it) for privacy when device is associated with a person, 
@@ -1488,77 +1505,81 @@ Note: not all of the above risks belong in this section.  In particular, if a ri
 (e.g. making it impossible to do query injection) then we should do so.  Access controls should also
 be discussed elsewhere and perhaps mentioned as tools for addressing the following. 
 -->
-	<section id="security-consideration-location-tracking">
-	<h2>Location Tracking</h2>
-	<p>
-        A discovery service may potentially allow the approximate location of a person to be determined without
-        their consent.  This risk occurs in some specific circumstances which can be avoided or
-        mitigated.  It is also similar to the risk posed by other network services such as DHCP and DNS.
-        </p><p>
-        For this risk to occur, there first has to be an IoT device that can be reliably associated
-        with a person's location, such as a necessary medical device or a vehicle.  
-        Note that the risk only applies to personal use cases, not institutional ones.
-        Secondly, the
-        device has to be configured to register automatically with the nearest directory service.
-        In this case, the location of the device can be inferred from the network range of the directory
-        service and the location of the person inferred from the location of the device.
-        </p><p>
-        There are a few variants of this: 
-        <ul>
-        <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
-        <li>A directory could support actual search by location;</li>
-        <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
-            times out and is removed from a directory, that means the device has not been present for
-            a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
-            home.</li>
-        </ul>
-        </p><p>
-        Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
-        requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
-        address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
-        access to the DHCP server in, say, a cafe, could use this information to track someone's phone and
-        infer their location.
-        </p>
-        <dl>
-        <dt>Mitigations:</dt><dd>
-        There are a few options to mitigate this risk:
-        <ul>
-        <li>Disable registration with public directories.  Registration would still be possible with 
-        personal directories, for example, a home gateway, but a user could disable registration at other
-        locations.  This has the disadvantage that functionality is lost: personal devices cannot be
-        discovered in public locations.  This could be addressed by having internet-accessible private
-        discovery services (e.g. the home gateway could provide an internet-accessible service, but with
-        access control limiting use to authorized users.</li>
-        <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
-        also occurs in DHCP with MAC address and there is a similar partial mitigation: 
-        generate new random IDs periodically.
-        There are however, a few issues.  First of all, other identification information in the TD needs to be 
-        hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
-        they cannot be easily rotated.  Second, if the device rotates the ID, the user may still need to 
-        know the current ID to find the device via discovery.  This can be accomplished however by generating new
-        IDs using a deterministic cryptographic generator that is a function of the current time.
-        However, note that rotating IDs alone does not make tracking impossible since a TD might be fingerprinted.
-        Also, updating an ID might be observable to the owner of the directory service, who could track
-        and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
-        inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
-        In general, however, generating new IDs at least for each service or person to which a TD is supplied
-        makes it harder to connect registration events at different locations and times.
-        </li>
-        <li>The problem of negative location inferencing can be mitigated by limiting access to 
-        private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
-        they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
-        should be appropriately time-limited.
-        Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
-        directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
-        providing new services, and the time-to-live might be set at one month (covering most absences).
-        </li>
-        <li>When explicit location information is available, whether stored in a TD or available in a property,
-        additional care should be taken to only share the TD and/or access to the device with trusted partners,
-        including directories.  If the TD must be shared with a public directory, the location information can be 
-        stripped.
-        </ul>
-        </dd></dl>
-	</p>
+        <section id="security-consideration-location-tracking">
+            <h2>Location Tracking</h2>
+            <p>
+                A discovery service may potentially allow the approximate location of a person to be determined without
+                their consent.  This risk occurs in some specific circumstances which can be avoided or
+                mitigated.  It is also similar to the risk posed by other network services such as DHCP and DNS.
+            </p>
+            <p>
+                For this risk to occur, there first has to be an IoT device that can be reliably associated
+                with a person's location, such as a necessary medical device or a vehicle.  
+                Note that the risk only applies to personal use cases, not institutional ones.
+                Secondly, the
+                device has to be configured to register automatically with the nearest directory service.
+                In this case, the location of the device can be inferred from the network range of the directory
+                service and the location of the person inferred from the location of the device.
+            </p>
+            <p>
+                There are a few variants of this: 
+                <ul>
+                <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
+                <li>A directory could support actual search by location;</li>
+                <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
+                    times out and is removed from a directory, that means the device has not been present for
+                    a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
+                    home.</li>
+                </ul>
+                </p>
+            <p>
+                Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
+                requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
+                address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
+                access to the DHCP server in, say, a cafe, could use this information to track someone's phone and
+                infer their location.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+                There are a few options to mitigate this risk:
+                <ul>
+                <li>Disable registration with public directories.  Registration would still be possible with 
+                personal directories, for example, a home gateway, but a user could disable registration at other
+                locations.  This has the disadvantage that functionality is lost: personal devices cannot be
+                discovered in public locations.  This could be addressed by having internet-accessible private
+                discovery services (e.g. the home gateway could provide an internet-accessible service, but with
+                access control limiting use to authorized users.</li>
+                <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
+                also occurs in DHCP with MAC address and there is a similar partial mitigation: 
+                generate new random IDs periodically.
+                There are however, a few issues.  First of all, other identification information in the TD needs to be 
+                hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
+                they cannot be easily rotated.  Second, if the device rotates the ID, the user may still need to 
+                know the current ID to find the device via discovery.  This can be accomplished however by generating new
+                IDs using a deterministic cryptographic generator that is a function of the current time.
+                However, note that rotating IDs alone does not make tracking impossible since a TD might be fingerprinted.
+                Also, updating an ID might be observable to the owner of the directory service, who could track
+                and record the updated ID.  Even if the TD is deleted and reinserted the association could be 
+                inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
+                In general, however, generating new IDs at least for each service or person to which a TD is supplied
+                makes it harder to connect registration events at different locations and times.
+                </li>
+                <li>The problem of negative location inferencing can be mitigated by limiting access to 
+                private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
+                they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
+                should be appropriately time-limited.
+                Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
+                directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
+                providing new services, and the time-to-live might be set at one month (covering most absences).
+                </li>
+                <li>When explicit location information is available, whether stored in a TD or available in a property,
+                additional care should be taken to only share the TD and/or access to the device with trusted partners,
+                including directories.  If the TD must be shared with a public directory, the location information can be 
+                stripped.
+                </ul>
+                </dd>
+            </dl>
         </section>
     </section>
     
