@@ -964,8 +964,8 @@ img.wot-diagram {
                         <h4>Listing</h4>
                         <p>
                             The listing endpoint provides a way to query the collection of TD objects
-                            from the directory. The Search API may be used to retrieve <a>Partial TD</a>s
-                            or TD fragments; see [[[#exploration-directory-api-search]]].
+                            from the directory. The Search API may be used to retrieve TD fragments; 
+                            see [[[#exploration-directory-api-search]]].
                         </p>
                         
                             
@@ -1000,6 +1000,74 @@ img.wot-diagram {
                                 HTTP/2 servers SHOULD respond the data incrementally using 
                                 <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
                             </span>
+                        </p>
+
+                        <p>
+                            There may be scenarios in which clients need to retrieve the collection
+                            in small subsets of TDs. 
+                            While the Search API ([[[#exploration-directory-api-search]]])
+                            does offer the ability to query a specific range, it may not be optimal,
+                            nor developer-friendly.
+                            
+                            <span class="rfc2119-assertion" id="tdd-reg-list-pagination">
+                                The server MAY support pagination to return the collection
+                                in small subsets.
+                            </span>
+                            The pagination must be based on the following rules:
+                            <ul>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-limit">
+                                        When the `limit` query parameter is set to a positive integer,
+                                        the server MAY respond with a subset of TDs totalling
+                                        to less than or equal to the requested number.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-nextlink">
+                                        When there are more TDs after a returned subset of the collection,
+                                        the response MUST contain a `next` Link header [[RFC8288]]
+                                        with the URL of the next subset.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-nextlink-attr">
+                                        The `next` link MUST have the same `limit` argument given on the initial
+                                        request as well as a zero-based `offset` argument anchored at
+                                        the beginning of the next subset.
+                                    </span>
+                                    This link may include additional arguments that are necessary for
+                                    for ordering or session management.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-canonicallink">
+                                        All paged responses MUST contain a `canonical` Link header
+                                        pointing to the collection and include an `etag` parameter to represent
+                                        the current state of the collection.
+                                    </span>
+                                    The `etag` value could be a revision number, timestamp, or UUIDv4, set whenever
+                                    the TD collection changes in way that affects the ordering of the collection; 
+                                    for example, after creation or deletion of TDs or update of TD fields that affect the ordering.
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
+                                        By default, the collection MUST be sorted alphanumerically 
+                                        by the unique identifier of TDs.
+                                    </span>
+                                    The unique identifier is the registration URL that is inside the
+                                    Registration Information object.
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
+                                        The server MAY support sorting by other TD attributes using
+                                        query arguments: `sort_by` to select a field (e.g. `created`)
+                                        and `sort_order` to choose the order
+                                        (i.e. `asc` or `desc` for ascending and descending ordering).
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-unsupported">
+                                        If the server does not support custom sorting,
+                                        it MUST reject the request with 501 (Not Implemented) status.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-nextlink">
+                                        If sorting attributes are accepted, they MUST be added consistently to all `next` links.
+                                    </span>
+                                </li>
+                            </ul>                            
                         </p>
 
                         <p>    
