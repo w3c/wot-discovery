@@ -1216,6 +1216,16 @@ img.wot-diagram {
                                         the server MAY return the updated parts of the TD object in addition to the identifier
                                         as event data using the JSON Merge Patch [[RFC7396]] format.
                                     </span>
+
+                                    <aside class="example" title="Full update event for a TD with removed description and changed title">
+                                        <pre>
+                                            event: create
+                                            data: {
+                                                "description": null,
+                                                "title": "Updated TD"
+                                            }
+                                        </pre>
+                                    </aside>
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
