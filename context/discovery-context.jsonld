@@ -1,20 +1,17 @@
 {
-    "@context": {
-      "discovery": "https://www.w3.org/2021/wot/discovery#",
-      "tdd": "https://www.w3.org/2021/wot/discovery#",
-      "DirectoryDescription": {
-        "@id": "discovery:DirectoryDescription"
-      },
-      "LinkDescription": {
-        "@id": "discovery:LinkDescription"
-      },
-      "Collection": {
-        "@id": "discovery:TDCollection"
-      },
-      "id": "@id",
-      "type": "@type",
-      "items": "discovery:contains",
-      "total": "discovery:collectionSize",
-      "nextLink": "discovery:nextTDCollection"
-    }
+  "@context": {
+    "discovery": "https://www.w3.org/2021/wot/discovery#",
+    "DirectoryDescription": {
+      "@id": "discovery:DirectoryDescription"
+    },
+    "LinkDescription": {
+      "@id": "discovery:LinkDescription"
+    },
+    "RegistrationInformation": {
+      "@id": "discovery:RegistrationInformation"
+    },
+    "registration": "discovery:hasRegistrationInformation",
+    "created": "dct:created",
+    "modified": "dct:modified"
   }
+}

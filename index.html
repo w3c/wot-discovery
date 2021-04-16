@@ -680,6 +680,21 @@ img.wot-diagram {
                         </tbody>
                     </table>
                 </section>
+                <section id="exploration-directory-anonymous-td" class="normative">
+                    <h4>Anonymous TD Identifiers</h4>
+                    <a>Anonymous TD</a>s have no `id` (or `@id`) and are considered as blank nodes [[JSON-LD11]].
+                    The server assigns a local identifier to such TDs to allow management and retrieval
+                    from the directory.
+                    <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
+                        In situations where the server exposes an Anonymous TD, it MUST
+                        add the local identifier to the Anonymous TD as a blank
+                        node identifier to allow local referencing.
+                    </span>
+                    <a href="https://json-ld.org/spec/latest/json-ld/#dfn-blank-node-identifiers">Blank node identifiers</a>
+                    begin with `_:`. For example,
+                    a TD that has local identifier `urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`
+                    will have its blank node identifier set to `_:urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`.
+                </section>
             </section>
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
@@ -862,33 +877,63 @@ img.wot-diagram {
                             </ul>
                         </p>
 
-                        The following is an example of a retrieved TD:
-                        <aside class="example" id="example-td-registration-info" title="Example Enriched TD">
-                            <pre>
-                                {
-                                    "@context": [
-                                        "http://www.w3.org/ns/td",
-                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                                    ],
-                                    "id": "urn:example:simple-td",
-                                    "security": "basic_sc",
-                                    "securityDefinitions": {
-                                        "basic_sc": {
-                                            "scheme": "basic"
-                                        }
-                                    },
-                                    "tdd:registration": {
-                                        "tdd:created": "2021-01-19T17:02:00Z",
-                                        "tdd:href": "https://tdd.example.com/td/urn:example:simple-td",
-                                        "tdd:modified": "2021-01-19T17:02:00Z"
-                                    },
-                                    "title": "Simple TD"
-                                }
-                            </pre>                    
-                        </aside>
-                        This is an <a>Enriched TD</a> which includes the registration information
-                        such as the creation and modification time of the TD within the directory
-                        as well as the URL to retrieve it from the directory.
+                        <p>
+                            The following is an example of a retrieved TD:
+                            <aside class="example" id="example-td-registration-info" title="Example Enriched TD">
+                                <pre>
+                                    {
+                                        "@context": [
+                                            "http://www.w3.org/ns/td",
+                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                        ],
+                                        "id": "urn:example:simple-td",
+                                        "security": "basic_sc",
+                                        "securityDefinitions": {
+                                            "basic_sc": {
+                                                "scheme": "basic"
+                                            }
+                                        },
+                                        "registration": {
+                                            "created": "2021-01-19T17:02:00Z",
+                                            "modified": "2021-01-19T17:02:00Z"
+                                        },
+                                        "title": "Simple TD"
+                                    }
+                                </pre>                    
+                            </aside>
+                            This is an <a>Enriched TD</a> which includes the registration information
+                            such as the creation and modification time of the TD within the directory.
+                        </p>
+                        
+                        <p>
+                            The example below shows a retrieved <a>Anonymous TD</a> that is in <a>Enriched TD</a>
+                            and has local identifier `urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`
+                            set as its blank node identifier (see [[[#exploration-directory-anonymous-td]]]).
+                            Note that `id` is an alias for `@id` from the active context.
+                            
+                            <aside class="example" id="example-anonymous-td-registration-info" title="Example Enriched Anonymous TD">
+                                <pre>
+                                    {
+                                        "@context": [
+                                            "http://www.w3.org/ns/td",
+                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                        ],
+                                        "id": "_:urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc",
+                                        "security": "basic_sc",
+                                        "securityDefinitions": {
+                                            "basic_sc": {
+                                                "scheme": "basic"
+                                            }
+                                        },
+                                        "registration": {
+                                            "created": "2021-01-19T17:02:00Z",
+                                            "modified": "2021-01-19T17:02:00Z"
+                                        },
+                                        "title": "Anonymous TD"
+                                    }
+                                </pre>                    
+                            </aside>
+                        </p>
                     </section>
 
                     <section id="exploration-directory-api-registration-update" class="normative">
