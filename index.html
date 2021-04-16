@@ -625,25 +625,62 @@ img.wot-diagram {
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
+
+                <figure id="directory-td-class-diagram">
+                    <img src="images/directory-td-class-diagram.svg"
+                        class="wot-diagram"
+                        alt="The ontology of a TD stored in a TDD" />
+                    <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
+                </figure>
+
+                <p>
+                    As shown in [[[#exploration-class-diagram]]], 
+                    the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
+                    For every TD, the directory additionally maintains the registration
+                    information for bookkeeping and search purposes.
+                    A TD which embeds the registration information is called an <a>Enriched TD</a>.
+                    The ontology of a <a>TD</a> maintained by the directory is illustrated
+                    in [[[#directory-td-class-diagram]]].
+                </p>
+
+                <section id="exploration-directory-registration-info" class="normative">
+                    <h4>Registration Information</h4>
+                    The following table lists the registration information attributes:
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>Vocabulary term</th>
+                                <th>Description</th>
+                                <th>Assignment</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="rfc2119-table-assertion" id="tdd-vocab-created--Thing">
+                                <td><code>created</code></td>
+                                <td>Provides information when the TD instance was
+                                    created inside the directory.</td>
+                                <td>system-generated (read-only)</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr>
+                            <tr class="rfc2119-table-assertion" id="tdd-vocab-modified--Thing">
+                                <td><code>modified</code></td>
+                                <td>Provides information when the TD instance was
+                                    last modified inside the directory.</td>
+                                <td>system-generated (read-only)</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr>
+                            <!-- <tr class="rfc2119-table-assertion" id="tdd-vocab-expires--Thing">
+                                <td><code>expires</code></td>
+                                <td>Provides information when the TD instance registration will
+                                    expire.</td>
+                                <td>optional</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </section>
             </section>
-
-            <figure id="directory-td-class-diagram">
-                <img src="images/directory-td-class-diagram.svg"
-                    class="wot-diagram"
-                    alt="The ontology of a TD stored in a TDD" />
-                <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
-            </figure>
-
-            <p>
-                As shown in [[[#exploration-class-diagram]]], 
-                the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
-                For every TD, the directory additionally maintains the registration
-                information for bookkeeping and search purposes.
-                A TD which embeds the registration information is called an <a>Enriched TD</a>.
-                The ontology of a <a>TD</a> maintained by the directory is illustrated
-                in [[[#directory-td-class-diagram]]].
-            </p>
-            
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
