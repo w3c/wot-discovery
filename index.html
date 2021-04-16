@@ -1170,7 +1170,7 @@ img.wot-diagram {
                                     The identifier of the TD is the Registration URL located within
                                     the Registration Information of the <a>Enriched TD</a>.
 
-                                    <aside class="example" title="Creation and deletion events for a TD">
+                                    <aside class="example" title="Creation and deletion SSE events for a TD">
                                         <pre>
                                             event: create
                                             data: {"tdd:registration": {"tdd:href": "https://tdd.example.com/td/urn:example:known-td"}}
@@ -1186,46 +1186,59 @@ img.wot-diagram {
                                         the server MAY return the whole TD object as event data.
                                     </span>
                                     
-                                    <aside class="example" title="Full creation event for a TD">
+                                    <aside class="example" id="example-create-event-full" title="Full creation SSE event for a TD">
                                         <pre>
                                             event: create
                                             data: {
-                                                "@context": [
-                                                    "https://www.w3.org/2019/wot/td/v1",
-                                                    "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                                                ],
-                                                "security": "basic_sc",
-                                                "securityDefinitions": {
-                                                    "basic_sc": {
-                                                        "scheme": "basic"
-                                                    }
-                                                },
-                                                "tdd:registration": {
-                                                    "tdd:created": "2021-01-19T17:02:00Z",
-                                                    "tdd:href": "https://tdd.example.com/td/urn:uuid:ab90172b-c3b7-4f71-9ea0-2dc7cf9b796f", 
-                                                    "tdd:modified": "2021-01-19T17:02:00Z"
-                                                },
-                                                "title": "Anonymous TD"
-                                            }
+                                            data:     "@context": [
+                                            data:         "https://www.w3.org/2019/wot/td/v1",
+                                            data:         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            data:     ],
+                                            data:     "description": "This is a new TD",
+                                            data:     "security": "basic_sc",
+                                            data:     "securityDefinitions": {
+                                            data:         "basic_sc": {
+                                            data:             "scheme": "basic"
+                                            data:         }
+                                            data:     },
+                                            data:     "tdd:registration": {
+                                            data:         "tdd:created": "2021-01-19T17:02:00Z",
+                                            data:         "tdd:href": "https://tdd.example.com/td/urn:uuid:ab90172b-c3b7-4f71-9ea0-2dc7cf9b796f", 
+                                            data:         "tdd:modified": "2021-01-19T17:02:00Z"
+                                            data:     },
+                                            data:     "title": "Anonymous TD"
+                                            data: }
                                         </pre>
                                     </aside>
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
                                         When `full` query parameter is set to `true` and the event has `update` type,
-                                        the server MAY return the updated parts of the TD object in addition to the identifier
-                                        as event data using the JSON Merge Patch [[RFC7396]] format.
+                                        the server MAY inform the client about the updated parts following the
+                                        JSON Merge Patch [[RFC7396]] format.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full-id">
+                                        An `update` event data that is based on JSON Merge Patch [[RFC7396]]
+                                        MUST always include the identifier of the TD regardless of whether it
+                                        is changed.
                                     </span>
 
-                                    <aside class="example" title="Full update event for a TD with removed description and changed title">
-                                        <pre>
-                                            event: create
-                                            data: {
-                                                "description": null,
-                                                "title": "Updated TD"
-                                            }
-                                        </pre>
-                                    </aside>
+                                    <p>
+                                        The following example shows the event triggered on update of the TD from [[[#example-create-event-full]]]:
+                                        <aside class="example" id="example-update-event-full" 
+                                            title="Full update SSE event for a TD with removed description and changed title">
+                                            <pre>
+                                                event: create
+                                                data: {
+                                                data:     "description": null,
+                                                data:     "tdd:registration": {
+                                                data:         "tdd:href": "https://tdd.example.com/td/urn:uuid:ab90172b-c3b7-4f71-9ea0-2dc7cf9b796f"
+                                                data:     },
+                                                data:     "title": "Updated TD"
+                                                data: }
+                                            </pre>
+                                        </aside>
+                                    </p>
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
