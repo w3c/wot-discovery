@@ -349,19 +349,16 @@
             "description": "TD registration events",
             "uriVariables": {
                 "type": {
-                    "title": "Event type",
+                    "title": "Event type(s)",
+                    "description": "Multiple types passed as type={type} pairs for SSE",
                     "type": "string",
                     "enum": [
-                        "created_td",
-                        "updated_td",
-                        "deleted_td"
+                        "create",
+                        "update",
+                        "delete"
                     ]
                 },
-                "td_id": {
-                    "title": "Identifier of TD in directory",
-                    "type": "string"
-                },
-                "include_changes": {
+                "full": {
                     "title": "Include TD changes inside event data",
                     "type": "boolean"
                 }
@@ -369,60 +366,18 @@
             "forms": [
                 {
                     "op": "subscribeevent",
-                    "href": "/events{?type,td_id,include_changes}",
+                    "href": "/events{?type,full}",
                     "subprotocol": "sse",
                     "contentType": "text/event-stream",
                     "htv:headers": [
                         {
-                            "description": "ID of the last event for reconnection",
-                            "htv:fieldName": "Last-Event-ID",
-                            "htv:fieldValue": ""
+                            "description": "ID of the last event provided by reconnecting clients",
+                            "htv:fieldName": "Last-Event-ID"
                         }
                     ],
                     "data": {
-                        "oneOf": [
-                            {
-                                "type": "object",
-                                "description": "The schema of event data",
-                                "properties": {
-                                    "td_id": {
-                                        "type": "string",
-                                        "format": "iri-reference",
-                                        "description": "Identifier of TD in directory"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "object",
-                                "description": "The schema of create event data including the created TD",
-                                "properties": {
-                                    "td_id": {
-                                        "type": "string",
-                                        "format": "iri-reference",
-                                        "description": "Identifier of TD in directory"
-                                    },
-                                    "td": {
-                                        "type": "object",
-                                        "description": "The created TD in a create event"
-                                    }
-                                }
-                            },
-                            {
-                                "type": "object",
-                                "description": "The schema of the update event data including the updates to TD",
-                                "properties": {
-                                    "td_id": {
-                                        "type": "string",
-                                        "format": "iri-reference",
-                                        "description": "Identifier of TD in directory"
-                                    },
-                                    "td_updates": {
-                                        "type": "object",
-                                        "description": "The partial TD composed of modified TD parts in an update event"
-                                    }
-                                }
-                            }
-                        ]
+                        "description": "Partial or complete TD",
+                        "type": "object"
                     },
                     "scopes": "notifications"
                 }
