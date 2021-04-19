@@ -625,26 +625,77 @@ img.wot-diagram {
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
+
+                <figure id="directory-td-class-diagram">
+                    <img src="images/directory-td-class-diagram.svg"
+                        class="wot-diagram"
+                        alt="The ontology of a TD stored in a TDD" />
+                    <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
+                </figure>
+
+                <p>
+                    As shown in [[[#exploration-class-diagram]]], 
+                    the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
+                    For every TD, the directory additionally maintains the registration
+                    information for bookkeeping and search purposes.
+                    A TD which embeds the registration information is called an <a>Enriched TD</a>.
+                    The ontology of a <a>TD</a> maintained by the directory is illustrated
+                    in [[[#directory-td-class-diagram]]].
+                </p>
+
+                <section id="exploration-directory-registration-info" class="normative">
+                    <h4>Registration Information</h4>
+                    The following table lists the registration information attributes:
+                    <table class="def">
+                        <thead>
+                            <tr>
+                                <th>Vocabulary term</th>
+                                <th>Description</th>
+                                <th>Assignment</th>
+                                <th>Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="rfc2119-table-assertion" id="tdd-vocab-created--Thing">
+                                <td><code>created</code></td>
+                                <td>Provides information when the TD instance was
+                                    created inside the directory.</td>
+                                <td>system-generated (read-only)</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr>
+                            <tr class="rfc2119-table-assertion" id="tdd-vocab-modified--Thing">
+                                <td><code>modified</code></td>
+                                <td>Provides information when the TD instance was
+                                    last modified inside the directory.</td>
+                                <td>system-generated (read-only)</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr>
+                            <!-- <tr class="rfc2119-table-assertion" id="tdd-vocab-expires--Thing">
+                                <td><code>expires</code></td>
+                                <td>Provides information when the TD instance registration will
+                                    expire.</td>
+                                <td>optional</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </section>
+                <section id="exploration-directory-anonymous-td" class="normative">
+                    <h4>Anonymous TD Identifiers</h4>
+                    <a>Anonymous TD</a>s have no `id` (or `@id`) and are considered as blank nodes [[JSON-LD11]].
+                    The server assigns a local identifier to such TDs to allow management and retrieval
+                    from the directory.
+                    <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
+                        In situations where the server exposes an Anonymous TD, it MUST
+                        add the local identifier to the Anonymous TD as a blank
+                        node identifier to allow local referencing.
+                    </span>
+                    <a href="https://json-ld.org/spec/latest/json-ld/#dfn-blank-node-identifiers">Blank node identifiers</a>
+                    begin with `_:`. For example,
+                    a TD that has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
+                    will have the following blank node identifier: `_:48951ff3-4019-4e67-b217-dbbf011873dc`.
+                </section>
             </section>
-
-            <figure id="directory-td-class-diagram">
-                <img src="images/directory-td-class-diagram.svg"
-                    class="wot-diagram"
-                    alt="The ontology of a TD stored in a TDD" />
-                <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
-            </figure>
-
-            <p>
-                As shown in [[[#exploration-class-diagram]]], 
-                the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
-                For every TD, the directory may additionally maintain the registration
-                information for bookkeeping and search purposes.
-                When available, consumers may request the registration information via the respective API.
-                A TD which embeds the registration information is called an <a>Enriched TD</a>.
-                The ontology of a <a>TD</a> maintained by the directory is illustrated
-                in [[[#directory-td-class-diagram]]].
-            </p>
-            
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
                 The Directory APIs must use secure protocols guaranteeing 
@@ -773,8 +824,10 @@ img.wot-diagram {
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
-                                    The identifier SHOULD be a Version 4 UUID URN [[RFC4122]].
+                                    The identifier SHOULD be a UUID Version 4 [[RFC4122]].
                                 </span>
+                                That is a random or pseudo-random number which does not carry unintended information
+                                about the host or the resource.
                             </li>
                         </ul>
 
@@ -826,34 +879,63 @@ img.wot-diagram {
                             </ul>
                         </p>
 
-                        <p class="ednote" title="Registration Info query argument">
-                            Need to specify and describe the query argument to toggle
-                            enrichment of TD with registration info.
+                        <p>
+                            The following is an example of a retrieved TD:
+                            <aside class="example" id="example-td-registration-info" title="Example Enriched TD">
+                                <pre>
+                                    {
+                                        "@context": [
+                                            "http://www.w3.org/ns/td",
+                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                        ],
+                                        "id": "urn:example:simple-td",
+                                        "security": "basic_sc",
+                                        "securityDefinitions": {
+                                            "basic_sc": {
+                                                "scheme": "basic"
+                                            }
+                                        },
+                                        "registration": {
+                                            "created": "2021-01-19T17:02:00Z",
+                                            "modified": "2021-01-19T17:02:00Z"
+                                        },
+                                        "title": "Simple TD"
+                                    }
+                                </pre>                    
+                            </aside>
+                            This is an <a>Enriched TD</a> which includes the registration information
+                            such as the creation and modification time of the TD within the directory.
                         </p>
-
-                        The following is an example queried TD, enriched with the registration info per request:
-                        <aside class="example" id="example-td-registration-info" title="Example TD with Registration Info">
-                            <pre>
-                                {
-                                    "@context": [
-                                        "https://www.w3.org/2019/wot/td/v1",
-                                        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                                    ],
-                                    "id": "urn:example:simple-td",
-                                    "security": "basic_sc",
-                                    "securityDefinitions": {
-                                        "basic_sc": {
-                                            "scheme": "basic"
-                                        }
-                                    },
-                                    "tdd:registration": {
-                                        "tdd:created": "2021-01-19T17:02:00Z",
-                                        "tdd:modified": "2021-01-19T17:02:00Z"
-                                    },
-                                    "title": "Simple TD"
-                                }
-                            </pre>                    
-                        </aside>
+                        
+                        <p>
+                            The example below shows a retrieved <a>Anonymous TD</a> that is in
+                            <a>Enriched TD</a> form and has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
+                            set as its blank node identifier (see [[[#exploration-directory-anonymous-td]]]).
+                            Note that `id` is an alias for `@id` from the active context.
+                            
+                            <aside class="example" id="example-anonymous-td-registration-info" title="Example Enriched Anonymous TD">
+                                <pre>
+                                    {
+                                        "@context": [
+                                            "http://www.w3.org/ns/td",
+                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                        ],
+                                        "id": "_:48951ff3-4019-4e67-b217-dbbf011873dc",
+                                        "security": "basic_sc",
+                                        "securityDefinitions": {
+                                            "basic_sc": {
+                                                "scheme": "basic"
+                                            }
+                                        },
+                                        "registration": {
+                                            "created": "2021-01-19T17:02:00Z",
+                                            "modified": "2021-01-19T17:02:00Z"
+                                        },
+                                        "title": "Anonymous TD"
+                                    }
+                                </pre>                    
+                            </aside>
+                        </p>
                     </section>
 
                     <section id="exploration-directory-api-registration-update" class="normative">
