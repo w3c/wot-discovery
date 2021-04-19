@@ -230,6 +230,28 @@
         },
         "retrieveTDs": {
             "description": "Retrieve all Thing Descriptions",
+            "uriVariables": {
+                "offset": {
+                    "title": "Number of TDs to skip before the page",
+                    "type": "number",
+                    "default": 0
+                },
+                "limit": {
+                    "title": "Number of TDs in a page",
+                    "type": "number"
+                },
+                "sort_by": {
+                    "title": "Comparator TD attribute for collection sorting",
+                    "type": "string",
+                    "default": "id"
+                },
+                "sort_order": {
+                    "title": "Sorting order",
+                    "type": "string",
+                    "enum": ["asc", "desc"],
+                    "default": "asc"
+                }
+            },
             "forms": [
                 {
                     "href": "/td",
@@ -237,8 +259,30 @@
                     "response": {
                         "description": "Success response",
                         "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json",
+                        "contentType": "application/ld+json"
                     },
+                    "scopes": "readAll"
+                },
+                {
+                    "href": "/td{?offset,limit,sort_by,sort_order}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json",
+                        "htv:headers": [
+                            {
+                                "htv:fieldName": "Link"
+                            }
+                        ]
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid query arguments",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
                     "scopes": "readAll"
                 }
             ]
