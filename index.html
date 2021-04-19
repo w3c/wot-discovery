@@ -1291,11 +1291,7 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-api-notification" class="normative">
                     <h4>Notification</h4>
-                    <p class="ednote" title="Notification API Changes">
-                        The query and payload specification are subject to change for
-                        simplification and consistency with other API features
-                        (e.g. Anonymous TD, partial TD format [[RFC7396]]).
-                    </p>
+
                     <p>The Notification API is to notify clients about the changes
                         to Thing Descriptions maintained within the directory.
                         <span class="rfc2119-assertion" id="tdd-notification-sse">
@@ -1312,17 +1308,19 @@ img.wot-diagram {
                         <dt>Event Types</dt>
                         <dd>
                             <span class="rfc2119-assertion" id="tdd-notification-event-types">
-                                The server MUST produce events for creation, update, and deletion of
-                                Thing Descriptions represented by `created_td`, `updated_td`, `deleted_td`
-                                keywords respectively.
+                                The server MUST produce events attributed to the lifecycle of 
+                                the Thing Descriptions within the directory using 
+                                `create`, `update`, and `delete` event types.
                             </span>
                         </dd>
 
                         <dt>Event Filtering</dt>
                         <dd>
-                            The API supports server-side filtering of events to reduce resource consumption
+                            The API enables server-side filtering of events to reduce resource consumption
                             by delivering only the events required by clients.
-                            The filtering is based on query parameters passed to the server at 
+                            Client libraries may offer additional filtering capabilities on
+                            the client-side.
+                            The server-side filtering is based on query parameters passed to the server at 
                             connection time. The filtering behavior is described below:
                             <ul>
                                 <li>
@@ -1330,18 +1328,10 @@ img.wot-diagram {
                                         The server MUST support event filtering based on the 
                                         event types passed as one or more `type` query parameters.
                                     </span>
-                                    For example, in response to query `?type=created_td&type=deleted_td`,
-                                    the server must only deliver events of types `created_td` and `deleted_td`.
-                                    At the absence of any `type` query parameter, the server must deliver all
+                                    For example, in response to query `?type=create&type=delete`,
+                                    the server will only deliver events of types `create` and `delete`.
+                                    At the absence of any `type` query parameter, the server will deliver all
                                     types of events.
-                                </li>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-tdid">
-                                        The server MUST support event filtering based on the 
-                                        Thing Description identifier passed as one or more `td_id` query parameters.
-                                    </span>
-                                    For example, the query `?type=updated_td&td_id=urn:example:1234` must
-                                    result in `updated_td` events for the TD identified with `urn:example:1234`.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-filter-search">
@@ -1349,10 +1339,20 @@ img.wot-diagram {
                                         search expressions passed as one of `jsonpath`, `xpath`, 
                                         or `sparql` query parameters.
                                     </span>
+                                    This is to detect changes on particular TDs or attributes and does not not affect
+                                    the event's data object.
+                                    <p>
+                                        For example, the JSONPath expression `$.properties`
+                                        will reduce the number of events to TDs that change their `properties` attributes.
+                                        The resulting events may be for created or deleted TDs with the `properties` attribute
+                                        or updates to `properties` attribute of existing TDs.
+                                    </p>
                                     <span class="rfc2119-assertion" id="tdd-notification-filter-search-unsupported">
                                         If the server does not support a given search query parameter, it
                                         MUST reject the request with 501 (Not Implemented) status.
                                     </span>
+                                    This is to inform the clients about the missing feature at the connection
+                                    time and prevent unexpected network traffic and events.
                                 </li>
                             </ul>
                         </dd>
@@ -1361,34 +1361,100 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-notification-data">
                                 The event data MUST contain the JSON serialization of the event object.
                             </span>
-                            The event data object is defined by the following rules:
+                            The event data object is a <a>Partial TD</a> or the whole <a>TD</a> object
+                            depending on the request:
                             <ul>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-tdid">
                                         The event data object MUST at least include the identifier of the
-                                        TD created, updated, or deleted at that event as value of `td_id` field.
+                                        TD created, updated, or deleted at that event in <a>Partial TD</a> form.
                                     </span>
+
+                                    <aside class="example" title="Creation and deletion SSE events for a TD">
+                                        <pre>
+                                            event: create
+                                            data: {"id": "urn:example:simple-td"}
+
+                                            event: delete
+                                            data: {"id": "urn:example:simple-td"}
+                                        </pre>
+                                    </aside>
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-createdtd">
-                                        When `include_changes` query parameter is set to `true`, the create
-                                        event data object MAY include the created TD as the value of `created_td`
-                                        field.
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-create-full">
+                                        When `full` query parameter is set to `true` and the event has `create` type,
+                                        the server MAY return the whole TD object as event data.
                                     </span>
+                                    
+                                    <aside class="example" id="example-create-event-full" title="Full creation SSE event for a TD">
+                                        <pre>
+                                            event: create
+                                            data: {
+                                            data:     "@context": [
+                                            data:         "https://www.w3.org/2019/wot/td/v1",
+                                            data:         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            data:     ],
+                                            data:     "description": "This is a new TD",
+                                            data:     "id": "urn:example:simple-td",
+                                            data:     "security": "basic_sc",
+                                            data:     "securityDefinitions": {
+                                            data:         "basic_sc": {
+                                            data:             "scheme": "basic"
+                                            data:         }
+                                            data:     },
+                                            data:     "registration": {
+                                            data:         "created": "2021-01-19T17:02:00Z",
+                                            data:         "modified": "2021-01-19T17:02:00Z"
+                                            data:     },
+                                            data:     "title": "Simple TD"
+                                            data: }
+                                        </pre>
+                                    </aside>
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-tdupdates">
-                                        When `include_changes` query parameter is set to `true`, the update
-                                        event data object MAY include the updated parts of the TD in
-                                        <a>Partial TD</a> form as the value of `td_updates` field.
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
+                                        When `full` query parameter is set to `true` and the event has `update` type,
+                                        the server MAY inform the client about the updated parts following the
+                                        JSON Merge Patch [[RFC7396]] format.
                                     </span>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full-id">
+                                        An `update` event data that is based on JSON Merge Patch [[RFC7396]]
+                                        MUST always include the identifier of the TD regardless of whether it
+                                        is changed.
+                                    </span>
+
+                                    <p>
+                                        The following example shows the event triggered on update of the TD from [[[#example-create-event-full]]]:
+                                        <aside class="example" id="example-update-event-full" 
+                                            title="Full update SSE event for a TD with removed description and changed title">
+                                            <pre>
+                                                event: create
+                                                data: {
+                                                data:     "description": null,
+                                                data:     "id": "urn:example:simple-td",
+                                                data:     "title": "Updated TD"
+                                                data: }
+                                            </pre>
+                                        </aside>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
+                                        The `full` query parameter MUST be ignored for `delete` events.
+                                    </span>
+                                    In other words, when the `full` query parameter is set to `true` and
+                                    the event has `delete` type, the server must only provide the identifier
+                                    in event data.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-change-unsupported">
-                                        When a server which does not support the inclusion of changes inside event
-                                        data object is requested with a `include_changes` query parameter, it MUST
+                                        When a server which does not support the `full` query parameter 
+                                        is requested with such query parameter, it MUST
                                         reject the request with 501 (Not Implemented) status.
                                     </span>
+                                    This is to inform the clients about the lack of such functionality at the
+                                    connection time to avoid runtime exceptions caused by missing
+                                    event data attributes.
                                 </li>
                             </ul>
                         </dd>
