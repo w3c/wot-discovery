@@ -692,8 +692,8 @@ img.wot-diagram {
                     </span>
                     <a href="https://json-ld.org/spec/latest/json-ld/#dfn-blank-node-identifiers">Blank node identifiers</a>
                     begin with `_:`. For example,
-                    a TD that has local identifier `urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`
-                    will have its blank node identifier set to `_:urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`.
+                    a TD that has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
+                    will have the following blank node identifier: `_:48951ff3-4019-4e67-b217-dbbf011873dc`.
                 </section>
             </section>
             <section id="exploration-directory-api" class="normative">
@@ -824,8 +824,10 @@ img.wot-diagram {
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
-                                    The identifier SHOULD be a Version 4 UUID URN [[RFC4122]].
+                                    The identifier SHOULD be a UUID Version 4 [[RFC4122]].
                                 </span>
+                                That is a random or pseudo-random number which does not carry unintended information
+                                about the host or the resource.
                             </li>
                         </ul>
 
@@ -906,8 +908,8 @@ img.wot-diagram {
                         </p>
                         
                         <p>
-                            The example below shows a retrieved <a>Anonymous TD</a> that is in <a>Enriched TD</a>
-                            and has local identifier `urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`
+                            The example below shows a retrieved <a>Anonymous TD</a> that is in
+                            <a>Enriched TD</a> form and has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
                             set as its blank node identifier (see [[[#exploration-directory-anonymous-td]]]).
                             Note that `id` is an alias for `@id` from the active context.
                             
@@ -918,7 +920,7 @@ img.wot-diagram {
                                             "http://www.w3.org/ns/td",
                                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                                         ],
-                                        "id": "_:urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc",
+                                        "id": "_:48951ff3-4019-4e67-b217-dbbf011873dc",
                                         "security": "basic_sc",
                                         "securityDefinitions": {
                                             "basic_sc": {
