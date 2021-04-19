@@ -1167,16 +1167,14 @@ img.wot-diagram {
                                         The event data object MUST at least include the identifier of the
                                         TD created, updated, or deleted at that event in <a>Partial TD</a> form.
                                     </span>
-                                    The identifier of the TD is the Registration URL located within
-                                    the Registration Information of the <a>Enriched TD</a>.
 
                                     <aside class="example" title="Creation and deletion SSE events for a TD">
                                         <pre>
                                             event: create
-                                            data: {"tdd:registration": {"tdd:href": "https://tdd.example.com/td/urn:example:known-td"}}
+                                            data: {"id": "urn:example:simple-td"}
 
                                             event: delete
-                                            data: {"tdd:registration": {"tdd:href": "https://tdd.example.com/td/urn:example:known-td"}}
+                                            data: {"id": "urn:example:simple-td"}
                                         </pre>
                                     </aside>
                                 </li>
@@ -1195,18 +1193,18 @@ img.wot-diagram {
                                             data:         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                                             data:     ],
                                             data:     "description": "This is a new TD",
+                                            data:     "id": "urn:example:simple-td",
                                             data:     "security": "basic_sc",
                                             data:     "securityDefinitions": {
                                             data:         "basic_sc": {
                                             data:             "scheme": "basic"
                                             data:         }
                                             data:     },
-                                            data:     "tdd:registration": {
-                                            data:         "tdd:created": "2021-01-19T17:02:00Z",
-                                            data:         "tdd:href": "https://tdd.example.com/td/urn:uuid:ab90172b-c3b7-4f71-9ea0-2dc7cf9b796f", 
-                                            data:         "tdd:modified": "2021-01-19T17:02:00Z"
+                                            data:     "registration": {
+                                            data:         "created": "2021-01-19T17:02:00Z",
+                                            data:         "modified": "2021-01-19T17:02:00Z"
                                             data:     },
-                                            data:     "title": "Anonymous TD"
+                                            data:     "title": "Simple TD"
                                             data: }
                                         </pre>
                                     </aside>
@@ -1231,9 +1229,7 @@ img.wot-diagram {
                                                 event: create
                                                 data: {
                                                 data:     "description": null,
-                                                data:     "tdd:registration": {
-                                                data:         "tdd:href": "https://tdd.example.com/td/urn:uuid:ab90172b-c3b7-4f71-9ea0-2dc7cf9b796f"
-                                                data:     },
+                                                data:     "id": "urn:example:simple-td",
                                                 data:     "title": "Updated TD"
                                                 data: }
                                             </pre>
