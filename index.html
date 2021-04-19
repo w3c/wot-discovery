@@ -1033,8 +1033,9 @@ img.wot-diagram {
                                         request as well as a zero-based `offset` argument anchored at
                                         the beginning of the next subset.
                                     </span>
-                                    This link may include additional arguments that are necessary for
-                                    for ordering or session management.
+                                    The link may be absolute or relative to directory API's base URL.
+                                    Moreover, it may include additional arguments that are necessary for
+                                    ordering or session management.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-canonicallink">
@@ -1042,17 +1043,20 @@ img.wot-diagram {
                                         pointing to the collection and include an `etag` parameter to represent
                                         the current state of the collection.
                                     </span>
-                                    The `etag` value could be a revision number, timestamp, or UUIDv4, set whenever
-                                    the TD collection changes in way that affects the ordering of the collection; 
-                                    for example, after creation or deletion of TDs or update of TD fields that affect the ordering.
+                                    The link may be absolute or relative to directory API's base URL.
+                                    The `etag` value could be a revision number, timestamp, or UUID Version 4,
+                                    set whenever the TD collection changes in a way that affects the
+                                    ordering of the TDs. 
+                                    The clients may rely on the `etag` value to know whether the collection
+                                    remains consistent across paginated retrieval of the collection.
+                                    For example, creation or deletion of TDs or update of TD fields used for
+                                    ordering may make shift the calculated paging window.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
                                         By default, the collection MUST be sorted alphanumerically 
                                         by the unique identifier of TDs.
                                     </span>
-                                    The unique identifier is the registration URL that is inside the
-                                    Registration Information object.
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
                                         The server MAY support sorting by other TD attributes using
                                         query arguments: `sort_by` to select a field (e.g. `created`)
@@ -1067,7 +1071,55 @@ img.wot-diagram {
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.
                                     </span>
                                 </li>
-                            </ul>                            
+                            </ul>
+                            
+                            The following example provides a walk-through of the paginated
+                            retrieval of TDs:
+                            
+                            <aside class="example" id="example-pagination"
+                                title="Query 12 TDs with page size 10.">
+                                The client requests the list with a `limit` of 10:
+                                <pre>
+                                    GET /td?limit=10 HTTP/1.1   
+                                    Host: tdd.example.com
+                                </pre>
+                                Response:
+                                <pre>
+                                    HTTP/1.1 200 OK
+                                    Content-Type: application/ld+json
+                                    Link: &#x3C;/td?offset=10&#x26;limit=10&#x3E;; rel=&#x22;next&#x22;
+                                    Link: &#x3C;/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
+
+                                    [{ TD }, ...9 other TDs... ]
+                                </pre>
+                                The response includes two Link headers with relative URLs:
+                                `next` link to query the remaining TDs,
+                                `canonical` link referencing the full collection with `etag` value indicating
+                                the state of that collection.
+                                <br>
+                                The response body is an array of 10 TDs.
+                                
+                                <br><br>
+                                The presence of the `next` link implies that subsequent pages should be
+                                queried for the remaining TDs.
+                                The client requests the next page via the `next` link:
+                                <pre>
+                                    GET /td?offset=10&limit=10 HTTP/1.1   
+                                    Host: tdd.example.com
+                                </pre>
+
+                                Response:
+                                <pre>
+                                    HTTP/1.1 200 OK
+                                    Content-Type: application/ld+json
+                                    Link: &#x3C;/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
+    
+                                    [{ TD }, { TD }]
+                                </pre>
+                                The server response has the remaining two TDs. There is no `next` link,
+                                because this is the last page. The `etag` value has not changed implying
+                                that the collection has remained consistent between the two requests.
+                            </aside>
                         </p>
 
                         <p>    
