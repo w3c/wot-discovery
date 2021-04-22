@@ -53,10 +53,12 @@
     "security": "combo_sc",
     "base": "https://tdd.example.com",
     "actions": {
-        "createTD": {
+        "createThing": {
+            "@type": "CreateThingAction",
             "description": "Create a Thing Description",
             "uriVariables": {
                 "id": {
+                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -64,7 +66,7 @@
             },
             "forms": [
                 {
-                    "href": "/td/{id}",
+                    "href": "/things/{id}",
                     "htv:methodName": "PUT",
                     "contentType": "application/td+json",
                     "response": {
@@ -81,14 +83,14 @@
                     "scopes": "write"
                 },
                 {
-                    "href": "/td",
+                    "href": "/things",
                     "htv:methodName": "POST",
                     "contentType": "application/td+json",
                     "response": {
                         "description": "Success response",
                         "htv:headers": [
                             {
-                                "description": "System-generated UUID (version 4) URN",
+                                "description": "System-generated URI",
                                 "htv:fieldName": "Location",
                                 "htv:fieldValue": ""
                             }
@@ -106,10 +108,11 @@
                 }
             ]
         },
-        "updateTD": {
+        "updateThing": {
             "description": "Update a Thing Description",
             "uriVariables": {
                 "id": {
+                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -117,7 +120,7 @@
             },
             "forms": [
                 {
-                    "href": "/td/{id}",
+                    "href": "/things/{id}",
                     "htv:methodName": "PUT",
                     "contentType": "application/td+json",
                     "response": {
@@ -132,21 +135,9 @@
                         }
                     ],
                     "scopes": "write"
-                }
-            ]
-        },
-        "updatePartialTD": {
-            "description": "Update parts of a Thing Description",
-            "uriVariables": {
-                "id": {
-                    "title": "Thing Description ID",
-                    "type": "string",
-                    "format": "iri-reference"
-                }
-            },
-            "forms": [
+                },
                 {
-                    "href": "/td/{id}",
+                    "href": "/things/{id}",
                     "htv:methodName": "PATCH",
                     "contentType": "application/merge-patch+json",
                     "response": {
@@ -169,10 +160,11 @@
                 }
             ]
         },
-        "deleteTD": {
+        "deleteThing": {
             "description": "Delete a Thing Description",
             "uriVariables": {
                 "id": {
+                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -180,7 +172,7 @@
             },
             "forms": [
                 {
-                    "href": "/td/{id}",
+                    "href": "/things/{id}",
                     "htv:methodName": "DELETE",
                     "response": {
                         "description": "Success response",
