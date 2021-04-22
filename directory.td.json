@@ -3,7 +3,7 @@
         "http://www.w3.org/ns/td",
         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
     ],
-    "@type": "DirectoryDescription",
+    "@type": "ThingDirectory",
     "title": "Thing Description Directory (TDD)",
     "version": {
         "instance": "1.0.0-alpha"
