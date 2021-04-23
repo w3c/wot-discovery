@@ -2,9 +2,10 @@
 hide members
 class "td:Thing"
 
-class "tdd:RegistrationInformation" {
-  dc:created : xsd:datetime
-  dc:modified : xsd:datetime
+class "discovery:RegistrationInformation" {
+  dct:created : xsd:datetime
+  dct:modified : xsd:datetime
+  schema:expires : xsd:datetime
 }
 
 
@@ -13,11 +14,11 @@ note left of "td:Thing"
 end note
 
 
-"td:Thing" --> "tdd:RegistrationInformation" : "tdd:hasRegistrationInformation"
+"td:Thing" --> "discovery:RegistrationInformation" : "discovery:hasRegistrationInformation"
 
 
-"tdd:LinkDescription" --|> "td:Thing"
-"tdd:DirectoryDescription" --|> "td:Thing"
+"discovery:LinkDescription" --|> "td:Thing"
+"discovery:DirectoryDescription" --|> "td:Thing"
 
-show "tdd:RegistrationInformation" attributes
+show "discovery:RegistrationInformation" attributes
 @enduml

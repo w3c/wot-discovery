@@ -656,29 +656,66 @@ img.wot-diagram {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="rfc2119-table-assertion" id="tdd-vocab-created--Thing">
+                            <tr class="rfc2119-table-assertion" id="discovery-vocab-created--RegistrationInformation">
                                 <td><code>created</code></td>
                                 <td>Provides information when the TD instance was
                                     created inside the directory.</td>
                                 <td>system-generated (read-only)</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
-                            <tr class="rfc2119-table-assertion" id="tdd-vocab-modified--Thing">
+                            <tr class="rfc2119-table-assertion" id="discovery-vocab-modified--RegistrationInformation">
                                 <td><code>modified</code></td>
                                 <td>Provides information when the TD instance was
                                     last modified inside the directory.</td>
                                 <td>system-generated (read-only)</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
-                            <!-- <tr class="rfc2119-table-assertion" id="tdd-vocab-expires--Thing">
+                            <tr class="rfc2119-table-assertion" id="discovery-vocab-expires--RegistrationInformation">
                                 <td><code>expires</code></td>
                                 <td>Provides information when the TD instance registration will
                                     expire.</td>
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
-                            </tr> -->
+                            </tr>
                         </tbody>
                     </table>
+                    
+                    <p>
+                        The `created` and `updated` attributes are set by the directory
+                        and returned to consumers in <a>Enriched TD</a>s to allow
+                        bookkeeping and search.
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-created-updated">
+                            The maintenance of creation and modification time of <a>TD</a>s inside
+                            the directory are OPTIONAL for servers.
+                        </span>
+                    </p>
+                    
+                    <p>
+                        The `expires` attribute is set by the producer and submitted to the directory
+                        during the <a>TD</a> registration.
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires">
+                            Clients MAY set the expiry date to inform the directory and 
+                            other consumers about the validity of the TD registrations.
+                        </span>
+                        Moreover, the expiry date is useful for implementing automatic
+                        removal of obsolete or accidental registrations.
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
+                            The server SHOULD periodically purge TDs that are past 
+                            their expiry dates.
+                        </span>
+                        A devices that is at risk of ungraceful termination or decommissioning
+                        should set a reasonably short expiry date and periodically modify it during
+                        normal operations. If the device ceases to operate, a directory with
+                        purging capability will automatically remove its registration.
+                        
+                        The expiry is also a useful indicator to inform the consumers about
+                        expiry of dynamic <a>TD</a>s, e.g. when changes to metadata such as
+                        geolocation or properties is expected to be valid for a limited period.
+                        
+                        Consumers may rely on the expiry date to know if a TD that is retrieved
+                        from the directory is still valid.
+                    </p>
+
                 </section>
                 <section id="exploration-directory-anonymous-td" class="normative">
                     <h4>Anonymous TD Identifiers</h4>
@@ -842,14 +879,6 @@ img.wot-diagram {
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
-
-                        <div class="issue" data-number="18">
-                            In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
-                            the registration may benefit from an expiration time. 
-                            The expiration time may be set explicity or relative to the registration time
-                            as a time-to-live (TTL) value.
-                        </div>
-                        
                       
                         <p class="issue" data-number="48">
                         </p>
