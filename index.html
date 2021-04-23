@@ -703,17 +703,25 @@ img.wot-diagram {
                             The server SHOULD periodically purge TDs that are past 
                             their expiry dates.
                         </span>
-                        A devices that is at risk of ungraceful termination or decommissioning
-                        should set a reasonably short expiry date and periodically modify it during
-                        normal operations. If the device ceases to operate, a directory with
-                        purging capability will automatically remove its registration.
+                        Some clients (e.g. IoT devices) are unable to explicitly deregister
+                        their <a>TD</a>s because of protocol-specific limitations, failure,
+                        or ungraceful decommissioning.
+                        Such clients should set a reasonably short expiry date and periodically
+                        modify it during normal operations.
+                        If a client ceases to operate, a directory with purging capability will
+                        automatically remove its registration.
+                        Consumers who retrieve an expired TD may consider it as metadata of an
+                        inactive client.
                         
                         The expiry is also a useful indicator to inform the consumers about
                         expiry of dynamic <a>TD</a>s, e.g. when changes to metadata such as
                         geolocation or properties is expected to be valid for a limited period.
                         
-                        Consumers may rely on the expiry date to know if a TD that is retrieved
-                        from the directory is still valid.
+                        Lastly, consumers may rely on the expiry date
+                        (in a similar fashion to 
+                        <a href="https://tools.ietf.org/html/rfc7234#section-5.3">Expires</a> HTTP header)
+                        to know how long a retrieved <a>TD</a> will be valid
+                        and when they need to request for a latest one.
                     </p>
 
                 </section>
