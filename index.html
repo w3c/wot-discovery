@@ -248,7 +248,7 @@ img.wot-diagram {
         <dl>
             <dt><dfn data-lt="WoT Anonymous Thing Description">Anonymous TD</dfn>
             </dt>
-            <dd>A Thing Description without an identifier (`id` attribute).
+            <dd>A Thing Description without a user-defined identifier (`id` attribute).
             </dd>
             <dt><dfn data-lt="WoT Discovery">Discovery</dfn>
             </dt>
@@ -638,7 +638,7 @@ img.wot-diagram {
                     the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
                     For every TD, the directory additionally maintains the registration
                     information for bookkeeping and search purposes.
-                    A TD which embeds the registration information is called an <a>Enriched TD</a>.
+                    <a>Enriched TD</a>s embed the registration information inside them.
                     The ontology of a <a>TD</a> maintained by the directory is illustrated
                     in [[[#directory-td-class-diagram]]].
                 </p>
@@ -682,18 +682,24 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-anonymous-td" class="normative">
                     <h4>Anonymous TD Identifiers</h4>
-                    <a>Anonymous TD</a>s have no `id` (or `@id`) and are considered as blank nodes [[JSON-LD11]].
-                    The server assigns a local identifier to such TDs to allow management and retrieval
-                    from the directory.
+                    <a>Anonymous TD</a>s are considered as JSON-LD blank nodes [[JSON-LD11]].
+                    The server assigns a local identifier to such TDs
+                    to enable management and retrieval from the directory.
                     <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
                         In situations where the server exposes an Anonymous TD, it MUST
-                        add the local identifier to the Anonymous TD as a blank
+                        add the local identifier to the TD as a blank
                         node identifier to allow local referencing.
                     </span>
                     <a href="https://json-ld.org/spec/latest/json-ld/#dfn-blank-node-identifiers">Blank node identifiers</a>
-                    begin with `_:`. For example,
-                    a TD that has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
-                    will have the following blank node identifier: `_:48951ff3-4019-4e67-b217-dbbf011873dc`.
+                    begin with `_:` which look like IRIs with an underscore scheme. 
+                    <p>
+                        For example,
+                        an <a>Anonymous TD</a> that has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
+                        will have the following blank node identifier
+                        set as its `id` attribute: `_:48951ff3-4019-4e67-b217-dbbf011873dc`.
+                        <a>Anonymous TD</a>s that embed blank node identifiers are in
+                        <a>Enriched TD</a> forms.
+                    </p>
                 </section>
             </section>
             <section id="exploration-directory-api" class="normative">
