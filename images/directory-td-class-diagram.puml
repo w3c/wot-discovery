@@ -3,8 +3,8 @@ hide members
 class "td:Thing"
 
 class "discovery:RegistrationInformation" {
-  dct:created : xsd:datetime
-  dct:modified : xsd:datetime
+  schema:dateCreated : xsd:datetime
+  schema:dateModified : xsd:datetime
   schema:expires : xsd:datetime
 }
 
@@ -21,4 +21,5 @@ end note
 "discovery:DirectoryDescription" --|> "td:Thing"
 
 show "discovery:RegistrationInformation" attributes
+note "Prefixes:\n\tdiscovery: https://www.w3.org/2021/wot/discovery#\n\ttd: https://www.w3.org/2019/wot/td#\n\tschema: http://schema.org/" as N1
 @enduml
