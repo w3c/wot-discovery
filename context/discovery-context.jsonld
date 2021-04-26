@@ -12,6 +12,7 @@
     },
     "registration": "discovery:hasRegistrationInformation",
     "created": "dct:created",
-    "modified": "dct:modified"
+    "modified": "dct:modified",
+    "expires": "schema:expires"
   }
 }
