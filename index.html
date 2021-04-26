@@ -1038,6 +1038,21 @@ img.wot-diagram {
                                 </span>
                                 This operation is specified as `updatePartialTD` property in 
                                 [[[#directory-thing-description]]].
+
+                                <p>
+                                    The following example is a merge patch document to update only the
+                                    `base` and registration `expires` fields of a TD:
+                                    <aside class="example" id="example-td-patch" title="Example merge patch document">
+                                        <pre>
+                                            {
+                                                "base": "http://192.168.0.2/",
+                                                "registration": {
+                                                    "expires": "2021-01-20T17:02:00Z"
+                                                }
+                                            }
+                                        </pre>                    
+                                    </aside>
+                                </p>
                             </li>
                         </ul>
 
