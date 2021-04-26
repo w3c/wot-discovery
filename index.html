@@ -1121,7 +1121,7 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-canonicallink">
-                                        All paged responses MUST contain a `canonical` Link header
+                                        All paged responses MUST contain a `canonical` Link header [[RFC8288]]
                                         pointing to the collection and include an `etag` parameter to represent
                                         the current state of the collection.
                                     </span>
@@ -1154,6 +1154,13 @@ img.wot-diagram {
                                     </span>
                                 </li>
                             </ul>
+                            <p>
+                                This above specification follows a subset of Linked Data Paging [[?LDP-Paging]]
+                                to allow optional pagination of the JSON-LD array.
+                                Additional parts of Linked Data Paging may be implemented for examples
+                                to honour client's query preference or to add other link relations for semantic
+                                annotation and alternative navigation links.
+                            </p>
                             
                             The following example provides a walk-through of the paginated
                             retrieval of TDs:
