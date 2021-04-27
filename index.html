@@ -200,7 +200,7 @@ img.wot-diagram {
            use of existing standards for semantic data query, 
            such as SPARQL [[SPARQL11-OVERVIEW]], 
            while potentially suitable for some advanced use cases, 
-           might require to much effort for many anticipated IoT applications.
+           might require too much effort for many anticipated IoT applications.
            Therefore in order to address more basic applications,
            we also define some simpler query mechanisms. 
         </p>
@@ -263,7 +263,7 @@ img.wot-diagram {
             </dt>
             <dd>A discovery mechanism that provides access to detailed metadata in the 
             form of one or more Thing Descriptions.  Exploration mechanisms are in
-            general protected by security mechansism and are accessible only to authorized users.
+            general protected by security mechanism and are accessible only to authorized users.
             </dd>
             <dt><dfn data-lt="WoT Introduction">Introduction</dfn>
             </dt>
@@ -852,7 +852,7 @@ img.wot-diagram {
                         <div class="issue" data-number="18">
                             In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
                             the registration may benefit from an expiration time. 
-                            The expiration time may be set explicity or relative to the registration time
+                            The expiration time may be set explicit or relative to the registration time
                             as a time-to-live (TTL) value.
                         </div>
                         
@@ -1352,7 +1352,7 @@ img.wot-diagram {
                                         search expressions passed as one of `jsonpath`, `xpath`, 
                                         or `sparql` query parameters.
                                     </span>
-                                    This is to detect changes on particular TDs or attributes and does not not affect
+                                    This is to detect changes on particular TDs or attributes and does not affect
                                     the event's data object.
                                     <p>
                                         For example, the JSONPath expression `$.properties`
@@ -1703,7 +1703,7 @@ img.wot-diagram {
                     <dt>Mitigations:</dt><dd>
                     A WoT Thing Description Directory implementation should 
                     <ul>
-                    <li>Limit the number of queries per unit time from the same reqeuestor</li>
+                    <li>Limit the number of queries per unit time from the same requestor</li>
                     <li>Limit the complexity of queries (for example, the total length of the query 
                     expression or its depth)</li>
                     <li>Use a watchdog timer to abort queries that take more than
@@ -1851,9 +1851,9 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 </li>
                 <li>The problem of negative location inferencing can be mitigated by limiting access to 
                 private directories, for example in the home, by using access controls.  If an attacker cannot access the service,
-                they cannot retreive information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
+                they cannot retrieve information to infer location.  Access rights provided to guests (Peer-to-Peer Personal)
                 should be appropriately time-limited.
-                Use of long time-to-live values may be approprate in other cases.  In addition, TDs should be updated in a 
+                Use of long time-to-live values may be appropriate in other cases.  In addition, TDs should be updated in a 
                 directory only when they change.  For example, the TD for a car may only be updated when new car firmware is available
                 providing new services, and the time-to-live might be set at one month (covering most absences).
                 </li>
