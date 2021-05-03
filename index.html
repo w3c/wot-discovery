@@ -658,72 +658,113 @@ img.wot-diagram {
                         <tbody>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-created--RegistrationInformation">
                                 <td><code>created</code></td>
-                                <td>Provides information when the TD instance was
-                                    created inside the directory.</td>
+                                <td>
+                                    Provides information when the TD instance was
+                                    created inside the directory.
+                                    <p>
+                                        This MAY be set by the directory and returned to consumers in
+                                        <a>Enriched TD</a>s to allow bookkeeping and search.
+                                    </p>
+                                </td>
                                 <td>system-generated (read-only)</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-modified--RegistrationInformation">
                                 <td><code>modified</code></td>
-                                <td>Provides information when the TD instance was
-                                    last modified inside the directory.</td>
+                                <td>
+                                    Provides information when the TD instance was
+                                    last modified inside the directory.
+                                    <p>
+                                        This MAY be set by the directory and returned to consumers in
+                                        <a>Enriched TD</a>s to allow bookkeeping and search.
+                                    </p>
+                                </td>
                                 <td>system-generated (read-only)</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-expires--RegistrationInformation">
                                 <td><code>expires</code></td>
-                                <td>Provides information when the TD instance registration will
-                                    expire.</td>
+                                <td>
+                                    Provides the time for when the TD instance registration expires.
+                                    <p>
+                                        The producer MAY set this to indicate the absolute expiry time
+                                        during the registration.
+
+                                        If a relative expiry time is present instead of this,
+                                        supporting servers MUST compute it using the relative expiry time.
+                                    </p>
+                                </td>
+                                <td>optional</td>
+                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                            </tr>
+                            <tr class="rfc2119-table-assertion" id="discovery-vocab-ttl--RegistrationInformation">
+                                <td><code>ttl</code></td>
+                                <td>
+                                    Time-to-live: relative amount of time in seconds from the registration time 
+                                    until when the TD instance registration expires. 
+                                    This attribute is ignored if there is an absolute expiry time.
+                                    <p>
+                                        The producer MAY set this to indicate the relative expiry time
+                                        during the registration.
+                                    </p>
+                                </td>
+                                <td>optional</td>
+                                <td><code>number</code></a></td>
+                            </tr>
+                            <tr class="rfc2119-table-assertion" id="discovery-vocab-retrieved--RegistrationInformation">
+                                <td><code>retrieved</code></td>
+                                <td>
+                                    The time at which the TD was retrieved from the server.
+                                    This is useful for clients that intend to process other absolute timestamps but
+                                    do not have an internal clock.
+                                </td>
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                         </tbody>
                     </table>
-                    
+                </section>
+                <section id="exploration-directory-registration-expiry" class="normative">
+                    <h4>Registration Expiry</h4>
+                    Section [[[#exploration-directory-registration-info]]] introduces few attributes to
+                    specify and discover the expiry time of registered <a>TD</a>s. 
+
                     <p>
-                        The `created` and `updated` attributes are set by the directory
-                        and returned to consumers in <a>Enriched TD</a>s to allow
-                        bookkeeping and search.
-                        <span class="rfc2119-assertion" id="tdd-registrationinfo-created-updated">
-                            The maintenance of creation and modification time of <a>TD</a>s inside
-                            the directory are OPTIONAL for servers.
-                        </span>
-                    </p>
-                    
-                    <p>
-                        The `expires` attribute is set by the producer and submitted to the directory
-                        during the <a>TD</a> registration.
-                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires">
-                            Clients MAY set the expiry date to inform the directory and 
-                            other consumers about the validity of the TD registrations.
-                        </span>
-                        Moreover, the expiry date is useful for implementing automatic
-                        removal of obsolete or accidental registrations.
-                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
-                            The server SHOULD periodically purge TDs that are past 
-                            their expiry dates.
-                        </span>
-                        Some clients (e.g. IoT devices) are unable to explicitly deregister
-                        their <a>TD</a>s because of protocol-specific limitations, failure,
-                        or ungraceful decommissioning.
-                        Such clients should set a reasonably short expiry date and periodically
-                        modify it during normal operations.
-                        If a client ceases to operate, a directory with purging capability will
-                        automatically remove its registration.
-                        Consumers who retrieve an expired TD may consider it as metadata of an
-                        inactive client.
-                        
+                        Producers can set the expiry time to inform the directory and other consumers
+                        about the validity of the TD registrations. 
                         The expiry is also a useful indicator to inform the consumers about
                         expiry of dynamic <a>TD</a>s, e.g. when changes to metadata such as
-                        geolocation or properties is expected to be valid for a limited period.
-                        
-                        Lastly, consumers may rely on the expiry date
-                        (in a similar fashion to 
-                        <a href="https://tools.ietf.org/html/rfc7234#section-5.3">Expires</a> HTTP header)
-                        to know how long a retrieved <a>TD</a> will be valid
-                        and when they need to request a more recent one.
+                        geolocation or properties are expected to be valid for a limited period.
+                        Consumers may rely on the expiry time to know how long a retrieved <a>TD</a>
+                        will be valid and when they need to request a more recent one.
+                        Consumers who retrieve an expired TD may consider it as metadata of an
+                        inactive client.
                     </p>
-
+                    <p>
+                        For the servers, the expiry time is useful for implementing automatic
+                        removal of obsolete or accidental registrations.
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
+                            Servers SHOULD periodically purge TDs that are past 
+                            their expiry dates.
+                        </span>
+                        Prescribing a global mandate or upper limit for the expiry time is
+                        application-specific and beyond the scope of this specification.
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
+                            The servers MAY mandate or set a configurable upper limit to expiry times
+                            and refuse incompliant requests in accordance with application requirements.
+                        </span>
+                        
+                        The purging by servers is particularly beneficial when interacting with
+                        clients (e.g. IoT devices) that are unable to explicitly deregister
+                        their <a>TD</a>s. This could be due to protocol-specific limitations,
+                        failure, destruction, or ungraceful decommissioning.
+                        Such clients should set a reasonably short expiry time and periodically
+                        extend it during normal operations.
+                       
+                        If a client ceases to operate, a directory with purging capability will
+                        automatically remove its registration.
+                    </p>
+                        
                 </section>
                 <section id="exploration-directory-anonymous-td" class="normative">
                     <h4>Anonymous TD Identifiers</h4>
@@ -877,6 +918,11 @@ img.wot-diagram {
                         </ul>
 
                         <p>
+                            A server that supports the management of short-lived TD must realize
+                            such functionality in accordance with [[[#exploration-directory-registration-expiry]]].
+                        </p>
+
+                        <p>
                             Error responses:
                             <ul>
                                 <li>
@@ -887,7 +933,15 @@ img.wot-diagram {
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
+
+                        <div class="issue" data-number="18">
+                            In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
+                            the registration may benefit from an expiration time. 
+                            The expiration time may be set explicity or relative to the registration time
+                            as a time-to-live (TTL) value.
+                        </div>
                       
+
                         <p class="issue" data-number="48">
                         </p>
                     </section>
