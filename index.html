@@ -651,7 +651,8 @@ img.wot-diagram {
                             <tr>
                                 <th>Vocabulary term</th>
                                 <th>Description</th>
-                                <th>Assignment</th>
+                                <th>Client Assignment</th>
+                                <th>Server Assignment</th>
                                 <th>Type</th>
                             </tr>
                         </thead>
@@ -662,11 +663,11 @@ img.wot-diagram {
                                     Provides information when the TD instance was
                                     created inside the directory.
                                     <p>
-                                        This MAY be set by the directory and returned to consumers in
-                                        <a>Enriched TD</a>s to allow bookkeeping and search.
+                                        This MAY be set by the directory and returned to consumers.
                                     </p>
                                 </td>
-                                <td>system-generated (read-only)</td>
+                                <td>read-only</td>
+                                <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-modified--RegistrationInformation">
@@ -675,11 +676,11 @@ img.wot-diagram {
                                     Provides information when the TD instance was
                                     last modified inside the directory.
                                     <p>
-                                        This MAY be set by the directory and returned to consumers in
-                                        <a>Enriched TD</a>s to allow bookkeeping and search.
+                                        This MAY be set by the directory and returned to consumers.
                                     </p>
                                 </td>
-                                <td>system-generated (read-only)</td>
+                                <td>read-only</td>
+                                <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-expires--RegistrationInformation">
@@ -690,10 +691,12 @@ img.wot-diagram {
                                         The producer MAY set this to indicate the absolute expiry time
                                         during the registration.
 
-                                        If a relative expiry time is present instead of this,
-                                        supporting servers MUST compute it using the relative expiry time.
+                                        If a relative expiry time is present instead,
+                                        supporting servers MUST compute and set the absolute expiry using the
+                                        relative value.
                                     </p>
                                 </td>
+                                <td>optional</td>
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
@@ -709,15 +712,19 @@ img.wot-diagram {
                                     </p>
                                 </td>
                                 <td>optional</td>
+                                <td>read-only</td>
                                 <td><code>number</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-retrieved--RegistrationInformation">
                                 <td><code>retrieved</code></td>
                                 <td>
                                     The time at which the TD was retrieved from the server.
-                                    This is useful for clients that intend to process other absolute timestamps but
-                                    do not have an internal clock.
+                                    <p>
+                                        This is useful for clients that intend to process other absolute timestamps but
+                                        do not have an internal clock or other means of acquiring the current time.
+                                    </p>
                                 </td>
+                                <td>read-only</td>
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
@@ -745,13 +752,13 @@ img.wot-diagram {
                         removal of obsolete or accidental registrations.
                         <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
                             Servers SHOULD periodically purge TDs that are past 
-                            their expiry dates.
+                            their expiry times.
                         </span>
                         Prescribing a global mandate or upper limit for the expiry time is
                         application-specific and beyond the scope of this specification.
                         <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
                             The servers MAY mandate or set a configurable upper limit to expiry times
-                            and refuse incompliant requests in accordance with application requirements.
+                            and refuse incompliant requests.
                         </span>
                         
                         The purging by servers is particularly beneficial when interacting with
@@ -759,7 +766,7 @@ img.wot-diagram {
                         their <a>TD</a>s. This could be due to protocol-specific limitations,
                         failure, destruction, or ungraceful decommissioning.
                         Such clients should set a reasonably short expiry time and periodically
-                        extend it during normal operations.
+                        extend it during the normal operation.
                        
                         If a client ceases to operate, a directory with purging capability will
                         automatically remove its registration.
@@ -918,8 +925,10 @@ img.wot-diagram {
                         </ul>
 
                         <p>
-                            A server that supports the management of short-lived TD must realize
-                            such functionality in accordance with [[[#exploration-directory-registration-expiry]]].
+                            A server that supports expirable TDs must realize such functionality
+                            as described in [[[#exploration-directory-registration-expiry]]].
+                            During creation and if there is a relative expiry time, such server should
+                            calculate and store the absolute expiry time.
                         </p>
 
                         <p>
@@ -972,7 +981,7 @@ img.wot-diagram {
 
                         <p>
                             The following is an example of a retrieved TD:
-                            <aside class="example" id="example-td-registration-info" title="Example Enriched TD">
+                            <aside class="example" id="example-enriched-td" title="Example Enriched TD">
                                 <pre>
                                     {
                                         "@context": [
@@ -1004,7 +1013,7 @@ img.wot-diagram {
                             set as its blank node identifier (see [[[#exploration-directory-anonymous-td]]]).
                             Note that `id` is an alias for `@id` from the active context.
                             
-                            <aside class="example" id="example-anonymous-td-registration-info" title="Example Enriched Anonymous TD">
+                            <aside class="example" id="example-anonymous-enriched-td" title="Example Enriched Anonymous TD">
                                 <pre>
                                     {
                                         "@context": [
@@ -1027,6 +1036,41 @@ img.wot-diagram {
                                 </pre>                    
                             </aside>
                         </p>
+
+                        <p>
+
+                            The following is an example of a retrieved TD that was registered with a relative
+                            expiry time of 3600 seconds (one hour). The server has calculated the absolute expiry time as 
+                            one hour after the modification time.
+                            <aside class="example" id="example-expirable-enriched-td" title="Example Expirable Enriched TD">
+                                <pre>
+                                    {
+                                        "@context": [
+                                            "http://www.w3.org/ns/td",
+                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                        ],
+                                        "id": "urn:example:expirable-td",
+                                        "security": "basic_sc",
+                                        "securityDefinitions": {
+                                            "basic_sc": {
+                                                "scheme": "basic"
+                                            }
+                                        },
+                                        "registration": {
+                                            "created": "2021-05-10T16:00:00Z",
+                                            "modified": "2021-05-10T17:00:00Z",
+                                            "expires": "2021-05-10T18:00:00Z",
+                                            "ttl": 3600,
+                                            "retrieved": "2021-05-10T17:35:00Z"
+                                        },
+                                        "title": "Expirable TD"
+                                    }
+                                </pre>                    
+                            </aside>
+                            For the sake of readability, the time values in this example are set to exact numbers.
+                            In realistic settings, time values may include fractions.
+                        </p>
+
                     </section>
 
                     <section id="exploration-directory-api-registration-update" class="normative">
@@ -1096,7 +1140,7 @@ img.wot-diagram {
                                 <p>
                                     The following example is a merge patch document to update only the
                                     `base` and registration `expires` fields of a TD:
-                                    <aside class="example" id="example-td-patch" title="Example merge patch document">
+                                    <aside class="example" id="example-patch-enriched-td" title="Example merge patch document">
                                         <pre>
                                             {
                                                 "base": "http://192.168.0.2/",
@@ -1109,6 +1153,13 @@ img.wot-diagram {
                                 </p>
                             </li>
                         </ul>
+
+                        <p>
+                            A server that supports expirable TDs must realize such functionality
+                            as described in [[[#exploration-directory-registration-expiry]]].
+                            During update operations, if there is an existing or new relative expiry time,
+                            the server should calculate and set a new absolute expiry time.
+                        </p>
 
                         <p>
                             Error responses:
