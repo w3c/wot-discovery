@@ -1,4 +1,4 @@
-# WoT Discovery
+	# WoT Discovery
       
 ## References
 
@@ -41,3 +41,4 @@
 * [HATEOAS](http://restcookbook.com/Basics/hateoas/)
 * [Zhou2012](https://doi.org/10.1109/CCIS.2012.6664533)
 * [Yun2010](https://ieeexplore.ieee.org/document/5440391?arnumber=5440391)
+* [Hydra] (https://www.hydra-cg.com/spec/latest/core/)

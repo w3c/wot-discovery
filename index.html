@@ -1067,6 +1067,35 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status, contain `application/ld+json`
                                 Content-Type header, and an array of TDs in the body.
                             </span>
+
+							<p>
+								Alternative to a pure array of TDs as the body of the response, the server MAY
+								send a more verbose payload allowing server-side information, like pagination
+								information, to be put in addition to the actual data. The alternative format
+								reflects the format described in <i>Collections</i> of [[Hydra]], uses the
+								<i>members</i> field to accomodate the array of TDs, and looks like as follows:
+							</p>
+							<p>
+								<aside class="example" id="example-alternative-payload"
+									title="Alternative payload format including pagination information">
+									<pre>
+										{
+											"@context": "http://www.w3.org/ns/hydra/context.jsonld",
+											"@type": "Collection",
+											"totalItems": 10,
+											"member": [
+												{ TD },
+												9 other TDs...
+											],
+											"view": {
+												"@type":"PartialCollectionView",
+												"@id": "/td?offset=0&limit=10",
+												"next": "/td?offset=1&limit=10"
+											}
+										}
+									</pre>                    
+								</aside>
+							</p>
                         </p>
 
                         <p>

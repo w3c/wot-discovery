@@ -152,6 +152,10 @@ In contrast to the above technologies, here, a central directory can be used for
 * **Research article: "A Semantic Enhanced Service Proxy Framework for Internet of Things"**
     - A semantic based framework which uses the concept of service advertisement of a smart object. Authors argue that such a mechanism makes the service registration easier which in turn facilitates discovery. The advertisement contains a service metadata including name, id, endpoint, location and semantic annotation link.
     - Reference: {{Alam2010}}
+	
+* **Hydra Core Vocabulary: "A Vocabulary for Hypermedia-Driven Web APIs"**
+    - Hydra is a lightweight vocabulary to create hypermedia-driven Web APIs. By specifying a number of concepts commonly used in Web APIs it enables the creation of generic API clients.
+    - Reference: {{Hydra}}
 
 #### Searching Across Peers
 
