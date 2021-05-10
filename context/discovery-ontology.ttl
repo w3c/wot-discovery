@@ -6,66 +6,72 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix tdd: <https://github.com/w3c/wot-discovery#> .
+@prefix discovery: <https://github.com/w3c/wot-discovery#> .
 @prefix td: <https://www.w3.org/2019/wot/td#> .
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
 @base <https://github.com/w3c/wot-discovery#> .
-
 <https://github.com/w3c/wot-discovery#> rdf:type owl:Ontology ;
-			dc:creator "Andrea Cimmino (cimmino@fi.upm.es)" ;
-			dc:creastir "Farshid Tavakolizadeh (farshid.tavakolizadeh@fit.fraunhofer.de)" ;
-			owl:versionInfo "0.1.0" ;
-			dc:title "WoT discovery ontology" .
+
+dc:creator "Andrea Cimmino" ;
+dc:creator "Farshid Tavakolizadeh" ;
+dc:description "Ontology code generated with Chowlk" ; 
+owl:versionInfo "0.1.1" ;
+dc:title "WoT discovery ontology" .
 
 #################################################################
-#    Object Properties
+# Object Properties
 #################################################################
 
-### tdd:hasRegistrationInformation
-tdd:hasRegistrationInformation rdf:type owl:ObjectProperty ;
-		rdfs:domain td:Thing ;
-		rdfs:range tdd:RegistrationInformation ;
-		rdfs:label "has registration information" .
+### discovery:hasRegistrationInformation
+discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
+	rdfs:domain td:Thing ;
+	rdfs:range discovery:RegistrationInformation ;
+	rdfs:label "has registration information" .
 
 #################################################################
-#    Data Properties
+# Data Properties
 #################################################################
 
-### dc:created
-dc:created rdf:type owl:DatatypeProperty ;
-		rdfs:label "created" .
+### schema:dateCreated
+schema:dateCreated rdf:type owl:DatatypeProperty ;
+rdfs:label "date created" .
 
-### dc:modified
-dc:modified rdf:type owl:DatatypeProperty ;
-		rdfs:label "modified" .
+### schema:dateModified
+schema:dateModified rdf:type owl:DatatypeProperty ;
+rdfs:label "date modified" .
+
+### schema:expires
+schema:expires rdf:type owl:DatatypeProperty ;
+rdfs:label "expires" .
 
 #################################################################
-#    Classes
+# Classes
 #################################################################
 
 ### td:Thing
 td:Thing rdf:type owl:Class ;
 	rdfs:label "Thing" .
 
-### tdd:RegistrationInformation
-tdd:RegistrationInformation rdf:type owl:Class ;
+### discovery:RegistrationInformation
+discovery:RegistrationInformation rdf:type owl:Class ;
 	rdfs:label "Registration Information" .
 
-### tdd:LinkDescription
-tdd:LinkDescription rdf:type owl:Class ;
+### discovery:LinkDescription
+discovery:LinkDescription rdf:type owl:Class ;
 	rdfs:label "Link Description" ;
 	rdfs:subClassOf td:Thing .
 
-### tdd:DirectoryDescription
-tdd:DirectoryDescription rdf:type owl:Class ;
+### discovery:DirectoryDescription
+discovery:DirectoryDescription rdf:type owl:Class ;
 	rdfs:label "Directory Description" ;
 	rdfs:subClassOf td:Thing .
 
 #################################################################
-#    Instances
+# Instances
 #################################################################
 
 #################################################################
-#    General Axioms
+# General Axioms
 #################################################################
 

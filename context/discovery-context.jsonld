@@ -1,6 +1,7 @@
 {
   "@context": {
     "discovery": "https://www.w3.org/2021/wot/discovery#",
+    "schema": "http://schema.org/",
     "DirectoryDescription": {
       "@id": "discovery:DirectoryDescription"
     },
@@ -11,7 +12,8 @@
       "@id": "discovery:RegistrationInformation"
     },
     "registration": "discovery:hasRegistrationInformation",
-    "created": "dct:created",
-    "modified": "dct:modified"
+    "created": "schema:dateCreated",
+    "modified": "schema:dateModified",
+    "expires": "schema:expires"
   }
 }
