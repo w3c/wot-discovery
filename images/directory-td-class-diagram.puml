@@ -2,10 +2,12 @@
 hide members
 class "td:Thing"
 
-class "discovery:RegistrationInformation" {
+class "discovery:ThingEnriched" {
   schema:dateCreated : xsd:datetime
   schema:dateModified : xsd:datetime
   schema:expires : xsd:datetime
+  discovery:ttl : xsd:integer
+  discovery:retrieved : xsd:datetime
 }
 
 
@@ -14,12 +16,12 @@ note left of "td:Thing"
 end note
 
 
-"td:Thing" --> "discovery:RegistrationInformation" : "discovery:hasRegistrationInformation"
 
 
-"discovery:LinkDescription" --|> "td:Thing"
-"discovery:DirectoryDescription" --|> "td:Thing"
+"discovery:ThingEnriched" --|> "td:Thing"
+"discovery:ThingLink" --|> "discovery:ThingEnriched"
+"discovery:ThingDirectory" --|> "discovery:ThingEnriched"
 
-show "discovery:RegistrationInformation" attributes
+show "discovery:ThingEnriched" attributes
 note "Prefixes:\n\tdiscovery: https://www.w3.org/2021/wot/discovery#\n\ttd: https://www.w3.org/2019/wot/td#\n\tschema: http://schema.org/" as N1
 @enduml
