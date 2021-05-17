@@ -1,6 +1,6 @@
 {
   "@context": {
-    "discovery": "https://raw.githubusercontent.com/AndreaCimminoArriaga/wot-discovery/main/context/discovery-ontology.ttl",
+    "discovery": "https://www.w3.org/2021/wot/discovery#",
     "schema": "http://schema.org/",
     "ThingDirectory": {
       "@id": "discovery:ThingDirectory"
@@ -16,6 +16,5 @@
     "expires": "schema:expires",
     "ttl": "discovery:ttl",
     "retrieve": "discovery:retrieve"
-    
   }
 }
