@@ -2,18 +2,18 @@
   "@context": {
     "discovery": "https://www.w3.org/2021/wot/discovery#",
     "schema": "http://schema.org/",
-    "DirectoryDescription": {
-      "@id": "discovery:DirectoryDescription"
+    "ThingDirectory": {
+      "@id": "discovery:ThingDirectory"
     },
-    "LinkDescription": {
-      "@id": "discovery:LinkDescription"
+    "ThingDirectory": {
+      "@id": "discovery:ThingDirectory"
     },
-    "RegistrationInformation": {
-      "@id": "discovery:RegistrationInformation"
+    "ThingEnriched": {
+      "@id": "discovery:ThingEnriched"
     },
-    "registration": "discovery:hasRegistrationInformation",
-    "created": "schema:dateCreated",
-    "modified": "schema:dateModified",
-    "expires": "schema:expires"
+    "discovery:registration": "discovery:hasRegistrationInformation",
+    "discovery:created": "schema:dateCreated",
+    "discovery:modified": "schema:dateModified",
+    "discovery:expires": "schema:expires"
   }
 }
