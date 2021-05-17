@@ -10,13 +10,9 @@ class "discovery:ThingEnriched" {
   discovery:retrieved : xsd:datetime
 }
 
-
 note left of "td:Thing" 
   Thing Description (TD)
 end note
-
-
-
 
 "discovery:ThingEnriched" --|> "td:Thing"
 "discovery:ThingLink" --|> "discovery:ThingEnriched"
