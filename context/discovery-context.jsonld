@@ -5,8 +5,8 @@
     "ThingDirectory": {
       "@id": "discovery:ThingDirectory"
     },
-    "ThingDirectory": {
-      "@id": "discovery:ThingDirectory"
+    "ThingLink": {
+      "@id": "discovery:ThingLink"
     },
     "ThingEnriched": {
       "@id": "discovery:ThingEnriched"
