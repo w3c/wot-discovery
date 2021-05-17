@@ -43,7 +43,7 @@ discovery:ttl rdf:type owl:DatatypeProperty ;
 		rdfs:label "ttl" .
 
 ### discovery:retrieve
-discovery:retrieve rdf:type owl:DatatypeProperty ;
+discovery:retrieved rdf:type owl:DatatypeProperty ;
 		rdfs:label "retrieve" .
 
 #################################################################
