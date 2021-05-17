@@ -8,70 +8,72 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix discovery: <https://github.com/w3c/wot-discovery#> .
 @prefix td: <https://www.w3.org/2019/wot/td#> .
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @base <https://github.com/w3c/wot-discovery#> .
+
 <https://github.com/w3c/wot-discovery#> rdf:type owl:Ontology ;
-
-dc:creator "Andrea Cimmino" ;
-dc:creator "Farshid Tavakolizadeh" ;
-dc:description "Ontology code generated with Chowlk" ; 
-owl:versionInfo "0.1.1" ;
-dc:title "WoT discovery ontology" .
-
-#################################################################
-# Object Properties
-#################################################################
-
-### discovery:hasRegistrationInformation
-discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
-	rdfs:domain td:Thing ;
-	rdfs:range discovery:RegistrationInformation ;
-	rdfs:label "has registration information" .
+			dc:creator "Andrea Cimmino" ;
+			dc:creator "Farshid Tavakolizadeh" ;
+			owl:versionInfo "0.1.1" ;
+			dc:title "WoT discovery ontology" ;
+			dc:description "Ontology code created by Chowlk" .
 
 #################################################################
-# Data Properties
+#    Object Properties
+#################################################################
+
+#################################################################
+#    Data Properties
 #################################################################
 
 ### schema:dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
-rdfs:label "date created" .
+		rdfs:label "date created" .
 
 ### schema:dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
-rdfs:label "date modified" .
+		rdfs:label "date modified" .
 
 ### schema:expires
 schema:expires rdf:type owl:DatatypeProperty ;
-rdfs:label "expires" .
+		rdfs:label "expires" .
+
+### discovery:ttl
+discovery:ttl rdf:type owl:DatatypeProperty ;
+		rdfs:label "ttl" .
+
+### discovery:retrieve
+discovery:retrieve rdf:type owl:DatatypeProperty ;
+		rdfs:label "retrieve" .
 
 #################################################################
-# Classes
+#    Classes
 #################################################################
 
 ### td:Thing
 td:Thing rdf:type owl:Class ;
 	rdfs:label "Thing" .
 
-### discovery:RegistrationInformation
-discovery:RegistrationInformation rdf:type owl:Class ;
-	rdfs:label "Registration Information" .
-
-### discovery:LinkDescription
-discovery:LinkDescription rdf:type owl:Class ;
-	rdfs:label "Link Description" ;
+### discovery:ThingEnriched
+discovery:ThingEnriched rdf:type owl:Class ;
+	rdfs:label "Thing Enriched" ;
 	rdfs:subClassOf td:Thing .
 
-### discovery:DirectoryDescription
-discovery:DirectoryDescription rdf:type owl:Class ;
-	rdfs:label "Directory Description" ;
-	rdfs:subClassOf td:Thing .
+### discovery:ThingLink
+discovery:ThingLink rdf:type owl:Class ;
+	rdfs:label "Thing Link" ;
+	rdfs:subClassOf discovery:ThingEnriched .
+
+### discovery:ThingDirectory
+discovery:ThingDirectory rdf:type owl:Class ;
+	rdfs:label "Thing Directory" ;
+	rdfs:subClassOf discovery:ThingEnriched .
 
 #################################################################
-# Instances
+#    Instances
 #################################################################
 
 #################################################################
-# General Axioms
+#    General Axioms
 #################################################################
 
