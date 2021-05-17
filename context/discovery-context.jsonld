@@ -11,9 +11,11 @@
     "ThingEnriched": {
       "@id": "discovery:ThingEnriched"
     },
-    "discovery:registration": "discovery:hasRegistrationInformation",
-    "discovery:created": "schema:dateCreated",
-    "discovery:modified": "schema:dateModified",
-    "discovery:expires": "schema:expires"
+    "created": "schema:dateCreated",
+    "modified": "schema:dateModified",
+    "expires": "schema:expires",
+    "ttl": "discovery:ttl",
+    "retrieve": "discovery:retrieve"
+    
   }
 }
