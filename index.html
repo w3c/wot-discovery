@@ -1503,7 +1503,8 @@ img.wot-diagram {
                                     At the absence of any `type` query parameter, the server will deliver all
                                     types of events.
                                 </li>
-                                <li>
+                                <!-- Commented for now. See the issue details below. -->
+                                <!-- <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-filter-search">
                                         The server MAY support event filtering based on the 
                                         search expressions passed as one of `jsonpath`, `xpath`, 
@@ -1523,8 +1524,11 @@ img.wot-diagram {
                                     </span>
                                     This is to inform the clients about the missing feature at the connection
                                     time and prevent unexpected network traffic and events.
-                                </li>
+                                </li> -->
                             </ul>
+                            <div class="issue" data-number="176">
+                                Event filtering based on the payload is work in progress. 
+                            </div>
                         </dd>
                         <dt>Event Data</dt>
                         <dd>
