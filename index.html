@@ -645,7 +645,9 @@ img.wot-diagram {
 
                 <section id="exploration-directory-registration-info" class="normative">
                     <h4>Registration Information</h4>
-                    The following table lists the registration information attributes:
+                    The following table lists the registration information attributes. In this
+                    context, client is the producer or consumer of a <a>TD</a> and server is
+                    the <a>Thing Description Directory</a>.
                     <table class="def">
                         <thead>
                             <tr>
@@ -686,14 +688,15 @@ img.wot-diagram {
                             <tr class="rfc2119-table-assertion" id="discovery-vocab-expires--RegistrationInformation">
                                 <td><code>expires</code></td>
                                 <td>
-                                    Provides the time for when the TD instance registration expires.
+                                    Provides the absolute time for when the TD instance registration expires.
                                     <p>
                                         The producer MAY set this to indicate the absolute expiry time
                                         during the registration.
-
-                                        If a relative expiry time is present instead,
-                                        supporting servers MUST compute and set the absolute expiry using the
-                                        relative value.
+                                    </p>
+                                    <p>
+                                        For servers that support expirable TDs:
+                                        If `ttl` (relative expiry) is present, the server MUST ignore
+                                        client assignments to `expires` and instead compute and set it internally.
                                     </p>
                                 </td>
                                 <td>optional</td>
@@ -705,10 +708,13 @@ img.wot-diagram {
                                 <td>
                                     Time-to-live: relative amount of time in seconds from the registration time 
                                     until when the TD instance registration expires. 
-                                    This attribute is ignored if there is an absolute expiry time.
                                     <p>
                                         The producer MAY set this to indicate the relative expiry time
                                         during the registration.
+                                    </p>
+                                    <p>
+                                        For servers that support expirable TDs:
+                                        The server MUST use `ttl` to calculate the `expires` (relative expiry) value.
                                     </p>
                                 </td>
                                 <td>optional</td>
@@ -931,10 +937,10 @@ img.wot-diagram {
                         </ul>
 
                         <p>
-                            A server that supports expirable TDs must realize such functionality
+                            A server that supports expirable TDs will realize such functionality
                             as described in [[[#exploration-directory-registration-expiry]]].
-                            During creation and if there is a relative expiry time, such server should
-                            calculate and store the absolute expiry time.
+                            In particular, if `ttl` (relative expiry) is given during the creation,
+                            such servers will calculate and store the `expires` value.
                         </p>
 
                         <p>
@@ -948,15 +954,7 @@ img.wot-diagram {
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
                             </ul>
                         </p>
-
-                        <div class="issue" data-number="18">
-                            In certain scenarios (e.g. automatic removal of obsolete or accidental registrations),
-                            the registration may benefit from an expiration time. 
-                            The expiration time may be set explicitly or relative to the registration time
-                            as a time-to-live (TTL) value.
-                        </div>
                       
-
                         <p class="issue" data-number="48">
                         </p>
                     </section>
@@ -1102,8 +1100,19 @@ img.wot-diagram {
                                 <span class="rfc2119-assertion" id="tdd-reg-update-resp">
                                     Upon success, the server MUST respond with 204 (No Content) status. 
                                 </span>
-                                This operation is specified as `updateTD` property in 
-                                [[[#directory-thing-description]]].
+
+                                <p>
+                                    A server that supports expirable TDs will realize such functionality
+                                    as described in [[[#exploration-directory-registration-expiry]]].
+                                    If `ttl` (relative expiry) is set during the update operation,
+                                    the server will calculate and set the `expires` (absolute expiry) value.
+                                </p>
+
+                                <p>
+                                    This operation is specified as `updateTD` property in 
+                                    [[[#directory-thing-description]]].
+                                </p>
+                                
 
                                 <p>
                                     Note: If the target location does not correspond to an existing TD,
@@ -1140,8 +1149,20 @@ img.wot-diagram {
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
                                     Upon success, the server MUST respond with a 204 (No Content) status.
                                 </span>
-                                This operation is specified as `updatePartialTD` property in 
-                                [[[#directory-thing-description]]].
+
+                                <p>
+                                    A server that supports expirable TDs will realize such functionality
+                                    as described in [[[#exploration-directory-registration-expiry]]].
+                                    During the partial update operation, if the resulting <a>TD</a> has 
+                                    `ttl` (relative expiry), the server will calculate and set a new
+                                    `expires` (absolute expiry) value.
+                                </p>
+
+                                <p>
+                                    This operation is specified as `updatePartialTD` property in 
+                                    [[[#directory-thing-description]]].
+                                </p>
+                                
 
                                 <p>
                                     The following example is a merge patch document to update only the
@@ -1159,13 +1180,6 @@ img.wot-diagram {
                                 </p>
                             </li>
                         </ul>
-
-                        <p>
-                            A server that supports expirable TDs must realize such functionality
-                            as described in [[[#exploration-directory-registration-expiry]]].
-                            During update operations, if there is an existing or new relative expiry time,
-                            the server should calculate and set a new absolute expiry time.
-                        </p>
 
                         <p>
                             Error responses:
