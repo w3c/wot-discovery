@@ -1,6 +1,6 @@
 {
   "@context": {
-    "discovery": "https://www.w3.org/2021/wot/discovery#",
+    "discovery": "https://raw.githubusercontent.com/AndreaCimminoArriaga/wot-discovery/main/context/discovery-ontology.ttl",
     "schema": "http://schema.org/",
     "ThingDirectory": {
       "@id": "discovery:ThingDirectory"
