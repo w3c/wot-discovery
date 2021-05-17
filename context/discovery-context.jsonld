@@ -15,6 +15,6 @@
     "modified": "schema:dateModified",
     "expires": "schema:expires",
     "ttl": "discovery:ttl",
-    "retrieve": "discovery:retrieve"
+    "retrieved": "discovery:retrieve"
   }
 }
