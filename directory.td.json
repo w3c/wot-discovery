@@ -136,6 +136,20 @@
                     ],
                     "scopes": "write"
                 },
+            ]
+        },
+        "partialUpdateThing": {
+            "@type": "PartialUpdateThingAction",
+            "description": "Update a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
                 {
                     "href": "/things/{id}",
                     "htv:methodName": "PATCH",
