@@ -12,20 +12,20 @@ together {
 class TD as "td:Thing"
 note right: Thing Description (TD)
 together {
-    class DD as "discovery:DirectoryDescription"
+    class ThingDirectory as "discovery:ThingDirectory"
     ' note bottom: TD that describes\na Directory
 
-    class LD as "discovery:LinkDescription"
+    class ThingLink as "discovery:ThingLink"
     ' note bottom: TD that describes\na reference to another TD
 }
 
 /' relations '/
 Thing <|-- SelfDesc
 Thing <|-- Directory
-SelfDesc "1" o-- "0..1  " TD: provides
-TD <|-- DD
-TD <|-- LD
-Directory "1" o-- "0..*" TD: contains
+SelfDesc "1" o-- "1  " TD: provides
+TD <|-- ThingDirectory
+TD <|-- ThingLink
+Directory "1   " o-- "   0..*" TD: contains
 
 
 @enduml
