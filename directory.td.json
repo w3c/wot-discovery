@@ -52,13 +52,72 @@
     },
     "security": "combo_sc",
     "base": "https://tdd.example.com",
+    "properties": {
+        "things": {
+            "description": "Collection of Thing Descriptions in the directory",
+            "uriVariables": {
+                "offset": {
+                    "title": "Number of TDs to skip before the page",
+                    "type": "number",
+                    "default": 0
+                },
+                "limit": {
+                    "title": "Number of TDs in a page",
+                    "type": "number"
+                },
+                "sort_by": {
+                    "title": "Comparator TD attribute for collection sorting",
+                    "type": "string",
+                    "default": "id"
+                },
+                "sort_order": {
+                    "title": "Sorting order",
+                    "type": "string",
+                    "enum": ["asc", "desc"],
+                    "default": "asc"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/things",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/td+json"
+                    },
+                    "scopes": "readAll"
+                },
+                {
+                    "href": "/things{?offset,limit,sort_by,sort_order}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json",
+                        "htv:headers": [
+                            {
+                                "htv:fieldName": "Link"
+                            }
+                        ]
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid query arguments",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "readAll"
+                }
+            ]
+        }
+    },
     "actions": {
         "createThing": {
-            "@type": "CreateThingAction",
             "description": "Create a Thing Description",
             "uriVariables": {
                 "id": {
-                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -107,12 +166,39 @@
                 }
             ]
         },
+        "retrieveThing": {
+            "description": "Retrieve an individual Thing Description by its ID",
+            "uriVariables": {
+                "id": {
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/things/{id}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/td+json"
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
+                    "scopes": "read"
+                },
+            ]
+        },
         "updateThing": {
-            "@type": "UpdateThingAction",
             "description": "Update a Thing Description",
             "uriVariables": {
                 "id": {
-                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -139,11 +225,9 @@
             ]
         },
         "partialUpdateThing": {
-            "@type": "PartialUpdateThingAction",
             "description": "Update a Thing Description",
             "uriVariables": {
                 "id": {
-                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -175,11 +259,9 @@
             ]
         },
         "deleteThing": {
-            "@type": "DeleteThingAction",
             "description": "Delete a Thing Description",
             "uriVariables": {
                 "id": {
-                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -203,106 +285,18 @@
                     "scopes": "write"
                 }
             ]
-        }
-    },
-    "properties": {
-        "things": {
-           "@type": "ThingListProperty",
-            "description": "Collection of Thing Descriptions in the directory",
+        },
+        "searchJSONPath": {
+            "description": "JSONPath syntactic search",
             "uriVariables": {
-                "id": {
-                    "@type": "ThingID",
-                    "title": "Thing Description ID",
-                    "type": "string",
-                    "format": "iri-reference"
-                },
-                "jsonpath": {
-                    "@type": "JSONPathExpression",
+                "query": {
                     "title": "A valid JSONPath expression",
                     "type": "string"
-                },
-                "xpath": {
-                    "@type": "XPathExpression",
-                    "title": "A valid XPath expression",
-                    "type": "string"
-                },
-                "offset": {
-                    "@type": "PageOffset",
-                    "title": "Number of TDs to skip before the page",
-                    "type": "number",
-                    "default": 0
-                },
-                "limit": {
-                    "@type": "PageLimit",
-                    "title": "Number of TDs in a page",
-                    "type": "number"
-                },
-                "sort_by": {
-                    "@type": "SortAttribute",
-                    "title": "Comparator TD attribute for collection sorting",
-                    "type": "string",
-                    "default": "id"
-                },
-                "sort_order": {
-                    "@type": "SortOrder",
-                    "title": "Sorting order",
-                    "type": "string",
-                    "enum": ["asc", "desc"],
-                    "default": "asc"
                 }
             },
             "forms": [
                 {
-                    "href": "/things",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/td+json"
-                    },
-                    "scopes": "readAll"
-                },
-                {
-                    "href": "/things{?offset,limit,sort_by,sort_order}",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json",
-                        "htv:headers": [
-                            {
-                                "htv:fieldName": "Link"
-                            }
-                        ]
-                    },
-                    "additionalResponses": [
-                        {
-                            "description": "Invalid query arguments",
-                            "contentType": "application/problem+json",
-                            "htv:statusCodeValue": 400
-                        }
-                    ],
-                    "scopes": "readAll"
-                },
-                {
-                    "href": "/things/{id}",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/td+json"
-                    },
-                    "additionalResponses": [
-                        {
-                            "description": "TD with the given id not found",
-                            "contentType": "application/problem+json",
-                            "htv:statusCodeValue": 404
-                        }
-                    ],
-                    "scopes": "read"
-                },
-                {
-                    "href": "/things?jsonpath={jsonpath}",
+                    "href": "/search/jsonpath?query={query}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -317,9 +311,20 @@
                         }
                     ],
                     "scopes": "search"
-                },
+                }
+            ]
+        },
+        "searchXPath": {
+            "description": "XPath syntactic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid XPath expression",
+                    "type": "string"
+                }
+            },
+            "forms": [
                 {
-                    "href": "/things?xpath={xpath}",
+                    "href": "/search/xpath?query={query}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -328,7 +333,7 @@
                     },
                     "additionalResponses": [
                         {
-                            "description": "XPath expression not provided or contains syntax errors",
+                            "description": "JSONPath expression not provided or contains syntax errors",
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
@@ -337,19 +342,17 @@
                 }
             ]
         },
-        "sparql": {
-            "@type": "SPARQLProperty",
-            "description": "Endpoint for querying the directory with SPARQL",
+        "searchSPARQL": {
+            "description": "SPARQL semantic search",
             "uriVariables": {
                 "query": {
-                    "@type": "SPARQLQuery",
                     "title": "A valid SPARQL 1.1. query",
                     "type": "string"
                 }
             },
             "forms": [
                 {
-                    "href": "/sparql?query={query}",
+                    "href": "/search/sparql?query={query}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -365,9 +368,8 @@
                     "scopes": "search"
                 },
                 {
-                    "href": "/sparql",
+                    "href": "/search/sparql",
                     "htv:methodName": "POST",
-                    "contentType:": "application/x-www-form-urlencoded",
                     "response": {
                         "description": "Success response",
                         "contentType": "application/json",
@@ -375,25 +377,7 @@
                     },
                     "additionalResponses": [
                         {
-                            "description": "SPARQL query not provided or contains syntax errors",
-                            "contentType": "application/problem+json",
-                            "htv:statusCodeValue": 400
-                        }
-                    ],
-                    "scopes": "search"
-                },
-                {
-                    "href": "/sparql",
-                    "htv:methodName": "POST",
-                    "contentType:": "application/sparql-query",
-                    "response": {
-                        "description": "Success response",
-                        "contentType": "application/json",
-                        "htv:statusCodeValue": 200
-                    },
-                    "additionalResponses": [
-                        {
-                            "description": "SPARQL query not provided or contains syntax errors",
+                            "description": "JSONPath expression not provided or contains syntax errors",
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
@@ -405,34 +389,21 @@
     },
     "events": {
         "thingCreated": {
-          "@type": "ThingCreatedEvent",
           "title": "Thing created",
           "data": {
-              "type": "object",
-              "description": "The schema of created TD event data including the created TD",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  },
-                  "td": {
-                      "type": "object",
-                      "description": "The created TD in a create event"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingcreated",
+                  "href": "/events?type=thingCreated",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
@@ -440,34 +411,21 @@
           ]
         },
         "thingUpdated": {
-          "@type:": "ThingUpdatedEvent",
           "title": "Thing updated",
           "data": {
-              "type": "object",
-              "description": "The schema of updated TD event data including the TD updates",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  },
-                  "td_updates": {
-                      "type": "object",
-                      "description": "The partial TD composed of modified TD parts in an update event"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingupdated",
+                  "href": "/events?type=thingUpdated",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
@@ -475,30 +433,21 @@
           ]
         },
         "thingDeleted": {
-          "@type": "ThingDeletedEvent",
           "title": "Thing deleted",
           "data": {
-              "type": "object",
-              "description": "The schema of deleted TD event data",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingdeleted",
+                  "href": "/events?type=thingDeleted",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
