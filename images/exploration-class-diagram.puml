@@ -9,22 +9,12 @@ together {
     class Directory <<service>>
 }
 
-class TD as "td:Thing"
-note right: Thing Description (TD)
-together {
-    class ThingDirectory as "discovery:ThingDirectory"
-    ' note bottom: TD that describes\na Directory
-
-    class ThingLink as "discovery:ThingLink"
-    ' note bottom: TD that describes\na reference to another TD
-}
+class TD as "Thing Description"
 
 /' relations '/
 Thing <|-- SelfDesc
 Thing <|-- Directory
 SelfDesc "1" --> "1  " TD: provides
-TD <|-- ThingDirectory
-TD <|-- ThingLink
 Directory "1   " --> "   0..*" TD: contains
 
 

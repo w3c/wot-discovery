@@ -1,25 +1,29 @@
 @startuml
 hide members
-class "td:Thing"
+class Thing as "td:Thing"
+class ThingDirectory as "discovery:ThingDirectory"
+class ThingLink as "discovery:ThingLink"
 
-class "discovery:RegistrationInformation" {
-  schema:dateCreated : xsd:datetime
-  schema:dateModified : xsd:datetime
-  schema:expires : xsd:datetime
+class RegInfo as "discovery:RegistrationInformation" #Azure {
+  discovery:created : xsd:datetime
+  discovery:modified : xsd:datetime
+  discovery:expires : xsd:datetime
+  discovery:ttl : xsd:integer
+  discovery:retrieved : xsd:datetime
 }
+show RegInfo attributes
 
-
-note left of "td:Thing" 
+note left of Thing
   Thing Description (TD)
 end note
 
+Thing <|-- ThingDirectory
+Thing <|-- ThingLink
+Thing --> RegInfo : "discovery:hasRegistrationInformation"
 
-"td:Thing" --> "discovery:RegistrationInformation" : "discovery:hasRegistrationInformation"
-
-
-"discovery:LinkDescription" --|> "td:Thing"
-"discovery:DirectoryDescription" --|> "td:Thing"
-
-show "discovery:RegistrationInformation" attributes
-note "Prefixes:\n\tdiscovery: https://www.w3.org/2021/wot/discovery#\n\ttd: https://www.w3.org/2019/wot/td#\n\tschema: http://schema.org/" as N1
+note as Prefixes
+Prefixes:
+  td: https://www.w3.org/2019/wot/td#
+  discovery: https://www.w3.org/2021/wot/discovery#
+end note
 @enduml
