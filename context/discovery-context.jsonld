@@ -8,13 +8,16 @@
     "ThingLink": {
       "@id": "discovery:ThingLink"
     },
-    "ThingEnriched": {
-      "@id": "discovery:ThingEnriched"
+    "created": {
+      "@id": "discovery:ThingLink"
     },
-    "created": "discovery:dateCreated",
     "modified": "schema:dateModified",
     "expires": "schema:expires",
-    "ttl": "discovery:ttl",
-    "retrieved": "discovery:retrieve"
+    "ttl": {
+      "@id": "discovery:ttl"
+    },
+    "retrieved": {
+      "@id": "discovery:retrieved"
+    }
   }
 }
