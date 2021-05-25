@@ -11,7 +11,8 @@
     "ThingEnriched": {
       "@id": "discovery:ThingEnriched"
     },
-    "created": "schema:dateCreated",
+    "created": { "@id": "http://schema.org/dateCreated" },
+    "discovery:created": { "@id": "http://schema.org/dateCreated" },
     "modified": "schema:dateModified",
     "expires": "schema:expires",
     "ttl": "discovery:ttl",
