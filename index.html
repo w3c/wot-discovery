@@ -479,13 +479,6 @@ img.wot-diagram {
         new exploration mechanisms.
         </p>
 
-        [[[#exploration-class-diagram]]] depicts the high-level information 
-        model for self-describing and directory services.
-        A directory may contain <a>TD</a>s and at the same time provide a <a>TD</a>
-        and act as a self-describing Thing.
-        The exploration mechanisms are described in
-        [[[#exploration-self]]] and [[[#exploration-directory]]].
-        
         <figure id="exploration-class-diagram">
             <img src="images/exploration-class-diagram.svg"
                 class="wot-diagram"
@@ -493,8 +486,29 @@ img.wot-diagram {
             <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
         </figure>
 
+        [[[#exploration-class-diagram]]] depicts the high-level information 
+        model for self-describing and directory services.
+        A directory may contain <a>TD</a>s and at the same time provide a <a>TD</a>
+        and act as a self-describing Thing.
+        The exploration mechanisms are described in
+        [[[#exploration-self]]] and [[[#exploration-directory]]].
+        
+        <figure id="discovery-class-diagram-ontology">
+            <img src="images/discovery-class-diagram-ontology.svg"
+                class="wot-diagram"
+                alt="Ontology of TD in discovery context" />
+            <figcaption>The ontology of Thing Descriptions in the discovery context</figcaption>
+        </figure>
+
+        <p>
+            [[[#discovery-class-diagram-ontology]]] illustrates the ontology of 
+            <a>TD</a>s in the discovery context.
+        </p>
+
+        <p>
 	    The Discovery ontology defines two new Thing Description classes that may be
         used to model special exploratory metadata:
+        </p>
 
         <dt>ThingDirectory</dt>
         <dd>
@@ -525,11 +539,11 @@ img.wot-diagram {
             </p>
 
             <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
-            <aside class="example" id="example-td-link-type" title="Example Link Description">
+            <aside class="example" id="example-td-link-type" title="Example ThingLink, referencing a remote TD">
                 <pre>
                     {
                         "@context": [
-                            "https://www.w3.org/2019/wot/td/v1",
+                            "http://www.w3.org/ns/td,
                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                         ],
                         "@type": "ThingLink",
@@ -547,12 +561,20 @@ img.wot-diagram {
                         },
                         "title": "Example TD referencing another"
                     }
-                </pre>                    
+                </pre>
+                <p class="ednote">
+                    The context URIs are tentative and subject to change.
+                </p>                    
             </aside>
         </dd>
         
-        <p class="ednote">
-            The type URIs are tentative and subject to change.
+        
+        <p>
+            Directories can store zero or more <a>TD</a>s.
+            For every TD, the directory additionally maintains the registration
+            information for bookkeeping and search purposes;
+            see [[[#discovery-class-diagram-ontology]]].
+            The information model of the directory is described in [[[#exploration-directory-info]]].
         </p>
         
         <section id="exploration-self" class="normative">
@@ -626,28 +648,22 @@ img.wot-diagram {
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
 
-                <figure id="directory-td-class-diagram">
-                    <img src="images/directory-td-class-diagram.svg"
-                        class="wot-diagram"
-                        alt="The ontology of a TD stored in a TDD" />
-                    <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
-                </figure>
-
-                <p>
-                    As shown in [[[#exploration-class-diagram]]], 
-                    the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
-                    For every TD, the directory additionally maintains the registration
-                    information for bookkeeping and search purposes.
-                    <a>Enriched TD</a>s embed the registration information inside them.
-                    The ontology of a <a>TD</a> maintained by the directory is illustrated
-                    in [[[#directory-td-class-diagram]]].
-                </p>
+                As shown in [[[#exploration-class-diagram]]], 
+                the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
+                For every TD, the directory maintains additional metadata
+                for bookkeeping and search purposes.
+                These are described in
+                [[[#exploration-directory-registration-info]]] and
+                [[[#exploration-directory-anonymous-td]]].
+                A <a>TD</a> that embeds such additional metadata as part of the
+                interaction with the directory is called an <a>Enriched TD</a>.
 
                 <section id="exploration-directory-registration-info" class="normative">
                     <h4>Registration Information</h4>
                     The following table lists the registration information attributes. In this
                     context, client is the producer or consumer of a <a>TD</a> and server is
                     the <a>Thing Description Directory</a>.
+                    Only an <a>Enriched TD</a> embeds the registration information.
                     <table class="def">
                         <thead>
                             <tr>
@@ -850,13 +866,18 @@ img.wot-diagram {
                     <p class="ednote" title="Scopes">
                         The scopes may need to be more concrete to able to allow updates but prevent creation.
                     </p>
-                    
+                    <p class="ednote">
+                        The context URIs are tentative and subject to change.
+                    </p>
+                    <p class="issue" data-number="86">
+                    </p>
+                    <p class="issue" data-number="82">
+                        Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
+                        [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
+                        this possibility.
+                    </p>
                 </aside>
-                <p class="issue" data-number="82">
-                    Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
-                    [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
-                    this possibility.
-                </p>
+                
 
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
