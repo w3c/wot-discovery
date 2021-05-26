@@ -12,68 +12,86 @@
 @base <https://github.com/w3c/wot-discovery#> .
 
 <https://github.com/w3c/wot-discovery#> rdf:type owl:Ontology ;
-			dc:creator "Andrea Cimmino" ;
-			dc:creator "Farshid Tavakolizadeh" ;
-			owl:versionInfo "0.1.1" ;
-			dc:title "WoT discovery ontology" ;
-			dc:description "Ontology code created by Chowlk" .
+	dc:creator "Andrea Cimmino" ;
+	dc:creator "Farshid Tavakolizadeh" ;
+	owl:versionInfo "0.1.2" ;
+	dc:title "WoT discovery ontology" ;
+	dc:description "Ontology code created by Chowlk" .
 
 #################################################################
-#    Object Properties
+# Object Properties
 #################################################################
 
+### discovery:hasRegistrationInformation
+discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
+	rdfs:domain td:Thing ;
+	rdfs:range discovery:RegitrationInformation ;
+	rdfs:label "registration" .
+
 #################################################################
-#    Data Properties
+
+# Data Properties
+
 #################################################################
 
 ### schema:dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
-		rdfs:label "date created" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "created"@en .
 
 ### schema:dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
-		rdfs:label "date modified" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "modified"@en .
 
 ### schema:expires
 schema:expires rdf:type owl:DatatypeProperty ;
-		rdfs:label "expires" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "expires"@en .
 
 ### discovery:ttl
 discovery:ttl rdf:type owl:DatatypeProperty ;
-		rdfs:label "ttl" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:unsignedInt ;
+	rdfs:label "ttl"@en .
 
 ### discovery:retrieve
 discovery:retrieved rdf:type owl:DatatypeProperty ;
-		rdfs:label "retrieve" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "retrieved"@en .
 
 #################################################################
-#    Classes
+
+# Classes
+
 #################################################################
 
 ### td:Thing
 td:Thing rdf:type owl:Class ;
 	rdfs:label "Thing" .
 
-### discovery:ThingEnriched
-discovery:ThingEnriched rdf:type owl:Class ;
-	rdfs:label "Thing Enriched" ;
-	rdfs:subClassOf td:Thing .
+### discovery:RegitrationInformation
+discovery:RegitrationInformation rdf:type owl:Class ;
+	rdfs:label "RegitrationInformation" .
 
 ### discovery:ThingLink
 discovery:ThingLink rdf:type owl:Class ;
-	rdfs:label "Thing Link" ;
-	rdfs:subClassOf discovery:ThingEnriched .
+	rdfs:label "ThingLink" ;
+	rdfs:subClassOf td:Thing .
 
 ### discovery:ThingDirectory
 discovery:ThingDirectory rdf:type owl:Class ;
-	rdfs:label "Thing Directory" ;
-	rdfs:subClassOf discovery:ThingEnriched .
+	rdfs:label "ThingDirectory" ;
+	rdfs:subClassOf td:Thing .
 
 #################################################################
-#    Instances
+# Instances
 #################################################################
 
 #################################################################
-#    General Axioms
+# General Axioms
 #################################################################
-
