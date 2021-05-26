@@ -1,29 +1,43 @@
-@startuml
+@startuml discovery-class-diagram-ontology
 hide members
+skinparam classBackgroundColor Azure
+
 class Thing as "td:Thing"
+note left: Thing Description (TD)
 class ThingDirectory as "discovery:ThingDirectory"
 class ThingLink as "discovery:ThingLink"
 
 class RegInfo as "discovery:RegistrationInformation" #Azure {
-  discovery:created : xsd:datetime
-  discovery:modified : xsd:datetime
-  discovery:expires : xsd:datetime
-  discovery:ttl : xsd:integer
-  discovery:retrieved : xsd:datetime
+  schema:dateCreated : xsd:dateTime
+  schema:dateModified : xsd:dateTime
+  schema:expires : xsd:dateTime
+  discovery:ttl : xsd:unsignedInt
+  discovery:retrieved : xsd:dateTime
 }
 show RegInfo attributes
-
-note left of Thing
-  Thing Description (TD)
-end note
-
-Thing <|-- ThingDirectory
-Thing <|-- ThingLink
+together {
+  Thing <|-- ThingDirectory
+  Thing <|-- ThingLink
+}
 Thing --> RegInfo : "discovery:hasRegistrationInformation"
 
 note as Prefixes
 Prefixes:
   td: https://www.w3.org/2019/wot/td#
   discovery: https://www.w3.org/2021/wot/discovery#
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
 end note
+
+' note as Aliases
+' discovery:
+'   ThingDirectory: discovery:ThingDirectory
+'   ThingLink: discovery:ThingLink
+'   created: schema:dateCreated
+'   modified: schema:dateModified
+'   expires: schema:expires
+'   ttl: discovery:ttl
+'   retrieved: retrieved: dateTime
+' end note
+
 @enduml

@@ -483,7 +483,10 @@ img.wot-diagram {
             <img src="images/exploration-class-diagram.svg"
                 class="wot-diagram"
                 alt="Exploration mechanisms high-level class diagram" />
-            <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
+            <figcaption>
+                The high-level class diagram of the exploration mechanisms,
+                depicting how Things expose <a>TD</a>s.
+            </figcaption>
         </figure>
 
         [[[#exploration-class-diagram]]] depicts the high-level information 
@@ -497,17 +500,23 @@ img.wot-diagram {
             <img src="images/discovery-class-diagram-ontology.svg"
                 class="wot-diagram"
                 alt="Ontology of TD in discovery context" />
-            <figcaption>The ontology of Thing Descriptions in the discovery context</figcaption>
+            <figcaption>The ontology of Thing Descriptions in the discovery context.</figcaption>
         </figure>
 
         <p>
             [[[#discovery-class-diagram-ontology]]] illustrates the ontology of 
-            <a>TD</a>s in the discovery context.
+            <a>TD</a>s in the Discovery context.
+        </p>
+        <p>
+            The ontology includes a class for metadata that are associated with
+            TDs stored in a directory.
+            This class is called `RegistrationInformation` and described as part
+            of the directory specification in [[[#exploration-directory-registration-info]]].
         </p>
 
         <p>
-	    The Discovery ontology defines two new Thing Description classes that may be
-        used to model special exploratory metadata:
+	        Moreover, the Discovery ontology defines two new Thing Description classes
+            that may be used to model special exploratory metadata:
         </p>
 
         <div class="issue" data-number="148">
@@ -522,24 +531,24 @@ img.wot-diagram {
             </span>
             <p>
                 [[[#directory-thing-description]]] which describes the API of the
-                Thing Description Directory is an example of this TD type.
+                Thing Description Directory is an example of this TD class.
             </p>
         </dd>
         
-        <dt>ThingLink</dt>
+        <dt>Thing Link</dt>
         <dd>
             <span class="rfc2119-assertion" id="exploration-link-description-type"> 
                 A TD which describes a reference to another TD MUST use type `ThingLink` from the
                 discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
             </span>
             <span class="rfc2119-assertion" id="exploration-link-description-link"> 
-                The ThingLink MUST define the referenced TD as a Link with
+                A Thing Link MUST define the referenced TD as a Link with
                 `describedby` link relation type, `application/td+json` media type
                 and `href` set to the target URL.
             </span>
 
             <p>
-                [[[#example-td-link-type]]] is an example ThingLink.
+                [[[#example-td-link-type]]] is an example Thing Link.
             </p>
 
             <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
@@ -547,7 +556,7 @@ img.wot-diagram {
                 <pre>
                     {
                         "@context": [
-                            "http://www.w3.org/ns/td,
+                            "http://www.w3.org/ns/td",
                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                         ],
                         "@type": "ThingLink",
@@ -571,15 +580,6 @@ img.wot-diagram {
                 </div>                    
             </aside>
         </dd>
-        
-        
-        <p>
-            Directories can store zero or more <a>TD</a>s.
-            For every TD, the directory additionally maintains the registration
-            information for bookkeeping and search purposes;
-            see [[[#discovery-class-diagram-ontology]]].
-            The information model of the directory is described in [[[#exploration-directory-info]]].
-        </p>
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
@@ -664,10 +664,16 @@ img.wot-diagram {
 
                 <section id="exploration-directory-registration-info" class="normative">
                     <h4>Registration Information</h4>
-                    The following table lists the registration information attributes. In this
-                    context, client is the producer or consumer of a <a>TD</a> and server is
+                    The ontology of a <a>TD</a> in the Discovery context was
+                    introduced in [[[#discovery-class-diagram-ontology]]].
+                    The `RegistrationInformation` class is associated with <a>TD</a>s that are
+                    stored in a directory. 
+                    The following table lists the registration information attributes for
+                    use within <a>TD</a>s that embed or reference the Discovery context. 
+                    Note that only an <a>Enriched TD</a> embeds the registration information.
+                    In this table,
+                    client refers to the producer or consumer of a <a>TD</a> and server refers to
                     the <a>Thing Description Directory</a>.
-                    Only an <a>Enriched TD</a> embeds the registration information.
                     <table class="def">
                         <thead>
                             <tr>
