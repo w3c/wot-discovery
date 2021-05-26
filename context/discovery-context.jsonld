@@ -1,23 +1,44 @@
 {
   "@context": {
     "discovery": "https://www.w3.org/2021/wot/discovery#",
-    "schema": "http://schema.org/",
     "ThingDirectory": {
-      "@id": "discovery:ThingDirectory"
+      "@id": "discovery:ThingDirectory",
+      "@type": "@id"
     },
     "ThingLink": {
-      "@id": "discovery:ThingLink"
+      "@id": "discovery:ThingLink",
+      "@type": "@id"
     },
-    "created": {
-      "@id": "discovery:ThingLink"
-    },
-    "modified": "schema:dateModified",
-    "expires": "schema:expires",
-    "ttl": {
-      "@id": "discovery:ttl"
-    },
-    "retrieved": {
-      "@id": "discovery:retrieved"
+    "registration": {
+      "@id": "discovery:hasRegistrationInformation",
+      "@type": "@id",
+      "@context": {
+        "schema": "http://schema.org/",
+        "RegistrationInformation": {
+          "@id": "discovery:RegistrationInformation",
+          "@type": "@id"
+        },
+        "created": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "modified": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "expires": {
+          "@id": "schema:expires",
+          "@type": "xsd:dateTime"
+        },
+        "retrieved": {
+          "@id": "discovery:retrieved",
+          "@type": "xsd:dateTime"
+        },
+        "ttl": {
+          "@id": "discovery:ttl",
+          "@type": "xsd:unsignedInt"
+        }
+      }
     }
   }
 }
