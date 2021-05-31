@@ -831,32 +831,6 @@ img.wot-diagram {
                         should be set to HTTP status text.
                     </p>
                 </p>
-                
-                <p>Below is a generic Thing Description for the Directory HTTP API
-                    with OAuth2 security. The Thing Description alone should not be
-                    considered as the full specification to implement or interact with
-                    a directory. Additional details for every interaction are described
-                    in human-readable form in the subsequent sections.
-                </p>
-                <aside class="example" id="directory-thing-description" title="Thing Description of the Directory">
-                    <pre><div data-include='directory.td.json'></div></pre>
-
-                    <p class="ednote" title="Normative JSON Block">
-                        Need to add a css class for normative code blocks, instead of using the `example` class.
-                    </p>
-                    <p class="ednote" title="ID Type">
-                        The `id` variable need to have a defined type for semantic association with TD's `id` attribute.
-                    </p>
-                    <p class="ednote" title="Scopes">
-                        The scopes may need to be more concrete to able to allow updates but prevent creation.
-                    </p>
-                    
-                </aside>
-                <p class="issue" data-number="82">
-                    Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
-                    [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
-                    this possibility.
-                </p>
 
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
@@ -2076,6 +2050,38 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
         </section>
     </section>
 
+    <section id="directory-api-spec" class="appendix">
+        <h1>Directory Service API Specifications</h1>
+        <section id="directory-thing-description">
+            <h3>Directory API Thing Description</h3>
+            <p>Below is a generic Thing Description for the Directory API
+                with OAuth2 security. This specification only covers the HTTP and SSE
+                protocol bindings. Other protocol bindings may be specified in future.
+                
+                The Thing Description alone should not be
+                considered as the reference to implement or interact with
+                a directory. The full specification is available as human-readable text 
+                in [[[#exploration-directory-api]]].
+            </p>
+
+            <pre class="advisement json">
+                <div data-include='directory.td.json'></div>
+            </pre>
+
+            <p class="ednote" title="ID Type">
+                The `id` variable need to have a defined type for semantic association with TD's `id` attribute.
+            </p>
+            <p class="ednote" title="Scopes">
+                The scopes may need to be more concrete to able to allow updates but prevent creation.
+            </p>
+            <p class="issue" data-number="82">
+                Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
+                [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
+                this possibility.
+            </p>
+        </section>
+    </section>
+    
     <section id="changes" class="appendix">
       <h1>Recent Specification Changes</h1>
 <!--
