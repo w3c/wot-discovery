@@ -479,60 +479,87 @@ img.wot-diagram {
         new exploration mechanisms.
         </p>
 
-        [[[#exploration-class-diagram]]] depicts the high-level information 
-        model for self-describing and directory services.
-        These exploration mechanisms are described in
-        [[[#exploration-self]]] and [[[#exploration-directory]]].
-        
         <figure id="exploration-class-diagram">
             <img src="images/exploration-class-diagram.svg"
                 class="wot-diagram"
                 alt="Exploration mechanisms high-level class diagram" />
-            <figcaption>The high-level class diagram of the exploration mechanisms</figcaption>
+            <figcaption>
+                The high-level class diagram of the exploration mechanisms,
+                depicting how Things expose <a>TD</a>s.
+            </figcaption>
         </figure>
 
-	    The <a>Thing  Description Directory</a> ontology defines two new Thing Description classes that may be
-        used to model special exploratory metadata:
+        [[[#exploration-class-diagram]]] depicts the high-level information 
+        model for self-describing and directory services.
+        A directory may contain <a>TD</a>s and at the same time provide a <a>TD</a>
+        and act as a self-describing Thing.
+        The exploration mechanisms are described in
+        [[[#exploration-self]]] and [[[#exploration-directory]]].
+        
+        <figure id="discovery-class-diagram-ontology">
+            <img src="images/discovery-class-diagram-ontology.svg"
+                class="wot-diagram"
+                alt="Ontology of TD in discovery context" />
+            <figcaption>The ontology of Thing Descriptions in the Discovery context.</figcaption>
+        </figure>
 
-        <dt>Directory Description</dt>
+        <p>
+            [[[#discovery-class-diagram-ontology]]] illustrates the Discovery ontology
+            as an extension of the Thing ontology.
+        </p>
+        <p>
+            The ontology includes a class for metadata that are associated with
+            TDs stored in a directory.
+            This class is called `RegistrationInformation` and described as part
+            of the directory specification in [[[#exploration-directory-registration-info]]].
+        </p>
+
+        <p>
+	        Moreover, the Discovery ontology defines two new Thing Description classes
+            that may be used to model special exploratory metadata:
+        </p>
+
+        <div class="issue" data-number="148">
+            The type URIs used below are tentative and subject to change.
+        </div>  
+
+        <dt>Thing Directory</dt>
         <dd>
-            A TD which describes a directory instance.
             <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
-                The Directory Description MUST use type `DirectoryDescription` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#DirectoryDescription`.
+                A TD which describes a Thing Description Directory instance MUST use type `ThingDirectory` from the
+                discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.
             </span>
             <p>
                 [[[#directory-thing-description]]] which describes the API of the
-                Thing Description Directory is an example of this TD type.
+                Thing Description Directory is an example of this TD class.
             </p>
         </dd>
         
-        <dt>Link Description</dt>
+        <dt>Thing Link</dt>
         <dd>
-            A TD which describes a reference to another TD.
             <span class="rfc2119-assertion" id="exploration-link-description-type"> 
-                The Link Description MUST use type `LinkDescription` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#LinkDescription`.
+                A TD which describes a reference to another TD MUST use type `ThingLink` from the
+                discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
             </span>
             <span class="rfc2119-assertion" id="exploration-link-description-link"> 
-                The Link Description MUST define the reference TD as a Link with
+                A Thing Link MUST define the referenced TD as a Link with
                 `describedby` link relation type, `application/td+json` media type
                 and `href` set to the target URL.
             </span>
 
             <p>
-                [[[#example-td-link-type]]] is an example Link Description.
+                [[[#example-td-link-type]]] is an example Thing Link.
             </p>
 
             <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
-            <aside class="example" id="example-td-link-type" title="Example Link Description">
+            <aside class="example" id="example-td-link-type" title="Example of a Thing Link, referencing a remote TD">
                 <pre>
                     {
                         "@context": [
-                            "https://www.w3.org/2019/wot/td/v1",
+                            "http://www.w3.org/ns/td",
                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                         ],
-                        "@type": "LinkDescription",
+                        "@type": "ThingLink",
                         "id": "urn:example:link",
                         "links": [{
                             "rel": "describedby",
@@ -547,13 +574,12 @@ img.wot-diagram {
                         },
                         "title": "Example TD referencing another"
                     }
-                </pre>                    
+                </pre>
+                <div class="issue" data-number="148">
+                    The context URIs are tentative and subject to change.
+                </div>                    
             </aside>
         </dd>
-        
-        <p class="issue" data-number="54">
-            The context and type URIs are tentative and subject to change.
-        </p>
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
@@ -626,27 +652,27 @@ img.wot-diagram {
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
 
-                <figure id="directory-td-class-diagram">
-                    <img src="images/directory-td-class-diagram.svg"
-                        class="wot-diagram"
-                        alt="The ontology of a TD stored in a TDD" />
-                    <figcaption>The ontology of a <a>TD</a> that can be stored in a <a>Thing Description Directory</a>.</figcaption>
-                </figure>
-
-                <p>
-                    As shown in [[[#exploration-class-diagram]]], 
-                    the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
-                    For every TD, the directory additionally maintains the registration
-                    information for bookkeeping and search purposes.
-                    <a>Enriched TD</a>s embed the registration information inside them.
-                    The ontology of a <a>TD</a> maintained by the directory is illustrated
-                    in [[[#directory-td-class-diagram]]].
-                </p>
+                As shown in [[[#exploration-class-diagram]]], 
+                the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
+                For every TD, the directory maintains additional metadata
+                for bookkeeping and search purposes.
+                These are described in
+                [[[#exploration-directory-registration-info]]] and
+                [[[#exploration-directory-anonymous-td]]].
+                A <a>TD</a> that embeds such additional metadata as part of the
+                interaction with the directory is called an <a>Enriched TD</a>.
 
                 <section id="exploration-directory-registration-info" class="normative">
                     <h4>Registration Information</h4>
-                    The following table lists the registration information attributes. In this
-                    context, client is the producer or consumer of a <a>TD</a> and server is
+                    The ontology of a <a>TD</a> in the Discovery context was
+                    introduced in [[[#discovery-class-diagram-ontology]]].
+                    The `RegistrationInformation` class is associated with <a>TD</a>s that are
+                    stored in a directory. 
+                    The following table lists the registration information attributes for
+                    use within <a>TD</a>s that embed or reference the Discovery context. 
+                    Note that only an <a>Enriched TD</a> embeds the registration information.
+                    In this table,
+                    client refers to the producer or consumer of a <a>TD</a> and server refers to
                     the <a>Thing Description Directory</a>.
                     <table class="def">
                         <thead>
@@ -873,9 +899,7 @@ img.wot-diagram {
                                 A TD which is identified with an `id` attribute MUST be handled 
                                 differently with one that has no identifier (<a>Anonymous TD</a>).
                             </span>
-                            The create operations are specified as `createTD` action in 
-                            [[[#directory-thing-description]]]
-                            and elaborated below:
+                            The create operations are elaborated below:
                         </p>
                         <ul>
                             <li>
@@ -893,6 +917,10 @@ img.wot-diagram {
                                     the request shall instead proceed as an Update operation and respond
                                     the appropriate status code (see Update section).
                                 </p>
+                                <p>
+                                    The create operation for <a>TD</a>s that have identifiers is specified
+                                    as `createThing` action in [[[#directory-thing-description]]]. 
+                                </p>
                             </li>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
@@ -902,11 +930,15 @@ img.wot-diagram {
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id">
                                     The identifier SHOULD be a UUID Version 4 [[RFC4122]].
                                 </span>
                                 That is a random or pseudo-random number which does not carry unintended information
                                 about the host or the resource.
+                                <p>
+                                    The create operation for <a>Anonymous TD</a>s is specified as `createAnonymousThing` action in 
+                                    [[[#directory-thing-description]]].
+                                </p>
                             </li>
                         </ul>
 
@@ -944,8 +976,10 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status, contain `application/td+json`
                                 Content-Type header, and the requested TD in body.
                             </span>
-                            The retrieve operation is specified as `retrieveTD` property in 
-                            [[[#directory-thing-description]]].
+                            <p>
+                                The retrieve operation is specified as `retrieveThing` property in 
+                                [[[#directory-thing-description]]].
+                            </p>
                         </p>
 
                         <p>
@@ -979,7 +1013,10 @@ img.wot-diagram {
                                         },
                                         "title": "Simple TD"
                                     }
-                                </pre>                    
+                                </pre>
+                                <div class="issue" data-number="148">
+                                    The context URIs are tentative and subject to change.
+                                </div>                    
                             </aside>
                             This is an <a>Enriched TD</a> which includes the registration information
                             such as the creation and modification time of the TD within the directory.
@@ -1011,7 +1048,10 @@ img.wot-diagram {
                                         },
                                         "title": "Anonymous TD"
                                     }
-                                </pre>                    
+                                </pre>
+                                <div class="issue" data-number="148">
+                                    The context URIs are tentative and subject to change.
+                                </div>                    
                             </aside>
                         </p>
 
@@ -1043,7 +1083,10 @@ img.wot-diagram {
                                         },
                                         "title": "Expirable TD"
                                     }
-                                </pre>                    
+                                </pre>
+                                <div class="issue" data-number="148">
+                                    The context URIs are tentative and subject to change.
+                                </div>                    
                             </aside>
                             For the sake of readability, the time values in this example are set to exact numbers.
                             In realistic settings, time values may include fractions.
@@ -1083,7 +1126,7 @@ img.wot-diagram {
                                 </p>
 
                                 <p>
-                                    This operation is specified as `updateTD` property in 
+                                    This operation is specified as `updateThing` property in 
                                     [[[#directory-thing-description]]].
                                 </p>
                                 
@@ -1133,7 +1176,7 @@ img.wot-diagram {
                                 </p>
 
                                 <p>
-                                    This operation is specified as `updatePartialTD` property in 
+                                    This operation is specified as `partiallyUpdateThing` property in 
                                     [[[#directory-thing-description]]].
                                 </p>
                                 
@@ -1179,7 +1222,7 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
                                 A successful response MUST have 204 (No Content) status.
                             </span>
-                            The retrieve operation is specified as `deleteTD` property in
+                            The retrieve operation is specified as `deleteThing` property in
                             [[[#directory-thing-description]]].
                         </p>
 
@@ -1363,7 +1406,7 @@ img.wot-diagram {
                         </p>
 
                         <p>    
-                            The paginated list operation is specified as `retrieveTDs` property in 
+                            The listing operation is specified as `retrieveThings` property in 
                             [[[#directory-thing-description]]].
                         </p>
 
@@ -1459,7 +1502,7 @@ img.wot-diagram {
                         In particular, the server responds to successful requests with 200 (OK) status
                         and `text/event-stream` Content Type. Re-connecting clients may continue from
                         the last event by providing the last event ID as `Last-Event-ID` header value.
-                        This API is specified as `registration` event in [[[#directory-thing-description]]].
+                        This API is specified as `thingRegistration` event in [[[#directory-thing-description]]].
                     </p>
 
                     <dl>
@@ -1571,6 +1614,9 @@ img.wot-diagram {
                                             data:     "title": "Simple TD"
                                             data: }
                                         </pre>
+                                        <div class="issue" data-number="148">
+                                            The context URIs are tentative and subject to change.
+                                        </div>
                                     </aside>
                                 </li>
                                 <li>
@@ -2034,9 +2080,6 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 <div data-include='directory.td.json'></div>
             </pre>
 
-            <p class="ednote" title="ID Type">
-                The `id` variable need to have a defined type for semantic association with TD's `id` attribute.
-            </p>
             <p class="ednote" title="Scopes">
                 The scopes may need to be more concrete to able to allow updates but prevent creation.
             </p>

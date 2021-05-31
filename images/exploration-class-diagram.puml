@@ -3,29 +3,20 @@
 hide methods
 hide members
 
-class Thing <<service>>
+class Thing <<(S,#eb937f) service>>
 together {
-    class SelfDesc as "Self-describing Thing" <<service>>
-    class Directory <<service>>
+    class SelfDesc as "Self-describing Thing" <<(S,#eb937f) service>>
+    class Directory <<(S,#eb937f) service>>
 }
 
-class TD as "td:Thing"
-note right: Thing Description (TD)
-together {
-    class DD as "discovery:DirectoryDescription"
-    ' note bottom: TD that describes\na Directory
-
-    class LD as "discovery:LinkDescription"
-    ' note bottom: TD that describes\na reference to another TD
-}
+class TD as "td:Thing" #Azure
+note left: Thing Description (TD)
 
 /' relations '/
 Thing <|-- SelfDesc
 Thing <|-- Directory
-SelfDesc "1" o-- "0..1  " TD: provides
-TD <|-- DD
-TD <|-- LD
-Directory "1" o-- "0..*" TD: contains
+SelfDesc "1" --> "1  " TD: provides
+Directory "1   " --> "   0..*" TD: contains
 
 
 @enduml
