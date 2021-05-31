@@ -899,9 +899,7 @@ img.wot-diagram {
                                 A TD which is identified with an `id` attribute MUST be handled 
                                 differently with one that has no identifier (<a>Anonymous TD</a>).
                             </span>
-                            The create operations are specified as `createTD` action in 
-                            [[[#directory-thing-description]]]
-                            and elaborated below:
+                            The create operations are elaborated below:
                         </p>
                         <ul>
                             <li>
@@ -919,6 +917,10 @@ img.wot-diagram {
                                     the request shall instead proceed as an Update operation and respond
                                     the appropriate status code (see Update section).
                                 </p>
+                                <p>
+                                    The create operation for <a>TD</a>s that have identifiers is specified
+                                    as `createThing` action in [[[#directory-thing-description]]]. 
+                                </p>
                             </li>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
@@ -928,11 +930,15 @@ img.wot-diagram {
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id"></span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id">
                                     The identifier SHOULD be a UUID Version 4 [[RFC4122]].
                                 </span>
                                 That is a random or pseudo-random number which does not carry unintended information
                                 about the host or the resource.
+                                <p>
+                                    The create operation for <a>Anonymous TD</a>s is specified as `createAnonymousThing` action in 
+                                    [[[#directory-thing-description]]].
+                                </p>
                             </li>
                         </ul>
 
@@ -970,8 +976,10 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status, contain `application/td+json`
                                 Content-Type header, and the requested TD in body.
                             </span>
-                            The retrieve operation is specified as `retrieveTD` property in 
-                            [[[#directory-thing-description]]].
+                            <p>
+                                The retrieve operation is specified as `retrieveThing` property in 
+                                [[[#directory-thing-description]]].
+                            </p>
                         </p>
 
                         <p>
@@ -1109,7 +1117,7 @@ img.wot-diagram {
                                 </p>
 
                                 <p>
-                                    This operation is specified as `updateTD` property in 
+                                    This operation is specified as `updateThing` property in 
                                     [[[#directory-thing-description]]].
                                 </p>
                                 
@@ -1159,7 +1167,7 @@ img.wot-diagram {
                                 </p>
 
                                 <p>
-                                    This operation is specified as `updatePartialTD` property in 
+                                    This operation is specified as `partialUpdateThing` property in 
                                     [[[#directory-thing-description]]].
                                 </p>
                                 
@@ -1205,7 +1213,7 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
                                 A successful response MUST have 204 (No Content) status.
                             </span>
-                            The retrieve operation is specified as `deleteTD` property in
+                            The retrieve operation is specified as `deleteThing` property in
                             [[[#directory-thing-description]]].
                         </p>
 
@@ -1389,7 +1397,7 @@ img.wot-diagram {
                         </p>
 
                         <p>    
-                            The paginated list operation is specified as `retrieveTDs` property in 
+                            The listing operation is specified as `retrieveThings` property in 
                             [[[#directory-thing-description]]].
                         </p>
 
@@ -1485,7 +1493,7 @@ img.wot-diagram {
                         In particular, the server responds to successful requests with 200 (OK) status
                         and `text/event-stream` Content Type. Re-connecting clients may continue from
                         the last event by providing the last event ID as `Last-Event-ID` header value.
-                        This API is specified as `registration` event in [[[#directory-thing-description]]].
+                        This API is specified as `thingRegistration` event in [[[#directory-thing-description]]].
                     </p>
 
                     <dl>
