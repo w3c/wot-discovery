@@ -144,7 +144,7 @@
                 }
             ]
         },
-        "partialUpdateThing": {
+        "partiallyUpdateThing": {
             "description": "Partially update a Thing Description",
             "uriVariables": {
                 "id": {
