@@ -175,6 +175,10 @@
                     "format": "iri-reference"
                 }
             },
+            "output" : {
+                "type": "object",
+                "description": "The retrieved Thing Description"
+            },
             "forms": [
                 {
                     "href": "/things/{id}",
