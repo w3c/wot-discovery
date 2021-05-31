@@ -1,0 +1,10 @@
+./index.html
+./images/overview.svg
+./images/exploration-class-diagram.svg
+./images/overview.png
+./images/directory-class-diagram.svg
+./images/sequence-dnssd-thing.svg
+./images/sequence-dnssd-thing.png
+./images/directory-td-class-diagram.svg
+./images/sequence-dnssd-directory.png
+./images/sequence-dnssd-directory.svg
