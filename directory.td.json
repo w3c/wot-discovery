@@ -83,13 +83,18 @@
                         }
                     ],
                     "scopes": "write"
-                },
+                }
+            ]
+        },
+        "createAnonymousThing": {
+            "description": "Create an anonymous Thing Description",
+            "forms": [
                 {
                     "href": "/things",
                     "htv:methodName": "POST",
                     "contentType": "application/td+json",
                     "response": {
-                        "description": "Success response",
+                        "description": "Success response including the system-generated URI",
                         "htv:headers": [
                             {
                                 "description": "System-generated URI",
