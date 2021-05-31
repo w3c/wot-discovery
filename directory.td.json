@@ -17,7 +17,8 @@
             "scopes": [
                 "write",
                 "read",
-                "search"
+                "search",
+                "notification"
             ]
         },
         "oauth2_client": {
@@ -27,7 +28,8 @@
             "scopes": [
                 "write",
                 "read",
-                "search"
+                "search",
+                "notification"
             ]
         },
         "oauth2_device": {
@@ -38,7 +40,8 @@
             "scopes": [
                 "write",
                 "read",
-                "search"
+                "search",
+                "notification"
             ]
         },
         "combo_sc": {
@@ -54,7 +57,6 @@
     "base": "https://tdd.example.com",
     "actions": {
         "createThing": {
-            "@type": "CreateThingAction",
             "description": "Create a Thing Description",
             "uriVariables": {
                 "id": {
@@ -91,8 +93,7 @@
                         "htv:headers": [
                             {
                                 "description": "System-generated URI",
-                                "htv:fieldName": "Location",
-                                "htv:fieldValue": ""
+                                "htv:fieldName": "Location"
                             }
                         ],
                         "htv:statusCodeValue": 201
@@ -135,12 +136,11 @@
                         }
                     ],
                     "scopes": "write"
-                },
+                }
             ]
         },
         "partialUpdateThing": {
-            "@type": "PartialUpdateThingAction",
-            "description": "Update a Thing Description",
+            "description": "Partially update a Thing Description",
             "uriVariables": {
                 "id": {
                     "@type": "ThingID",
@@ -205,10 +205,11 @@
         }
     },
     "properties": {
-        "retrieveTD": {
+        "retrieveThing": {
             "description": "Retrieve a Thing Description",
             "uriVariables": {
                 "id": {
+                    "@type": "ThingID",
                     "title": "Thing Description ID",
                     "type": "string",
                     "format": "iri-reference"
@@ -216,7 +217,7 @@
             },
             "forms": [
                 {
-                    "href": "/td/{id}",
+                    "href": "/things/{id}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -234,7 +235,7 @@
                 }
             ]
         },
-        "retrieveTDs": {
+        "retrieveThings": {
             "description": "Retrieve all Thing Descriptions",
             "uriVariables": {
                 "offset": {
@@ -260,7 +261,7 @@
             },
             "forms": [
                 {
-                    "href": "/td",
+                    "href": "/things",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -270,7 +271,7 @@
                     "scopes": "readAll"
                 },
                 {
-                    "href": "/td{?offset,limit,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,sort_by,sort_order}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -340,7 +341,7 @@
                     },
                     "additionalResponses": [
                         {
-                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "description": "XPath expression not provided or contains syntax errors",
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
@@ -367,7 +368,7 @@
                     },
                     "additionalResponses": [
                         {
-                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "description": "SPARQL query not provided or contains syntax errors",
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
@@ -384,7 +385,7 @@
                     },
                     "additionalResponses": [
                         {
-                            "description": "JSONPath expression not provided or contains syntax errors",
+                            "description": "SPARQL query not provided or contains syntax errors",
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
@@ -395,12 +396,12 @@
         }
     },
     "events": {
-        "registration": {
-            "description": "TD registration events",
+        "thingRegistration": {
+            "description": "Thing Description registration events",
             "uriVariables": {
                 "type": {
                     "title": "Event type(s)",
-                    "description": "Multiple types passed as type={type} pairs for SSE",
+                    "description": "Zero or more event types server-side event filtering",
                     "type": "string",
                     "enum": [
                         "create",
@@ -429,7 +430,7 @@
                         "description": "Partial or complete TD",
                         "type": "object"
                     },
-                    "scopes": "notifications"
+                    "scopes": "notification"
                 }
             ]
         }
