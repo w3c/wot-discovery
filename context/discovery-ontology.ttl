@@ -8,16 +8,15 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix discovery: <https://github.com/w3c/wot-discovery#> .
 @prefix td: <https://www.w3.org/2019/wot/td#> .
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
 @base <https://github.com/w3c/wot-discovery#> .
-<https://github.com/w3c/wot-discovery#> rdf:type owl:Ontology ;
 
-dc:creator "Andrea Cimmino" ;
-dc:creator "Farshid Tavakolizadeh" ;
-dc:description "Ontology code generated with Chowlk" ; 
-owl:versionInfo "0.1.1" ;
-dc:title "WoT discovery ontology" .
+<https://github.com/w3c/wot-discovery#> rdf:type owl:Ontology ;
+	dc:creator "Andrea Cimmino" ;
+	dc:creator "Farshid Tavakolizadeh" ;
+	owl:versionInfo "0.1.2" ;
+	dc:title "WoT discovery ontology" ;
+	dc:description "Ontology code created by Chowlk" .
 
 #################################################################
 # Object Properties
@@ -26,45 +25,67 @@ dc:title "WoT discovery ontology" .
 ### discovery:hasRegistrationInformation
 discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
 	rdfs:domain td:Thing ;
-	rdfs:range discovery:RegistrationInformation ;
-	rdfs:label "has registration information" .
+	rdfs:range discovery:RegitrationInformation ;
+	rdfs:label "registration" .
 
 #################################################################
+
 # Data Properties
+
 #################################################################
 
 ### schema:dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
-rdfs:label "date created" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "created"@en .
 
 ### schema:dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
-rdfs:label "date modified" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "modified"@en .
 
 ### schema:expires
 schema:expires rdf:type owl:DatatypeProperty ;
-rdfs:label "expires" .
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "expires"@en .
+
+### discovery:ttl
+discovery:ttl rdf:type owl:DatatypeProperty ;
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:unsignedInt ;
+	rdfs:label "ttl"@en .
+
+### discovery:retrieve
+discovery:retrieved rdf:type owl:DatatypeProperty ;
+	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:range xsd:dateTime ;
+	rdfs:label "retrieved"@en .
 
 #################################################################
+
 # Classes
+
 #################################################################
 
 ### td:Thing
 td:Thing rdf:type owl:Class ;
 	rdfs:label "Thing" .
 
-### discovery:RegistrationInformation
-discovery:RegistrationInformation rdf:type owl:Class ;
-	rdfs:label "Registration Information" .
+### discovery:RegitrationInformation
+discovery:RegitrationInformation rdf:type owl:Class ;
+	rdfs:label "RegitrationInformation" .
 
-### discovery:LinkDescription
-discovery:LinkDescription rdf:type owl:Class ;
-	rdfs:label "Link Description" ;
+### discovery:ThingLink
+discovery:ThingLink rdf:type owl:Class ;
+	rdfs:label "ThingLink" ;
 	rdfs:subClassOf td:Thing .
 
-### discovery:DirectoryDescription
-discovery:DirectoryDescription rdf:type owl:Class ;
-	rdfs:label "Directory Description" ;
+### discovery:ThingDirectory
+discovery:ThingDirectory rdf:type owl:Class ;
+	rdfs:label "ThingDirectory" ;
 	rdfs:subClassOf td:Thing .
 
 #################################################################
@@ -74,4 +95,3 @@ discovery:DirectoryDescription rdf:type owl:Class ;
 #################################################################
 # General Axioms
 #################################################################
-
