@@ -185,6 +185,8 @@
                     "format": "iri-reference"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/things/{id}",
@@ -307,6 +309,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/jsonpath?query={query}",
@@ -335,6 +339,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/xpath?query={query}",
@@ -363,6 +369,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/sparql?query={query}",
