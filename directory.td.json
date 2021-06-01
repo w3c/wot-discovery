@@ -56,7 +56,7 @@
     "security": "combo_sc",
     "base": "https://tdd.example.com",
     "properties": {
-        "retrieveThings": {
+        "things": {
             "description": "Retrieve all Thing Descriptions",
             "uriVariables": {
                 "offset": {
