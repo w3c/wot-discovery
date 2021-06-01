@@ -977,7 +977,7 @@ img.wot-diagram {
                                 Content-Type header, and the requested TD in body.
                             </span>
                             <p>
-                                The retrieve operation is specified as `retrieveThing` property in 
+                                The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-thing-description]]].
                             </p>
                         </p>
@@ -1406,7 +1406,7 @@ img.wot-diagram {
                         </p>
 
                         <p>    
-                            The listing operation is specified as `retrieveThings` property in 
+                            The listing operation is specified as `things` property in 
                             [[[#directory-thing-description]]].
                         </p>
 
@@ -1724,7 +1724,7 @@ img.wot-diagram {
                             <code>application/json</code> Content-Type header, and in
                             the body a set of complete TDs or a set of TD fragments.
                         </span>
-                        The syntactic search with JSONPath is specified as `searchJSONPath` property in
+                        The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-thing-description]]].
 
                         <p>List of errors:
@@ -1753,7 +1753,7 @@ img.wot-diagram {
                             <code>application/json</code> Content-Type header, and in
                             the body a set of complete TDs or a set of TD fragments.
                         </span>
-                        The syntactic search with XPath is specified as `searchXPath` property in
+                        The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-thing-description]]].
                                 
                         <p>List of errors:
@@ -1786,7 +1786,7 @@ img.wot-diagram {
                             <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>.
                             The response body MAY contain TD fragments or a set of TDs depending on the query.
                         </span>
-                        The semantic search with SPARQL is specified as `searchSPARQL` property in
+                        The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-thing-description]]].
                         <p>List of errors:
                             <ul>
