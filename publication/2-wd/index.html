@@ -4202,9 +4202,60 @@
     <h2 id="a-recent-specification-changes"><bdi class=
     "secno">A.</bdi> Recent Specification Changes<a class=
     "self-link" aria-label="§" href="#changes"></a></h2>
-    <ul>
-      <li>Initial draft.</li>
-    </ul>
+    <section id="changes-from-first-draft">
+        <h3 id="a-1-changes-from-first-draft">
+            <bdi class="secno">A.1</bdi>
+            Changes from First Draft
+            <a class="self-link" aria-label="§" href="#changes-from-first-draft"></a></h3>
+      <ul>
+      <li>Update name of directory service to "Thing Description
+      Directory" with acronym TDD, to avoid confusion with the acronym
+      TD used for Thing Descriptions.
+      </li>
+      <li>Elaboration of complete API for registration of a Thing
+      Description with a Thing Description Directory, including support
+      for creation, update, retrieval, deletion, and listing.
+      </li>
+      <li>Add recommendation that TDs be validated before storage in a directory.<br/>
+      Note: this corresponds to work under way in the TD spec to precisely define
+      appropriate levels of automatic validation for different contexts, including
+      directory registration.
+      </li>
+      <li>Addition of Security and Privacy Considerations regarding Denial of Service and Location Tracking.
+      </li>
+      <li>Addition of IANA Considerations regarding CoRE Resource Types.
+      </li>
+      <li>Definition of Enriched TD to support embedded metadata in TDs returned by a TDD.
+      </li>
+      <li>Updates to description of exploration to avoid unnecessary dependence
+      on HTTP (in the future, other protocols may be supported).
+      </li>
+      <li>Use of "resource type" instead of "endpoint type" when describing entry in CoRE RD.
+      </li>
+      <li>Addition of ontology for TDDs that include the type <code>DirectoryDescription</code>
+      identifying TDs of directories and
+      a type <code>LinkDescription</code> to identify a TD that is just a link to another
+      TD (useful for referring to remote directories in order to support federation).
+      </li>
+      <li>Add section for self-description exploration mechanism.
+      This supports the use case where a Thing hosts its own TD and peer-to-peer Thing
+      communication.
+      </li>
+      <li>Addition of diagram showing the directory information model.
+      </li>
+      <li>Removal of reference to Issue 16, citing CRUD interface requirements.
+      Replaced with CRUDL (CRUD + Listing) interface requirement.
+      </li>
+      <li>MAY assertion added to explicitly permit implementation of SPARQL federation,
+      and a requirement that if implemented, it needs to follow the SPARQL 1.1 specification.
+      </li>
+      <li>Updates to references: more recent versions of CoRE RD, DID Core, Eventsource, JSON-LD,
+      and JSON Path specifications.
+      Use of datatracker service (and URLs) to reference IETF RFCs.
+      Addition of normative references to RFC7396 and RFC7540.
+      </li>
+      </ul>
+    </section>
   </section>
   <section id="acknowledgements" class="appendix normative">
     <h2 id="b-acknowledgments"><bdi class="secno">B.</bdi>
