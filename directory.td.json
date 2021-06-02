@@ -403,67 +403,79 @@
     "events": {
         "thingCreated": {
           "title": "Thing created",
+          "uriVariables": {
+            "full": {
+                "title": "Include TD changes inside event data",
+                "type": "boolean"
+            }
+          },
           "data": {
-              "description": "Partial or complete TD",
-              "type": "object"
+            "title": "Partial/Full TD",
+            "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=thingCreated",
+                  "href": "/events?type=create{&full}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID",
+                          "htv:fieldName": "Last-Event-ID"
                       }
                   ],
-                  "scopes": "notifications"
+                  "scopes": "notification"
               }
           ]
         },
         "thingUpdated": {
           "title": "Thing updated",
+          "uriVariables": {
+            "full": {
+                "title": "Include TD changes inside event data",
+                "type": "boolean"
+            }
+          },
           "data": {
-              "description": "Partial or complete TD",
-              "type": "object"
+            "title": "Partial TD",
+            "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=thingUpdated",
+                  "href": "/events?type=update{&full}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID",
+                          "htv:fieldName": "Last-Event-ID"
                       }
                   ],
-                  "scopes": "notifications"
+                  "scopes": "notification"
               }
           ]
         },
         "thingDeleted": {
           "title": "Thing deleted",
           "data": {
-              "description": "Partial or complete TD",
-              "type": "object"
+            "title": "Partial TD",
+            "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=thingDeleted",
+                  "href": "/events?type=delete",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID",
+                          "htv:fieldName": "Last-Event-ID"
                       }
                   ],
-                  "scopes": "notifications"
+                  "scopes": "notification"
               }
            ]
         }
