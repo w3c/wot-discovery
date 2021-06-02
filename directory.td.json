@@ -402,34 +402,21 @@
     },
     "events": {
         "thingCreated": {
-          "@type": "ThingCreatedEvent",
           "title": "Thing created",
           "data": {
-              "type": "object",
-              "description": "The schema of created TD event data including the created TD",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  },
-                  "td": {
-                      "type": "object",
-                      "description": "The created TD in a create event"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingcreated",
+                  "href": "/events?type=thingCreated",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
@@ -437,34 +424,21 @@
           ]
         },
         "thingUpdated": {
-          "@type:": "ThingUpdatedEvent",
           "title": "Thing updated",
           "data": {
-              "type": "object",
-              "description": "The schema of updated TD event data including the TD updates",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  },
-                  "td_updates": {
-                      "type": "object",
-                      "description": "The partial TD composed of modified TD parts in an update event"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingupdated",
+                  "href": "/events?type=thingUpdated",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
@@ -472,30 +446,21 @@
           ]
         },
         "thingDeleted": {
-          "@type": "ThingDeletedEvent",
           "title": "Thing deleted",
           "data": {
-              "type": "object",
-              "description": "The schema of deleted TD event data",
-              "properties": {
-                  "td_id": {
-                      "type": "string",
-                      "format": "iri-reference",
-                      "description": "Identifier of TD in directory"
-                  }
-              }
+              "description": "Partial or complete TD",
+              "type": "object"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events/thingdeleted",
+                  "href": "/events?type=thingDeleted",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
                       {
                           "description": "ID of the last event for reconnection",
                           "htv:fieldName": "Last-Event-ID",
-                          "htv:fieldValue": ""
                       }
                   ],
                   "scopes": "notifications"
