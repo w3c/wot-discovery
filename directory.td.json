@@ -404,8 +404,8 @@
         "thingCreation": {
           "description": "Registration of Thing Descriptions inside the directory",
           "uriVariables": {
-            "full": {
-                "title": "Include TD changes inside event data",
+            "diff": {
+                "description": "Receive the full created TD as event data",
                 "type": "boolean"
             }
           },
@@ -416,7 +416,7 @@
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=create{&full}",
+                  "href": "/events?type=create{&diff}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
@@ -432,19 +432,20 @@
         "thingUpdate": {
           "description": "Updates to Thing Descriptions within the directory",
           "uriVariables": {
-            "full": {
-                "title": "Include TD changes inside event data",
+            "diff": {
+                "description": "Include TD changes inside event data",
                 "type": "boolean"
             }
           },
           "data": {
             "title": "Partial TD",
-            "type": "object"
+            "type": "object",
+            "contentMediaType": "application/merge-patch+json"
           },
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=update{&full}",
+                  "href": "/events?type=update{&diff}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
