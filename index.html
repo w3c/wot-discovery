@@ -1502,7 +1502,6 @@ img.wot-diagram {
                         In particular, the server responds to successful requests with 200 (OK) status
                         and `text/event-stream` Content Type. Re-connecting clients may continue from
                         the last event by providing the last event ID as `Last-Event-ID` header value.
-                        This API is specified as `thingRegistration` event in [[[#directory-thing-description]]].
                     </p>
 
                     <dl>
@@ -1667,6 +1666,11 @@ img.wot-diagram {
                             </ul>
                         </dd>
                     </dl>
+                    <p>
+                        The Notification API is specified as three event affordances in
+                        [[[#directory-thing-description]]], namely:
+                        `thingCreation`, `thingUpdate`, and `thingDeletion`.
+                    </p>
 
                     <p class="ednote" title="SSE Authorization Header">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
