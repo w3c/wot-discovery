@@ -401,8 +401,8 @@
         }
     },
     "events": {
-        "thingCreated": {
-          "title": "Thing created",
+        "thingCreation": {
+          "description": "Registration of Thing Descriptions inside the directory",
           "uriVariables": {
             "full": {
                 "title": "Include TD changes inside event data",
@@ -429,8 +429,8 @@
               }
           ]
         },
-        "thingUpdated": {
-          "title": "Thing updated",
+        "thingUpdate": {
+          "description": "Updates to Thing Descriptions within the directory",
           "uriVariables": {
             "full": {
                 "title": "Include TD changes inside event data",
@@ -457,8 +457,8 @@
               }
           ]
         },
-        "thingDeleted": {
-          "title": "Thing deleted",
+        "thingDeletion": {
+          "description": "Deletion of Thing Descriptions from the directory",
           "data": {
             "title": "Partial TD",
             "type": "object"
