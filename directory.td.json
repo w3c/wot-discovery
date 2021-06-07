@@ -17,6 +17,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search",
                 "notification"
             ]
@@ -28,6 +29,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search",
                 "notification"
             ]
@@ -40,6 +42,7 @@
             "scopes": [
                 "write",
                 "read",
+                "readAll",
                 "search",
                 "notification"
             ]
@@ -55,6 +58,67 @@
     },
     "security": "combo_sc",
     "base": "https://tdd.example.com",
+    "properties": {
+        "things": {
+            "description": "Retrieve all Thing Descriptions",
+            "uriVariables": {
+                "offset": {
+                    "title": "Number of TDs to skip before the page",
+                    "type": "number",
+                    "default": 0
+                },
+                "limit": {
+                    "title": "Number of TDs in a page",
+                    "type": "number"
+                },
+                "sort_by": {
+                    "title": "Comparator TD attribute for collection sorting",
+                    "type": "string",
+                    "default": "id"
+                },
+                "sort_order": {
+                    "title": "Sorting order",
+                    "type": "string",
+                    "enum": ["asc", "desc"],
+                    "default": "asc"
+                }
+            },
+            "forms": [
+                {
+                    "href": "/things",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json"
+                    },
+                    "scopes": "readAll"
+                },
+                {
+                    "href": "/things{?offset,limit,sort_by,sort_order}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/ld+json",
+                        "htv:headers": [
+                            {
+                                "htv:fieldName": "Link"
+                            }
+                        ]
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "Invalid query arguments",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 400
+                        }
+                    ],
+                    "scopes": "readAll"
+                }
+            ]
+        }
+    },
     "actions": {
         "createThing": {
             "description": "Create a Thing Description",
@@ -111,6 +175,38 @@
                         }
                     ],
                     "scopes": "write"
+                }
+            ]
+        },
+        "retrieveThing": {
+            "description": "Retrieve a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "safe": true,
+            "idempotent": true,
+            "forms": [
+                {
+                    "href": "/things/{id}",
+                    "htv:methodName": "GET",
+                    "response": {
+                        "description": "Success response",
+                        "htv:statusCodeValue": 200,
+                        "contentType": "application/td+json"
+                    },
+                    "additionalResponses": [
+                        {
+                            "description": "TD with the given id not found",
+                            "contentType": "application/problem+json",
+                            "htv:statusCodeValue": 404
+                        }
+                    ],
+                    "scopes": "read"
                 }
             ]
         },
@@ -207,97 +303,6 @@
                     "scopes": "write"
                 }
             ]
-        }
-    },
-    "properties": {
-        "retrieveThing": {
-            "description": "Retrieve a Thing Description",
-            "uriVariables": {
-                "id": {
-                    "@type": "ThingID",
-                    "title": "Thing Description ID",
-                    "type": "string",
-                    "format": "iri-reference"
-                }
-            },
-            "forms": [
-                {
-                    "href": "/things/{id}",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/td+json"
-                    },
-                    "additionalResponses": [
-                        {
-                            "description": "TD with the given id not found",
-                            "contentType": "application/problem+json",
-                            "htv:statusCodeValue": 404
-                        }
-                    ],
-                    "scopes": "read"
-                }
-            ]
-        },
-        "retrieveThings": {
-            "description": "Retrieve all Thing Descriptions",
-            "uriVariables": {
-                "offset": {
-                    "title": "Number of TDs to skip before the page",
-                    "type": "number",
-                    "default": 0
-                },
-                "limit": {
-                    "title": "Number of TDs in a page",
-                    "type": "number"
-                },
-                "sort_by": {
-                    "title": "Comparator TD attribute for collection sorting",
-                    "type": "string",
-                    "default": "id"
-                },
-                "sort_order": {
-                    "title": "Sorting order",
-                    "type": "string",
-                    "enum": ["asc", "desc"],
-                    "default": "asc"
-                }
-            },
-            "forms": [
-                {
-                    "href": "/things",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json"
-                    },
-                    "scopes": "readAll"
-                },
-                {
-                    "href": "/things{?offset,limit,sort_by,sort_order}",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json",
-                        "htv:headers": [
-                            {
-                                "htv:fieldName": "Link"
-                            }
-                        ]
-                    },
-                    "additionalResponses": [
-                        {
-                            "description": "Invalid query arguments",
-                            "contentType": "application/problem+json",
-                            "htv:statusCodeValue": 400
-                        }
-                    ],
-                    "scopes": "readAll"
-                }
-            ]
         },
         "searchJSONPath": {
             "description": "JSONPath syntactic search",
@@ -307,6 +312,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/jsonpath?query={query}",
@@ -335,6 +342,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/xpath?query={query}",
@@ -363,6 +372,8 @@
                     "type": "string"
                 }
             },
+            "safe": true,
+            "idempotent": true,
             "forms": [
                 {
                     "href": "/search/sparql?query={query}",
