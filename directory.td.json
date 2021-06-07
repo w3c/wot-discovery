@@ -412,43 +412,84 @@
         }
     },
     "events": {
-        "thingRegistration": {
-            "description": "Thing Description registration events",
-            "uriVariables": {
-                "type": {
-                    "title": "Event type(s)",
-                    "description": "Zero or more event types server-side event filtering",
-                    "type": "string",
-                    "enum": [
-                        "create",
-                        "update",
-                        "delete"
-                    ]
-                },
-                "full": {
-                    "title": "Include TD changes inside event data",
-                    "type": "boolean"
-                }
-            },
-            "forms": [
-                {
-                    "op": "subscribeevent",
-                    "href": "/events{?type,full}",
-                    "subprotocol": "sse",
-                    "contentType": "text/event-stream",
-                    "htv:headers": [
-                        {
-                            "description": "ID of the last event provided by reconnecting clients",
-                            "htv:fieldName": "Last-Event-ID"
-                        }
-                    ],
-                    "data": {
-                        "description": "Partial or complete TD",
-                        "type": "object"
-                    },
-                    "scopes": "notification"
-                }
-            ]
+        "thingCreation": {
+          "description": "Registration of Thing Descriptions inside the directory",
+          "uriVariables": {
+            "diff": {
+                "description": "Receive the full created TD as event data",
+                "type": "boolean"
+            }
+          },
+          "data": {
+            "title": "Partial/Full TD",
+            "type": "object"
+          },
+          "forms": [
+              {
+                  "op": "subscribeevent",
+                  "href": "/events?type=create{&diff}",
+                  "subprotocol": "sse",
+                  "contentType": "text/event-stream",
+                  "htv:headers": [
+                      {
+                          "description": "ID of the last event for reconnection",
+                          "htv:fieldName": "Last-Event-ID"
+                      }
+                  ],
+                  "scopes": "notification"
+              }
+          ]
+        },
+        "thingUpdate": {
+          "description": "Updates to Thing Descriptions within the directory",
+          "uriVariables": {
+            "diff": {
+                "description": "Include TD changes inside event data",
+                "type": "boolean"
+            }
+          },
+          "data": {
+            "title": "Partial TD",
+            "type": "object",
+            "contentMediaType": "application/merge-patch+json"
+          },
+          "forms": [
+              {
+                  "op": "subscribeevent",
+                  "href": "/events?type=update{&diff}",
+                  "subprotocol": "sse",
+                  "contentType": "text/event-stream",
+                  "htv:headers": [
+                      {
+                          "description": "ID of the last event for reconnection",
+                          "htv:fieldName": "Last-Event-ID"
+                      }
+                  ],
+                  "scopes": "notification"
+              }
+          ]
+        },
+        "thingDeletion": {
+          "description": "Deletion of Thing Descriptions from the directory",
+          "data": {
+            "title": "Partial TD",
+            "type": "object"
+          },
+          "forms": [
+              {
+                  "op": "subscribeevent",
+                  "href": "/events?type=delete",
+                  "subprotocol": "sse",
+                  "contentType": "text/event-stream",
+                  "htv:headers": [
+                      {
+                          "description": "ID of the last event for reconnection",
+                          "htv:fieldName": "Last-Event-ID"
+                      }
+                  ],
+                  "scopes": "notification"
+              }
+           ]
         }
     }
 }

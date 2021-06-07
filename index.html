@@ -1502,7 +1502,6 @@ img.wot-diagram {
                         In particular, the server responds to successful requests with 200 (OK) status
                         and `text/event-stream` Content Type. Re-connecting clients may continue from
                         the last event by providing the last event ID as `Last-Event-ID` header value.
-                        This API is specified as `thingRegistration` event in [[[#directory-thing-description]]].
                     </p>
 
                     <dl>
@@ -1587,7 +1586,7 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-create-full">
-                                        When `full` query parameter is set to `true` and the event has `create` type,
+                                        When `diff` query parameter is set to `true` and the event has `create` type,
                                         the server MAY return the whole TD object as event data.
                                     </span>
                                     
@@ -1620,12 +1619,12 @@ img.wot-diagram {
                                     </aside>
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
-                                        When `full` query parameter is set to `true` and the event has `update` type,
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-update-diff">
+                                        When `diff` query parameter is set to `true` and the event has `update` type,
                                         the server MAY inform the client about the updated parts following the
                                         JSON Merge Patch [[RFC7396]] format.
                                     </span>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full-id">
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-update-id">
                                         An `update` event data that is based on JSON Merge Patch [[RFC7396]]
                                         MUST always include the identifier of the TD regardless of whether it
                                         is changed.
@@ -1647,16 +1646,15 @@ img.wot-diagram {
                                     </p>
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-updates-full">
-                                        The `full` query parameter MUST be ignored for `delete` events.
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-delete-diff">
+                                        The `diff` query parameter MUST be ignored for `delete` events.
                                     </span>
-                                    In other words, when the `full` query parameter is set to `true` and
-                                    the event has `delete` type, the server must only provide the identifier
-                                    in event data.
+                                    In other words, the server does not need to include additional properties in
+                                    the payload of `delete` events when `diff` is set to `true`. 
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-change-unsupported">
-                                        When a server which does not support the `full` query parameter 
+                                    <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
+                                        When a server which does not support the `diff` query parameter 
                                         is requested with such query parameter, it MUST
                                         reject the request with 501 (Not Implemented) status.
                                     </span>
@@ -1667,6 +1665,11 @@ img.wot-diagram {
                             </ul>
                         </dd>
                     </dl>
+                    <p>
+                        The Notification API is specified as three event affordances in
+                        [[[#directory-thing-description]]], namely:
+                        `thingCreation`, `thingUpdate`, and `thingDeletion`.
+                    </p>
 
                     <p class="ednote" title="SSE Authorization Header">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
