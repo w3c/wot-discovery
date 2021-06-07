@@ -1520,42 +1520,31 @@ img.wot-diagram {
                             by delivering only the events required by clients.
                             Client libraries may offer additional filtering capabilities on
                             the client-side.
-                            The server-side filtering is based on query parameters passed to the server at 
-                            connection time. The filtering behavior is described below:
-                            <ul>
-                                <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-type">
-                                        The server MUST support event filtering based on the 
-                                        event types passed as one or more `type` query parameters.
-                                    </span>
-                                    For example, in response to query `?type=create&type=delete`,
-                                    the server will only deliver events of types `create` and `delete`.
-                                    At the absence of any `type` query parameter, the server will deliver all
-                                    types of events.
-                                </li>
-                                <!-- Commented for now. See the issue details below. -->
-                                <!-- <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search">
-                                        The server MAY support event filtering based on the 
-                                        search expressions passed as one of `jsonpath`, `xpath`, 
-                                        or `sparql` query parameters.
-                                    </span>
-                                    This is to detect changes on particular TDs or attributes and does not affect
-                                    the event's data object.
-                                    <p>
-                                        For example, the JSONPath expression `$.properties`
-                                        will reduce the number of events to TDs that change their `properties` attributes.
-                                        The resulting events may be for created or deleted TDs with the `properties` attribute
-                                        or updates to `properties` attribute of existing TDs.
-                                    </p>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search-unsupported">
-                                        If the server does not support a given search query parameter, it
-                                        MUST reject the request with 501 (Not Implemented) status.
-                                    </span>
-                                    This is to inform the clients about the missing feature at the connection
-                                    time and prevent unexpected network traffic and events.
-                                </li> -->
-                            </ul>
+
+                            <p>
+                                <span class="rfc2119-assertion" id="tdd-notification-filter-type">
+                                    The server MUST support event filtering based on the 
+                                    event type given by the client upon subscription. 
+                                </span>
+                            </p>
+                            <p>
+                                For example, given the URI Template `/events{/type}`:
+                                <ul>
+                                    <li>
+                                        `/events/create` instructs the server to only deliver events of
+                                        type `create`
+                                    </li>
+                                    <li>
+                                        `/events` instructs the server to deliver all events
+                                    </li>
+                                </ul>
+                                The clients need to subscribe separately to receive a subset of
+                                the events (e.g. only `create` and `delete`) from the server. 
+                                When using HTTP/2, multiple subscriptions on the same domain (HTTP streams) 
+                                get multiplexed on a single connection.
+                            </p>
+
+
                             <div class="issue" data-number="176">
                                 Event filtering based on the payload is work in progress. 
                             </div>

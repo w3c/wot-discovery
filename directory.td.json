@@ -427,7 +427,7 @@
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=create{&diff}",
+                  "href": "/events/create{?diff}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
@@ -456,7 +456,7 @@
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=update{&diff}",
+                  "href": "/events/update{?diff}",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
@@ -478,7 +478,7 @@
           "forms": [
               {
                   "op": "subscribeevent",
-                  "href": "/events?type=delete",
+                  "href": "/events/delete",
                   "subprotocol": "sse",
                   "contentType": "text/event-stream",
                   "htv:headers": [
