@@ -1533,28 +1533,6 @@ img.wot-diagram {
                                     At the absence of any `type` query parameter, the server will deliver all
                                     types of events.
                                 </li>
-                                <!-- Commented for now. See the issue details below. -->
-                                <!-- <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search">
-                                        The server MAY support event filtering based on the 
-                                        search expressions passed as one of `jsonpath`, `xpath`, 
-                                        or `sparql` query parameters.
-                                    </span>
-                                    This is to detect changes on particular TDs or attributes and does not affect
-                                    the event's data object.
-                                    <p>
-                                        For example, the JSONPath expression `$.properties`
-                                        will reduce the number of events to TDs that change their `properties` attributes.
-                                        The resulting events may be for created or deleted TDs with the `properties` attribute
-                                        or updates to `properties` attribute of existing TDs.
-                                    </p>
-                                    <span class="rfc2119-assertion" id="tdd-notification-filter-search-unsupported">
-                                        If the server does not support a given search query parameter, it
-                                        MUST reject the request with 501 (Not Implemented) status.
-                                    </span>
-                                    This is to inform the clients about the missing feature at the connection
-                                    time and prevent unexpected network traffic and events.
-                                </li> -->
                             </ul>
                             <div class="issue" data-number="176">
                                 Event filtering based on the payload is work in progress. 
