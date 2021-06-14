@@ -685,7 +685,7 @@ img.wot-diagram {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="rfc2119-table-assertion" id="discovery-vocab-created--RegistrationInformation">
+                            <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-created">
                                 <td><code>created</code></td>
                                 <td>
                                     Provides information when the TD instance was
@@ -698,7 +698,7 @@ img.wot-diagram {
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
-                            <tr class="rfc2119-table-assertion" id="discovery-vocab-modified--RegistrationInformation">
+                            <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-modified">
                                 <td><code>modified</code></td>
                                 <td>
                                     Provides information when the TD instance was
@@ -711,7 +711,7 @@ img.wot-diagram {
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
-                            <tr class="rfc2119-table-assertion" id="discovery-vocab-expires--RegistrationInformation">
+                            <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-expires">
                                 <td><code>expires</code></td>
                                 <td>
                                     Provides the absolute time for when the TD instance registration expires.
@@ -729,7 +729,7 @@ img.wot-diagram {
                                 <td>optional</td>
                                 <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
-                            <tr class="rfc2119-table-assertion" id="discovery-vocab-ttl--RegistrationInformation">
+                            <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-ttl">
                                 <td><code>ttl</code></td>
                                 <td>
                                     Time-to-live: relative amount of time in seconds from the registration time 
@@ -747,7 +747,7 @@ img.wot-diagram {
                                 <td>read-only</td>
                                 <td><code>number</code></a></td>
                             </tr>
-                            <tr class="rfc2119-table-assertion" id="discovery-vocab-retrieved--RegistrationInformation">
+                            <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-retrieved">
                                 <td><code>retrieved</code></td>
                                 <td>
                                     The time at which the TD was retrieved from the server.
@@ -782,13 +782,13 @@ img.wot-diagram {
                     <p>
                         For the servers, the expiry time is useful for implementing automatic
                         removal of obsolete or accidental registrations.
-                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expiry-purge">
                             Servers SHOULD periodically purge TDs that are past 
                             their expiry times.
                         </span>
                         Prescribing a global mandate or upper limit for the expiry time is
                         application-specific and beyond the scope of this specification.
-                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expires-purge">
+                        <span class="rfc2119-assertion" id="tdd-registrationinfo-expiry-config">
                             The servers MAY mandate or set a configurable upper limit to expiry times
                             and refuse incompliant requests.
                         </span>
@@ -838,7 +838,7 @@ img.wot-diagram {
                 <p>
                     The HTTP API responses must use appropriate status codes described in 
                     this section for success and error responses.
-                    <span class="rfc2119-assertion" id="tdd-http-errors"> 
+                    <span class="rfc2119-assertion" id="tdd-http-error-response"> 
                         The HTTP API MUST use the Problem Details [[RFC7807]] format to carry
                         error details in HTTP client error (4xx) and server error (5xx) responses.
                     </span>
@@ -875,7 +875,7 @@ img.wot-diagram {
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="tdd-reg-operations">
+                        <span class="rfc2119-assertion" id="tdd-reg-crudl">
                             The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
                         </span>
 
@@ -895,7 +895,7 @@ img.wot-diagram {
                             The TD object must be validated in accordance with [[[#validation]]].
                         </p>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-types"> 
+                            <span class="rfc2119-assertion" id="tdd-reg-create-known-vs-anonymous"> 
                                 A TD which is identified with an `id` attribute MUST be handled 
                                 differently with one that has no identifier (<a>Anonymous TD</a>).
                             </span>
@@ -1261,7 +1261,7 @@ img.wot-diagram {
                             Serializing and returning the full list of TDs may be burdensome to servers.
                             As such, servers should serialize incrementally and utilize protocol-specific
                             mechanisms to respond in chunks. 
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http11">
+                            <span class="rfc2119-assertion" id="tdd-reg-list-http11-chunks">
                                 HTTP/1.1 servers SHOULD perform chunked 
                                 <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
                                 to respond the data incrementally.
@@ -1272,7 +1272,7 @@ img.wot-diagram {
                             should consider processing the received data incrementally.
 
                             Chunked transfer encoding is not supported in HTTP/2.
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http2">
+                            <span class="rfc2119-assertion" id="tdd-reg-list-http2-frames">
                                 HTTP/2 servers SHOULD respond the data incrementally using 
                                 <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
                             </span>
@@ -1424,23 +1424,23 @@ img.wot-diagram {
                     <section id="validation" class="normative">
                         <h4>Validation</h4>
                         <p>
-                           <span class="rfc2119-assertion" id="td-validation-syntactic">
+                           <span class="rfc2119-assertion" id="tdd-validation-syntactic">
                                 The syntactic validation of TD objects before storage is RECOMMENDED to
                                 prevent common erroneous submissions.
                             </span>
-                            <span class="rfc2119-assertion" id="td-validation-jsonschema">
+                            <span class="rfc2119-assertion" id="tdd-validation-jsonschema">
                                 The server MAY use
                                 <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
                                 to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
                             </span>
                         </p>
                         <p>
-                            <span class="rfc2119-assertion" id="td-validation-result">
+                            <span class="rfc2119-assertion" id="tdd-validation-result">
                                 If the server fails to validate the TD object, it MUST inform the client
                                 with necessary details to identify and resolve the errors.
                             </span>
     
-                            <span class="rfc2119-assertion" id="td-validation-response">
+                            <span class="rfc2119-assertion" id="tdd-validation-response">
                                 The validation error MUST be described as Problem Details [[RFC7807]]
                                 with an extension field called `validationErrors`, set to an array of objects
                                 with `field` and `description` fields.
@@ -1693,13 +1693,13 @@ img.wot-diagram {
                     </p>
                     The Directory has three search APIs: syntactic search with JSONPath [[?JSONPATH]]
                     or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
-                    <span class="rfc2119-assertion" id="tdd-search-apis-jsonPath">
+                    <span class="rfc2119-assertion" id="tdd-search-jsonpath">
                         The Directory MUST implement the syntactic search with JSONPath.
                     </span>
-                    <span class="rfc2119-assertion" id="tdd-search-apis-xPath">
+                    <span class="rfc2119-assertion" id="tdd-search-xpath">
                         The Directory SHOULD implement the syntactic search with XPath.
                     </span>
-                    <span class="rfc2119-assertion" id="tdd-search-apis-sparql">
+                    <span class="rfc2119-assertion" id="tdd-search-sparql">
                         The Directory MAY implement semantic search with SPARQL.
                     </span>
     		
@@ -1760,18 +1760,18 @@ img.wot-diagram {
                     <section id="search-semantic" class="normative">
                         <h4>Semantic search: SPARQL</h4>
                         The support for SPARQL Search API is optional.
-                        <span class="rfc2119-assertion" id="tdd-search-semantic-protocol">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-version">
                             If implemented, the SPARQL search API MUST allow searching TDs using
                             the SPARQL protocol [[sparql11-overview]].
                         </span>
-                        <span class="rfc2119-assertion" id="tdd-search-semantic-method-get">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-method-get">
                             The SPARQL API MUST accept queries using HTTP <code>GET</code> requests.
                         </span>
-                        <span class="rfc2119-assertion" id="tdd-search-semantic-method-post">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-method-post">
                             The support for SPARQL search using HTTP <code>POST</code> method is OPTIONAL.
                         </span>
                         <code>UPDATE</code> queries are out of the scope for the API.
-                        <span class="rfc2119-assertion" id="tdd-search-semantic-parameter">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-resp">
                             A successful response MUST have 200 (OK) status, and depending on the type
                             of query contain by default as Content-Type header <code>application/ld+json</code>
                             for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or
@@ -1788,10 +1788,10 @@ img.wot-diagram {
                                 <li>501 (Not Implemented): SPARQL API not supported.</li>
                             </ul>
                         </p>
-                        <span class="rfc2119-assertion" id="tdd-distributed-search-semantic">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
                             A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
                         </span>
-                        <span class="rfc2119-assertion" id="tdd-distributed-search-semantic-imp">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-federation-imp">
                             If implemented, the SPARQL API MUST implement the
                             SPARQL 1.1 Federated Query standard [[sparql11-overview]].
                         </span>
