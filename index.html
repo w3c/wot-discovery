@@ -811,7 +811,7 @@ img.wot-diagram {
                     to enable management and retrieval of such TDs from the directory.
                     <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
-                        it MUST add the local identifier to the TD allow local referencing.
+                        it MUST add the local identifier to the TD to allow local referencing.
                     </span>
 
                     <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-local-id">
@@ -924,7 +924,7 @@ img.wot-diagram {
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
-                                The identifier scheme is described in [[[#exploration-directory-anonymous-td]]].
+                                The scheme of the system-generated ID is described in [[[#exploration-directory-anonymous-td]]].
 
                                 <p>
                                     The create operation for <a>Anonymous TD</a>s is specified as `createAnonymousThing` action in 
