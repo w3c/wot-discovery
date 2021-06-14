@@ -807,24 +807,18 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-anonymous-td" class="normative">
                     <h4>Anonymous TD Identifiers</h4>
-                    <a>Anonymous TD</a>s are considered as JSON-LD blank nodes [[JSON-LD11]].
-                    The server assigns a local identifier to such TDs
-                    to enable management and retrieval from the directory.
+                    The directory assigns local identifiers to <a>Anonymous TD</a>s
+                    to enable management and retrieval of such TDs from the directory.
                     <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
-                        In situations where the server exposes an Anonymous TD, it MUST
-                        add the local identifier to the TD as a blank
-                        node identifier to allow local referencing.
+                        In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
+                        it MUST add the local identifier to the TD allow local referencing.
                     </span>
-                    <a href="https://json-ld.org/spec/latest/json-ld/#dfn-blank-node-identifiers">Blank node identifiers</a>
-                    begin with `_:` which look like IRIs with an underscore scheme. 
-                    <p>
-                        For example,
-                        an <a>Anonymous TD</a> that has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
-                        will have the following blank node identifier
-                        set as its `id` attribute: `_:48951ff3-4019-4e67-b217-dbbf011873dc`.
-                        <a>Anonymous TD</a>s that embed blank node identifiers are in
-                        <a>Enriched TD</a> forms.
-                    </p>
+
+                    <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-local-id">
+                        The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].
+                    </span>
+                    UUID Version 4 is a random or pseudo-random number which does not carry unintended information
+                    about the host or the resource.
                 </section>
             </section>
             <section id="exploration-directory-api" class="normative">
@@ -930,11 +924,8 @@ img.wot-diagram {
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-generated-id">
-                                    The identifier SHOULD be a UUID Version 4 [[RFC4122]].
-                                </span>
-                                That is a random or pseudo-random number which does not carry unintended information
-                                about the host or the resource.
+                                The identifier scheme is described in [[[#exploration-directory-anonymous-td]]].
+
                                 <p>
                                     The create operation for <a>Anonymous TD</a>s is specified as `createAnonymousThing` action in 
                                     [[[#directory-thing-description]]].
@@ -1024,9 +1015,7 @@ img.wot-diagram {
                         
                         <p>
                             The example below shows a retrieved <a>Anonymous TD</a> that is in
-                            <a>Enriched TD</a> form and has local identifier `48951ff3-4019-4e67-b217-dbbf011873dc`
-                            set as its blank node identifier (see [[[#exploration-directory-anonymous-td]]]).
-                            Note that `id` is an alias for `@id` from the active context.
+                            <a>Enriched TD</a> form and has local identifier `urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc`.
                             
                             <aside class="example" id="example-anonymous-enriched-td" title="Example Enriched Anonymous TD">
                                 <pre>
@@ -1035,7 +1024,7 @@ img.wot-diagram {
                                             "http://www.w3.org/ns/td",
                                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                                         ],
-                                        "id": "_:48951ff3-4019-4e67-b217-dbbf011873dc",
+                                        "id": "uuid:urn:48951ff3-4019-4e67-b217-dbbf011873dc",
                                         "security": "basic_sc",
                                         "securityDefinitions": {
                                             "basic_sc": {
