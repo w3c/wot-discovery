@@ -566,10 +566,10 @@ img.wot-diagram {
                             "href": "https://example.com/td.jsonld",
                             "type": "application/td+json"
                         }],
-                        "security": "basic_sc",
+                        "security": "nosec_sc",
                         "securityDefinitions": {
-                            "basic_sc": {
-                                "scheme": "basic"
+                            "nosec_sc": {
+                                "scheme": "nosec"
                             }
                         },
                         "title": "Example TD referencing another"
@@ -579,6 +579,27 @@ img.wot-diagram {
                     The context URIs are tentative and subject to change.
                 </div>                    
             </aside>
+            <p>
+                A Thing Link can be used in various scenarios. For example:
+                <ul>
+                    <li>
+                        A self-describing Thing with limited computational resources intends
+                        to describe itself: host a minimal <a>TD</a> (Thing Link) locally
+                        and references a larger one with the full details hosted at a
+                        different URL, perhaps in a directory.
+                    </li>
+                    <li>
+                        A self-describing Thing or proxy has a very large or dynamic description:
+                        registers a small or static <a>TD</a> (Thing Link) in a 
+                        directory which references the actual <a>TD</a> hosted at the edge.
+                    </li>
+                    <li>
+                        A device intends to publish an entire <a>TD</a> which contains private and
+                        public parts: publish one <a>TD</a> (Thing Link) with only the public
+                        information referencing another <a>TD</a> which contains the full description.
+                    </li>
+                </ul>
+            </p>
         </dd>
         
         <section id="exploration-self" class="normative">
