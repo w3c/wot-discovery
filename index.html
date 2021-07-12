@@ -485,13 +485,13 @@ img.wot-diagram {
                 alt="Exploration mechanisms high-level class diagram" />
             <figcaption>
                 The high-level class diagram of the exploration mechanisms,
-                depicting how Things expose <a>TD</a>s.
+                depicting how Things expose <a>TDs</a>.
             </figcaption>
         </figure>
 
         [[[#exploration-class-diagram]]] depicts the high-level information 
         model for self-describing and directory services.
-        A directory may contain <a>TD</a>s and at the same time provide a <a>TD</a>
+        A directory may contain <a>TDs</a> and at the same time provide a <a>TD</a>
         and act as a self-describing Thing.
         The exploration mechanisms are described in
         [[[#exploration-self]]] and [[[#exploration-directory]]].
@@ -674,7 +674,7 @@ img.wot-diagram {
                 </p>
 
                 As shown in [[[#exploration-class-diagram]]], 
-                the <a>Thing Description Directory</a> can contain zero or more <a>TD</a>s.
+                the <a>Thing Description Directory</a> can contain zero or more <a>TDs</a>.
                 For every TD, the directory maintains additional metadata
                 for bookkeeping and search purposes.
                 These are described in
@@ -687,10 +687,10 @@ img.wot-diagram {
                     <h4>Registration Information</h4>
                     The ontology of a <a>TD</a> in the Discovery context was
                     introduced in [[[#discovery-class-diagram-ontology]]].
-                    The `RegistrationInformation` class is associated with <a>TD</a>s that are
+                    The `RegistrationInformation` class is associated with <a>TDs</a> that are
                     stored in a directory. 
                     The following table lists the registration information attributes for
-                    use within <a>TD</a>s that embed or reference the Discovery context. 
+                    use within <a>TDs</a> that embed or reference the Discovery context. 
                     Note that only an <a>Enriched TD</a> embeds the registration information.
                     In this table,
                     client refers to the producer or consumer of a <a>TD</a> and server refers to
@@ -787,13 +787,13 @@ img.wot-diagram {
                 <section id="exploration-directory-registration-expiry" class="normative">
                     <h4>Registration Expiry</h4>
                     Section [[[#exploration-directory-registration-info]]] introduces few attributes to
-                    specify and discover the expiry time of registered <a>TD</a>s. 
+                    specify and discover the expiry time of registered <a>TDs</a>. 
 
                     <p>
                         Producers can set the expiry time to inform the directory and other consumers
                         about the validity of the TD registrations. 
                         The expiry is also a useful indicator to inform the consumers about
-                        expiry of dynamic <a>TD</a>s, e.g. when changes to metadata such as
+                        expiry of dynamic <a>TDs</a>, e.g. when changes to metadata such as
                         geolocation or properties are expected to be valid for a limited period.
                         Consumers may rely on the expiry time to know how long a retrieved <a>TD</a>
                         will be valid and when they need to request a more recent one.
@@ -816,7 +816,7 @@ img.wot-diagram {
                         
                         The purging by servers is particularly beneficial when interacting with
                         clients (e.g. IoT devices) that are unable to explicitly deregister
-                        their <a>TD</a>s. This could be due to protocol-specific limitations,
+                        their <a>TDs</a>. This could be due to protocol-specific limitations,
                         failure, destruction, or ungraceful decommissioning.
                         Such clients should set a reasonably short expiry time and periodically
                         extend it during the normal operation.
@@ -828,7 +828,7 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-anonymous-td" class="normative">
                     <h4>Anonymous TD Identifiers</h4>
-                    The directory assigns local identifiers to <a>Anonymous TD</a>s
+                    The directory assigns local identifiers to <a>Anonymous TDs</a>
                     to enable management and retrieval of such TDs from the directory.
                     <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
@@ -933,7 +933,7 @@ img.wot-diagram {
                                     the appropriate status code (see Update section).
                                 </p>
                                 <p>
-                                    The create operation for <a>TD</a>s that have identifiers is specified
+                                    The create operation for <a>TDs</a> that have identifiers is specified
                                     as `createThing` action in [[[#directory-thing-description]]]. 
                                 </p>
                             </li>
@@ -948,7 +948,7 @@ img.wot-diagram {
                                 The scheme of the system-generated ID is described in [[[#exploration-directory-anonymous-td]]].
 
                                 <p>
-                                    The create operation for <a>Anonymous TD</a>s is specified as `createAnonymousThing` action in 
+                                    The create operation for <a>Anonymous TDs</a> is specified as `createAnonymousThing` action in
                                     [[[#directory-thing-description]]].
                                 </p>
                             </li>
