@@ -1265,6 +1265,56 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status, contain `application/ld+json`
                                 Content-Type header, and an array of TDs in the body.
                             </span>
+
+							<p>
+								Alternative to a pure array of TDs as the body of the response, the server MAY
+								send a more verbose payload allowing server-side information, like pagination
+								information, to be put in addition to the actual data.
+							</p>
+								
+							<p>
+								For pagination information the alternative format leans against the formats as described
+								in <a href="https://www.hydra-cg.com/spec/latest/core/#advanced-concepts">
+								Hydra Advanced Concepts</a>. More concretely the
+								<a href="https://www.hydra-cg.com/spec/latest/core/#example-20-a-hydra-partialcollectionview-splits-a-collection-into-multiple-views">
+								Partial Collection View</a> using the <i>members</i> field to accomodate the array
+								of TDs is applied, and looks like as follows for the listing endpoint:
+							</p>
+							<p>
+								<aside class="example" id="example-alternative-payload"
+									title="Alternative payload format including pagination information">
+									<pre>
+										{
+											"@context": "http://www.w3.org/ns/hydra/context.jsonld",
+											"@type": "Collection",
+											"totalItems": 10,
+											"member": [
+												{ TD },
+												9 other TDs...
+											],
+											"view": {
+												"@type":"PartialCollectionView",
+												"@id": "/td?offset=0&limit=10",
+												"next": "/td?offset=1&limit=10"
+											}
+										}
+									</pre>                    
+								</aside>
+							</p>
+							
+							<p>
+								To tell the server which format to send, the additional query parameter <i>?format=array|hydraCollection</i>
+								can be added to the request. <i>?format=array</i> is the default parameter, does not have to be provided
+								explicitly, and yields to a server response of the pure array of TDs. <i>?format=hydraCollection</i>
+								should yield to a server response with the format as described in [[[#example-alternative-payload]]].
+							</p>
+							
+							<p>
+								Having the additional query parameter in place along with the references
+								to external ontologies inside the alternative payload, opens the listing interface
+								for yet more payload formats to be described in upcoming specifications.
+							</p>
+							
                         </p>
 
                         <p>
