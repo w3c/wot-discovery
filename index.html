@@ -1378,15 +1378,15 @@ img.wot-diagram {
                                 title="Query all TDs with page size 10.">
                                 The client requests the list with a `limit` of 10:
                                 <pre>
-                                    GET /td?limit=10 HTTP/1.1   
+                                    GET /things?limit=10 HTTP/1.1   
                                     Host: tdd.example.com
                                 </pre>
                                 Response:
                                 <pre>
                                     HTTP/1.1 200 OK
                                     Content-Type: application/ld+json
-                                    Link: &#x3C;/td?offset=10&#x26;limit=10&#x3E;; rel=&#x22;next&#x22;
-                                    Link: &#x3C;/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
+                                    Link: &#x3C;/things?offset=10&#x26;limit=10&#x3E;; rel=&#x22;next&#x22;
+                                    Link: &#x3C;/things&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
 
                                     [{ TD }, ...9 other TDs... ]
                                 </pre>
@@ -1402,7 +1402,7 @@ img.wot-diagram {
                                 queried for the remaining TDs.
                                 The client requests the next page via the `next` link:
                                 <pre>
-                                    GET /td?offset=10&limit=10 HTTP/1.1   
+                                    GET /things?offset=10&limit=10 HTTP/1.1   
                                     Host: tdd.example.com
                                 </pre>
 
@@ -1410,7 +1410,7 @@ img.wot-diagram {
                                 <pre>
                                     HTTP/1.1 200 OK
                                     Content-Type: application/ld+json
-                                    Link: &#x3C;/td&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
+                                    Link: &#x3C;/things&#x3E;; rel=&#x22;canonical&#x22;; etag=&#x22;v1&#x22;
     
                                     [{ TD }, { TD }]
                                 </pre>
