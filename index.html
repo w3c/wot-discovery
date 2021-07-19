@@ -1249,8 +1249,13 @@ img.wot-diagram {
                     <section id="exploration-directory-api-registration-listing" class="normative">
                         <h4>Listing</h4>
                         <p>
-                            The listing endpoint provides a way to query the collection of TD objects
-                            from the directory. The Search API may be used to retrieve TD fragments; 
+                            The listing endpoint provides different ways to query the collection of full TD objects
+                            from the directory.
+                        </p>
+                        <p>
+                            In many scenarios, retrieving parts instead of full TD objects is preferred because
+                            only a subset of elements are needed (e.g. `id` and `href` of a property for all TDs)
+                            and to save networking resources. The Search API allows querying parts of TD objects;
                             see [[[#exploration-directory-api-search]]].
                         </p>
                         
