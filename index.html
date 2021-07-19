@@ -1375,7 +1375,7 @@ img.wot-diagram {
                             retrieval of TDs:
                             
                             <aside class="example" id="example-pagination"
-                                title="Query 12 TDs with page size 10.">
+                                title="Query all TDs with page size 10.">
                                 The client requests the list with a `limit` of 10:
                                 <pre>
                                     GET /td?limit=10 HTTP/1.1   
@@ -1417,6 +1417,8 @@ img.wot-diagram {
                                 The server response has the remaining two TDs. There is no `next` link,
                                 because this is the last page. The `etag` value has not changed implying
                                 that the collection has remained consistent between the two requests.
+                                <br><br>
+                                The client has retrieved the whole collection, containing 12 TDs.
                             </aside>
                         </p>
 
