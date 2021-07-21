@@ -1,6 +1,12 @@
 # WoT Discovery
-Repository for WoT discovery discussion.
-In this context, "discovery" is an automated process by which WoT Thing Descriptions may be obtained.
+[![Follow on Twitter](https://img.shields.io/twitter/follow/W3C_WoT.svg?label=follow+W3C_WoT)](https://twitter.com/W3C_WoT)
+[![Stack Exchange questions](https://img.shields.io/stackexchange/stackoverflow/t/web-of-things?style=plastic)]( https://stackoverflow.com/questions/tagged/web-of-things)
+
+General information about the Web of Things can be found on https://www.w3.org/WoT/.
+  
+---
+This is the repository for WoT Discovery discussion and specification development.
+In this context, "discovery" is the automated process by which WoT Thing Descriptions may be obtained.
 
 * [Use cases](USE-CASES/README.md): List of use cases.
 * [Requirements](requirements.md): List of requirements.
