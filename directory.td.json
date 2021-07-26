@@ -74,7 +74,7 @@
                 "format": {
                     "title": "Payload format",
                     "type": "string",
-                    "enum": ["array", "hydraCollection"],
+                    "enum": ["array", "collection"],
                     "default": "array"
                 },
                 "sort_by": {
