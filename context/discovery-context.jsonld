@@ -9,7 +9,17 @@
       "@id": "discovery:ThingLink",
       "@type": "@id"
     },
-    "registration": {
+	"ThingCollection": {
+      "@id": "discovery:ThingCollection",
+      "@type": "@id"
+    },
+	"total": "discovery:contains",
+	"members": [
+	  "td:Thing"
+	],
+	"@id": "discovery:thisThingCollection",
+	"next": "discovery:nextThingCollection",
+	"registration": {
       "@id": "discovery:hasRegistrationInformation",
       "@type": "@id",
       "@context": {

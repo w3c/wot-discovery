@@ -71,6 +71,12 @@
                     "title": "Number of TDs in a page",
                     "type": "number"
                 },
+                "format": {
+                    "title": "Payload format",
+                    "type": "string",
+                    "enum": ["array", "collection"],
+                    "default": "array"
+                },
                 "sort_by": {
                     "title": "Comparator TD attribute for collection sorting",
                     "type": "string",
