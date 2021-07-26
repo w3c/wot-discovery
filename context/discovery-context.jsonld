@@ -15,7 +15,7 @@
     },
 	"total": "discovery:contains",
 	"members": [
-	  "@graph"
+	  "td:Thing"
 	],
 	"@id": "discovery:thisThingCollection",
 	"next": "discovery:nextThingCollection",
