@@ -919,8 +919,8 @@ img.wot-diagram {
                         <ul>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
-                                    A TD MUST be submitted to the directory using an HTTP `PUT` request at a  
-                                    target location (HTTP path) containing the unique TD `id`.
+                                    A TD MUST be submitted to the directory using an HTTP `PUT` request
+                                    at `/things/{id}` endpoint, where `id` is the unique TD identifier. 
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-known-td-resp">  
                                     Upon successful processing, the server MUST respond with
@@ -939,7 +939,8 @@ img.wot-diagram {
                             </li>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
-                                    An <a>Anonymous TD</a> MUST be submitted to the directory using an HTTP `POST` request. 
+                                    An <a>Anonymous TD</a> MUST be submitted to the directory using an HTTP `POST` request
+                                    at `/things` endpoint.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-resp">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
@@ -981,8 +982,8 @@ img.wot-diagram {
                         <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
-                                A TD MUST be retrieved from the directory using an HTTP `GET` request,
-                                including the identifier of the TD as part of the path.
+                                A TD MUST be retrieved from the directory using an HTTP `GET` request
+                                at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
                                 A successful response MUST have 200 (OK) status, contain `application/td+json`
@@ -1117,7 +1118,7 @@ img.wot-diagram {
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-update">
                                     A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
-                                    to the location corresponding to the existing TD.
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
                                     The request SHOULD contain `application/td+json` Content-Type header for JSON
@@ -1151,7 +1152,8 @@ img.wot-diagram {
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial">
                                     An existing TD MUST be partially modified when the modified parts are submitted using an 
-                                    HTTP `PATCH` request to the location corresponding to the existing TD.
+                                    HTTP `PATCH` request
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-reg-update-partial-mergepatch">
                                     The partial update MUST be processed using the JSON merge patch format 
@@ -1226,8 +1228,8 @@ img.wot-diagram {
                         <h4>Deletion</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-delete">
-                                A TD MUST be removed from the directory when an HTTP `DELETE` request
-                                is submitted to the location corresponding to the existing TD.
+                                A TD MUST be removed from the directory when an HTTP `DELETE` request is submitted
+                                at `/things/{id}`, where `id` is the identifier of the existing TD.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
                                 A successful response MUST have 204 (No Content) status.
@@ -1262,8 +1264,8 @@ img.wot-diagram {
                             
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-list-method">
-                                The list of TDs MUST be retrieved from the directory using an
-                                HTTP `GET` request.
+                                The list of TDs MUST be retrieved from the directory using an HTTP `GET` request
+                                at `/things` endpoint.
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-reg-list-resp">
@@ -1514,7 +1516,8 @@ img.wot-diagram {
                         to Thing Descriptions maintained within the directory.
                         <span class="rfc2119-assertion" id="tdd-notification-sse">
                             The Notification API MUST follow the Server-Sent Events [[EVENTSOURCE]]
-                            specifications to serve events to clients. 
+                            specifications to serve events to clients
+                            at `/events` endpoint.
                         </span>
                         In particular, the server responds to successful requests with 200 (OK) status
                         and `text/event-stream` Content Type.
@@ -1732,7 +1735,8 @@ img.wot-diagram {
                     <section id="jsonpath-semantic" class="normative">
                         <h4>Syntactic search: JSONPath</h4>
                         <span class="rfc2119-assertion" id="tdd-search-jsonpath-method">
-                            The API MUST allow searching TDs using an HTTP <code>GET</code> request.
+                            The JSONPath API MUST allow searching TDs using an HTTP <code>GET</code> request
+                            at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
                         </span> 
                         <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter">
                             The request MUST contain a valid JSONPath [[?JSONPATH]] as searching parameter.
@@ -1761,7 +1765,8 @@ img.wot-diagram {
                         The support for XPath Search API is recommended.
                         <span class="rfc2119-assertion" id="tdd-search-xpath-method">
                             If implemented, the XPath query API MUST allow searching TDs using an
-                            HTTP <code>GET</code> request.
+                            HTTP <code>GET</code> request
+                            at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-xpath-parameter">
                             The request MUST contain a valid XPath [[xpath-31]] as search parameter.
@@ -1791,10 +1796,12 @@ img.wot-diagram {
                             the SPARQL protocol [[sparql11-overview]].
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-method-get">
-                            The SPARQL API MUST accept queries using HTTP <code>GET</code> requests.
+                            The SPARQL API MUST accept queries using HTTP <code>GET</code> requests
+                            at `/search/sparql?query={query}` endpoint, where `query` is the SPARQL expression.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-method-post">
-                            The support for SPARQL search using HTTP <code>POST</code> method is OPTIONAL.
+                            The support for SPARQL search using HTTP <code>POST</code> method
+                            at `/search/sparql` endpoint is OPTIONAL.
                         </span>
                         <code>UPDATE</code> queries are out of the scope for the API.
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp">
