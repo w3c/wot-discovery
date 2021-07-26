@@ -13,8 +13,8 @@
       "@id": "discovery:ThingCollection",
       "@type": "@id"
     },
-	"totalItems": "discovery:contains",
-	"member": [
+	"total": "discovery:contains",
+	"members": [
 	  "@graph"
 	],
 	"@id": "discovery:thisThingCollection",
