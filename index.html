@@ -613,7 +613,7 @@ img.wot-diagram {
                 through others means. 
                 If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
                 via one of the [[[#introduction-mech]]].
-                The hosted TD may also be registered inside a <a>Thing Description Directory</a>
+                The hosted <a>TD</a> may also be registered inside a <a>Thing Description Directory</a>
                 as prescribed in [[[#exploration-directory]]]. 
             </p>
             
@@ -626,22 +626,24 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="self-http-secure"> 
                             The HTTP-based self-description SHOULD be over HTTPS (HTTP Over TLS).
                         </span>
+                        <span class="rfc2119-assertion" id="self-http-access-control">
+                            The server SHOULD serve the requests after performing necessary 
+                            authentication and authorization.
+                        </span>
+                    </p>
+                    <p>
                         <span class="rfc2119-assertion" id="self-http-method"> 
-                            The HTTP server MUST serve the TD with a `GET` method.
+                            The HTTP server MUST serve the <a>TD</a> with a `GET` method.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-resp">
                             A successful response MUST have 200 (OK) status, contain `application/td+json`
-                            Content-Type header, and the TD in body.
+                            Content-Type header, and the <a>TD</a> in body.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
                             The server MAY provide alternative representations through
                             server-driven content negotiation, that is by honouring the 
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
-                        </span>
-                        <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server SHOULD serve the requests after performing necessary 
-                            authentication and authorization.
                         </span>
                     </p>
                     
