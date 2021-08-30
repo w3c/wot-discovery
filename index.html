@@ -859,19 +859,20 @@ img.wot-diagram {
                     </span>
                     This enables both machines and humans to know the high-level error class
                     and fine-grained details.
-
-                    <p class="ednote" title="WoT-specific error types">
-                        The Problem Details error `type` field is a URI reference which 
-                        could used to map the occurred error to WoT-specific error class. 
-                        There are few open issues raising the lack of WoT-specific error types:
-                        <a href="https://github.com/w3c/wot-discovery/issues/44">wot-discovery#44</a>,
-                        <a href="https://github.com/w3c/wot-thing-description/issues/303">wot-thing-description#303</a>,
-                        <a href="https://github.com/w3c/wot-scripting-api/issues/200">wot-scripting-api#200</a>.
-                        <br>
-                        For now, `type` can be omitted which defaults to "about:blank", and `title`
-                        should be set to HTTP status text.
-                    </p>
                 </p>
+
+                <p class="ednote" title="WoT-specific error types">
+                    The Problem Details error `type` field is a URI reference which 
+                    could used to map the occurred error to WoT-specific error class. 
+                    There are few open issues raising the lack of WoT-specific error types:
+                    <a href="https://github.com/w3c/wot-discovery/issues/44">wot-discovery#44</a>,
+                    <a href="https://github.com/w3c/wot-thing-description/issues/303">wot-thing-description#303</a>,
+                    <a href="https://github.com/w3c/wot-scripting-api/issues/200">wot-scripting-api#200</a>.
+                    <br>
+                    For now, `type` can be omitted which defaults to "about:blank", and `title`
+                    should be set to HTTP status text.
+                </p>
+                
 
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
