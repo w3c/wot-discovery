@@ -873,6 +873,16 @@ img.wot-diagram {
                     should be set to HTTP status text.
                 </p>
                 
+                <p>
+                    <span class="rfc2119-assertion" id="tdd-http-head"> 
+                        For each HTTP endpoint that responds to the `GET` method, the server SHOULD accept `HEAD` 
+                        requests and return only the headers.
+                    </span>
+                    This allows clients to retrieve headers such as the Content-Length without receiving the body
+                    and decide on a suitable strategy to query the information. For example, a constrained client can
+                    request only the necessary parts of an object (using an apprpriate search query) or 
+                    retrieve a list of items in small subsets.
+                </p>
 
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Registration</h4>
