@@ -2163,6 +2163,34 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
 
     <section id="iana-considerations" class="normative">
         <h1>IANA Considerations</h1>
+        <section id="well-known-uri-suffix">
+            <h2>Well-Known URI Registration</h2>
+            <p>
+                IANA will be asked to allocate the following value into the Well-Known URI
+                defined in [[RFC8615]].
+            </p>
+            <ul>
+                <li>URI suffix: <code>wot-thing-description</code></li>
+            </ul>
+            <p class="ednote" title="Shorter suffix">
+                We are currently discussing whether we should adopt a shorter URI suffix (such as <code>wot-td</code>)
+                in view of limited packet lengths for some protocols.
+            </p>
+        </section>
+        <section id="service-name">
+            <h2>Service Name Registration</h2>
+            <p>
+                IANA will be asked to allocate the following value into Service Name and Transport Protocol Port Number Registry
+                defined in [[RFC6335]].
+            </p>
+            <ul>
+                <li>Service Name: <code>wot</code></li>
+                <li>Transport Protocol: TCP, UDP</li>
+                <li>Description: Service name to search a Thing or a Thing Description Directory of W3C Web of Things</li>
+                <li>Port Number: N/A</li>
+                <li>Assignment notes: PTR, SRV, TXT RR types are used</li>
+            </ul>
+        </section>
         <section id="core-resource-type">
             <h2>CoRE Resource Types Registration</h2>
             <p>
