@@ -333,6 +333,9 @@
                     "type": "string"
                 }
             },
+            "output": {
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -363,6 +366,9 @@
                     "type": "string"
                 }
             },
+            "output": {
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -392,6 +398,9 @@
                     "title": "A valid SPARQL 1.1. query",
                     "type": "string"
                 }
+            },
+            "output": {
+                "type": "object"
             },
             "safe": true,
             "idempotent": true,
