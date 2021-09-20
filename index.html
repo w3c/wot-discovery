@@ -306,10 +306,15 @@ img.wot-diagram {
     </section>
     <section id="introduction-mech" class="normative">
         <h1>Introduction Mechanisms</h1>
-        <p>This chapter describes a mechanism for discovering a Thing or a <a>Thing Description Directory</a>.
-           The following mechanism is provided by the Thing or the <a>Thing Description Directory</a> so that
-           Consumers can discover the Thing Description or a URL that point to the Thing Description.
-           No paticular introduction mechanism is mandatory, as long as a URL of an exploration service is somehow obtained.
+        <p>This chapter describes mechanisms for initial contact with
+           Things or <a>Thing Description Directories</a>.
+           Any of the following mechanisms may 
+           be provided by the Thing or the <a>Thing Description Directory</a> to Consumers.
+           The result of an introduction mechanism is always a URL (address) of an exploration service
+           which can be used to obtain detailed metadata (TDs) after suitable authentication.
+           It is also possible for multiple introduction mechanisms to be used and the results merged.
+           No particular introduction mechanism is mandatory, as long as the URL of at least one
+           exploration service is somehow obtained.
         </p>
 
         <section id="introduction-direct" class="normative">
