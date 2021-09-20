@@ -136,6 +136,9 @@
                     "format": "iri-reference"
                 }
             },
+            "input": {
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things/{id}",
@@ -158,6 +161,9 @@
         },
         "createAnonymousThing": {
             "description": "Create an anonymous Thing Description",
+            "input": {
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things",
@@ -194,6 +200,9 @@
                     "format": "iri-reference"
                 }
             },
+            "output": {
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -226,6 +235,9 @@
                     "format": "iri-reference"
                 }
             },
+            "input": {
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things/{id}",
@@ -255,6 +267,9 @@
                     "type": "string",
                     "format": "iri-reference"
                 }
+            },
+            "input": {
+                "type": "object"
             },
             "forms": [
                 {
