@@ -319,7 +319,7 @@ img.wot-diagram {
 
         <section id="introduction-direct" class="normative">
             <h2>Direct</h2>
-            <p>Any mechanism that results in a single URL.
+            <p><span class="rfc2119-assertion" id="introduction-direct-url">To obtain an URL of an exploration service, any mechanism that results in a single URL MAY be used.</span>
                This includes Bluetooth beacons, QR codes, and written URLs to be 
                typed by a user.
                 <span class="rfc2119-assertion" id="introduction-direct-thing-description">
@@ -336,12 +336,13 @@ img.wot-diagram {
         <section id="introduction-well-known" class="normative">
             <h2>Well-Known URIs</h2>
             <p>
-                A Thing or <a>Thing Description Directory</a> may use the Well-Known Uniform Resource Identifier [[RFC8615]]
-                to advertise its presence.  The Thing or <a>Thing Description Directory</a> registers its own Thing or Directory Description
+                <span class="rfc2119-assertion" id="introduction-well-known-uri">A Thing or <a>Thing Description Directory</a> MAY use the Well-Known Uniform Resource Identifier [[RFC8615]]
+                to advertise its presence.</span>
+                <span class="rfc2119-assertion" id="introduction-well-known-path">If the Thing or <a>Thing Description Directory</a> use the Well-Known Uniform Resource Identifier to advertise its presense, it MUST register its own Thing or Directory Description
                 into the following path:
-                <code>/.well-known/wot-thing-description</code>.
+                <code>/.well-known/wot-thing-description</code>.</span>
             <p>
-                <span class="rfc2119-assertion" id="introduction-well-known-path">
+                <span class="rfc2119-assertion" id="introduction-well-known-thing-description">
                     When a request is made at the above Well-Known URI, the server MUST return
                     a Thing Description as prescribed in [[[#exploration-self]]].
                 </span>
@@ -354,7 +355,7 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p>A Thing or <a>Thing Description Directory</a> may use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].
+            <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
                 This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
@@ -432,10 +433,11 @@ img.wot-diagram {
         <section id="introduction-core-rd" class="normative">
             <h2>CoRE Link Format and CoRE Resource Directory</h2>
             <p>
-                A Thing or <a>Thing Description Directory</a> may advertise its presence using the
-                Constrained RESTful Environment (CoRE) Link Format [[RFC6690]].
-                And, a Thing or <a>Thing Description Directory</a> may use the CoRE Resource Directory [[CoRE-RD]]
-                to register a link to the Thing or Directory Description.
+                <span class="rfc2119-assertion" id="introduction-core-rd">A Thing or <a>Thing Description Directory</a> MAY advertise its presence using the
+                Constrained RESTful Environment (CoRE) Link Format [[RFC6690]].</span>
+                <span class="rfc2119-assertion" id="introduction-core-rd-directory">
+                A Thing or <a>Thing Description Directory</a> MAY use the CoRE Resource Directory [[CoRE-RD]]
+                to register a link to the Thing or Directory Description.</span>
             </p>
             <p>
                 <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-thing">
@@ -454,8 +456,8 @@ img.wot-diagram {
         </section>
         <section id="introduction-did" class="normative">
             <h2>DID Documents</h2>
-            <p>A Thing or <a>Thing Description Directory</a> may advertise its presence using 
-                the Decentralized Identifier (DID) [[DID-CORE]].
+            <p><span class="rfc2119-assertion" id="introduction-did">A Thing or <a>Thing Description Directory</a> MAY advertise its presence using 
+                the Decentralized Identifier (DID) [[DID-CORE]].</span>
             </p>
             <p>
                 <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
