@@ -2,7 +2,7 @@
 ## Implementations
 The following are meant to be implementations of directories in the current spec and will be used for validation of the directory service specification.
 
-* [Fraunhofer - LinkSmart](linksmart_tdd.md): Detail TBD.  JSON Path and XPath.
+* [Fraunhofer - LinkSmart](https://github.com/linksmart/thing-directory): Implementing Registration, Search (JSONPath, XPath), and Notification APIs.
 * [UPM - WoTHive](upmoeg_tdd.md): Detail TDB.  JSON Path, XPath, and SPARQL.
 * [Siemens - TDB](siemens_tdd.md): Detail TDB.  JSON Path, SPARQL.
 
