@@ -136,6 +136,10 @@
                     "format": "iri-reference"
                 }
             },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things/{id}",
@@ -158,6 +162,10 @@
         },
         "createAnonymousThing": {
             "description": "Create an anonymous Thing Description",
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things",
@@ -194,6 +202,10 @@
                     "format": "iri-reference"
                 }
             },
+            "output": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -226,6 +238,10 @@
                     "format": "iri-reference"
                 }
             },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            },
             "forms": [
                 {
                     "href": "/things/{id}",
@@ -255,6 +271,10 @@
                     "type": "string",
                     "format": "iri-reference"
                 }
+            },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
             },
             "forms": [
                 {
@@ -318,6 +338,10 @@
                     "type": "string"
                 }
             },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -347,6 +371,10 @@
                     "title": "A valid XPath expression",
                     "type": "string"
                 }
+            },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
             },
             "safe": true,
             "idempotent": true,
@@ -378,6 +406,10 @@
                     "type": "string"
                 }
             },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
+            },
             "safe": true,
             "idempotent": true,
             "forms": [
@@ -386,6 +418,7 @@
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
+                        "contentType": "application/json",
                         "htv:statusCodeValue": 200
                     },
                     "additionalResponses": [
