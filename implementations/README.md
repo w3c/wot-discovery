@@ -1,10 +1,13 @@
 # WoT Discovery
 ## Implementations
-The following are meant to be implementations of directories in the current spec and will be used for validation of the directory service specification.
+The following are the implementations of directories in the current spec and will be used for validation of the directory service specification.
 
-* [Fraunhofer - LinkSmart](https://github.com/linksmart/thing-directory): Open-source implementation of the directory with Registration, Search (JSONPath, XPath), and Notification APIs.
-* [UPM - WoTHive](upmoeg_tdd.md): Detail TDB.  JSON Path, XPath, and SPARQL.
-* [Siemens - TDB](siemens_tdd.md): Detail TDB.  JSON Path, SPARQL.
+| Organization | Name | License | Language | APIs |
+|---|---|---|---|---|
+| Fraunhofer | [LinkSmart Thing Directory][1] | Apache 2 | Go | Registration, Notification, Search (JSONPath, XPath) |
+| UPM | [WoT Hive][2] | Apache 2 | Java | Registration, Notification, Search (JSONPath, SPARQL) |
+| Siemens | Logilab TDD | Proprietary | Python | Registration, Search (SPARQL) |
+
 
 A detailed table of supported features for each implementation will be listed in Implementation Report.  Link TBD.
 An implementation may support features not in the standard, but these will not be covered in the 
@@ -18,3 +21,7 @@ In addition, the following introduction mechanisms have been implemented and tes
 * [Hitachi - DNS-SD/mDNS](implementations/hitachi_intro.md)
 * DID
 * others...
+
+
+[1]: https://github.com/linksmart/thing-directory
+[2]: https://github.com/oeg-upm/wot-hive
