@@ -14,7 +14,9 @@ An implementation may support features not in the standard, but these will not b
 Implementation Report; please see the documentation of individual implementations for additional features.
 
 Self-description also needs to be tested:
-* List TDs supporting 
+* Intel - Camera
+* Intel - Speech
+* List additional TDs supporting here
 
 In addition, the following introduction mechanisms have been implemented and tested:
 * Direct URL
