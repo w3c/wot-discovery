@@ -1785,34 +1785,38 @@ img.wot-diagram {
                     
                     <p class="ednote" title="Search API Overview">
                         Sub-API to search a directory, e.g. issue a query.
-                        There are different forms and levels of query possible, for example,
-                        syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
-                        and the more advanced query types may not be 
-                        supported by all directories.   
-                        So this API will have further subsections,
-                        some of which will be optional.
+                        There are different forms and levels of query possible, including both
+                        syntactic and semantic queries.
+                        In general, query types are optional and all query types do not need to be 
+                        supported by all directories - or at all.
+                        This API has subsections for each query type.
                         Search also includes a sub-API for managing listing the contents (eg returned by
                         a query) including handling pagination, etc.
-                        Note that one special form of query will be able to return everything.
-                        Results may be subject to the requestor's authorization.
+                        There is also one special form of query able to return the entire contents of
+			the directory.
+                        Results may be subject to the requestor's authorization, and this query form is
+			only suitable for small directories.  Larger directories (with, for instance,
+			more than a hundred or so entries) should implement some form of query.
                         <br>
                         To discuss further:
                         Federated queries to other TDDs, Spatial and network-limited queries, Links
                     </p>
                     The Directory has three search APIs: syntactic search with JSONPath [[?JSONPATH]]
                     or XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
-                    <span class="rfc2119-assertion" id="tdd-search-jsonpath">
-                        The Directory MUST implement the syntactic search with JSONPath.
-                    </span>
                     <span class="rfc2119-assertion" id="tdd-search-xpath">
-                        The Directory SHOULD implement the syntactic search with XPath.
+                        The Directory MAY implement the syntactic search with XPath.
                     </span>
                     <span class="rfc2119-assertion" id="tdd-search-sparql">
                         The Directory MAY implement semantic search with SPARQL.
                     </span>
+                    In addition, in the future Directories may support syntactic search with JSONPath,
+		    but this its specification is still in a draft status.  We document in an informative
+		    manner a JSONPath entry point.  
     		
-                    <section id="jsonpath-semantic" class="normative">
+                    <section id="jsonpath-semantic" class="informative">
                         <h4>Syntactic search: JSONPath</h4>
+			To do: The JSONPath subAPI is optional and informative, so it is not appropriate to
+			have RFC assertions here.  They will have to be reworded.
                         <span class="rfc2119-assertion" id="tdd-search-jsonpath-method">
                             The JSONPath API MUST allow searching TDs using an HTTP <code>GET</code> request
                             at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
