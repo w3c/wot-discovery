@@ -1799,19 +1799,16 @@ img.wot-diagram {
                     </p>
                     This specification describes three search APIs: syntactic search with JSONPath [[?JSONPATH]],
                     syntactic search with XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
-                    <!-- <span class="rfc2119-assertion" id="tdd-search-jsonpath">
-                        The Directory MUST implement the syntactic search with JSONPath.
-                    </span> -->
-                    <span class="rfc2119-assertion" id="tdd-search-xpath">
-                        The Directory MAY implement the syntactic search with XPath.
-                    </span>
                     <span class="rfc2119-assertion" id="tdd-search-sparql">
                         The Directory MAY implement semantic search with SPARQL.
                     </span>
-                    <span class="rfc2119-assertion" id="tdd-search-large-tdds">
-                        It is RECOMMENDED that directories implement at least one search API
-                        to efficiently serve <a>TDs</a> based on client-specific queries.
-                    </span>
+                    JSONPath and XPath are informative and subject to change.
+                    <p>
+                        <span class="rfc2119-assertion" id="tdd-search-large-tdds">
+                            It is RECOMMENDED that directories implement at least one search API
+                            to efficiently serve <a>TDs</a> based on client-specific queries.
+                        </span>
+                    </p>
 
                     <section id="jsonpath-semantic" class="informative">
                         <h4>Syntactic search: JSONPath</h4>
@@ -1823,18 +1820,13 @@ img.wot-diagram {
                             as unstable and expect deviations across
                             <a>Thing Description Directory</a> implementations.
                         </div>
-                        <!-- <span class="rfc2119-assertion" id="tdd-search-jsonpath-method"> -->
-                        The JSONPath API must allow searching TDs using an HTTP <code>GET</code> request
+                        The support for JSONPath Search API is optional.
+                        If implemented, the JSONPath API must allow searching TDs using an HTTP <code>GET</code> request
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
-                        <!-- </span> -->
-                        <!-- <span class="rfc2119-assertion" id="tdd-search-jsonpath-parameter"> -->
                         The request must contain a valid JSONPath [[?JSONPATH]] as searching parameter.
-                        <!-- </span> -->
-                        <!-- <span class="rfc2119-assertion" id="tdd-search-jsonpath-response"> -->
                         A successful response must have 200 (OK) status, contain
                         <code>application/json</code> Content-Type header, and in
                         the body a set of complete TDs or a set of TD fragments.
-                        <!-- </span> -->
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-thing-description]]].
 
@@ -1846,22 +1838,17 @@ img.wot-diagram {
                             </ul>
                         </p>
                     </section>
-                    <section id="xpath-semantic" class="normative">
+                    <section id="xpath-semantic" class="informative">
                         <h4>Syntactic search: XPath</h4>
-                        The support for XPath Search API is recommended.
-                        <span class="rfc2119-assertion" id="tdd-search-xpath-method">
-                            If implemented, the XPath query API MUST allow searching TDs using an
-                            HTTP <code>GET</code> request
-                            at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
-                        </span>
-                        <span class="rfc2119-assertion" id="tdd-search-xpath-parameter">
-                            The request MUST contain a valid XPath [[xpath-31]] as search parameter.
-                        </span>
-                        <span class="rfc2119-assertion" id="tdd-search-xpath-response">
-                            A successful response MUST have 200 (OK) status, contain
-                            <code>application/json</code> Content-Type header, and in
-                            the body a set of complete TDs or a set of TD fragments.
-                        </span>
+                        The support for XPath Search API is optional.
+                        If implemented, the XPath query API must allow searching TDs using an
+                        HTTP <code>GET</code> request
+                        at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
+                        The request must contain a valid XPath [[xpath-31]] as search parameter.
+                        A successful response must have 200 (OK) status, contain
+                        <code>application/json</code> Content-Type header, and in
+                        the body a set of complete TDs or a set of TD fragments.
+                        
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-thing-description]]].
                                 
@@ -1870,7 +1857,6 @@ img.wot-diagram {
                                 <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>501 (Not Implemented): XPath API not supported.</li>
                             </ul>
                         </p>
                     </section>
