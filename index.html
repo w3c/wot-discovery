@@ -1844,7 +1844,7 @@ img.wot-diagram {
                         If implemented, the XPath query API must allow searching TDs using an
                         HTTP <code>GET</code> request
                         at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
-                        The request must contain a valid XPath [[xpath-31]] as search parameter.
+                        The request must contain a valid XPath 3.1 [[xpath-31]] as search parameter.
                         A successful response must have 200 (OK) status, contain
                         <code>application/json</code> Content-Type header, and in
                         the body a set of complete TDs or a set of TD fragments.
@@ -1865,7 +1865,7 @@ img.wot-diagram {
                         Support for SPARQL Search API is optional.
                         <span class="rfc2119-assertion" id="tdd-search-sparql-version">
                             If implemented, the SPARQL search API MUST allow searching TDs using
-                            the SPARQL protocol [[sparql11-overview]].
+                            the SPARQL 1.1 protocol [[sparql11-overview]].
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-method-get">
                             The SPARQL API MUST accept queries using HTTP <code>GET</code> requests
