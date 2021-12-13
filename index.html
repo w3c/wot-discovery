@@ -1444,21 +1444,7 @@ img.wot-diagram {
                             Serializing and returning the full list of TDs may be burdensome to servers.
                             As such, servers should serialize incrementally and utilize protocol-specific
                             mechanisms to respond in chunks. 
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http11-chunks">
-                                HTTP/1.1 servers SHOULD perform chunked 
-                                <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
-                                to respond the data incrementally.
-                            </span>
-                            Most HTTP/1.1 clients automatically process the data received with 
-                            chunked transfer encoding.
-                            Memory-constrained applications which require the full list
-                            should consider processing the received data incrementally.
-
-                            Chunked transfer encoding is not supported in HTTP/2.
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http2-frames">
-                                HTTP/2 servers SHOULD respond the data incrementally using 
-                                <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
-                            </span>
+                            Various recommendations are available under [[[#performance-considerations-incremental-transfer]]].
                         </p>
 
                         <p>    
@@ -2128,6 +2114,37 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 </ul>
                 </dd>
             </dl>
+        </section>
+    </section>
+
+    <section id="performance-considerations" class="informative">
+        <h1>Performance Considerations</h1>
+        
+        <section id="performance-considerations-incremental-transfer">
+            <h2>Incremental Transfer</h2>
+            Serializing and returning the full list of TDs may be burdensome to servers.
+            As such, servers should serialize incrementally and utilize protocol-specific
+            mechanisms to respond in chunks. 
+
+            <section id="performance-considerations-incremental-transfer-http">
+                <h3>HTTP</h3>
+                <p>                   
+                    HTTP/1.1 servers should perform chunked 
+                    <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
+                    to respond the data incrementally.
+                    
+                    Most HTTP/1.1 clients automatically process the data received with 
+                    chunked transfer encoding.
+                    Memory-constrained applications which require the full list
+                    should consider processing the received data incrementally.
+                </p>
+                <p>
+                    Chunked transfer encoding is not supported in HTTP/2.
+                    HTTP/2 servers SHOULD respond the data incrementally using 
+                    <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
+                </p>                        
+                
+            </section>
         </section>
     </section>
 
