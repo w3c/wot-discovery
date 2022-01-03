@@ -1,0 +1,217 @@
+{
+    "@context": [
+        "http://www.w3.org/ns/td",
+        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+    ],
+    "@type": [
+        "tm:ThingModel",
+        "ThingDirectory"
+    ],
+    "title": "Thing Description Directory (TDD) Thing Model",
+    "version": {
+        "model": "1.0.0-alpha"
+    },
+    "base": "{{DIRECTORY_BASE_URL}}",
+    "properties": {
+        "things": {
+            "description": "Retrieve all Thing Descriptions",
+            "uriVariables": {
+                "offset": {
+                    "title": "Number of TDs to skip before the page",
+                    "type": "number",
+                    "default": 0
+                },
+                "limit": {
+                    "title": "Number of TDs in a page",
+                    "type": "number"
+                },
+                "format": {
+                    "title": "Payload format",
+                    "type": "string",
+                    "enum": [
+                        "array",
+                        "collection"
+                    ],
+                    "default": "array"
+                },
+                "sort_by": {
+                    "title": "Comparator TD attribute for collection sorting",
+                    "type": "string",
+                    "default": "id"
+                },
+                "sort_order": {
+                    "title": "Sorting order",
+                    "type": "string",
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
+                    "default": "asc"
+                }
+            }
+        }
+    },
+    "actions": {
+        "createThing": {
+            "description": "Create a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            }
+        },
+        "createAnonymousThing": {
+            "description": "Create an anonymous Thing Description",
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            }
+        },
+        "retrieveThing": {
+            "description": "Retrieve a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "output": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            },
+            "safe": true,
+            "idempotent": true
+        },
+        "updateThing": {
+            "description": "Update a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            }
+        },
+        "partiallyUpdateThing": {
+            "description": "Partially update a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            },
+            "input": {
+                "description": "The schema is implied by the content type",
+                "type": "object"
+            }
+        },
+        "deleteThing": {
+            "description": "Delete a Thing Description",
+            "uriVariables": {
+                "id": {
+                    "@type": "ThingID",
+                    "title": "Thing Description ID",
+                    "type": "string",
+                    "format": "iri-reference"
+                }
+            }
+        },
+        "searchJSONPath": {
+            "description": "JSONPath syntactic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid JSONPath expression",
+                    "type": "string"
+                }
+            },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
+            },
+            "safe": true,
+            "idempotent": true
+        },
+        "searchXPath": {
+            "description": "XPath syntactic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid XPath expression",
+                    "type": "string"
+                }
+            },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
+            },
+            "safe": true,
+            "idempotent": true
+        },
+        "searchSPARQL": {
+            "description": "SPARQL semantic search",
+            "uriVariables": {
+                "query": {
+                    "title": "A valid SPARQL 1.1. query",
+                    "type": "string"
+                }
+            },
+            "output": {
+                "description": "The schema depends on the given query",
+                "type": "object"
+            },
+            "safe": true,
+            "idempotent": true
+        }
+    },
+    "events": {
+        "thingCreation": {
+            "description": "Registration of Thing Descriptions inside the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Receive the full created TD as event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial/Full TD",
+                "type": "object"
+            }
+        },
+        "thingUpdate": {
+            "description": "Updates to Thing Descriptions within the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Include TD changes inside event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial TD",
+                "type": "object",
+                "contentMediaType": "application/merge-patch+json"
+            }
+        },
+        "thingDeletion": {
+            "description": "Deletion of Thing Descriptions from the directory",
+            "data": {
+                "title": "Partial TD",
+                "type": "object"
+            }
+        }
+    }
+}
