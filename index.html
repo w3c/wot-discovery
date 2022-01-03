@@ -1547,11 +1547,17 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-api-notification" class="normative">
                     <h4>Notification</h4>
-
-                    <p>The Notification API is to notify clients about the changes
-                        to Thing Descriptions maintained within the directory.
+                    <p>
+                        The Notification API is to notify clients about the changes
+                        to <a>TDs</a> maintained within the directory.
+                        <span class="rfc2119-assertion" id="tdd-notification">
+                            Directories MAY implement the Notification API.
+                        </span>
+                    </p>
+                    <p>
+                        
                         <span class="rfc2119-assertion" id="tdd-notification-sse">
-                            The Notification API MUST follow the Server-Sent Events [[EVENTSOURCE]]
+                            The Notification API MUST follow the Server-Sent Events (SSE) [[EVENTSOURCE]]
                             specifications to serve events to clients
                             at `/events` endpoint.
                         </span>
@@ -1563,6 +1569,11 @@ img.wot-diagram {
                             The server SHOULD provide an event ID as the `id` field in each event
                             and respond to re-connecting clients by delivering all missed events.
                         </span>
+                    </p>
+                    <p>
+                        The rest of this section describes the implementation details on top of the SSE protocol.
+                        Realizing the notification functionality using other protocols such as
+                        MQTT are possible and may be formalized in future versions of this specification.
                     </p>
 
                     <dl>
