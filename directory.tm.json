@@ -3,61 +3,15 @@
         "http://www.w3.org/ns/td",
         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
     ],
-    "@type": "ThingDirectory",
-    "title": "Thing Description Directory (TDD)",
+    "@type": [
+        "tm:ThingModel",
+        "ThingDirectory"
+    ],
+    "title": "Thing Description Directory (TDD) Thing Model",
     "version": {
-        "instance": "1.0.0-alpha"
+        "model": "1.0.0-alpha"
     },
-    "securityDefinitions": {
-        "oauth2_code": {
-            "scheme": "oauth2",
-            "flow": "code",
-            "authorization": "https://auth.example.com/authorization",
-            "token": "https://auth.example.com/token",
-            "scopes": [
-                "write",
-                "read",
-                "readAll",
-                "search",
-                "notification"
-            ]
-        },
-        "oauth2_client": {
-            "scheme": "oauth2",
-            "flow": "client",
-            "token": "https://auth.example.com/token",
-            "scopes": [
-                "write",
-                "read",
-                "readAll",
-                "search",
-                "notification"
-            ]
-        },
-        "oauth2_device": {
-            "scheme": "oauth2",
-            "flow": "device",
-            "authorization": "https://auth.example.com/device_authorization",
-            "token": "https://auth.example.com/token",
-            "scopes": [
-                "write",
-                "read",
-                "readAll",
-                "search",
-                "notification"
-            ]
-        },
-        "combo_sc": {
-            "scheme": "combo",
-            "oneOf": [
-                "oauth2_code",
-                "oauth2_client",
-                "oauth2_device"
-            ]
-        }
-    },
-    "security": "combo_sc",
-    "base": "https://tdd.example.com",
+    "base": "{{DIRECTORY_BASE_URL}}",
     "properties": {
         "things": {
             "description": "Retrieve all Thing Descriptions",
@@ -74,7 +28,10 @@
                 "format": {
                     "title": "Payload format",
                     "type": "string",
-                    "enum": ["array", "collection"],
+                    "enum": [
+                        "array",
+                        "collection"
+                    ],
                     "default": "array"
                 },
                 "sort_by": {
@@ -85,7 +42,10 @@
                 "sort_order": {
                     "title": "Sorting order",
                     "type": "string",
-                    "enum": ["asc", "desc"],
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
                     "default": "asc"
                 }
             },
@@ -97,8 +57,7 @@
                         "description": "Success response",
                         "htv:statusCodeValue": 200,
                         "contentType": "application/ld+json"
-                    },
-                    "scopes": "readAll"
+                    }
                 },
                 {
                     "href": "/things{?offset,limit,sort_by,sort_order}",
@@ -119,8 +78,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "readAll"
+                    ]
                 }
             ]
         }
@@ -155,8 +113,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "write"
+                    ]
                 }
             ]
         },
@@ -187,8 +144,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "write"
+                    ]
                 }
             ]
         },
@@ -223,8 +179,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 404
                         }
-                    ],
-                    "scopes": "read"
+                    ]
                 }
             ]
         },
@@ -257,8 +212,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "write"
+                    ]
                 }
             ]
         },
@@ -296,8 +250,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 404
                         }
-                    ],
-                    "scopes": "write"
+                    ]
                 }
             ]
         },
@@ -325,8 +278,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 404
                         }
-                    ],
-                    "scopes": "write"
+                    ]
                 }
             ]
         },
@@ -359,8 +311,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "search"
+                    ]
                 }
             ]
         },
@@ -393,8 +344,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "search"
+                    ]
                 }
             ]
         },
@@ -427,8 +377,7 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "search"
+                    ]
                 },
                 {
                     "href": "/search/sparql",
@@ -444,91 +393,87 @@
                             "contentType": "application/problem+json",
                             "htv:statusCodeValue": 400
                         }
-                    ],
-                    "scopes": "search"
+                    ]
                 }
             ]
         }
     },
     "events": {
         "thingCreation": {
-          "description": "Registration of Thing Descriptions inside the directory",
-          "uriVariables": {
-            "diff": {
-                "description": "Receive the full created TD as event data",
-                "type": "boolean"
-            }
-          },
-          "data": {
-            "title": "Partial/Full TD",
-            "type": "object"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/create{?diff}",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-          ]
+            "description": "Registration of Thing Descriptions inside the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Receive the full created TD as event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial/Full TD",
+                "type": "object"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/create{?diff}",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ]
+                }
+            ]
         },
         "thingUpdate": {
-          "description": "Updates to Thing Descriptions within the directory",
-          "uriVariables": {
-            "diff": {
-                "description": "Include TD changes inside event data",
-                "type": "boolean"
-            }
-          },
-          "data": {
-            "title": "Partial TD",
-            "type": "object",
-            "contentMediaType": "application/merge-patch+json"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/update{?diff}",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-          ]
+            "description": "Updates to Thing Descriptions within the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Include TD changes inside event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial TD",
+                "type": "object",
+                "contentMediaType": "application/merge-patch+json"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/update{?diff}",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ]
+                }
+            ]
         },
         "thingDeletion": {
-          "description": "Deletion of Thing Descriptions from the directory",
-          "data": {
-            "title": "Partial TD",
-            "type": "object"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/delete",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-           ]
+            "description": "Deletion of Thing Descriptions from the directory",
+            "data": {
+                "title": "Partial TD",
+                "type": "object"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/delete",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ]
+                }
+            ]
         }
     }
 }

@@ -232,6 +232,7 @@ img.wot-diagram {
             The fundamental WoT terminology such as
             <dfn>Thing</dfn>,
             <dfn>Thing Description</dfn> (<dfn>TD</dfn>),
+            <dfn>Thing Model</dfn> (<dfn>TM</dfn>),
             <dfn>Property</dfn>,
             <dfn>Action</dfn>,
             <dfn>Event</dfn>,
@@ -497,7 +498,7 @@ img.wot-diagram {
                 discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.
             </span>
             <p>
-                [[[#directory-thing-description]]] which describes the API of the
+                [[[#directory-api-spec]]] which describes the API of the
                 Thing Description Directory is an example of this TD class.
             </p>
         </dd>
@@ -926,7 +927,7 @@ img.wot-diagram {
                                 </p>
                                 <p>
                                     The create operation for <a>TDs</a> that have identifiers is specified
-                                    as `createThing` action in [[[#directory-thing-description]]]. 
+                                    as `createThing` action in [[[#directory-api-spec]]].
                                 </p>
                             </li>
                             <li>
@@ -942,7 +943,7 @@ img.wot-diagram {
 
                                 <p>
                                     The create operation for <a>Anonymous TDs</a> is specified as `createAnonymousThing` action in
-                                    [[[#directory-thing-description]]].
+                                    [[[#directory-api-spec]]].
                                 </p>
                             </li>
                         </ul>
@@ -983,7 +984,7 @@ img.wot-diagram {
                             </span>
                             <p>
                                 The retrieve operation is specified as `retrieveThing` action in 
-                                [[[#directory-thing-description]]].
+                                [[[#directory-api-spec]]].
                             </p>
                         </p>
 
@@ -1130,7 +1131,7 @@ img.wot-diagram {
 
                                 <p>
                                     This operation is specified as `updateThing` property in 
-                                    [[[#directory-thing-description]]].
+                                    [[[#directory-api-spec]]].
                                 </p>
                                 
 
@@ -1181,7 +1182,7 @@ img.wot-diagram {
 
                                 <p>
                                     This operation is specified as `partiallyUpdateThing` property in 
-                                    [[[#directory-thing-description]]].
+                                    [[[#directory-api-spec]]].
                                 </p>
                                 
 
@@ -1227,7 +1228,7 @@ img.wot-diagram {
                                 A successful response MUST have 204 (No Content) status.
                             </span>
                             The retrieve operation is specified as `deleteThing` property in
-                            [[[#directory-thing-description]]].
+                            [[[#directory-api-spec]]].
                         </p>
 
                         <p>
@@ -1462,7 +1463,7 @@ img.wot-diagram {
 
                         <p>    
                             The listing operation is specified as `things` property in 
-                            [[[#directory-thing-description]]].
+                            [[[#directory-api-spec]]].
                         </p>
 
                         <p>
@@ -1732,7 +1733,7 @@ img.wot-diagram {
                     </dl>
                     <p>
                         The Notification API is specified as three event affordances in
-                        [[[#directory-thing-description]]], namely:
+                        [[[#directory-api-spec]]], namely:
                         `thingCreation`, `thingUpdate`, and `thingDeletion`.
                     </p>
 
@@ -1798,7 +1799,7 @@ img.wot-diagram {
                         <code>application/json</code> Content-Type header, and in
                         the body a set of complete TDs or a set of TD fragments.
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
-                        [[[#directory-thing-description]]].
+                        [[[#directory-api-spec]]].
 
                         <p>List of errors:
                             <ul>
@@ -1820,7 +1821,7 @@ img.wot-diagram {
                         the body, the query response in JSON serialization.  The data schema for the response is defined implicitly by the query and the XPath specification.
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
-                        [[[#directory-thing-description]]].
+                        [[[#directory-api-spec]]].
                                 
                         <p>List of errors:
                             <ul>
@@ -1854,7 +1855,7 @@ img.wot-diagram {
                             The response body MAY contain TD fragments or a set of TDs depending on the query.
                         </span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
-                        [[[#directory-thing-description]]].
+                        [[[#directory-api-spec]]].
                         <p>List of errors:
                             <ul>
                                 <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
@@ -2130,47 +2131,36 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
     </section>
 
     <section id="directory-api-spec">
-        <h1>Directory Service API Specifications</h1>
-        <section id="directory-thing-model">
-            <h3>Directory API Thing Model</h3>
-            <p class="issue" data-number="86">
-                To do: add a
-                <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
-                (`directory.tm.json`)
-                that can derive to the [[[#directory-thing-description]]] as an example.
-                The TM should describe all interaction affordances and indicate which ones
-                are required (i.e. mandatory by this spec). Moreover, it should use placeholders
-                for deployment-specific attributes.
-            </p>
-        </section>
-        <section id="directory-thing-description">
-            <h3>Directory API Thing Description</h3>
-            <p>Below is a generic Thing Description for the Directory API
-                with OAuth2 security. This specification only covers the HTTP and SSE
-                protocol bindings. Other protocol bindings may be specified in future.
-                
-                The Thing Description alone should not be
-                considered as the reference to implement or interact with
-                a directory. The full specification is available as human-readable text 
-                in [[[#exploration-directory-api]]].
-            </p>
+        <h1>Directory Service API Specification</h1>
 
-            <pre class="advisement json">
-                <div data-include='directory.td.json'></div>
-            </pre>
+        <p class="issue" data-number="86">
+            To do: add a
+            <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
+            (`directory.tm.json`)
+            that can derive to
+            <a href="https://github.com/w3c/wot-discovery/blob/main/implementations/example-directory-oauth2.td.json">this TD</a>
+            as an example.
+            The <a>TM</a> should describe all interaction affordances and indicate which ones
+            are required (i.e. mandatory by this spec). Moreover, it should use placeholders
+            for deployment-specific attributes.
+        </p>
+        The API of the directory is specified as a <a>Thing Model</a>.
+        The Thing Model alone should not be considered as the reference
+        to implement or interact with a directory.
+        The full specification is available as human-readable text 
+        in [[[#exploration-directory-api]]].
 
-            <p class="ednote" title="Scopes">
-                The scopes may need to be more concrete to able to allow updates but prevent creation.
-            </p>
-            <p class="issue" data-number="82">
-                Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
-                [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
-                this possibility.
-            </p>
-            <p class="ednote" title="Context URIs">
-		        The context URIs are tentative and subject to change. 
-	        </p>    
-        </section>
+        <pre class="advisement json">
+            <div data-include='directory.tm.json'></div>
+        </pre>
+
+        <p class="issue" data-number="82">
+            Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
+            If yes, a sentence may be added indicating this possibility.
+        </p>
+        <p class="ednote" title="Context URIs">
+            The context URIs are tentative and subject to change. 
+        </p>
     </section>
 
     <section id="iana-considerations" class="normative">
