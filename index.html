@@ -232,6 +232,7 @@ img.wot-diagram {
             The fundamental WoT terminology such as
             <dfn>Thing</dfn>,
             <dfn>Thing Description</dfn> (<dfn>TD</dfn>),
+            <dfn>Thing Model</dfn> (<dfn>TM</dfn>),
             <dfn>Property</dfn>,
             <dfn>Action</dfn>,
             <dfn>Event</dfn>,
@@ -2119,55 +2120,46 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
     </section>
 
     <section id="directory-api-spec">
-        <h1>Directory Service API Specifications</h1>
-        <section id="directory-thing-model">
-            <h3>Directory API Thing Model</h3>
-            <p class="issue" data-number="86">
-                To do: add a
-                <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
-                (`directory.tm.json`)
-                that can derive to the [[[#directory-thing-description]]] as an example.
-                The TM should describe all interaction affordances and indicate which ones
-                are required (i.e. mandatory by this spec). Moreover, it should use placeholders
-                for deployment-specific attributes.
-            </p>
-            Below is the <a>Thing Model</a> of the directory.
-            The Thing Model alone should not be
-            considered as the reference to implement or interact with
-            a directory. The full specification is available as human-readable text 
-            in [[[#exploration-directory-api]]].
+        <h1>Directory Service API Specification</h1>
 
-            <pre class="advisement json">
-                <div data-include='directory.tm.json'></div>
-            </pre>
-        </section>
-        <section id="directory-thing-description">
-            <h3>Directory API Thing Description</h3>
-            <p>
-                Below is an example <a>TD</a> for the Directory API
-                with OAuth2 security. This TD instance is derived from the
-                [[[#directory-thing-model]]].
-                
-                
-            </p>
+        <p class="issue" data-number="86">
+            To do: add a
+            <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
+            (`directory.tm.json`)
+            that can derive to the [[[#directory-td-example]]] as an example.
+            The <a>TM</a> should describe all interaction affordances and indicate which ones
+            are required (i.e. mandatory by this spec). Moreover, it should use placeholders
+            for deployment-specific attributes.
+        </p>
+        The API of the directory is specified as a <a>Thing Model</a>.
+        The Thing Model alone should not be considered as the reference
+        to implement or interact with a directory.
+        The full specification is available as human-readable text 
+        in [[[#exploration-directory-api]]].
 
-            <aside class="example" id="directory-td-example"
-                title="TD of a full-featured directory with OAuth2 security">
-                <pre data-include='directory.td.json'></pre>
-            </aside>
+        <pre class="advisement json">
+            <div data-include='directory.tm.json'></div>
+        </pre>
 
-            <p class="ednote" title="Scopes">
-                The scopes may need to be more concrete to able to allow updates but prevent creation.
-            </p>
-            <p class="issue" data-number="82">
-                Need to confirm if equivalent OpenAPI spec can be easily created out of the TD in
-                [[[#directory-thing-description]]]. If yes, a sentence may be added indicating
-                this possibility.
-            </p>
-            <p class="ednote" title="Context URIs">
-		        The context URIs are tentative and subject to change. 
-	        </p>    
-        </section>
+        <p class="issue" data-number="82">
+            Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
+            If yes, a sentence may be added indicating this possibility.
+        </p>
+        <p class="ednote" title="Context URIs">
+            The context URIs are tentative and subject to change. 
+        </p>    
+
+        <p>
+            Below is an example <a>TD</a> for the Directory API
+            with OAuth2 security. This TD instance is derived from the
+            above Thing Model.
+        </p>
+
+        <aside class="example" id="directory-td-example"
+            title="TD of a full-featured directory with OAuth2 security">
+            <pre data-include='directory.td.json'></pre>
+        </aside>
+
     </section>
 
     <section id="iana-considerations" class="normative">
