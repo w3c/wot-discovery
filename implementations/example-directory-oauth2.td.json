@@ -4,7 +4,8 @@
         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
     ],
     "@type": "ThingDirectory",
-    "title": "Thing Description Directory (TDD)",
+    "title": "Example TD of a full-featured directory with OAuth2 security",
+    "description": "This is an example TD for a directory with OAuth2 security. This TD instance is derived from the normative Thing Model of the directory",
     "version": {
         "instance": "1.0.0-alpha"
     },
@@ -74,7 +75,10 @@
                 "format": {
                     "title": "Payload format",
                     "type": "string",
-                    "enum": ["array", "collection"],
+                    "enum": [
+                        "array",
+                        "collection"
+                    ],
                     "default": "array"
                 },
                 "sort_by": {
@@ -85,7 +89,10 @@
                 "sort_order": {
                     "title": "Sorting order",
                     "type": "string",
-                    "enum": ["asc", "desc"],
+                    "enum": [
+                        "asc",
+                        "desc"
+                    ],
                     "default": "asc"
                 }
             },
@@ -452,83 +459,83 @@
     },
     "events": {
         "thingCreation": {
-          "description": "Registration of Thing Descriptions inside the directory",
-          "uriVariables": {
-            "diff": {
-                "description": "Receive the full created TD as event data",
-                "type": "boolean"
-            }
-          },
-          "data": {
-            "title": "Partial/Full TD",
-            "type": "object"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/create{?diff}",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-          ]
+            "description": "Registration of Thing Descriptions inside the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Receive the full created TD as event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial/Full TD",
+                "type": "object"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/create{?diff}",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ],
+                    "scopes": "notification"
+                }
+            ]
         },
         "thingUpdate": {
-          "description": "Updates to Thing Descriptions within the directory",
-          "uriVariables": {
-            "diff": {
-                "description": "Include TD changes inside event data",
-                "type": "boolean"
-            }
-          },
-          "data": {
-            "title": "Partial TD",
-            "type": "object",
-            "contentMediaType": "application/merge-patch+json"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/update{?diff}",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-          ]
+            "description": "Updates to Thing Descriptions within the directory",
+            "uriVariables": {
+                "diff": {
+                    "description": "Include TD changes inside event data",
+                    "type": "boolean"
+                }
+            },
+            "data": {
+                "title": "Partial TD",
+                "type": "object",
+                "contentMediaType": "application/merge-patch+json"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/update{?diff}",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ],
+                    "scopes": "notification"
+                }
+            ]
         },
         "thingDeletion": {
-          "description": "Deletion of Thing Descriptions from the directory",
-          "data": {
-            "title": "Partial TD",
-            "type": "object"
-          },
-          "forms": [
-              {
-                  "op": "subscribeevent",
-                  "href": "/events/delete",
-                  "subprotocol": "sse",
-                  "contentType": "text/event-stream",
-                  "htv:headers": [
-                      {
-                          "description": "ID of the last event for reconnection",
-                          "htv:fieldName": "Last-Event-ID"
-                      }
-                  ],
-                  "scopes": "notification"
-              }
-           ]
+            "description": "Deletion of Thing Descriptions from the directory",
+            "data": {
+                "title": "Partial TD",
+                "type": "object"
+            },
+            "forms": [
+                {
+                    "op": "subscribeevent",
+                    "href": "/events/delete",
+                    "subprotocol": "sse",
+                    "contentType": "text/event-stream",
+                    "htv:headers": [
+                        {
+                            "description": "ID of the last event for reconnection",
+                            "htv:fieldName": "Last-Event-ID"
+                        }
+                    ],
+                    "scopes": "notification"
+                }
+            ]
         }
     }
 }
