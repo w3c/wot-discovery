@@ -1845,13 +1845,14 @@ img.wot-diagram {
                             The support for SPARQL search using HTTP <code>POST</code> method
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
-                        <code>UPDATE</code> queries are out of the scope for the API.
+			SPARQL <code>UPDATE</code> queries are disallowed.
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp">
                             A successful response MUST have 200 (OK) status, and depending on the type
                             of query contain by default as Content-Type header <code>application/ld+json</code>
                             for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or
                             <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>.
                             The response body MAY contain TD fragments or a set of TDs depending on the query.
+			    A request with a query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 501 (Not Implemented).
                         </span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-thing-description]]].
