@@ -13,13 +13,15 @@
       "@id": "discovery:ThingCollection",
       "@type": "@id"
     },
-	"total": "discovery:contains",
-	"members": [
-	  "td:Thing"
-	],
-	"@id": "discovery:thisThingCollection",
-	"next": "discovery:nextThingCollection",
-	"registration": {
+   "next": {
+          "@id": "discovery:nextThingCollection",
+          "@type": "xsd:anyURI"
+   },
+   "total": {
+          "@id": "discovery:contains",
+          "@type": "xsd:integer"
+   },
+   "registration": {
       "@id": "discovery:hasRegistrationInformation",
       "@type": "@id",
       "@context": {
