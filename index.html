@@ -1846,13 +1846,13 @@ img.wot-diagram {
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp-select-ask">
-                            A request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
+                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
                         </span>
 			 <span class="rfc2119-assertion" id="tdd-search-sparql-resp-describe-construct">
-                            A request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
+                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
 			 </span>
 			<span class="rfc2119-assertion" id="tdd-search-sparql-error">
-			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 501 (Not Implemented).
+			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 400 (Bad Request).
 			</span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-thing-description]]].
