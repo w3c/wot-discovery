@@ -1583,7 +1583,7 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-notification-event-types">
                                 The server MUST produce events attributed to the lifecycle of 
                                 the Thing Descriptions within the directory using 
-                                `create`, `update`, and `delete` event types.
+                                `thing_created`, `thing_updated`, and `thing_deleted` event types.
                             </span>
                         </dd>
 
@@ -1604,15 +1604,15 @@ img.wot-diagram {
                                 For example, given the URI Template `/events{/type}`:
                                 <ul>
                                     <li>
-                                        `/events/create` instructs the server to only deliver events of
-                                        type `create`
+                                        `/events/thing_created` instructs the server to only deliver events of
+                                        type `thing_created`
                                     </li>
                                     <li>
                                         `/events` instructs the server to deliver all events
                                     </li>
                                 </ul>
                                 The clients need to subscribe separately to receive a subset of
-                                the events (e.g. only `create` and `delete`) from the server. 
+                                the events (e.g. only `thing_created` and `thing_deleted`) from the server. 
                                 When using HTTP/2, multiple subscriptions on the same domain (HTTP streams) 
                                 get multiplexed on a single connection.
                             </p>
@@ -1638,11 +1638,11 @@ img.wot-diagram {
 
                                     <aside class="example" title="Creation and deletion SSE events for a TD">
                                         <pre>
-                                            event: create
+                                            event: thing_created
                                             data: {"id": "urn:example:simple-td"}
                                             id: event_1
 
-                                            event: delete
+                                            event: thing_deleted
                                             data: {"id": "urn:example:simple-td"}
                                             id: event_2
                                         </pre>
@@ -1650,13 +1650,13 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-create-full">
-                                        When `diff` query parameter is set to `true` and the event has `create` type,
+                                        When `diff` query parameter is set to `true` and the event has `thing_created` type,
                                         the server MAY return the whole TD object as event data.
                                     </span>
                                     
                                     <aside class="example" id="example-create-event-full" title="Full creation SSE event for a TD">
                                         <pre>
-                                            event: create
+                                            event: thing_created
                                             data: {
                                             data:     "@context": [
                                             data:         "https://www.w3.org/2019/wot/td/v1",
@@ -1685,12 +1685,12 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-update-diff">
-                                        When `diff` query parameter is set to `true` and the event has `update` type,
+                                        When `diff` query parameter is set to `true` and the event has `thing_updated` type,
                                         the server MAY inform the client about the updated parts following the
                                         JSON Merge Patch [[RFC7396]] format.
                                     </span>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-update-id">
-                                        An `update` event data that is based on JSON Merge Patch [[RFC7396]]
+                                        A `thing_updated` event data that is based on JSON Merge Patch [[RFC7396]]
                                         MUST always include the identifier of the TD regardless of whether it
                                         is changed.
                                     </span>
@@ -1700,7 +1700,7 @@ img.wot-diagram {
                                         <aside class="example" id="example-update-event-full" 
                                             title="Full update SSE event for a TD with removed description and changed title">
                                             <pre>
-                                                event: create
+                                                event: thing_updated
                                                 data: {
                                                 data:     "description": null,
                                                 data:     "id": "urn:example:simple-td",
@@ -1713,10 +1713,10 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-delete-diff">
-                                        The `diff` query parameter MUST be ignored for `delete` events.
+                                        The `diff` query parameter MUST be ignored for `thing_deleted` events.
                                     </span>
-                                    In other words, the server does not need to include additional properties in
-                                    the payload of `delete` events when `diff` is set to `true`. 
+                                    In other words, the server shall not include additional properties in
+                                    the payload of `thing_deleted` events when `diff` is set to `true`. 
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
@@ -1734,7 +1734,7 @@ img.wot-diagram {
                     <p>
                         The Notification API is specified as three event affordances in
                         [[[#directory-api-spec]]], namely:
-                        `thingCreation`, `thingUpdate`, and `thingDeletion`.
+                        `thingCreated`, `thingUpdated`, and `thingDeleted`.
                     </p>
 
                     <p class="ednote" title="SSE Authorization Header">
