@@ -399,7 +399,7 @@
         }
     },
     "events": {
-        "thingCreation": {
+        "thingCreated": {
             "description": "Registration of Thing Descriptions inside the directory",
             "uriVariables": {
                 "diff": {
@@ -426,7 +426,7 @@
                 }
             ]
         },
-        "thingUpdate": {
+        "thingUpdated": {
             "description": "Updates to Thing Descriptions within the directory",
             "uriVariables": {
                 "diff": {
@@ -454,7 +454,7 @@
                 }
             ]
         },
-        "thingDeletion": {
+        "thingDeleted": {
             "description": "Deletion of Thing Descriptions from the directory",
             "data": {
                 "title": "Partial TD",
