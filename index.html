@@ -2193,12 +2193,36 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
             <dl>
                 <dt>Mitigations:</dt>
                 <dd>
+		<p>
                 PSK (pre-shared keys) should be used if possible on LANs, 
 		meaning one of the ciphersuites in [[RFC4279]].
                 This does require that Things assigned PSKs in a common security domain, 
 		which is typically done by following an onboarding process.  
 		Unfortunately, specific onboarding processes 
 		are currently out of scope of the WoT specifications.
+		</p>
+		<p>
+		An alternative is to depend on local network security (i.e. WEP).
+		This is not the best solution from a security or privacy point of
+		view but may be acceptable in some contexts.  Note however that
+		all users with access to the network would in turn have access to 
+		all TDs via self-description.  If this is undesirable, a separate 
+		network can be set up, i.e. with an alternative SSID, and used only
+		for IoT devices.
+		</p>
+		<p>
+		Another alternative is to use a reverse proxy service based in the cloud.
+		Secure setup can
+		be accomplished if the IoT device has access to the cloud, since
+		the proxy server can have a public URL and the initial connection
+		can use HTTPS, then open a secure websocket.  The proxy can in turn
+		re-expose a secure endpoint, and possible add authentication.
+		The disadvantages of this approach including depending on an external
+		cloud service and the need to expose an external access point (which is
+		itself a security risk).  The first disadvantage can be addressed by hosting
+		the proxy service locally 
+		and exposing a public URL using e.g. dynamic DNS if the
+		local server is connected through an ISP.
                 </dd>
             </dl>
         </section>
