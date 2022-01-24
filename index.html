@@ -1885,7 +1885,9 @@ img.wot-diagram {
 
     <section id="security-considerations" class="informative">
         <h1>Security and Privacy Considerations</h1>
-	    <p>TODO: Update based on Issue #254</p>
+        <p class="ednote">
+        Needs to be updated to include points noted in <a href="https://github.com/w3c/wot-discovery/issues/254">Discovery Issue 254</a>.
+        </p>
         <p>
             Security and privacy are cross-cutting issues that need to be considered
             in all WoT building blocks and WoT implementations. This chapter
@@ -2129,6 +2131,77 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 </dd>
             </dl>
         </section>
+        <section id="security-consideration-query-tracking">
+            <h2>Query Tracking</h2>
+            <p>
+            A directory service could potentially record and track queries by an individual,
+            identifying that individual by their authenticated identity provided.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+                When accessing a public directory, like any other public web service,
+                users should use an anonymous identity provider.
+                In particular, OAuth2 provides tokens which don't identify specific individuals,
+                they just assert access rights proven elsewhere.
+                </dd>
+            </dl>
+        </section>
+        <section id="security-consideration-access-duration">
+            <h2>Limited Duration Accesses</h2>
+            <p>
+            In peer-to-peer scenarios, 
+	    it may be desired by an "owner" to limit the scope and duration of 
+	    access to a device or service by a "guest."
+	    For example, if a guest is visiting the owner's house, the owner may
+	    want to provide the guest with access to the garage door opener and 
+	    car charger so the guest can use them.
+	    The scope however may be limited so that the guest cannot access
+	    certain functions of these devices (for example, to change how long
+	    the garage door can remain open, or to change the charging rate).
+	    In addition, the access should expire after the guest is expected to have left,
+	    e.g. after one week.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+                The owner should use OAuth2 and a token/auth provider that can provide limited duration tokens and use scopes to limit access.
+                Scopes can limit access to specific interactions but 
+		are not sufficient to limit duration.
+                </dd>
+            </dl>
+        </section>
+        <h2>Self-Discovery on LANs</h2>
+            <p class="ednote">
+            See detailed discussion in 
+	    <a href="https://github.com/w3c/wot-discovery/issues/254">Issue 254</a> and in 
+	    <a href="https://github.com/w3c/wot-discovery/issues/139">Issue 139</a>.  
+	    In particular, we may need to allow for plain
+	    HTTP in some circumstances, and provide alternative mitigations to use of PSK.
+            </p>
+            <p>
+            On a LAN, 
+	    certificates and browsers may not be able to property set up TLS for 
+	    HTTPS because browsers expect
+            certificates pointing to a publicly-visible URL.
+            Using HTTP is common practice inside LANs but in combination with 
+	    self-description it means that WoT Things
+            would be essentially broadcasting TDs, making them visible to everyone
+	    with access to the private LAN, which is not advisable for privacy reasons.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+                PSK (pre-shared keys) should be used if possible on LANs, 
+		meaning one of the ciphersuites in [[RFC4279]].
+                This does require that Things assigned PSKs in a common security domain, 
+		which is typically done by following an onboarding process.  
+		Unfortunately, specific onboarding processes 
+		are currently out of scope of the WoT specifications.
+                </dd>
+            </dl>
+        </section>
+
     </section>
 
     <section id="directory-api-spec">
