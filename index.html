@@ -622,6 +622,12 @@ img.wot-diagram {
                         This enables clients to retrieve HTTP headers such as the Content-Length in advance 
                         to know the size of the <a>TD</a> (in bytes) and decide on an efficient query strategy.
                     </p>
+                    <p>
+                        In constrained environments, a single <a>TD</a> may be too large to process
+                        for the server or clients. 
+                        See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on 
+                        incremental transfer of the requested payload. 
+                    </p>
                     
                     <p>
                         Error responses:  
@@ -858,8 +864,16 @@ img.wot-diagram {
                     </span>
                     This allows clients to retrieve headers such as the Content-Length without receiving the body
                     and decide on a suitable strategy to query the information. For example, a constrained client can
-                    request only the necessary parts of an object (using an apprpriate search query) or 
+                    request only the necessary parts of an object (using an appropriate search query) or 
                     retrieve a list of items in small subsets.
+                </p>
+
+                <p>
+                    In constrained environments, a single TD may be too large to process for the server or clients.
+                    This affects both read (i.e. retrieving one or more TDs or TD fragments) 
+                    and write (i.e. submitting a TD or Partial TD) operations.
+                    See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on
+                    incremental transfer of the payloads.
                 </p>
 
                 <section id="exploration-directory-api-registration" class="normative">
@@ -1439,13 +1453,6 @@ img.wot-diagram {
 							explicitly, and yields to a server response of the pure array of TDs. <code>?format=collection</code>
 							should yield to a server response with the format as described in [[[#example-alternative-payload]]].
 						</p>
-						
-                        <p>
-                            Serializing and returning the full list of TDs may be burdensome to servers.
-                            As such, servers should serialize incrementally and utilize protocol-specific
-                            mechanisms to respond in chunks. 
-                            Various recommendations are available under [[[#performance-considerations-incremental-transfer]]].
-                        </p>
 
                         <p>    
                             The listing operation is specified as `things` property in 
@@ -2120,31 +2127,36 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
     <section id="performance-considerations" class="informative">
         <h1>Performance Considerations</h1>
         
-        <section id="performance-considerations-incremental-transfer">
+        <section id="perf-incremental-transfer">
             <h2>Incremental Transfer</h2>
-            Serializing and returning the full list of TDs may be burdensome to servers.
-            As such, servers should serialize incrementally and utilize protocol-specific
-            mechanisms to respond in chunks. 
+            <a>TD</a> objects are not constrained in size. They may become 
+            expensive to process and transfer individually or collectively.
+            A single TD or a list of TDs could be too large for a constrained device,
+            serving its own TD to consumers, submitting it to a directory,
+            or consuming other TDs.
 
-            <section id="performance-considerations-incremental-transfer-http">
-                <h3>HTTP</h3>
-                <p>                   
-                    HTTP/1.1 servers should perform chunked 
+            To meet such requirements,
+            servers should support incremental transfer of payloads 
+            using protocol-specific mechanisms:
+            <ul>
+                <li>
+                    HTTP/1.1 servers should support `chunked` 
                     <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
-                    to respond the data incrementally.
-                    
-                    Most HTTP/1.1 clients automatically process the data received with 
-                    chunked transfer encoding.
-                    Memory-constrained applications which require the full list
-                    should consider processing the received data incrementally.
-                </p>
-                <p>
-                    Chunked transfer encoding is not supported in HTTP/2.
-                    HTTP/2 servers SHOULD respond the data incrementally using 
+                    to receive and server data incrementally.
+                </li>
+                <li>
+                    HTTP/2 servers should handle the data incrementally using 
                     <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
-                </p>                        
-                
-            </section>
+                    The HTTP/1.1 chunked transfer encoding is not supported in HTTP/2.
+                </li>
+            </ul>
+        
+            Most HTTP servers and clients automatically process the data that is transferred 
+            in chunks.
+            Memory-constrained clients should consider consuming the
+            received data incrementally, instead of trying to load a whole
+            object in memory for de-serialization. 
+
         </section>
     </section>
 
