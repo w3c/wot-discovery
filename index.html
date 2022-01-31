@@ -585,12 +585,26 @@ img.wot-diagram {
             <p>
                 The self-description is an exploration mechanism in which a <a>Thing</a>
                 hosts its own <a>TD</a> and exposes it at a URL or
-                through others means. 
+                through other means. 
                 If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
                 via one of the [[[#introduction-mech]]].
-                The hosted <a>TD</a> may also be registered inside a <a>Thing Description Directory</a>
+                The same <a>TD</a> may also be registered (at different URL) inside a <a>Thing Description Directory</a>
                 as prescribed in [[[#exploration-directory]]]. 
             </p>
+	    <p>
+	    In some cases a single URL may need to return multiple
+	    TDs.  For large numbers of TDs that may need to change
+	    dynamically over time, 
+	    a <a>Thing Description Directory</a> (TDD)
+	    can be used instead; in such a case the TD returned is that 
+	    of the TDD.
+	    If a small fixed number of TDs need to be returned,
+	    particularly on small devices that do not want to host the
+	    full TDD interface, a single TD can be returned that includes
+	    only TD Links to multiple TDs hosted on the same device 
+	    at different
+	    URLs.
+	    </p>
             
             The self-description using the following protocols must be according
             to the given specification:
