@@ -894,7 +894,8 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-crudl">
-                            The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
+                            The Registration API MUST provide interfaces to 
+                            create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
                         </span>
 
                         The operations are described below:
@@ -989,7 +990,7 @@ img.wot-diagram {
                         <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
-                                A TD MUST be retrieved from the directory using an HTTP `GET` request
+                                The API MUST allow retrieval of an existing TD using an HTTP `GET` request
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
@@ -1271,8 +1272,8 @@ img.wot-diagram {
                             
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-list-method">
-                                The list of TDs MUST be retrieved from the directory using an HTTP `GET` request
-                                at `/things` endpoint.
+                                The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
+                                at the `/things` endpoint.
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-reg-list-resp">
