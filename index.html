@@ -306,6 +306,13 @@ img.wot-diagram {
                     When a request is made at the above Well-Known URI, the server MUST return
                     a Thing Description as prescribed in [[[#exploration-self]]].
                 </span>
+		It is sometimes the case that a well-known URI
+		needs to index multiple TDs.  This can be the case,
+		for example, when a URI is inferred from
+		an IP address but multiple Things are hosted
+		at that IP address.  In this case, a single
+		TD is still returned by the process but that
+		TD can use TD Links to reference other TDs.
             </p>
             <p class="ednote" title="Registration of Well-known URI">
                 The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
