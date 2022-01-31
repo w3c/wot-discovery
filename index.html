@@ -307,12 +307,13 @@ img.wot-diagram {
                     a Thing Description as prescribed in [[[#exploration-self]]].
                 </span>
 		It is sometimes the case that a well-known URI
-		needs to index multiple TDs.  This can be the case,
-		for example, when a URI is inferred from
+		needs to index multiple TDs.  
+		For example, a URI may be inferred from
 		an IP address but multiple Things are hosted
 		at that IP address.  In this case, a single
 		TD is still returned by the process but that
-		TD can use TD Links to reference other TDs.
+		TD is a Thing Link and is used only 
+		to collect references to other TDs.
             </p>
             <p class="ednote" title="Registration of Well-known URI">
                 The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
@@ -600,8 +601,8 @@ img.wot-diagram {
 	    of the TDD.
 	    If a small fixed number of TDs need to be returned,
 	    particularly on small devices that do not want to host the
-	    full TDD interface, a single TD can be returned that includes
-	    only TD Links to multiple TDs hosted on the same device 
+	    full TDD interface, a single TD can be returned, marked as 
+	    a Thing Link, which link to multiple TDs hosted  
 	    at different
 	    URLs.
 	    </p>
