@@ -513,22 +513,53 @@ img.wot-diagram {
         
         <dt>Thing Link</dt>
         <dd>
-            <span class="rfc2119-assertion" id="exploration-link-description-type"> 
-                A TD which describes a reference to another TD MUST use type `ThingLink` from the
+	  <ul>
+          <li><span class="rfc2119-assertion" id="exploration-link-description-type"> 
+                A TD which describes references to other TDs MUST use type `ThingLink` from the
                 discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
-            </span>
-            <span class="rfc2119-assertion" id="exploration-link-description-link"> 
-                A Thing Link MUST define the referenced TD as a Link with
-                `describedby` link relation type, `application/td+json` media type
-                and `href` set to the target URL.
-            </span>
+          </span></li>
+	  <li><span class="rfc2119-assertion" id="exploration-link-description-rels"> 
+                A Thing Link MUST include either only a single Link with the
+                `describedby` link relation type or one or more Links with any
+		combination of `hosts` and `external` relation types.
+          </span>
+	  To be clear, `describedby` cannot be mixed with other Link relation types, and there should be
+	  only one such Link.
+	  </li>
+	  <li><span class="rfc2119-assertion" id="exploration-link-description-link"> 
+                A Thing Link including a Link with the `describedby` link relation type
+		MUST use `application/td+json` media type and `href` set to the target URL in that Link.
+          </span></li>
+	  <li><span class="rfc2119-assertion" id="exploration-link-description-set"> 
+                A Thing Link including Links with either `hosts` or `external` relation types
+		MUST use `application/td+json` media type for each such Link.
+          </span></li>
+	  <li><span class="rfc2119-assertion" id="exploration-link-description-hosts"> 
+                A Thing Link including a Link with the `hosts` relation type
+		MUST use an `href` set to the target URLs, 
+		hosted under the same context IRI as the Thing Link, in each such Link.
+          </span></li>
+	  <li><span class="rfc2119-assertion" id="exploration-link-description-external"> 
+                A Thing Link including a Link with the `external` relation type
+		MUST use an `href` set to the target URLs, 
+		hosted under a different context IRI as the Thing Link, in each such Link.
+          </span></li>
+	  </ul>
+	    The use of the `hosts` or `external` relations does not imply anything about the content of the TD
+	    hosted externally; for example, a TD referenced by either relation may or may not include local URLs. 
+	    This relation is just describing where the TD is located, not where the Thing that TD describes is
+	    located.
+	    It is usually the case, given the context URL restrictions on these relation types,
+	    that `hosts` Links will use relative URLs and `external` Links will use
+	    absolute URLs.
 
             <p>
-                [[[#example-td-link-type]]] is an example Thing Link.
+                [[[#example-td-link-type]]] is an example Thing Link using the `describedby` relation.
+                [[[#example-td-link-set]]] is an example Thing Link using the `hosts` and `external` relations.
             </p>
 
             <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
-            <aside class="example" id="example-td-link-type" title="Example of a Thing Link, referencing a remote TD">
+            <aside class="example" id="example-td-link-type" title="Example of a Thing Link referencing a remote TD using the `describedby` relation">
                 <pre>
                     {
                         "@context": [
@@ -536,10 +567,10 @@ img.wot-diagram {
                             "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
                         ],
                         "@type": "ThingLink",
-                        "id": "urn:example:link",
+                        "id": "urn:example:linkref",
                         "links": [{
                             "rel": "describedby",
-                            "href": "https://example.com/td.jsonld",
+                            "href": "https://example.com/thing1234.td.jsonld",
                             "type": "application/td+json"
                         }],
                         "security": "nosec_sc",
@@ -548,7 +579,46 @@ img.wot-diagram {
                                 "scheme": "nosec"
                             }
                         },
-                        "title": "Example TD referencing another"
+                        "title": "Example TD redirecting to a TD stored elsewhere"
+                    }
+                </pre>
+                <div class="issue" data-number="148">
+                    The context URIs are tentative and subject to change.
+                </div>                    
+            </aside>
+            <aside class="example" id="example-td-link-set" title="Example of a Thing Link referencing a set of TDs using the `hosts` and `external` relations">
+                <pre>
+                    {
+                        "@context": [
+                            "http://www.w3.org/ns/td",
+                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                        ],
+                        "@type": "ThingLink",
+                        "id": "urn:example:linkset",
+                        "links": [
+                          {
+                            "rel": "hosts",
+                            "href": "outlet1",
+                            "type": "application/td+json"
+                          },
+                          {
+                            "rel": "hosts",
+                            "href": "outlet2",
+                            "type": "application/td+json"
+                          },
+                          {
+                            "rel": "external",
+                            "href": "https://example.com/thing1234/powermonitor",
+                            "type": "application/td+json"
+                          }
+                        ],
+                        "security": "nosec_sc",
+                        "securityDefinitions": {
+                            "nosec_sc": {
+                                "scheme": "nosec"
+                            }
+                        },
+                        "title": "Example TD referencing a set of TDs, e.g. for co-hosted Things"
                     }
                 </pre>
                 <div class="issue" data-number="148">
@@ -556,7 +626,8 @@ img.wot-diagram {
                 </div>                    
             </aside>
             <p>
-                A Thing Link can be used in various scenarios. For example:
+                A Thing Link can be used in various scenarios. For the `describedby` relation, the following
+		use cases exist:
                 <ul>
                     <li>
                         A self-describing Thing with limited computational resources intends
@@ -575,6 +646,22 @@ img.wot-diagram {
                         information referencing another <a>TD</a> which contains the full description.
                     </li>
                 </ul>
+		The `hosts` and `external` relations are meant to support the following use case:
+		<ul>
+		<li>A single device, IP address, or server hosts multiple Things.  However, some Introduction mechanisms
+		only permit one URL per device, and each URL can only return one TD.  In order to supply
+		multiple TDs from a single URL without introducing a TDD, a Think Link can be returned
+		as the permitted single TD, but can then reference multiple TDs.
+		</li>
+	        </ul>
+		Note that the `hosts` and `external` relation type, and Thing Links in general, do not
+		necessarily describe collections of TDs.  Things may be co-hosted under a common base URL
+		and/or physical device (with a single IP address, for example) 
+		without being directly related to each other.  
+		If a set of Things <em>are</em> part of a collection, additional Links should be provided
+		in the individual TDs to describe such relations, for example using `collection` and
+		`item` relations.  
+		Thing Link TDs are meant to be resolved during Discovery only, not to describe other relationships.
             </p>
         </dd>
         
