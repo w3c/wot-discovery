@@ -1874,12 +1874,14 @@ img.wot-diagram {
                     </section>
                 </section>
             </section>
+	    <!--
             <section id="exploration-directory-security" class="normative">
                 <h3>Security and Privacy</h3>
                 <p class="ednote" title="Security Considerations Overview">
                     Minimum security and privacy requirements for confidentiality, authentication, access control, etc.
                 </p>
             </section>
+	    -->
         </section>
     </section>
 
@@ -1890,27 +1892,85 @@ img.wot-diagram {
 	Note also need to refactor into separate Security and Privacy sections (in progress; intro needs to be 
 	split up, references need to be fixed, etc).
         </p>
+	</p>
+            Security is a cross-cutting issue that needs to be considered
+            in all WoT building blocks and WoT implementations. 
+	    This chapter summarizes some general issues and guidelines to help
+            preserve the security of concrete WoT discovery implementations.
+            For a more detailed and complete analysis of both security and
+            privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
+            specification [[?WOT-SECURITY]].
+        </p>
+        <section id="security-consideration-ddos">
+            <h2>Denial of Service</h2>
+            <p>
+                Certain functions of the directory service,
+                in particular search queries,
+                may require significant resources to execute and this fact
+                can be used to launch DDoS attacks against
+            WoT Thing Description Directory services.
+	    </p>
+                <dl>
+                    <dt>Mitigations:</dt><dd>
+                    A WoT Thing Description Directory implementation should 
+                    <ul>
+                    <li>Limit the number of queries per unit time from the same requestor</li>
+                    <li>Limit the complexity of queries (for example, the total length of the query 
+                    expression or its depth)</li>
+                    <li>Use a watchdog timer to abort queries that take more than
+                a certain maximum (implementation-configurable) amount of time.</li> 
+                    </ul>
+                    In cases where queries are refused or aborted 
+                    appropriate error responses should be returned.
+                    </dd>
+                </dl>
+	</section>
+        <section id="security-consideration-access-duration">
+            <h2>Limited Duration Accesses</h2>
+            <p>
+            In peer-to-peer scenarios, 
+	    it may be desired by an "owner" to limit the scope and duration of 
+	    access to a device or service by a "guest."
+	    For example, if a guest is visiting the owner's house, the owner may
+	    want to provide the guest with access to the garage door opener and 
+	    car charger so the guest can use them.
+	    The scope however may be limited so that the guest cannot access
+	    certain functions of these devices (for example, to change how long
+	    the garage door can remain open, or to change the charging rate).
+	    In addition, the access should expire after the guest is expected to have left,
+	    e.g. after one week.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+                The owner should use OAuth2 and a token/auth provider that can provide limited duration tokens and use scopes to limit access.
+                Scopes can limit access to specific interactions but 
+		are not sufficient to limit duration.
+                </dd>
+            </dl>
+        </section>
     </section>
     <section id="privacy-considerations" class="informative">
         <h1>Privacy Considerations</h1>
         <p>
-            Security and privacy are cross-cutting issues that need to be considered
-            in all WoT building blocks and WoT implementations. This chapter
-            summarizes some general issues and guidelines to help
-            preserve the security and privacy of concrete WoT discovery implementations.
-            For a more detailed and complete analysis of security and
+            Privacy is ia cross-cutting issue that needs to be considered
+            in all WoT building blocks and WoT implementations. 
+	    This chapter summarizes some general issues and guidelines to help
+            preserve the privacy of concrete WoT discovery implementations.
+            For a more detailed and complete analysis of both security and
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
         </p>
         <p>
-            The WoT discovery architecture is designed to avoid a dependence on the security
-            and privacy of existing discovery schemes by using a two-phase approach and
-            requiring authorization before metadata release.  However several security and
-            privacy risks still exist.  These are listed below along with possible mitigations.
+            The WoT discovery architecture is designed to avoid a dependence on the 
+            privacy of existing discovery schemes by using a two-phase approach and
+            allowing for the enforcement of authorization before metadata release.  
+	    However several privacy risks still exist.  
+	    These are listed below along with possible mitigations.
             The level of risk to privacy in particular depends on the use case and whether
             there is a risk that information related to a person might be distributed in
             a fashion inconsistent with the privacy desires of that person. 
-            We distinguish the following broad classes of use case scenarios:
+            For privacy we distinguish the following broad classes of use case scenarios:
         </p>
         <dl>
             <dt>Institutional</dt>
@@ -1955,37 +2015,8 @@ img.wot-diagram {
         </p>
         <p>
             With these categories established, we will now discuss some specific
-            risks and potential mitigations.
+            privacy risks and potential mitigations.
         </p>
-        <section id="security-consideration-ddos">
-            <h2>Denial of Service</h2>
-            <p>
-                Certain functions of the directory service,
-                in particular search queries,
-                may require significant resources to execute and this fact
-                can be used to launch DDoS attacks against
-            WoT Thing Description Directory services.
-            </p>
-            <p>
-                This is mostly of concern in the Service scenario, where the 
-                metadata requester is a private individual and the provider is an institution.
-                In some cases this risk may appear in Peer-to-Peer scenarios as well.
-                <dl>
-                    <dt>Mitigations:</dt><dd>
-                    A WoT Thing Description Directory implementation should 
-                    <ul>
-                    <li>Limit the number of queries per unit time from the same requestor</li>
-                    <li>Limit the complexity of queries (for example, the total length of the query 
-                    expression or its depth)</li>
-                    <li>Use a watchdog timer to abort queries that take more than
-                a certain maximum (implementation-configurable) amount of time.</li> 
-                    </ul>
-                    In cases where queries are refused or aborted 
-                    appropriate error responses should be returned.
-                    </dd>
-                </dl>
-            </p>
-        </section>
 <!-- Notes from issue https://github.com/w3c/wot-security/issues/196
 * Sensitivity of geolocation information (when we have it) for privacy when device is associated with a person, 
 i.e. location of a personal vehicle. This also includes inferred location, e.g. directory estimates location of device based on wifi range.
@@ -2060,7 +2091,7 @@ Note: not all of the above risks belong in this section.  In particular, if a ri
 (e.g. making it impossible to do query injection) then we should do so.  Access controls should also
 be discussed elsewhere and perhaps mentioned as tools for addressing the following. 
 -->
-        <section id="security-consideration-location-tracking">
+        <section id="privacy-consideration-location-tracking">
             <h2>Location Tracking</h2>
             <p>
                 A discovery service may potentially allow the approximate location of a person to be determined without
@@ -2136,11 +2167,14 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 </dd>
             </dl>
         </section>
-        <section id="security-consideration-query-tracking">
+        <section id="privacy-consideration-query-tracking">
             <h2>Query Tracking</h2>
             <p>
             A directory service could potentially record and track queries by an individual,
             identifying that individual by their authenticated identity provided.
+	    Then the set of queries associated with an individual could be used to 
+	    profile that individual, and specific queries may also reveal personal information
+	    about an individual.
             </p>
             <dl>
                 <dt>Mitigations:</dt>
@@ -2152,30 +2186,6 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 </dd>
             </dl>
         </section>
-        <section id="security-consideration-access-duration">
-            <h2>Limited Duration Accesses</h2>
-            <p>
-            In peer-to-peer scenarios, 
-	    it may be desired by an "owner" to limit the scope and duration of 
-	    access to a device or service by a "guest."
-	    For example, if a guest is visiting the owner's house, the owner may
-	    want to provide the guest with access to the garage door opener and 
-	    car charger so the guest can use them.
-	    The scope however may be limited so that the guest cannot access
-	    certain functions of these devices (for example, to change how long
-	    the garage door can remain open, or to change the charging rate).
-	    In addition, the access should expire after the guest is expected to have left,
-	    e.g. after one week.
-            </p>
-            <dl>
-                <dt>Mitigations:</dt>
-                <dd>
-                The owner should use OAuth2 and a token/auth provider that can provide limited duration tokens and use scopes to limit access.
-                Scopes can limit access to specific interactions but 
-		are not sufficient to limit duration.
-                </dd>
-            </dl>
-        </section>
         <section id="security-consideration-lan-self-discovery">
         <h2>Self-Discovery on LANs</h2>
             <p class="ednote">
@@ -2184,6 +2194,7 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
 	    <a href="https://github.com/w3c/wot-discovery/issues/139">Issue 139</a>.  
 	    In particular, we may need to allow for plain
 	    HTTP in some circumstances, and provide alternative mitigations to use of PSK.
+	    Also, this particular issue is BOTH a security and privacy issue, so where should we put it?
             </p>
             <p>
             On a LAN, 
