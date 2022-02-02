@@ -622,6 +622,12 @@ img.wot-diagram {
                         This enables clients to retrieve HTTP headers such as the Content-Length in advance 
                         to know the size of the <a>TD</a> (in bytes) and decide on an efficient query strategy.
                     </p>
+                    <p>
+                        In constrained environments, a single <a>TD</a> may be too large to process
+                        for the server or clients. 
+                        See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on 
+                        incremental transfer of the requested payload. 
+                    </p>
                     
                     <p>
                         Error responses:  
@@ -858,8 +864,16 @@ img.wot-diagram {
                     </span>
                     This allows clients to retrieve headers such as the Content-Length without receiving the body
                     and decide on a suitable strategy to query the information. For example, a constrained client can
-                    request only the necessary parts of an object (using an apprpriate search query) or 
+                    request only the necessary parts of an object (using an appropriate search query) or 
                     retrieve a list of items in small subsets.
+                </p>
+
+                <p>
+                    In constrained environments, a single TD may be too large to process for the server or clients.
+                    This affects both read (i.e. retrieving one or more TDs or TD fragments) 
+                    and write (i.e. submitting a TD or Partial TD) operations.
+                    See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on
+                    incremental transfer of the payloads.
                 </p>
 
                 <section id="exploration-directory-api-registration" class="normative">
@@ -880,7 +894,8 @@ img.wot-diagram {
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="tdd-reg-crudl">
-                            The Registration API MUST provide create, retrieve, update, delete, and listing (CRUDL) interfaces. 
+                            The Registration API MUST provide interfaces to 
+                            create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
                         </span>
 
                         The operations are described below:
@@ -975,7 +990,7 @@ img.wot-diagram {
                         <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
-                                A TD MUST be retrieved from the directory using an HTTP `GET` request
+                                The API MUST allow retrieval of an existing TD using an HTTP `GET` request
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
@@ -1257,8 +1272,8 @@ img.wot-diagram {
                             
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-list-method">
-                                The list of TDs MUST be retrieved from the directory using an HTTP `GET` request
-                                at `/things` endpoint.
+                                The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
+                                at the `/things` endpoint.
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-reg-list-resp">
@@ -1439,27 +1454,6 @@ img.wot-diagram {
 							explicitly, and yields to a server response of the pure array of TDs. <code>?format=collection</code>
 							should yield to a server response with the format as described in [[[#example-alternative-payload]]].
 						</p>
-						
-                        <p>
-                            Serializing and returning the full list of TDs may be burdensome to servers.
-                            As such, servers should serialize incrementally and utilize protocol-specific
-                            mechanisms to respond in chunks. 
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http11-chunks">
-                                HTTP/1.1 servers SHOULD perform chunked 
-                                <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
-                                to respond the data incrementally.
-                            </span>
-                            Most HTTP/1.1 clients automatically process the data received with 
-                            chunked transfer encoding.
-                            Memory-constrained applications which require the full list
-                            should consider processing the received data incrementally.
-
-                            Chunked transfer encoding is not supported in HTTP/2.
-                            <span class="rfc2119-assertion" id="tdd-reg-list-http2-frames">
-                                HTTP/2 servers SHOULD respond the data incrementally using 
-                                <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
-                            </span>
-                        </p>
 
                         <p>    
                             The listing operation is specified as `things` property in 
@@ -1489,6 +1483,11 @@ img.wot-diagram {
                                 <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description JSON Schema</a>
                                 to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
                             </span>
+                        </p>
+                        <p>
+                            Additional forms of validation can be added to support various use cases.
+                            For example, a use case may require stateful validation of the input TDs to ensure that
+                            the `version` value is initialized and updated according to pre-defined rules.
                         </p>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-validation-result">
@@ -1583,7 +1582,7 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-notification-event-types">
                                 The server MUST produce events attributed to the lifecycle of 
                                 the Thing Descriptions within the directory using 
-                                `create`, `update`, and `delete` event types.
+                                `thing_created`, `thing_updated`, and `thing_deleted` event types.
                             </span>
                         </dd>
 
@@ -1604,15 +1603,15 @@ img.wot-diagram {
                                 For example, given the URI Template `/events{/type}`:
                                 <ul>
                                     <li>
-                                        `/events/create` instructs the server to only deliver events of
-                                        type `create`
+                                        `/events/thing_created` instructs the server to only deliver events of
+                                        type `thing_created`
                                     </li>
                                     <li>
                                         `/events` instructs the server to deliver all events
                                     </li>
                                 </ul>
                                 The clients need to subscribe separately to receive a subset of
-                                the events (e.g. only `create` and `delete`) from the server. 
+                                the events (e.g. only `thing_created` and `thing_deleted`) from the server. 
                                 When using HTTP/2, multiple subscriptions on the same domain (HTTP streams) 
                                 get multiplexed on a single connection.
                             </p>
@@ -1638,11 +1637,11 @@ img.wot-diagram {
 
                                     <aside class="example" title="Creation and deletion SSE events for a TD">
                                         <pre>
-                                            event: create
+                                            event: thing_created
                                             data: {"id": "urn:example:simple-td"}
                                             id: event_1
 
-                                            event: delete
+                                            event: thing_deleted
                                             data: {"id": "urn:example:simple-td"}
                                             id: event_2
                                         </pre>
@@ -1650,13 +1649,13 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-create-full">
-                                        When `diff` query parameter is set to `true` and the event has `create` type,
+                                        When `diff` query parameter is set to `true` and the event has `thing_created` type,
                                         the server MAY return the whole TD object as event data.
                                     </span>
                                     
                                     <aside class="example" id="example-create-event-full" title="Full creation SSE event for a TD">
                                         <pre>
-                                            event: create
+                                            event: thing_created
                                             data: {
                                             data:     "@context": [
                                             data:         "https://www.w3.org/2019/wot/td/v1",
@@ -1685,12 +1684,12 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-update-diff">
-                                        When `diff` query parameter is set to `true` and the event has `update` type,
+                                        When `diff` query parameter is set to `true` and the event has `thing_updated` type,
                                         the server MAY inform the client about the updated parts following the
                                         JSON Merge Patch [[RFC7396]] format.
                                     </span>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-update-id">
-                                        An `update` event data that is based on JSON Merge Patch [[RFC7396]]
+                                        A `thing_updated` event data that is based on JSON Merge Patch [[RFC7396]]
                                         MUST always include the identifier of the TD regardless of whether it
                                         is changed.
                                     </span>
@@ -1700,7 +1699,7 @@ img.wot-diagram {
                                         <aside class="example" id="example-update-event-full" 
                                             title="Full update SSE event for a TD with removed description and changed title">
                                             <pre>
-                                                event: create
+                                                event: thing_updated
                                                 data: {
                                                 data:     "description": null,
                                                 data:     "id": "urn:example:simple-td",
@@ -1713,10 +1712,10 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-delete-diff">
-                                        The `diff` query parameter MUST be ignored for `delete` events.
+                                        The `diff` query parameter MUST be ignored for `thing_deleted` events.
                                     </span>
-                                    In other words, the server does not need to include additional properties in
-                                    the payload of `delete` events when `diff` is set to `true`. 
+                                    In other words, the server shall not include additional properties in
+                                    the payload of `thing_deleted` events when `diff` is set to `true`. 
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
@@ -1734,7 +1733,7 @@ img.wot-diagram {
                     <p>
                         The Notification API is specified as three event affordances in
                         [[[#directory-api-spec]]], namely:
-                        `thingCreation`, `thingUpdate`, and `thingDeletion`.
+                        `thingCreated`, `thingUpdated`, and `thingDeleted`.
                     </p>
 
                     <p class="ednote" title="SSE Authorization Header">
@@ -1846,14 +1845,15 @@ img.wot-diagram {
                             The support for SPARQL search using HTTP <code>POST</code> method
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
-                        <code>UPDATE</code> queries are out of the scope for the API.
-                        <span class="rfc2119-assertion" id="tdd-search-sparql-resp">
-                            A successful response MUST have 200 (OK) status, and depending on the type
-                            of query contain by default as Content-Type header <code>application/ld+json</code>
-                            for <code>CONSTRUCT</code> and <code>DESCRIBE</code> queries or
-                            <code>application/json</code> for <code>SELECT</code> or <code>ASK</code>.
-                            The response body MAY contain TD fragments or a set of TDs depending on the query.
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-resp-select-ask">
+                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
                         </span>
+			 <span class="rfc2119-assertion" id="tdd-search-sparql-resp-describe-construct">
+                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
+			 </span>
+			<span class="rfc2119-assertion" id="tdd-search-sparql-error">
+			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 400 (Bad Request).
+			</span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-api-spec]]].
                         <p>List of errors:
@@ -2227,6 +2227,42 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
             </dl>
         </section>
 
+    </section>
+
+    <section id="performance-considerations" class="informative">
+        <h1>Performance Considerations</h1>
+        
+        <section id="perf-incremental-transfer">
+            <h2>Incremental Transfer</h2>
+            <a>TD</a> objects are not constrained in size. They may become 
+            expensive to process and transfer individually or collectively.
+            A single TD or a list of TDs could be too large for a constrained device,
+            serving its own TD to consumers, submitting it to a directory,
+            or consuming other TDs.
+
+            To meet such requirements,
+            servers should support incremental transfer of payloads 
+            using protocol-specific mechanisms:
+            <ul>
+                <li>
+                    HTTP/1.1 servers should support `chunked` 
+                    <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
+                    to receive and server data incrementally.
+                </li>
+                <li>
+                    HTTP/2 servers should handle the data incrementally using 
+                    <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
+                    The HTTP/1.1 chunked transfer encoding is not supported in HTTP/2.
+                </li>
+            </ul>
+        
+            Most HTTP servers and clients automatically process the data that is transferred 
+            in chunks.
+            Memory-constrained clients should consider consuming the
+            received data incrementally, instead of trying to load a whole
+            object in memory for de-serialization. 
+
+        </section>
     </section>
 
     <section id="directory-api-spec">
