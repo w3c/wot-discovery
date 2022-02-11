@@ -893,10 +893,23 @@ img.wot-diagram {
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="tdd-reg-crudl">
-                            The Registration API MUST provide interfaces to 
-                            create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
-                        </span>
+                        
+                        The Things API provides interfaces to 
+                        create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
+
+                        It is MANDATORY to implement the interface to list TDs.
+                        Useful for static directories.
+                        Useful when other operations are available via non-HTTP protocols.
+                        Filtering provided via search API.
+                        It is recommended that the 
+                        create, retrieve, update, delete (CRUD) interfaces are
+                        provided together. 
+                        Need to update the TM.
+                        
+                        
+                        <!-- <span class="rfc2119-assertion" id="tdd-reg-crudl"> -->
+                            
+                        <!-- </span> -->
 
                         The operations are described below:
                     </p>
