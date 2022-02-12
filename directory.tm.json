@@ -12,6 +12,9 @@
         "model": "1.0.0-alpha"
     },
     "base": "{{DIRECTORY_BASE_URL}}",
+    "tm:required": [
+        "#/properties/things"
+    ],
     "properties": {
         "things": {
             "description": "Retrieve all Thing Descriptions",
