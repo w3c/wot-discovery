@@ -259,10 +259,50 @@ img.wot-diagram {
                 alt="Discovery process overview" />
             <figcaption>Discovery process overview</figcaption>
         </figure>
-        <p class="ednote" title="Discovery Architecture Overview">
-        To do: an overview of the two-phase approach and its purpose, which is to support
-        controlled and authenticated access to metadata by authorized users only.
+	<p>
+	The WoT discovery process is designed using a two-phase approach.
+	In the first phase, one or more of a set of "Introduction" mechanisms may be used to 
+	generate a set of candidate URLs.  These URLs do not themselves contain metadata,
+	but are used in the second stage, "Exploration", to actually fetch metadata.
+	The intention is that Introductions are relatively open and can support any
+	mechanism that can return a URL, including simply entering URLs directly.
+	Introductions, however, do not include any security or privacy controls and
+	so should not provide metadata directly.  Instead, the provided URLs are followed
+	to "Exploration" mechanisms that will actually provide metadata but allow for
+	suitable security and privacy controls.
         </p>
+	<p>
+	Note that the discovery process can produce a <em>set</em> of URLs following 
+	its Introduction phase, and the final output after the Exploration phase
+	can be a <em>set</em> of Thing Descriptions.
+	Generally each URL provided by the Introduction phase points at a Thing Description,
+	and in the simplest case this is in fact the Thing Description of a Thing that
+	represents an IoT device.  In the case of self-describing Things the URL might
+	even point directly at the Thing which can serve its own Thing Description,
+	but in general Thing Descriptions might also be provided by other entities.
+	However, there are also two special cases that allow for more flexibility:
+	</p>
+	<ul>
+	<li>A given Thing Description may in fact describe a Thing Description Directory service.  
+	A Thing Description Directory service (which is still a Thing) maintains a (usually dynamic) list of Thing Descriptions
+	which can be fetched and added to the discovery set (the set can be narrowed by
+	using query filters when fetching TDs from a directory).
+	</li>
+	<li>
+	The second special case is a Thing Link.  This is also a Thing Description,
+	but rather than describing a Thing directly serves as a container for links to
+	other Thing Descriptions.  There are two categories of links supporting redirection
+	and sets.  Redirection allows for Thing Descriptions to be stored somewhere else
+	than at the exact URL provided by the Introduction.  Sets allows for single URLs to expand
+	into multiple Thing Descriptions without needing to use a Thing Description Directory.
+	Such sets are only appropriate for small static lists of Thing Descriptions.
+	In both cases, a Thing Link resolves a single URL into one or more additional URLs
+	which are fed back into the Introduction set, replacing the original URL pointing 
+	at the Thing Link.  A Thing Description Directory can also store Thing Links
+	which can redirect to other Thing Description Directories, allowing for a linked
+	directory structure.
+	</li>
+	</ul>
     </section>
     <section id="introduction-mech" class="normative">
         <h1>Introduction Mechanisms</h1>
