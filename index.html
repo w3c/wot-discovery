@@ -879,47 +879,50 @@ img.wot-diagram {
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Things API</h4>
                     <p>
-                        The Things API is a RESTful HTTP API served at the `/things` endpoint.
-                        The design of this API is in accordance with the recommendations
-                        defined in [[RFC7231]] and [[?REST-IOT]].
-                    </p>
-                    <p>
-                        <span class="rfc2119-assertion" id="tdd-reg-default-representation">
-                            The default serialization format for all request and success response bodies MUST be
-                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
-                            processing.
-                        </span>
-                        Certain applications may require serializations other than JSON.
-                        <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
-                            Directories MAY accept additional representations based on request's indicated
-                            Content-Type or Content-Encoding, and provide additional representations through
-                            server-driven content negotiation.
-                        </span>
-                    </p>
-                    <p>
-                        
-                        The Things API provides interfaces to 
+                        The Things API is a RESTful HTTP API served at the `/things` endpoint
+                        providing interfaces to 
                         create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
+                        The design of this API is in accordance with [[RFC7231]] and [[?REST-IOT]].
                     </p>
                     <p>
-                        Implementing the interface to list TDs over HTTP is REQUIRED.
-
-                        All other create, retrieve, update, and delete (CRUD) interfaces are OPTIONAL.
-                    </p>
-                    <p>
-                        For directories that serve the resources from a static collection,
-                        it is practical to only implement interfaces to list and retrieve <a>TDs</a>
-                        but not to create, update, and delete.
-                        This is also useful for directories that only intend to expose
-                        retrieval over HTTP, and allow other operations over non-HTTP protocols.
+                        The HTTP API follows these general rules:
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-list-only">
+                                    The API MUST provide the interface to list TDs.</span>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-crudl">
+                                    Fully fledged HTTP directories SHOULD implement all of
+                                    CRUDL (create, read, update, delete, and list) interfaces.</span>
                             
-                        For other directories, it is recommended to implement list, as well as the
-                        four CRUD interfaces.
-                        Additional control over the CRUD interfaces should 
-                        be enforced via access control mechanisms.
+                                It is practical to only implement interfaces to list and retrieve
+                                if the directory serves a static collection of <a>TDs</a>.
+                                This is also useful for directories that only intend to expose
+                                read operations over HTTP, and perform other interactions via non-HTTP protocols.
+
+                                <span class="rfc2119-assertion" id="tdd-reg-read-only-auth">
+                                    To expose read-only access, the directory MUST enforce access control
+                                    on create, update, and delete interfaces.</span>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-default-representation">
+                                    The default serialization format for all request and success response bodies MUST be
+                                    JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
+                                    processing.</span>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
+                                    Directories MAY accept additional representations based on request's indicated
+                                    Content-Type or Content-Encoding, and provide additional representations through
+                                    server-driven content negotiation.</span>
+                                This is useful for applications that require serializations other than JSON.
+                            </li>
+                        </ul>
                     </p>
+                    
                     <p>
-                        The operations are described below:
+                        The CRUDL operations are described below:
                     </p>
 
                     <section id="exploration-directory-api-registration-creation" class="normative">
@@ -944,7 +947,7 @@ img.wot-diagram {
                         <ul>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
-                                    A TD MUST be submitted to the directory in the body of an HTTP `PUT` request
+                                    A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
                                     at `/things/{id}` endpoint, where `id` is the unique TD identifier,
                                     present inside the TD object.
                                 </span>
@@ -1003,7 +1006,8 @@ img.wot-diagram {
                             Error responses:
                             <ul>
                                 <li>
-                                    400 (Bad Request): Invalid serialization or TD.
+                                    400 (Bad Request): Bad user input such as
+                                    invalid serialization, invalid TD, `id` mismatch.
                                     This is accompanied by an appropriate response message.
                                 </li>
                                 <li>401 (Unauthorized): No authentication.</li>
