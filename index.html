@@ -273,7 +273,8 @@ img.wot-diagram {
         </p>
 	<p>
 	Note that the discovery process can produce a <em>set</em> of URLs following 
-	its Introduction phase, and the final output after the Exploration phase
+	its Introduction phase, even if only one Introduction mechanism is used,
+	and the final output after the Exploration phase
 	can be a <em>set</em> of Thing Descriptions.
 	Generally each URL provided by the Introduction phase points at a Thing Description,
 	and in the simplest case this is in fact the Thing Description of a Thing that
@@ -290,15 +291,9 @@ img.wot-diagram {
 	</li>
 	<li>
 	The second special case is a Thing Link.  This is also a Thing Description,
-	but rather than describing a Thing directly serves as a container for links to
-	other Thing Descriptions.  There are two categories of links supporting redirection
-	and sets.  Redirection allows for Thing Descriptions to be stored somewhere else
-	than at the exact URL provided by the Introduction.  Sets allows for single URLs to expand
-	into multiple Thing Descriptions without needing to use a Thing Description Directory.
-	Such sets are only appropriate for small static lists of Thing Descriptions.
-	In both cases, a Thing Link resolves a single URL into one or more additional URLs
-	which are fed back into the Introduction set, replacing the original URL pointing 
-	at the Thing Link.  A Thing Description Directory can also store Thing Links
+	but rather than describing a Thing directly holds a link to
+	a Thing Descriptions hosted elsewhere.  
+	A Thing Description Directory can also store Thing Links
 	which can redirect to other Thing Description Directories, allowing for a linked
 	directory structure.
 	</li>
