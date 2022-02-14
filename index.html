@@ -886,19 +886,19 @@ img.wot-diagram {
                         <li>
                             If the missing feature is to customize existing functionality of an
                             API, the server will respond with 501 (Not Implemented)
-                            HTTP status. For example, if a client requests a list of
+                            HTTP status.
+                            For example, if a client requests a list of
                             items with a particular sorting order, the server either
                             respects that request and returns the list with the requested
                             order, or rejects the request and does not return the list.
                             The server will return the list with the default order
                             if and only if custom sorting is not requested.
+                            The normative behavior is prescribed in the respective sections.
                         </li>
                         <li>
-                            If the missing feature is the whole functionality at an API endpoint,
-                            the server may respond with 404 (Not Found).
-                            Alternatively, a server may respond with 501 (Not Implemented)
-                            to signify that it has placeholders in place for the given
-                            endpoint and would provide this functionality in future.
+                            <span class="rfc2119-assertion" id="tdd-http-missing-api-endpoint">
+                            If an API endpoint is not provided, the server SHOULD respond with 
+                            404 (Not Found).</span>
                         </li>
                     </ul>
                 </p>
@@ -1046,6 +1046,7 @@ img.wot-diagram {
                                 </li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                       
@@ -1076,6 +1077,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
 
@@ -1295,6 +1297,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found (for `PATCH` only).</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1319,6 +1322,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1532,6 +1536,9 @@ img.wot-diagram {
                             <ul>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>501 (Not Implemented): Requested feature not implemented,
+                                    such as custom sorting.
+                                </li>
                             </ul>
                         </p>
 
@@ -1872,6 +1879,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1894,6 +1902,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1928,6 +1937,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
