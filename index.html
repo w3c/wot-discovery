@@ -341,8 +341,17 @@ img.wot-diagram {
 		<li><span class="rfc2119-assertion" id="consumer-must-support-intros">
 			A D-Consumer MUST support at least one Introduction mechanism.</span>
 			The simplest Introduction mechanism, Direct, simply provides a single URL of a target TD.  
-			So this requirement means only that,
-			at a minimum, a D-Consumer must be able to accept a single URL pointing at a TD.
+			This assertion results in different minimal requirements depending on
+			which Introduction mechanism is selected out of the several available.
+			For example, when Direct is used as the sole Introduction mechanism,
+			at a minimum a D-Consumer must be able to accept a single URL pointing at a TD.
+			Note, however, that this TD could still be describing a Directory.
+			Another option would be for a D-Consumer to implement, as its sole 
+			Introduction mechanism, an "automatic" Introduction mechanism such as 
+			DNS-SD, possibly in combination with mDNS. 
+			In this case the application 
+			code running in the D-Consumer
+			would not have to supply any additional information to invoke Discovery.
 		</li>
 		<li><span class="rfc2119-assertion" id="consumer-must-support-fetching">
 			A D-Consumer MUST support fetching a TD from least one URL provided as part of the Introduction process.</span>
