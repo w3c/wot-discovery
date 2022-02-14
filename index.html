@@ -892,14 +892,19 @@ img.wot-diagram {
                                     The API MUST provide the interface to list TDs.</span>
                             </li>
                             <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-crud">
+                                    The API MAY provide the interfaces to
+                                    create, read, update, and delete (CRUD) TDs.</span>
+                            </li>
+                            <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-crudl">
                                     Fully fledged HTTP directories SHOULD implement all of
                                     CRUDL (create, read, update, delete, and list) interfaces.</span>
                             
-                                It is practical to only implement interfaces to list and retrieve
+                                It is practical to implement only the interfaces to read and list
                                 if the directory serves a static collection of <a>TDs</a>.
-                                This is also useful for directories that only intend to expose
-                                read operations over HTTP, and perform other interactions via non-HTTP protocols.
+                                This is also useful for directories that intend to expose only
+                                retrieval operations over HTTP, and perform other interactions via non-HTTP protocols.
 
                                 <span class="rfc2119-assertion" id="tdd-reg-read-only-auth">
                                     To expose read-only access, the directory MUST enforce access control
