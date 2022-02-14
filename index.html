@@ -305,120 +305,136 @@ img.wot-diagram {
 	</ul>
     </section>
     <section id="consumer-process" class="normative">
-        <h1>Discovering Consumer</h1>
-	<p>In this section we will describe the WoT Discovery process from the point of view of a WoT Consumer.
-	and what it means to say that a WoT Consumer supports WoT Discovery.
-	These requirements are designed so that nearly any WoT Consumer implementation that can fetch a single TD 
-	given a single URL over any protocol (including "file") can be said to support WoT Discovery, 
-	Of course, many WoT Consumers may support more powerful Discovery mechanisms, and some of these 
+        <h1>Discovering Clients and Consumers</h1>
+	<p>In this section we will describe the WoT Discovery process from the point of view of a client,
+	and what it means to say that a client supports WoT Discovery.
+	We will define a Discovering Client, D-Client for short, as an entity that supports the WoT Discovery
+	process.  Such a client may or may not be a Consumer.  A D-Client finds TDs, which are then passed
+	onto a Consumer for interpretation.  A D-Client itself may do some interpretation of TDs that it
+	fetches, however, in particular to examine the types of the TD it fetches to see if additional
+	fetches are required.  A Consumer may also be D-Client, in which case we will call
+	it a Discovering Consumer, or D-Consumer.
+	All of the statements below about D-Clients also apply to D-Consumers.
+
+	These requirements are designed so that nearly any client that can fetch a single TD 
+	given a single URL over any protocol (including "file") can be said to support WoT Discovery. 
+	Of course, clients may support more powerful Discovery mechanisms, and some of these 
 	have their own requirements.  
-	In particular, using WoT Thing Description Directories (TDDs) requires the use of HTTP.
+	For example, using WoT Thing Description Directories (TDDs) requires the use of HTTP, and so
+	are only available to clients that support this protocol.  However, use of HTTP (and Directories)
+	is not in fact a requirement of the WoT Discovery process: it is possible to discover multiple
+	TDs using just Introduction mechanisms.
 	</p>
 	<p class="ednote" title="Minimum URL Requirements">Requiring the ability to read a TD from a URL over
-	HTTP would require even Consumers that only want to interact over CoAP, for instance, 
+	HTTP would require even clients/consumers that only want to interact over CoAP, for instance, 
 	to implement an HTTP client to be able to support Discovery.
-	Another common way to configure a Consumer is simply to read a (single) TD from a file.
+	Another common way to configure a client/consumer is simply to read a (single) TD from a file.
+	There are also other valid ways to do discovery over CoAP, for example using CoRE-RD to discover
+	multiple TD links.
 	This is why in the following we allow any protocol to be used, even though
-	many of our exploration mechanims require HTTP.
+	our Directory exploration mechanisms require HTTP.
 	</p>
 	<p class="ednote" title="D-Consumer">
 	Currently the WoT Architecture specification does not clearly say that Consumers MUST support Discovery.  
-	This is the reason for the introduction of the D-Consumer term.
+	This is the reason for the introduction of the D-Client and D-Consumer terms.
 	</p>
 	</p>
-	We will use the term <a>D-Consumer</a> to refer to a WoT Consumer supporting WoT Discovery.
+	We will use the term <a>D-Consumer</a> to refer to a WoT Consumer supporting WoT Discovery,
+	and D-Client as a more general term relating to any client supporting WoT Discovery.
+	Every D-Consumer is also a D-Client.  The rest of this section refers only to D-Clients but all
+	assertions also apply to D-Consumers.
 	<p>
 	As described in section <a href="#architecture"></a>, WoT Discovery has two phases, Introduction
 	and Exploration. In the following sections we will give details on various Introduction and Exploration
 	mechanisms. 
 	However, <em>all</em> Introduction mechanisms result one or more URLs which can be used to fetch TDs by
-	a D-Consumer. 
+	a D-Client. 
 	Some of these TDs, however, may link to
 	TDs stored elsewhere (Thing Links) or describe web services that manage sets of TDs (Thing Description Directories, or TDDs).
-	The following assertions describe the responsibilities of a D-Consumer:
+	The following assertions describe the responsibilities of a D-Client:
 	</p>
 	<ul>
 		<li><span class="rfc2119-assertion" id="consumer-must-support-intros">
-			A D-Consumer MUST support at least one Introduction mechanism.</span>
+			A D-Client MUST support at least one Introduction mechanism.</span>
 			The simplest Introduction mechanism, Direct, simply provides a single URL of a target TD.  
 			This assertion results in different minimal requirements depending on
 			which Introduction mechanism is selected out of the several available.
 			For example, when Direct is used as the sole Introduction mechanism,
-			at a minimum a D-Consumer must be able to accept a single URL pointing at a TD.
+			at a minimum a D-Client must be able to accept a single URL pointing at a TD.
 			Note, however, that this TD could still be describing a Directory.
-			Another option would be for a D-Consumer to implement, as its sole 
+			Another option would be for a D-Client to implement, as its sole 
 			Introduction mechanism, an "automatic" Introduction mechanism such as 
 			DNS-SD, possibly in combination with mDNS. 
 			In this case the application 
-			code running in the D-Consumer
+			code running in the D-Client
 			would not have to supply any additional information to invoke Discovery.
 		</li>
 		<li><span class="rfc2119-assertion" id="consumer-must-support-fetching">
-			A D-Consumer MUST support fetching a TD from least one URL provided as part of the Introduction process.</span>
-			In other words, not only must a D-Consumer accept URLs pointing at TDs, it must be
+			A D-Client MUST support fetching a TD from least one URL provided as part of the Introduction process.</span>
+			In other words, not only must a D-Client accept URLs pointing at TDs, it must be
 			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
 			specified by way of a file URL.
-			It is permissible to split the implementation of a D-Consumer into two parts, a "configurator" that
+			It is permissible to split the implementation of a D-Client into two parts, a "configurator" that
 			fetches/reads a TD and sets up a configuration during installation to be used by a 
 			run-time "executor" that cannot itself read TDs.
-			In this case, however, the "executor" is not by itself a D-Consumer.
+			In this case, however, the "executor" is not by itself a D-Client.
 		</li>
 		<li><span class="rfc2119-assertion" id="consumer-may-multiple-intro">
-			A D-Consumer MAY support multiple invocations of the same Introduction mechanism.</span>
+			A D-Client MAY support multiple invocations of the same Introduction mechanism.</span>
 			If multiple invocations of a single Introduction mechanism is supported, 
-			or if multiple Introduction mechanisms are used, then the D-Consumer needs to
+			or if multiple Introduction mechanisms are used, then the D-Client needs to
 			manage a set of Introduction results.  
 			Some Introduction mechanisms themselves return a set of results, e.g. CoRE-RD, DID, or DNS-SD. 
 			Some, such as scanning Bluetooth beacons, may intrinsically result in separate multiple "invocations".
-			However, this D-Consumer requirement is optional to support an important special case: 
+			However, this D-Client requirement is optional to support an important special case: 
 			it is permissible to have a simple
-			D-Consumer that only supports a single invocation of a Direct Introduction, 
+			D-Client that only supports a single invocation of a Direct Introduction, 
 			directly specifying a single TD via a URL.
 		<li><span class="rfc2119-assertion" id="consumer-merge-intros">
-			A D-Consumer MUST be able to merge URLs resulting from 
+			A D-Client MUST be able to merge URLs resulting from 
 			multiple Introduction mechanisms, multiple results from a single Introduction mechanism,
 			and multiple Introduction invocations into a single set.</span>
 			Note that even if only one Introduction mechanism is supported multiple results might be 
 			produced.  This assertion states that the overall output of the Introduction phase is
 			a single set of URLs.  
 			The word "set" is used here in the mathematical sense: the results are unordered.
-			To clarify, if the D-Consumer only supports one Introduction mechanism and that mechanism
+			To clarify, if the D-Client only supports one Introduction mechanism and that mechanism
 			can only produce one URL, then the "merge" is trivial.
 		</li>
-		<li><span class="rfc2119-assertion" id="consumer-td-identify">A D-Consumer MUST be able to identify whether a TD fetched from an 
+		<li><span class="rfc2119-assertion" id="consumer-td-identify">A D-Client MUST be able to identify whether a TD fetched from an 
 			Introduction URL is a ThingDirectory or a ThingLink.</span>
-			This does not imply that the D-Consumer needs to take any action on such TDs; it just needs to be able
+			This does not imply that the D-Client needs to take any action on such TDs; it just needs to be able
 			to check the <code>@type</code> field and make this distinction.
-                        A D-Consumer can decide whether or not to follow links or fetch TDD contents.
+                        A D-Client can decide whether or not to follow links or fetch TDD contents.
 	                There are some use cases where a Consumer may not expand certain URLs, for example links pointing
 	                at external resources, or when a TDD contains many TDs and fetching them all
 	                would exceed the Consumer's memory processing capabilities.
 		</li>
-		<li><span class="rfc2119-assertion" id="consumer-fetch-tdd">A D-Consumer MAY fetch additional TDs from any Exploration mechanism
+		<li><span class="rfc2119-assertion" id="consumer-fetch-tdd">A D-Client MAY fetch additional TDs from any Exploration mechanism
 			described in its initial set of TDs (including, in particular, Thing Description Directories) 
 			and add them into the set of TD results.</span>
 			This only adds the results of fetching TDs from a Exploration mechanism to the set of
 			results. These new results do not delete the original TD describing the Exploration mechanism. 
 		</li>
-		<li><span class="rfc2119-assertion" id="consumer-fetch-links">A D-Consumer MAY fetch source TDs from the targets of the links in a Thing Link
+		<li><span class="rfc2119-assertion" id="consumer-fetch-links">A D-Client MAY fetch source TDs from the targets of the links in a Thing Link
 			described in its initial set of TDs and add them into the set of TD results.</span>
 			This only adds the results of fetching TDs from a Thing Link to the set of
 			results. These new results do not delete the original TD describing the Exploration mechanism. 
 		</li>
-		<li><span class="rfc2119-assertion" id="consumer-fetch-iteration">A D-Consumer MAY fetch additional TDs iteratively from any Thing Link or
+		<li><span class="rfc2119-assertion" id="consumer-fetch-iteration">A D-Client MAY fetch additional TDs iteratively from any Thing Link or
 			Exploration mechanism described in its set of TDs and add them into the set of TD results.</span>
 			This only adds the results of fetching TDs from a Thing Link to the set of
 			results. These new results do not delete the original TD describing the Exploration mechanism. 
 		</li>
-		<li><span class="rfc2119-assertion" id="consumer-termination">A D-Consumer MAY terminate fetching additional TDs at any point or for
+		<li><span class="rfc2119-assertion" id="consumer-termination">A D-Client MAY terminate fetching additional TDs at any point or for
 			any reason.</span>
 	        </li>
-		<li><span class="rfc2119-assertion" id="consumer-any-order">A D-Consumer MAY fetch additional TDs by following links or fetching
+		<li><span class="rfc2119-assertion" id="consumer-any-order">A D-Client MAY fetch additional TDs by following links or fetching
 			additional TDs from Exploration mechanisms (e.g. TDDs) in any order.</span>
-			The D-Consumer can fetch additional TDs in any order from any Exploration mechanism and is not
+			The D-Client can fetch additional TDs in any order from any Exploration mechanism and is not
 			required to use all of them.
 	        </li>
-		<li><span class="rfc2119-assertion" id="consumer-track">A D-Consumer MUST track (by id) which TDs describing links or Exploration mechanisms
+		<li><span class="rfc2119-assertion" id="consumer-track">A D-Client MUST track (by id) which TDs describing links or Exploration mechanisms
 			have already been fetched and avoid fetching duplicate results.</span>
 			This is to avoid infinite loops.  Note that Thing Description Directories can easily refer to each other,
 			for example, so fetching the TDs from a TDD, then fetching all those TDs will give another copy of the
