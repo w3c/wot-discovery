@@ -911,6 +911,7 @@ img.wot-diagram {
                         create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
                         The design of this API is in accordance with [[RFC7231]] and [[?REST-IOT]].
                     </p>
+                    
                     <p>
                         The HTTP API follows these general rules:
                         <ul>
@@ -931,12 +932,10 @@ img.wot-diagram {
                                 <span class="rfc2119-assertion" id="tdd-reg-crudl">
                                     Full HTTP directories SHOULD implement all of
                                     CRUDL (create, read, update, delete, and list) interfaces.</span>
-                            
                                 It is practical to implement only the interfaces to read and list
                                 if the directory serves a static collection of <a>TDs</a>.
                                 This is also useful for directories that intend to expose only
                                 retrieval operations over HTTP, and perform other interactions via non-HTTP protocols.
-
                                 <span class="rfc2119-assertion" id="tdd-reg-read-only-auth">
                                     To expose read-only access, the directory MUST enforce access control
                                     on create, update, and delete interfaces.</span>
