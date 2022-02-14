@@ -876,6 +876,33 @@ img.wot-diagram {
                     incremental transfer of the payloads.
                 </p>
 
+                <p>
+                    The directory APIs include mandatory, recommended, and optional
+                    features. 
+                    Directories that don't offer recommended or optional features
+                    inform the clients about the absence of those features
+                    according to the following rules:
+                    <ul>
+                        <li>
+                            If the missing feature is to customize existing functionality of an
+                            API, the server will respond with 501 (Not Implemented)
+                            HTTP status. For example, if a client requests a list of
+                            items with a particular sorting order, the server either
+                            respects that request and returns the list with the requested
+                            order, or rejects the request and does not return the list.
+                            The server will return the list with the default order
+                            if and only if custom sorting is not requested.
+                        </li>
+                        <li>
+                            If the missing feature is the whole functionality at an API endpoint,
+                            the server may respond with 404 (Not Found).
+                            Alternatively, a server may respond with 501 (Not Implemented)
+                            to signify that it has placeholders in place for the given
+                            endpoint and would provide this functionality in future.
+                        </li>
+                    </ul>
+                </p>
+
                 <section id="exploration-directory-api-registration" class="normative">
                     <h4>Things API</h4>
                     <p>
@@ -1899,7 +1926,6 @@ img.wot-diagram {
                                 <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>501 (Not Implemented): SPARQL API not supported.</li>
                             </ul>
                         </p>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
