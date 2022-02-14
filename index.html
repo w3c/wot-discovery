@@ -305,7 +305,7 @@ img.wot-diagram {
 	</ul>
     </section>
     <section id="consumer-process" class="normative">
-        <h1>Discovering Clients and Consumers</h1>
+        <h1>Clients and Consumers</h1>
 	<p>In this section we will describe the WoT Discovery process from the point of view of a client,
 	and what it means to say that a client supports WoT Discovery.
 	We will define a Discovering Client, D-Client for short, as an entity that supports the WoT Discovery
@@ -441,15 +441,22 @@ img.wot-diagram {
 			original TDD's TD.  This second copy should NOT trigger further fetches.
 		</li>
         </ul>
-	The above process supports a simple way to let Directories reference other Directories without duplicating their TDs: 
+	The above process supports a way to let Directories reference other Directories without duplicating their TDs: 
 	a Directory wanting to reference other Directories should include a Thing Link with a "describedby" relation to the
 	TD of the other Directory service.  Then the above process would expand the Thing Link to obtain the actual TD of the Directory, 
 	and then (optionally) use the appropriate Directory affordance to access the contents of the linked Directory.
-        However, recursively fetching the contents of such linked directories, especially without a specific
+	Note that such a Thing Link points at the TD of the Directory, not at the Directory itself.  These
+	may or may not be hosted in the same location.
+
+        Recursively fetching the contents of such linked directories, especially without a specific
 	query or filter, could easily result in downloading a large amount of data.  Such recursive expansion should be limited to use
-	cases that require it, such as inventory, auditing, or indexing.  Note that linked URLs for directory services can also be
+	cases that require it, such as inventory, auditing, or indexing.  
+
+	URLs for Directory services can also be
 	used with the federation capabilities of SPARQL queries, noted below, which in most cases will be a more efficient way
 	to collect specific information from a set of distributed directory services.
+	However, SPARQL requires the URL of a SPARQL endpoint for such federation, which can be found in the TDs
+	of Directories supporting SPARQL queries.  This is not the same as the URL pointing at the TD of a Directory.
     </p>
     </section>
     <section id="introduction-mech" class="normative">
