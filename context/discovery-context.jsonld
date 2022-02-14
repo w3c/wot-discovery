@@ -9,17 +9,22 @@
       "@id": "discovery:ThingLink",
       "@type": "@id"
     },
-	"ThingCollection": {
+    "ThingCollection": {
       "@id": "discovery:ThingCollection",
       "@type": "@id"
     },
    "next": {
-          "@id": "discovery:nextThingCollection",
-          "@type": "xsd:anyURI"
+      "@id": "discovery:nextThingCollection",
+      "@type": "@id"
    },
    "total": {
-          "@id": "discovery:contains",
-          "@type": "xsd:integer"
+      "@id": "discovery:contains",
+      "@type": "xsd:integer"
+   },
+   "members": {
+      "@id": "discovery:hasCollectionMember",
+      "@type": "@id",
+      "@container": "@set"
    },
    "registration": {
       "@id": "discovery:hasRegistrationInformation",
