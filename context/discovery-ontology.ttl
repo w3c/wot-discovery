@@ -28,6 +28,18 @@ discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
 	rdfs:range discovery:RegitrationInformation ;
 	rdfs:label "registration" .
 
+### discovery:nextThingCollection
+discovery:nextThingCollection rdf:type owl:ObjectProperty;
+    rdfs:domain discovery:ThingCollection;
+    rdfs:range discovery:ThingCollection;
+    rdfs:label "next ThingCollection" .
+
+
+### discovery:members
+discovery:members rdf:type owl:ObjectProperty;
+    rdfs:domain discovery:ThingCollection;
+    rdfs:range discovery:Thing;
+    rdfs:label "ThingCollection members" .
 #################################################################
 
 # Data Properties
@@ -64,6 +76,11 @@ discovery:retrieved rdf:type owl:DatatypeProperty ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "retrieved"@en .
 
+### discovery:total
+discovery:total rdf:type owl:DatatypeProperty ;
+	rdfs:domain discovery:ThingCollection;
+	rdfs:range xsd:integer;
+	rdfs:label "total"@en .
 #################################################################
 
 # Classes
@@ -86,6 +103,11 @@ discovery:ThingLink rdf:type owl:Class ;
 ### discovery:ThingDirectory
 discovery:ThingDirectory rdf:type owl:Class ;
 	rdfs:label "ThingDirectory" ;
+	rdfs:subClassOf td:Thing .
+
+### discovery:ThingCollection
+discovery:ThingCollection rdf:type owl:Class ;
+	rdfs:label "ThingCollection" ;
 	rdfs:subClassOf td:Thing .
 
 #################################################################
