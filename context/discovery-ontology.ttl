@@ -87,10 +87,6 @@ discovery:total rdf:type owl:DatatypeProperty ;
 
 #################################################################
 
-### td:Thing
-td:Thing rdf:type owl:Class ;
-	rdfs:label "Thing" .
-
 ### discovery:RegitrationInformation
 discovery:RegitrationInformation rdf:type owl:Class ;
 	rdfs:label "RegitrationInformation" .
