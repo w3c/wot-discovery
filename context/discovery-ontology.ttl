@@ -46,20 +46,23 @@ discovery:members rdf:type owl:ObjectProperty;
 
 #################################################################
 
-### schema:dateCreated
-schema:dateCreated rdf:type owl:DatatypeProperty ;
+### discovery:dateCreated
+discovery:dateCreated rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:dateCreated;
 	rdfs:domain discovery:RegitrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "created"@en .
 
-### schema:dateModified
-schema:dateModified rdf:type owl:DatatypeProperty ;
+### discovery:dateModified
+discovery:dateModified rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:dateModified;
 	rdfs:domain discovery:RegitrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "modified"@en .
 
-### schema:expires
-schema:expires rdf:type owl:DatatypeProperty ;
+### discovery:expires
+discovery:expires rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:expires
 	rdfs:domain discovery:RegitrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "expires"@en .

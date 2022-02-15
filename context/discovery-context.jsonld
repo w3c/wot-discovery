@@ -30,21 +30,20 @@
       "@id": "discovery:hasRegistrationInformation",
       "@type": "@id",
       "@context": {
-        "schema": "http://schema.org/",
         "RegistrationInformation": {
           "@id": "discovery:RegistrationInformation",
           "@type": "@id"
         },
         "created": {
-          "@id": "schema:dateCreated",
+          "@id": "discovery:dateCreated",
           "@type": "xsd:dateTime"
         },
         "modified": {
-          "@id": "schema:dateModified",
+          "@id": "discovery:dateModified",
           "@type": "xsd:dateTime"
         },
         "expires": {
-          "@id": "schema:expires",
+          "@id": "discovery:expires",
           "@type": "xsd:dateTime"
         },
         "retrieved": {
