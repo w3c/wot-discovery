@@ -911,7 +911,7 @@ img.wot-diagram {
                         create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
                         The design of this API is in accordance with [[RFC7231]] and [[?REST-IOT]].
                     </p>
-                    
+
                     <p>
                         The HTTP API follows these general rules:
                         <ul>
@@ -2245,6 +2245,19 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
 
     <section id="directory-api-spec">
         <h1>Directory Service API Specification (Thing Model)</h1>
+
+        <p class="issue" data-number="86">
+            To do: add a
+            <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
+            (`directory.tm.json`)
+            that can derive to
+            <a href="https://github.com/w3c/wot-discovery/blob/main/implementations/example-directory-oauth2.td.json">this TD</a>
+            as an example.
+            The <a>TM</a> should describe all interaction affordances and indicate which ones
+            are required (i.e. mandatory by this spec). Moreover, it should use placeholders
+            for deployment-specific attributes.
+            Informative affordances (JSONPath and XPath) should be defined as such.
+        </p>
 
         The API of the directory is specified as a <a>Thing Model</a>.
         The Thing Model alone should not be considered as the reference
