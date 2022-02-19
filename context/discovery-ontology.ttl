@@ -25,58 +25,74 @@
 ### discovery:hasRegistrationInformation
 discovery:hasRegistrationInformation rdf:type owl:ObjectProperty ;
 	rdfs:domain td:Thing ;
-	rdfs:range discovery:RegitrationInformation ;
+	rdfs:range discovery:RegistrationInformation ;
 	rdfs:label "registration" .
 
+### discovery:nextThingCollection
+discovery:nextThingCollection rdf:type owl:ObjectProperty;
+    rdfs:domain discovery:ThingCollection;
+    rdfs:range discovery:ThingCollection;
+    rdfs:label "next ThingCollection" .
+
+
+### discovery:hasCollectionMember
+discovery:hasCollectionMember rdf:type owl:ObjectProperty;
+    rdfs:domain discovery:ThingCollection;
+    rdfs:range td:Thing;
+    rdfs:label "ThingCollection members" .
 #################################################################
 
 # Data Properties
 
 #################################################################
 
-### schema:dateCreated
-schema:dateCreated rdf:type owl:DatatypeProperty ;
-	rdfs:domain discovery:RegitrationInformation ;
+### discovery:dateCreated
+discovery:dateCreated rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:dateCreated;
+	rdfs:domain discovery:RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "created"@en .
 
-### schema:dateModified
-schema:dateModified rdf:type owl:DatatypeProperty ;
-	rdfs:domain discovery:RegitrationInformation ;
+### discovery:dateModified
+discovery:dateModified rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:dateModified;
+	rdfs:domain discovery:RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "modified"@en .
 
-### schema:expires
-schema:expires rdf:type owl:DatatypeProperty ;
-	rdfs:domain discovery:RegitrationInformation ;
+### discovery:expires
+discovery:expires rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf schema:expires
+	rdfs:domain discovery:RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "expires"@en .
 
 ### discovery:ttl
 discovery:ttl rdf:type owl:DatatypeProperty ;
-	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:domain discovery:RegistrationInformation ;
 	rdfs:range xsd:unsignedInt ;
 	rdfs:label "ttl"@en .
 
 ### discovery:retrieve
 discovery:retrieved rdf:type owl:DatatypeProperty ;
-	rdfs:domain discovery:RegitrationInformation ;
+	rdfs:domain discovery:RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "retrieved"@en .
 
+### discovery:contains
+discovery:contains rdf:type owl:DatatypeProperty ;
+	rdfs:domain discovery:ThingCollection;
+	rdfs:range xsd:integer;
+	rdfs:label "total number of things contained in the collection"@en .
 #################################################################
 
 # Classes
 
 #################################################################
 
-### td:Thing
-td:Thing rdf:type owl:Class ;
-	rdfs:label "Thing" .
-
-### discovery:RegitrationInformation
-discovery:RegitrationInformation rdf:type owl:Class ;
-	rdfs:label "RegitrationInformation" .
+### discovery:RegistrationInformation
+discovery:RegistrationInformation rdf:type owl:Class ;
+	rdfs:label "RegistrationInformation" .
 
 ### discovery:ThingLink
 discovery:ThingLink rdf:type owl:Class ;
@@ -87,6 +103,10 @@ discovery:ThingLink rdf:type owl:Class ;
 discovery:ThingDirectory rdf:type owl:Class ;
 	rdfs:label "ThingDirectory" ;
 	rdfs:subClassOf td:Thing .
+
+### discovery:ThingCollection
+discovery:ThingCollection rdf:type owl:Class ;
+	rdfs:label "ThingCollection".
 
 #################################################################
 # Instances
