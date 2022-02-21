@@ -369,10 +369,10 @@ img.wot-diagram {
 			In other words, not only must a D-Client accept URLs pointing at TDs, it must be
 			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
 			specified by way of a file URL.
-			It is permissible to split the implementation of a D-Client into two parts, a "configurator" that
-			fetches/reads a TD and sets up a configuration during installation to be used by a 
-			run-time "executor" that cannot itself read TDs.
-			In this case, however, the "executor" is not by itself a D-Client.
+			It is permissible to split the implementation of a D-Client into two components, one that
+			fetches/reads a TD and sets up a configuration during installation to be used by a
+			run-time component that cannot itself read TDs.
+			In this case, however, the latter component is not by itself a D-Client.
 		</li>
 		<li><span class="rfc2119-assertion" id="consumer-may-multiple-intro">
 			A D-Client MAY support multiple invocations of the same Introduction mechanism.</span>
