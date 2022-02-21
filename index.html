@@ -870,41 +870,96 @@ img.wot-diagram {
                     incremental transfer of the payloads.
                 </p>
 
-                <section id="exploration-directory-api-registration" class="normative">
-                    <h4>Registration</h4>
-                    <p>
-                        The Registration API is a RESTful HTTP API in accordance with the recommendations
-                        defined in [[RFC7231]] and [[?REST-IOT]].
-                        <span class="rfc2119-assertion" id="tdd-reg-default-representation">
-                            The default serialization format for all request and success response bodies MUST be
-                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
-                            processing.
-                        </span>
-                        <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
-                            Directories MAY accept additional representations based on request's indicated
-                            Content-Type or Content-Encoding, and provide additional representations through
-                            server-driven content negotiation.
-                        </span>
-                    </p>
-                    <p>
-                        <span class="rfc2119-assertion" id="tdd-reg-crudl">
-                            The Registration API MUST provide interfaces to 
-                            create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
-                        </span>
+                <p>
+                    The directory APIs include mandatory, recommended, and optional
+                    features. 
+                    Directories that don't offer recommended or optional features
+                    inform the clients about the absence of those features
+                    according to the following rules:
+                    <ul>
+                        <li>
+                            If the missing feature is to customize existing functionality of an
+                            API, the server will respond with 501 (Not Implemented)
+                            HTTP status.
+                            For example, if a client requests a list of
+                            items with a particular sorting order, the server either
+                            respects that request and returns the list with the requested
+                            order, or rejects the request and does not return the list.
+                            The server will return the list with the default order
+                            if and only if custom sorting is not requested.
+                            The normative behavior is prescribed in the respective sections.
+                        </li>
+                        <li>
+                            <span class="rfc2119-assertion" id="tdd-http-missing-api-endpoint">
+                            If an API endpoint is not provided, the server SHOULD respond with 
+                            404 (Not Found).</span>
+                        </li>
+                    </ul>
+                </p>
 
-                        The operations are described below:
+                <section id="exploration-directory-api-registration" class="normative">
+                    <h4>Things API</h4>
+                    <p>
+                        The Things API is a RESTful HTTP API served at the `/things` endpoint
+                        providing interfaces to 
+                        create, retrieve, update, delete, and list (CRUDL) <a>TDs</a>.
+                        The design of this API is in accordance with [[RFC7231]] and [[?REST-IOT]].
+                    </p>
+
+                    <p>
+                        The HTTP API follows these general rules:
+                        <ul>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-list-only">
+                                    The API MUST provide the interface to list TDs.</span>
+                                The Search API allows filtering and selection from this list; see
+                                [[[#exploration-directory-api-search]]].
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-crud">
+                                    The API MAY provide the interfaces to
+                                    create, read, update, and delete (CRUD) individual TDs.</span>
+                            </li>
+                            <li>
+                                A directory that provides both read and write over HTTP is considered
+                                a full HTTP directory.
+                                <span class="rfc2119-assertion" id="tdd-reg-crudl">
+                                    Full HTTP directories SHOULD implement all of
+                                    CRUDL (create, read, update, delete, and list) interfaces.</span>
+                                It is practical to implement only the interfaces to read and list
+                                if the directory serves a static collection of <a>TDs</a>.
+                                This is also useful for directories that intend to expose only
+                                retrieval operations over HTTP, and perform other operations via out-of-band mechanisms.
+                                <span class="rfc2119-assertion" id="tdd-reg-read-only-auth">
+                                    To expose read-only access, the directory MUST enforce access control
+                                    on create, update, and delete interfaces.</span>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-default-representation">
+                                    The default serialization format for all request and success response bodies MUST be
+                                    JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
+                                    processing.</span>
+                            </li>
+                            <li>
+                                <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
+                                    Directories MAY accept additional representations based on request's indicated
+                                    Content-Type or Content-Encoding, and provide additional representations through
+                                    server-driven content negotiation.</span>
+                                This is useful for applications that require serializations other than JSON.
+                            </li>
+                        </ul>
+                    </p>
+                    
+                    <p>
+                        The CRUDL operations are described in the following sections:
                     </p>
 
                     <section id="exploration-directory-api-registration-creation" class="normative">
                         <h4>Creation</h4>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-create-body">
-                                The API MUST allow registration of a TD object passed as request body.
-                            </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-create-contenttype">
-                                The request SHOULD contain `application/td+json` Content-Type header for 
-                                JSON serialization of TD.
-                            </span>
+                            Creation refers to the registration of a new <a>TD</a> inside the directory.
+                        </p>
+                        <p> 
                             The TD object is validated in accordance with [[[#validation]]].
                             Note that a TD may or may not be generated by the <a>Thing</a> it describes.
                             For brownfield devices in particular a separate <a>Discoverer</a> process
@@ -921,9 +976,16 @@ img.wot-diagram {
                         <ul>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
-                                    A TD MUST be submitted to the directory using an HTTP `PUT` request
-                                    at `/things/{id}` endpoint, where `id` is the unique TD identifier. 
+                                    A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
+                                    at `/things/{id}` endpoint, where `id` is the unique TD identifier,
+                                    present inside the TD object.
                                 </span>
+                                An <a>Anonymous TD</a> is handled differently; see below.
+                                <span class="rfc2119-assertion" id="tdd-reg-create-known-contenttype">
+                                    The request SHOULD contain `application/td+json` Content-Type header for 
+                                    JSON serialization of TD.
+                                </span>
+                                The TD object is validated in accordance with [[[#validation]]].
                                 <span class="rfc2119-assertion" id="tdd-reg-create-known-td-resp">  
                                     Upon successful processing, the server MUST respond with
                                     201 (Created) status.                           
@@ -941,9 +1003,14 @@ img.wot-diagram {
                             </li>
                             <li>
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
-                                    An <a>Anonymous TD</a> MUST be submitted to the directory using an HTTP `POST` request
-                                    at `/things` endpoint.
+                                    An <a>Anonymous TD</a> MUST be submitted to the directory in the body of
+                                    an HTTP `POST` request at `/things` endpoint.
                                 </span>
+                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-contenttype">
+                                    The request SHOULD contain `application/td+json` Content-Type header for 
+                                    JSON serialization of TD.
+                                </span>
+                                The TD object is validated in accordance with [[[#validation]]].
                                 <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-resp">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
@@ -968,11 +1035,13 @@ img.wot-diagram {
                             Error responses:
                             <ul>
                                 <li>
-                                    400 (Bad Request): Invalid serialization or TD.
+                                    400 (Bad Request): Bad user input such as
+                                    invalid serialization, invalid TD, or `id` mismatch.
                                     This is accompanied by an appropriate response message.
                                 </li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                       
@@ -984,7 +1053,7 @@ img.wot-diagram {
                         <h4>Retrieval</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve">
-                                The API MUST allow retrieval of an existing TD using an HTTP `GET` request
+                                The retrieval of an existing TD MUST be done using an HTTP `GET` request
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
@@ -1003,6 +1072,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
 
@@ -1110,9 +1180,9 @@ img.wot-diagram {
                     <section id="exploration-directory-api-registration-update" class="normative">
                         <h4>Update</h4>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-update-types">
-                                The API MUST allow modifications to an existing TD as full replacement or partial updates.
-                            </span>
+                            The update operations are to replace or partially modify an existing TD.
+                        </p>
+                        <p>
                             The update operations are described below:
                         </p>
 
@@ -1222,6 +1292,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found (for `PATCH` only).</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1230,7 +1301,7 @@ img.wot-diagram {
                         <h4>Deletion</h4>
                         <p>
                             <span class="rfc2119-assertion" id="tdd-reg-delete">
-                                A TD MUST be removed from the directory when an HTTP `DELETE` request is submitted
+                                A delete operation MUST be done using an HTTP `DELETE` request
                                 at `/things/{id}`, where `id` is the identifier of the existing TD.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
@@ -1246,6 +1317,7 @@ img.wot-diagram {
                                 <li>404 (Not Found): TD with the given `id` not found.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1459,6 +1531,9 @@ img.wot-diagram {
                             <ul>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>501 (Not Implemented): Requested feature not implemented,
+                                    such as custom sorting.
+                                </li>
                             </ul>
                         </p>
 
@@ -1529,17 +1604,8 @@ img.wot-diagram {
                     </section>
 
                 </section>
-                <section id="exploration-directory-api-management" class="normative">
-                    <h4>Management</h4>
-                    <p class="ednote" title="Management API">
-                        To do: Other administrative functions not having to do with CRUD of individual records,
-                        for example, security configuration.
-                        Also, administrator roles may expand the capabilities of administrators for
-                        management of records (for instance, the ability to delete a record they did not create).
-                    </p>
-                </section>
                 <section id="exploration-directory-api-notification" class="normative">
-                    <h4>Notification</h4>
+                    <h4>Events API</h4>
                     <p>
                         The Notification API is to notify clients about the changes
                         to <a>TDs</a> maintained within the directory.
@@ -1742,7 +1808,7 @@ img.wot-diagram {
 
                 </section>
                 <section id="exploration-directory-api-search" class="normative">
-                    <h4>Search</h4>
+                    <h4>Search API</h4>
                     
                     <p class="ednote" title="Search API Overview">
                         Sub-API to search a directory, e.g. issue a query.
@@ -1798,6 +1864,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1820,6 +1887,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                     </section>
@@ -1854,7 +1922,7 @@ img.wot-diagram {
                                 <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
                                 <li>401 (Unauthorized): No authentication.</li>
                                 <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>501 (Not Implemented): SPARQL API not supported.</li>
+                                <li>404 (Not Found): Endpoint not provided.</li>
                             </ul>
                         </p>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
@@ -2273,7 +2341,7 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
     </section>
 
     <section id="directory-api-spec">
-        <h1>Directory Service API Specification</h1>
+        <h1>Directory Service API Specification (Thing Model)</h1>
 
         <p class="issue" data-number="86">
             To do: add a
@@ -2285,7 +2353,9 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
             The <a>TM</a> should describe all interaction affordances and indicate which ones
             are required (i.e. mandatory by this spec). Moreover, it should use placeholders
             for deployment-specific attributes.
+            Informative affordances (JSONPath and XPath) should be defined as such.
         </p>
+
         The API of the directory is specified as a <a>Thing Model</a>.
         The Thing Model alone should not be considered as the reference
         to implement or interact with a directory.
