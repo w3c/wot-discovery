@@ -751,11 +751,17 @@ img.wot-diagram {
                         registers a small or static <a>TD</a> (Thing Link) in a 
                         directory which references the actual <a>TD</a> hosted at the edge.
                     </li>
+		    <!-- We decided to remove this use case, since it is probably best
+	                 handled with access controls.  However, this use case AND the ones
+			 above imply a mix of link and other metadata and affordances, not
+			 "pure" Thing Links.  So we can't in general assume Thing Links
+			 don't have other information.  
                     <li>
                         A device intends to publish an entire <a>TD</a> which contains private and
                         public parts: publish one <a>TD</a> (Thing Link) with only the public
                         information referencing another <a>TD</a> which contains the full description.
                     </li>
+		    -->
                 </ul>
             </p>
         </dd>
