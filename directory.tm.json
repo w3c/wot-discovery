@@ -54,16 +54,7 @@
             },
             "forms": [
                 {
-                    "href": "/things",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json"
-                    }
-                },
-                {
-                    "href": "/things{?offset,limit,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,format,sort_by,sort_order}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
