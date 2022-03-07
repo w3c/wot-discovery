@@ -9,7 +9,7 @@
     ],
     "title": "Thing Description Directory (TDD) Thing Model",
     "version": {
-        "model": "1.0.0-beta"
+        "model": "1.0.0-beta.2"
     },
     "base": "{{DIRECTORY_BASE_URL}}",
     "tm:required": [
@@ -54,16 +54,7 @@
             },
             "forms": [
                 {
-                    "href": "/things",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json"
-                    }
-                },
-                {
-                    "href": "/things{?offset,limit,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,format,sort_by,sort_order}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
