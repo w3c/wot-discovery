@@ -20,4 +20,19 @@ Also please create issues to note problems in the current content for which a so
 issues propose a suitable solution.  It should also be clear under what condition issues have been resolved
 so they can be closed when those conditions are met).
 
+Images should be checked in as both SVG and PNG.
+Both should use transparent backgrounds if possible; 
+if a transparent background is not possible, use a white background.
+Ensure that fonts are embedded in SVG files;
+use a web browser to check rendering.
+[Inkscape](https://inkscape.org/)
+is recommended for native SVG editing.
+If another drawing tool is used, 
+ensure that both SVG and PNG are exported and check them.
+In particular, 
+note that drawio's default SVG export often does poor font substitution
+which results in truncated labels, so make sure to embed fonts.
+For drawio a 
+[desktop installation](https://github.com/jgraph/drawio-desktop) is also available.
+
 The latest editor's draft is available [here](https://w3c.github.io/wot-discovery/).

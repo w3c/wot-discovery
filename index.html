@@ -259,10 +259,207 @@ img.wot-diagram {
                 alt="Discovery process overview" />
             <figcaption>Discovery process overview</figcaption>
         </figure>
-        <p class="ednote" title="Discovery Architecture Overview">
-        To do: an overview of the two-phase approach and its purpose, which is to support
-        controlled and authenticated access to metadata by authorized users only.
+	<p>
+	The WoT discovery process is designed using a two-phase approach.
+	In the first phase, one or more of a set of "Introduction" mechanisms may be used to 
+	generate a set of candidate URLs.  These URLs do not themselves contain metadata,
+	but are used in the second stage, "Exploration", to actually fetch metadata.
+	The intention is that Introductions are relatively open and can support any
+	mechanism that can return a URL, including simply entering URLs directly.
+	Introductions, however, do not include any security or privacy controls and
+	so should not provide metadata directly.  Instead, the provided URLs are followed
+	to "Exploration" mechanisms that will actually provide metadata but allow for
+	suitable security and privacy controls.
         </p>
+	<p>
+	Note that the discovery process can produce a <em>set</em> of URLs following 
+	its Introduction phase, even if only one Introduction mechanism is used,
+	and the final output after the Exploration phase
+	can be a <em>set</em> of Thing Descriptions.
+	Generally each URL provided by the Introduction phase points at a Thing Description,
+	and in the simplest case this is in fact the Thing Description of a Thing that
+	represents an IoT device.  In the case of self-describing Things the URL might
+	even point directly at the Thing which can serve its own Thing Description,
+	but in general Thing Descriptions might also be provided by other entities.
+	However, there are also two special cases that allow for more flexibility:
+	</p>
+	<ul>
+	<li>A given Thing Description may in fact describe a Thing Description Directory service.  
+	A Thing Description Directory service (which is still a Thing) maintains a (usually dynamic) list of Thing Descriptions
+	which can be fetched and added to the discovery set (the set can be narrowed by
+	using query filters when fetching TDs from a directory).
+	</li>
+	<li>
+	The second special case is a Thing Link.  This is also a Thing Description,
+	but rather than describing a Thing directly holds a link to
+	a Thing Descriptions hosted elsewhere.  
+	A Thing Description Directory can also store Thing Links
+	which can redirect to other Thing Description Directories, allowing for a linked
+	directory structure.
+	</li>
+	</ul>
+    </section>
+    <section id="discoverer-process" class="normative">
+        <h1>Discoverer Process</h1>
+	<p>In this section we will describe the WoT Discovery process from the point of view of a client,
+	and what it means to say that a client supports WoT Discovery.
+	We will use the term <a>Discoverer</a> for an entity that is a client of the WoT Discovery
+	process.  
+	A Discoverer may or may not be a full Consumer.
+	A Discoverer does however need to read and extract information from special TDs for Directories 
+	and Thing Links and use specific affordances and links provided in them.  
+	Conversely, a Consumer may not support Discovery, although it is recommended
+	[[WOT-ARCHITECTURE]].
+        </p>
+	<p class="ednote" title="Consumers SHOULD support Discovery">
+	Note: the WoT Architecture specification only says that Consumers SHOULD support Discovery.  
+	</p>
+        <p>
+	The WoT Discovery process is designed so that nearly any client that can fetch a single TD 
+	given a single URI using any protocol (including "file") can be said to support WoT Discovery. 
+	Of course, Discoverers may support more powerful Discovery mechanisms, but some of these 
+	have additional requirements.  
+	For example, using WoT Thing Description Directories (TDDs) requires the use of HTTP, and so
+	are only available to Discoverers that support this protocol.  
+	However, use of HTTP (and Directories)
+	is not in fact a requirement of the WoT Discovery process. 
+	Some Introduction mechanisms can return multiple URLs, 
+	each of which can in turn be used to fetch at least one TD.
+	So even without a TDD, it is possible to discover multiple TDs.
+	For example, a Discoverer supporting only CoAP may want to use
+	CoRE-RD as one of its Introduction mechanisms, and a single CoRE-RD instance can provide 
+	multiple links to individual TDs. 
+	Such a Discoverer could also support multiple Introduction mechanisms whose results are
+	merged, such as DNS-SD and CoRE-RD.
+	</p>
+	<p>
+	The following assertions describe the specific responsibilities of a Discoverer:
+	</p>
+	<ul>
+		<li><span class="rfc2119-assertion" id="discoverer-must-support-intros">
+			A Discoverer MUST support at least one Introduction mechanism.</span>
+			The simplest Introduction mechanism, Direct, simply provides a single URL of a target TD.  
+			This assertion results in different minimal requirements depending on
+			which Introduction mechanism is selected out of the several available.
+			For example, when Direct is used as the sole Introduction mechanism,
+			at a minimum a Discoverer must be able to accept a single URL pointing at a TD.
+			Note, however, that this TD could still be describing a Directory.
+			Another option would be for a Discoverer to implement, as its sole 
+			Introduction mechanism, an "automatic" Introduction mechanism such as 
+			DNS-SD, possibly in combination with mDNS. 
+			In this case the application 
+			code running in the Discoverer
+			would not have to supply any additional information to invoke Discovery.
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-must-support-fetching">
+			A Discoverer MUST support fetching a TD from least one URL provided as part of the Introduction process.</span>
+			In other words, not only must a Discoverer accept URLs pointing at TDs, it must be
+			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
+			specified by way of a file URL.
+			It is permissible to split the implementation of a Discoverer into two components, one that
+			fetches/reads a TD and sets up a configuration during installation to be used by a
+			run-time component that cannot itself read TDs.
+			In this case, however, the latter component is not by itself a Discoverer.
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-may-multiple-intro">
+			A Discoverer MAY support multiple invocations of the same Introduction mechanism.</span>
+			If multiple invocations of a single Introduction mechanism is supported, 
+			or if multiple Introduction mechanisms are used, then the Discoverer needs to
+			manage a set of Introduction results.  
+			Some Introduction mechanisms themselves return a set of results, e.g. CoRE-RD, DID, or DNS-SD. 
+			Some mechanisms, such as scanning Bluetooth beacons, may intrinsically result in separate multiple "invocations".
+			However, this Discoverer requirement is optional to support an important special case: 
+			it is permissible to have a simple
+			Discoverer that only supports a single invocation of a Direct Introduction, 
+			directly specifying a single TD via a URL.
+                </li>
+		<li><span class="rfc2119-assertion" id="discoverer-merge-intros">
+			A Discoverer MUST be able to merge URLs resulting from 
+			multiple Introduction mechanisms, multiple results from a single Introduction mechanism,
+			and multiple Introduction invocations into a single set.</span>
+			Note that even if only one Introduction mechanism is supported multiple results might be 
+			produced.  
+			This assertion states that the overall output of the Introduction phase is
+			a single set of URLs.  
+			The word "set" is used here in the mathematical sense: the results are unordered and unique.
+                        Uniqueness means that if multiple Introductions have the same result, they are merged into
+			a single result.
+			If the Discoverer only supports one Introduction mechanism and that mechanism
+			can only produce one URL, then the "merge" is trivial.
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-td-identify">
+			A Discoverer MUST be able to identify whether a TD fetched from an 
+			Introduction URL is a Thing Description Directory or a Thing Link.</span>
+			This implies that the Discoverer needs to be able
+			to check the <code>@type</code> field and make this distinction.
+
+                        A Discoverer can decide whether or not to follow links or fetch TDD contents.
+	                There are some use cases where a Consumer may not expand certain URLs, for example links pointing
+	                at external resources, or when a TDD contains many TDs and fetching them all
+	                would exceed the Consumer's memory processing capabilities.
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-fetch-tdd">
+			A Discoverer MAY fetch additional TDs from any Exploration mechanism
+			described in its initial set of TDs (including, in particular, Thing Description Directories) 
+			and add them into the set of TD results.</span>
+			This only adds the results of fetching TDs from an Exploration mechanism to the set of
+			results. These new results do not delete the original TD describing the Exploration mechanism. 
+                        A Discoverer implementation can decide whether or not to fetch TDD contents.
+                        Implementers should consider the fact that TDDs may be large and fetching the contents of an entire TDD
+			might be prohibitively expensive.  
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-fetch-links">
+			A Discoverer MAY fetch source TDs from the targets of the links in a Thing Link
+			described in its initial set of TDs and add them into the set of TD results.</span>
+			This only adds the results of fetching TDs from a Thing Link to the set of
+			results. These new results do not delete the original TD describing the Thing Link. 
+			A Discoverer implementation can decide whether or not to fetch the targets of Thing Links.
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-fetch-iteration">
+			A Discoverer MAY fetch additional TDs iteratively from any Thing Link or
+			Exploration mechanism described in its set of TDs and add them into the set of TD results.</span>
+			This only adds the results of fetching TDs from an Exploration mechanism to the set of
+			results. These new results do not delete the original TD describing the Exploration mechanism. 
+		</li>
+		<li><span class="rfc2119-assertion" id="discoverer-termination">
+			A Discoverer MAY terminate fetching additional TDs at any point or for
+			any reason.</span>
+	        </li>
+		<li><span class="rfc2119-assertion" id="discoverer-any-order">
+			A Discoverer MAY fetch additional TDs by following links or fetching
+			additional TDs from Exploration mechanisms (e.g. TDDs) in any order.</span>
+			The Discoverer can fetch additional TDs in any order from any Exploration mechanism and is not
+			required to use all of them.
+	        </li>
+		<li><span class="rfc2119-assertion" id="discoverer-track">
+			A Discoverer MUST track which TDs describing links or Exploration mechanisms
+			have already been fetched and avoid fetching duplicate results.</span>
+			This is to avoid infinite loops.  Note that Thing Description Directories can easily refer to each other,
+			for example, so fetching the TDs from a TDD, then fetching all those TDs will give another copy of the
+			original TDD's TD.  This second copy should NOT trigger further fetches. 
+			Note that tracking cannot depend only on the value of "id" fields in TDs since this
+			field is optional. 
+		</li>
+        </ul>
+	<p>
+	The above process supports a way to let Directories reference other Directories without duplicating their TDs: 
+	a Directory wanting to reference other Directories should include a Thing Link with a "describedby" relation to the
+	TD of the other Directory service.  Then the above process would expand the Thing Link to obtain the actual TD of the Directory, 
+	and then (optionally) use the appropriate Directory affordance to access the contents of the linked Directory.
+	Note that such a Thing Link points at the TD of the Directory, not at the Directory itself.  These
+	may or may not be hosted in the same location.
+	</p><p>
+        Recursively fetching the contents of such linked directories, especially without a specific
+	query or filter, could easily result in downloading a large amount of data.  Such recursive expansion should be limited to use
+	cases that require it, such as inventory, auditing, or indexing.  
+        </p><p>
+	URLs for Directory services can also be
+	used with the federation capabilities of SPARQL queries, noted below, which in most cases will be a more efficient way
+	to collect specific information from a set of distributed directory services.
+	However, SPARQL requires the URL of a SPARQL endpoint for such federation, which can be found in the TDs
+	of Directories supporting SPARQL queries.  This is not the same as the URL pointing at the TD of a Directory.
+	</p>
+    </p>
     </section>
     <section id="introduction-mech" class="normative">
         <h1>Introduction Mechanisms</h1>
@@ -561,11 +758,17 @@ img.wot-diagram {
                         registers a small or static <a>TD</a> (Thing Link) in a 
                         directory which references the actual <a>TD</a> hosted at the edge.
                     </li>
+		    <!-- We decided to remove this use case, since it is probably best
+	                 handled with access controls.  However, this use case AND the ones
+			 above imply a mix of link and other metadata and affordances, not
+			 "pure" Thing Links.  So we can't in general assume Thing Links
+			 don't have other information.  
                     <li>
                         A device intends to publish an entire <a>TD</a> which contains private and
                         public parts: publish one <a>TD</a> (Thing Link) with only the public
                         information referencing another <a>TD</a> which contains the full description.
                     </li>
+		    -->
                 </ul>
             </p>
         </dd>
