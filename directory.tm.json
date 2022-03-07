@@ -9,7 +9,7 @@
     ],
     "title": "Thing Description Directory (TDD) Thing Model",
     "version": {
-        "model": "1.0.0-beta"
+        "model": "1.0.0-beta.2"
     },
     "base": "{{DIRECTORY_BASE_URL}}",
     "tm:required": [
