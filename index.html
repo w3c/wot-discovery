@@ -2163,14 +2163,17 @@ img.wot-diagram {
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
         </p>
-        <section id="security-consideration-ddos">
+        <section id="security-consideration-dos">
             <h2>Denial of Service</h2>
             <p>
                 Certain functions of the directory service,
                 in particular search queries,
                 may require significant resources to execute and this fact
-                can be used to launch DDoS attacks against
-            WoT Thing Description Directory services.
+                can be used to launch denial of service attacks against
+                WoT Thing Description Directory services.
+		In such an attack a WoT Directory would be overloaded
+		by requests from the attacker and unable to service other
+		requests.
 	    </p>
                 <dl>
                     <dt>Mitigations:</dt><dd>
@@ -2187,6 +2190,72 @@ img.wot-diagram {
                     </dd>
                 </dl>
 	</section>
+        <section id="security-consideration-amp-ddos">
+            <h2>Amplification and Distributed Denial of Service</h2>
+            <p>
+	    It may also be possible to use elements of WoT Discovery
+	    mechanisms to launch distributed denial of service attacks
+	    against other targets.  In such an attack the WoT Discovery
+	    service itself is not the target.  Instead, an aspect of
+	    the WoT Discovery service would be
+	    exploited to generate network traffic that overloads a third
+	    party, the actual target.
+	    Such an attack has two requirements: first, the ability
+	    to redirect traffic to a third party, and second, 
+	    an intermediary service
+	    that can be exploited to amplify network traffic
+	    from the attacker.
+	    Redirection
+	    of network traffic is possible in some protocols, such as 
+	    unsecured CoAP, by modifying source information in headers.
+	    Amplification is possible by taking advantage of three 
+	    multiplicative factors: the ratio of request to response payload
+	    sizes, use of observe in protocols like CoAP  
+	    (which can give multiple results for one request), and
+	    multicast (which can allow multiple servers to respond to one 
+	    request). 
+	    Services which do not support authentication
+	    are ideal intermediaries for such an indirect attack.
+	    Unfortunately, the Introduction mechanisms for WoT Discovery
+	    are meant to provide open access mechanisms to initiate discovery
+	    and might be exploited for this purpose.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+		To mitigate this problem, the following is recommended:
+		<ul>
+		<li>Disable support for observe or similar extended result subprotocols
+		on Introduction mechanisms.</li>
+		<li>Introduction mechanisms should not respond to multicast
+		requests unless this is absolutely required by the protocol.</li>
+		<li>Limit the size of responses to the minimum.  Responses should
+		be less than 3x the size of the request, and this should 
+		include any error responses.</li>
+		<li>Consider throttling or rate-limiting responses to any particular
+		request source.</li>
+		<li>Introduction mechanisms on a segmented network behind a firewall
+		(e.g. a LAN) should
+		not respond to requests that are (apparently) from outside that LAN.
+		</li>
+	        </ul>
+		Of particular concern are Introduction mechanisms that can
+		return multiple results, such as CoRE-RD and DID.
+		It may be necessary to use authentication/authorization on such
+		Introduction mechanisms
+		as well if the other mitigations above are not sufficient.
+		A recommended alternative is to move multiple results from such
+		Introductions into a WoT TDD, which can then be protected
+		by appropriate authentication and authorization measures.
+		Then the open Introduction mechanism only has to return one
+		result, the URL of the TDD.
+		Introduction mechanisms that are visible on the open internet
+		should be especially careful to implement the above mitigations,
+		and perhaps avoid Introduction
+		mechanisms that can return multiple URLs completely.
+                </dd>
+            </dl>
+        </section>
         <section id="security-consideration-access-duration">
             <h2>Limited Duration Accesses</h2>
             <p>
