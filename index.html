@@ -58,7 +58,12 @@
                     } ]
                 }],
         localBiblio : {
-            "REST-IOT" : {
+            "OWASP-Top-10" : {
+                  title: "OWASP Top Ten"
+                , href: "https://owasp.org/www-project-top-ten"
+                , publisher: "OWASP"
+            },
+	    "REST-IOT" : {
                   title: "RESTful Design for Internet of Things Systems"
                 , href: "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06"
                 , authors:  [
@@ -2151,10 +2156,7 @@ img.wot-diagram {
 
     <section id="security-considerations" class="informative">
         <h1>Security Considerations</h1>
-        <p class="ednote">
-        Needs to be updated to include points noted in <a href="https://github.com/w3c/wot-discovery/issues/254">Discovery Issue 254</a>.
-        </p>
-	</p>
+	<p>
             Security is a cross-cutting issue that needs to be considered
             in all WoT building blocks and WoT implementations. 
 	    This chapter summarizes some general issues and guidelines to help
@@ -2162,6 +2164,12 @@ img.wot-diagram {
             For a more detailed and complete analysis of both security and
             privacy issues, see the <em>WoT Security and Privacy Guidelines</em>
             specification [[?WOT-SECURITY]].
+	    WoT Thing and WoT TDDs are also web services and should be
+	    implemented using best practices for web services.
+	    In addition to the specific security considerations below,
+	    the security risks and mitigations discussed in
+	    guides such as the OWASP Top 10 [[OWASP-Top-10]] should be
+	    evaluated and if applicable, addressed.
         </p>
         <section id="security-consideration-ddos">
             <h2>Denial of Service</h2>
@@ -2189,6 +2197,12 @@ img.wot-diagram {
 	</section>
         <section id="security-consideration-access-duration">
             <h2>Limited Duration Accesses</h2>
+	    <p class="ednote" title="Move to TD">
+	    This security consideration belongs in the TD specification, 
+	    not Discovery, since it is about access to Things
+	    generally, not just TDDs (although it applies to TDDs also, since 
+	    they are Things).
+	    </p>
             <p>
             In peer-to-peer scenarios, 
 	    it may be desired by an "owner" to limit the scope and duration of 
@@ -2208,6 +2222,67 @@ img.wot-diagram {
                 The owner should use OAuth2 and a token/auth provider that can provide limited duration tokens and use scopes to limit access.
                 Scopes can limit access to specific interactions but 
 		are not sufficient to limit duration.
+                </dd>
+            </dl>
+        </section>
+        <section id="security-consideration-lan-self-discovery">
+        <h2>Self-Discovery on LANs</h2>
+	    <!--
+            <p class="ednote">
+            See detailed discussion in 
+	    <a href="https://github.com/w3c/wot-discovery/issues/254">Issue 254</a> and in 
+	    <a href="https://github.com/w3c/wot-discovery/issues/139">Issue 139</a>.  
+	    In particular, we may need to allow for plain
+	    HTTP in some circumstances, and provide alternative mitigations to use of PSK.
+	    Also, this particular issue is BOTH a security and privacy issue, so where should we put it?
+            </p>
+	    -->
+            <p>
+            On a LAN, 
+	    certificates and browsers may not be able to property set up TLS for 
+	    HTTPS because browsers expect
+            certificates pointing to a publicly-visible URL.
+            Using HTTP is common practice inside LANs but in combination with 
+	    self-description it means that WoT Things
+            would be essentially be making TDs visible to everyone
+	    with access to the private LAN.  Even if security mechanisms
+	    such as HTTP passwords were used, these are not effective (they
+	    can be easily discovered by a traffic analyser) without
+	    transport security.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+		<p>
+                PSK (pre-shared keys) should be used if possible on LANs, 
+		meaning one of the ciphersuites in [[RFC4279]].
+                This does require that Things assigned PSKs in a common security domain, 
+		which is typically done by following an onboarding process.  
+		Unfortunately, specific onboarding processes 
+		are currently out of scope of the WoT specifications.
+		</p>
+		<p>
+		An alternative is to depend on local network security (i.e. WEP).
+		This is not the best solution from a security or privacy point of
+		view but may be acceptable in some contexts.  Note however that
+		all users with access to the network would in turn have access to 
+		all TDs via self-description.  If this is undesirable, a separate 
+		network can be set up, i.e. with an alternative SSID, and used only
+		for IoT devices.
+		</p>
+		<p>
+		Another alternative is to use a reverse proxy service based in the cloud.
+		Secure setup can
+		be accomplished if the IoT device has access to the cloud, since
+		the proxy server can have a public URL and the initial connection
+		can use HTTPS, then open a secure websocket.  The proxy can in turn
+		re-expose a secure endpoint, and possible add authentication.
+		The disadvantages of this approach including depending on an external
+		cloud service and the need to expose an external access point (which is
+		itself a security risk).  The first disadvantage can be addressed by hosting
+		the proxy service locally 
+		and exposing a public URL using e.g. dynamic DNS if the
+		local server is connected through an ISP.
                 </dd>
             </dl>
         </section>
@@ -2398,6 +2473,15 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 discovered in public locations.  This could be addressed by having internet-accessible private
                 discovery services (e.g. the home gateway could provide an internet-accessible service, but with
                 access control limiting use to authorized users.</li>
+		<li>Anonymous TDs.  In some cases, it may be possible to use
+		anonymous TDs and omit explicit IDs from TDs submitted to
+		a TDD.  In this case the TDD will generate a local ID valid
+		only in that TDD.  This does, however, complicate various
+		operations such as duplicate detection, and the client needs to
+		remember the local ID assigned by the TDD.  
+		It also does not avoid tracking by other means, such as 
+		fingerprinting.
+		</li>
                 <li>Rotate IDs.  Using fixed IDs makes it exceptionally easy to track devices.  This problem
                 also occurs in DHCP with MAC address and there is a similar partial mitigation: 
                 generate new random IDs periodically.
@@ -2445,62 +2529,6 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 users should use an anonymous identity provider.
                 In particular, OAuth2 provides tokens which don't identify specific individuals,
                 they just assert access rights proven elsewhere.
-                </dd>
-            </dl>
-        </section>
-        <section id="security-consideration-lan-self-discovery">
-        <h2>Self-Discovery on LANs</h2>
-            <p class="ednote">
-            See detailed discussion in 
-	    <a href="https://github.com/w3c/wot-discovery/issues/254">Issue 254</a> and in 
-	    <a href="https://github.com/w3c/wot-discovery/issues/139">Issue 139</a>.  
-	    In particular, we may need to allow for plain
-	    HTTP in some circumstances, and provide alternative mitigations to use of PSK.
-	    Also, this particular issue is BOTH a security and privacy issue, so where should we put it?
-            </p>
-            <p>
-            On a LAN, 
-	    certificates and browsers may not be able to property set up TLS for 
-	    HTTPS because browsers expect
-            certificates pointing to a publicly-visible URL.
-            Using HTTP is common practice inside LANs but in combination with 
-	    self-description it means that WoT Things
-            would be essentially broadcasting TDs, making them visible to everyone
-	    with access to the private LAN, which is not advisable for privacy reasons.
-            </p>
-            <dl>
-                <dt>Mitigations:</dt>
-                <dd>
-		<p>
-                PSK (pre-shared keys) should be used if possible on LANs, 
-		meaning one of the ciphersuites in [[RFC4279]].
-                This does require that Things assigned PSKs in a common security domain, 
-		which is typically done by following an onboarding process.  
-		Unfortunately, specific onboarding processes 
-		are currently out of scope of the WoT specifications.
-		</p>
-		<p>
-		An alternative is to depend on local network security (i.e. WEP).
-		This is not the best solution from a security or privacy point of
-		view but may be acceptable in some contexts.  Note however that
-		all users with access to the network would in turn have access to 
-		all TDs via self-description.  If this is undesirable, a separate 
-		network can be set up, i.e. with an alternative SSID, and used only
-		for IoT devices.
-		</p>
-		<p>
-		Another alternative is to use a reverse proxy service based in the cloud.
-		Secure setup can
-		be accomplished if the IoT device has access to the cloud, since
-		the proxy server can have a public URL and the initial connection
-		can use HTTPS, then open a secure websocket.  The proxy can in turn
-		re-expose a secure endpoint, and possible add authentication.
-		The disadvantages of this approach including depending on an external
-		cloud service and the need to expose an external access point (which is
-		itself a security risk).  The first disadvantage can be addressed by hosting
-		the proxy service locally 
-		and exposing a public URL using e.g. dynamic DNS if the
-		local server is connected through an ISP.
                 </dd>
             </dl>
         </section>
