@@ -6,7 +6,7 @@
 const https = require('https'); 
 const cheerio = require('cheerio');
 
-const docUrl = 'https://raw.githubusercontent.com/w3c/wot-architecture/main/index.html'
+const docUrl = 'https://raw.githubusercontent.com/w3c/wot-discovery/main/index.html'
 const addAssertionTxt = true; // set true to add assertion text on fourth column 
 
 const req = https.get(docUrl, (res) => {
