@@ -69,6 +69,7 @@
 "tdd-reg-list-method","null",
 "tdd-reg-list-only","null",
 "tdd-reg-list-pagination","null",
+"tdd-reg-list-pagination-collection","null",
 "tdd-reg-list-pagination-header-canonicallink","null",
 "tdd-reg-list-pagination-header-nextlink","null",
 "tdd-reg-list-pagination-header-nextlink-attr","null",
