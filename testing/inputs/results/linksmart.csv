@@ -1,4 +1,4 @@
-AssertionID,Status,Details
+ID,Status,Comment
 tdd-http-error-response,"pass",passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response
 tdd-https,"null",untested
 tdd-notification-data,"null",skipped:TestCreateEvent skipped:TestUpdateEvent skipped:TestDeleteEvent
