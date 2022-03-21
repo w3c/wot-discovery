@@ -1004,6 +1004,33 @@ pre.example {
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result failed">1</td></tr>
+<tr id="tdd-anonymous-td-identifier" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-anonymous-td-identifier">tdd-anonymous-td-identifier</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
+                        it MUST add the local identifier to the TD to allow local referencing.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-anonymous-td-local-uuid" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-anonymous-td-local-uuid">tdd-anonymous-td-local-uuid</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-http-error-response" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-http-error-response">tdd-http-error-response</a></td>
 	<td class="baseassertion"></td>
@@ -1228,565 +1255,6 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
 	<td class="result baseassertion">2</td></tr>
-<tr id="tdd-reg-additional-representation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-additional-representation">tdd-reg-additional-representation</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Directories MAY accept additional representations based on request's indicated
-                                    Content-Type or Content-Encoding, and provide additional representations through
-                                    server-driven content negotiation.</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-anonymous-td-identifier" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-anonymous-td-identifier">tdd-reg-anonymous-td-identifier</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                        In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
-                        it MUST add the local identifier to the TD to allow local referencing.
-                    </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-anonymous-td-local-id" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-anonymous-td-local-id">tdd-reg-anonymous-td-local-id</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                        The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].
-                    </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-create-anonymous-contenttype" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-anonymous-contenttype">tdd-reg-create-anonymous-contenttype</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The request SHOULD contain `application/td+json` Content-Type header for 
-                                    JSON serialization of TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-create-anonymous-td" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-anonymous-td">tdd-reg-create-anonymous-td</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    An Anonymous TD MUST be submitted to the directory in the body of
-                                    an HTTP `POST` request at `/things` endpoint.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-create-anonymous-td-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-anonymous-td-resp">tdd-reg-create-anonymous-td-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Upon successful processing, the server MUST respond with 201 (Created) status
-                                    and a Location header containing a system-generated identifier for the TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-create-known-contenttype" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-known-contenttype">tdd-reg-create-known-contenttype</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The request SHOULD contain `application/td+json` Content-Type header for 
-                                    JSON serialization of TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-create-known-td" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-known-td">tdd-reg-create-known-td</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
-                                    at `/things/{id}` endpoint, where `id` is the unique TD identifier,
-                                    present inside the TD object.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-create-known-td-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-known-td-resp">tdd-reg-create-known-td-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">  
-                                    Upon successful processing, the server MUST respond with
-                                    201 (Created) status.                           
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-create-known-vs-anonymous" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-create-known-vs-anonymous">tdd-reg-create-known-vs-anonymous</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
-                                A TD which is identified with an `id` attribute MUST be handled 
-                                differently with one that has no identifier (Anonymous TD).
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-crud" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-crud">tdd-reg-crud</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The API MAY provide the interfaces to
-                                    create, read, update, and delete (CRUD) individual TDs.</td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-crudl" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-crudl">tdd-reg-crudl</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Full HTTP directories SHOULD implement all of
-                                    CRUDL (create, read, update, delete, and list) interfaces.</td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-default-representation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-default-representation">tdd-reg-default-representation</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The default serialization format for all request and success response bodies MUST be
-                                    JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
-                                    processing.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-delete" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-delete">tdd-reg-delete</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                A delete operation MUST be done using an HTTP `DELETE` request
-                                at `/things/{id}`, where `id` is the identifier of the existing TD.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-delete-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-delete-resp">tdd-reg-delete-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                A successful response MUST have 204 (No Content) status.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-list-method" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-method">tdd-reg-list-method</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
-                                at the `/things` endpoint.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-list-only" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-only">tdd-reg-list-only</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The API MUST provide the interface to list TDs.</td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination">tdd-reg-list-pagination</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                The server MAY support pagination to return the collection
-                                in small subsets.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-collection" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-collection">tdd-reg-list-pagination-collection</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-					Alternative to a pure array of TDs as the body of the response, the server MAY
-					send a more verbose payload allowing server-side information, like pagination
-					information, to be put in addition to the actual data.
-				</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="tdd-reg-list-pagination-header-canonicallink" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-header-canonicallink">tdd-reg-list-pagination-header-canonicallink</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        All paged responses MUST contain a `canonical` Link header [[RFC8288]]
-                                        pointing to the collection and include an `etag` parameter to represent
-                                        the current state of the collection.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-header-nextlink" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-header-nextlink">tdd-reg-list-pagination-header-nextlink</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        When there are more TDs after a returned subset of the collection,
-                                        the response MUST contain a `next` Link header [[RFC8288]]
-                                        with the URL of the next subset.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-header-nextlink-attr" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-header-nextlink-attr">tdd-reg-list-pagination-header-nextlink-attr</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        The `next` link MUST include all arguments needed to produce the same set of
-					data and its ordering, in particular the same `limit` argument
-					given on the initial request as well as a zero-based `offset` argument anchored
-					at the beginning of the next subset.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-header-nextlink-base" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-header-nextlink-base">tdd-reg-list-pagination-header-nextlink-base</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    	The link MUST be absolute or relative to directory API's base URL.
-			    	    </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-limit" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-limit">tdd-reg-list-pagination-limit</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        When the `limit` query parameter is set to a positive integer,
-                                        the server MAY respond with a subset of TDs totalling
-                                        to less than or equal to the requested number.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-order" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-order">tdd-reg-list-pagination-order</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        The server MAY support sorting by other TD attributes using
-                                        query arguments: `sort_by` to select a field (e.g. `created`)
-                                        and `sort_order` to choose the order
-                                        (i.e. `asc` or `desc` for ascending and descending ordering).
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-order-default" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-order-default">tdd-reg-list-pagination-order-default</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        By default, the collection MUST be sorted alphanumerically 
-                                        by the unique identifier of TDs.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-order-nextlink" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-order-nextlink">tdd-reg-list-pagination-order-nextlink</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        If sorting attributes are accepted, they MUST be added consistently to all `next` links.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-pagination-order-unsupported" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-pagination-order-unsupported">tdd-reg-list-pagination-order-unsupported</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                        If the server does not support custom sorting,
-                                        it MUST reject the request with 501 (Not Implemented) status.
-                                    </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-list-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-list-resp">tdd-reg-list-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                Content-Type header, and an array of TDs in the body.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-read-only-auth" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-read-only-auth">tdd-reg-read-only-auth</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    To expose read-only access, the directory MUST enforce access control
-                                    on create, update, and delete interfaces.</td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="tdd-reg-retrieve" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-retrieve">tdd-reg-retrieve</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                The retrieval of an existing TD MUST be done using an HTTP `GET` request
-                                at `/things/{id}` endpoint, where `id` is the unique TD identifier.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-retrieve-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-retrieve-resp">tdd-reg-retrieve-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status, contain `application/td+json`
-                                Content-Type header, and the requested TD in body.
-                            </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update">tdd-reg-update</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
-                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-contenttype" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-contenttype">tdd-reg-update-contenttype</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The request SHOULD contain `application/td+json` Content-Type header for JSON
-                                    serialization of TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-partial" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-partial">tdd-reg-update-partial</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    An existing TD MUST be partially modified when the modified parts are submitted using an 
-                                    HTTP `PATCH` request
-                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-partial-contenttype" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-partial-contenttype">tdd-reg-update-partial-contenttype</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The request MUST contain `application/merge-patch+json` Content-Type header for JSON
-                                    serialization of the merge patch document.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-partial-mergepatch" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-partial-mergepatch">tdd-reg-update-partial-mergepatch</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The partial update MUST be processed using the JSON merge patch format 
-                                    format described in [[RFC7396]].
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-partial-partialtd" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-partial-partialtd">tdd-reg-update-partial-partialtd</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    The input MUST be in Partial TD form and conform to the
-                                    original TD structure. 
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-partial-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-partial-resp">tdd-reg-update-partial-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Upon success, the server MUST respond with a 204 (No Content) status.
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result failed">2</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="tdd-reg-update-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-reg-update-resp">tdd-reg-update-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Upon success, the server MUST respond with 204 (No Content) status. 
-                                </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-registrationinfo-expiry-config" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-registrationinfo-expiry-config">tdd-registrationinfo-expiry-config</a></td>
 	<td class="baseassertion"></td>
@@ -1973,8 +1441,8 @@ Type: read-only.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result failed">1</td></tr>
-<tr id="tdd-search-sparql-federation-imp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-search-sparql-federation-imp">tdd-search-sparql-federation-imp</a></td>
+<tr id="tdd-search-sparql-federation-version" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-search-sparql-federation-version">tdd-search-sparql-federation-version</a></td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
@@ -1983,10 +1451,10 @@ Type: read-only.</td>
                             SPARQL 1.1 Federated Query standard [[sparql11-overview]].
                         </td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-search-sparql-method-get" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-search-sparql-method-get">tdd-search-sparql-method-get</a></td>
 	<td class="baseassertion"></td>
@@ -2055,6 +1523,538 @@ Type: read-only.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result failed">1</td></tr>
+<tr id="tdd-things-additional-representation" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-additional-representation">tdd-things-additional-representation</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Directories MAY accept additional representations based on request's indicated
+                                    Content-Type or Content-Encoding, and provide additional representations through
+                                    server-driven content negotiation.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-anonymous-contenttype" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-anonymous-contenttype">tdd-things-create-anonymous-contenttype</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The request SHOULD contain `application/td+json` Content-Type header for 
+                                    JSON serialization of TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-anonymous-td" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-anonymous-td">tdd-things-create-anonymous-td</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    An Anonymous TD MUST be submitted to the directory in the body of
+                                    an HTTP `POST` request at `/things` endpoint.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-anonymous-td-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-anonymous-td-resp">tdd-things-create-anonymous-td-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Upon successful processing, the server MUST respond with 201 (Created) status
+                                    and a Location header containing a system-generated identifier for the TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-known-contenttype" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-known-contenttype">tdd-things-create-known-contenttype</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The request SHOULD contain `application/td+json` Content-Type header for 
+                                    JSON serialization of TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-known-td" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-known-td">tdd-things-create-known-td</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
+                                    at `/things/{id}` endpoint, where `id` is the unique TD identifier,
+                                    present inside the TD object.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-known-td-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-known-td-resp">tdd-things-create-known-td-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">  
+                                    Upon successful processing, the server MUST respond with
+                                    201 (Created) status.                           
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-create-known-vs-anonymous" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-create-known-vs-anonymous">tdd-things-create-known-vs-anonymous</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+                                A TD which is identified with an `id` attribute MUST be handled 
+                                differently with one that has no identifier (Anonymous TD).
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-crud" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-crud">tdd-things-crud</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The API MAY provide the interfaces to
+                                    create, read, update, and delete (CRUD) individual TDs.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-crudl" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-crudl">tdd-things-crudl</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Full HTTP directories SHOULD implement all of
+                                    CRUDL (create, read, update, delete, and list) interfaces.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-default-representation" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-default-representation">tdd-things-default-representation</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The default serialization format for all request and success response bodies MUST be
+                                    JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
+                                    processing.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-delete" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-delete">tdd-things-delete</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A delete operation MUST be done using an HTTP `DELETE` request
+                                at `/things/{id}`, where `id` is the identifier of the existing TD.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-delete-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-delete-resp">tdd-things-delete-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A successful response MUST have 204 (No Content) status.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-method" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-method">tdd-things-list-method</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
+                                at the `/things` endpoint.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-only" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-only">tdd-things-list-only</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The API MUST provide the interface to list TDs.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination">tdd-things-list-pagination</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                The server MAY support pagination to return the collection
+                                in small subsets.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-collection" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-collection">tdd-things-list-pagination-collection</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+					Alternative to a pure array of TDs as the body of the response, the server MAY
+					send a more verbose payload allowing server-side information, like pagination
+					information, to be put in addition to the actual data.
+				</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-header-canonicallink" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-header-canonicallink">tdd-things-list-pagination-header-canonicallink</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        All paged responses MUST contain a `canonical` Link header [[RFC8288]]
+                                        pointing to the collection and include an `etag` parameter to represent
+                                        the current state of the collection.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-header-nextlink" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-header-nextlink">tdd-things-list-pagination-header-nextlink</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        When there are more TDs after a returned subset of the collection,
+                                        the response MUST contain a `next` Link header [[RFC8288]]
+                                        with the URL of the next subset.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-header-nextlink-attr" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-header-nextlink-attr">tdd-things-list-pagination-header-nextlink-attr</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        The `next` link MUST include all arguments needed to produce the same set of
+					data and its ordering, in particular the same `limit` argument
+					given on the initial request as well as a zero-based `offset` argument anchored
+					at the beginning of the next subset.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-header-nextlink-base" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-header-nextlink-base">tdd-things-list-pagination-header-nextlink-base</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    	The link MUST be absolute or relative to directory API's base URL.
+			    	    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-limit" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-limit">tdd-things-list-pagination-limit</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        When the `limit` query parameter is set to a positive integer,
+                                        the server MAY respond with a subset of TDs totalling
+                                        to less than or equal to the requested number.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-order" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-order">tdd-things-list-pagination-order</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        The server MAY support sorting by other TD attributes using
+                                        query arguments: `sort_by` to select a field (e.g. `created`)
+                                        and `sort_order` to choose the order
+                                        (i.e. `asc` or `desc` for ascending and descending ordering).
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-order-default" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-order-default">tdd-things-list-pagination-order-default</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        By default, the collection MUST be sorted alphanumerically 
+                                        by the unique identifier of TDs.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-order-nextlink" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-order-nextlink">tdd-things-list-pagination-order-nextlink</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        If sorting attributes are accepted, they MUST be added consistently to all `next` links.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-pagination-order-unsupported" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-pagination-order-unsupported">tdd-things-list-pagination-order-unsupported</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                        If the server does not support custom sorting,
+                                        it MUST reject the request with 501 (Not Implemented) status.
+                                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-list-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-list-resp">tdd-things-list-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
+                                Content-Type header, and an array of TDs in the body.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-read-only-auth" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-read-only-auth">tdd-things-read-only-auth</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    To expose read-only access, the directory MUST enforce access control
+                                    on create, update, and delete interfaces.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-retrieve" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-retrieve">tdd-things-retrieve</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                The retrieval of an existing TD MUST be done using an HTTP `GET` request
+                                at `/things/{id}` endpoint, where `id` is the unique TD identifier.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-retrieve-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-retrieve-resp">tdd-things-retrieve-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A successful response MUST have 200 (OK) status, contain `application/td+json`
+                                Content-Type header, and the requested TD in body.
+                            </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update">tdd-things-update</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-contenttype" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-contenttype">tdd-things-update-contenttype</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The request SHOULD contain `application/td+json` Content-Type header for JSON
+                                    serialization of TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-partial" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-partial">tdd-things-update-partial</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    An existing TD MUST be partially modified when the modified parts are submitted using an 
+                                    HTTP `PATCH` request
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-partial-contenttype" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-partial-contenttype">tdd-things-update-partial-contenttype</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The request MUST contain `application/merge-patch+json` Content-Type header for JSON
+                                    serialization of the merge patch document.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-partial-mergepatch" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-partial-mergepatch">tdd-things-update-partial-mergepatch</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The partial update MUST be processed using the JSON merge patch format 
+                                    format described in [[RFC7396]].
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-partial-partialtd" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-partial-partialtd">tdd-things-update-partial-partialtd</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    The input MUST be in Partial TD form and conform to the
+                                    original TD structure. 
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-partial-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-partial-resp">tdd-things-update-partial-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Upon success, the server MUST respond with a 204 (No Content) status.
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-update-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-things-update-resp">tdd-things-update-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Upon success, the server MUST respond with 204 (No Content) status. 
+                                </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-validation-jsonschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://www.w3.org/TR/wot-thing-description#tdd-validation-jsonschema">tdd-validation-jsonschema</a></td>
 	<td class="baseassertion"></td>
