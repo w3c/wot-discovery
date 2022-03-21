@@ -1022,12 +1022,12 @@ img.wot-diagram {
                     <h4>Anonymous TD Identifiers</h4>
                     The directory assigns local identifiers to <a>Anonymous TDs</a>
                     to enable management and retrieval of such TDs from the directory.
-                    <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-identifier">
+                    <span class="rfc2119-assertion" id="tdd-anonymous-td-identifier">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
                         it MUST add the local identifier to the TD to allow local referencing.
                     </span>
 
-                    <span class="rfc2119-assertion" id="tdd-reg-anonymous-td-local-id">
+                    <span class="rfc2119-assertion" id="tdd-anonymous-td-local-uuid">
                         The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].
                     </span>
                     UUID Version 4 is a random or pseudo-random number which does not carry unintended information
@@ -1105,7 +1105,7 @@ img.wot-diagram {
                     </ul>
                 </p>
 
-                <section id="exploration-directory-api-registration" class="normative">
+                <section id="exploration-directory-api-things" class="normative">
                     <h4>Things API</h4>
                     <p>
                         The Things API is a RESTful HTTP API served at the `/things` endpoint
@@ -1118,38 +1118,38 @@ img.wot-diagram {
                         The HTTP API follows these general rules:
                         <ul>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-list-only">
+                                <span class="rfc2119-assertion" id="tdd-things-list-only">
                                     The API MUST provide the interface to list TDs.</span>
                                 The Search API allows filtering and selection from this list; see
                                 [[[#exploration-directory-api-search]]].
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-crud">
+                                <span class="rfc2119-assertion" id="tdd-things-crud">
                                     The API MAY provide the interfaces to
                                     create, read, update, and delete (CRUD) individual TDs.</span>
                             </li>
                             <li>
                                 A directory that provides both read and write over HTTP is considered
                                 a full HTTP directory.
-                                <span class="rfc2119-assertion" id="tdd-reg-crudl">
+                                <span class="rfc2119-assertion" id="tdd-things-crudl">
                                     Full HTTP directories SHOULD implement all of
                                     CRUDL (create, read, update, delete, and list) interfaces.</span>
                                 It is practical to implement only the interfaces to read and list
                                 if the directory serves a static collection of <a>TDs</a>.
                                 This is also useful for directories that intend to expose only
                                 retrieval operations over HTTP, and perform other operations via out-of-band mechanisms.
-                                <span class="rfc2119-assertion" id="tdd-reg-read-only-auth">
+                                <span class="rfc2119-assertion" id="tdd-things-read-only-auth">
                                     To expose read-only access, the directory MUST enforce access control
                                     on create, update, and delete interfaces.</span>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-default-representation">
+                                <span class="rfc2119-assertion" id="tdd-things-default-representation">
                                     The default serialization format for all request and success response bodies MUST be
                                     JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax to support extensions and semantic
                                     processing.</span>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-additional-representation">
+                                <span class="rfc2119-assertion" id="tdd-things-additional-representation">
                                     Directories MAY accept additional representations based on request's indicated
                                     Content-Type or Content-Encoding, and provide additional representations through
                                     server-driven content negotiation.</span>
@@ -1162,7 +1162,7 @@ img.wot-diagram {
                         The CRUDL operations are described in the following sections:
                     </p>
 
-                    <section id="exploration-directory-api-registration-creation" class="normative">
+                    <section id="exploration-directory-api-things-creation" class="normative">
                         <h4>Creation</h4>
                         <p>
                             Creation refers to the registration of a new <a>TD</a> inside the directory.
@@ -1175,7 +1175,7 @@ img.wot-diagram {
                             on its behalf.
                         </p>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-create-known-vs-anonymous"> 
+                            <span class="rfc2119-assertion" id="tdd-things-create-known-vs-anonymous"> 
                                 A TD which is identified with an `id` attribute MUST be handled 
                                 differently with one that has no identifier (<a>Anonymous TD</a>).
                             </span>
@@ -1183,18 +1183,18 @@ img.wot-diagram {
                         </p>
                         <ul>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td">
+                                <span class="rfc2119-assertion" id="tdd-things-create-known-td">
                                     A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
                                     at `/things/{id}` endpoint, where `id` is the unique TD identifier,
                                     present inside the TD object.
                                 </span>
                                 An <a>Anonymous TD</a> is handled differently; see below.
-                                <span class="rfc2119-assertion" id="tdd-reg-create-known-contenttype">
+                                <span class="rfc2119-assertion" id="tdd-things-create-known-contenttype">
                                     The request SHOULD contain `application/td+json` Content-Type header for 
                                     JSON serialization of TD.
                                 </span>
                                 The TD object is validated in accordance with [[[#validation]]].
-                                <span class="rfc2119-assertion" id="tdd-reg-create-known-td-resp">  
+                                <span class="rfc2119-assertion" id="tdd-things-create-known-td-resp">  
                                     Upon successful processing, the server MUST respond with
                                     201 (Created) status.                           
                                 </span>
@@ -1210,16 +1210,16 @@ img.wot-diagram {
                                 </p>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td">
+                                <span class="rfc2119-assertion" id="tdd-things-create-anonymous-td">
                                     An <a>Anonymous TD</a> MUST be submitted to the directory in the body of
                                     an HTTP `POST` request at `/things` endpoint.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-contenttype">
+                                <span class="rfc2119-assertion" id="tdd-things-create-anonymous-contenttype">
                                     The request SHOULD contain `application/td+json` Content-Type header for 
                                     JSON serialization of TD.
                                 </span>
                                 The TD object is validated in accordance with [[[#validation]]].
-                                <span class="rfc2119-assertion" id="tdd-reg-create-anonymous-td-resp">
+                                <span class="rfc2119-assertion" id="tdd-things-create-anonymous-td-resp">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
                                     and a Location header containing a system-generated identifier for the TD.
                                 </span>
@@ -1257,14 +1257,14 @@ img.wot-diagram {
                         </p>
                     </section>
 
-                    <section id="exploration-directory-api-registration-retrieval" class="normative">
+                    <section id="exploration-directory-api-things-retrieval" class="normative">
                         <h4>Retrieval</h4>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-retrieve">
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve">
                                 The retrieval of an existing TD MUST be done using an HTTP `GET` request
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-retrieve-resp">
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp">
                                 A successful response MUST have 200 (OK) status, contain `application/td+json`
                                 Content-Type header, and the requested TD in body.
                             </span>
@@ -1385,7 +1385,7 @@ img.wot-diagram {
 
                     </section>
 
-                    <section id="exploration-directory-api-registration-update" class="normative">
+                    <section id="exploration-directory-api-things-update" class="normative">
                         <h4>Update</h4>
                         <p>
                             The update operations are to replace or partially modify an existing TD.
@@ -1396,16 +1396,16 @@ img.wot-diagram {
 
                         <ul>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-update">
+                                <span class="rfc2119-assertion" id="tdd-things-update">
                                     A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
                                     at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-contenttype">
+                                <span class="rfc2119-assertion" id="tdd-things-update-contenttype">
                                     The request SHOULD contain `application/td+json` Content-Type header for JSON
                                     serialization of TD.
                                 </span>
                                 The TD object is validated in accordance with [[[#validation]]].
-                                <span class="rfc2119-assertion" id="tdd-reg-update-resp">
+                                <span class="rfc2119-assertion" id="tdd-things-update-resp">
                                     Upon success, the server MUST respond with 204 (No Content) status. 
                                 </span>
 
@@ -1430,20 +1430,20 @@ img.wot-diagram {
                                 </p>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial">
+                                <span class="rfc2119-assertion" id="tdd-things-update-partial">
                                     An existing TD MUST be partially modified when the modified parts are submitted using an 
                                     HTTP `PATCH` request
                                     at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-mergepatch">
+                                <span class="rfc2119-assertion" id="tdd-things-update-partial-mergepatch">
                                     The partial update MUST be processed using the JSON merge patch format 
                                     format described in [[RFC7396]].
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-contenttype">
+                                <span class="rfc2119-assertion" id="tdd-things-update-partial-contenttype">
                                     The request MUST contain `application/merge-patch+json` Content-Type header for JSON
                                     serialization of the merge patch document.
                                 </span>
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-partialtd">
+                                <span class="rfc2119-assertion" id="tdd-things-update-partial-partialtd">
                                     The input MUST be in <a>Partial TD</a> form and conform to the
                                     original TD structure. 
                                 </span>
@@ -1455,7 +1455,7 @@ img.wot-diagram {
                                 Members with object values are processed recursively.
                                 
                                 After applying the modifications, the TD object is validated in accordance with [[[#validation]]].
-                                <span class="rfc2119-assertion" id="tdd-reg-update-partial-resp">
+                                <span class="rfc2119-assertion" id="tdd-things-update-partial-resp">
                                     Upon success, the server MUST respond with a 204 (No Content) status.
                                 </span>
 
@@ -1505,14 +1505,14 @@ img.wot-diagram {
                         </p>
                     </section>
 
-                    <section id="exploration-directory-api-registration-deletion" class="normative">
+                    <section id="exploration-directory-api-things-deletion" class="normative">
                         <h4>Deletion</h4>
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-delete">
+                            <span class="rfc2119-assertion" id="tdd-things-delete">
                                 A delete operation MUST be done using an HTTP `DELETE` request
                                 at `/things/{id}`, where `id` is the identifier of the existing TD.
                             </span>
-                            <span class="rfc2119-assertion" id="tdd-reg-delete-resp">
+                            <span class="rfc2119-assertion" id="tdd-things-delete-resp">
                                 A successful response MUST have 204 (No Content) status.
                             </span>
                             The retrieve operation is specified as `deleteThing` property in
@@ -1530,7 +1530,7 @@ img.wot-diagram {
                         </p>
                     </section>
 
-                    <section id="exploration-directory-api-registration-listing" class="normative">
+                    <section id="exploration-directory-api-things-listing" class="normative">
                         <h4>Listing</h4>
                         <p>
                             The listing endpoint provides different ways to query the collection of full TD objects
@@ -1545,12 +1545,12 @@ img.wot-diagram {
                         
                             
                         <p>
-                            <span class="rfc2119-assertion" id="tdd-reg-list-method">
+                            <span class="rfc2119-assertion" id="tdd-things-list-method">
                                 The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
                                 at the `/things` endpoint.
                             </span>
                         
-                            <span class="rfc2119-assertion" id="tdd-reg-list-resp">
+                            <span class="rfc2119-assertion" id="tdd-things-list-resp">
                                 A successful response MUST have 200 (OK) status, contain `application/ld+json`
                                 Content-Type header, and an array of TDs in the body.
                             </span>
@@ -1564,39 +1564,39 @@ img.wot-diagram {
                             does offer the ability to query a specific range, it may not be optimal,
                             nor developer-friendly.
                             
-                            <span class="rfc2119-assertion" id="tdd-reg-list-pagination">
+                            <span class="rfc2119-assertion" id="tdd-things-list-pagination">
                                 The server MAY support pagination to return the collection
                                 in small subsets.
                             </span>
                             The pagination must be based on the following rules:
                             <ul>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-limit">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-limit">
                                         When the `limit` query parameter is set to a positive integer,
                                         the server MAY respond with a subset of TDs totalling
                                         to less than or equal to the requested number.
                                     </span>
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-nextlink">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-header-nextlink">
                                         When there are more TDs after a returned subset of the collection,
                                         the response MUST contain a `next` Link header [[RFC8288]]
                                         with the URL of the next subset.
                                     </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-nextlink-attr">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-header-nextlink-attr">
                                         The `next` link MUST include all arguments needed to produce the same set of
 					data and its ordering, in particular the same `limit` argument
 					given on the initial request as well as a zero-based `offset` argument anchored
 					at the beginning of the next subset.
                                     </span>
-				    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-nextlink-base">
+				    <span class="rfc2119-assertion" id="tdd-things-list-pagination-header-nextlink-base">
                                     	The link MUST be absolute or relative to directory API's base URL.
 			    	    </span>
                                     Moreover, it may include additional arguments that are necessary for
                                     ordering or session management.
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-header-canonicallink">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-header-canonicallink">
                                         All paged responses MUST contain a `canonical` Link header [[RFC8288]]
                                         pointing to the collection and include an `etag` parameter to represent
                                         the current state of the collection.
@@ -1611,21 +1611,21 @@ img.wot-diagram {
                                     ordering may make shift the calculated paging window.
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-default">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
                                         By default, the collection MUST be sorted alphanumerically 
                                         by the unique identifier of TDs.
                                     </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order">
                                         The server MAY support sorting by other TD attributes using
                                         query arguments: `sort_by` to select a field (e.g. `created`)
                                         and `sort_order` to choose the order
                                         (i.e. `asc` or `desc` for ascending and descending ordering).
                                     </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-unsupported">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-unsupported">
                                         If the server does not support custom sorting,
                                         it MUST reject the request with 501 (Not Implemented) status.
                                     </span>
-                                    <span class="rfc2119-assertion" id="tdd-reg-list-pagination-order-nextlink">
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.
                                     </span>
                                 </li>
@@ -1690,7 +1690,7 @@ img.wot-diagram {
                         </p>
 
 			<p>
-				<span class="rfc2119-assertion" id="tdd-reg-list-pagination-collection">
+				<span class="rfc2119-assertion" id="tdd-things-list-pagination-collection">
 					Alternative to a pure array of TDs as the body of the response, the server MAY
 					send a more verbose payload allowing server-side information, like pagination
 					information, to be put in addition to the actual data.
@@ -2138,7 +2138,7 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
                             A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
                         </span>
-                        <span class="rfc2119-assertion" id="tdd-search-sparql-federation-imp">
+                        <span class="rfc2119-assertion" id="tdd-search-sparql-federation-version">
                             If implemented, the SPARQL API MUST implement the
                             SPARQL 1.1 Federated Query standard [[sparql11-overview]].
                         </span>
