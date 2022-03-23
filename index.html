@@ -2242,9 +2242,10 @@ img.wot-diagram {
 		If support for multicast is required,
 		in the case of CoAP, the recommendations made in [[RFC9175]] should be
 		applied in order to mitigate the risks of amplification attacks.
-		Not however that in the case of discovery the number of servers that
+		Note however that in the case of discovery the number of servers that
 		might respond to a multicast request will generally not be known in
-		advance.
+		advance, in which case the mitigations proposed in [[RFC9175]] may
+		not be effective.
 		</li>
 		<li>Limit the size of responses to the minimum.  Responses should
 		be less than 3x the size of the request, and this should 
