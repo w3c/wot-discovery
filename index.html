@@ -2179,7 +2179,7 @@ img.wot-diagram {
                 Certain functions of the directory service,
                 in particular search queries,
                 may require significant resources to execute and this fact
-                can be used to launch denial of service attacks against
+                can be used to launch denial of service (DoS) attacks against
                 WoT Thing Description Directory services.
 		In such an attack a WoT Directory would be overloaded
 		by requests from the attacker and unable to service other
@@ -2204,11 +2204,11 @@ img.wot-diagram {
             <h2>Amplification and Distributed Denial of Service</h2>
             <p>
 	    It may also be possible to use elements of WoT Discovery
-	    mechanisms to launch distributed denial of service attacks
+	    mechanisms to launch distributed denial of service (DDoS) attacks
 	    against other targets.  In such an attack the WoT Discovery
 	    service itself is not the target.  Instead, an aspect of
 	    the WoT Discovery service would be
-	    exploited to generate network traffic that overloads a third
+	    exploited to generate amplified network traffic that overloads a third
 	    party, the actual target.
 	    Such an attack has two requirements: first, the ability
 	    to redirect traffic to a third party, and second, 
@@ -2220,8 +2220,8 @@ img.wot-diagram {
 	    unsecured CoAP, by modifying source information in headers.
 	    Amplification is possible by taking advantage of three 
 	    multiplicative factors: the ratio of request to response payload
-	    sizes, use of observe in protocols like CoAP  
-	    (which can give multiple results for one request), and
+	    sizes, use of "observe" in protocols like CoAP  
+	    (which can give multiple results for one request), and use of
 	    multicast (which can allow multiple servers to respond to one 
 	    request). 
 	    Services which do not support authentication
@@ -2238,7 +2238,14 @@ img.wot-diagram {
 		<li>Disable support for observe or similar extended result subprotocols
 		on Introduction mechanisms.</li>
 		<li>Introduction mechanisms should not respond to multicast
-		requests unless this is absolutely required by the protocol.</li>
+		requests unless this is absolutely required by the protocol.
+		If support for multicast is required,
+		in the case of CoAP, the recommendations made in [[RFC9175]] should be
+		applied in order to mitigate the risks of amplification attacks.
+		Not however that in the case of discovery the number of servers that
+		might respond to a multicast request will generally not be known in
+		advance.
+		</li>
 		<li>Limit the size of responses to the minimum.  Responses should
 		be less than 3x the size of the request, and this should 
 		include any error responses.</li>
