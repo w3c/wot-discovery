@@ -2190,13 +2190,27 @@ img.wot-diagram {
 	    </p>
                 <dl>
                     <dt>Mitigations:</dt><dd>
-                    A WoT Thing Description Directory implementation should 
                     <ul>
-                    <li>Limit the number of queries per unit time from the same requestor</li>
-                    <li>Limit the complexity of queries (for example, the total length of the query 
-                    expression or its depth)</li>
-                    <li>Use a watchdog timer to abort queries that take more than
-                a certain maximum (implementation-configurable) amount of time.</li> 
+                    <li>
+	            <span class="rfc2119-assertion" id="sec-tdd-throttle-queries">
+                    A WoT Thing Description Directory implementation SHOULD
+		    limit the number of queries per unit time from the same requestor.
+		    </span>
+		    </li>
+                    <li>
+	            <span class="rfc2119-assertion" id="sec-tdd-limit-query-complexity">
+                    A WoT Thing Description Directory implementation SHOULD
+		    limit the complexity of queries (for example, the total length of the query 
+                    expression or its depth).
+		    </span>
+		    </li>
+                    <li>
+	            <span class="rfc2119-assertion" id="sec-tdd-query-watchdog">
+                    A WoT Thing Description Directory implementation SHOULD
+	            use a watchdog timer to abort queries that take more than
+                    a certain maximum (implementation-configurable) amount of time.
+		    </span>
+		    </li> 
                     </ul>
                     In cases where queries are refused or aborted 
                     appropriate error responses should be returned.
@@ -2236,28 +2250,48 @@ img.wot-diagram {
             <dl>
                 <dt>Mitigations:</dt>
                 <dd>
-		To mitigate this problem, the following is recommended:
 		<ul>
-		<li>Disable support for observe or similar extended result subprotocols
-		on Introduction mechanisms.</li>
-		<li>Introduction mechanisms should not respond to multicast
+		<li>
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-observe">
+                Open implementations of Introduction mechanisms SHOULD NOT
+		support observe or similar extended result subprotocols.
+		</span>
+		</li>
+		<li>
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-multicast">
+		Open implementations of Introduction mechanisms SHOULD NOT respond to multicast
 		requests unless this is absolutely required by the protocol.
+		</span>
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-if-multicast-required">
 		If support for multicast is required,
-		in the case of CoAP, the recommendations made in [[RFC9175]] should be
-		applied in order to mitigate the risks of amplification attacks.
+		in the case of CoAP, the recommendations made in [[RFC9175]] SHOULD be
+		applied.
+		</span>
 		Note however that in the case of discovery the number of servers that
 		might respond to a multicast request will generally not be known in
 		advance, in which case the mitigations proposed in [[RFC9175]] may
 		not be effective.
 		</li>
-		<li>Limit the size of responses to the minimum.  Responses should
-		be less than 3x the size of the request, and this should 
-		include any error responses.</li>
-		<li>Consider throttling or rate-limiting responses to any particular
-		request source.</li>
-		<li>Introduction mechanisms on a segmented network behind a firewall
-		(e.g. a LAN) should
-		not respond to requests that are (apparently) from outside that LAN.
+		<li>
+		Limit the size of responses to the minimum.  
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-limit-response-size">
+		The total size of responses to an Introduction SHOULD
+		be less than 3x the size of the total size of request, and this should 
+		include any error responses.
+		</span>
+		Here "total size" includes any headers required by the protocol itself.
+		</li>
+		<li>
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-throttling">
+		Introductions SHOULD rate-limit responses to any particular
+		request source.
+		</span>
+		</li>
+		<li>
+	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-ext">
+		Introduction mechanisms on a segmented network behind a firewall
+		(e.g. a LAN) SHOULD NOT respond to requests that are (apparently) from outside that LAN.
+		</span>
 		</li>
 	        </ul>
 		Of particular concern are Introduction mechanisms that can
@@ -2277,50 +2311,8 @@ img.wot-diagram {
                 </dd>
             </dl>
         </section>
-	<!-- Move to TDs
-        <section id="security-consideration-access-duration">
-            <h2>Limited Duration Accesses</h2>
-	    <p class="ednote" title="Move to TD">
-	    This security consideration belongs in the TD specification, 
-	    not Discovery, since it is about access to Things
-	    generally, not just TDDs (although it applies to TDDs also, since 
-	    they are Things).
-	    </p>
-            <p>
-            In peer-to-peer scenarios, 
-	    it may be desired by an "owner" to limit the scope and duration of 
-	    access to a device or service by a "guest."
-	    For example, if a guest is visiting the owner's house, the owner may
-	    want to provide the guest with access to the garage door opener and 
-	    car charger so the guest can use them.
-	    The scope however may be limited so that the guest cannot access
-	    certain functions of these devices (for example, to change how long
-	    the garage door can remain open, or to change the charging rate).
-	    In addition, the access should expire after the guest is expected to have left,
-	    e.g. after one week.
-            </p>
-            <dl>
-                <dt>Mitigations:</dt>
-                <dd>
-                The owner should use OAuth2 and a token/auth provider that can provide limited duration tokens and use scopes to limit access.
-                Scopes can limit access to specific interactions but 
-		are not sufficient to limit duration.
-                </dd>
-            </dl>
-        </section>
-	-->
         <section id="security-consideration-lan-self-discovery">
         <h2>Self-Discovery on LANs</h2>
-	    <!--
-            <p class="ednote">
-            See detailed discussion in 
-	    <a href="https://github.com/w3c/wot-discovery/issues/254">Issue 254</a> and in 
-	    <a href="https://github.com/w3c/wot-discovery/issues/139">Issue 139</a>.  
-	    In particular, we may need to allow for plain
-	    HTTP in some circumstances, and provide alternative mitigations to use of PSK.
-	    Also, this particular issue is BOTH a security and privacy issue, so where should we put it?
-            </p>
-	    -->
             <p>
             On a LAN, 
 	    certificates and browsers may not be able to property set up TLS for 
@@ -2338,9 +2330,11 @@ img.wot-diagram {
                 <dt>Mitigations:</dt>
                 <dd>
 		<p>
-                PSK (pre-shared keys) should be used if possible on LANs, 
+	        <span class="rfc2119-assertion" id="sec-tdd-self-psk">
+                PSK (pre-shared keys) SHOULD be used if possible on LANs, 
 		meaning one of the ciphersuites in [[RFC4279]].
-                This does require that Things assigned PSKs in a common security domain, 
+		</span>
+                This does require that Things are assigned PSKs in a common security domain, 
 		which is typically done by following an onboarding process.  
 		Unfortunately, specific onboarding processes 
 		are currently out of scope of the WoT specifications.
@@ -2350,16 +2344,22 @@ img.wot-diagram {
 		This is not the best solution from a security or privacy point of
 		view but may be acceptable in some contexts.  Note however that
 		all users with access to the network would in turn have access to 
-		all TDs via self-description.  If this is undesirable, a separate 
-		network can be set up, i.e. with an alternative SSID, and used only
+		all TDs via self-description.  
+	        <span class="rfc2119-assertion" id="sec-tdd-self-segment">
+		If Things cannot be individually secured with transport security and 
+		authentication and authorization,
+		a separate network SHOULD be set up, i.e. with an alternative SSID, and used only
 		for IoT devices.
+		</span>
+		Using a segmented network reduces the need for distributing the password
+                to this network to those who need access to the set of IoT devices connected to it.
 		</p>
 		<p>
 		Another alternative is to use a reverse proxy service based in the cloud.
 		Secure setup can
 		be accomplished if the IoT device has access to the cloud, since
 		the proxy server can have a public URL and the initial connection
-		can use HTTPS, then open a secure websocket.  The proxy can in turn
+		can use HTTPS, then open a secure tunnel.  The proxy can in turn
 		re-expose a secure endpoint, and possible add authentication.
 		The disadvantages of this approach including depending on an external
 		cloud service and the need to expose an external access point (which is
@@ -2367,6 +2367,12 @@ img.wot-diagram {
 		the proxy service locally 
 		and exposing a public URL using e.g. dynamic DNS if the
 		local server is connected through an ISP.
+	        <span class="rfc2119-assertion" id="sec-tdd-self-proxy">
+		If Things cannot be individually secured with transport security and 
+		authentication and authorization,
+                then they MAY be made available for general access via a proxy
+		that can provide suitable access controls.
+		</span>
                 </dd>
             </dl>
         </section>
