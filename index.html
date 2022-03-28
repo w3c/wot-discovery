@@ -883,7 +883,10 @@ img.wot-diagram {
                     stored in a directory. 
                     The following table lists the registration information attributes for
                     use within <a>TDs</a> that embed or reference the Discovery context. 
-                    Note that only an <a>Enriched TD</a> embeds the registration information.
+                    Note that only an <a>Enriched TD</a> embeds the registration information. 
+		    <span class="rfc2119-assertion" id="tdd-context-injection">
+			An <a>Enriched TD</a> MUST contain in its @context the URI <code>https://w3c.github.io/wot-discovery/context/discovery-context.jsonld</code>
+		    </span>
                     In this table,
                     client refers to the producer or consumer of a <a>TD</a> and server refers to
                     the <a>Thing Description Directory</a>.
