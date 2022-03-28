@@ -1,0 +1,113 @@
+"ID","Status","Comment"
+"discoverer-any-order","not-impl","not implemented"
+"discoverer-fetch-iteration","not-impl","not implemented"
+"discoverer-fetch-links","not-impl","not implemented"
+"discoverer-fetch-tdd","not-impl","not implemented"
+"discoverer-may-multiple-intro","not-impl","not implemented"
+"discoverer-merge-intros","not-impl","not implemented"
+"discoverer-must-support-fetching","not-impl","not implemented"
+"discoverer-must-support-intros","not-impl","not implemented"
+"discoverer-td-identify","not-impl","not implemented"
+"discoverer-termination","not-impl","not implemented"
+"discoverer-track","not-impl","not implemented"
+"exploration-directory-description-type","not-impl","not implemented"
+"exploration-link-description-link","not-impl","not implemented"
+"exploration-link-description-type","not-impl","not implemented"
+"introduction-core-rd","not-impl","not implemented"
+"introduction-core-rd-directory","not-impl","not implemented"
+"introduction-core-rd-resource-type-directory","not-impl","not implemented"
+"introduction-core-rd-resource-type-thing","not-impl","not implemented"
+"introduction-did","not-impl","not implemented"
+"introduction-did-service-endpoint","not-impl","not implemented"
+"introduction-direct-directory-description","not-impl","not implemented"
+"introduction-direct-thing-description","not-impl","not implemented"
+"introduction-direct-url","not-impl","not implemented"
+"introduction-dns-sd","not-impl","not implemented"
+"introduction-dns-sd-service-name","not-impl","not implemented"
+"introduction-dns-sd-service-name-directory","not-impl","not implemented"
+"introduction-dns-sd-txt-record","not-impl","not implemented"
+"introduction-well-known-path","not-impl","not implemented"
+"introduction-well-known-thing-description","not-impl","not implemented"
+"introduction-well-known-uri","not-impl","not implemented"
+"self-http-access-control","not-impl","not implemented"
+"self-http-alternate-content","not-impl","not implemented"
+"self-http-head","pass",
+"self-http-method","pass",
+"self-http-resp","pass",
+"self-http-secure","pass",
+"tdd-http-error-response","pass",
+"tdd-http-head","pass",
+"tdd-http-missing-api-endpoint","pass",
+"tdd-https","pass",
+"tdd-notification","not-impl","not implemented"
+"tdd-notification-data","not-impl","not implemented"
+"tdd-notification-data-create-full","not-impl","not implemented"
+"tdd-notification-data-delete-diff","not-impl","not implemented"
+"tdd-notification-data-diff-unsupported","not-impl","not implemented"
+"tdd-notification-data-td-id","not-impl","not implemented"
+"tdd-notification-data-update-diff","not-impl","not implemented"
+"tdd-notification-data-update-id","not-impl","not implemented"
+"tdd-notification-event-id","not-impl","not implemented"
+"tdd-notification-event-types","not-impl","not implemented"
+"tdd-notification-filter-type","not-impl","not implemented"
+"tdd-notification-sse","not-impl","not implemented"
+"tdd-reg-additional-representation","not-impl","not implemented"
+"tdd-reg-anonymous-td-identifier","pass",
+"tdd-reg-anonymous-td-local-id","pass",
+"tdd-reg-create-anonymous-contenttype","pass","Contenttype : application/td+json not mandatory"
+"tdd-reg-create-anonymous-td","pass",
+"tdd-reg-create-anonymous-td-resp","pass",
+"tdd-reg-create-known-contenttype","pass",
+"tdd-reg-create-known-td","pass",
+"tdd-reg-create-known-td-resp","pass",
+"tdd-reg-create-known-vs-anonymous","pass",
+"tdd-reg-crud","pass",
+"tdd-reg-crudl","pass",
+"tdd-reg-default-representation","pass",
+"tdd-reg-delete","pass",
+"tdd-reg-delete-resp","pass",
+"tdd-reg-list-method","pass",
+"tdd-reg-list-only","pass",
+"tdd-reg-list-pagination","pass",
+"tdd-reg-list-pagination-header-canonicallink","fail","no etag"
+"tdd-reg-list-pagination-header-nextlink","pass",
+"tdd-reg-list-pagination-header-nextlink-attr","pass",
+"tdd-reg-list-pagination-header-nextlink-base","pass",
+"tdd-reg-list-pagination-limit","pass",
+"tdd-reg-list-pagination-order","not-impl","not implemented"
+"tdd-reg-list-pagination-order-default","not-impl","not implemented"
+"tdd-reg-list-pagination-order-nextlink","not-impl","not implemented"
+"tdd-reg-list-pagination-order-unsupported","fail",
+"tdd-reg-list-resp","pass",
+"tdd-reg-read-only-auth","not-impl","not implemented"
+"tdd-reg-retrieve","pass",
+"tdd-reg-retrieve-resp","pass",
+"tdd-reg-update","pass",
+"tdd-reg-update-contenttype","pass","Contenttype : application/td+json not mandatory"
+"tdd-reg-update-partial","pass",
+"tdd-reg-update-partial-contenttype","pass","Contenttype :application/merge-patch+json not mandatory"
+"tdd-reg-update-partial-mergepatch","pass",
+"tdd-reg-update-partial-partialtd","pass",
+"tdd-reg-update-partial-resp","fail","Returns 201"
+"tdd-reg-update-resp","fail","Returns 201"
+"tdd-registrationinfo-expiry-config","not-impl","not implemented"
+"tdd-registrationinfo-expiry-purge","pass",
+"tdd-registrationinfo-vocab-created","pass",
+"tdd-registrationinfo-vocab-expires","fail","we handle ttl only"
+"tdd-registrationinfo-vocab-modified","pass",
+"tdd-registrationinfo-vocab-retrieved","pass",
+"tdd-registrationinfo-vocab-ttl","pass",
+"tdd-search-large-tdds","pass",
+"tdd-search-sparql","pass",
+"tdd-search-sparql-error","pass",
+"tdd-search-sparql-federation","pass",
+"tdd-search-sparql-federation-imp","pass",
+"tdd-search-sparql-method-get","pass",
+"tdd-search-sparql-method-post","pass",
+"tdd-search-sparql-resp-describe-construct","fail","wrong content-type"
+"tdd-search-sparql-resp-select-ask","fail","wrong content-type"
+"tdd-search-sparql-version","pass",
+"tdd-validation-jsonschema","pass",
+"tdd-validation-response","pass",
+"tdd-validation-result","pass",
+"tdd-validation-syntactic","pass",
