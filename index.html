@@ -2173,14 +2173,17 @@ img.wot-diagram {
 	    guides such as the OWASP Top 10 [[OWASP-Top-10]] should be
 	    evaluated and if applicable, addressed.
         </p>
-        <section id="security-consideration-ddos">
+        <section id="security-consideration-dos">
             <h2>Denial of Service</h2>
             <p>
                 Certain functions of the directory service,
                 in particular search queries,
                 may require significant resources to execute and this fact
-                can be used to launch DDoS attacks against
-            WoT Thing Description Directory services.
+                can be used to launch denial of service (DoS) attacks against
+                WoT Thing Description Directory services.
+		In such an attack a WoT Directory would be overloaded
+		by requests from the attacker and unable to service other
+		requests.
 	    </p>
                 <dl>
                     <dt>Mitigations:</dt><dd>
@@ -2197,6 +2200,80 @@ img.wot-diagram {
                     </dd>
                 </dl>
 	</section>
+        <section id="security-consideration-amp-ddos">
+            <h2>Amplification and Distributed Denial of Service</h2>
+            <p>
+	    It may also be possible to use elements of WoT Discovery
+	    mechanisms to launch distributed denial of service (DDoS) attacks
+	    against other targets.  In such an attack the WoT Discovery
+	    service itself is not the target.  Instead, an aspect of
+	    the WoT Discovery service would be
+	    exploited to generate amplified network traffic that overloads a third
+	    party, the actual target.
+	    Such an attack has two requirements: first, the ability
+	    to redirect traffic to a third party, and second, 
+	    an intermediary service
+	    that can be exploited to amplify network traffic
+	    from the attacker.
+	    Redirection
+	    of network traffic is possible in some protocols, such as 
+	    unsecured CoAP, by modifying source information in headers.
+	    Amplification is possible by taking advantage of three 
+	    multiplicative factors: the ratio of request to response payload
+	    sizes, use of "observe" in protocols like CoAP  
+	    (which can give multiple results for one request), and use of
+	    multicast (which can allow multiple servers to respond to one 
+	    request). 
+	    Services which do not support authentication
+	    are ideal intermediaries for such an indirect attack.
+	    Unfortunately, the Introduction mechanisms for WoT Discovery
+	    are meant to provide open access mechanisms to initiate discovery
+	    and might be exploited for this purpose.
+            </p>
+            <dl>
+                <dt>Mitigations:</dt>
+                <dd>
+		To mitigate this problem, the following is recommended:
+		<ul>
+		<li>Disable support for observe or similar extended result subprotocols
+		on Introduction mechanisms.</li>
+		<li>Introduction mechanisms should not respond to multicast
+		requests unless this is absolutely required by the protocol.
+		If support for multicast is required,
+		in the case of CoAP, the recommendations made in [[RFC9175]] should be
+		applied in order to mitigate the risks of amplification attacks.
+		Note however that in the case of discovery the number of servers that
+		might respond to a multicast request will generally not be known in
+		advance, in which case the mitigations proposed in [[RFC9175]] may
+		not be effective.
+		</li>
+		<li>Limit the size of responses to the minimum.  Responses should
+		be less than 3x the size of the request, and this should 
+		include any error responses.</li>
+		<li>Consider throttling or rate-limiting responses to any particular
+		request source.</li>
+		<li>Introduction mechanisms on a segmented network behind a firewall
+		(e.g. a LAN) should
+		not respond to requests that are (apparently) from outside that LAN.
+		</li>
+	        </ul>
+		Of particular concern are Introduction mechanisms that can
+		return multiple results, such as CoRE-RD and DID.
+		It may be necessary to use authentication/authorization on such
+		Introduction mechanisms
+		as well if the other mitigations above are not sufficient.
+		A recommended alternative is to move multiple results from such
+		Introductions into a WoT TDD, which can then be protected
+		by appropriate authentication and authorization measures.
+		Then the open Introduction mechanism only has to return one
+		result, the URL of the TDD.
+		Introduction mechanisms that are visible on the open internet
+		should be especially careful to implement the above mitigations,
+		and perhaps avoid Introduction
+		mechanisms that can return multiple URLs completely.
+                </dd>
+            </dl>
+        </section>
 	<!-- Move to TDs
         <section id="security-consideration-access-duration">
             <h2>Limited Duration Accesses</h2>
@@ -2453,7 +2530,8 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 <ul>
                 <li>The TD or Thing could report actual location information so no inferencing by network range is needed;</li>
                 <li>A directory could support actual search by location;</li>
-                <li>Absence of a TD in a directory could reveal negative location information (e.g. if a TD
+                <li>Absence of a TD in a directory could reveal negative location information.
+		For example, if a TD
                     times out and is removed from a directory, that means the device has not been present for
                     a while, which could be used to infer that a person is NOT in a particular location, e.g. not at
                     home.</li>
@@ -2475,7 +2553,7 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
                 personal directories, for example, a home gateway, but a user could disable registration at other
                 locations.  This has the disadvantage that functionality is lost: personal devices cannot be
                 discovered in public locations.  This could be addressed by having internet-accessible private
-                discovery services (e.g. the home gateway could provide an internet-accessible service, but with
+                discovery services. For example, the user's home gateway could provide an internet-accessible service, but with
                 access control limiting use to authorized users.</li>
 		<li>Anonymous TDs.  In some cases, it may be possible to use
 		anonymous TDs and omit explicit IDs from TDs submitted to
@@ -2675,6 +2753,7 @@ be discussed elsewhere and perhaps mentioned as tools for addressing the followi
       <h1>Recent Specification Changes</h1>
       <h2 id="changes-from-first-draft">Changes from First Draft</h2>
       <ul>
+      <li>Add amplification DDOS security consideration.</li>
       <li>Split Security and Privacy Considerations into separate sections.</li>
       <li>Update name of directory service to "Thing Description Directory" with acronym TDD, 
       to avoid confusion with the acronym TD used for Thing Descriptions.
