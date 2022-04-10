@@ -2147,6 +2147,41 @@ img.wot-diagram {
                         </span>
                     </section>
                 </section>
+
+                <section id="directory-api-spec">
+                    <h4>API Specification (Thing Model)</h1>
+
+                    <p class="issue" data-number="86">
+                        To do: add a
+                        <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
+                        (`directory.tm.json`)
+                        that can derive to
+                        <a href="https://github.com/w3c/wot-discovery/blob/main/implementations/example-directory-oauth2.td.json">this TD</a>
+                        as an example.
+                        The <a>TM</a> should describe all interaction affordances and indicate which ones
+                        are required (i.e. mandatory by this spec). Moreover, it should use placeholders
+                        for deployment-specific attributes.
+                        Informative affordances (JSONPath and XPath) should be defined as such.
+                    </p>
+
+                    The API of the directory is specified as a <a>Thing Model</a>.
+                    The Thing Model alone should not be considered as the reference
+                    to implement or interact with a directory.
+                    The full specification is available as human-readable text 
+                    in [[[#exploration-directory-api]]].
+
+                    <pre class="advisement json">
+                        <div data-include='directory.tm.json'></div>
+                    </pre>
+
+                    <p class="issue" data-number="82">
+                        Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
+                        If yes, a sentence may be added indicating this possibility.
+                    </p>
+                    <p class="ednote" title="Context URIs">
+                        The context URIs are tentative and subject to change. 
+                    </p>
+                </section>
             </section>
 	    <!--
             <section id="exploration-directory-security" class="normative">
@@ -2156,42 +2191,6 @@ img.wot-diagram {
                 </p>
             </section>
 	    -->
-
-            <section id="directory-api-spec">
-                <h3>API Specification (Thing Model)</h1>
-
-                <p class="issue" data-number="86">
-                    To do: add a
-                    <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
-                    (`directory.tm.json`)
-                    that can derive to
-                    <a href="https://github.com/w3c/wot-discovery/blob/main/implementations/example-directory-oauth2.td.json">this TD</a>
-                    as an example.
-                    The <a>TM</a> should describe all interaction affordances and indicate which ones
-                    are required (i.e. mandatory by this spec). Moreover, it should use placeholders
-                    for deployment-specific attributes.
-                    Informative affordances (JSONPath and XPath) should be defined as such.
-                </p>
-
-                The API of the directory is specified as a <a>Thing Model</a>.
-                The Thing Model alone should not be considered as the reference
-                to implement or interact with a directory.
-                The full specification is available as human-readable text 
-                in [[[#exploration-directory-api]]].
-
-                <pre class="advisement json">
-                    <div data-include='directory.tm.json'></div>
-                </pre>
-
-                <p class="issue" data-number="82">
-                    Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
-                    If yes, a sentence may be added indicating this possibility.
-                </p>
-                <p class="ednote" title="Context URIs">
-                    The context URIs are tentative and subject to change. 
-                </p>
-            </section>
-
         </section>
     </section>
 
