@@ -1,0 +1,22 @@
+@startuml exploration-class-diagram
+/' global configurations '/
+hide methods
+hide members
+
+class Thing <<(S,#eb937f) service>>
+together {
+    class SelfDesc as "Self-describing Thing" <<(S,#eb937f) service>>
+    class Directory <<(S,#eb937f) service>>
+}
+
+class TD as "td:Thing" #Azure
+note left: Thing Description (TD)
+
+/' relations '/
+Thing <|-- SelfDesc
+Thing <|-- Directory
+SelfDesc "1" --> "1  " TD: provides
+Directory "1   " --> "   0..*" TD: contains
+
+
+@enduml
