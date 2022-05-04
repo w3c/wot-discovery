@@ -486,7 +486,7 @@ img.wot-diagram {
                typed by a user.
                 <span class="rfc2119-assertion" id="introduction-direct-thing-description">
                     A request on all such URLs MUST result in a TD as prescribed in
-                    [[[#exploration-self]]].
+                    [[[#exploration-mech]]].
                 </span>
                 For self-describing Things, this can be the TD of the Thing itself.
                 <span class="rfc2119-assertion" id="introduction-direct-directory-description">
@@ -500,13 +500,13 @@ img.wot-diagram {
             <p>
                 <span class="rfc2119-assertion" id="introduction-well-known-uri">A Thing or <a>Thing Description Directory</a> MAY use the Well-Known Uniform Resource Identifier [[RFC8615]]
                 to advertise its presence.</span>
-                <span class="rfc2119-assertion" id="introduction-well-known-path">If the Thing or <a>Thing Description Directory</a> use the Well-Known Uniform Resource Identifier to advertise its presense, it MUST register its own Thing or Directory Description
+                <span class="rfc2119-assertion" id="introduction-well-known-path">If the Thing or <a>Thing Description Directory</a> uses a Well-Known Uniform Resource Identifier [[RFC8615]] to advertise its presense, it MUST register its own Thing Description or Directory Description
                 into the following path:
                 <code>/.well-known/wot-thing-description</code>.</span>
             <p>
                 <span class="rfc2119-assertion" id="introduction-well-known-thing-description">
                     When a request is made at the above Well-Known URI, the server MUST return
-                    a Thing Description as prescribed in [[[#exploration-self]]].
+                    a Thing Description as prescribed in [[[#exploration-mech]]].
                 </span>
             </p>
             <p class="ednote" title="Registration of Well-known URI">
@@ -517,21 +517,19 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
+            <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
                 This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
-                In DNS-SD, format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
+                In DNS-SD, the format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
                 The Service part is a pair of labels following the conventions of [[RFC2782]].
                 The first label has an underscore followed by the Service Name,
                 and the second label describes the protocol.
             </p>
             <p>
                 <span class="rfc2119-assertion" id="introduction-dns-sd-service-name">
-                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.
-                </span>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
-                    And the Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
+                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>
+                    and the Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
                 </span>
             </p>
             <p class="ednote" title="Service Names in existing implementations">
@@ -624,7 +622,7 @@ img.wot-diagram {
             <p>
                 <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
                     The DID Document obtained by resolving the DID of a Thing or <a>Thing Description Directory</a> MUST
-                    contains a Service Endpoint which point to Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.
+                    contain a Service Endpoint which points to a Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.
                 </span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document">
