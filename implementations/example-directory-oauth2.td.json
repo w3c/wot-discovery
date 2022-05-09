@@ -7,7 +7,7 @@
     "title": "Example TD of a full-featured directory with OAuth2 security",
     "description": "This is an example TD for a directory with OAuth2 security. This TD instance is derived from the normative Thing Model of the directory",
     "version": {
-        "instance": "1.0.0-alpha"
+        "instance": "1.0.0-beta.2"
     },
     "securityDefinitions": {
         "oauth2_code": {
@@ -98,17 +98,7 @@
             },
             "forms": [
                 {
-                    "href": "/things",
-                    "htv:methodName": "GET",
-                    "response": {
-                        "description": "Success response",
-                        "htv:statusCodeValue": 200,
-                        "contentType": "application/ld+json"
-                    },
-                    "scopes": "readAll"
-                },
-                {
-                    "href": "/things{?offset,limit,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,format,sort_by,sort_order}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
@@ -458,7 +448,7 @@
         }
     },
     "events": {
-        "thingCreation": {
+        "thingCreated": {
             "description": "Registration of Thing Descriptions inside the directory",
             "uriVariables": {
                 "diff": {
@@ -473,7 +463,7 @@
             "forms": [
                 {
                     "op": "subscribeevent",
-                    "href": "/events/create{?diff}",
+                    "href": "/events/thing_created{?diff}",
                     "subprotocol": "sse",
                     "contentType": "text/event-stream",
                     "htv:headers": [
@@ -486,7 +476,7 @@
                 }
             ]
         },
-        "thingUpdate": {
+        "thingUpdated": {
             "description": "Updates to Thing Descriptions within the directory",
             "uriVariables": {
                 "diff": {
@@ -502,7 +492,7 @@
             "forms": [
                 {
                     "op": "subscribeevent",
-                    "href": "/events/update{?diff}",
+                    "href": "/events/thing_updated{?diff}",
                     "subprotocol": "sse",
                     "contentType": "text/event-stream",
                     "htv:headers": [
@@ -515,7 +505,7 @@
                 }
             ]
         },
-        "thingDeletion": {
+        "thingDeleted": {
             "description": "Deletion of Thing Descriptions from the directory",
             "data": {
                 "title": "Partial TD",
@@ -524,7 +514,7 @@
             "forms": [
                 {
                     "op": "subscribeevent",
-                    "href": "/events/delete",
+                    "href": "/events/thing_deleted",
                     "subprotocol": "sse",
                     "contentType": "text/event-stream",
                     "htv:headers": [
