@@ -169,9 +169,9 @@ img.wot-diagram {
         <h1>Introduction</h1>
         <p>The Web of Things (WoT) defines an architecture that supports the integration
            and use of web technologies with IoT devices.
-           The WoT Architecture [[wot-architecture]] document defines the basic
+           The WoT Architecture [[wot-architecture11]] document defines the basic
            concepts and patterns of usage supported.
-           However, the WoT Thing Description [[wot-thing-description]] is a key
+           However, the WoT Thing Description [[wot-thing-description11]] is a key
            specification for WoT Discovery since it is the purpose of WoT Discovery
            to make WoT Thing Descriptions available.
            Specifically, WoT Discovery has to allow authenticated and authorized entities
@@ -210,7 +210,7 @@ img.wot-diagram {
         <p>After defining some basic terminology, we will summarize the basic use cases and
            requirements for WoT Discovery.  These are a subset of the more detailed and
            exhaustive use cases and requirements presented in the WoT Use Cases [[wot-usecases]] and 
-           WoT Architecture [[wot-architecture]] documents.
+           WoT Architecture [[wot-architecture11]] documents.
            Then we will describe the basic architecture of the WoT Discovery process,
            which uses a two-phase Introduction/Exploration approach.  The basic goal of this
            architecture is to be able to use existing discovery standards to bootstrap
@@ -250,8 +250,8 @@ img.wot-diagram {
             (<dfn data-lt="WoT TDD">TDD</dfn>),
             <dfn data-lt="WoT Partial Thing Description">Partial TD</dfn>,
             <dfn data-lt="WoT Enriched Thing Description">Enriched TD</dfn>
-            are defined in <a href="https://www.w3.org/TR/wot-architecture/#terminology">Section 3</a>
-            of the WoT Architecture specification [[?WOT-ARCHITECTURE]].
+            are defined in <a href="https://www.w3.org/TR/wot-architecture11/#terminology">Section 3</a>
+            of the WoT Architecture 1.1 specification [[?wot-architecture11]].
         </p>
     </section>
     <section id="architecture" class="informative">
@@ -357,7 +357,7 @@ img.wot-diagram {
 			would not have to supply any additional information to invoke Discovery.
 		</li>
 		<li><span class="rfc2119-assertion" id="discoverer-must-support-fetching">
-			A Discoverer MUST support fetching a TD from least one URL provided as part of the Introduction process.</span>
+			A Discoverer MUST support fetching a TD from at least one URL provided as part of the Introduction process.</span>
 			In other words, not only must a Discoverer accept URLs pointing at TDs, it must be
 			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
 			specified by way of a file URL.
@@ -486,7 +486,7 @@ img.wot-diagram {
                typed by a user.
                 <span class="rfc2119-assertion" id="introduction-direct-thing-description">
                     A request on all such URLs MUST result in a TD as prescribed in
-                    [[[#exploration-self]]].
+                    [[[#exploration-mech]]].
                 </span>
                 For self-describing Things, this can be the TD of the Thing itself.
                 <span class="rfc2119-assertion" id="introduction-direct-directory-description">
@@ -500,13 +500,13 @@ img.wot-diagram {
             <p>
                 <span class="rfc2119-assertion" id="introduction-well-known-uri">A Thing or <a>Thing Description Directory</a> MAY use the Well-Known Uniform Resource Identifier [[RFC8615]]
                 to advertise its presence.</span>
-                <span class="rfc2119-assertion" id="introduction-well-known-path">If the Thing or <a>Thing Description Directory</a> use the Well-Known Uniform Resource Identifier to advertise its presense, it MUST register its own Thing or Directory Description
+                <span class="rfc2119-assertion" id="introduction-well-known-path">If a Thing or <a>Thing Description Directory</a> use the Well-Known Uniform Resource Identifier [[RFC8615]] to advertise its presence, it MUST register its own Thing Description
                 into the following path:
                 <code>/.well-known/wot-thing-description</code>.</span>
             <p>
                 <span class="rfc2119-assertion" id="introduction-well-known-thing-description">
                     When a request is made at the above Well-Known URI, the server MUST return
-                    a Thing Description as prescribed in [[[#exploration-self]]].
+                    a Thing Description as prescribed in [[[#exploration-mech]]].
                 </span>
             </p>
             <p class="ednote" title="Registration of Well-known URI">
@@ -517,11 +517,11 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use the DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
-                This can be also be used to discover them on the same link by combining Multicast DNS (mDNS)[[RFC6762]].
+            <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
+                This can be also be used on the same local network in combination with Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
-                In DNS-SD, format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
+                In DNS-SD, the format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
                 The Service part is a pair of labels following the conventions of [[RFC2782]].
                 The first label has an underscore followed by the Service Name,
                 and the second label describes the protocol.
@@ -531,7 +531,7 @@ img.wot-diagram {
                     The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.
                 </span>
                 <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
-                    And the Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
+                    The Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.
                 </span>
             </p>
             <p class="ednote" title="Service Names in existing implementations">
@@ -624,7 +624,7 @@ img.wot-diagram {
             <p>
                 <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
                     The DID Document obtained by resolving the DID of a Thing or <a>Thing Description Directory</a> MUST
-                    contains a Service Endpoint which point to Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.
+                    contain a Service Endpoint which points to a Thing Description describing that Thing or <a>Thing Description Directory</a>.
                 </span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document">
@@ -981,7 +981,7 @@ img.wot-diagram {
                 </section>
                 <section id="exploration-directory-registration-expiry" class="normative">
                     <h4>Registration Expiry</h4>
-                    Section [[[#exploration-directory-registration-info]]] introduces few attributes to
+                    Section [[[#exploration-directory-registration-info]]] introduces some attributes to
                     specify and discover the expiry time of registered <a>TDs</a>. 
 
                     <p>
@@ -1043,7 +1043,7 @@ img.wot-diagram {
                 <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
                 authenticity and confidentiality (see [[?WOT-SECURITY]]).
                 <span class="rfc2119-assertion" id="tdd-https"> 
-                    The HTTP API MUST be exposed over HTTPS (HTTP Over TLS).
+                    The HTTP API SHOULD be exposed over HTTPS (HTTP Over TLS).
                 </span>
                 <p>
                     The HTTP API responses must use appropriate status codes described in 
@@ -1694,9 +1694,9 @@ img.wot-diagram {
 
 			<p>
 				<span class="rfc2119-assertion" id="tdd-things-list-pagination-collection">
-					Alternative to a pure array of TDs as the body of the response, the server MAY
-					send a more verbose payload allowing server-side information, like pagination
-					information, to be put in addition to the actual data.
+					As an alternative to an array of TDs as the body of the response, the server MAY
+					send a more verbose payload allowing server-side information, such as pagination
+					information, to be included in addition to the actual data.
 				</span>
 			</p>
 
@@ -1706,7 +1706,7 @@ img.wot-diagram {
 				Hydra Advanced Concepts</a>, more concretely the
 				<a href="https://www.hydra-cg.com/spec/latest/core/#example-20-a-hydra-partialcollectionview-splits-a-collection-into-multiple-views">
 				Partial Collection View</a>. Adapted to our purposes and using the <i>members</i> field to accomodate the array
-				of TDs, it looks like as follows for the listing endpoint:
+				of TDs, it looks as follows for the listing endpoint:
 			</p>
 			<p>
 				<aside class="example" id="example-alternative-payload"
