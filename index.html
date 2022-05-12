@@ -1439,7 +1439,7 @@ img.wot-diagram {
                                     at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-things-update-partial-mergepatch">
-                                    The partial update MUST be processed using the JSON merge patch format 
+                                    The partial update MUST be processed using the JSON merge patch
                                     format described in [[RFC7396]].
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-things-update-partial-contenttype">
@@ -1452,7 +1452,7 @@ img.wot-diagram {
                                 </span>
                                 
                                 If the input contains members that appear in the original TD, 
-                                their values are replaced. If a member do not appear in the 
+                                their values are replaced. If a member does not appear in the 
                                 original TD, that member is added. If the member is set to `null` 
                                 but appear in the original TD, that member is removed. 
                                 Members with object values are processed recursively.
@@ -2031,7 +2031,7 @@ img.wot-diagram {
                         supported by all directories.   
                         So this API will have further subsections,
                         some of which will be optional.
-                        Search also includes a sub-API for managing listing the contents (eg returned by
+                        Search also includes a sub-API for managing listing the contents (e.g. returned by
                         a query) including handling pagination, etc.
                         Note that one special form of query will be able to return everything.
                         Results may be subject to the requestor's authorization.
@@ -2552,7 +2552,7 @@ img.wot-diagram {
                 generate new random IDs periodically.
                 There are however, a few issues.  First of all, other identification information in the TD needs to be 
                 hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
-                they cannot be easily changed.  Second, if the device generate a new ID, the user may still need to 
+                they cannot be easily changed.  Second, if the device generates a new ID, the user may still need to 
                 know the current ID to find the device via discovery.  This can be accomplished however by generating new
                 IDs using a deterministic cryptographic generator that is a function of the current time.
                 However, note that regenerating IDs alone does not make tracking impossible since a TD might be fingerprinted.
