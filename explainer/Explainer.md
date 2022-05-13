@@ -150,5 +150,29 @@ private security data (tokens, passwords, etc).
 mechanisms to provide the necessary protection.  It does not define new ones.
 
 ## Implementations
+Implementations are described in more detail in the WoT Discovery Implementation Report,
+but in summary the following four implementations of the WoT Discovery TDD service
+has been performed:
+- LogiLabs TDD - An implementation supporting SPARQL queries, sponsored by Siemens.
+- WoT Hive TDD - An implementation supporting SPARQL queries, sponsored by Universidad Politécnica de Madrid.
+- TinyIoT TDD - An implementation supporting JSONPath queries, forked from an 
+  initial implmentation done by Fraunhofer as part of the LinkSmart project.
+- Minimal TDD - An implementation that intentionally includes only the core
+  features designed to support static implementations, such as devices statically
+  hosting multiple separate sensors.  Done by Intel.
+Except for the last implementation, all of these WoT TDD implementations also
+support registration and management of a dynamic database of TDs.
+
+There are other aspects of WoT Discovery that also need to be considered.
+We define a "Discoverer" as an entity that uses the WoT Discovery process to retrieve
+a TD.  We have a number of implementations of Discoverers, including integration into the 
+Eclipse node-wot project (an implementation of the informative 
+[WoT Scripting API](https://github.com/w3c/wot-scripting-api/) and
+two integrations into Node-RED, a popular open-source IoT automation system.
+In addition to directories, Discoverers also exercise various Introduction
+mechanisms and may also fetch TDs directly from Things themselves.
+
+Finally, implementations of self-description WoT Discovery Exploration
+mechanisms have been incorporated into many Thing implementations.
 
 ## Related Work
