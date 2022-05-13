@@ -24,8 +24,32 @@ which normatively defines many aspects of the Thing Description Directory servic
 as part of the discovery process.  
 
 ## Use Cases and Requirements
+In general, WoT Use Case and Requirements have been collected from a large number 
+of participants and are collected in the 
+[WoT Use Cases and Requirements document](https://w3c.github.io/wot-usecases/).
+In the following we extract a few of the most critical requirements and motivating
+use cases driving the design of WoT Discovery.
 
-## Privacy and Security
+### Integration
+It is often the case in IoT systems that devices provided by different manufacturers
+need to be integrated together.  For example, consider a Retail use case
+where a door sensor, a temperature sensor, and an RGB light need to be integrated
+with an automation to indicate when a freezer door has been left open or the 
+temperature is out of range.  As another example, we might want to integrate an
+accessibility control, such as a blow switch, with an IoT device that operates a 
+light or calls an elevator.  In these cases, it is not enough to have a common
+interface description format, which the WoT TD provides.  We also need a standard
+way to find and fetch the TDs for specific devices so that they can be integrated.
+
+### Public IoT Services
+In a Smart City, we may want to provide access to IoT devices as a public service,
+for example to report local air quality conditions.  In Retail, we may want to
+make available semi-public services (perhaps requiring pre-registration) to access
+accessiblity devices, such as chair lifts.  In this case, a user wants to discover
+services, probably selected from a large number, that meet some criteria, such
+as location or type.
+
+### Privacy and Security
 While the purpose of the WoT Discovery process is to distribute Thing Description metadata,
 it must also satisfy security and privacy constraints.
 In general, TDs should only be distributed to entities after their identities have been
