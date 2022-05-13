@@ -1,5 +1,11 @@
 # Web of Things (WoT) Discovery Explainer
-Summary to go here.  A couple of paragraphs that will also be copied to wide review issues
+The purpose of WoT Discovery is to define a mechanism to distribute WoT Thing Descriptions
+in a manner that is accessible but also satisfies security and privacy objectives.
+It is an optional feature of the WoT Architecture in that WoT TDs can also be 
+obtained by other means, for example by using a normal database.  However, 
+WoT Discovery is meant to address use cases where IoT devices from different
+vendors need to be integrated, or where a large number of IoT services need to be 
+searched in a consistent way.
 
 ## Introduction
 
