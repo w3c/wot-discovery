@@ -1,9 +1,18 @@
 # WoT Discovery Explainer
-Initial placeholder.
-Align with https://github.com/w3c/wot-thing-description/pull/1397
+Summary to go here.  A couple of paragraphs that will also be copied to wide review issues
 
-Needed for wide review.  Suggest that we use the Architectural explainer for general introductions, and 
-TD, Discovery, and Profile explainers to add detail and provide use cases, justifications, requirements,
-and examples for their specific deliverables.
+## Relationship to Other WoT Deliverables
 
-See above PR for links to instructions for writing explainers.
+## Introduction
+
+## Use Cases and Requirements
+
+## Privacy and Security
+
+## Architecture
+
+## Non-Goals
+
+## Implementations
+
+## Related Work
