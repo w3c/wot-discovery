@@ -1014,7 +1014,8 @@ img.wot-diagram {
                         their <a>TDs</a>. This could be due to protocol-specific limitations,
                         failure, destruction, or ungraceful decommissioning.
                         Such clients should set a reasonably short expiry time and periodically
-                        extend it during the normal operation.
+                        extend it during the normal operation. Extending the expiry happens when
+                        the registration is updated fully, or partially; see [[[#exploration-directory-api-things-update]]].
                        
                         If a client ceases to operate, a directory with purging capability will
                         automatically remove its registration.
@@ -1413,17 +1414,16 @@ img.wot-diagram {
                                 </span>
 
                                 <p>
+                                    This operation is specified as `updateThing` property in 
+                                    [[[#directory-api-spec]]].
+                                </p>
+
+                                <p>
                                     A server that supports expirable TDs will realize such functionality
                                     as described in [[[#exploration-directory-registration-expiry]]].
                                     If `ttl` (relative expiry) is set during the update operation,
                                     the server will calculate and set the `expires` (absolute expiry) value.
                                 </p>
-
-                                <p>
-                                    This operation is specified as `updateThing` property in 
-                                    [[[#directory-api-spec]]].
-                                </p>
-                                
 
                                 <p>
                                     Note: If the target location does not correspond to an existing TD,
@@ -1463,18 +1463,28 @@ img.wot-diagram {
                                 </span>
 
                                 <p>
+                                    This operation is specified as `partiallyUpdateThing` property in 
+                                    [[[#directory-api-spec]]].
+                                </p>
+
+                                <p>
                                     A server that supports expirable TDs will realize such functionality
                                     as described in [[[#exploration-directory-registration-expiry]]].
                                     During the partial update operation, if the resulting <a>TD</a> has 
                                     `ttl` (relative expiry), the server will calculate and set a new
                                     `expires` (absolute expiry) value.
                                 </p>
-
-                                <p>
-                                    This operation is specified as `partiallyUpdateThing` property in 
-                                    [[[#directory-api-spec]]].
-                                </p>
                                 
+                                <p>
+                                    A patch operation is particularly useful to efficiently extend the expiry of
+                                    a registration that uses a `ttl` (relative expiry) value.
+                                    This is typically done by submitting an empty merge patch document,
+                                    i.e. an empty JSON object.
+                                    This effectively translates to performing a partial update operation that
+                                    updates nothing, but triggers the recalculation of `expires` (absolute expiry) value.
+                                    This expiry functionality only work if the server supports it as defined in
+                                    [[[#exploration-directory-registration-expiry]]].
+                                </p>
 
                                 <p>
                                     The following example is a merge patch document to update only the
@@ -1487,8 +1497,12 @@ img.wot-diagram {
                                                     "expires": "2021-01-20T17:02:00Z"
                                                 }
                                             }
-                                        </pre>                    
+                                        </pre> 
+                                        This is a valid way of extending the absolute expiry only if the stored
+                                        TD has no `ttl` (relative expiry).
+                                        For more details, refer to [[[#exploration-directory-registration-expiry]]].                   
                                     </aside>
+
                                 </p>
                             </li>
                         </ul>
