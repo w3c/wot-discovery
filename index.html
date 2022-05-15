@@ -1061,6 +1061,30 @@ img.wot-diagram {
                     the Problem Details error responses may omit the `type` field which defaults
                     to "about:blank" and set `title` to the HTTP status text.
                 </p>
+
+                <p>
+                    The APIs set the HTTP status codes as defined in 
+                    <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6">Section 6</a> of [[RFC7231]].
+                    The list of used error codes include (but are not limited to) the following:
+                    <ul>
+                        <li>
+                            400 (Bad Request): Invalid client input in body, query, or headers.
+                            This is accompanied by an appropriate response message.
+                        </li>
+                        <li>
+                            401 (Unauthorized): The request lacks valid authentication credentials.
+                            This is often accompanied by a `WWW-Authenticate` header containing
+                            information on how the client can authenticate and repeat the request.
+                        </li>
+                        <li>
+                            403 (Forbidden): Insufficient rights to access the resource.
+                        </li>
+                        <li>
+                            404 (Not Found): TD or endpoint does not exist.
+                            This is accompanied by an appropriate response message.
+                        </li>
+                    </ul>
+                </p>
                 
                 <p>
                     <span class="rfc2119-assertion" id="tdd-http-head"> 
@@ -1241,20 +1265,6 @@ img.wot-diagram {
                             In particular, if `ttl` (relative expiry) is given during the creation,
                             such servers will calculate and store the `expires` value.
                         </p>
-
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>
-                                    400 (Bad Request): Bad user input such as
-                                    invalid serialization, invalid TD, or `id` mismatch.
-                                    This is accompanied by an appropriate response message.
-                                </li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                       
                         <p class="issue" data-number="48">
                         </p>
@@ -1275,16 +1285,6 @@ img.wot-diagram {
                                 The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-api-spec]]].
                             </p>
-                        </p>
-
-                        <p>
-                            Error responses:  
-                            <ul>
-                                <li>404 (Not Found): TD with the given `id` not found.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
                         </p>
 
                         <p>
@@ -1493,19 +1493,6 @@ img.wot-diagram {
                             </li>
                         </ul>
 
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>
-                                    400 (Bad Request): Invalid serialization or TD.
-                                    This is accompanied by an appropriate response message.
-                                </li>
-                                <li>404 (Not Found): TD with the given `id` not found (for `PATCH` only).</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
 
                     <section id="exploration-directory-api-things-deletion" class="normative">
@@ -1522,15 +1509,6 @@ img.wot-diagram {
                             [[[#directory-api-spec]]].
                         </p>
 
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>404 (Not Found): TD with the given `id` not found.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
 
                     <section id="exploration-directory-api-things-listing" class="normative">
@@ -1738,18 +1716,6 @@ img.wot-diagram {
                             The listing operation is specified as `things` property in 
                             [[[#directory-api-spec]]].
                         </p>
-
-                        <p>
-                            Error responses:  
-                            <ul>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>501 (Not Implemented): Requested feature not implemented,
-                                    such as custom sorting.
-                                </li>
-                            </ul>
-                        </p>
-
                         
                     </section>
 
@@ -2072,14 +2038,6 @@ img.wot-diagram {
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-api-spec]]].
 
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
                     <section id="xpath-semantic" class="informative">
                         <h4>Syntactic search: XPath</h4>
@@ -2094,15 +2052,7 @@ img.wot-diagram {
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-api-spec]]].
-                                
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
+                    
                     </section>
                     <section id="search-semantic" class="normative">
                         <h4>Semantic search: SPARQL</h4>
@@ -2130,14 +2080,7 @@ img.wot-diagram {
 			</span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-api-spec]]].
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
+                        
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
                             A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
                         </span>
