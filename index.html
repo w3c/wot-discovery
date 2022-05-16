@@ -1014,8 +1014,9 @@ img.wot-diagram {
                         their <a>TDs</a>. This could be due to protocol-specific limitations,
                         failure, destruction, or ungraceful decommissioning.
                         Such clients should set a reasonably short expiry time and periodically
-                        extend it during the normal operation. Extending the expiry happens when
-                        the registration is updated fully, or partially; see [[[#exploration-directory-api-things-update]]].
+                        extend it during the normal operation. The expiry can be extended by
+                        updating the registration either fully or partially, including an update that makes no
+                        changes to the TD; see [[[#exploration-directory-api-things-update]]].
                        
                         If a client ceases to operate, a directory with purging capability will
                         automatically remove its registration.
