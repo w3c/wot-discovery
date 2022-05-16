@@ -787,6 +787,48 @@ img.wot-diagram {
                     </p>
                 </section>
             </section>
+            <section id="exploration-secboot" class="normative">
+                <h3>Security Bootstrapping</h3>
+                <p>The purpose of an exploration service is to serve TDs, but only after suitable
+                authentication, and only to authorized parties.  However, since we don't yet have
+                a TD when accessing an exploration service, we can't depend on the security metadata
+                held in TDs to know what kind of authentication and authorization information is needed.
+                Instead, we have to depend on existing security negotation support in HTTP to
+                bootstrap access, at least to the TD itself.
+                </p>
+                <p>In the HTTP protocol, authentication and authorization is negotiated by
+                the HTTP server returning a "401: Unauthenticated" response code in conjunction with
+                a "WWW-Authentication" header that specifies the information required for
+                authentication.  To gain access, the client then needs to make another request 
+                with the necessary information.
+                <a href="https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml">There 
+                are several "schemes" for such information registered with IANA.</a>
+                Not all of these are in wide use, some are experimental, and there is only
+                partial overlap with the schemes supported by TDs.
+                To enable security bootstrapping on a wide variety of devices as well
+                as on browsers, the following constraints should be observed:
+                </p>
+                <ul>
+                <li><span class="rfc2119-assertion" id="exploration-secboot-401">Exploration services 
+                MUST reply with an HTTP 401 response code if appropriate
+                authentication information has not been provided.</span>
+                </li>
+                <li><span class="rfc2119-assertion" id="exploration-secboot-auth">A 401 HTTP response 
+                from an exploration service MUST include a <code>WWW-Authentication</code> header
+                describing the required authorizations using one of the following IANA-registered
+                HTTP Authentication Schemes: Basic, Bearer, Digest, or OAuth.
+                </li>
+                </ul>
+                <p>
+                There are Security and Privacy Considerations in [[WOT-ARCHITECTURE]] that are
+                relevant regarding when authentication and authorization is required for access
+                to TDs and the use of secure transport.  
+                In summary, secure transport is required for public services and strongly recommended
+                even on private networks, and <code>nosec</code> should only be considered 
+                in limited circumstances when no Personally Identifiable Information is 
+                present or can be inferred.
+                </p>
+            </section>
         </section>
         
         <section id="exploration-self" class="normative">
@@ -797,7 +839,7 @@ img.wot-diagram {
             <p>
                 The self-description is an exploration mechanism in which a <a>Thing</a>
                 hosts its own <a>TD</a> and exposes it at a URL or
-                through others means. 
+                through other means. 
                 If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
                 via one of the [[[#introduction-mech]]].
                 The hosted <a>TD</a> may also be registered inside a <a>Thing Description Directory</a>
@@ -810,11 +852,8 @@ img.wot-diagram {
                 <dt>HTTP</dt>
                 <dd>
                     <p>
-                        <span class="rfc2119-assertion" id="self-http-secure"> 
-                            The HTTP-based self-description SHOULD be over HTTPS (HTTP Over TLS).
-                        </span>
                         <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server SHOULD serve the requests after performing necessary 
+                            The server MUST serve the requests only after performing necessary 
                             authentication and authorization.
                         </span>
                     </p>
@@ -852,7 +891,11 @@ img.wot-diagram {
                         Error responses:  
                         <ul>
                             <li>
-                                401 (Unauthorized): No authentication.
+                                401 (Unauthorized): No authentication. 
+                                As noted in <a href=#exploration-secboot"></a>, this is the first
+                                step in authentication negotiation, needed to bootstrap secure access to TDs.
+                                Information on what credentials are required will be included 
+                                in a <code>WWW-Authentication</code> header.
                             </li>
                             <li>
                                 403 (Forbidden): Insufficient rights to the resource.
@@ -1052,12 +1095,14 @@ img.wot-diagram {
             </section>
             <section id="exploration-directory-api" class="normative">
                 <h3>Directory Service API</h3>
-                The Directory APIs must use secure protocols guaranteeing 
+                <p>
+                Directory services provide access to
                 <a href="https://www.w3.org/TR/wot-security/#dfn-system-user-data">System User Data</a> 
-                authenticity and confidentiality (see [[?WOT-SECURITY]]).
-                <span class="rfc2119-assertion" id="tdd-https"> 
-                    The HTTP API SHOULD be exposed over HTTPS (HTTP Over TLS).
-                </span>
+                and need to provide appropriate security and privacy protections.
+                The use of secure transport protocols and access controls for
+                authenticity and confidentiality in implementations of the WoT Directory Service API are governed by
+                the Security Consideration and Privacy Consierations given in [[WOT-ARCHITECURE]].
+                </p> 
                 <p>
                     The HTTP API responses must use appropriate status codes described in 
                     this section for success and error responses.
@@ -1086,8 +1131,10 @@ img.wot-diagram {
                         </li>
                         <li>
                             401 (Unauthorized): The request lacks valid authentication credentials.
-                            This is often accompanied by a `WWW-Authenticate` header containing
-                            information on how the client can authenticate and repeat the request.
+                            As noted in <a href=#exploration-secboot"></a>, this is the first
+                            step in authentication negotiation, needed to bootstrap secure access to TDs.
+                            Information on what credentials are required will be included 
+                            in a <code>WWW-Authentication</code> header.
                         </li>
                         <li>
                             403 (Forbidden): Insufficient rights to access the resource.
