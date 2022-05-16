@@ -410,13 +410,15 @@
                     "op": "subscribeevent",
                     "href": "/events/thing_created{?diff}",
                     "subprotocol": "sse",
-                    "contentType": "text/event-stream",
                     "htv:headers": [
                         {
                             "description": "ID of the last event for reconnection",
                             "htv:fieldName": "Last-Event-ID"
                         }
-                    ]
+                    ],
+                    "response": {
+                        "contentType": "text/event-stream"
+                    }
                 }
             ]
         },
@@ -438,13 +440,15 @@
                     "op": "subscribeevent",
                     "href": "/events/thing_updated{?diff}",
                     "subprotocol": "sse",
-                    "contentType": "text/event-stream",
                     "htv:headers": [
                         {
                             "description": "ID of the last event for reconnection",
                             "htv:fieldName": "Last-Event-ID"
                         }
-                    ]
+                    ],
+                    "response": {
+                        "contentType": "text/event-stream"
+                    }
                 }
             ]
         },
@@ -459,13 +463,15 @@
                     "op": "subscribeevent",
                     "href": "/events/thing_deleted",
                     "subprotocol": "sse",
-                    "contentType": "text/event-stream",
                     "htv:headers": [
                         {
                             "description": "ID of the last event for reconnection",
                             "htv:fieldName": "Last-Event-ID"
                         }
-                    ]
+                    ],
+                    "response": {
+                        "contentType": "text/event-stream"
+                    }
                 }
             ]
         }
