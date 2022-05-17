@@ -2,7 +2,7 @@
 The purpose of WoT Discovery is to define a mechanism to distribute WoT Thing Descriptions
 in a manner that is accessible but also satisfies security and privacy objectives.
 It is an optional feature of the WoT Architecture in that WoT TDs can also be 
-obtained by other means, for example by using a normal database.  However, 
+managed and obtained by other means, for example by using a normal database.  However, 
 WoT Discovery is meant to address use cases where IoT devices from different
 vendors need to be integrated, or where a large number of IoT services need to be 
 searched in a consistent way.
@@ -11,35 +11,50 @@ searched in a consistent way.
 
 ## Relationship to Other WoT Deliverables
 For a general introduction to the Web of Things (WoT) Architecture, including a description
-of all normative and informative deliverable, please see the 
+of all normative and informative deliverables, please see the 
 [WoT Architecture explainer](https://github.com/w3c/wot-architecture/blob/main/explainer/explainer11.md)
 and the [WoT Architecture document](https://w3c.github.io/wot-architecture/).
 
 Since the purpose of the WoT Discovery deliverable is to normatively
 define a mechanism to distribute WoT Thing Descriptions,
 the [WoT Thing Description 1.1 document](https://w3c.github.io/wot-thing-description/) is
-especially relevant.  The WoT Discovery specification also includes a Thing Model,
-defined in this deliverable,
+especially relevant.  
+The WoT Discovery specification also includes a Thing Model,
 which normatively defines many aspects of the Thing Description Directory service specified
 as part of the discovery process.  
+Thing Models, as defined in the Thing Description 1.1 document,
+are a format for describing classes of Things.
+We model Thing Description Directories as a special kind of Thing.
 
 ## Use Cases and Requirements
-In general, WoT Use Case and Requirements have been collected from a large number 
+In general, WoT Use Cases and Requirements have been collected from a large number 
 of participants and are collected in the 
 [WoT Use Cases and Requirements document](https://w3c.github.io/wot-usecases/).
-In the following we extract a few of the most critical requirements and motivating
-use cases driving the design of WoT Discovery.
+In the following we discuss use cases and 
+extract a few of the most critical requirements
+driving the design of WoT Discovery.
 
-### Integration
+### Use Case: Integration
 It is often the case in IoT systems that devices provided by different manufacturers
 need to be integrated together.  For example, consider a Retail use case
 where a door sensor, a temperature sensor, and an RGB light need to be integrated
 with an automation to indicate when a freezer door has been left open or the 
-temperature is out of range.  As another example, we might want to integrate an
+temperature is out of range.  As another example, a user might want to integrate an
 accessibility control, such as a blow switch, with an IoT device that operates a 
 light or calls an elevator.  In these cases, it is not enough to have a common
 interface description format, which the WoT TD provides.  We also need a standard
 way to find and fetch the TDs for specific devices so that they can be integrated.
+
+Integration can take place during development time where a developer may
+use Thing Models to understand the behavior of classes of devices and
+build automation rules that will combine instances of these classes to create
+new IoT services.  However, at installation time, to apply such automation
+rules, it is necessary to search for actual instances of Thing Descriptions 
+(representing installed Thing instances) satisfying the requirements of the automations.
+
+Discovery currently targets the second half of this problem, finding Thing
+instances satisfying a set of constraints.  Managing Thing Models during
+development time is currently out of scope.
 
 ### Public IoT Services
 In a Smart City, we may want to provide access to IoT devices as a public service,
@@ -148,6 +163,84 @@ about how a Thing can be accessed, *if* the requestor has access to the associat
 private security data (tokens, passwords, etc).
 - Definition of New Security Mechanisms: WoT Discovery uses existing security
 mechanisms to provide the necessary protection.  It does not define new ones.
+- Discovering Thing Models: WoT Discovery currently focuses on distribution
+of Thing Descriptions, which describe actual instances of Things. Thing Models
+are a recent addition to the WoT architecture which permit the description of 
+parameterized classes of Things. 
+- Historical Data: WoT Discovery focuses on searching metadata (Thing Descriptions),
+not searching actual data or historical data returned from IoT devices.
+
+## Design Decisions and Limitations
+
+### No Required Query Language
+We considered three different query languages: JSONPath, XPath, and SPARQL.
+Unfortunately XPath, while it was recently extended to support JSON, does
+not yet have enough suitable implementations of version 1.3 supporting extension.  
+SPARQL is 
+suitable for semantic search but too heavy a requirement for small IoT hubs to
+make mandatory.
+We would have liked to make JSONPath mandatory as it is good mix of functionality
+and lightness but it is not yet standardized.  An RFC is under discussion within
+IETF but the current draft JSONPath specification is missing some key features we need.
+
+In the long run (in a future specification cycle) we would like to add JSONPath
+as a required query language so for now we have only specified an optional 
+interface for SPARQL 1.1 but made it optional.  Interfaces for XPath 1.3 and JSONPath
+queries are provided but they are informational only.
+
+There are also use cases for small directories with static content (e.g. on
+IoT devices co-hosting a small, fixed set of Things) where a query language would
+be difficult to justify.
+
+### IDs
+The Thing Description specification includes optional IDs which are mapped onto
+the RDF @id.  However, to support SPARQL queries, an @id is necessary in the 
+information model.  Therefore
+when an "anonymous" TD is registered with a Thing Description Directory,
+a temporary id is created that is local to the directory.
+
+### Everything is a Thing
+Directories maintain lists of Thing Descriptions but are also Things 
+with their own Thing Description.
+
+The reason for this is the two-phase introduction/exploration process.
+There are introduction mechanisms that can only return a URL but cannot
+type that URL. A client would then not know whether the URL is pointing
+at a Thing Description or a directory.  We resolved this by deciding that
+URLs returned by introduction mechanisms always point at Thing Descriptions,
+but Thing Descriptions for directories have a special @type value.
+
+### Static Directories
+The only required affordance in a Thing Description Directory is "things",
+which lists all the contents of the directory (with support for pagination, however,
+to deal with long responses).  The ability to register, update, and delete
+Thing Descriptions in a directory is optional.
+
+The reason for this is to support the case
+of a small device that hosts multiple Things. For example, there exist
+"multisensors" that host multiple independent sensors for temperature, humidity,
+illumination, vibration, etc.  It is convenient for automation rules if
+each of these is modelled as a separate Thing. However, for self-description,
+the introduction URL needs to point at a single Thing Description.  We considered
+adding a Thing Descriptions with links representing items in a collection, 
+but settled on allowing small Thing Description Directories with static contents
+for this use case. 
+
+### Thing Links
+We wanted to support "federated" directory services where a query can be
+distributed over a set of directories.  SPARQL supports this feature but
+requires the set of federated directories to be given explictly in a query.
+For information modelling reasons, we wanted directories to also hold only
+a set of Thing Descriptions.  In order for directories to refer to other 
+directories for the purposes of federation, we support a special type of 
+Thing Description, a Thing Link, whose purpose is to refer to another
+Thing Description at another location.  This includes Thing Descriptions of
+directories, which are a kind of Thing.  Then federated searches can be set
+up by following these Thing Links.  We did not, however, make recursive searches
+automatic on the server side to avoid accidental or malicious exponential
+resource consumption.  Instead the client needs to explictly request searches
+from linked directories, and also has to have access rights to such linked
+directories.
 
 ## Implementations
 Implementations are described in more detail in the WoT Discovery Implementation Report,
