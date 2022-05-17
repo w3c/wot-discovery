@@ -75,7 +75,7 @@ WoT Discovery has been designed with the following goals in mind:
 
 Some of these are in conflict.  For example, while we want to integrate with
 existing ecosystems, we don't want to expose users to known or potential 
-security hazards in those ecosystems.  
+security hazards in those ecosystems.
 Making discovery simple enough to be used on small devices for self-description
 while also secure and
 scalable to a large number of IoT devices is also a significant challenge.
@@ -154,7 +154,7 @@ A WoT Thing Description Directory (TDD) is an HTTP-based Thing itself.
 As a class they are described with a Thing Model and any particular
 instance also has a fetchable Thing Description.
 A TDD supports
-a queryable interface to a searchable database of Thing Descriptions.  
+a queryable interface to a searchable database of Thing Descriptions.
 These Thing Descriptions can describe IoT devices or other directories,
 either directly or by reference (Thing Links).
 This supports
@@ -218,17 +218,16 @@ not searching actual data or historical data returned from IoT devices.
 ### No Required Query Language
 We considered three different query languages: JSONPath, XPath, and SPARQL.
 Unfortunately XPath, while it was recently extended to support JSON, does
-not yet have enough suitable implementations of version 1.3 supporting extension.  
-SPARQL is 
-suitable for semantic search but too heavy a requirement for small IoT hubs to
+not yet have enough suitable implementations of version 1.3 supporting this extension.
+SPARQL is suitable for semantic search but too heavy a requirement for small IoT hubs to
 make mandatory.
 We would have liked to make JSONPath mandatory as it is good mix of functionality
 and lightness but it is not yet standardized.  An RFC is under discussion within
-IETF but the current draft JSONPath specification is missing some key features we need.
+IETF but the current draft JSONPath draft proposal is missing some key features we need.
 
-In the long run (in a future specification cycle) we would like to add JSONPath
-as a required query language so for now we have only specified an optional 
-interface for SPARQL 1.1 but made it optional.  Interfaces for XPath 1.3 and JSONPath
+In the long run (in a future specification cycle) we would like to add a standardized
+version of JSONPath as a required query language so for now we have only specified an optional 
+interface for SPARQL 1.1.  Interfaces for XPath 1.3 and JSONPath
 queries are provided but they are informational only.
 
 There are also use cases for small directories with static content (e.g. on
@@ -239,8 +238,8 @@ be difficult to justify.
 The Thing Description specification includes optional IDs which are mapped onto
 the RDF @id.  However, to support SPARQL queries, an @id is necessary in the 
 information model.  Therefore
-when an "anonymous" TD is registered with a Thing Description Directory,
-a temporary id is created that is local to the directory.
+when an "anonymous" TD without an ID is registered with a Thing Description Directory,
+a temporary ID is created that is local to the directory.
 
 ### Everything is a Thing
 Directories maintain lists of Thing Descriptions but are also Things 
@@ -248,10 +247,10 @@ with their own Thing Description.
 
 The reason for this is the two-phase introduction/exploration process.
 There are introduction mechanisms that can only return a URL but cannot
-type that URL. A client would then not know whether the URL is pointing
-at a Thing Description or a directory.  We resolved this by deciding that
+associate a "type" with that URL. A client would then not know whether the URL is pointing
+at a Thing Description or a Thing Description Directory.  We resolved this by deciding that
 URLs returned by introduction mechanisms always point at Thing Descriptions,
-but Thing Descriptions for directories have a special @type value.
+but Thing Descriptions for Thing Description Directories have a special @type value.
 
 ### Static Directories
 The only required affordance in a Thing Description Directory is "things",
@@ -294,6 +293,9 @@ supporting geolocation search are currently lacking.
 
 However, supporting this functionality is still a long-term goal for future work,
 as it is important in many of the WoT use cases we have collected.
+IEEE P2874 is developing standardized spatial queries and the
+Open Geospatial Consortium is developing RDF information models for geolocation
+data; both of these may be relevant to future work.
 
 ## Implementations
 Implementations are described in more detail in the WoT Discovery Implementation Report,
