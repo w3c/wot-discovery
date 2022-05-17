@@ -66,18 +66,19 @@ as location or type.
 
 ### Requirements
 WoT Discovery has been designed with the following goals in mind:
-- Security and privacy.
-- Ease of use.
-- Integration with existing ecosystems.
-- Both local and global access.
-- Scability to large numbers of Things, including distributing searches over multiple directory services.
-- Support for both self-description and external descriptions (to support brownfield scenarios).
+- security and privacy;
+- ease of use;
+- integration with existing ecosystems;
+- both local and global access;
+- scalability to large numbers of Things, including distributing searches over multiple directory services; and
+- support for both self-description and external descriptions (to support brownfield scenarios).
+
 Some of these are in conflict.  For example, while we want to integrate with
 existing ecosystems, we don't want to expose users to known or potential 
 security hazards in those ecosystems.  
 Making discovery simple enough to be used on small devices for self-description
 while also secure and
-scalable to a large number of IoT devices was also a significant challenge.
+scalable to a large number of IoT devices is also a significant challenge.
 
 #### Key Requirement: Privacy and Security
 While the purpose of the WoT Discovery process is to distribute Thing Description metadata,
@@ -96,7 +97,7 @@ privacy considerations that are relevant to WoT Discovery.  In particular,
 the WoT Architecture document discusses when and where secure transport such as TLS
 should be used, and when various access control mechanisms should be used.
 The problem is complicated by the fact that we often want to access IoT devices
-on a LAN where the CA system available on the rest of the internet is not easy
+on a LAN where the Certificate Authority (CA) system available on the rest of the internet is not easy
 to apply.  In general we require strong controls on the distribution of data from
 WoT Things in general and WoT Discovery results in particular when access is public, and 
 best-effort controls on private networks such as LANs.
