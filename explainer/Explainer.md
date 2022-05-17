@@ -18,10 +18,10 @@ and the [WoT Architecture document](https://w3c.github.io/wot-architecture/).
 Since the purpose of the WoT Discovery deliverable is to normatively
 define a mechanism to distribute WoT Thing Descriptions,
 the [WoT Thing Description 1.1 document](https://w3c.github.io/wot-thing-description/) is
-especially relevant.  
+especially relevant.
 The WoT Discovery specification also includes a Thing Model,
 which normatively defines many aspects of the Thing Description Directory service specified
-as part of the discovery process.  
+as part of the discovery process.
 Thing Models, as defined in the Thing Description 1.1 document,
 are a format for describing classes of Things.
 We model Thing Description Directories as a special kind of Thing.
