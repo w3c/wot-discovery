@@ -56,7 +56,7 @@ Discovery currently targets the second half of this problem, finding Thing
 instances satisfying a set of constraints.  Managing Thing Models during
 development time is currently out of scope.
 
-### Public IoT Services
+### Use Case: Public IoT Services
 In a Smart City, we may want to provide access to IoT devices as a public service,
 for example to report local air quality conditions.  In Retail, we may want to
 make available semi-public services (perhaps requiring pre-registration) to access
@@ -64,7 +64,22 @@ accessiblity devices, such as chair lifts.  In this case, a user wants to discov
 services, probably selected from a large number, that meet some criteria, such
 as location or type.
 
-### Privacy and Security
+### Requirements
+WoT Discovery has been designed with the following goals in mind:
+- Security and privacy.
+- Ease of use.
+- Integration with existing ecosystems.
+- Both local and global access.
+- Scability to large numbers of Things, including distributing searches over multiple directory services.
+- Support for both self-description and external descriptions (to support brownfield scenarios).
+Some of these are in conflict.  For example, while we want to integrate with
+existing ecosystems, we don't want to expose users to known or potential 
+security hazards in those ecosystems.  
+Making discovery simple enough to be used on small devices for self-description
+while also secure and
+scalable to a large number of IoT devices was also a significant challenge.
+
+#### Key Requirement: Privacy and Security
 While the purpose of the WoT Discovery process is to distribute Thing Description metadata,
 it must also satisfy security and privacy constraints.
 In general, TDs should only be distributed to entities after their identities have been
@@ -86,58 +101,68 @@ to apply.  In general we require strong controls on the distribution of data fro
 WoT Things in general and WoT Discovery results in particular when access is public, and 
 best-effort controls on private networks such as LANs.
 
-## Architecture
-The architecture has been designed with the following goals in mind:
-- Security and privacy.
-- Ease of use.
-- Integration with existing ecosystems.
-- Both local and global access.
-- Scability to large numbers of Things.
-- Support for both self-description and external descriptions.
-Some of these are in conflict.  For example, while we want to integrate with
-existing ecosystems, we don't want to expose users to known or potential 
-security hazards in those ecosystems.  
+#### Key Requirement: Scalability
+WoT Discovery should be usable on small devices with only a few MB of RAM to 
+large cloud services providing the ability to search thousands of IoT services
+potentially available in a city. 
 
+We did this by separating out first-contact and detailed search mechanisms,
+as described in the next section.
+The first-contact mechanisms can be chosen based on the scenario (i.e.
+broadcast mDNS-SD might be suitable on a LAN, a search engine would be suitable
+for a Smart City), while the detailed search mechanisms are RESTful web services
+simple enough to implement on individual IoT devices but with good potential for scalability for
+large cloud-based systems.
+
+## Architecture
 In general, WoT Discovery is about distribution of TDs, while
 privacy and security are about restricting distribution of information
 only to verified authorized parties.  Taken together, WoT Discovery should enable
 the distribution of TDs only to verified and authorized parties.
 
 The WoT Discovery architecture is designed to address these challenges.
-We use a two-phase approach.  In the first phase, which we call "Introductions",
+We use a two-phase approach.  In the first "first-contact" phase, which we call "Introductions",
 we support any number of open discovery mechanisms whose results, however,
 are constrained to simple URLs.  These URLs should not contain any metadata themselves.
-Instead, they have to be resolved into "Exploration" services which can be used
+Instead, they have to be resolved into detailed-search "Exploration" services which can be used
 to retreive metadata. Exploration services, however, are tasked with 
 authenticating and checking the authorizations of requests, and protecting
 queries and the transmission of results, and can use best
 practices from web services to do so, including (for example) OAuth and TLS.
+Exploration services implement a scalable RESTful web API.
 
 ### Introduction Mechanisms
 Introduction mechanisms allow for ecosystem integration and using different "first contact"
 mechanisms in different circumstances.  For example, in a Smart City, we might
 want to use a normal web search to find suitable WoT Discovery exploration
 services for that city.  In a Smart Home, we might use other mechanisms 
-restricted to a single LAN, such as mDNS in combination with DNS-SD.  If simply
+restricted to a single LAN, such as mDNS in combination with DNS-SD.  If we simply
 want to tell someone where to go, we can just use written URLs or QR codes.
 
-The security and privacy of WoT Discovery does not depends on Introduction
-mechanisms being secure.  They must ONLY distribute URLs, and those URLs should
-not have metadata embedded in them.
+The overall security and privacy of WoT Discovery does not depends on Introduction
+mechanisms being secure.  Introductions must ONLY distribute URLs, and those URLs should
+not have metadata embedded in them.  Additional authentication and authorization
+is still needed before detailed metadata is provided.
 
 ### Exploration Mechanisms
 Exploration mechanisms come in two different forms: directories and self-description.
-Both of these are HTTP-based web services and support existing mechanisms
+Both of these are HTTP-based RESTful web services and support existing mechanisms
 for authentication, authorization, and secure transport.
 
-A WoT Thing Description Directory (TDD) is an HTTP-based Thing itself, described
-with a Thing model.
+A WoT Thing Description Directory (TDD) is an HTTP-based Thing itself.
+As a class they are described with a Thing Model and any particular
+instance also has a fetchable Thing Description.
 A TDD supports
-a queryable interface to a database of Thing Descriptions.  This supports
-use cases like a Smart City, Factory, or even a Smart Home where there
-might be hundreds or thousands of Things to select from.
+a queryable interface to a searchable database of Thing Descriptions.  
+These Thing Descriptions can describe IoT devices or other directories,
+either directly or by reference (Thing Links).
+This supports
+use cases like a Smart City where there
+might be thousands of Things to select from.
+However, it can also be used in a Smart Home with only a few dozen Things.
 
-Self-description is supported by the ability of an HTTP-based Thing to
+Self-description is another exploration mechanism that
+provides the ability of an HTTP-based Thing to
 return a TD directly.  There is also an Introduction mechanism that allows
 the URL for self-description on a Thing to be guessed using a well-known
 URL convention based only on the base IP address of the Thing.  In this
@@ -147,7 +172,7 @@ of users and for managing a small number of devices.  This is also an optional
 feature.  It is also worth noting that it only applies to "greenfield"
 devices built from the outset to support the Web of Things.  For "brownfield"
 devices the TD describing how to access a devices must be obtained elsewhere.
-In this case a TDD is a better solution also.
+In this case using a TDD as an exploration service is a better solution.
 
 ## Non-Goals
 - Onboarding: WoT Discovery and WoT in general only define the behavior of devices
@@ -241,6 +266,16 @@ automatic on the server side to avoid accidental or malicious exponential
 resource consumption.  Instead the client needs to explictly request searches
 from linked directories, and also has to have access rights to such linked
 directories.
+
+### No Standardized Geolocation Data or Geolocation Search
+Supporting geolocation was originally in our charter but unfortunately we had to defer
+it.  We do have a draft proposal but need to do more work to align with existing
+geolocation standards and consider privacy and security implications.  In addition,
+introduction mechanisms and standardized query languages 
+supporting geolocation search are currently lacking.
+
+However, supporting this functionality is still a long-term goal for future work,
+as it is important in many of the WoT use cases we have collected.
 
 ## Implementations
 Implementations are described in more detail in the WoT Discovery Implementation Report,
