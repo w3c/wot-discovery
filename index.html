@@ -295,9 +295,9 @@ img.wot-diagram {
 	using query filters when fetching TDs from a directory).
 	</li>
 	<li>
-	The second special case is a Thing Link.  This is also a Thing Description,
-	but rather than describing a Thing directly holds a link to
-	a Thing Descriptions hosted elsewhere.  
+    The second special case is a <a href="#exploration-td-type-thingdirectory">Thing Link</a>.  This is also a Thing Description,
+    but rather than describing a Thing directly holds a link to
+    a Thing Descriptions hosted elsewhere.
 	A Thing Description Directory can also store Thing Links
 	which can redirect to other Thing Description Directories, allowing for a linked
 	directory structure.
@@ -394,7 +394,8 @@ img.wot-diagram {
 		</li>
 		<li><span class="rfc2119-assertion" id="discoverer-td-identify">
 			A Discoverer MUST be able to identify whether a TD fetched from an 
-			Introduction URL is a Thing Description Directory or a Thing Link.</span>
+			Introduction URL has <a href="#exploration-td-type-thingdirectory">Thing Directory</a>
+            or <a href="#exploration-td-type-thingdirectory">Thing Link</a> type.</span>
 			This implies that the Discoverer needs to be able
 			to check the <code>@type</code> field and make this distinction.
 
@@ -414,14 +415,14 @@ img.wot-diagram {
 			might be prohibitively expensive.  
 		</li>
 		<li><span class="rfc2119-assertion" id="discoverer-fetch-links">
-			A Discoverer MAY fetch source TDs from the targets of the links in a Thing Link
+			A Discoverer MAY fetch source TDs from the targets of the links in a <a href="#exploration-td-type-thingdirectory">Thing Link</a>
 			described in its initial set of TDs and add them into the set of TD results.</span>
 			This only adds the results of fetching TDs from a Thing Link to the set of
 			results. These new results do not delete the original TD describing the Thing Link. 
 			A Discoverer implementation can decide whether or not to fetch the targets of Thing Links.
 		</li>
 		<li><span class="rfc2119-assertion" id="discoverer-fetch-iteration">
-			A Discoverer MAY fetch additional TDs iteratively from any Thing Link or
+			A Discoverer MAY fetch additional TDs iteratively from any <a href="#exploration-td-type-thingdirectory">Thing Link</a> or
 			Exploration mechanism described in its set of TDs and add them into the set of TD results.</span>
 			This only adds the results of fetching TDs from an Exploration mechanism to the set of
 			results. These new results do not delete the original TD describing the Exploration mechanism. 
@@ -448,7 +449,7 @@ img.wot-diagram {
         </ul>
 	<p>
 	The above process supports a way to let Directories reference other Directories without duplicating their TDs: 
-	a Directory wanting to reference other Directories should include a Thing Link with a "describedby" relation to the
+	a Directory wanting to reference other Directories should include a <a href="#exploration-td-type-thingdirectory">Thing Link</a> with a "describedby" relation to the
 	TD of the other Directory service.  Then the above process would expand the Thing Link to obtain the actual TD of the Directory, 
 	and then (optionally) use the appropriate Directory affordance to access the contents of the linked Directory.
 	Note that such a Thing Link points at the TD of the Directory, not at the Directory itself.  These
@@ -648,135 +649,145 @@ img.wot-diagram {
         To do: Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
+        <div class="issue" data-number="202"></div>
 
-        <figure id="exploration-class-diagram">
-            <img src="images/exploration-class-diagram.svg"
-                class="wot-diagram"
-                alt="Exploration mechanisms high-level class diagram" />
-            <figcaption>
-                The high-level class diagram of the exploration mechanisms,
-                depicting how Things expose <a>TDs</a>.
-            </figcaption>
-        </figure>
+        <section id="exploration-overview" class="normative">
+            <h2>Overview</h2>
+            <figure id="exploration-class-diagram">
+                <img src="images/exploration-class-diagram.svg"
+                    class="wot-diagram"
+                    alt="Exploration mechanisms high-level class diagram" />
+                <figcaption>
+                    The high-level class diagram of the exploration mechanisms,
+                    depicting how Things expose <a>TDs</a>.
+                </figcaption>
+            </figure>
 
-        [[[#exploration-class-diagram]]] depicts the high-level information 
-        model for self-describing and directory services.
-        A directory may contain <a>TDs</a> and at the same time provide a <a>TD</a>
-        and act as a self-describing Thing.
-        The exploration mechanisms are described in
-        [[[#exploration-self]]] and [[[#exploration-directory]]].
-        
-        <figure id="discovery-class-diagram-ontology">
-            <img src="images/discovery-class-diagram-ontology.svg"
-                class="wot-diagram"
-                alt="Ontology of TD in discovery context" />
-            <figcaption>The ontology of Thing Descriptions in the Discovery context.</figcaption>
-        </figure>
+            [[[#exploration-class-diagram]]] depicts the high-level information 
+            model for self-describing and directory services.
+            A directory may contain <a>TDs</a> and at the same time provide a <a>TD</a>
+            and act as a self-describing Thing.
+            The exploration mechanisms are described in
+            [[[#exploration-self]]] and [[[#exploration-directory]]].
 
-        <p>
-            [[[#discovery-class-diagram-ontology]]] illustrates the Discovery ontology
-            as an extension of the Thing ontology.
-        </p>
-        <p>
-            The ontology includes a class for metadata that are associated with
-            TDs stored in a directory.
-            This class is called `RegistrationInformation` and described as part
-            of the directory specification in [[[#exploration-directory-registration-info]]].
-        </p>
+            <section id="exploration-ontology" class="normative">
+                <h3>Ontology</h3>
+                <figure id="discovery-class-diagram-ontology">
+                    <img src="images/discovery-class-diagram-ontology.svg"
+                        class="wot-diagram"
+                        alt="Ontology of TD in discovery context" />
+                    <figcaption>The ontology of Thing Descriptions in the Discovery context.</figcaption>
+                </figure>
 
-        <p>
-	        Moreover, the Discovery ontology defines two new Thing Description classes
-            that may be used to model special exploratory metadata:
-        </p>
+                <p>
+                    [[[#discovery-class-diagram-ontology]]] illustrates the Discovery ontology
+                    as an extension of the Thing ontology.
+                </p>
+                <p>
+                    The ontology includes a class for metadata that are associated with
+                    TDs stored in a directory.
+                    This class is called `RegistrationInformation` and described as part
+                    of the directory specification in [[[#exploration-directory-registration-info]]].
+                </p>
 
-        <div class="issue" data-number="148">
-            The type URIs used below are tentative and subject to change.
-        </div>  
+                <p>
+                    Moreover, the Discovery ontology defines two new Thing Description classes
+                    that may be used to model special exploratory metadata:
+                </p>
 
-        <dt>Thing Directory</dt>
-        <dd>
-            <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
-                A TD which describes a Thing Description Directory instance MUST use type `ThingDirectory` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.
-            </span>
-            <p>
-                [[[#directory-api-spec]]] which describes the API of the
-                Thing Description Directory is an example of this TD class.
-            </p>
-        </dd>
-        
-        <dt>Thing Link</dt>
-        <dd>
-            <span class="rfc2119-assertion" id="exploration-link-description-type"> 
-                A TD which describes a reference to another TD MUST use type `ThingLink` from the
-                discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
-            </span>
-            <span class="rfc2119-assertion" id="exploration-link-description-link"> 
-                A Thing Link MUST define the referenced TD as a Link with
-                `describedby` link relation type, `application/td+json` media type
-                and `href` set to the target URL.
-            </span>
+                <section id="exploration-td-type-thingdirectory" class="normative">
+                    <h4>`ThingDirectory`</h4>
+                    <div class="issue" data-number="148">
+                        The type URIs used below are tentative and subject to change.
+                    </div>  
 
-            <p>
-                [[[#example-td-link-type]]] is an example Thing Link.
-            </p>
+                    <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
+                        A TD which describes a Thing Description Directory instance MUST use type `ThingDirectory` from the
+                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.
+                    </span>
+                    <p>
+                        A TD of this class can be derived from Directory's Thing Model; see [[[#directory-api-spec]]].
+                    </p>
+                
+                </section>
+                <section id="exploration-td-type-thinglink" class="normative">
+                    <h4>`ThingLink`</h4>
+                    <div class="issue" data-number="148">
+                        The type URIs used below are tentative and subject to change.
+                    </div>  
 
-            <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
-            <aside class="example" id="example-td-link-type" title="Example of a Thing Link, referencing a remote TD">
-                <pre>
-                    {
-                        "@context": [
-                            "http://www.w3.org/ns/td",
-                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
-                        ],
-                        "@type": "ThingLink",
-                        "id": "urn:example:link",
-                        "links": [{
-                            "rel": "describedby",
-                            "href": "https://example.com/td.jsonld",
-                            "type": "application/td+json"
-                        }],
-                        "security": "nosec_sc",
-                        "securityDefinitions": {
-                            "nosec_sc": {
-                                "scheme": "nosec"
+                    <span class="rfc2119-assertion" id="exploration-link-description-type"> 
+                        A TD which describes a reference to another TD MUST use type `ThingLink` from the
+                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
+                    </span>
+                    <span class="rfc2119-assertion" id="exploration-link-description-link"> 
+                        A Thing Link MUST define the referenced TD as a Link with
+                        `describedby` link relation type, `application/td+json` media type
+                        and `href` set to the target URL.
+                    </span>
+
+                    <p>
+                        [[[#example-td-link-type]]] is an example Thing Link.
+                    </p>
+
+                    <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
+                    <aside class="example" id="example-td-link-type" title="Example of a Thing Link, referencing a remote TD">
+                        <pre>
+                            {
+                                "@context": [
+                                    "http://www.w3.org/ns/td",
+                                    "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                ],
+                                "@type": "ThingLink",
+                                "id": "urn:example:link",
+                                "links": [{
+                                    "rel": "describedby",
+                                    "href": "https://example.com/td.jsonld",
+                                    "type": "application/td+json"
+                                }],
+                                "security": "nosec_sc",
+                                "securityDefinitions": {
+                                    "nosec_sc": {
+                                        "scheme": "nosec"
+                                    }
+                                },
+                                "title": "Example TD referencing another"
                             }
-                        },
-                        "title": "Example TD referencing another"
-                    }
-                </pre>
-                <div class="issue" data-number="148">
-                    The context URIs are tentative and subject to change.
-                </div>                    
-            </aside>
-            <p>
-                A Thing Link can be used in various scenarios. For example:
-                <ul>
-                    <li>
-                        A self-describing Thing with limited computational resources intends
-                        to describe itself: host a minimal <a>TD</a> (Thing Link) locally
-                        and references a larger one with the full details hosted at a
-                        different URL, perhaps in a directory.
-                    </li>
-                    <li>
-                        A self-describing Thing or proxy has a very large or dynamic description:
-                        registers a small or static <a>TD</a> (Thing Link) in a 
-                        directory which references the actual <a>TD</a> hosted at the edge.
-                    </li>
-		    <!-- We decided to remove this use case, since it is probably best
-	                 handled with access controls.  However, this use case AND the ones
-			 above imply a mix of link and other metadata and affordances, not
-			 "pure" Thing Links.  So we can't in general assume Thing Links
-			 don't have other information.  
-                    <li>
-                        A device intends to publish an entire <a>TD</a> which contains private and
-                        public parts: publish one <a>TD</a> (Thing Link) with only the public
-                        information referencing another <a>TD</a> which contains the full description.
-                    </li>
-		    -->
-                </ul>
-            </p>
-        </dd>
+                        </pre>
+                        <div class="issue" data-number="148">
+                            The context URIs are tentative and subject to change.
+                        </div>                    
+                    </aside>
+                    <p>
+                        A Thing Link can be used in various scenarios. For example:
+                        <ul>
+                            <li>
+                                A self-describing Thing with limited computational resources intends
+                                to describe itself: host a minimal <a>TD</a> (Thing Link) locally
+                                and references a larger one with the full details hosted at a
+                                different URL, perhaps in a directory.
+                            </li>
+                            <li>
+                                A self-describing Thing or proxy has a very large or dynamic description:
+                                registers a small or static <a>TD</a> (Thing Link) in a 
+                                directory which references the actual <a>TD</a> hosted at the edge.
+                            </li>
+                    <!-- We decided to remove this use case, since it is probably best
+                            handled with access controls.  However, this use case AND the ones
+                    above imply a mix of link and other metadata and affordances, not
+                    "pure" Thing Links.  So we can't in general assume Thing Links
+                    don't have other information.  
+                            <li>
+                                A device intends to publish an entire <a>TD</a> which contains private and
+                                public parts: publish one <a>TD</a> (Thing Link) with only the public
+                                information referencing another <a>TD</a> which contains the full description.
+                            </li>
+                    -->
+                        </ul>
+                    </p>
+                </section>
+            </section>
+        </section>
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
@@ -956,7 +967,7 @@ img.wot-diagram {
                                     </p>
                                     <p>
                                         For servers that support expirable TDs:
-                                        The server MUST use `ttl` to calculate the `expires` (relative expiry) value.
+                                        The server MUST use `ttl` to calculate the `expires` (absolute expiry) value.
                                     </p>
                                 </td>
                                 <td>optional</td>
@@ -1014,7 +1025,9 @@ img.wot-diagram {
                         their <a>TDs</a>. This could be due to protocol-specific limitations,
                         failure, destruction, or ungraceful decommissioning.
                         Such clients should set a reasonably short expiry time and periodically
-                        extend it during the normal operation.
+                        extend it during the normal operation. The expiry can be extended by
+                        updating the registration either fully or partially, including an update that makes no
+                        changes to the TD; see [[[#exploration-directory-api-things-update]]].
                        
                         If a client ceases to operate, a directory with purging capability will
                         automatically remove its registration.
@@ -1060,6 +1073,30 @@ img.wot-diagram {
                     There are currently no WoT-specific error classes. In the meantime,
                     the Problem Details error responses may omit the `type` field which defaults
                     to "about:blank" and set `title` to the HTTP status text.
+                </p>
+
+                <p>
+                    The APIs set the HTTP status codes as defined in 
+                    <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6">Section 6</a> of [[RFC7231]].
+                    The list of used error codes include (but are not limited to) the following:
+                    <ul>
+                        <li>
+                            400 (Bad Request): Invalid client input in body, query, or headers.
+                            This is accompanied by an appropriate response message.
+                        </li>
+                        <li>
+                            401 (Unauthorized): The request lacks valid authentication credentials.
+                            This is often accompanied by a `WWW-Authenticate` header containing
+                            information on how the client can authenticate and repeat the request.
+                        </li>
+                        <li>
+                            403 (Forbidden): Insufficient rights to access the resource.
+                        </li>
+                        <li>
+                            404 (Not Found): TD or endpoint does not exist.
+                            This is accompanied by an appropriate response message.
+                        </li>
+                    </ul>
                 </p>
                 
                 <p>
@@ -1241,20 +1278,6 @@ img.wot-diagram {
                             In particular, if `ttl` (relative expiry) is given during the creation,
                             such servers will calculate and store the `expires` value.
                         </p>
-
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>
-                                    400 (Bad Request): Bad user input such as
-                                    invalid serialization, invalid TD, or `id` mismatch.
-                                    This is accompanied by an appropriate response message.
-                                </li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                       
                         <p class="issue" data-number="48">
                         </p>
@@ -1275,16 +1298,6 @@ img.wot-diagram {
                                 The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-api-spec]]].
                             </p>
-                        </p>
-
-                        <p>
-                            Error responses:  
-                            <ul>
-                                <li>404 (Not Found): TD with the given `id` not found.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
                         </p>
 
                         <p>
@@ -1413,17 +1426,16 @@ img.wot-diagram {
                                 </span>
 
                                 <p>
+                                    This operation is specified as `updateThing` property in 
+                                    [[[#directory-api-spec]]].
+                                </p>
+
+                                <p>
                                     A server that supports expirable TDs will realize such functionality
                                     as described in [[[#exploration-directory-registration-expiry]]].
                                     If `ttl` (relative expiry) is set during the update operation,
                                     the server will calculate and set the `expires` (absolute expiry) value.
                                 </p>
-
-                                <p>
-                                    This operation is specified as `updateThing` property in 
-                                    [[[#directory-api-spec]]].
-                                </p>
-                                
 
                                 <p>
                                     Note: If the target location does not correspond to an existing TD,
@@ -1439,7 +1451,7 @@ img.wot-diagram {
                                     at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-things-update-partial-mergepatch">
-                                    The partial update MUST be processed using the JSON merge patch format 
+                                    The partial update MUST be processed using the JSON merge patch
                                     format described in [[RFC7396]].
                                 </span>
                                 <span class="rfc2119-assertion" id="tdd-things-update-partial-contenttype">
@@ -1452,7 +1464,7 @@ img.wot-diagram {
                                 </span>
                                 
                                 If the input contains members that appear in the original TD, 
-                                their values are replaced. If a member do not appear in the 
+                                their values are replaced. If a member does not appear in the 
                                 original TD, that member is added. If the member is set to `null` 
                                 but appear in the original TD, that member is removed. 
                                 Members with object values are processed recursively.
@@ -1463,18 +1475,28 @@ img.wot-diagram {
                                 </span>
 
                                 <p>
+                                    This operation is specified as `partiallyUpdateThing` property in 
+                                    [[[#directory-api-spec]]].
+                                </p>
+
+                                <p>
                                     A server that supports expirable TDs will realize such functionality
                                     as described in [[[#exploration-directory-registration-expiry]]].
                                     During the partial update operation, if the resulting <a>TD</a> has 
                                     `ttl` (relative expiry), the server will calculate and set a new
                                     `expires` (absolute expiry) value.
                                 </p>
-
-                                <p>
-                                    This operation is specified as `partiallyUpdateThing` property in 
-                                    [[[#directory-api-spec]]].
-                                </p>
                                 
+                                <p>
+                                    A patch operation is particularly useful to efficiently extend the expiry of
+                                    a registration that uses a `ttl` (relative expiry) value.
+                                    This is typically done by submitting an empty merge patch document,
+                                    i.e. an empty JSON object.
+                                    This effectively translates to performing a partial update operation that
+                                    updates nothing, but triggers the recalculation of `expires` (absolute expiry) value.
+                                    This expiry functionality only works if the server supports it as defined in
+                                    [[[#exploration-directory-registration-expiry]]].
+                                </p>
 
                                 <p>
                                     The following example is a merge patch document to update only the
@@ -1487,25 +1509,16 @@ img.wot-diagram {
                                                     "expires": "2021-01-20T17:02:00Z"
                                                 }
                                             }
-                                        </pre>                    
+                                        </pre> 
+                                        This is a valid way of extending the absolute expiry only if the stored
+                                        TD has no `ttl` (relative expiry).
+                                        For more details, refer to [[[#exploration-directory-registration-expiry]]].                   
                                     </aside>
+
                                 </p>
                             </li>
                         </ul>
 
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>
-                                    400 (Bad Request): Invalid serialization or TD.
-                                    This is accompanied by an appropriate response message.
-                                </li>
-                                <li>404 (Not Found): TD with the given `id` not found (for `PATCH` only).</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
 
                     <section id="exploration-directory-api-things-deletion" class="normative">
@@ -1522,15 +1535,6 @@ img.wot-diagram {
                             [[[#directory-api-spec]]].
                         </p>
 
-                        <p>
-                            Error responses:
-                            <ul>
-                                <li>404 (Not Found): TD with the given `id` not found.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
 
                     <section id="exploration-directory-api-things-listing" class="normative">
@@ -1738,18 +1742,6 @@ img.wot-diagram {
                             The listing operation is specified as `things` property in 
                             [[[#directory-api-spec]]].
                         </p>
-
-                        <p>
-                            Error responses:  
-                            <ul>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>501 (Not Implemented): Requested feature not implemented,
-                                    such as custom sorting.
-                                </li>
-                            </ul>
-                        </p>
-
                         
                     </section>
 
@@ -2031,7 +2023,7 @@ img.wot-diagram {
                         supported by all directories.   
                         So this API will have further subsections,
                         some of which will be optional.
-                        Search also includes a sub-API for managing listing the contents (eg returned by
+                        Search also includes a sub-API for managing listing the contents (e.g. returned by
                         a query) including handling pagination, etc.
                         Note that one special form of query will be able to return everything.
                         Results may be subject to the requestor's authorization.
@@ -2072,14 +2064,6 @@ img.wot-diagram {
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-api-spec]]].
 
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): JSONPath expression not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
                     </section>
                     <section id="xpath-semantic" class="informative">
                         <h4>Syntactic search: XPath</h4>
@@ -2094,15 +2078,7 @@ img.wot-diagram {
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-api-spec]]].
-                                
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): XPath expression not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
+                    
                     </section>
                     <section id="search-semantic" class="normative">
                         <h4>Semantic search: SPARQL</h4>
@@ -2130,14 +2106,7 @@ img.wot-diagram {
 			</span>
                         The semantic search with SPARQL is specified as `searchSPARQL` action in
                         [[[#directory-api-spec]]].
-                        <p>List of errors:
-                            <ul>
-                                <li>400 (Bad Request): SPARQL query not provided or contains syntax errors.</li>
-                                <li>401 (Unauthorized): No authentication.</li>
-                                <li>403 (Forbidden): Insufficient rights to the resource.</li>
-                                <li>404 (Not Found): Endpoint not provided.</li>
-                            </ul>
-                        </p>
+                        
                         <span class="rfc2119-assertion" id="tdd-search-sparql-federation">
                             A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
                         </span>
@@ -2552,7 +2521,7 @@ img.wot-diagram {
                 generate new random IDs periodically.
                 There are however, a few issues.  First of all, other identification information in the TD needs to be 
                 hidden.  For example, client IDs issued by CSPs for API security should be omitted from TDs if 
-                they cannot be easily changed.  Second, if the device generate a new ID, the user may still need to 
+                they cannot be easily changed.  Second, if the device generates a new ID, the user may still need to 
                 know the current ID to find the device via discovery.  This can be accomplished however by generating new
                 IDs using a deterministic cryptographic generator that is a function of the current time.
                 However, note that regenerating IDs alone does not make tracking impossible since a TD might be fingerprinted.

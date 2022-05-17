@@ -6,8 +6,8 @@ and should be submitted to the wot-usecases repo.
 
 ### Scope
 * Limit to metadata discovery (as opposed to data discovery).
-** Search of historical data is useful
-   but is a separate problem with additional privacy implications and goes beyond our charter.
+    - Search of historical data is useful
+      but is a separate problem with additional privacy implications and goes beyond our charter.
 
 ## General Discovery Topics
 
