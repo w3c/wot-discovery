@@ -248,8 +248,9 @@ but in summary the following four implementations of the WoT Discovery TDD servi
 has been performed:
 - LogiLabs TDD - An implementation supporting SPARQL queries, sponsored by Siemens.
 - WoT Hive TDD - An implementation supporting SPARQL queries, sponsored by Universidad Politécnica de Madrid.
+- LinkSmart TDD - An early implementation done by Fraunhofer.
 - TinyIoT TDD - An implementation supporting JSONPath queries, forked from an 
-  initial implmentation done by Fraunhofer as part of the LinkSmart project.
+  the early implementation done by Fraunhofer.
 - Minimal TDD - An implementation that intentionally includes only the core
   features designed to support static implementations, such as devices statically
   hosting multiple separate sensors.  Done by Intel.
@@ -269,3 +270,26 @@ Finally, implementations of self-description WoT Discovery Exploration
 mechanisms have been incorporated into many Thing implementations.
 
 ## Related Work
+Discovery in IoT has been extensively studied and there are a number of 
+existing standards.  As with WoT Thing Description, our goal was to build on
+these, not replace them.  However, many of the existing standards are
+specialized to particular constrained use cases, such as discovery on a LAN,
+or to IoT-specific protocols. Also, some of the existing standards have
+known security problems, e.g. UPnP.
+
+Our solution was to incorporate the existing
+standards into ours as "first contact" (introduction) mechanisms, but
+to mimimize the information distributed via them to mitigate current and 
+future security exposure.  Introduction mechanisms
+are open (anything that returns a URL is acceptable) but the
+WoT Discovery specification calls out IETF standards such as the CoRE-RD service,
+DID and in particular DID document resolution, DNS-SD and mDNS, and 
+QR codes.  The "exploration services" in WoT Discovery are essentially
+normal RESTful web services and so can follow standards for such web services,
+including secure access controls that can be updated over time.
+
+To support semantic search (which has also been studied in the context
+of IoT) we wanted to support SPARQL and use the fact that Thing Descriptions
+are serialized in JSON-LD.  The WoT WG does not include defining domain-specific
+vocabulary within its scope, instead we wanted to enable projects like 
+OneDM/ASDF and iotschema.org that are defining common vocabularies.
