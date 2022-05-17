@@ -36,7 +36,7 @@ driving the design of WoT Discovery.
 
 ### Use Case: Integration
 It is often the case in IoT systems that devices provided by different manufacturers
-need to be integrated together.  For example, consider a Retail use case
+need to be integrated.  For example, consider a Retail use case
 where a door sensor, a temperature sensor, and an RGB light need to be integrated
 with an automation to indicate when a freezer door has been left open or the 
 temperature is out of range.  As another example, a user might want to integrate an
@@ -139,8 +139,8 @@ services for that city.  In a Smart Home, we might use other mechanisms
 restricted to a single LAN, such as mDNS in combination with DNS-SD.  If we simply
 want to tell someone where to go, we can just use written URLs or QR codes.
 
-The overall security and privacy of WoT Discovery does not depends on Introduction
-mechanisms being secure.  Introductions must ONLY distribute URLs, and those URLs should
+The overall security and privacy of WoT Discovery does not depend on Introduction
+mechanisms being secure.  Introductions must *only* distribute URLs, and those URLs should
 not have metadata embedded in them.  Additional authentication and authorization
 is still needed before detailed metadata is provided.
 
@@ -175,24 +175,41 @@ devices the TD describing how to access a devices must be obtained elsewhere.
 In this case using a TDD as an exploration service is a better solution.
 
 ## Non-Goals
-- Onboarding: WoT Discovery and WoT in general only define the behavior of devices
+The following non-goals are out of scope of the current WoT Discovery
+specification.
+
+### Onboarding
+WoT Discovery and WoT in general only define the behavior of devices
 after they have been provisioned (provided with identities and associated keys and
 certificates) and access controls for users have been allocated.  In other words,
 WoT Discovery is designed to validate existing credentials, not to establish them.
-- Distribution of Security Data: WoT Discovery, and WoT Thing Descriptions,
+
+### Distribution of Security Data
+WoT Discovery, and WoT Thing Descriptions,
 are not designed for the distribution of security information, including public
 keys.  The latter are technically public but additional controls are needed to ensure
 their integrity, and there are existing mechanisms to do so (e.g. certificates)
 that should be used.  WoT Discovery and WoT TDs, however, do contain security *metadata*
 about how a Thing can be accessed, *if* the requestor has access to the associated
 private security data (tokens, passwords, etc).
-- Definition of New Security Mechanisms: WoT Discovery uses existing security
+
+### Definition of New Security Mechanisms
+WoT Discovery uses existing security
 mechanisms to provide the necessary protection.  It does not define new ones.
-- Discovering Thing Models: WoT Discovery currently focuses on distribution
+
+### Discovering Thing Models
+WoT Discovery currently supports the distribution
 of Thing Descriptions, which describe actual instances of Things. Thing Models
 are a recent addition to the WoT architecture which permit the description of 
 parameterized classes of Things. 
-- Historical Data: WoT Discovery focuses on searching metadata (Thing Descriptions),
+
+Technically, WoT Discovery could be extended to also support searching
+for Thing Models (which are also JSON-LD) but we have deferred this 
+possible support to future work
+until we better understand the use cases.
+
+### Historical Data
+WoT Discovery focuses on searching metadata (Thing Descriptions),
 not searching actual data or historical data returned from IoT devices.
 
 ## Design Decisions and Limitations
@@ -294,9 +311,7 @@ support registration and management of a dynamic database of TDs.
 
 There are other aspects of WoT Discovery that also need to be considered.
 We define a "Discoverer" as an entity that uses the WoT Discovery process to retrieve
-a TD.  We have a number of implementations of Discoverers, including integration into the 
-Eclipse node-wot project (an implementation of the informative 
-[WoT Scripting API](https://github.com/w3c/wot-scripting-api/) and
+a TD.  We have a number of implementations of Discoverers, including 
 two integrations into Node-RED, a popular open-source IoT automation system.
 In addition to directories, Discoverers also exercise various Introduction
 mechanisms and may also fetch TDs directly from Things themselves.
