@@ -8,6 +8,27 @@ vendors need to be integrated, or where a large number of IoT services need to b
 searched in a consistent way.
 
 ## Introduction
+WoT Discovery builds upon existing network service and IoT discovery mechanisms
+but also provides secure RESTful web service APIs for searching WoT Thing Description metadata.
+Discovery has to simultaneously satisfy many objectives which are in partial conflict:
+it needs to make data easily available, but preserve privacy; it needs to work for small
+devices and installations but also for large systems; it needs to work on small LANs and
+on the internet; it needs to enable semantic search without burdening implementations; and it 
+needs to support new, self-describing devices but also work with brownfield devices that
+cannot be modified and so can only be described externally.
+
+The WoT Discovery specification attempts to meet these challenges by defining
+a multistage discovery process with authorization checkpoints to meet privacy and
+security goals; by using scalable RESTful API designs; by supporting a variety of
+first-contact mechanisms suitable for different scales; and by providing optional
+semantic search and self-description capabilities.
+
+There are still a number of limitation in the current specification, which
+primarily focuses on HTTP and had to defer some important goals, such as
+geolocation queries.  However, the specification attempts to address the above
+core issues and is intended to serve as a foundation for future work while
+enabling, in its current form, use cases supporting IoT integration
+and access to public IoT services.
 
 ## Relationship to Other WoT Deliverables
 For a general introduction to the Web of Things (WoT) Architecture, including a description
