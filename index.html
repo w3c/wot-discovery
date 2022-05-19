@@ -827,18 +827,16 @@ img.wot-diagram {
                             Content-Type header, and the <a>TD</a> in body.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
-                            The server MAY provide alternative representations through
+                            The self-description server MAY provide alternative representations through
                             server-driven content negotiation, that is by honouring the 
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-language">
-                            The server MAY provide modified TDs using a different
-                            default language after server-driven content negotiation, 
+                            The self-description server MAY provide modified TDs or error responses 
+                            using a different default language after server-driven content negotiation, 
                             that is by honouring the request's Accept-Language header.
                         </span>
-                        As will be discussed later, the Accept-Language header may also influence
-                        the language used for error responses.
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-head">
@@ -1151,6 +1149,19 @@ img.wot-diagram {
                         </li>
                     </ul>
                 </p>
+
+                <p>
+                  <span class="rfc2119-assertion" id="tdd-http-alternate-content">
+                     A Directory server MAY provide alternative representations through
+                     server-driven content negotiation, that is by honouring the 
+                     request's Accept header and responding with the supported
+                     TD serialization and equivalent Content-Type header.
+                  </span>
+                  <span class="rfc2119-assertion" id="tdd-http-alternate-language">
+                     A Directory server MAY provide modified TDs or error responses using a different
+                     default language after server-driven content negotiation, 
+                     that is by honouring the request's Accept-Language header.
+                  </span>
 
                 <section id="exploration-directory-api-things" class="normative">
                     <h4>Things API</h4>
