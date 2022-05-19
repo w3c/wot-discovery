@@ -798,11 +798,12 @@ img.wot-diagram {
                 </p>
                 <p>Note that security boostrapping is only relevant on the <em>first</em> access to
                 an exploration service to fetch a TD, and in fact is only needed for "self-description"
-                since the URL provided by an introduction mechanism point to directories, for example, 
+                exploration services
+                since the URL provided by an introduction mechanism referencing a directory
                 is actually for fetching a TD describing that directory: directories are always
                 self-describing. 
                 </p>
-                <p>In the HTTP protocol, authentication and authorization is negotiated by
+                <p>In the HTTP protocol, authentication and authorization, if needed, is negotiated by
                 the HTTP server returning a "401 (Unauthorized)" response code in conjunction with
                 a `WWW-Authentication` header that specifies the information required for
                 authentication.  To gain access, the client then needs to make another request 
@@ -824,8 +825,7 @@ img.wot-diagram {
                 Note that if the exploration service does not want to provide access for
                 some reason, it can ignore the request or reply with another code such as 404 or 403.
                 Also, if no authentication or authorization is required, then the 
-                system can proceed as if it were provided as described in 
-                [[#exploration-self]].
+                system can proceed as if it were provided.
                 </li>
                 <li><span class="rfc2119-assertion" id="exploration-secboot-auth">
                 A 401 HTTP response from an exploration service 
@@ -834,8 +834,9 @@ img.wot-diagram {
                 describing the required authorizations using one of the following IANA-registered
                 HTTP Authentication Schemes: Basic, Bearer, Digest, or OAuth.</span>
                 </li>
-                Note that this assertion applies only to exploration services that need
-                to support security bootstrapping, not other endpoints.  In particular, it applies
+                Note that this assertion applies only to endpoints of exploration services that need
+                to support security bootstrapping, not to other endpoints that might be
+                provided by the same exploration service.  In particular, it applies
                 only to URLs that can be referenced by introduction mechanisms, not to (for example)
                 SPARQL endpoints or other API endpoints supported by the Thing Description Directory API.
                 </ul>
@@ -853,29 +854,27 @@ img.wot-diagram {
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
-            <!-- <p class="ednote" title="Self-Description Overview">
-            To do: Describe mechanisms for devices to self-describe, hosting their own TDs.
-            </p> -->
             <p>
-                The self-description is an exploration mechanism in which a <a>Thing</a>
-                hosts its own <a>TD</a> and exposes it at a URL or
-                through other means. 
-                If exposed at a URL (e.g. over HTTP or CoAP), the URL may be advertised
-                via one of the [[[#introduction-mech]]].
-                The hosted <a>TD</a> may also be registered inside a <a>Thing Description Directory</a>
-                as prescribed in [[[#exploration-directory]]]. 
+                Self-description is an exploration mechanism in which a <a>Thing</a>
+                hosts its own <a>TD</a> and exposes it at an endpoint whose 
+                URL may be advertised via one of the Introduction mechanisms [[[#introduction-mech]]].
+                Note that <a>Thing Description Directories</a> [[#exploration-directory]] are
+                always self-describing.
             </p>
-            
-            The self-description using the following protocols must be according
-            to the given specification:
+            <p> 
+                Self-description using the following protocols must be according
+                to the given specification:
+            </p>
             <dl>
                 <dt>HTTP</dt>
                 <dd>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server MUST respond with the requested resource only after performing necessary 
+                            The server MUST respond with the requested <a>TD</a> only after performing necessary 
                             authentication and authorization.
                         </span>
+                        Note that security bootstrapping [[#exploration-secboot]] will generally
+                        be needed. 
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-method"> 
@@ -912,7 +911,7 @@ img.wot-diagram {
                         <ul>
                             <li>
                                 401 (Unauthorized): No authentication. 
-                            As noted in [[[#exploration-secboot]]], this is the first
+                                As noted in [[[#exploration-secboot]]], this is the first
                                 step in authentication negotiation, needed to bootstrap secure access to TDs.
                                 Information on what credentials are required will be included 
                                 in a <code>WWW-Authentication</code> header.
@@ -929,8 +928,9 @@ img.wot-diagram {
         </section>
         <section id="exploration-directory" class="normative">
             <h2>Directory</h2>
-            <p class="ednote" title="Directory Overview">
-            To do: Describe mechanisms for TDs to be hosted in a searchable directory service.
+            <p>
+             A <a>Thing Description Directory</a> (TDD or Directory for short) is a self-describing
+             <a>Thing</a> that provides a service to manage a set of TDs describing other Things.
             </p>
 
             <section id="exploration-directory-info" class="normative">
