@@ -15,6 +15,7 @@ note left: Thing Description (TD)
 /' relations '/
 Thing <|-- SelfDesc
 Thing <|-- Directory
+SelfDesc <|-- Directory
 SelfDesc "1" --> "1  " TD: provides
 Directory "1   " --> "   0..*" TD: contains
 
