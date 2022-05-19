@@ -818,11 +818,14 @@ img.wot-diagram {
                 <li><span class="rfc2119-assertion" id="exploration-secboot-401">
                 After initial contact with an exploration service using the URL provided
                 by an introduction mechanism, the exploration service
-                MUST reply with either an HTTP 401 response code if appropriate
-                authentication information has not been provided, but access can be granted
+                MUST reply with an HTTP 401 response code if appropriate
+                authentication information has not been provided but access can be granted
                 when it is.</span>
-                Note that if the exploration services does not want to provide access for
+                Note that if the exploration service does not want to provide access for
                 some reason, it can ignore the request or reply with another code such as 404 or 403.
+                Also, if no authentication or authorization is required, then the 
+                system can proceed as if it were provided as described in 
+                [[#exploration-self]].
                 </li>
                 <li><span class="rfc2119-assertion" id="exploration-secboot-auth">
                 A 401 HTTP response from an exploration service 
@@ -870,7 +873,7 @@ img.wot-diagram {
                 <dd>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server MUST serve the requests only after performing necessary 
+                            The server MUST respond with the requested resource only after performing necessary 
                             authentication and authorization.
                         </span>
                     </p>
