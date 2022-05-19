@@ -832,6 +832,13 @@ img.wot-diagram {
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
                         </span>
+                        <span class="rfc2119-assertion" id="self-http-alternate-language">
+                            The server MAY provide modified TDs using a different
+                            default language after server-driven content negotiation, 
+                            that is by honouring the request's Accept-Language header.
+                        </span>
+                        As will be discussed later, the Accept-Language header may also influence
+                        the language used for error responses.
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-head">
