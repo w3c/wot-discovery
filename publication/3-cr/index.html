@@ -1632,12 +1632,21 @@ img.wot-diagram {
                                         and `sort_order` to choose the order
                                         (i.e. `asc` or `desc` for ascending and descending ordering).
                                     </span>
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
+                                        A server MUST reject requests to sort on fields that do not have 
+                                        values that are orderable basic types, 
+                                        with a 501 (Not Implemented) status.
+                                    </span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-unsupported">
                                         If the server does not support custom sorting,
                                         it MUST reject the request with 501 (Not Implemented) status.
                                     </span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
+                                        Sorting order MUST always be defined using lexicographical ordering on
+                                        a UTF-8 encoding of the relevant fields.
                                     </span>
                                 </li>
                             </ul>
