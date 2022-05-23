@@ -827,10 +827,15 @@ img.wot-diagram {
                             Content-Type header, and the <a>TD</a> in body.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
-                            The server MAY provide alternative representations through
+                            The self-description server MAY provide alternative representations through
                             server-driven content negotiation, that is by honouring the 
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
+                        </span>
+                        <span class="rfc2119-assertion" id="self-http-alternate-language">
+                            The self-description server MAY provide modified TDs or error responses 
+                            using a different default language after server-driven content negotiation, 
+                            that is by honouring the request's Accept-Language header.
                         </span>
                     </p>
                     <p>
@@ -1067,6 +1072,14 @@ img.wot-diagram {
                     </span>
                     This enables both machines and humans to know the high-level error class
                     and fine-grained details.
+                    <span class="rfc2119-assertion" id="tdd-http-error-response-utf-8">
+                        All HTTP API error responses described using Problem Details MUST be encoded using UTF-8.
+                    </span>
+                    <span class="rfc2119-assertion" id="tdd-http-error-response-lang">
+                        HTTP API error responses MAY report details in different languages using
+                        proactive negotiation, if the <code>Accept-Language</code> header field has been
+                        set in the HTTP request [[RFC7231]].
+                    </span>
                 </p>
 
                 <p class="issue" data-number="150">
@@ -1144,6 +1157,24 @@ img.wot-diagram {
                         </li>
                     </ul>
                 </p>
+
+                <p>
+<!--
+                  <span class="rfc2119-assertion" id="tdd-http-alternate-content">
+                     A Directory server MAY provide alternative representations through
+                     server-driven content negotiation, that is by honouring the 
+                     request's Accept header and responding with the supported
+                     TD serialization and equivalent Content-Type header.
+                  </span>
+-->
+                  <span class="rfc2119-assertion" id="tdd-http-alternate-language">
+                     A Directory server MAY provide modified TDs or error responses using a different
+                     default language after server-driven content negotiation, 
+                     that is by honouring the request's Accept-Language header.
+                  </span>
+                     The process of modifying the default language of a TD using translations already
+                     provided in a TD is described in the WoT Thing Description 1.1 specification
+                     [[wot-thing-description11]].
 
                 <section id="exploration-directory-api-things" class="normative">
                     <h4>Things API</h4>
@@ -1619,7 +1650,7 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
-                                        By default, the collection MUST be sorted alphanumerically 
+                                        By default, the collection MUST be sorted using UTF-8 lexicographical order
                                         by the unique identifier of TDs.
                                     </span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order">
@@ -1628,12 +1659,21 @@ img.wot-diagram {
                                         and `sort_order` to choose the order
                                         (i.e. `asc` or `desc` for ascending and descending ordering).
                                     </span>
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
+                                        A server MUST reject requests to sort on fields that do not have 
+                                        values that are orderable basic types, 
+                                        with a 400 (Bad Request) status.
+                                    </span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-unsupported">
                                         If the server does not support custom sorting,
                                         it MUST reject the request with 501 (Not Implemented) status.
                                     </span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.
+                                    </span>
+                                    <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
+                                        Sorting order MUST always be defined using lexicographical ordering on
+                                        a UTF-8 encoding of the relevant fields.
                                     </span>
                                 </li>
                             </ul>
@@ -1775,6 +1815,14 @@ img.wot-diagram {
                                 with `field` and `description` fields.
                             </span>
                             This is necessary to represent the error in a machine-readable way. 
+                            <span class="rfc2119-assertion" id="tdd-validation-response-utf-8">
+                                All validation error responses described using Problem Details MUST be encoded using UTF-8.
+                            </span>
+                            <span class="rfc2119-assertion" id="tdd-validation-response-lang">
+                                Validation error responses MAY report details in different languages using
+                                proactive negotiation, if the <code>Accept-Language</code> header field has been
+                                set in the HTTP request [[RFC7231]].
+                            </span>
                         </p>
                         
                         [[[#example-validation-error]]] is an example error response with two validation errors.
