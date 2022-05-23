@@ -1151,17 +1151,22 @@ img.wot-diagram {
                 </p>
 
                 <p>
+<!--
                   <span class="rfc2119-assertion" id="tdd-http-alternate-content">
                      A Directory server MAY provide alternative representations through
                      server-driven content negotiation, that is by honouring the 
                      request's Accept header and responding with the supported
                      TD serialization and equivalent Content-Type header.
                   </span>
+-->
                   <span class="rfc2119-assertion" id="tdd-http-alternate-language">
                      A Directory server MAY provide modified TDs or error responses using a different
                      default language after server-driven content negotiation, 
                      that is by honouring the request's Accept-Language header.
                   </span>
+                     The process of modifyig the default language of a TD using translations already
+                     provided in a TD is described in the WoT Thing Description 1.1 specification
+                     [[wot-thing-description11]].
 
                 <section id="exploration-directory-api-things" class="normative">
                     <h4>Things API</h4>
