@@ -837,9 +837,10 @@ img.wot-diagram {
                 Not all of these are in wide use, some are experimental, and there is only
                 partial overlap with the schemes supported by TDs.
                 In addition, note that the <code>oauth</code> scheme in the IANA registration refers
-                to OAuth1, which is deprecated. 
-                OAuth2 instead typically uses a "302 (Redirection)" to an authentication
-                server, when then provides credentials in form of a token that can be used for access.
+                to OAuth1, which is deprecated, so it should not be used.
+                The relevant OAuth2 flows instead begin with a "302 (Redirection)" to an authentication
+                server, eventually resulting in credentials (bearer tokens in the case of WoT)
+                that can be used for access.
                 To enable security bootstrapping on a wide variety of devices as well
                 as on browsers, the following constraints should be observed:
                 </p>
@@ -873,7 +874,9 @@ img.wot-diagram {
                 each of the above authentication schemes.  
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
                 If a "302 (Redirection)" response code is provided during security bootstrapping, one of the
-                OAuth2 flows supported by the WoT Thing Description 1.1 security schemes MUST be used.
+                OAuth2 flows supported by the WoT Thing Description 1.1 security schemes (specifically,
+                <code>code</code>, <code>client</code>, or <code>device</code>) MUST be used,
+                with access credentials eventually being represented with bearer tokens.
                 </span>
                 These requirements apply only to endpoints of exploration services that need
                 to support security bootstrapping, that is those that serve TDs,
