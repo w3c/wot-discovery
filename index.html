@@ -972,9 +972,16 @@ img.wot-diagram {
                             <li>
                                 401 (Unauthorized): No authentication. 
                                 As noted in [[[#exploration-secboot]]], this is the first
-                                step in authentication negotiation, needed to bootstrap secure access to TDs.
+                                step in authentication negotiation used for security bootstrapping in
+                                all cases other than OAuth2.
                                 Information on what credentials are required will be included 
                                 in a <code>WWW-Authenticate</code> header.
+                            </li>
+                            <li>
+                                302 (Redirection): Redirect to an authorization server.
+                                This should be used only in the case
+                                of initiating the OAuth2 <code>code</code> flow, 
+                                in particular for for security bootstrapping. 
                             </li>
                             <li>
                                 403 (Forbidden): Insufficient rights to the resource.
@@ -1205,6 +1212,13 @@ img.wot-diagram {
                     <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6">Section 6</a> of [[RFC7231]].
                     The list of used error codes include (but are not limited to) the following:
                     <ul>
+                        <li>
+                            302 (Redirection): Redirect to an authorization server.
+                            This should be used only in the case
+                            of initiating the OAuth2 <code>code</code> flow, 
+                            in particular for for security bootstrapping on endpoints
+                            that provide access to TDs.
+                        </li>
                         <li>
                             400 (Bad Request): Invalid client input in body, query, or headers.
                             This is accompanied by an appropriate response message.
