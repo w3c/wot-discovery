@@ -804,7 +804,7 @@ img.wot-diagram {
                 Most of the HTTP negotiation processes assume there is a human user in the loop,
                 but this is also appropriate for WoT Discovery, since this problem will
                 typically occur when a user is trying to access a public WoT service or perform
-                integration of a new device. In this case the purpose of negotation is to
+                integration of a new device. In this case the purpose of negotiation is to
                 inform the user of any steps they need to take to obtain credentials to access
                 the service.
                 </p>
@@ -826,17 +826,20 @@ img.wot-diagram {
                 but also to endpoints such as <code>things/{id}</code> in <a>WoT Thing Description Directory</a>
                 exploration services.  
                 </p>
-                <p>In the HTTP protocol, authentication can be negotiated by
+                <p>In the HTTP protocol, authentication can generally be negotiated by
                 the HTTP server returning a "401 (Unauthorized)" response code in conjunction with
                 a `WWW-Authenticate` header that specifies the information required for
-                authentication.  Depending on the authentication scheme, other information may also
-                be provided in additional headers. 
+                authentication.  
                 To gain access, the client then needs to make another request 
                 with the necessary information.
                 <a href="https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml">There 
                 are several authentication schemes registered with IANA.</a>
                 Not all of these are in wide use, some are experimental, and there is only
                 partial overlap with the schemes supported by TDs.
+                In addition, note that the <code>oauth</code> scheme in the IANA registration refers
+                to OAuth1, which is deprecated. 
+                OAuth2 instead typically uses a "302 (Redirection)" to an authentication
+                server, when then provides credentials in form of a token that can be used for access.
                 To enable security bootstrapping on a wide variety of devices as well
                 as on browsers, the following constraints should be observed:
                 </p>
@@ -844,7 +847,8 @@ img.wot-diagram {
                 <li><span class="rfc2119-assertion" id="exploration-secboot-401">
                 After initial contact with an exploration service using the URL provided
                 by an introduction mechanism, the exploration service
-                MUST reply with an HTTP 401 response code if appropriate
+                MUST reply with either an HTTP "401 (Unauthorized)" response code 
+                or and HTTP "302 (Redirection)" response code (OAuth2 only) if appropriate
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -853,7 +857,8 @@ img.wot-diagram {
                 <code>nosec</code> scheme, then the 
                 system can reply immediately with the requested TD as if authentication information
                 were provided.  
-                This however is only
+                Bypassing authentication however (that is, effectively using the <code>nosec</code>
+                security scheme to provide the TD) is only
                 appropriate if the TD served as a response does not contain and cannot be used to infer 
                 Personally Identifiable Information.
                 </li>
@@ -863,12 +868,12 @@ img.wot-diagram {
                 MUST include a <code>WWW-Authenticate</code> header
                 and any other headers
                 describing the required authorizations using one of the following IANA-registered
-                HTTP Authentication Schemes: Basic, Bearer, Digest, or OAuth.</span>
+                HTTP Authentication Schemes: Basic, Bearer, or Digest.</span>
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
-                If OAuth is indicated during security bootstrapping, one of the
-                OAuth2 flows supported by TD security schemes MUST be used.
+                If a "302 (Redirection)" response code is provided during security bootstrapping, one of the
+                OAuth2 flows supported by the WoT Thing Description 1.1 security schemes MUST be used.
                 </span>
                 These requirements apply only to endpoints of exploration services that need
                 to support security bootstrapping, that is those that serve TDs,
