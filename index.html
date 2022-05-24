@@ -838,7 +838,8 @@ img.wot-diagram {
                 partial overlap with the schemes supported by TDs.
                 In addition, note that the <code>oauth</code> scheme in the IANA registration refers
                 to OAuth1, which is deprecated, so it should not be used.
-                The relevant OAuth2 flows instead begin with a "302 (Redirection)" to an authentication
+                The relevant OAuth2 flow, the <code>code</code> flow, instead 
+                begins with a "302 (Redirection)" to an authentication
                 server, eventually resulting in credentials (bearer tokens in the case of WoT)
                 that can be used for access.
                 To enable security bootstrapping on a wide variety of devices as well
@@ -873,11 +874,14 @@ img.wot-diagram {
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
-                If a "302 (Redirection)" response code is provided during security bootstrapping, one of the
-                OAuth2 flows supported by the WoT Thing Description 1.1 security schemes (specifically,
-                <code>code</code>, <code>client</code>, or <code>device</code>) MUST be used,
+                If a "302 (Redirection)" response code is provided during security bootstrapping, 
+                the OAuth2 <code>code</code> flow MUST be used,
                 with access credentials eventually being represented with bearer tokens.
                 </span>
+                Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
+                <code>client</code> and <code>device</code>, both expect the initial access
+                to be to the authentication server, not the final endpoint, and so cannot be
+                used in this case.
                 These requirements apply only to endpoints of exploration services that need
                 to support security bootstrapping, that is those that serve TDs,
                 not to other endpoints that might be
