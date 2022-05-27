@@ -26,7 +26,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,9 +43,9 @@
      inkscape:window-height="1886"
      id="namedview310"
      showgrid="false"
-     inkscape:zoom="0.98476967"
-     inkscape:cx="953.79723"
-     inkscape:cy="328.80061"
+     inkscape:zoom="2.7853492"
+     inkscape:cx="607.07015"
+     inkscape:cy="299.14099"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -53,9 +53,40 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     inkscape:snap-text-baseline="false" />
   <defs
      id="defs6">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1654"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1652" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1542"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1540" />
+    </marker>
     <marker
        inkscape:stockid="Arrow1Lend"
        orient="auto"
@@ -63,7 +94,8 @@
        refX="0"
        id="marker8528"
        style="overflow:visible"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path8526"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
@@ -436,12 +468,12 @@
 </style>
   </defs>
   <path
-     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8428)"
+     style="fill:none;stroke:#000000;stroke-width:1.32843053;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8428)"
      inkscape:connector-curvature="0"
      id="path8062"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 637.96074,394.37983 H 1026.6366" />
+     d="M 637.96074,394.37983 H 1023.7834" />
   <path
      d="M 176.72275,503.27497 H 408.54434"
      stroke-miterlimit="10"
@@ -484,15 +516,15 @@
      y="472.66492"
      x="1.7460599" />
   <rect
-     style="fill:none;stroke:#3399ff;stroke-width:5.70202494;stroke-miterlimit:4;stroke-dasharray:17.10607493, 5.70202498;stroke-dashoffset:0"
+     style="fill:none;stroke:#00c104;stroke-width:5.81177425;stroke-miterlimit:4;stroke-dasharray:17.43532255, 5.81177419;stroke-dashoffset:0;stroke-opacity:1"
      id="rect14"
      pointer-events="all"
-     ry="10.5"
-     rx="10.5"
+     ry="17.608261"
+     rx="18.623728"
      height="105.64864"
-     width="255.81497"
+     width="265.75729"
      y="196.7536"
-     x="818.52991" />
+     x="808.58759" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none"
      inkscape:connector-curvature="0"
@@ -775,7 +807,7 @@
            sodipodi:role="line"
            id="tspan8010"
            x="3"
-           y="14">6.4 CoRE Resource Directory</tspan>
+           y="14">CoRE Link Format and CoRE Resource Directory</tspan>
       </text>
     </switch>
   </g>
@@ -787,41 +819,38 @@
      width="180"
      y="603.90973"
      x="1.0107036" />
-  <g
-     id="g260"
+  <switch
+     id="switch258"
      transform="translate(3.5849224,107.40974)">
-    <switch
-       id="switch258">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
+    <foreignObject
+       pointer-events="none"
+       width="100%"
+       height="100%"
+       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+       style="overflow: visible; text-align: left;">
+      <xhtml:div
+         style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 510px; margin-left: 3px;">
         <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 510px; margin-left: 3px;">
+           data-drawio-colors="color: #3399FF; "
+           style="box-sizing: border-box; font-size: 0px; text-align: left;">
           <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.5 Decentralized Identifier</xhtml:div>
-          </xhtml:div>
+             style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.5 Decentralized Identifier</xhtml:div>
         </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
-         id="text256"
-         font-size="12px"
+      </xhtml:div>
+    </foreignObject>
+    <text
+       x="3"
+       y="514"
+       font-size="12px"
+       id="text256"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff">
+      <tspan
          y="514"
-         x="3">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8012"
-           x="3"
-           y="514">6.5 Decentralized Identifier</tspan>
-      </text>
-    </switch>
-  </g>
+         x="3"
+         id="tspan8012"
+         sodipodi:role="line">DID Documents</tspan>
+    </text>
+  </switch>
   <rect
      style="fill:none;stroke:none"
      id="rect262"
@@ -832,9 +861,11 @@
      x="807.67334" />
   <g
      id="g268"
-     transform="translate(296.17332,45.410534)">
+     transform="translate(296.17332,45.410534)"
+     style="fill:#00c104;fill-opacity:1">
     <switch
-       id="switch266">
+       id="switch266"
+       style="fill:#00c104;fill-opacity:1">
       <foreignObject
          style="overflow: visible; text-align: left;"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
@@ -852,16 +883,16 @@
         </xhtml:div>
       </foreignObject>
       <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
          id="text264"
          font-size="12px"
-         y="144"
-         x="513">
+         y="142"
+         x="527">
         <tspan
            sodipodi:role="line"
            id="tspan8002"
-           x="513"
-           y="144">7.1 Self-Description</tspan>
+           x="527"
+           y="142">Self-Description</tspan>
       </text>
     </switch>
   </g>
@@ -914,7 +945,7 @@
            sodipodi:role="line"
            id="tspan8006"
            x="3"
-           y="404">6.2 Well-Known URIs</tspan>
+           y="404">Well-Known URIs</tspan>
       </text>
     </switch>
   </g>
@@ -938,6 +969,7 @@
              data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
             <xhtml:div
                style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
+
 https://example.com/.well-known/wot-thing-description</xhtml:div>
           </xhtml:div>
         </xhtml:div>
@@ -1064,6 +1096,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
              style="box-sizing: border-box; font-size: 0px; text-align: center;">
             <xhtml:div
                style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
+
 https://example.com/.well-known/wot-thing-description</xhtml:div>
           </xhtml:div>
         </xhtml:div>
@@ -1202,41 +1235,38 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      width="180"
      y="345.90973"
      x="1.0107036" />
-  <g
-     id="g244"
+  <switch
+     id="switch242"
      transform="translate(3.5849224,165.40974)">
-    <switch
-       id="switch242">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
+    <foreignObject
+       pointer-events="none"
+       width="100%"
+       height="100%"
+       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+       style="overflow: visible; text-align: left;">
+      <xhtml:div
+         style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 190px; margin-left: 3px;">
         <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 190px; margin-left: 3px;">
+           data-drawio-colors="color: #3399FF; "
+           style="box-sizing: border-box; font-size: 0px; text-align: left;">
           <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.3 DNS-SD / mDNS</xhtml:div>
-          </xhtml:div>
+             style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.3 DNS-SD / mDNS</xhtml:div>
         </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
-         id="text240"
-         font-size="12px"
+      </xhtml:div>
+    </foreignObject>
+    <text
+       x="3"
+       y="194"
+       font-size="12px"
+       id="text240"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff">
+      <tspan
          y="194"
-         x="3">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8008"
-           x="3"
-           y="194">6.3 DNS-SD / mDNS</tspan>
-      </text>
-    </switch>
-  </g>
+         x="3"
+         id="tspan8008"
+         sodipodi:role="line">DNS-Based Service Discovery</tspan>
+    </text>
+  </switch>
   <path
      d="m 165.39796,397.97004 h 82.5481"
      stroke-miterlimit="10"
@@ -1280,7 +1310,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     </switch>
   </g>
   <rect
-     style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184054;stroke-dashoffset:0"
+     style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184053999999978;stroke-dashoffset:0;fill-opacity:1"
      id="rect10"
      pointer-events="all"
      ry="23.711538"
@@ -1291,9 +1321,11 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      x="1.8210348" />
   <g
      id="g252"
-     transform="translate(3.5849223,-262.90502)">
+     transform="translate(3.5849223,-262.90502)"
+     style="fill:#3399ff;fill-opacity:1">
     <switch
-       id="switch250">
+       id="switch250"
+       style="fill:#3399ff;fill-opacity:1">
       <foreignObject
          style="overflow: visible; text-align: left;"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
@@ -1311,7 +1343,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
         </xhtml:div>
       </foreignObject>
       <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff;fill-opacity:1"
          id="text248"
          font-size="12px"
          y="304"
@@ -1320,7 +1352,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
            sodipodi:role="line"
            id="tspan8004"
            x="3"
-           y="304">6.1 Direct</tspan>
+           y="304">Direct</tspan>
       </text>
     </switch>
   </g>
@@ -1628,7 +1660,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
          height="444.77405"
          x="-76.667671"
          y="-67.467766" /></flowRegion><flowPara
-       id="flowPara7350"></flowPara></flowRoot>  <rect
+       id="flowPara7350" /></flowRoot>  <rect
      x="246.33034"
      y="526.45923"
      width="72.942711"
@@ -1835,9 +1867,11 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
   </g>
   <g
      transform="translate(2.5694564,-288.29167)"
-     id="g7440">
+     id="g7440"
+     style="fill:#3399ff;fill-opacity:1">
     <switch
-       id="switch7438">
+       id="switch7438"
+       style="fill:#3399ff;fill-opacity:1">
       <foreignObject
          pointer-events="none"
          width="100%"
@@ -1859,7 +1893,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
          y="304"
          font-size="12px"
          id="text7436"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1">
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff;fill-opacity:1">
         <tspan
            sodipodi:role="line"
            id="tspan7442"
@@ -1905,9 +1939,11 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
   </g>
   <g
      id="g7460"
-     transform="translate(810.56945,-288.29167)">
+     transform="translate(810.56945,-288.29167)"
+     style="fill:#00c104;fill-opacity:1">
     <switch
-       id="switch7458">
+       id="switch7458"
+       style="fill:#00c104;fill-opacity:1">
       <foreignObject
          style="overflow: visible; text-align: left;"
          requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
@@ -1925,7 +1961,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
         </xhtml:div>
       </foreignObject>
       <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
          id="text7456"
          font-size="12px"
          y="304"
@@ -1946,12 +1982,12 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      stroke-miterlimit="10"
      d="M 756.59121,703.52021 V 33.065564" />
   <path
-     d="M 638.59121,703.52021 V 33.065564"
+     d="M 638.59121,658.83971 V 78.253796"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7484"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.5849632;stroke-miterlimit:9;stroke-dasharray:none" />
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:9;stroke-dasharray:none" />
   <g
      transform="translate(244.54509,-50.828206)"
      id="g7516"
@@ -1972,6 +2008,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
              style="box-sizing: border-box; font-size: 0px; text-align: center;">
             <xhtml:div
                style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
+
 https://example.com/.well-known/wot-thing-description</xhtml:div>
           </xhtml:div>
         </xhtml:div>
@@ -2040,7 +2077,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8088)" />
   <g
-     transform="translate(1230.5695,-288.29167)"
+     transform="translate(1334.5695,-288.29167)"
      id="g7970">
     <switch
        id="switch7968">
@@ -2061,29 +2098,36 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
         </xhtml:div>
       </foreignObject>
       <text
-         x="3"
+         x="-61.623852"
          y="304"
          font-size="12px"
          id="text7966"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1">
         <tspan
-           id="tspan7964"
            sodipodi:role="line"
-           x="3"
-           y="304">TDs</tspan>
+           x="-61.623848"
+           y="304"
+           id="tspan1268"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end">Discovery Set</tspan>
+        <tspan
+           sodipodi:role="line"
+           x="-61.623852"
+           y="330.66666"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end"
+           id="tspan1274">TDs</tspan>
       </text>
     </switch>
   </g>
   <rect
-     x="1004.3645"
+     x="994.3645"
      y="346.12091"
-     width="190"
+     width="200"
      height="70"
-     rx="10.5"
-     ry="10.5"
+     rx="20"
+     ry="15.57733"
      pointer-events="all"
      id="rect7976"
-     style="fill:none;stroke:#3399ff;stroke-width:5.33333349;stroke-miterlimit:4;stroke-dasharray:16, 5.33333333;stroke-dashoffset:0" />
+     style="fill:none;stroke:#00c104;stroke-width:5.47188473;stroke-miterlimit:4;stroke-dasharray:16.41565363, 5.47188454;stroke-dashoffset:0;stroke-opacity:1" />
   <rect
      x="1024.3645"
      y="356.62091"
@@ -2143,10 +2187,12 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="rect7988"
      style="fill:none;stroke:none" />
   <g
-     transform="translate(482.86446,195.62093)"
-     id="g7996">
+     transform="translate(492.86446,193.62093)"
+     id="g7996"
+     style="fill:#00c104;fill-opacity:1">
     <switch
-       id="switch7994">
+       id="switch7994"
+       style="fill:#00c104;fill-opacity:1">
       <foreignObject
          pointer-events="none"
          width="100%"
@@ -2168,22 +2214,22 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
          y="144"
          font-size="12px"
          id="text7992"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff">
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1">
         <tspan
            sodipodi:role="line"
            id="tspan8000"
            x="513"
-           y="144">7.2 Directory</tspan>
+           y="144">Directory</tspan>
       </text>
     </switch>
   </g>
   <path
-     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8246)"
+     style="fill:none;stroke:#000000;stroke-width:1.33333333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)"
      inkscape:connector-curvature="0"
      id="path8014"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 928.94457,247.02012 H 1248.6883" />
+     d="M 928.94457,247.02012 H 1272.9057" />
   <g
      transform="translate(432.36169,34.688824)"
      id="g8020">
@@ -2311,7 +2357,7 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8528)" />
   <g
-     transform="translate(167.46716,184.20265)"
+     transform="translate(168.45168,180.45652)"
      id="g8060">
     <switch
        id="switch8058">
@@ -2342,12 +2388,12 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     </switch>
   </g>
   <path
-     d="m 1115.6357,381.2452 h 132.6469"
+     d="m 1115.6357,381.2452 h 156.5931"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path8066"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8334)" />
+     style="fill:none;stroke:#000000;stroke-width:1.33333333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1654)" />
   <g
      transform="translate(613.62235,166.0551)"
      id="g8076">
@@ -2384,5 +2430,45 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
            y="208.01547">things/</tspan>
       </text>
     </switch>
+  </g>
+  <g
+     id="g1818">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:2.77190757;stroke-miterlimit:4;stroke-dasharray:none"
+       id="rect1806"
+       pointer-events="all"
+       height="24.979944"
+       width="108.59646"
+       y="645.91974"
+       x="432.16272" />
+    <g
+       id="g1812"
+       transform="translate(64.65272,103.69879)">
+      <switch
+         id="switch1810">
+        <foreignObject
+           style="overflow: visible; text-align: left;"
+           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
+           height="100%"
+           width="100%"
+           pointer-events="none">
+          <xhtml:div
+             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 555px; margin-left: 372px;">
+            <xhtml:div
+               style="box-sizing: border-box; font-size: 0px; text-align: center;"
+               data-drawio-colors="color: rgb(0, 0, 0); ">
+              <xhtml:div
+                 style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">DID Document</xhtml:div>
+            </xhtml:div>
+          </xhtml:div>
+        </foreignObject>
+        <text
+           style="font-size:12px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
+           id="text1808"
+           font-size="12px"
+           y="559"
+           x="421">serviceEndpoint</text>
+      </switch>
+    </g>
   </g>
 </svg>
