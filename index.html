@@ -813,7 +813,7 @@ img.wot-diagram {
                 authentication mechanisms) are needed to access the relevant exploration services
                 and security bootstrapping would not be required.  
                 </p>
-                <p>Security bootstrapping is also only (potentially) necessary on the <em>first</em> access to
+                <p>Security bootstrapping may only be necessary on the <em>first</em> access to
                 a TD. Once a Discoverer has determined what credentials and authentication mechanism
                 are required to access a particular exploration service, they can retain them
                 and use them for future accesses.
@@ -822,8 +822,7 @@ img.wot-diagram {
                 <span class="rfc2119-assertion" id="security-bootstrapping-endpoints">Security
                 bootstrapping MUST be provided on any HTTP endpoint that serves a TD.</span>
                 This applies not only to endpoints serving TDs from self-describing Things,
-                but also to endpoints such as <code>things/{id}</code> in <a>WoT Thing Description Directory</a>
-                exploration services.  
+                but also to endpoints that retrieve single TDs in <a>WoT Thing Description Directory</a>.  
                 </p>
                 <p>In the HTTP protocol, authentication can generally be negotiated by
                 the HTTP server returning a "401 (Unauthorized)" response code in conjunction with
@@ -849,7 +848,7 @@ img.wot-diagram {
                 After initial contact with an exploration service using the URL provided
                 by an introduction mechanism, the exploration service
                 MUST reply with either an HTTP "401 (Unauthorized)" response code 
-                or and HTTP "302 (Redirection)" response code (OAuth2 only) if appropriate
+                or HTTP "302 (Found)" response code (OAuth2 only) if appropriate
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -858,8 +857,7 @@ img.wot-diagram {
                 <code>nosec</code> scheme, then the 
                 system can reply immediately with the requested TD as if authentication information
                 were provided.  
-                Bypassing authentication however (that is, effectively using the <code>nosec</code>
-                security scheme to provide the TD) is only
+                Bypassing authentication however is only
                 appropriate if the TD served as a response does not contain and cannot be used to infer 
                 Personally Identifiable Information.
                 </li>
@@ -904,7 +902,7 @@ img.wot-diagram {
                 to TDs and the use of secure transport.  
                 In summary, secure transport (e.g. TLS) is required for public services and strongly recommended
                 even on private networks (even if there is no authentication requirement, to
-                protect the confidentiality of queries), and <code>nosec</code> should only be considered 
+                protect the confidentiality of queries), and serving requests without authentication and authorization should only be considered 
                 in limited circumstances when no Personally Identifiable Information is 
                 present or can be inferred.
                 </p>
@@ -975,12 +973,6 @@ img.wot-diagram {
                                 all cases other than OAuth2.
                                 Information on what credentials are required will be included 
                                 in a <code>WWW-Authenticate</code> header.
-                            </li>
-                            <li>
-                                302 (Redirection): Redirect to an authorization server.
-                                This should be used only in the case
-                                of initiating the OAuth2 <code>code</code> flow, 
-                                in particular for for security bootstrapping. 
                             </li>
                             <li>
                                 403 (Forbidden): Insufficient rights to the resource.
@@ -1211,13 +1203,6 @@ img.wot-diagram {
                     <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-6">Section 6</a> of [[RFC7231]].
                     The list of used error codes include (but are not limited to) the following:
                     <ul>
-                        <li>
-                            302 (Redirection): Redirect to an authorization server.
-                            This should be used only in the case
-                            of initiating the OAuth2 <code>code</code> flow, 
-                            in particular for for security bootstrapping on endpoints
-                            that provide access to TDs.
-                        </li>
                         <li>
                             400 (Bad Request): Invalid client input in body, query, or headers.
                             This is accompanied by an appropriate response message.
