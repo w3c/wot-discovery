@@ -155,9 +155,10 @@ img.wot-diagram {
            leverages existing discovery mechanisms but does not directly
            expose metadata; they are simply used to discover Exploration
            services, which provide metadata but only after secure authentication
-           and authorization.  This document normatively defines two Exploration
-           services, one for WoT Thing self-description with a single 
-           WoT Thing Description and a searchable WoT Thing Description Directory
+           and authorization.  This document normatively defines three Exploration
+           services: for distributing a single WoT Thing Description from a regular
+           web service; for WoT Thing self-description providing a single 
+           WoT Thing Description; and a searchable WoT Thing Description Directory
            service for collections of Thing Descriptions.
            A variety of Introduction services are also described and where
            necessary normative definitions are given to support them.
@@ -222,8 +223,9 @@ img.wot-diagram {
            WoT Thing Description Directory (WoT TDD) service that provides a search mechanism for
            collections of WoT Thing Descriptions that can be dynamically registered by Things or
            entities acting on their behalf.  The WoT Discovery mechanism however also supports
-           self-description by individual Things and one issue we address is how to distinguish
-           between these two approaches.
+           self-description by individual Things and distribution of single TDs from regular
+           web services.  One issue we address is how to distinguish
+           between these approaches.
            Finally, we discuss some security and privacy considerations, including a set of 
            potential risks and mitigations.
         </p>
