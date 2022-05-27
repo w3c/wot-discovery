@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:xhtml="http://www.w3.org/1999/xhtml"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -26,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,9 +42,9 @@
      inkscape:window-height="1886"
      id="namedview310"
      showgrid="false"
-     inkscape:zoom="2.7853492"
-     inkscape:cx="607.07015"
-     inkscape:cy="299.14099"
+     inkscape:zoom="1.3926746"
+     inkscape:cx="497.2096"
+     inkscape:cy="298.42295"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -537,22 +536,6 @@
      transform="translate(-94.583936,94.615853)">
     <switch
        id="switch72">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-size:11px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
          id="text70"
@@ -574,22 +557,6 @@
      transform="translate(-30.657265,103.78375)">
     <switch
        id="switch80">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 555px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">DID</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-size:12px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
          id="text78"
@@ -611,22 +578,6 @@
      transform="translate(-167.34728,103.69879)">
     <switch
        id="switch98">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 555px; margin-left: 372px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">DID Document</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-size:12px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
          id="text96"
@@ -648,26 +599,6 @@
      transform="translate(11.334923,424.05402)">
     <switch
        id="switch154">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 83px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>(no prior</xhtml:div>
-              <xhtml:div>information)<xhtml:br />
-</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text152"
@@ -702,27 +633,6 @@
      transform="translate(296.17332,43.410534)">
     <switch
        id="switch206">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 88px; height: 1px; padding-top: 188px; margin-left: 542px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Thing</xhtml:div>
-              <xhtml:div>Description</xhtml:div>
-              <xhtml:div>of Directory<xhtml:br />
-</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000"
          id="text204"
@@ -742,24 +652,6 @@
      transform="translate(168.36169,50.688824)">
     <switch
        id="switch216">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-size:11px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
          id="text214"
@@ -781,22 +673,6 @@
      transform="translate(3.5849224,451.9303)">
     <switch
        id="switch232">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 10px; margin-left: 3px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.4 CoRE Resource Directory</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
          id="text230"
@@ -822,22 +698,6 @@
   <switch
      id="switch258"
      transform="translate(3.5849224,107.40974)">
-    <foreignObject
-       pointer-events="none"
-       width="100%"
-       height="100%"
-       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-       style="overflow: visible; text-align: left;">
-      <xhtml:div
-         style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 510px; margin-left: 3px;">
-        <xhtml:div
-           data-drawio-colors="color: #3399FF; "
-           style="box-sizing: border-box; font-size: 0px; text-align: left;">
-          <xhtml:div
-             style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.5 Decentralized Identifier</xhtml:div>
-        </xhtml:div>
-      </xhtml:div>
-    </foreignObject>
     <text
        x="3"
        y="514"
@@ -866,22 +726,6 @@
     <switch
        id="switch266"
        style="fill:#00c104;fill-opacity:1">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 140px; margin-left: 513px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">6. Exploration Mechanisms</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
          id="text264"
@@ -919,22 +763,6 @@
      transform="translate(3.5849224,-166.59026)">
     <switch
        id="switch294">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 400px; margin-left: 3px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.2 Well-Known URIs</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff"
          id="text292"
@@ -956,24 +784,6 @@
     <switch
        style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
        id="switch278">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 440px; margin-left: 267px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
-
-https://example.com/.well-known/wot-thing-description</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
          id="text276"
@@ -1003,22 +813,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
        id="switch286">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 440px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">IP address or hostname</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-size:12px;font-family:'Noto Sans';text-anchor:middle;fill:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
          id="text284"
@@ -1047,22 +841,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g4997">
     <switch
        id="switch4995">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 440px; margin-left: 22px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">IP address or hostname</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="61"
          y="444"
@@ -1083,24 +861,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g6286">
     <switch
        id="switch6284">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 440px; margin-left: 267px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
-
-https://example.com/.well-known/wot-thing-description</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="204.62549"
          y="443"
@@ -1134,22 +894,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
       <switch
          id="switch180"
          style="stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none">
-        <foreignObject
-           pointer-events="none"
-           width="100%"
-           height="100%"
-           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-           style="overflow: visible; text-align: left;">
-          <xhtml:div
-             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 233px; margin-left: 212px;">
-            <xhtml:div
-               data-drawio-colors="color: rgb(0, 0, 0); "
-               style="box-sizing: border-box; font-size: 0px; text-align: center;">
-              <xhtml:div
-                 style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">DNS name of Thing/TDir</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </foreignObject>
         <text
            x="166.52246"
            y="236"
@@ -1183,26 +927,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(29.997032,164.97003)">
     <switch
        id="switch224">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 78px; height: 1px; padding-top: 233px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>(no prior</xhtml:div>
-              <xhtml:div>information)<xhtml:br />
-</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text222"
@@ -1238,22 +962,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
   <switch
      id="switch242"
      transform="translate(3.5849224,165.40974)">
-    <foreignObject
-       pointer-events="none"
-       width="100%"
-       height="100%"
-       requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-       style="overflow: visible; text-align: left;">
-      <xhtml:div
-         style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 190px; margin-left: 3px;">
-        <xhtml:div
-           data-drawio-colors="color: #3399FF; "
-           style="box-sizing: border-box; font-size: 0px; text-align: left;">
-          <xhtml:div
-             style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.3 DNS-SD / mDNS</xhtml:div>
-        </xhtml:div>
-      </xhtml:div>
-    </foreignObject>
     <text
        x="3"
        y="194"
@@ -1279,22 +987,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g6951">
     <switch
        id="switch6949">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="233.89081"
          y="557.12061"
@@ -1326,22 +1018,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch250"
        style="fill:#3399ff;fill-opacity:1">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#3399ff;fill-opacity:1"
          id="text248"
@@ -1369,26 +1045,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(6.3163677,-194.4188)">
     <switch
        id="switch198">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 340px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Bluetooth beacon,</xhtml:div>
-              <xhtml:div>matrix barcode,</xhtml:div>
-              <xhtml:div>Written URL</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000"
          id="text196"
@@ -1423,26 +1079,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g6902">
     <switch
        id="switch6900">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 340px; margin-left: 22px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Bluetooth beacon,</xhtml:div>
-              <xhtml:div>matrix barcode,</xhtml:div>
-              <xhtml:div>Written URL</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="54.712891"
          y="344"
@@ -1477,26 +1113,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g6912">
     <switch
        id="switch6910">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 340px; margin-left: 22px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Bluetooth beacon,</xhtml:div>
-              <xhtml:div>matrix barcode,</xhtml:div>
-              <xhtml:div>Written URL</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="44.640625"
          y="344"
@@ -1531,26 +1147,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(-24.600624,-228.37808)">
     <switch
        id="switch7266">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 108px; height: 1px; padding-top: 340px; margin-left: 22px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Bluetooth beacon,</xhtml:div>
-              <xhtml:div>matrix barcode,</xhtml:div>
-              <xhtml:div>Written URL</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text7264"
@@ -1584,22 +1180,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(-33.12375,-58.907396)">
     <switch
        id="switch7326">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text7324"
@@ -1619,22 +1199,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g7340">
     <switch
        id="switch7338">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="233.89081"
          y="557.12061"
@@ -1673,22 +1237,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g7390">
     <switch
        id="switch7388">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="233.89081"
          y="557.12061"
@@ -1716,22 +1264,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(216.39265,429.93888)">
     <switch
        id="switch7400">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 85px; margin-left: 202px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Core Link Format</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text7398"
@@ -1758,22 +1290,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g7378">
     <switch
        id="switch7376">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 85px; margin-left: 202px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">Core Link Format</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="200.2267"
          y="87.984535"
@@ -1800,22 +1316,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(76.670293,95.443411)">
     <switch
        id="switch7418">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text7416"
@@ -1835,22 +1335,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(253.05204,-49.768206)">
     <switch
        id="switch7428">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 555px; margin-left: 246px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Query/Resolve</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text7426"
@@ -1872,22 +1356,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch7438"
        style="fill:#3399ff;fill-opacity:1">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             data-drawio-colors="color: #3399FF; "
-             style="box-sizing: border-box; font-size: 0px; text-align: left;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="3"
          y="304"
@@ -1907,22 +1375,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(612.56945,-288.29167)">
     <switch
        id="switch7448">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
          id="text7446"
@@ -1944,22 +1396,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch7458"
        style="fill:#00c104;fill-opacity:1">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: left;"
-             data-drawio-colors="color: #3399FF; ">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
          id="text7456"
@@ -1995,24 +1431,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch7514"
        style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 440px; margin-left: 267px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">Create Well-Known URI, such as<xhtml:br />
-
-https://example.com/.well-known/wot-thing-description</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="206.87651"
          y="441.98453"
@@ -2034,22 +1452,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch7956"
        style="fill:#da2020;fill-opacity:1">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             data-drawio-colors="color: #3399FF; "
-             style="box-sizing: border-box; font-size: 0px; text-align: left;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="3"
          y="304"
@@ -2081,22 +1483,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g7970">
     <switch
        id="switch7968">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 300px; margin-left: 3px;">
-          <xhtml:div
-             data-drawio-colors="color: #3399FF; "
-             style="box-sizing: border-box; font-size: 0px; text-align: left;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">5.1 Direct</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="-61.623852"
          y="304"
@@ -2105,16 +1491,10 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1">
         <tspan
            sodipodi:role="line"
-           x="-61.623848"
-           y="304"
-           id="tspan1268"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end">Discovery Set</tspan>
-        <tspan
-           sodipodi:role="line"
            x="-61.623852"
-           y="330.66666"
+           y="304"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end"
-           id="tspan1274">TDs</tspan>
+           id="tspan1274">Result TDs</tspan>
       </text>
     </switch>
   </g>
@@ -2143,27 +1523,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g7986">
     <switch
        id="switch7984">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 88px; height: 1px; padding-top: 188px; margin-left: 542px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">
-              <xhtml:div>Thing</xhtml:div>
-              <xhtml:div>Description</xhtml:div>
-              <xhtml:div>of Directory<xhtml:br />
-</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="586"
          y="191"
@@ -2193,22 +1552,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
     <switch
        id="switch7994"
        style="fill:#00c104;fill-opacity:1">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe flex-start; width: 178px; height: 1px; padding-top: 140px; margin-left: 513px;">
-          <xhtml:div
-             data-drawio-colors="color: #3399FF; "
-             style="box-sizing: border-box; font-size: 0px; text-align: left;">
-            <xhtml:div
-               style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(51, 153, 255); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">6. Exploration Mechanisms</xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="513"
          y="144"
@@ -2235,24 +1578,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g8020">
     <switch
        id="switch8018">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="505.72974"
          y="207"
@@ -2272,24 +1597,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(432.36169,58.688824)">
     <switch
        id="switch8030">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text8028"
@@ -2317,24 +1624,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      transform="translate(432.36169,10.688824)">
     <switch
        id="switch8044">
-      <foreignObject
-         style="overflow: visible; text-align: left;"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="100%"
-         width="100%"
-         pointer-events="none">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             style="box-sizing: border-box; font-size: 0px; text-align: center;"
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); ">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
          id="text8042"
@@ -2361,24 +1650,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g8060">
     <switch
        id="switch8058">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="514"
          y="207"
@@ -2399,24 +1670,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
      id="g8076">
     <switch
        id="switch8074">
-      <foreignObject
-         pointer-events="none"
-         width="100%"
-         height="100%"
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         style="overflow: visible; text-align: left;">
-        <xhtml:div
-           style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 1px; height: 1px; padding-top: 204px; margin-left: 514px;">
-          <xhtml:div
-             data-drawio-colors="color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); "
-             style="box-sizing: border-box; font-size: 0px; text-align: center;">
-            <xhtml:div
-               style="display: inline-block; font-size: 11px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; background-color: rgb(255, 255, 255); white-space: nowrap;">
-              <xhtml:div>GET</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
       <text
          x="507.25293"
          y="208.01547"
@@ -2446,22 +1699,6 @@ https://example.com/.well-known/wot-thing-description</xhtml:div>
        transform="translate(64.65272,103.69879)">
       <switch
          id="switch1810">
-        <foreignObject
-           style="overflow: visible; text-align: left;"
-           requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-           height="100%"
-           width="100%"
-           pointer-events="none">
-          <xhtml:div
-             style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 98px; height: 1px; padding-top: 555px; margin-left: 372px;">
-            <xhtml:div
-               style="box-sizing: border-box; font-size: 0px; text-align: center;"
-               data-drawio-colors="color: rgb(0, 0, 0); ">
-              <xhtml:div
-                 style="display: inline-block; font-size: 12px; font-family: &quot;Noto Sans&quot;; color: rgb(0, 0, 0); line-height: 1.2; pointer-events: all; white-space: normal; overflow-wrap: normal;">DID Document</xhtml:div>
-            </xhtml:div>
-          </xhtml:div>
-        </foreignObject>
         <text
            style="font-size:12px;font-family:'Noto Sans';text-anchor:middle;fill:#000000"
            id="text1808"
