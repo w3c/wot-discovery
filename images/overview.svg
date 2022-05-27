@@ -25,7 +25,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,8 +43,8 @@
      id="namedview310"
      showgrid="false"
      inkscape:zoom="1.3926746"
-     inkscape:cx="497.2096"
-     inkscape:cy="298.42295"
+     inkscape:cx="799.39215"
+     inkscape:cy="296.98686"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -56,6 +56,68 @@
      inkscape:snap-text-baseline="false" />
   <defs
      id="defs6">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4013"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path4011" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker3865"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path3863"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2963"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2961"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2533"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2531" />
+    </marker>
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -78,29 +140,14 @@
        refX="0"
        refY="0"
        orient="auto"
-       inkscape:stockid="Arrow1Lend">
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
       <path
          inkscape:connector-curvature="0"
          transform="matrix(-0.8,0,0,-0.8,-10,0)"
          style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="path1540" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Lend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="marker8528"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         id="path8526"
-         d="M 0,0 5,-5 -12.5,0 5,5 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         inkscape:connector-curvature="0" />
     </marker>
     <marker
        inkscape:stockid="Arrow1Lend"
@@ -169,7 +216,8 @@
        refX="0"
        id="marker8088"
        style="overflow:visible"
-       inkscape:isstock="true">
+       inkscape:isstock="true"
+       inkscape:collect="always">
       <path
          id="path8086"
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
@@ -467,13 +515,6 @@
 </style>
   </defs>
   <path
-     style="fill:none;stroke:#000000;stroke-width:1.32843053;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8428)"
-     inkscape:connector-curvature="0"
-     id="path8062"
-     pointer-events="stroke"
-     stroke-miterlimit="10"
-     d="M 637.96074,394.37983 H 1023.7834" />
-  <path
      d="M 176.72275,503.27497 H 408.54434"
      stroke-miterlimit="10"
      pointer-events="stroke"
@@ -515,15 +556,15 @@
      y="472.66492"
      x="1.7460599" />
   <rect
-     style="fill:none;stroke:#00c104;stroke-width:5.81177425;stroke-miterlimit:4;stroke-dasharray:17.43532255, 5.81177419;stroke-dashoffset:0;stroke-opacity:1"
+     style="fill:none;stroke:#00c104;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;stroke-opacity:1"
      id="rect14"
      pointer-events="all"
      ry="17.608261"
      rx="18.623728"
-     height="105.64864"
-     width="265.75729"
-     y="196.7536"
-     x="808.58759" />
+     height="107.11926"
+     width="146.59537"
+     y="196.01813"
+     x="807.85693" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none"
      inkscape:connector-curvature="0"
@@ -649,7 +690,7 @@
   </g>
   <g
      id="g218"
-     transform="translate(168.36169,50.688824)">
+     transform="translate(156.36169,32.688824)">
     <switch
        id="switch216">
       <text
@@ -1002,7 +1043,7 @@
     </switch>
   </g>
   <rect
-     style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184053999999978;stroke-dashoffset:0;fill-opacity:1"
+     style="fill:none;stroke:#3399ff;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;fill-opacity:1"
      id="rect10"
      pointer-events="all"
      ry="23.711538"
@@ -1416,7 +1457,7 @@
      id="path7474"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 756.59121,703.52021 V 33.065564" />
+     d="M 738.59121,703.52021 V 33.065564" />
   <path
      d="M 638.59121,658.83971 V 78.253796"
      stroke-miterlimit="10"
@@ -1446,7 +1487,7 @@
     </switch>
   </g>
   <g
-     transform="translate(730.56945,-288.29167)"
+     transform="translate(712.56945,-288.29167)"
      id="g7958"
      style="fill:#da2020;fill-opacity:1">
     <switch
@@ -1472,71 +1513,12 @@
     </switch>
   </g>
   <path
-     d="M 638.85527,264.45621 H 837.96781"
+     d="M 638.85527,246.45621 H 837.96781"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7962"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8088)" />
-  <g
-     transform="translate(1334.5695,-288.29167)"
-     id="g7970">
-    <switch
-       id="switch7968">
-      <text
-         x="-61.623852"
-         y="304"
-         font-size="12px"
-         id="text7966"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1">
-        <tspan
-           sodipodi:role="line"
-           x="-61.623852"
-           y="304"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.33333397px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end"
-           id="tspan1274">Result TDs</tspan>
-      </text>
-    </switch>
-  </g>
-  <rect
-     x="994.3645"
-     y="346.12091"
-     width="200"
-     height="70"
-     rx="20"
-     ry="15.57733"
-     pointer-events="all"
-     id="rect7976"
-     style="fill:none;stroke:#00c104;stroke-width:5.47188473;stroke-miterlimit:4;stroke-dasharray:16.41565363, 5.47188454;stroke-dashoffset:0;stroke-opacity:1" />
-  <rect
-     x="1024.3645"
-     y="356.62091"
-     width="90"
-     height="50"
-     rx="7.5"
-     ry="7.5"
-     pointer-events="all"
-     id="rect7978"
-     style="fill:#ffffff;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none" />
-  <g
-     transform="translate(482.86446,193.62093)"
-     id="g7986">
-    <switch
-       id="switch7984">
-      <text
-         x="586"
-         y="191"
-         font-size="12px"
-         id="text7982"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8052"
-           x="586"
-           y="191">Directory</tspan>
-      </text>
-    </switch>
-  </g>
   <rect
      x="994.3645"
      y="326.12091"
@@ -1545,56 +1527,16 @@
      pointer-events="all"
      id="rect7988"
      style="fill:none;stroke:none" />
-  <g
-     transform="translate(492.86446,193.62093)"
-     id="g7996"
-     style="fill:#00c104;fill-opacity:1">
-    <switch
-       id="switch7994"
-       style="fill:#00c104;fill-opacity:1">
-      <text
-         x="513"
-         y="144"
-         font-size="12px"
-         id="text7992"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8000"
-           x="513"
-           y="144">Directory</tspan>
-      </text>
-    </switch>
-  </g>
   <path
-     style="fill:none;stroke:#000000;stroke-width:1.33333333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)"
+     style="fill:none;stroke:#000000;stroke-width:1.333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)"
      inkscape:connector-curvature="0"
      id="path8014"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 928.94457,247.02012 H 1272.9057" />
-  <g
-     transform="translate(432.36169,34.688824)"
-     id="g8020">
-    <switch
-       id="switch8018">
-      <text
-         x="505.72974"
-         y="207"
-         font-size="11px"
-         id="text8016"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8022"
-           x="505.72974"
-           y="207">?type=Thing</tspan>
-      </text>
-    </switch>
-  </g>
+     d="M 928.94457,247.02012 H 1090.5421" />
   <g
      id="g8032"
-     transform="translate(432.36169,58.688824)">
+     transform="translate(619.73662,309.2295)">
     <switch
        id="switch8030">
       <text
@@ -1607,21 +1549,21 @@
            sodipodi:role="line"
            id="tspan8036"
            x="505.72974"
-           y="207">?type=ThingDirectory</tspan>
+           y="207">ThingDirectory</tspan>
       </text>
     </switch>
   </g>
   <path
-     d="m 928.94457,224.45621 h 164.18013 l 0.1166,-69.65015 -407.73175,0.71804 0.11659,69.65016 152.34166,-0.71805"
+     d="m 1185.5286,286.20789 h 56.6082 l -0.4407,-129.96574 -543.26178,-0.71805 0.27731,89.75536"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path8038"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8164)"
-     sodipodi:nodetypes="cccccc" />
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.664;stroke-dashoffset:0"
+     sodipodi:nodetypes="ccccc" />
   <g
      id="g8046"
-     transform="translate(432.36169,10.688824)">
+     transform="translate(619.42958,-59.679372)">
     <switch
        id="switch8044">
       <text
@@ -1634,39 +1576,27 @@
            sodipodi:role="line"
            id="tspan8048"
            x="505.72974"
-           y="207">?type=ThingLink</tspan>
+           y="207">ThingLink</tspan>
       </text>
     </switch>
   </g>
   <path
-     d="m 926.0919,273.62934 55.43018,-0.0643 v 102.8034 h 42.59052"
-     stroke-miterlimit="10"
-     pointer-events="stroke"
-     id="path8054"
-     inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8528)" />
-  <g
-     transform="translate(168.45168,180.45652)"
-     id="g8060">
-    <switch
-       id="switch8058">
-      <text
-         x="514"
-         y="207"
-         font-size="11px"
-         id="text8056"
-         style="font-size:11px;font-family:'Noto Sans';text-anchor:middle;fill:#000000">GET</text>
-    </switch>
-  </g>
-  <path
-     d="m 1115.6357,381.2452 h 156.5931"
+     d="M 927.56994,456.89168 H 1088.5216"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path8066"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.33333333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1654)" />
+     style="fill:none;stroke:#000000;stroke-width:1.3517617;stroke-miterlimit:9.60000038;stroke-dasharray:10.81409288, 10.81409288;stroke-dashoffset:0;marker-end:url(#marker1654)" />
+  <rect
+     style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect3651"
+     pointer-events="all"
+     height="45.731155"
+     width="43.45237"
+     y="439.47229"
+     x="996.9552" />
   <g
-     transform="translate(613.62235,166.0551)"
+     transform="translate(242.69757,240.82941)"
      id="g8076">
     <switch
        id="switch8074">
@@ -1680,7 +1610,7 @@
            sodipodi:role="line"
            id="tspan8078"
            x="507.25293"
-           y="208.01547">things/</tspan>
+           y="208.01547">/things/</tspan>
       </text>
     </switch>
   </g>
@@ -1707,5 +1637,252 @@
            x="421">serviceEndpoint</text>
       </switch>
     </g>
+  </g>
+  <rect
+     x="990.9552"
+     y="223.47229"
+     width="43.45237"
+     height="45.731155"
+     pointer-events="all"
+     id="rect1351"
+     style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="translate(798.69113,162.82695)"
+     id="g1359">
+    <switch
+       id="switch1357">
+      <text
+         x="204.2267"
+         y="87.984535"
+         font-size="12px"
+         id="text1355"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000">
+        <tspan
+           y="87.984535"
+           x="204.2267"
+           id="tspan1353"
+           sodipodi:role="line">TD</tspan>
+      </text>
+    </switch>
+  </g>
+  <rect
+     x="1094.9985"
+     y="207.73584"
+     width="87.349365"
+     height="278.55914"
+     rx="7.5"
+     ry="7.5000005"
+     pointer-events="all"
+     id="rect1367"
+     style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="translate(552.17332,49.41053)"
+     id="g1375">
+    <switch
+       id="switch1373">
+      <text
+         x="586"
+         y="191"
+         font-size="12px"
+         id="text1371"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000">
+        <tspan
+           y="191"
+           x="586"
+           id="tspan1369"
+           sodipodi:role="line">Application</tspan>
+        <tspan
+           y="206"
+           x="586"
+           sodipodi:role="line"
+           id="tspan1527">(Discoverer)</tspan>
+      </text>
+    </switch>
+  </g>
+  <rect
+     x="808.25739"
+     y="352.42673"
+     width="145.79449"
+     height="150.83308"
+     rx="18.623728"
+     ry="17.608261"
+     pointer-events="all"
+     id="rect2499"
+     style="fill:none;stroke:#00c104;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;stroke-opacity:1" />
+  <rect
+     x="838.22662"
+     y="362.96381"
+     width="88.893463"
+     height="122.13383"
+     rx="7.5"
+     ry="7.499999"
+     pointer-events="all"
+     id="rect2501"
+     style="fill:#ffffff;stroke:#000000;stroke-width:3.10653782;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="translate(296.17332,199.41053)"
+     id="g2509">
+    <switch
+       id="switch2507">
+      <text
+         x="586"
+         y="191"
+         font-size="12px"
+         id="text2505"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000">
+        <tspan
+           y="191"
+           x="586"
+           id="tspan2503"
+           sodipodi:role="line">Thing</tspan>
+        <tspan
+           y="206"
+           x="586"
+           sodipodi:role="line"
+           id="tspan2527">Description</tspan>
+        <tspan
+           y="221"
+           x="586"
+           sodipodi:role="line"
+           id="tspan2529">Directory</tspan>
+      </text>
+    </switch>
+  </g>
+  <g
+     transform="translate(156.36169,168.68882)"
+     id="g2515">
+    <switch
+       id="switch2513">
+      <text
+         x="514"
+         y="207"
+         font-size="11px"
+         id="text2511"
+         style="font-size:11px;font-family:'Noto Sans';text-anchor:middle;fill:#000000">GET</text>
+    </switch>
+  </g>
+  <g
+     style="fill:#00c104;fill-opacity:1"
+     transform="translate(296.17332,201.41053)"
+     id="g2523">
+    <switch
+       style="fill:#00c104;fill-opacity:1"
+       id="switch2521">
+      <text
+         x="527"
+         y="142"
+         font-size="12px"
+         id="text2519"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1">
+        <tspan
+           y="142"
+           x="527"
+           id="tspan2517"
+           sodipodi:role="line">Directory</tspan>
+      </text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker2533)"
+     inkscape:connector-curvature="0"
+     id="path2525"
+     pointer-events="stroke"
+     stroke-miterlimit="10"
+     d="M 638.85527,382.45621 H 837.96781" />
+  <path
+     d="M 928.94457,383.02012 H 1090.5421"
+     stroke-miterlimit="10"
+     pointer-events="stroke"
+     id="path2949"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker2963)" />
+  <rect
+     style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect2951"
+     pointer-events="all"
+     height="45.731155"
+     width="43.45237"
+     y="359.47229"
+     x="990.9552" />
+  <g
+     id="g2959"
+     transform="translate(798.69113,298.82695)">
+    <switch
+       id="switch2957">
+      <text
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
+         id="text2955"
+         font-size="12px"
+         y="87.984535"
+         x="204.2267">
+        <tspan
+           sodipodi:role="line"
+           id="tspan2953"
+           x="204.2267"
+           y="87.984535">TD</tspan>
+      </text>
+    </switch>
+  </g>
+  <rect
+     x="990.9552"
+     y="433.47229"
+     width="43.45237"
+     height="45.731155"
+     pointer-events="all"
+     id="rect3649"
+     style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="translate(798.69113,372.82695)"
+     id="g3659">
+    <switch
+       id="switch3657">
+      <text
+         x="204.2267"
+         y="87.984535"
+         font-size="12px"
+         id="text3655"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000">
+        <tspan
+           y="87.984535"
+           x="204.2267"
+           id="tspan3653"
+           sodipodi:role="line">TDs</tspan>
+      </text>
+    </switch>
+  </g>
+  <path
+     sodipodi:nodetypes="cccccc"
+     style="fill:none;stroke:#000000;stroke-width:1.333;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.66399999999999970;stroke-dashoffset:0;marker-end:url(#marker3865)"
+     inkscape:connector-curvature="0"
+     id="path3661"
+     pointer-events="stroke"
+     stroke-miterlimit="10"
+     d="m 1184.2082,395.52583 33.5152,1.43609 -0.4138,128.52965 -496.82506,0.71805 0.26036,-69.65016 116.14603,-0.71804" />
+  <path
+     sodipodi:nodetypes="ccccc"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.66399956,10.66399956;stroke-dashoffset:6.39839973"
+     inkscape:connector-curvature="0"
+     id="path3693"
+     pointer-events="stroke"
+     stroke-miterlimit="10"
+     d="m 1185.2577,319.8785 h 56.5391 l -0.4402,232.09903 -542.58223,-0.15377 0.27696,-168.90323" />
+  <g
+     transform="translate(619.42958,336.32063)"
+     id="g3701">
+    <switch
+       id="switch3699">
+      <text
+         x="505.72974"
+         y="207"
+         font-size="11px"
+         id="text3697"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000">
+        <tspan
+           y="207"
+           x="505.72974"
+           id="tspan3695"
+           sodipodi:role="line">ThingLink</tspan>
+      </text>
+    </switch>
   </g>
 </svg>
