@@ -847,6 +847,99 @@ img.wot-diagram {
                 </section>
             </section>
         </section>
+
+        <section id="exploration-service" class="normative">
+            <h2>Service</h2>
+            <p>
+             Any web service that can be referenced by a URL and return a TD with
+             appropriate authentication and access controls MAY act as an
+             exploration mechanism.  
+             This service does not need to be a Thing.
+             In particular, a TD can be hosted on an ordinary web server
+             and referenced by its URL.  
+            </p>
+            <p>
+             However, a service distributing a TD 
+             using the following protocols 
+             is subject to the following constraints:
+            </p> 
+            <dl>
+                <dt>HTTP</dt>
+                <dd>
+                        <p class="ednote" title="Redundant">
+                        The following two assertions on TLS and authentication
+                        are redundant and not as specfic as those provided elsewhere.
+                        Suggest replacing these here (and in all exploration sections) with appropriate
+                        references to security and privacy assertions given 
+                        in [[wot-architecture11]] and [[wot-thing-description11]]
+                        and in the Security Considerations and Privacy Considerations sections of this document.
+                        </p>
+                    <p>
+                        <span class="rfc2119-assertion" id="service-http-secure"> 
+                            An HTTP server providing a <a>TD</a> 
+                            SHOULD be using TLS.
+                        </span>
+                        <span class="rfc2119-assertion" id="service-http-access-control">
+                            An HTTP server providing a <a>TD</a> 
+                            SHOULD provide the resource only after performing necessary 
+                            authentication and authorization.
+                        </span>
+                    </p>
+                    <p>
+                        <span class="rfc2119-assertion" id="service-http-method"> 
+                            An HTTP server providing a <a>TD</a> 
+                            MUST serve that resource with a `GET` method.
+                        </span>
+                        <span class="rfc2119-assertion" id="service-http-resp">
+                            A successful response from
+                            an HTTP server providing a <a>TD</a> 
+                            MUST have a 200 (OK) status, contain a `application/td+json`
+                            Content-Type header, and the <a>TD</a> in the body.
+                        </span>
+                        <span class="rfc2119-assertion" id="service-http-alternate-content">
+                            An HTTP server providing a <a>TD</a> 
+                            MAY provide alternative representations through
+                            server-driven content negotiation, that is by honouring the 
+                            request's Accept header and responding with the supported
+                            TD serialization and equivalent Content-Type header.
+                        </span>
+                        <span class="rfc2119-assertion" id="service-http-alternate-language">
+                            An HTTP server providing a <a>TD</a> 
+                            MAY provide modified TDs or error responses 
+                            using a different default language after server-driven content negotiation, 
+                            that is by honouring the request's Accept-Language header.
+                        </span>
+                    </p>
+                    <p>
+                        <span class="rfc2119-assertion" id="service-http-head">
+                            An HTTP server providing a <a>TD</a> 
+                            MUST respond to `HEAD` requests by returning only the headers
+                            equivalent to those returned by a `GET` request to the same endpoint.
+                        </span>
+                        This enables clients to retrieve HTTP headers such as the Content-Length in advance 
+                        to know the size of the <a>TD</a> (in bytes) and decide on an efficient query strategy.
+                    </p>
+                    <p>
+                        In constrained environments, a single <a>TD</a> may be too large to process
+                        for the server or clients. 
+                        See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on 
+                        incremental transfer of the requested payload. 
+                    </p>
+                    
+                    <p>
+                        Error responses:  
+                        <ul>
+                            <li>
+                                401 (Unauthorized): No authentication.
+                            </li>
+                            <li>
+                                403 (Forbidden): Insufficient rights to the resource.
+                            </li>
+                        </ul>
+                    </p>
+                </dd>
+            </dl>
+        </section>
         
         <section id="exploration-self" class="normative">
             <h2>Self-description</h2>
