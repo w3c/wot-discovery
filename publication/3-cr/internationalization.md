@@ -30,7 +30,7 @@ Answers to short i18n review checklist [(from here)](http://w3c.github.io/i18n-a
 5. [x] _If the spec (or its implementation) sorts text_
 
     * Discovery results can be sorted, either by id or based on a specified field.
-    * TO DO: We need an assertion about this in our specification: https://github.com/w3c/wot-discovery/issues/316
+    * Sorting order is based on UTF-8 lexicographical order
 
 6. [ ] _If the spec (or its implementation) captures user input_
 
@@ -42,8 +42,7 @@ Answers to short i18n review checklist [(from here)](http://w3c.github.io/i18n-a
 
 8. [ ] _If the spec (or its implementation) allows any character encoding other than UTF-8._
 
-    * UTF-8 is required.
-    * TO DO: We need an assertion about this in our specification: https://github.com/w3c/wot-discovery/issues/281
+    * UTF-8 is required generally for text and JSON content that may include text.
 
 9. [ ] _If the spec (or its implementation) defines markup._
 
