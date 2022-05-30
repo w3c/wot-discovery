@@ -243,7 +243,7 @@ not searching actual data or historical data returned from IoT devices.
 ### No Required Query Language
 We considered three different query languages: JSONPath, XPath, and SPARQL.
 Unfortunately XPath, while it was recently extended to support JSON, does
-not yet have enough suitable implementations of version 1.3 supporting this extension.
+not yet have enough suitable implementations of version 3.1 supporting this extension.
 SPARQL is suitable for semantic search but too heavy a requirement for small IoT hubs to
 make mandatory.
 We would have liked to make JSONPath mandatory as it is good mix of functionality
