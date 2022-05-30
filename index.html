@@ -798,7 +798,7 @@ img.wot-diagram {
                 the Discoverer can't depend on the security metadata
                 held in TDs to know what kind of authentication and authorization information is needed.
                 If the Discoverer has no prior knowledge,
-                it have to depend on existing security negotation support to
+                it will have to depend on existing security negotation support to
                 bootstrap access, at least to the TD itself.
                 </p>
                 <p>
@@ -894,8 +894,9 @@ img.wot-diagram {
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
-                If a "302 (Found)" or "303 (See Other)" response code is provided during security bootstrapping, 
-                the OAuth2 <code>code</code> flow MUST be used,
+                If the OAuth2 <code>code</code> flow is used during security bootstrapping, the
+                "302 (Found)" or "303 (See Other)" response code MUST be used for redirection
+                to the authentication server,
                 with access credentials eventually being represented with bearer tokens.
                 </span>
                 Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
@@ -944,8 +945,9 @@ img.wot-diagram {
                 <dd>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-access-control">
-                            The server MUST respond with the requested <a>TD</a> only after performing necessary 
-                            authentication and authorization.
+                            If authentication and authorization are necessary, 
+                            they MUST be performed before
+                            the server responds with the requested <a>TD</a>.
                         </span>
                         Note that security bootstrapping [[#exploration-secboot]] will generally
                         be needed. 
