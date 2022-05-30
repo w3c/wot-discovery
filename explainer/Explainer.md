@@ -252,7 +252,7 @@ IETF but the current draft JSONPath draft proposal is missing some key features 
 
 In the long run (in a future specification cycle) we would like to add a standardized
 version of JSONPath as a required query language so for now we have only specified an optional 
-interface for SPARQL 1.1.  Interfaces for XPath 1.3 and JSONPath
+interface for SPARQL 1.1.  Interfaces for XPath 3.1 and JSONPath
 queries are provided but they are informational only.
 
 There are also use cases for small directories with static content (e.g. on
