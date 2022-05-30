@@ -50,7 +50,7 @@ We model Thing Description Directories as a special kind of Thing.
 ## Use Cases and Requirements
 In general, WoT Use Cases and Requirements have been collected from a large number 
 of participants and are collected in the 
-[WoT Use Cases and Requirements document](https://w3c.github.io/wot-usecases/).
+[WoT Use Cases and Requirements document](https://www.w3.org/wot-usecases/).
 In the following we discuss use cases and 
 extract a few of the most critical requirements
 driving the design of WoT Discovery.
