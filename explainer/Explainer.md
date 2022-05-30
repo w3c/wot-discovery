@@ -119,8 +119,8 @@ the WoT Architecture document discusses when and where secure transport such as 
 should be used, and when various access control mechanisms should be used.
 The problem is complicated by the fact that we often want to access IoT devices
 on a LAN where the Certificate Authority (CA) system available on the rest of the internet is not easy
-to apply.  In general we require strong controls on the distribution of data from
-WoT Things in general and WoT Discovery results in particular when access is public, and 
+to apply.  In general, we require strong controls on the distribution of data from
+WoT Things and WoT Discovery results when access is public, and 
 best-effort controls on private networks such as LANs.
 
 #### Key Requirement: Scalability
