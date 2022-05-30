@@ -322,7 +322,7 @@ data; both of these may be relevant to future work.
 
 ## Implementations
 Implementations are described in more detail in the WoT Discovery Implementation Report,
-but in summary the following four implementations of the WoT Discovery TDD service
+but in summary the following implementations of the WoT Discovery TDD service
 has been performed:
 - LogiLabs TDD - An implementation supporting SPARQL queries, sponsored by Siemens.
 - WoT Hive TDD - An implementation supporting SPARQL queries, sponsored by Universidad Politécnica de Madrid.
