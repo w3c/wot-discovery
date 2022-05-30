@@ -133,7 +133,7 @@ as described in the next section.
 The first-contact mechanisms can be chosen based on the scenario (i.e.
 broadcast mDNS-SD might be suitable on a LAN, a search engine would be suitable
 for a Smart City), while the detailed search mechanisms are RESTful web services
-simple enough to implement on individual IoT devices but with good potential for scalability for
+simple enough to implement on individual IoT devices but with good potential for scalability on
 large cloud-based systems.
 
 ## Architecture
