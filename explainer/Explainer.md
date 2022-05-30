@@ -143,7 +143,7 @@ only to verified authorized parties.  Taken together, WoT Discovery should enabl
 the distribution of TDs only to verified and authorized parties.
 
 The WoT Discovery architecture is designed to address these challenges.
-We use a two-phase approach.  In the first "first-contact" phase, which we call "Introductions",
+We use a two-phase approach.  In the first "first-contact" phase, which we call "Introduction",
 we support any number of open discovery mechanisms whose results, however,
 are constrained to simple URLs.  These URLs should not contain any metadata themselves.
 Instead, they have to be resolved into detailed-search "Exploration" services which can be used
