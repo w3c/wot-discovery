@@ -146,12 +146,14 @@ The WoT Discovery architecture is designed to address these challenges.
 We use a two-phase approach.  In the first "first-contact" phase, which we call "Introduction",
 we support any number of open discovery mechanisms whose results, however,
 are constrained to simple URLs.  These URLs should not contain any metadata themselves.
-Instead, they have to be resolved into detailed-search "Exploration" services which can be used
+Instead, they have to be resolved into "Exploration" services which can be used
 to retreive metadata. Exploration services, however, are tasked with 
 authenticating and checking the authorizations of requests, and protecting
 queries and the transmission of results, and can use best
 practices from web services to do so, including (for example) OAuth and TLS.
-Exploration services implement a scalable RESTful web API.
+One exploration service provides a directory supporting a scalable RESTful web API
+allowing for detailed search of metadata.  Another exploration service allows
+devices to self-describe.
 
 ### Introduction Mechanisms
 Introduction mechanisms allow for ecosystem integration and using different "first contact"
