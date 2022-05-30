@@ -797,11 +797,14 @@ img.wot-diagram {
                 have access to the TD if suitable authentication credentials are not provided, 
                 the Discoverer can't depend on the security metadata
                 held in TDs to know what kind of authentication and authorization information is needed.
-                Instead, we have to depend on existing security negotation support in HTTP to
+                If the Discoverer has no prior knowledge,
+                it have to depend on existing security negotation support to
                 bootstrap access, at least to the TD itself.
                 </p>
                 <p>
-                Most of the HTTP negotiation processes assume there is a human user in the loop,
+                We define the following for the HTTP protocol, for which security negotiation
+                processes already exist.
+                However, most of the HTTP negotiation processes assume there is a human user in the loop,
                 but this is also appropriate for WoT Discovery, since this problem will
                 typically occur when a user is trying to access a public WoT service or perform
                 integration of a new device. In this case the purpose of negotiation is to
@@ -812,62 +815,82 @@ img.wot-diagram {
                 automate system management it would be best to pre-establish what credentials (and
                 authentication mechanisms) are needed to access the relevant exploration services
                 and security bootstrapping would not be required.  
+                For this reason security bootstrapping is not a mandatory feature, and can
+                be omitted or disabled on devices that are to be used with pre-established
+                security mechanisms.
                 </p>
-                <p>Security bootstrapping may only be necessary on the <em>first</em> access to
+                <p>Security bootstrapping may also only be necessary on the <em>first</em> access to
                 a TD. Once a Discoverer has determined what credentials and authentication mechanism
-                are required to access a particular exploration service, they can retain them
-                and use them for future accesses.
+                are required to access a particular exploration service, they can retain this information
+                and attempt to use them for future accesses.
+                Note however that depending on the security scheme used, credentials themselves
+                may expire and may need to be restablished periodically.
                 </p>
                 <p>
                 <span class="rfc2119-assertion" id="security-bootstrapping-endpoints">Security
-                bootstrapping MUST be provided on any HTTP endpoint that serves a TD.</span>
+                bootstrapping MAY be provided on any HTTP endpoint that serves a TD.</span>
+<!--
                 This applies not only to endpoints serving TDs from self-describing Things,
-                but also to endpoints that retrieve single TDs in <a>WoT Thing Description Directory</a>.  
+                but also to endpoints that retrieve single TDs, 
+                including those in a <a>WoT Thing Description Directory</a>.  
+-->
+                As mentioned above, disabling or omitting security bootstrapping is permissible if 
+                security mechanisms have been previously established.  For example, if an installation 
+                wants to use the OAuth2 <code>client</code> flow and provide potential clients with
+                an address of an authentication server to use in advance, then security bootstrapping
+                can be disabled, since the alternative would be to include other (and potentially
+                weaker) forms of authentication. 
                 </p>
-                <p>In the HTTP protocol, authentication can generally be negotiated by
+                <p>In the HTTP protocol, the authentication and authorization mechanisms to be used can generally be negotiated by
                 the HTTP server returning a "401 (Unauthorized)" response code in conjunction with
-                a `WWW-Authenticate` header that specifies the information required for
-                authentication.  
+                a `WWW-Authenticate` header that specifies the information required.
                 To gain access, the client then needs to make another request 
                 with the necessary information.
                 <a href="https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml">There 
                 are several authentication schemes registered with IANA.</a>
-                Not all of these are in wide use, some are experimental, and there is only
+                However, not all of these are in wide use, some are experimental, and there is only
                 partial overlap with the schemes supported by TDs.
-                In addition, note that the <code>oauth</code> scheme in the IANA registration refers
+                Also, note that the <code>oauth</code> scheme in the IANA registration refers
                 to OAuth1, which is deprecated, so it should not be used.
-                The relevant OAuth2 flow, the <code>code</code> flow, instead 
+                The relevant OAuth2 flow, the <code>code</code> flow, instead of a 401 response
                 begins with a redirection to an authentication
                 server, eventually resulting in credentials (bearer tokens in the case of WoT)
                 that can be used for access.
-                To enable security bootstrapping on a wide variety of devices as well
+                </p>
+                <p>
+                Given these considerations,
+                to enable security bootstrapping on a wide variety of devices as well
                 as on browsers, the following constraints should be observed:
                 </p>
                 <ul>
                 <li><span class="rfc2119-assertion" id="exploration-secboot-401">
-                After initial contact with an exploration service using the URL provided
+                If security bootstrapping is enabled on an exploration service,
+                after initial contact using the URL provided
                 by an introduction mechanism, the exploration service
                 MUST reply with either an HTTP "401 (Unauthorized)" response code 
                 or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
-                some reason, it can ignore the request or reply with another code such as 404 or 403.
-                Also, if no authentication is required, equivalent to the 
-                <code>nosec</code> scheme, then the 
+                some reason, or if security bootstrapping is disabled,
+                it can ignore the request or reply with another code such as 404 or 403.
+                Also, if no authentication is required, then the 
                 system can reply immediately with the requested TD as if authentication information
                 were provided.  
                 Bypassing authentication however is only
                 appropriate if the TD served as a response does not contain and cannot be used to infer 
-                Personally Identifiable Information.
+                Personally Identifiable Information; see <a href="#privacy-considerations"></a>.
                 </li>
                 <li><span class="rfc2119-assertion" id="exploration-secboot-auth">
-                A 401 HTTP response from an exploration service 
+                If security bootstrapping is enabled on an exploration service
+                using one of the following IANA-registered
+                HTTP Authentication Schemes: Basic, Bearer, or Digest,
+                then a 401 HTTP response 
                 at an API endpoint intended to serve a TD
                 MUST include a <code>WWW-Authenticate</code> header
                 and any other headers
-                describing the required authorizations using one of the following IANA-registered
-                HTTP Authentication Schemes: Basic, Bearer, or Digest.</span>
+                describing the required authorizations. 
+                </span>
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
@@ -878,28 +901,22 @@ img.wot-diagram {
                 Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
                 <code>client</code> and <code>device</code>, both expect the initial access
                 to be to the authentication server, not the final endpoint, and so cannot be
-                used in this case.
-                These requirements apply only to endpoints of exploration services that need
+                used via security bootstrapping.
+                These requirements also apply only to endpoints of exploration services that might need
                 to support security bootstrapping, that is those that serve TDs,
                 not to other endpoints that might be
                 provided by the same exploration service.  
-                In particular, it applies
+                In particular, these requirements apply
                 only to URLs that can be referenced by introduction mechanisms, not to (for example)
                 event subscription endpoints.
                 </li>
-                <li><span class="rfc2119-assertion" id="exploration-secboot-reqd-auth">Any
-                endpoint of an exploration service that can serve a TD MUST support
-                at least one of the security schemes supported by security bootstrapping.</span>
-                This is a logical consequence of the other requirements above.  This requirement
-                does not preclude the exploration endpoint supporting additional security schemes
-                more appropriate for a given use case (e.g. automation) if necessary.
-                </li>
                 </ul>
                 <p>
-                There are Security and Privacy Considerations in [[wot-architecture11]] 
-                and [[wot-thing-description11]] that are
-                relevant regarding when authentication is required for access
+                There are relevant Security and Privacy Considerations in [[wot-architecture11]] 
+                and [[wot-thing-description11]] 
+                regarding when authentication is required for access
                 to TDs and the use of secure transport.  
+                See also [[[#privacy-considerations]]].
                 In summary, secure transport (e.g. TLS) is required for public services and strongly recommended
                 even on private networks (even if there is no authentication requirement, to
                 protect the confidentiality of queries), and serving requests without authentication and authorization should only be considered 
