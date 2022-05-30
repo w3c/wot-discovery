@@ -34,7 +34,7 @@ and access to public IoT services.
 For a general introduction to the Web of Things (WoT) Architecture, including a description
 of all normative and informative deliverables, please see the 
 [WoT Architecture explainer](https://github.com/w3c/wot-architecture/blob/main/explainer/explainer11.md)
-and the [WoT Architecture document](https://w3c.github.io/wot-architecture/).
+and the [WoT Architecture document](https://www.w3.org/TR/wot-architecture11/).
 
 Since the purpose of the WoT Discovery deliverable is to normatively
 define a mechanism to distribute WoT Thing Descriptions,
