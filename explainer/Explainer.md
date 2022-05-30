@@ -34,11 +34,11 @@ and access to public IoT services.
 For a general introduction to the Web of Things (WoT) Architecture, including a description
 of all normative and informative deliverables, please see the 
 [WoT Architecture explainer](https://github.com/w3c/wot-architecture/blob/main/explainer/explainer11.md)
-and the [WoT Architecture document](https://w3c.github.io/wot-architecture/).
+and the [WoT Architecture document](https://www.w3.org/TR/wot-architecture11/).
 
 Since the purpose of the WoT Discovery deliverable is to normatively
 define a mechanism to distribute WoT Thing Descriptions,
-the [WoT Thing Description 1.1 document](https://w3c.github.io/wot-thing-description/) is
+the [WoT Thing Description 1.1 document](https://www.w3.org/TR/wot-thing-description11/) is
 especially relevant.
 The WoT Discovery specification also includes a Thing Model,
 which normatively defines many aspects of the Thing Description Directory service specified
@@ -50,7 +50,7 @@ We model Thing Description Directories as a special kind of Thing.
 ## Use Cases and Requirements
 In general, WoT Use Cases and Requirements have been collected from a large number 
 of participants and are collected in the 
-[WoT Use Cases and Requirements document](https://w3c.github.io/wot-usecases/).
+[WoT Use Cases and Requirements document](https://www.w3.org/wot-usecases/).
 In the following we discuss use cases and 
 extract a few of the most critical requirements
 driving the design of WoT Discovery.
@@ -324,7 +324,7 @@ data; both of these may be relevant to future work.
 
 ## Implementations
 Implementations are described in more detail in the WoT Discovery Implementation Report,
-but in summary the following four implementations of the WoT Discovery TDD service
+but in summary the following implementations of the WoT Discovery TDD service
 has been performed:
 - LogiLabs TDD - An implementation supporting SPARQL queries, sponsored by Siemens.
 - WoT Hive TDD - An implementation supporting SPARQL queries, sponsored by Universidad Politécnica de Madrid.
