@@ -172,7 +172,7 @@ is still needed before detailed metadata is provided.
 
 ### Exploration Mechanisms
 Exploration mechanisms come in two different forms: directories and self-description.
-Both of these are HTTP-based RESTful web services and support existing mechanisms
+Both of these have HTTP-based RESTful web services and support existing mechanisms
 for authentication, authorization, and secure transport.
 
 A WoT Thing Description Directory (TDD) is an HTTP-based Thing itself.
