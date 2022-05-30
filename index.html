@@ -989,50 +989,63 @@ img.wot-diagram {
             <h2>Self-description</h2>
             <p>
                 Self-description is an exploration mechanism in which a <a>Thing</a>
-                hosts its own <a>TD</a> and exposes it at an endpoint whose 
-                URL may be advertised via one of the Introduction mechanisms [[[#introduction-mech]]].
-                Note that <a>Thing Description Directories</a> [[#exploration-directory]] are
-                always self-describing.
-            </p>
-            <p> 
-                Self-description using the following protocols must be according
-                to the given specification:
+                hosts its own <a>TD</a> and makes it available via a URL.
+            </p> 
+            <p>
+             However, a Thing providing a self-description
+             using the following protocols 
+             is subject to the following constraints:
             </p>
             <dl>
                 <dt>HTTP</dt>
                 <dd>
+                        <p class="ednote" title="Redundant">
+                        The following two assertions on TLS and authentication
+                        are redundant and not as specific as those provided elsewhere.
+                        Suggest replacing these here (and in all exploration sections) with appropriate
+                        references to security and privacy assertions given 
+                        in [[wot-architecture11]] and [[wot-thing-description11]]
+                        and in the Security Considerations and Privacy Considerations sections of this document.
+                        </p>
                     <p>
+                        <span class="rfc2119-assertion" id="self-http-secure"> 
+                            An HTTP-based self-description server SHOULD use TLS when serving the requests.
+                        </span>
                         <span class="rfc2119-assertion" id="self-http-access-control">
                             If authentication and authorization are necessary, 
                             they MUST be performed before
                             the server responds with the requested <a>TD</a>.
                         </span>
-                        Note that security bootstrapping [[#exploration-secboot]] will generally
-                        be needed. 
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-method"> 
-                            The HTTP server MUST serve the <a>TD</a> with a `GET` method.
+                            An HTTP-based self-description server
+                            MUST serve the <a>TD</a> with a `GET` method.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-resp">
-                            A successful response MUST have 200 (OK) status, contain `application/td+json`
+                            A successful response from
+                            an HTTP-based self-description server
+                            MUST have 200 (OK) status, contain `application/td+json`
                             Content-Type header, and the <a>TD</a> in body.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
-                            The self-description server MAY provide alternative representations through
-                            server-driven content negotiation, that is by honouring the 
+                            An HTTP-based self-description server
+                            MAY provide alternative representations through
+                            server-driven content negotiation, that is by honoring the 
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
                         </span>
                         <span class="rfc2119-assertion" id="self-http-alternate-language">
-                            The self-description server MAY provide modified TDs or error responses 
+                            An HTTP-based self-description server
+                            MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
-                            that is by honouring the request's Accept-Language header.
+                            that is by honoring the request's Accept-Language header.
                         </span>
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="self-http-head">
-                            The HTTP server MUST respond to `HEAD` requests by returning only the headers
+                            An HTTP-based self-description server
+                            MUST respond to `HEAD` requests by returning only the headers
                             equivalent to those returned by a `GET` request to the same endpoint.
                         </span>
                         This enables clients to retrieve HTTP headers such as the Content-Length in advance 
