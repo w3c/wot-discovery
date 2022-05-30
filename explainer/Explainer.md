@@ -164,7 +164,9 @@ restricted to a single LAN, such as mDNS in combination with DNS-SD.  If we simp
 want to tell someone where to go, we can just use written URLs or QR codes.
 
 The overall security and privacy of WoT Discovery does not depend on Introduction
-mechanisms being secure.  Introductions must *only* distribute URLs, and those URLs should
+mechanisms being secure.  
+Other than some optional and very generic information about exploration service type,
+introductions must *only* distribute URLs, and those URLs should
 not have metadata embedded in them.  Additional authentication and authorization
 is still needed before detailed metadata is provided.
 
