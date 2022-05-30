@@ -194,7 +194,7 @@ the URL for self-description on a Thing to be guessed using a well-known
 URL convention based only on the base IP address of the Thing.  In this
 exploration mechanism, however, the Thing itself is responsible for managing
 authentication and authorization, so it is only suitable for a small number
-of users and for managing a small number of devices.  This is also an optional
+of users and for managing a small number of devices.  This is an optional
 feature.  It is also worth noting that it only applies to "greenfield"
 devices built from the outset to support the Web of Things.  For "brownfield"
 devices the TD describing how to access a devices must be obtained elsewhere.
