@@ -257,53 +257,110 @@ img.wot-diagram {
     </section>
     <section id="architecture" class="informative">
         <h1>Architecture</h1>
-        <a href="#discovery-overview"></a> shows an overview of discovery process.
+        <p>
+        <a href="#discovery-overview"></a> shows an overview of the WoT Discovery process.
+	      Discovery uses a two-phase architecture to resolve the competing requirements to be
+        both open and to restrict access to metadata to authorized entities.
+	      In the first phase, one or more of a set of relatively open
+        "Introduction" mechanisms may be used to generate a set of candidate URLs.  
+        These URLs do not themselves contain metadata,
+	      but are used in the second stage to reference "Exploration"
+        services that can actually provide metadata, after authentication,
+        in the form of <a>Thing Descriptions</a>.
+       </p>
         <figure id="discovery-overview">
             <img src="images/overview.png"
                 srcset="images/overview.svg"
                 class="wot-diagram"
                 alt="Discovery process overview" />
-            <figcaption>Discovery process overview</figcaption>
+            <figcaption>Discovery architecture overview.  
+              A set of open Introduction mechanisms provides a set of URLs, which
+              point at Exploration services that only provide metadata (TDs) after suitable
+              authentication.  Thing Links and Thing Description Directories provide
+              additional flexibility but retrieving further results from these is
+              at the discretion of the application.
+            </figcaption>
         </figure>
-	<p>
-	The WoT discovery process is designed using a two-phase approach.
-	In the first phase, one or more of a set of "Introduction" mechanisms may be used to 
-	generate a set of candidate URLs.  These URLs do not themselves contain metadata,
-	but are used in the second stage, "Exploration", to actually fetch metadata.
-	The intention is that Introductions are relatively open and can support any
-	mechanism that can return a URL, including simply entering URLs directly.
-	Introductions, however, do not include any security or privacy controls and
-	so should not provide metadata directly.  Instead, the provided URLs are followed
-	to "Exploration" mechanisms that will actually provide metadata but allow for
-	suitable security and privacy controls.
+        <p>
+	       The intention is that Introduction mechanisms are relatively open "first contact"
+         mechanisms to provide a starting point for the rest of the Discovery process.
+         In this document we specify details on several Introduction
+         mechanisms, suitable for different use cases, including both local and non-local
+         scenarios, but Introductions can in fact be provided any mechanism that can return a URL.
+	       Introductions, however, do not include any security or privacy controls and
+	       so should not provide metadata directly. 
+         Instead, the URLs provided by Introduction mechanisms reference
+	       "Exploration" services.  Exploration services actually do provide metadata,
+         but only after suitable authentication and access controls have been applied.
         </p>
-	<p>
-	Note that the discovery process can produce a <em>set</em> of URLs following 
-	its Introduction phase, even if only one Introduction mechanism is used,
-	and the final output after the Exploration phase
-	can be a <em>set</em> of Thing Descriptions.
-	Generally each URL provided by the Introduction phase points at a Thing Description,
-	and in the simplest case this is in fact the Thing Description of a Thing that
-	represents an IoT device.  In the case of self-describing Things the URL might
-	even point directly at the Thing which can serve its own Thing Description,
-	but in general Thing Descriptions might also be provided by other entities.
-	However, there are also two special cases that allow for more flexibility:
-	</p>
-	<ul>
-	<li>A given Thing Description may in fact describe a Thing Description Directory service.  
-	A Thing Description Directory service (which is still a Thing) maintains a (usually dynamic) list of Thing Descriptions
-	which can be fetched and added to the discovery set (the set can be narrowed by
-	using query filters when fetching TDs from a directory).
-	</li>
-	<li>
-    The second special case is a <a href="#exploration-td-type-thingdirectory">Thing Link</a>.  This is also a Thing Description,
-    but rather than describing a Thing directly holds a link to
-    a Thing Descriptions hosted elsewhere.
-	A Thing Description Directory can also store Thing Links
-	which can redirect to other Thing Description Directories, allowing for a linked
-	directory structure.
-	</li>
-	</ul>
+	      <p>
+	       The Discovery process can produce a <em>set</em> of URLs as output from
+	       its Introduction phase, even if only one Introduction mechanism is used
+         (some Introduction mechanisms can themselves return multiple URLs).
+	       The final output after the Exploration phase
+	       can also be a <em>set</em> of Thing Descriptions.
+        </p>
+        <p>
+	       Each URL provided by the Introduction phase always points at an 
+         Exploration service endpoint that will return a single Thing Description.
+         In the case of self-describing Things an Introduction URL might
+	       even point directly at an endpoint provided by a 
+         Thing serving its own Thing Description.
+        </p>
+        <p>
+	       In general, however, Thing Descriptions might also be provided by other entities.
+         For example, 
+        </p>
+         <ul>
+         <li>brownfield devices not designed with the WoT 
+             specification in mind will not be capable of serving their
+             own Thing Descriptions; 
+         </li>
+         <li>battery-powered devices may not be online
+             most of the time; and 
+         </li>
+         <li>some devices may not be powerful enough to manage and 
+             serve TDs directly.  
+         </li>
+         </ul>
+        <p>
+         The Thing Description for such Things should be provided
+         by separate services.
+        </p>
+        <p>
+	       This document specifies two special cases that allow for more flexibility:
+	      </p>
+	      <ul>
+	        <li>A Thing Description referenced by an Introduction URL 
+            may describe a <a href="#exploration-td-type-thingdirectory">Thing Description Directory</a> service.  
+	          A Thing Description Directory service (which is still a Thing) 
+            maintains a (possibly dynamic) database of Thing Descriptions.
+            Thing Description Directories that maintain large numbers of 
+            Thing Descriptions may also support queries that can be used to 
+            selectively retrieve Thing Descriptions.
+	        </li>
+	        <li>
+            The second special case is a 
+            <a href="#exploration-td-type-thinglink">Thing Link</a>.  
+            A Thing Link is also a Thing Description,
+            but rather than describing a Thing directly, it holds a link to
+            a Thing Description hosted elsewhere.
+	          A Thing Description Directory can also store Thing Links
+	          which can redirect to other Thing Description Directories, 
+            allowing for a linked directory structure.
+	        </li>
+	      </ul>
+        <p>
+         It is <em>not</em> mandatory for the Discovery process to retrieve
+         the contents of Thing Description Directories and return them as 
+         part of the results, 
+         because in general this might result in a huge set of results.  
+         Instead the application
+         should scan the results for Thing Description Directory TDs and
+         decide whether to retrieve TDs from them, possibly selectively.
+         Likewise, it is not required to follow Thing Links automatically;
+         instead the application may choose to follow them selectively.
+        </p>
     </section>
     <section id="discoverer-process" class="normative">
         <h1>Discoverer Process</h1>
