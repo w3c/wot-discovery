@@ -43,8 +43,8 @@
      id="namedview310"
      showgrid="false"
      inkscape:zoom="2.7853492"
-     inkscape:cx="847.16804"
-     inkscape:cy="397.6501"
+     inkscape:cx="334.73416"
+     inkscape:cy="396.93206"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -701,7 +701,7 @@
      x="22.957409" />
   <g
      id="g156"
-     transform="translate(11.851563,424.05402)">
+     transform="translate(15.851563,432.05402)">
     <switch
        id="switch154">
       <text
@@ -712,14 +712,9 @@
          x="17.998047">
         <tspan
            sodipodi:role="line"
-           id="tspan7408"
-           x="17.998047"
-           y="86">CoAP multicast/broadcast:</tspan>
-        <tspan
-           sodipodi:role="line"
            id="tspan7410"
            x="17.998047"
-           y="101">GET /.well-known/core</tspan>
+           y="86">GET /.well-known/core</tspan>
       </text>
     </switch>
   </g>
@@ -2021,7 +2016,7 @@
            y="142"
            x="527"
            id="tspan1380"
-           sodipodi:role="line">Thing Description Service</tspan>
+           sodipodi:role="line">Thing Description Server</tspan>
       </text>
     </switch>
   </g>
