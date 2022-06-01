@@ -1025,9 +1025,10 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="self-http-resp">
                             A successful response from
                             an HTTP-based self-description server
-                            MUST have 200 (OK) status, contain `application/td+json`
-                            Content-Type header, and the <a>TD</a> in body.
-                        </span>
+                            MUST have 200 (OK) status and the <a>TD</a> in body.</span>
+                        <span class="rfc2119-assertion" id="self-http-resp-content-type">
+                            A successful response with JSON serialization MUST set `application/json`
+                            or more specifically, `application/td+json` Content-Type header.</span>
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
                             An HTTP-based self-description server
                             MAY provide alternative representations through
@@ -1537,9 +1538,13 @@ img.wot-diagram {
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/td+json`
-                                Content-Type header, and the requested TD in body.
+                                A successful response MUST have 200 (OK) status and the requested TD in body.
                             </span>
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST set `application/json`
+                                or more specifically, `application/td+json` Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                             <p>
                                 The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-api-spec]]].
@@ -1804,10 +1809,13 @@ img.wot-diagram {
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-things-list-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                Content-Type header, and an array of TDs in the body.
+                                A successful response MUST have 200 (OK) status and an array of TDs in the body.
                             </span>
-
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST set `application/json`
+                                or more specifically, `application/ld+json` Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                         </p>
 
                         <p>
