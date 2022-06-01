@@ -158,7 +158,7 @@ img.wot-diagram {
            services, which provide metadata but only after secure authentication
            and authorization.  This document normatively defines three Exploration
            services: for distributing a single WoT Thing Description from a regular
-           web service; for WoT Thing self-description providing a single 
+           web server; for WoT Thing self-description providing a single 
            WoT Thing Description; and a searchable WoT Thing Description Directory
            service for collections of Thing Descriptions.
            A variety of Introduction services are also described and where
@@ -225,7 +225,7 @@ img.wot-diagram {
            collections of WoT Thing Descriptions that can be dynamically registered by Things or
            entities acting on their behalf.  The WoT Discovery mechanism however also supports
            self-description by individual Things and distribution of single TDs from regular
-           web services.  One issue we address is how to distinguish
+           web servers.  One issue we address is how to distinguish
            between these approaches.
            Finally, we discuss some security and privacy considerations, including a set of 
            potential risks and mitigations.
@@ -290,7 +290,7 @@ img.wot-diagram {
          mechanisms to provide a starting point for the rest of the Discovery process.
          In this document we specify details on several Introduction
          mechanisms, suitable for different use cases, including both local and non-local
-         scenarios, but Introductions can in fact be provided by any mechanism that can return a URL.
+         scenarios, but Introduction mechanisms can in fact be provided by any mechanism that can return a URL.
 	       Introductions, however, do not include any security or privacy controls and
 	       so should not provide metadata directly. 
          Instead, the URLs provided by Introduction mechanisms reference
@@ -308,7 +308,7 @@ img.wot-diagram {
 	       Each URL provided by the Introduction phase always points at an 
          Exploration service endpoint that will return a single Thing Description.
 	       In the simplest case this is the Thing Description of a Thing 
-	       describing an IoT endpoint device.  
+	       describing an IoT device.  
          In the case of self-describing Things an Introduction URL might
 	       even point directly at an endpoint provided by a 
          Thing serving its own Thing Description.
