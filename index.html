@@ -1029,6 +1029,10 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="self-http-resp-content-type">
                             A successful response with JSON serialization MUST set `application/json`
                             or more specifically, `application/td+json` Content-Type header.</span>
+                        <span class="rfc2119-assertion" id="self-http-resp-json">
+                            The default serialization format for successful response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
+                        The JSON-LD syntax allows semantic extensions and processing.
                         <span class="rfc2119-assertion" id="self-http-alternate-content">
                             An HTTP-based self-description server
                             MAY provide alternative representations through
