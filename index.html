@@ -1027,7 +1027,7 @@ img.wot-diagram {
                             an HTTP-based self-description server
                             MUST have 200 (OK) status and the <a>TD</a> in body.</span>
                         <span class="rfc2119-assertion" id="self-http-resp-content-type">
-                            A successful response with JSON serialization MUST set `application/json`
+                            A successful response with JSON serialization MUST contain `application/json`
                             or more specifically, `application/td+json` Content-Type header.</span>
                         <span class="rfc2119-assertion" id="self-http-resp-json">
                             The default serialization format for successful response bodies MUST be
@@ -1543,7 +1543,7 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status and the requested TD in body.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
-                                A successful response with JSON serialization MUST set `application/json`
+                                A successful response with JSON serialization MUST contain `application/json`
                                 or more specifically, `application/td+json` Content-Type header.</span>
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
@@ -1814,7 +1814,7 @@ img.wot-diagram {
                                 A successful response MUST have 200 (OK) status and an array of TDs in the body.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
-                                A successful response with JSON serialization MUST set `application/json`
+                                A successful response with JSON serialization MUST contain `application/json`
                                 or more specifically, `application/ld+json` Content-Type header.</span>
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
