@@ -1033,9 +1033,8 @@ img.wot-diagram {
                             An HTTP-based self-description server
                             MAY provide alternative representations through
                             server-driven content negotiation, that is by honoring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </span>
+                            request's Accept and Accept-Encoding headers and responding with the supported
+                            TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
                         <span class="rfc2119-assertion" id="self-http-alternate-language">
                             An HTTP-based self-description server
                             MAY provide modified TDs or error responses 
@@ -1375,14 +1374,6 @@ img.wot-diagram {
                 </p>
 
                 <p>
-<!--
-                  <span class="rfc2119-assertion" id="tdd-http-alternate-content">
-                     A Directory server MAY provide alternative representations through
-                     server-driven content negotiation, that is by honouring the 
-                     request's Accept header and responding with the supported
-                     TD serialization and equivalent Content-Type header.
-                  </span>
--->
                   <span class="rfc2119-assertion" id="tdd-http-alternate-language">
                      A Directory server MAY provide modified TDs or error responses using a different
                      default language after server-driven content negotiation, 
@@ -1436,11 +1427,18 @@ img.wot-diagram {
                                     processing.</span>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-things-additional-representation">
-                                    Directories MAY accept additional representations based on request's indicated
-                                    Content-Type or Content-Encoding, and provide additional representations through
-                                    server-driven content negotiation.</span>
-                                This is useful for applications that require serializations other than JSON.
+                                <span class="rfc2119-assertion" id="tdd-things-representation-alternate-input">
+                                    Directories MAY accept alternative representations based on request's indicated
+                                    Content-Type or Content-Encoding headers.</span>
+                                This is useful for applications that provide serializations other than JSON.
+                            </li>
+                            <li>                       
+                                <span class="rfc2119-assertion" id="tdd-http-representation-alternate-output">
+                                    Directories MAY provide alternative representations through
+                                    server-driven content negotiation, that is by honouring the 
+                                    request's Accept and Accept-Encoding headers and responding with the supported
+                                    TD representation and equivalent Content-Type and Content-Encoding headers.</span>
+                                This is useful for applications that expect serializations other than JSON.
                             </li>
                         </ul>
                     </p>
