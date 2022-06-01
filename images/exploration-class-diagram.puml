@@ -18,7 +18,6 @@ note left: Thing Description (TD)
 Thing <|-- SelfDesc
 Server <|-- SelfDesc
 Thing <|-- Directory
-SelfDesc "1" --> "1  " TD: provides
 Server "1" --> "1  " TD: provides
 Directory "1   " --> "   0..*" TD: contains
 
