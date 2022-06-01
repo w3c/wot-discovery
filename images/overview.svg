@@ -42,9 +42,9 @@
      inkscape:window-height="1818"
      id="namedview310"
      showgrid="false"
-     inkscape:zoom="2.7853492"
-     inkscape:cx="334.73416"
-     inkscape:cy="396.93206"
+     inkscape:zoom="1.3926746"
+     inkscape:cx="857.68155"
+     inkscape:cy="396.21402"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -619,16 +619,6 @@
      width="595.49823"
      y="472.66492"
      x="2.2627001" />
-  <rect
-     style="fill:none;stroke:#00c104;stroke-width:4.38199997;stroke-miterlimit:4;stroke-dasharray:13.146, 4.382;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect14"
-     pointer-events="all"
-     ry="17.608261"
-     rx="18.623728"
-     height="107.11926"
-     width="146.59537"
-     y="302.01813"
-     x="808.3736" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none"
      inkscape:connector-curvature="0"
@@ -730,7 +720,7 @@
      x="838.43738" />
   <g
      id="g208"
-     transform="translate(296.68996,149.41053)">
+     transform="translate(296.68996,141.41053)">
     <switch
        id="switch206">
       <text
@@ -744,6 +734,21 @@
            id="tspan8050"
            x="586"
            y="191">Thing</tspan>
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="206"
+           id="tspan2472" />
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="221"
+           id="tspan2474">(Self</tspan>
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="236"
+           id="tspan2476">Description)</tspan>
       </text>
     </switch>
   </g>
@@ -819,27 +824,6 @@
      width="180"
      y="281.91052"
      x="808.19" />
-  <g
-     id="g268"
-     transform="translate(280.68996,151.41053)"
-     style="fill:#00c104;fill-opacity:1">
-    <switch
-       id="switch266"
-       style="fill:#00c104;fill-opacity:1">
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
-         id="text264"
-         font-size="12px"
-         y="142"
-         x="527">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8002"
-           x="527"
-           y="142">Self-Description</tspan>
-      </text>
-    </switch>
-  </g>
   <rect
      style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184054;stroke-dashoffset:0"
      id="rect270"
@@ -1768,7 +1752,7 @@
      ry="17.608261"
      pointer-events="all"
      id="rect2499"
-     style="fill:none;stroke:#00c104;stroke-width:4.38199997;stroke-miterlimit:4;stroke-dasharray:13.146, 4.382;stroke-dashoffset:0;stroke-opacity:1" />
+     style="fill:none;stroke:#00c104;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:12,4;stroke-dashoffset:0;stroke-opacity:1" />
   <rect
      x="838.74329"
      y="468.96381"
@@ -1956,15 +1940,15 @@
     </switch>
   </g>
   <rect
-     x="808.3736"
-     y="140.01813"
-     width="146.59537"
-     height="107.11926"
+     x="809.61548"
+     y="139.29004"
+     width="144.11154"
+     height="266.89322"
      rx="18.623728"
      ry="17.608261"
      pointer-events="all"
      id="rect1368"
-     style="fill:none;stroke:#00c104;stroke-width:4.38199997;stroke-miterlimit:4;stroke-dasharray:13.146, 4.382;stroke-dashoffset:0;stroke-opacity:1" />
+     style="fill:none;stroke:#00c104;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:12, 4;stroke-dashoffset:0;stroke-opacity:1" />
   <rect
      x="838.43738"
      y="150.6579"
@@ -1995,7 +1979,7 @@
            y="206"
            x="586"
            sodipodi:role="line"
-           id="tspan1412">Service</tspan>
+           id="tspan1412">Server</tspan>
       </text>
     </switch>
   </g>
