@@ -3,10 +3,12 @@
 hide methods
 hide members
 
+class Server as "Thing Description Server" <<(S,#eb937f) service>>
+
 class Thing <<(S,#eb937f) service>>
 together {
-    class SelfDesc as "Self-describing Thing" <<(S,#eb937f) service>>
-    class Directory <<(S,#eb937f) service>>
+    class SelfDesc as "Self-Describing Thing" <<(S,#eb937f) service>>
+    class Directory as "Thing Description Directory" <<(S,#eb937f) service>>
 }
 
 class TD as "td:Thing" #Azure
@@ -14,8 +16,10 @@ note left: Thing Description (TD)
 
 /' relations '/
 Thing <|-- SelfDesc
+Server <|-- SelfDesc
 Thing <|-- Directory
 SelfDesc "1" --> "1  " TD: provides
+Server "1" --> "1  " TD: provides
 Directory "1   " --> "   0..*" TD: contains
 
 
