@@ -24,5 +24,4 @@ SelfDesc <|-- SelfDirectory
 Directory "   1" --> "0..*   " TD: hosts
 Server "1   " --> "   1" TD: hosts
 
-
 @enduml

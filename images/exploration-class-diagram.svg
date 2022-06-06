@@ -11,7 +11,7 @@ reverse link Thing to Directory--><g id="link_Thing_Directory"><path codeLine="2
 reverse link Directory to SelfDirectory--><g id="link_Directory_SelfDirectory"><path codeLine="21" d="M467.08,164.84 C486.18,184.99 509.72,209.84 525.7,226.69 " fill="none" id="Directory-backto-SelfDirectory" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="461.92,169.58,453.24,150.25,472.08,159.95,461.92,169.58" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[7393881edb02e5e3ba6680dca7accd7a]
 reverse link SelfDesc to SelfDirectory--><g id="link_SelfDesc_SelfDirectory"><path codeLine="22" d="M633.89,163.95 C611.65,184.26 583.9,209.59 565.16,226.69 " fill="none" id="SelfDesc-backto-SelfDirectory" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="629.42,158.56,648.91,150.25,638.86,168.9,629.42,158.56" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[22095c50f58adeae0dd4a30b6d5b7e14]
 link Directory to TD--><g id="link_Directory_TD"><path codeLine="23" d="M403.7,150.25 C368.38,171.97 311.37,207.03 277.02,228.16 " fill="none" id="Directory-to-TD" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="272.53,230.91,282.2913,229.5998,276.7883,228.2895,278.0985,222.7865,272.53,230.91" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="353" y="193.0669">hosts</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="383.5681" y="170.449">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="23" x="286.9778" y="219.8907">0..*</text></g><!--MD5=[77d4e125ce3d710d6fa63a04956134c6]
-link Server to TD--><g id="link_Server_TD"><path codeLine="24" d="M314.22,47.14 C298.61,56.66 282.06,69.67 272,86 C244.99,129.86 244.36,192.99 246.18,225.27 " fill="none" id="Server-to-TD" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="246.51,230.56,249.9095,221.3164,246.1812,225.5708,241.9268,221.8425,246.51,230.56" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="273" y="134.5669">hosts</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="279.5971" y="67.3066">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="234.8476" y="220.0172">1</text></g><!--MD5=[0568b6f9ba073e11497c3c22d32e22c1]
+link Server to TD--><g id="link_Server_TD"><path codeLine="24" d="M314.22,47.14 C298.61,56.66 282.06,69.67 272,86 C244.99,129.86 244.36,192.99 246.18,225.27 " fill="none" id="Server-to-TD" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="246.51,230.56,249.9095,221.3164,246.1812,225.5708,241.9268,221.8425,246.51,230.56" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="35" x="273" y="134.5669">hosts</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="279.5971" y="67.3066">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="8" x="234.8476" y="220.0172">1</text></g><!--MD5=[e27ebd5f2d264b240d0c247d43d43305]
 @startuml exploration-class-diagram
 /' global configurations '/
 hide methods
@@ -38,7 +38,6 @@ SelfDesc <|- - SelfDirectory
 Directory "   1" - -> "0..*   " TD: hosts
 Server "1   " - -> "   1" TD: hosts
 
-
 @enduml
 
 @startuml exploration-class-diagram
@@ -64,7 +63,6 @@ Directory <|- - SelfDirectory
 SelfDesc <|- - SelfDirectory
 Directory "   1" - -> "0..*   " TD: hosts
 Server "1   " - -> "   1" TD: hosts
-
 
 @enduml
 
