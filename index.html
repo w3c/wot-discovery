@@ -1049,34 +1049,34 @@ img.wot-diagram {
                         and in the Security Considerations and Privacy Considerations sections of this document.
                         </p>
                     <p>
-                        <span class="rfc2119-assertion" id="service-http-secure"> 
+                        <span class="rfc2119-assertion" id="exploration-server-http-secure"> 
                             An HTTP-based TD Server providing a <a>TD</a> SHOULD use TLS when serving requests.
                         </span>
-                        <span class="rfc2119-assertion" id="service-http-access-control">
+                        <span class="rfc2119-assertion" id="exploration-server-http-access-control">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             SHOULD provide the resource only after performing necessary 
                             authentication and authorization.
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="service-http-method"> 
+                        <span class="rfc2119-assertion" id="exploration-server-http-method"> 
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MUST serve that resource with a `GET` method.
                         </span>
-                        <span class="rfc2119-assertion" id="service-http-resp">
+                        <span class="rfc2119-assertion" id="exploration-server-http-resp">
                             A successful response from
                             an HTTP-based TD Server providing a <a>TD</a> 
                             MUST have a 200 (OK) status, contain a `application/td+json`
                             Content-Type header, and the <a>TD</a> in the body.
                         </span>
-                        <span class="rfc2119-assertion" id="service-http-alternate-content">
+                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-content">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide alternative representations through
                             server-driven content negotiation, that is by honouring the 
                             request's Accept header and responding with the supported
                             TD serialization and equivalent Content-Type header.
                         </span>
-                        <span class="rfc2119-assertion" id="service-http-alternate-language">
+                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-language">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
@@ -1084,7 +1084,7 @@ img.wot-diagram {
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="service-http-head">
+                        <span class="rfc2119-assertion" id="exploration-server-http-head">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MUST respond to `HEAD` requests by returning only the headers
                             equivalent to those returned by a `GET` request to the same endpoint.

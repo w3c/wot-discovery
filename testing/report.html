@@ -735,6 +735,112 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-access-control" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-access-control">exploration-server-http-access-control</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            SHOULD provide the resource only after performing necessary 
+                            authentication and authorization.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-alternate-content" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-content">exploration-server-http-alternate-content</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            MAY provide alternative representations through
+                            server-driven content negotiation, that is by honouring the 
+                            request's Accept header and responding with the supported
+                            TD serialization and equivalent Content-Type header.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-alternate-language" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-language">exploration-server-http-alternate-language</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            MAY provide modified TDs or error responses 
+                            using a different default language after server-driven content negotiation, 
+                            that is by honouring the request's Accept-Language header.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-head" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-head">exploration-server-http-head</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            MUST respond to `HEAD` requests by returning only the headers
+                            equivalent to those returned by a `GET` request to the same endpoint.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-method" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-method">exploration-server-http-method</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+                            An HTTP-based TD Server providing a TD 
+                            MUST serve that resource with a `GET` method.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-resp">exploration-server-http-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            A successful response from
+                            an HTTP-based TD Server providing a TD 
+                            MUST have a 200 (OK) status, contain a `application/td+json`
+                            Content-Type header, and the TD in the body.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="exploration-server-http-secure" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-secure">exploration-server-http-secure</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion"> 
+                            An HTTP-based TD Server providing a TD SHOULD use TLS when serving requests.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="introduction-core-rd" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-core-rd">introduction-core-rd</a></td>
 	<td class="baseassertion"></td>
@@ -1230,112 +1336,6 @@ pre.example {
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td></tr>
-<tr id="self-http-access-control" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-access-control">self-http-access-control</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            If authentication and authorization are necessary, 
-                            they MUST be performed before
-                            the server responds with the requested TD.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="self-http-alternate-content" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-alternate-content">self-http-alternate-content</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            An HTTP-based self-description server
-                            MAY provide alternative representations through
-                            server-driven content negotiation, that is by honoring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="self-http-alternate-language" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-alternate-language">self-http-alternate-language</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            An HTTP-based self-description server
-                            MAY provide modified TDs or error responses 
-                            using a different default language after server-driven content negotiation, 
-                            that is by honoring the request's Accept-Language header.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td></tr>
-<tr id="self-http-head" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-head">self-http-head</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            An HTTP-based self-description server
-                            MUST respond to `HEAD` requests by returning only the headers
-                            equivalent to those returned by a `GET` request to the same endpoint.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result failed">2</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="self-http-method" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-method">self-http-method</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
-                            An HTTP-based self-description server
-                            MUST serve the TD with a `GET` method.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="self-http-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-resp">self-http-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            A successful response from
-                            an HTTP-based self-description server
-                            MUST have 200 (OK) status, contain `application/td+json`
-                            Content-Type header, and the TD in body.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
-<tr id="self-http-secure" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#self-http-secure">self-http-secure</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion"> 
-                            An HTTP-based self-description server SHOULD use TLS when serving the requests.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">2</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-anonymous-td-identifier" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-identifier">tdd-anonymous-td-identifier</a></td>
 	<td class="baseassertion"></td>
