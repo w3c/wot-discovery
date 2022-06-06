@@ -1,99 +1,104 @@
 "ID","Status","Comment"
-"introduction-direct-url","null","not testable with Assertion Tester"
-"introduction-direct-thing-description","null","not testable with Assertion Tester"
-"introduction-direct-directory-description","null","not testable with Assertion Tester"
-"introduction-well-known-uri","null","not testable with Assertion Tester"
-"introduction-well-known-path","null","not testable with Assertion Tester"
-"introduction-well-known-thing-description","null","not testable with Assertion Tester"
-"introduction-dns-sd","null","not testable with Assertion Tester"
-"introduction-dns-sd-service-name","null","not testable with Assertion Tester"
-"introduction-dns-sd-service-name-directory","null","not testable with Assertion Tester"
-"introduction-dns-sd-txt-record","null","not testable with Assertion Tester"
-"introduction-core-rd","null","not testable with Assertion Tester"
-"introduction-core-rd-directory","null","not testable with Assertion Tester"
-"introduction-core-rd-resource-type-thing","null","not testable with Assertion Tester"
-"introduction-core-rd-resource-type-directory","null","not testable with Assertion Tester"
-"introduction-did","null","not testable with Assertion Tester"
-"introduction-did-service-endpoint","null","not testable with Assertion Tester"
-"exploration-directory-description-type","null","not testable with Assertion Tester"
-"exploration-link-description-type","null","not testable with Assertion Tester"
-"exploration-link-description-link","null","not testable with Assertion Tester"
-"self-http-secure","null","not testable with Assertion Tester"
-"self-http-access-control","null","not testable with Assertion Tester"
-"self-http-method","null","not testable with Assertion Tester"
-"self-http-resp","null","not testable with Assertion Tester"
-"self-http-alternate-content","null","not testable with Assertion Tester"
-"self-http-head","null","not testable with Assertion Tester"
-"tdd-registrationinfo-expiry-purge","null","not testable with Assertion Tester"
-"tdd-registrationinfo-expiry-config","null","not testable with Assertion Tester"
-"tdd-reg-anonymous-td-identifier","null","not testable with Assertion Tester"
-"tdd-reg-anonymous-td-local-id","null","not testable with Assertion Tester"
-"tdd-https","null","not testable with Assertion Tester"
-"tdd-http-error-response","null","not testable with Assertion Tester"
-"tdd-http-head","null","not testable with Assertion Tester"
-"tdd-reg-default-representation","null","not testable with Assertion Tester"
-"tdd-reg-additional-representation","null","not testable with Assertion Tester"
-"tdd-reg-crudl","null","not testable with Assertion Tester"
-"tdd-reg-create-body","null","not testable with Assertion Tester"
-"tdd-reg-create-contenttype","null","not testable with Assertion Tester"
-"tdd-reg-create-known-vs-anonymous","null","not testable with Assertion Tester"
-"tdd-reg-create-known-td","null","not testable with Assertion Tester"
-"tdd-reg-create-known-td-resp","null","not testable with Assertion Tester"
-"tdd-reg-create-anonymous-td","null","not testable with Assertion Tester"
-"tdd-reg-create-anonymous-td-resp","null","not testable with Assertion Tester"
-"tdd-reg-retrieve","null","not testable with Assertion Tester"
-"tdd-reg-retrieve-resp","null","not testable with Assertion Tester"
-"tdd-reg-update-types","null","not testable with Assertion Tester"
-"tdd-reg-update","null","not testable with Assertion Tester"
-"tdd-reg-update-contenttype","null","not testable with Assertion Tester"
-"tdd-reg-update-resp","null","not testable with Assertion Tester"
-"tdd-reg-update-partial","null","not testable with Assertion Tester"
-"tdd-reg-update-partial-mergepatch","null","not testable with Assertion Tester"
-"tdd-reg-update-partial-contenttype","null","not testable with Assertion Tester"
-"tdd-reg-update-partial-partialtd","null","not testable with Assertion Tester"
-"tdd-reg-update-partial-resp","null","not testable with Assertion Tester"
-"tdd-reg-delete","null","not testable with Assertion Tester"
-"tdd-reg-delete-resp","null","not testable with Assertion Tester"
-"tdd-reg-list-method","null","not testable with Assertion Tester"
-"tdd-reg-list-resp","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-limit","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-header-nextlink","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-header-nextlink-attr","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-header-canonicallink","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-order-default","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-order","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-order-unsupported","null","not testable with Assertion Tester"
-"tdd-reg-list-pagination-order-nextlink","null","not testable with Assertion Tester"
-"tdd-reg-list-http11-chunks","null","not testable with Assertion Tester"
-"tdd-reg-list-http2-frames","null","not testable with Assertion Tester"
-"tdd-validation-syntactic","null","not testable with Assertion Tester"
-"tdd-validation-jsonschema","null","not testable with Assertion Tester"
-"tdd-validation-result","null","not testable with Assertion Tester"
-"tdd-validation-response","null","not testable with Assertion Tester"
-"tdd-notification-sse","null","not testable with Assertion Tester"
-"tdd-notification-event-id","null","not testable with Assertion Tester"
-"tdd-notification-event-types","null","not testable with Assertion Tester"
-"tdd-notification-filter-type","null","not testable with Assertion Tester"
-"tdd-notification-data","null","not testable with Assertion Tester"
-"tdd-notification-data-td-id","null","not testable with Assertion Tester"
-"tdd-notification-data-create-full","null","not testable with Assertion Tester"
-"tdd-notification-data-update-diff","null","not testable with Assertion Tester"
-"tdd-notification-data-update-id","null","not testable with Assertion Tester"
-"tdd-notification-data-delete-diff","null","not testable with Assertion Tester"
-"tdd-notification-data-diff-unsupported","null","not testable with Assertion Tester"
-"tdd-search-jsonpath","null","not testable with Assertion Tester"
-"tdd-search-xpath","null","not testable with Assertion Tester"
-"tdd-search-sparql","null","not testable with Assertion Tester"
-"tdd-search-jsonpath-method","null","not testable with Assertion Tester"
-"tdd-search-jsonpath-parameter","null","not testable with Assertion Tester"
-"tdd-search-jsonpath-response","null","not testable with Assertion Tester"
-"tdd-search-xpath-method","null","not testable with Assertion Tester"
-"tdd-search-xpath-parameter","null","not testable with Assertion Tester"
-"tdd-search-xpath-response","null","not testable with Assertion Tester"
-"tdd-search-sparql-version","null","not testable with Assertion Tester"
-"tdd-search-sparql-method-get","null","not testable with Assertion Tester"
-"tdd-search-sparql-method-post","null","not testable with Assertion Tester"
-"tdd-search-sparql-resp","null","not testable with Assertion Tester"
-"tdd-search-sparql-federation","null","not testable with Assertion Tester"
-"tdd-search-sparql-federation-imp","null","not testable with Assertion Tester"
+"bindings-requirements-scheme","null",
+"bindings-server-accept","null",
+"client-data-schema-accept-extras","null",
+"client-data-schema-no-extras","null",
+"client-data-schema","null",
+"client-uri-template","null",
+"privacy-auth-users-only","null",
+"privacy-centralized-ids","null",
+"privacy-distributed-ids","null",
+"privacy-essential-metadata-only","null",
+"privacy-id-metadata","null",
+"privacy-mutable-identifiers","null",
+"privacy-td-pii","null",
+"privacy-temp-id-metadata","null",
+"sec-body-name-json-pointer-array","null",
+"sec-body-name-json-pointer-creatable","null",
+"sec-body-name-json-pointer","null",
+"sec-body-name-json-pointer-type","null",
+"sec-inj-no-intl-markup","null",
+"sec-inj-sanitize","null",
+"security-context-secure-fetch","null",
+"security-jsonld-expansion","null",
+"security-mutual-auth-td","null",
+"security-no-execution","null",
+"security-oauth-limits","null",
+"security-remote-context","null",
+"security-server-auth-td","null",
+"security-static-context","null",
+"security-update-contexts","null",
+"sec-vuln-auto","null",
+"server-data-schema-extras","null",
+"server-data-schema","null",
+"server-uri-template","null",
+"td-context-default-language-direction-heuristic","null",
+"td-context-default-language-direction-independence","null",
+"td-context-default-language-direction-inference","null",
+"td-context-ns-multilanguage-text-direction-infer","null",
+"td-context-ns-td10-namespace","null",
+"td-default-AdditionalResponseContentType","null",
+"td-default-alg","null",
+"td-default-contentType","null",
+"td-default-format","null",
+"td-default-http-method_get","null",
+"td-default-http-method_post","null",
+"td-default-http-method_put","null",
+"td-default-idempotent","null",
+"td-default-in-apikey","null",
+"td-default-in-basic","null",
+"td-default-in-bearer","null",
+"td-default-in-digest","null",
+"td-default-observable","null",
+"td-default-op-actions","null",
+"td-default-op-events","null",
+"td-default-op-properties","null",
+"td-default-qop","null",
+"td-default-readOnly","null",
+"td-default-safe","null",
+"td-default-success","null",
+"td-default-writeOnly","null",
+"td-expectedResponse-contentType","null",
+"td-expectedResponse-default-contentType","null",
+"td-format-validation-other-values","null",
+"td-form-protocolbindings","null",
+"td-json-open_accept-byte-order","null",
+"td-json-open_no-byte-order","null",
+"td-json-open","null",
+"td-ns-multilanguage-content-negotiation-no-multi","null",
+"td-ns-multilanguage-content-negotiation","null",
+"td-ns-multilanguage-content-negotiation-optional","null",
+"td-processor-serialization","null",
+"td-security-binding","null",
+"td-security-combo-deprecation","null",
+"td-security-extension","null",
+"td-security-in-query-over-uri","null",
+"td-security-in-uri-variable","null",
+"td-security-no-extras","null",
+"td-security-no-secrets","null",
+"td-security-uri-variables-distinct","null",
+"td-text-at-direction","null",
+"td-text-direction-first-strong","null",
+"td-text-direction-language-tag","null",
+"td-vocab-hreflang--Link","null",
+"td-vocabulary-defaults","null",
+"td-vocab-uriVariables--Thing","null",
+"tm-compose-instanceName","null",
+"tm-compose-name-collision","null",
+"tm-compose-submodel","null",
+"tm-overwrite-interaction","null",
+"tm-overwrite-types","null",
+"tm-placeholder-replacement","null",
+"tm-placeholder-retyping","null",
+"tm-placeholder-usecase","null",
+"tm-protocol-security-restriction","null",
+"tm-ref-recursive-extensions","null",
+"tm-tmRef1","null",
+"tm-tmRef2","null",
+"tm-tmRef-overwrite-possibility","null",
+"tm-tmRef-overwrite-process","null",
+"tm-tmRef-overwrite-semantic-meaning","null",
+"tm-tmRef-usecase","null",
+"tm-tmRequired-resolver","null",
+"tm-versioning","null",
+"well-known-operation-types-only","null",
