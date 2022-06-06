@@ -730,17 +730,30 @@ img.wot-diagram {
                     The high-level class diagram of the exploration mechanisms,
                     depicting how Thing Description Servers and Thing Description Directories provide <a>TDs</a>.
                     A Self-describing Thing is a special case of a Thing Description Server that is also a Thing.
+                    A Thing Description Directory hosts a Thing Description Server for each 
+                    Thing Description it contains.
                 </figcaption>
             </figure>
 
+            <p>
             [[[#exploration-class-diagram]]] depicts the high-level information 
-            model for TD servers (serving single TDs, including those for self-description) and directory services.
-            A directory may contain <a>TDs</a> and at the same time provide a <a>TD</a>
-            and act as a self-describing Thing. 
-            A directory also hosts URLs for retrieving individual TDs for other Things
+            model for <a>TD Servers</a> (serving single TDs, including those for self-description) 
+            and <a>Thing Description Directory</a> services.
+            A <a>Thing Description Directory</a> may contain <a>TDs</a> 
+            and at the same time is also a Thing, which means it has its own TD.  
+            A directory also hosts web service endpoints 
+            for retrieving individual TDs for other Things
             and each of these can be used as a TD Server.
-            The exploration mechanisms are described in
+            A Thing may in general host its own TD in which case it
+            is a Self-Describing Thing.
+            Self-description is not mandatory for directories,
+            but Self-Describing Thing Description Directories are possible
+            that are both Thing Description Directories and Self-Describing Things.
+            </p>
+            <p>
+            The two basic exploration mechanisms are described in
             [[[#exploration-server]]] and [[[#exploration-directory]]].
+            </p>
 
             <section id="exploration-ontology" class="normative">
                 <h3>Ontology</h3>
@@ -896,7 +909,7 @@ img.wot-diagram {
                 are required to access a particular exploration service, they can retain this information
                 and attempt to use them for future accesses.
                 Note however that depending on the security scheme used, credentials themselves
-                may expire and may need to be restablished periodically.
+                may expire and may need to be re-established periodically.
                 </p>
                 <p>
                 <span class="rfc2119-assertion" id="security-bootstrapping-endpoints">Security
