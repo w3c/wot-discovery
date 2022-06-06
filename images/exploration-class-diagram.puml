@@ -21,9 +21,7 @@ Server <|-- SelfDesc
 Thing <|-- Directory
 Directory <|-- SelfDirectory
 SelfDesc <|-- SelfDirectory
-Server "1" --> "1  " TD: provides
-Directory "1   " --> "   0..*" TD: contains
-Directory "   1" --> "0..*   " Server: hosts
-
+Directory "   1" --> "0..*   " TD: hosts
+Server "1   " --> "   1" TD: hosts
 
 @enduml
