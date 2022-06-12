@@ -1068,7 +1068,7 @@ img.wot-diagram {
                             MUST have 200 (OK) status and the <a>TD</a> in the body.</span>
                         <span class="rfc2119-assertion" id="service-http-resp-content-type">
                             A successful response with JSON serialization MUST contain `application/json`
-                            or more specifically, `application/td+json` Content-Type header.</span>
+                            or more specifically, `application/td+json` in the Content-Type header.</span>
                         <span class="rfc2119-assertion" id="service-http-resp-json">
                             The default serialization format for successful response bodies MUST be
                             JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
@@ -1578,7 +1578,7 @@ img.wot-diagram {
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
                                 A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/td+json` Content-Type header.</span>
+                                or more specifically, `application/td+json` in the Content-Type header.</span>
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                             <p>
@@ -1849,7 +1849,7 @@ img.wot-diagram {
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
                                 A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/ld+json` Content-Type header.</span>
+                                or more specifically, `application/ld+json` in the Content-Type header.</span>
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                         </p>
@@ -2366,8 +2366,8 @@ img.wot-diagram {
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
                         The request must contain a valid JSONPath [[?JSONPATH]] as searching parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body a set of complete TDs or a set of TD fragments.
+                        <code>application/json</code> in the Content-Type header, and
+                        a set of complete TDs or a set of TD fragments in the body.
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-api-spec]]].
 
@@ -2380,8 +2380,8 @@ img.wot-diagram {
                         at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
                         The request must contain a valid XPath 3.1 [[xpath-31]] as search parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body, the query response in JSON serialization.  The data schema for the response is defined implicitly by the query and the XPath specification.
+                        <code>application/json</code> in the Content-Type header, and
+                        the query response in JSON serialization in the body.  The data schema for the response is defined implicitly by the query and the XPath specification.
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-api-spec]]].
@@ -2403,10 +2403,10 @@ img.wot-diagram {
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp-select-ask">
-                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
+                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain <code>application/json</code> by default in the Content-Type header.
                         </span>
 			 <span class="rfc2119-assertion" id="tdd-search-sparql-resp-describe-construct">
-                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
+                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain <code>application/ld+json</code> by default in the Content-Type header.
 			 </span>
 			<span class="rfc2119-assertion" id="tdd-search-sparql-error">
 			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 400 (Bad Request).
