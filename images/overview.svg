@@ -8,9 +8,9 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   width="1273.6007"
-   height="704.0202"
-   viewBox="-0.5 -0.5 1273.6007 704.0202"
+   width="329.09436mm"
+   height="186.27202mm"
+   viewBox="-0.5 -0.5 1243.8212 704.02022"
    id="svg308"
    sodipodi:docname="overview.svg"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -39,12 +39,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="3656"
-     inkscape:window-height="1886"
+     inkscape:window-height="1818"
      id="namedview310"
      showgrid="false"
      inkscape:zoom="1.3926746"
-     inkscape:cx="799.39215"
-     inkscape:cy="296.98686"
+     inkscape:cx="857.68155"
+     inkscape:cy="396.21402"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -53,9 +53,73 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:snap-text-baseline="false" />
+     inkscape:snap-text-baseline="false"
+     units="mm" />
   <defs
      id="defs6">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1737"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         id="path1735"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1571"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1569" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1411"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1409"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1422"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path1420" />
+    </marker>
     <marker
        inkscape:isstock="true"
        style="overflow:visible"
@@ -515,14 +579,14 @@
 </style>
   </defs>
   <path
-     d="M 176.72275,503.27497 H 408.54434"
+     d="M 177.23939,503.27497 H 409.06098"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7320"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none" />
   <path
-     d="m 308.52866,548.20405 74.02421,0.0161 v -25.77769 h 56.87748"
+     d="m 309.0453,548.20405 74.02421,0.0161 v -25.77769 h 56.87748"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7394"
@@ -534,7 +598,7 @@
      id="path210"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="m 186.52228,524.88434 32.67402,-0.0165 v 26.38326 h 25.10551" />
+     d="m 187.03892,524.88434 32.67402,-0.0165 v 26.38326 h 25.10551" />
   <rect
      style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184054;stroke-dashoffset:0"
      id="rect8"
@@ -544,7 +608,7 @@
      height="59.940269"
      width="595.54413"
      y="628.76477"
-     x="1.7214576" />
+     x="2.2380977" />
   <rect
      style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184054;stroke-dashoffset:0"
      id="rect12"
@@ -554,27 +618,17 @@
      height="117.07854"
      width="595.49823"
      y="472.66492"
-     x="1.7460599" />
-  <rect
-     style="fill:none;stroke:#00c104;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;stroke-opacity:1"
-     id="rect14"
-     pointer-events="all"
-     ry="17.608261"
-     rx="18.623728"
-     height="107.11926"
-     width="146.59537"
-     y="196.01813"
-     x="807.85693" />
+     x="2.2627001" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none"
      inkscape:connector-curvature="0"
      id="path66"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="m 100.32316,658.40973 h 123" />
+     d="m 100.8398,658.40973 h 123" />
   <g
      id="g74"
-     transform="translate(-94.583936,94.615853)">
+     transform="translate(-94.067296,94.615858)">
     <switch
        id="switch72">
       <text
@@ -592,10 +646,10 @@
      height="25.179655"
      width="80.179657"
      y="645.81989"
-     x="20.920877" />
+     x="21.437517" />
   <g
      id="g82"
-     transform="translate(-30.657265,103.78375)">
+     transform="translate(-30.140625,103.78375)">
     <switch
        id="switch80">
       <text
@@ -613,10 +667,10 @@
      height="25.085186"
      width="100.08518"
      y="645.86713"
-     x="204.11012" />
+     x="204.62677" />
   <g
      id="g100"
-     transform="translate(-167.34728,103.69879)">
+     transform="translate(-166.83064,103.69879)">
     <switch
        id="switch98">
       <text
@@ -634,10 +688,10 @@
      height="39.12492"
      width="171.5782"
      y="493.21558"
-     x="22.440769" />
+     x="22.957409" />
   <g
      id="g156"
-     transform="translate(11.334923,424.05402)">
+     transform="translate(15.851563,432.05402)">
     <switch
        id="switch154">
       <text
@@ -648,14 +702,9 @@
          x="17.998047">
         <tspan
            sodipodi:role="line"
-           id="tspan7408"
-           x="17.998047"
-           y="86">CoAP multicast/broadcast:</tspan>
-        <tspan
-           sodipodi:role="line"
            id="tspan7410"
            x="17.998047"
-           y="101">GET /.well-known/core</tspan>
+           y="86">GET /.well-known/core</tspan>
       </text>
     </switch>
   </g>
@@ -667,11 +716,11 @@
      rx="7.5"
      height="78.226967"
      width="89.505257"
-     y="206.6579"
-     x="837.92072" />
+     y="312.6579"
+     x="838.43738" />
   <g
      id="g208"
-     transform="translate(296.17332,43.410534)">
+     transform="translate(296.68996,141.41053)">
     <switch
        id="switch206">
       <text
@@ -685,12 +734,27 @@
            id="tspan8050"
            x="586"
            y="191">Thing</tspan>
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="206"
+           id="tspan2472" />
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="221"
+           id="tspan2474">(Self</tspan>
+        <tspan
+           sodipodi:role="line"
+           x="586"
+           y="236"
+           id="tspan2476">Description)</tspan>
       </text>
     </switch>
   </g>
   <g
      id="g218"
-     transform="translate(156.36169,32.688824)">
+     transform="translate(156.87833,138.68882)">
     <switch
        id="switch216">
       <text
@@ -708,10 +772,10 @@
      height="20"
      width="180"
      y="447.90973"
-     x="1.0107036" />
+     x="1.5273436" />
   <g
      id="g234"
-     transform="translate(3.5849224,451.9303)">
+     transform="translate(-3.8984375,451.9303)">
     <switch
        id="switch232">
       <text
@@ -735,10 +799,10 @@
      height="20"
      width="180"
      y="603.90973"
-     x="1.0107036" />
+     x="1.5273436" />
   <switch
      id="switch258"
-     transform="translate(3.5849224,107.40974)">
+     transform="translate(4.1015625,107.40974)">
     <text
        x="3"
        y="514"
@@ -758,29 +822,8 @@
      pointer-events="all"
      height="20"
      width="180"
-     y="175.91054"
-     x="807.67334" />
-  <g
-     id="g268"
-     transform="translate(296.17332,45.410534)"
-     style="fill:#00c104;fill-opacity:1">
-    <switch
-       id="switch266"
-       style="fill:#00c104;fill-opacity:1">
-      <text
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1"
-         id="text264"
-         font-size="12px"
-         y="142"
-         x="527">
-        <tspan
-           sodipodi:role="line"
-           id="tspan8002"
-           x="527"
-           y="142">Self-Description</tspan>
-      </text>
-    </switch>
-  </g>
+     y="281.91052"
+     x="808.19" />
   <rect
      style="fill:none;stroke:#3399ff;stroke-width:4.38184071;stroke-miterlimit:4;stroke-dasharray:13.14552164, 4.38184054;stroke-dashoffset:0"
      id="rect270"
@@ -790,7 +833,7 @@
      height="85.941483"
      width="595.36914"
      y="244.29494"
-     x="1.7731446" />
+     x="2.2897847" />
   <rect
      style="fill:none;stroke:none"
      id="rect290"
@@ -798,10 +841,10 @@
      height="20"
      width="180"
      y="223.90974"
-     x="1.0107036" />
+     x="1.5273436" />
   <g
      id="g296"
-     transform="translate(3.5849224,-166.59026)">
+     transform="translate(-3.8984375,-166.59026)">
     <switch
        id="switch294">
       <text
@@ -821,7 +864,7 @@
   <g
      style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
      id="g280"
-     transform="translate(-91.066379,-176.74598)">
+     transform="translate(-90.549739,-176.74598)">
     <switch
        style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
        id="switch278">
@@ -846,11 +889,11 @@
      height="25"
      width="80"
      y="257.90973"
-     x="21.010704" />
+     x="21.527344" />
   <g
      style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
      id="g288"
-     transform="translate(-0.79984333,-169.11663)">
+     transform="translate(-0.2832032,-169.11663)">
     <switch
        style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
        id="switch286">
@@ -863,14 +906,14 @@
     </switch>
   </g>
   <path
-     d="M 100.5107,270.40974 H 637.80917"
+     d="M 101.02734,270.40974 H 638.32581"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path5350"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9;stroke-dasharray:none;marker-end:url(#marker7612)" />
   <rect
-     x="21.010704"
+     x="21.527344"
      y="290.90973"
      width="80"
      height="25"
@@ -878,7 +921,7 @@
      id="rect4991"
      style="fill:#ffffff;stroke:#000000;stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(-1.6113667,-136.11663)"
+     transform="translate(-1.0947266,-136.11663)"
      id="g4997">
     <switch
        id="switch4995">
@@ -896,9 +939,9 @@
      id="path6022"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 100.5107,303.40974 H 637.80917" />
+     d="M 101.02734,303.40974 H 638.32581" />
   <g
-     transform="translate(-91.066378,-143.96736)"
+     transform="translate(-90.549738,-143.96736)"
      id="g6286">
     <switch
        id="switch6284">
@@ -918,7 +961,7 @@
   </g>
   <g
      id="g6936"
-     transform="translate(37.824438,162.39218)"
+     transform="translate(38.341078,162.39218)"
      style="stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none">
     <rect
        x="210.59378"
@@ -962,10 +1005,10 @@
      height="24.671885"
      width="142.9879"
      y="385.63409"
-     x="21.174761" />
+     x="21.691401" />
   <g
      id="g226"
-     transform="translate(29.997032,164.97003)">
+     transform="translate(30.513672,164.97003)">
     <switch
        id="switch224">
       <text
@@ -991,7 +1034,7 @@
      height="59.623215"
      width="595.48907"
      y="366.08221"
-     x="1.703357" />
+     x="2.2199972" />
   <rect
      style="fill:none;stroke:none"
      id="rect238"
@@ -999,10 +1042,10 @@
      height="20"
      width="180"
      y="345.90973"
-     x="1.0107036" />
+     x="1.5273436" />
   <switch
      id="switch242"
-     transform="translate(3.5849224,165.40974)">
+     transform="translate(-3.8984375,165.40974)">
     <text
        x="3"
        y="194"
@@ -1017,14 +1060,14 @@
     </text>
   </switch>
   <path
-     d="m 165.39796,397.97004 h 82.5481"
+     d="m 165.9146,397.97004 h 82.5481"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path6945"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none" />
   <g
-     transform="translate(-57.649591,-164.36119)"
+     transform="translate(-57.132951,-164.36119)"
      id="g6951">
     <switch
        id="switch6949">
@@ -1043,18 +1086,18 @@
     </switch>
   </g>
   <rect
-     style="fill:none;stroke:#3399ff;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;fill-opacity:1"
+     style="fill:none;fill-opacity:1;stroke:#3399ff;stroke-width:4.38199997;stroke-miterlimit:4;stroke-dasharray:13.146, 4.382;stroke-dashoffset:0"
      id="rect10"
      pointer-events="all"
      ry="23.711538"
      rx="29.161692"
      height="157.98149"
      width="595.3313"
-     y="49.657547"
-     x="1.8210348" />
+     y="49.657551"
+     x="2.3376749" />
   <g
      id="g252"
-     transform="translate(3.5849223,-262.90502)"
+     transform="translate(-3.8984376,-262.90502)"
      style="fill:#3399ff;fill-opacity:1">
     <switch
        id="switch250"
@@ -1080,10 +1123,10 @@
      height="25.244831"
      width="124.24483"
      y="132.48515"
-     x="20.888288" />
+     x="21.404928" />
   <g
      id="g200"
-     transform="translate(6.3163677,-194.4188)">
+     transform="translate(6.8330078,-194.4188)">
     <switch
        id="switch198">
       <text
@@ -1106,17 +1149,17 @@
      id="path6892"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 144.48016,145.10757 H 637.97802" />
+     d="M 144.9968,145.10757 H 638.49466" />
   <rect
-     x="20.50415"
-     y="65.27803"
+     x="21.02079"
+     y="65.278038"
      width="61.107292"
      height="26.013105"
      pointer-events="all"
      id="rect6894"
      style="fill:#ffffff;stroke:#000000;stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(-24.600624,-261.24179)"
+     transform="translate(-24.083984,-261.24179)"
      id="g6902">
     <switch
        id="switch6900">
@@ -1135,14 +1178,14 @@
     </switch>
   </g>
   <path
-     d="M 82.010439,78.284583 H 637.97802"
+     d="M 82.527079,78.284588 H 638.49466"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7034"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9;stroke-dasharray:none;marker-end:url(#marker7808)" />
   <rect
-     x="20.963709"
+     x="21.480349"
      y="166.0887"
      width="139.53191"
      height="25.09399"
@@ -1150,7 +1193,7 @@
      id="rect6904"
      style="fill:#ffffff;stroke:#000000;stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(-15.307655,-161.59673)"
+     transform="translate(-14.791015,-161.59673)"
      id="g6912">
     <switch
        id="switch6910">
@@ -1174,18 +1217,18 @@
      id="path7036"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 162.07221,178.63569 H 637.97802" />
+     d="M 162.58885,178.63569 H 638.49466" />
   <rect
      style="fill:#ffffff;stroke:#000000;stroke-width:2.66666675;stroke-miterlimit:4;stroke-dasharray:none"
      id="rect7260"
      pointer-events="all"
      height="25.476707"
      width="90.019402"
-     y="98.881615"
-     x="20.77235" />
+     y="98.88163"
+     x="21.28899" />
   <g
      id="g7268"
-     transform="translate(-24.600624,-228.37808)">
+     transform="translate(-24.083984,-228.37808)">
     <switch
        id="switch7266">
       <text
@@ -1208,17 +1251,17 @@
      id="path7270"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 112.47441,111.44046 H 637.619" />
+     d="M 112.99105,111.44046 H 638.13564" />
   <path
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9;stroke-dasharray:none;marker-end:url(#marker7550)"
      inkscape:connector-curvature="0"
      id="path7310"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 443.39796,397.97004 H 637.96074" />
+     d="M 443.9146,397.97004 H 638.47738" />
   <g
      id="g7328"
-     transform="translate(-33.12375,-58.907396)">
+     transform="translate(-32.60711,-58.907391)">
     <switch
        id="switch7326">
       <text
@@ -1236,7 +1279,7 @@
     </switch>
   </g>
   <g
-     transform="translate(-34.139216,-38.598086)"
+     transform="translate(-33.622576,-38.598081)"
      id="g7340">
     <switch
        id="switch7338">
@@ -1258,7 +1301,7 @@
      xml:space="preserve"
      id="flowRoot7344"
      style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     transform="translate(-0.48929645,145.40974)"><flowRegion
+     transform="translate(0.02734368,145.40975)"><flowRegion
        id="flowRegion7346"><rect
          id="rect7348"
          width="658.5296"
@@ -1266,7 +1309,7 @@
          x="-76.667671"
          y="-67.467766" /></flowRegion><flowPara
        id="flowPara7350" /></flowRoot>  <rect
-     x="246.33034"
+     x="246.84698"
      y="526.45923"
      width="72.942711"
      height="45.063698"
@@ -1274,7 +1317,7 @@
      id="rect7370"
      style="fill:#ffffff;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(89.562032,-16.257836)"
+     transform="translate(90.078672,-16.257831)"
      id="g7390">
     <switch
        id="switch7388">
@@ -1299,10 +1342,10 @@
      height="45.063698"
      width="72.942711"
      y="490.91794"
-     x="408.99048" />
+     x="409.50711" />
   <g
      id="g7402"
-     transform="translate(216.39265,429.93888)">
+     transform="translate(216.90929,429.93888)">
     <switch
        id="switch7400">
       <text
@@ -1320,14 +1363,14 @@
     </switch>
   </g>
   <path
-     d="M 482.9702,513.74451 H 637.6816"
+     d="m 483.48684,513.74451 h 154.7114"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7406"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9;stroke-dasharray:none;marker-end:url(#Arrow1Lend)" />
   <g
-     transform="translate(55.763449,464.46472)"
+     transform="translate(56.280089,464.46472)"
      id="g7378">
     <switch
        id="switch7376">
@@ -1351,10 +1394,10 @@
      id="path7412"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 305.57299,658.76889 H 638.1564" />
+     d="M 306.08963,658.76889 H 638.67304" />
   <g
      id="g7420"
-     transform="translate(76.670293,95.443411)">
+     transform="translate(77.186933,95.443416)">
     <switch
        id="switch7418">
       <text
@@ -1373,7 +1416,7 @@
   </g>
   <g
      id="g7430"
-     transform="translate(253.05204,-49.768206)">
+     transform="translate(253.56868,-49.768201)">
     <switch
        id="switch7428">
       <text
@@ -1391,7 +1434,7 @@
     </switch>
   </g>
   <g
-     transform="translate(2.5694564,-288.29167)"
+     transform="translate(3.0860965,-288.29167)"
      id="g7440"
      style="fill:#3399ff;fill-opacity:1">
     <switch
@@ -1413,7 +1456,7 @@
   </g>
   <g
      id="g7450"
-     transform="translate(612.56945,-288.29167)">
+     transform="translate(613.08609,-288.29167)">
     <switch
        id="switch7448">
       <text
@@ -1432,7 +1475,7 @@
   </g>
   <g
      id="g7460"
-     transform="translate(810.56945,-288.29167)"
+     transform="translate(811.08609,-288.29167)"
      style="fill:#00c104;fill-opacity:1">
     <switch
        id="switch7458"
@@ -1457,16 +1500,16 @@
      id="path7474"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 738.59121,703.52021 V 33.065564" />
+     d="M 739.10785,703.52022 V 33.065569" />
   <path
-     d="M 638.59121,658.83971 V 78.253796"
+     d="M 639.10785,658.83972 V 78.253801"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7484"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1;stroke-miterlimit:9;stroke-dasharray:none" />
   <g
-     transform="translate(244.54509,-50.828206)"
+     transform="translate(245.06173,-50.828201)"
      id="g7516"
      style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none">
     <switch
@@ -1487,7 +1530,7 @@
     </switch>
   </g>
   <g
-     transform="translate(712.56945,-288.29167)"
+     transform="translate(713.08609,-288.29167)"
      id="g7958"
      style="fill:#da2020;fill-opacity:1">
     <switch
@@ -1513,30 +1556,30 @@
     </switch>
   </g>
   <path
-     d="M 638.85527,246.45621 H 837.96781"
+     d="M 639.37191,352.45621 H 838.48445"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path7962"
      inkscape:connector-curvature="0"
      style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker8088)" />
   <rect
-     x="994.3645"
-     y="326.12091"
+     x="994.88116"
+     y="432.12091"
      width="180"
      height="20"
      pointer-events="all"
      id="rect7988"
      style="fill:none;stroke:none" />
   <path
-     style="fill:none;stroke:#000000;stroke-width:1.333;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)"
      inkscape:connector-curvature="0"
      id="path8014"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 928.94457,247.02012 H 1090.5421" />
+     d="M 929.46121,353.02012 H 1091.0587" />
   <g
      id="g8032"
-     transform="translate(619.73662,309.2295)">
+     transform="translate(620.25326,415.2295)">
     <switch
        id="switch8030">
       <text
@@ -1554,16 +1597,16 @@
     </switch>
   </g>
   <path
-     d="m 1185.5286,286.20789 h 56.6082 l -0.4407,-129.96574 -543.26178,-0.71805 0.27731,89.75536"
+     d="m 1184.6091,300.29842 h 58.0443 l -0.4407,-224.747399 -543.26174,-0.71805 0.27731,276.446499"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path8038"
      inkscape:connector-curvature="0"
-     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.664;stroke-dashoffset:0"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.664;stroke-dashoffset:13.32999992;marker-end:url(#marker1411)"
      sodipodi:nodetypes="ccccc" />
   <g
      id="g8046"
-     transform="translate(619.42958,-59.679372)">
+     transform="translate(619.94622,-141.67937)">
     <switch
        id="switch8044">
       <text
@@ -1581,7 +1624,7 @@
     </switch>
   </g>
   <path
-     d="M 927.56994,456.89168 H 1088.5216"
+     d="M 928.08658,562.89168 H 1089.0382"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path8066"
@@ -1593,10 +1636,10 @@
      pointer-events="all"
      height="45.731155"
      width="43.45237"
-     y="439.47229"
-     x="996.9552" />
+     y="545.47229"
+     x="997.47186" />
   <g
-     transform="translate(242.69757,240.82941)"
+     transform="translate(243.21421,346.82941)"
      id="g8076">
     <switch
        id="switch8074">
@@ -1615,7 +1658,8 @@
     </switch>
   </g>
   <g
-     id="g1818">
+     id="g1818"
+     transform="translate(0.51664013,5.1327586e-6)">
     <rect
        style="fill:#ffffff;stroke:#000000;stroke-width:2.77190757;stroke-miterlimit:4;stroke-dasharray:none"
        id="rect1806"
@@ -1639,15 +1683,15 @@
     </g>
   </g>
   <rect
-     x="990.9552"
-     y="223.47229"
+     x="991.47186"
+     y="329.47229"
      width="43.45237"
      height="45.731155"
      pointer-events="all"
      id="rect1351"
      style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(798.69113,162.82695)"
+     transform="translate(799.20777,268.82695)"
      id="g1359">
     <switch
        id="switch1357">
@@ -1666,17 +1710,17 @@
     </switch>
   </g>
   <rect
-     x="1094.9985"
-     y="207.73584"
+     x="1095.5151"
+     y="141.23305"
      width="87.349365"
-     height="278.55914"
+     height="451.06195"
      rx="7.5"
      ry="7.5000005"
      pointer-events="all"
      id="rect1367"
-     style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none" />
+     style="fill:#ffffff;stroke:#000000;stroke-width:6.36252308;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(552.17332,49.41053)"
+     transform="translate(552.68996,-14.589465)"
      id="g1375">
     <switch
        id="switch1373">
@@ -1700,18 +1744,18 @@
     </switch>
   </g>
   <rect
-     x="808.25739"
-     y="352.42673"
+     x="808.77405"
+     y="458.42673"
      width="145.79449"
      height="150.83308"
      rx="18.623728"
      ry="17.608261"
      pointer-events="all"
      id="rect2499"
-     style="fill:none;stroke:#00c104;stroke-width:4.382;stroke-miterlimit:4;stroke-dasharray:13.146,4.382;stroke-dashoffset:0;stroke-opacity:1" />
+     style="fill:none;stroke:#00c104;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:12,4;stroke-dashoffset:0;stroke-opacity:1" />
   <rect
-     x="838.22662"
-     y="362.96381"
+     x="838.74329"
+     y="468.96381"
      width="88.893463"
      height="122.13383"
      rx="7.5"
@@ -1720,7 +1764,7 @@
      id="rect2501"
      style="fill:#ffffff;stroke:#000000;stroke-width:3.10653782;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(296.17332,199.41053)"
+     transform="translate(296.68996,305.41053)"
      id="g2509">
     <switch
        id="switch2507">
@@ -1739,17 +1783,27 @@
            y="206"
            x="586"
            sodipodi:role="line"
-           id="tspan2527">Description</tspan>
+           id="tspan1401" />
         <tspan
            y="221"
            x="586"
            sodipodi:role="line"
-           id="tspan2529">Directory</tspan>
+           id="tspan2527">(Thing</tspan>
+        <tspan
+           y="236"
+           x="586"
+           sodipodi:role="line"
+           id="tspan1399">Description</tspan>
+        <tspan
+           y="251"
+           x="586"
+           sodipodi:role="line"
+           id="tspan2529">Directory)</tspan>
       </text>
     </switch>
   </g>
   <g
-     transform="translate(156.36169,168.68882)"
+     transform="translate(156.87833,274.68882)"
      id="g2515">
     <switch
        id="switch2513">
@@ -1763,7 +1817,7 @@
   </g>
   <g
      style="fill:#00c104;fill-opacity:1"
-     transform="translate(296.17332,201.41053)"
+     transform="translate(278.68996,307.41053)"
      id="g2523">
     <switch
        style="fill:#00c104;fill-opacity:1"
@@ -1778,7 +1832,7 @@
            y="142"
            x="527"
            id="tspan2517"
-           sodipodi:role="line">Directory</tspan>
+           sodipodi:role="line">Thing Description Directory</tspan>
       </text>
     </switch>
   </g>
@@ -1788,9 +1842,9 @@
      id="path2525"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="M 638.85527,382.45621 H 837.96781" />
+     d="M 639.37191,488.45621 H 838.48445" />
   <path
-     d="M 928.94457,383.02012 H 1090.5421"
+     d="M 929.46121,489.02012 H 1091.0587"
      stroke-miterlimit="10"
      pointer-events="stroke"
      id="path2949"
@@ -1802,11 +1856,11 @@
      pointer-events="all"
      height="45.731155"
      width="43.45237"
-     y="359.47229"
-     x="990.9552" />
+     y="465.47229"
+     x="991.47186" />
   <g
      id="g2959"
-     transform="translate(798.69113,298.82695)">
+     transform="translate(799.20777,404.82695)">
     <switch
        id="switch2957">
       <text
@@ -1824,15 +1878,15 @@
     </switch>
   </g>
   <rect
-     x="990.9552"
-     y="433.47229"
+     x="991.47186"
+     y="539.47229"
      width="43.45237"
      height="45.731155"
      pointer-events="all"
      id="rect3649"
      style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none" />
   <g
-     transform="translate(798.69113,372.82695)"
+     transform="translate(799.20777,478.82695)"
      id="g3659">
     <switch
        id="switch3657">
@@ -1852,22 +1906,22 @@
   </g>
   <path
      sodipodi:nodetypes="cccccc"
-     style="fill:none;stroke:#000000;stroke-width:1.333;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.66399999999999970;stroke-dashoffset:0;marker-end:url(#marker3865)"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.664, 10.664;stroke-dashoffset:0;marker-end:url(#marker3865)"
      inkscape:connector-curvature="0"
      id="path3661"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="m 1184.2082,395.52583 33.5152,1.43609 -0.4138,128.52965 -496.82506,0.71805 0.26036,-69.65016 116.14603,-0.71804" />
+     d="m 1184.7248,323.45121 h 29.207 l -0.4139,308.04036 -492.51672,0.71805 0.26036,-69.65016 116.14603,-0.71804" />
   <path
      sodipodi:nodetypes="ccccc"
-     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.66399956,10.66399956;stroke-dashoffset:6.39839973"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.66399956, 10.66399956;stroke-dashoffset:6.39839983;marker-end:url(#marker1737)"
      inkscape:connector-curvature="0"
      id="path3693"
      pointer-events="stroke"
      stroke-miterlimit="10"
-     d="m 1185.2577,319.8785 h 56.5391 l -0.4402,232.09903 -542.58223,-0.15377 0.27696,-168.90323" />
+     d="m 1185.7743,312.42773 h 56.5391 l -0.4402,345.5498 -542.58219,-0.15377 0.27696,-168.90323" />
   <g
-     transform="translate(619.42958,336.32063)"
+     transform="translate(619.94622,442.32063)"
      id="g3701">
     <switch
        id="switch3699">
@@ -1885,4 +1939,160 @@
       </text>
     </switch>
   </g>
+  <rect
+     x="809.61548"
+     y="139.29004"
+     width="144.11154"
+     height="266.89322"
+     rx="18.623728"
+     ry="17.608261"
+     pointer-events="all"
+     id="rect1368"
+     style="fill:none;stroke:#00c104;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:12, 4;stroke-dashoffset:0;stroke-opacity:1" />
+  <rect
+     x="838.43738"
+     y="150.6579"
+     width="89.505257"
+     height="78.226967"
+     rx="7.5"
+     ry="7.4999995"
+     pointer-events="all"
+     id="rect1370"
+     style="fill:#ffffff;stroke:#000000;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none" />
+  <g
+     transform="translate(296.68996,-12.589465)"
+     id="g1378">
+    <switch
+       id="switch1376">
+      <text
+         x="586"
+         y="191"
+         font-size="12px"
+         id="text1374"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000">
+        <tspan
+           y="191"
+           x="586"
+           id="tspan1372"
+           sodipodi:role="line">Web</tspan>
+        <tspan
+           y="206"
+           x="586"
+           sodipodi:role="line"
+           id="tspan1412">Server</tspan>
+      </text>
+    </switch>
+  </g>
+  <g
+     style="fill:#00c104;fill-opacity:1"
+     transform="translate(280.68996,-10.589465)"
+     id="g1386">
+    <switch
+       style="fill:#00c104;fill-opacity:1"
+       id="switch1384">
+      <text
+         x="527"
+         y="142"
+         font-size="12px"
+         id="text1382"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#00c104;fill-opacity:1">
+        <tspan
+           y="142"
+           x="527"
+           id="tspan1380"
+           sodipodi:role="line">Thing Description Server</tspan>
+      </text>
+    </switch>
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1.33333337;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1422)"
+     inkscape:connector-curvature="0"
+     id="path1388"
+     pointer-events="stroke"
+     stroke-miterlimit="10"
+     d="M 639.37191,190.45621 H 838.48445" />
+  <path
+     d="M 929.46121,191.02012 H 1091.0587"
+     stroke-miterlimit="10"
+     pointer-events="stroke"
+     id="path1390"
+     inkscape:connector-curvature="0"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:none;marker-end:url(#marker1542)" />
+  <path
+     sodipodi:nodetypes="ccccc"
+     style="fill:none;stroke:#000000;stroke-width:1.33299994;stroke-miterlimit:9.60000038;stroke-dasharray:10.66399956, 10.66399956;stroke-dashoffset:13.32999992;marker-end:url(#marker1571)"
+     inkscape:connector-curvature="0"
+     id="path1392"
+     pointer-events="stroke"
+     stroke-miterlimit="10"
+     d="m 1184.6091,287.65133 h 29.3226 l -0.4407,-187.40918 -495.87093,-0.718046 0.27731,89.755366" />
+  <g
+     transform="translate(619.94622,-115.67937)"
+     id="g1400">
+    <switch
+       id="switch1398">
+      <text
+         x="505.72974"
+         y="207"
+         font-size="11px"
+         id="text1396"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000">
+        <tspan
+           y="207"
+           x="505.72974"
+           id="tspan1394"
+           sodipodi:role="line">ThingLink</tspan>
+      </text>
+    </switch>
+  </g>
+  <rect
+     style="fill:#ffffff;stroke:#000000;stroke-width:2.33254313;stroke-miterlimit:4;stroke-dasharray:none"
+     id="rect1402"
+     pointer-events="all"
+     height="45.731155"
+     width="43.45237"
+     y="167.47229"
+     x="991.47186" />
+  <g
+     id="g1410"
+     transform="translate(799.20777,106.82695)">
+    <switch
+       id="switch1408">
+      <text
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000"
+         id="text1406"
+         font-size="12px"
+         y="87.984535"
+         x="204.2267">
+        <tspan
+           sodipodi:role="line"
+           id="tspan1404"
+           x="204.2267"
+           y="87.984535">TD</tspan>
+      </text>
+    </switch>
+  </g>
+  <g
+     transform="translate(156.87833,-25.311175)"
+     id="g1418">
+    <switch
+       id="switch1416">
+      <text
+         x="514"
+         y="207"
+         font-size="11px"
+         id="text1414"
+         style="font-size:11px;font-family:'Noto Sans';text-anchor:middle;fill:#000000">GET</text>
+    </switch>
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="939.06256"
+     y="904.5722"
+     id="text1397"><tspan
+       sodipodi:role="line"
+       id="tspan1395"
+       x="939.06256"
+       y="939.96283" /></text>
 </svg>

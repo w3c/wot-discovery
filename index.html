@@ -157,8 +157,9 @@ img.wot-diagram {
            expose metadata; they are simply used to discover Exploration
            services, which provide metadata but only after secure authentication
            and authorization.  This document normatively defines two Exploration
-           services, one for WoT Thing self-description with a single 
-           WoT Thing Description and a searchable WoT Thing Description Directory
+           services: for distributing a single WoT Thing Description from a regular
+           web service, including as a special case self-description; 
+           and a searchable WoT Thing Description Directory
            service for collections of Thing Descriptions.
            A variety of Introduction services are also described and where
            necessary normative definitions are given to support them.
@@ -223,8 +224,8 @@ img.wot-diagram {
            WoT Thing Description Directory (WoT TDD) service that provides a search mechanism for
            collections of WoT Thing Descriptions that can be dynamically registered by Things or
            entities acting on their behalf.  The WoT Discovery mechanism however also supports
-           self-description by individual Things and one issue we address is how to distinguish
-           between these two approaches.
+           distribution of single TDs from regular web services, with a special case of this 
+           being self-description.
            Finally, we discuss some security and privacy considerations, including a set of 
            potential risks and mitigations.
         </p>
@@ -247,6 +248,8 @@ img.wot-diagram {
             <dfn data-lt="WoT Discovery">Discovery</dfn>,
             <dfn data-lt="WoT Exploration">Exploration</dfn>,
             <dfn data-lt="WoT Introduction">Introduction</dfn>,
+            <dfn data-lt="WoT Thing Description Server">Thing Description Server</dfn>
+            (<dfn data-lt="WoT TD Server">TD Server</dfn>),
             <dfn data-lt="WoT Thing Description Directory">Thing Description Directory</dfn>
             (<dfn data-lt="WoT TDD">TDD</dfn>),
             <dfn data-lt="WoT Partial Thing Description">Partial TD</dfn>,
@@ -286,7 +289,7 @@ img.wot-diagram {
          mechanisms to provide a starting point for the rest of the Discovery process.
          In this document we specify details on several Introduction
          mechanisms, suitable for different use cases, including both local and non-local
-         scenarios, but Introductions can in fact be provided any mechanism that can return a URL.
+         scenarios, but Introductions can in fact be provided by any mechanism that can return a URL.
 	       Introductions, however, do not include any security or privacy controls and
 	       so should not provide metadata directly. 
          Instead, the URLs provided by Introduction mechanisms reference
@@ -303,12 +306,16 @@ img.wot-diagram {
         <p>
 	       Each URL provided by the Introduction phase always points at an 
          Exploration service endpoint that will return a single Thing Description.
-         In the case of self-describing Things an Introduction URL might
-	       even point directly at an endpoint provided by a 
+	       In the simplest case this URL references an ordinary resource
+         provided by a web server which provides the Thing Description of a Thing 
+	       describing an IoT endpoint device.  
+         As a special case of this, for self-describing Things an Introduction URL might
+	       point directly at an endpoint provided by a 
          Thing serving its own Thing Description.
         </p>
         <p>
-	       In general, however, Thing Descriptions might also be provided by other entities.
+	       In general Thing Descriptions might be provided in various ways and
+         in particular may not be self-describing.
          For example, 
         </p>
          <ul>
@@ -703,11 +710,15 @@ img.wot-diagram {
     </section>
     <section id="exploration-mech" class="normative">
         <h1>Exploration Mechanisms</h1>
+<!--
         <p class="ednote" title="Exploration Mechanism Overview">
         To do: Description of supported explorations, and requirements for 
         new exploration mechanisms.
         </p>
         <div class="issue" data-number="202"></div>
+-->
+        This section defines the supported exploration mechanisms
+        after providing some common background material.
 
         <section id="exploration-overview" class="normative">
             <h2>Overview</h2>
@@ -717,16 +728,32 @@ img.wot-diagram {
                     alt="Exploration mechanisms high-level class diagram" />
                 <figcaption>
                     The high-level class diagram of the exploration mechanisms,
-                    depicting how Things expose <a>TDs</a>.
+                    depicting how Thing Description Servers and Thing Description Directories provide <a>TDs</a>.
+                    A Self-describing Thing is a special case of a Thing Description Server that is also a Thing.
+                    A Thing Description Directory acts as a Thing Description Server for each 
+                    Thing Description it contains.
                 </figcaption>
             </figure>
 
+            <p>
             [[[#exploration-class-diagram]]] depicts the high-level information 
-            model for self-describing and directory services.
-            A directory may contain <a>TDs</a> and at the same time provide a <a>TD</a>
-            and act as a self-describing Thing.
-            The exploration mechanisms are described in
-            [[[#exploration-self]]] and [[[#exploration-directory]]].
+            model for <a>TD Servers</a> (serving single TDs, including those for self-description) 
+            and <a>Thing Description Directory</a> services.
+            A <a>Thing Description Directory</a> may contain <a>TDs</a> 
+            and at the same time is also a Thing, which means it has its own TD.  
+            A directory also hosts web service endpoints 
+            for retrieving individual TDs for other Things
+            and each of these can be used as a TD Server.
+            A Thing may in general host its own TD in which case it
+            is a Self-Describing Thing.
+            Self-description is not mandatory for directories,
+            but Self-Describing Thing Description Directories are possible
+            that are both Thing Description Directories and Self-Describing Things.
+            </p>
+            <p>
+            The two basic exploration mechanisms are described in
+            [[[#exploration-server]]] and [[[#exploration-directory]]].
+            </p>
 
             <section id="exploration-ontology" class="normative">
                 <h3>Ontology</h3>
@@ -882,7 +909,7 @@ img.wot-diagram {
                 are required to access a particular exploration service, they can retain this information
                 and attempt to use them for future accesses.
                 Note however that depending on the security scheme used, credentials themselves
-                may expire and may need to be restablished periodically.
+                may expire and may need to be re-established periodically.
                 </p>
                 <p>
                 <span class="rfc2119-assertion" id="security-bootstrapping-endpoints">Security
@@ -984,18 +1011,32 @@ img.wot-diagram {
                 </p>
             </section>
         </section>
-        
-        <section id="exploration-self" class="normative">
-            <h2>Self-description</h2>
+
+        <section id="exploration-server" class="normative">
+            <h2>Thing Description Server</h2>
             <p>
-                Self-description is an exploration mechanism in which a <a>Thing</a>
-                hosts its own <a>TD</a> and makes it available via a URL.
+             Any web service that can be referenced by a URL and return a TD with
+             appropriate authentication and access controls can be used as an
+             exploration mechanism.  
+             We will refer to this as a Thing Description Server or TD Server.
+             A TD Server does not need to be a Thing.
+             In particular, a TD can be hosted on an ordinary web server
+             and referenced by its URL.  
+            </p>
+            <p>
+            A TD Server can be used to support self-description.
+            For self-description, a <a>Thing</a>
+            hosts its own <a>TD</a> and makes it available via a web resource
+            identified with a URL.  Such a web resource however is not included
+            as an affordance in the TD itself.  This web resource may or may not
+            be the same as the well-known URL used as an Introduction mechanism
+            defined in <a href="#introduction-well-known"></a>.
             </p> 
             <p>
-             However, a Thing providing a self-description
+             A TD Server distributing a TD 
              using the following protocols 
              is subject to the following constraints:
-            </p>
+            </p> 
             <dl>
                 <dt>HTTP</dt>
                 <dd>
@@ -1008,47 +1049,46 @@ img.wot-diagram {
                         and in the Security Considerations and Privacy Considerations sections of this document.
                         </p>
                     <p>
-                        <span class="rfc2119-assertion" id="self-http-secure"> 
-                            An HTTP-based self-description server SHOULD use TLS when serving the requests.
+                        <span class="rfc2119-assertion" id="service-http-secure"> 
+                            An HTTP-based TD Server providing a <a>TD</a> SHOULD use TLS when serving requests.
                         </span>
-                        <span class="rfc2119-assertion" id="self-http-access-control">
-                            If authentication and authorization are necessary, 
-                            they MUST be performed before
-                            the server responds with the requested <a>TD</a>.
+                        <span class="rfc2119-assertion" id="service-http-access-control">
+                            An HTTP-based TD Server providing a <a>TD</a> 
+                            SHOULD provide the resource only after performing necessary 
+                            authentication and authorization.
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="self-http-method"> 
-                            An HTTP-based self-description server
-                            MUST serve the <a>TD</a> with a `GET` method.
+                        <span class="rfc2119-assertion" id="service-http-method"> 
+                            An HTTP-based TD Server providing a <a>TD</a> 
+                            MUST serve that resource with a `GET` method.
                         </span>
-                        <span class="rfc2119-assertion" id="self-http-resp">
-                            A successful response from
-                            an HTTP-based self-description server
+                        <span class="rfc2119-assertion" id="service-http-resp">
+                            A successful response from an HTTP-based TD Server providing a <a>TD</a>
                             MUST have 200 (OK) status and the <a>TD</a> in body.</span>
-                        <span class="rfc2119-assertion" id="self-http-resp-content-type">
+                        <span class="rfc2119-assertion" id="service-http-resp-content-type">
                             A successful response with JSON serialization MUST contain `application/json`
                             or more specifically, `application/td+json` Content-Type header.</span>
-                        <span class="rfc2119-assertion" id="self-http-resp-json">
+                        <span class="rfc2119-assertion" id="service-http-resp-json">
                             The default serialization format for successful response bodies MUST be
                             JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
                         The JSON-LD syntax allows semantic extensions and processing.
-                        <span class="rfc2119-assertion" id="self-http-alternate-content">
-                            An HTTP-based self-description server
+                        <span class="rfc2119-assertion" id="service-http-alternate-content">
+                            An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide alternative representations through
                             server-driven content negotiation, that is by honoring the 
                             request's Accept and Accept-Encoding headers and responding with the supported
                             TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
-                        <span class="rfc2119-assertion" id="self-http-alternate-language">
-                            An HTTP-based self-description server
+                        <span class="rfc2119-assertion" id="service-http-alternate-language">
+                            An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
-                            that is by honoring the request's Accept-Language header.
+                            that is by honouring the request's Accept-Language header.
                         </span>
                     </p>
                     <p>
-                        <span class="rfc2119-assertion" id="self-http-head">
-                            An HTTP-based self-description server
+                        <span class="rfc2119-assertion" id="service-http-head">
+                            An HTTP-based TD Server providing a <a>TD</a> 
                             MUST respond to `HEAD` requests by returning only the headers
                             equivalent to those returned by a `GET` request to the same endpoint.
                         </span>
@@ -1066,12 +1106,7 @@ img.wot-diagram {
                         Error responses:  
                         <ul>
                             <li>
-                                401 (Unauthorized): No authentication. 
-                                As noted in [[[#exploration-secboot]]], this is the first
-                                step in authentication negotiation used for security bootstrapping in
-                                all cases other than OAuth2.
-                                Information on what credentials are required will be included 
-                                in a <code>WWW-Authenticate</code> header.
+                                401 (Unauthorized): No authentication.
                             </li>
                             <li>
                                 403 (Forbidden): Insufficient rights to the resource.
@@ -1080,11 +1115,10 @@ img.wot-diagram {
                     </p>
                 </dd>
             </dl>
-            <!-- add additional protocols for self-description here -->
-
         </section>
+        
         <section id="exploration-directory" class="normative">
-            <h2>Directory</h2>
+            <h2>Thing Description Directory</h2>
             <p>
              A <a>Thing Description Directory</a> (TDD or Directory for short) is a self-describing
              <a>Thing</a> that provides a service to manage a set of TDs describing other Things.
