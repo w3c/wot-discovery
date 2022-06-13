@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 10 Jun 2022
+    <b>Version</b>: 13 Jun 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -495,6 +495,138 @@ pre.example {
     </tr>
 -->
   
+<tr id="service-coap-alternate-content" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-coap-alternate-content">service-coap-alternate-content</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        A CoAP-based TD Server providing a TD
+                        MAY provide alternative representations through
+                        server-driven content negotiation, that is by honouring the
+                        request's Accept option and responding with the supported
+                        TD serialization and equivalent Content-Format option.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-coap-method" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-coap-method">service-coap-method</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        A CoAP-based TD Server providing a TD
+                        MUST serve that resource with a `GET` method.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-coap-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-coap-resp">service-coap-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        A successful response from a CoAP-based TD Server providing a TD
+                        MUST have a 2.05 (Content) status, contain a Content-Format option
+                        with value 432 (`application/td+json`), and the TD in the payload.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-coap-size2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-coap-size2">service-coap-size2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                        A CoAP-based TD Server providing a TD
+                        SHOULD respond to requests containing a Size2 option by including
+                        the size estimate of the TD in its next response.
+                    </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-http-alternate-content" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-http-alternate-content">service-http-alternate-content</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            MAY provide alternative representations through
+                            server-driven content negotiation, that is by honoring the 
+                            request's Accept and Accept-Encoding headers and responding with the supported
+                            TD serialization and equivalent Content-Type and Content-Encoding headers.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-http-alternate-language" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-http-alternate-language">service-http-alternate-language</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            An HTTP-based TD Server providing a TD 
+                            MAY provide modified TDs or error responses 
+                            using a different default language after server-driven content negotiation, 
+                            that is by honouring the request's Accept-Language header.
+                        </td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-http-resp" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-http-resp">service-http-resp</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            A successful response from an HTTP-based TD Server providing a TD
+                            MUST have 200 (OK) status and the TD in the body.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-http-resp-content-type" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-http-resp-content-type">service-http-resp-content-type</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            A successful response with JSON serialization MUST contain `application/json`
+                            or more specifically, `application/td+json` in the Content-Type header.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="service-http-resp-json" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#service-http-resp-json">service-http-resp-json</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                            The default serialization format for successful response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-anonymous-td-identifier" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-identifier">tdd-anonymous-td-identifier</a></td>
 	<td class="baseassertion"></td>
@@ -606,6 +738,21 @@ pre.example {
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td></tr>
+<tr id="tdd-http-representation-alternate-output" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-representation-alternate-output">tdd-http-representation-alternate-output</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Directories MAY provide alternative representations through
+                                    server-driven content negotiation, that is by honouring the 
+                                    request's Accept and Accept-Encoding headers and responding with the supported
+                                    TD representation and equivalent Content-Type and Content-Encoding headers.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-notification-data" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-notification-data">tdd-notification-data</a></td>
 	<td class="baseassertion"></td>
@@ -871,7 +1018,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                            A successful request with a query SELECT or ASK MUST return a response 200 (OK) status, and contain by default as Content-Type header application/json.
+                            A successful request with a query SELECT or ASK MUST return a response 200 (OK) status, and contain application/json by default in the Content-Type header.
                         </td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
@@ -1105,14 +1252,26 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                Content-Type header, and an array of TDs in the body.
+                                A successful response MUST have 200 (OK) status and an array of TDs in the body.
                             </td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td></tr>
+<tr id="tdd-things-representation-alternate-input" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-representation-alternate-input">tdd-things-representation-alternate-input</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                    Directories MAY accept alternative representations based on request's indicated
+                                    Content-Type or Content-Encoding headers.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-things-retrieve" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve">tdd-things-retrieve</a></td>
 	<td class="baseassertion"></td>
@@ -1133,14 +1292,39 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status, contain `application/td+json`
-                                Content-Type header, and the requested TD in body.
+                                A successful response MUST have 200 (OK) status and the requested TD in the body.
                             </td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td></tr>
+<tr id="tdd-things-retrieve-resp-content-type-1" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve-resp-content-type-1">tdd-things-retrieve-resp-content-type-1</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/td+json` in the Content-Type header.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="tdd-things-retrieve-resp-content-type-2" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve-resp-content-type-2">tdd-things-retrieve-resp-content-type-2</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/ld+json` in the Content-Type header.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-things-update" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update">tdd-things-update</a></td>
 	<td class="baseassertion"></td>
@@ -1595,54 +1779,6 @@ Type: read-only.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
 	<td class="result failed">1</td></tr>
-<tr id="exploration-server-http-access-control" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-access-control">exploration-server-http-access-control</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-                            An HTTP-based TD Server providing a TD 
-                            SHOULD provide the resource only after performing necessary 
-                            authentication and authorization.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
-<tr id="exploration-server-http-alternate-content" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-content">exploration-server-http-alternate-content</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-                            An HTTP-based TD Server providing a TD 
-                            MAY provide alternative representations through
-                            server-driven content negotiation, that is by honouring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="exploration-server-http-alternate-language" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-language">exploration-server-http-alternate-language</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-                            An HTTP-based TD Server providing a TD 
-                            MAY provide modified TDs or error responses 
-                            using a different default language after server-driven content negotiation, 
-                            that is by honouring the request's Accept-Language header.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
 <tr id="exploration-server-http-head" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-head">exploration-server-http-head</a></td>
 	<td class="baseassertion"></td>
@@ -1666,35 +1802,6 @@ Type: read-only.</td>
 	<td class="atrisk"> 
                             An HTTP-based TD Server providing a TD 
                             MUST serve that resource with a `GET` method.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="exploration-server-http-resp" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-resp">exploration-server-http-resp</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk">
-                            A successful response from
-                            an HTTP-based TD Server providing a TD 
-                            MUST have a 200 (OK) status, contain a `application/td+json`
-                            Content-Type header, and the TD in the body.
-                        </td>
-	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
-<tr id="exploration-server-http-secure" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-secure">exploration-server-http-secure</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="atrisk"> 
-                            An HTTP-based TD Server providing a TD SHOULD use TLS when serving requests.
                         </td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
@@ -2354,7 +2461,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                            A successful request with a query CONSTRUCT and DESCRIBE MUST return a response 200 (OK) status, and contain by default as Content-Type header application/ld+json.
+                            A successful request with a query CONSTRUCT and DESCRIBE MUST return a response 200 (OK) status, and contain application/ld+json by default in the Content-Type header.
 			 </td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
@@ -2370,20 +2477,6 @@ Type: read-only.</td>
                             If implemented, the SPARQL search API MUST allow searching TDs using
                             the SPARQL 1.1 protocol [[sparql11-overview]].
                         </td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td></tr>
-<tr id="tdd-things-additional-representation" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-additional-representation">tdd-things-additional-representation</a></td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                                    Directories MAY accept additional representations based on request's indicated
-                                    Content-Type or Content-Encoding, and provide additional representations through
-                                    server-driven content negotiation.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
