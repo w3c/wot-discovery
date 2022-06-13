@@ -381,27 +381,28 @@ img.wot-diagram {
 	and Thing Links and use specific affordances and links provided in them.  
 	Conversely, a Consumer may not support Discovery, although it is recommended
 	[[wot-architecture11]].
-        </p>
-	<p class="ednote" title="Consumers SHOULD support Discovery">
-	Note: the WoT Architecture specification only says that Consumers SHOULD support Discovery.  
-	</p>
-        <p>
+</p>
+<p>
 	The WoT Discovery process is designed so that nearly any client that can fetch a single TD 
-	given a single URI using any protocol (including "file") can be said to support WoT Discovery. 
+	given a single URI can be said to support WoT Discovery. 
 	Of course, Discoverers may support more powerful Discovery mechanisms, but some of these 
 	have additional requirements.  
+<!--
 	For example, using WoT Thing Description Directories (TDDs) requires the use of HTTP, and so
 	are only available to Discoverers that support this protocol.  
 	However, use of HTTP (and Directories)
 	is not in fact a requirement of the WoT Discovery process. 
+-->
 	Some Introduction mechanisms can return multiple URLs, 
 	each of which can in turn be used to fetch at least one TD.
 	So even without a TDD, it is possible to discover multiple TDs.
+<!--
 	For example, a Discoverer supporting only CoAP may want to use
 	CoRE-RD as one of its Introduction mechanisms, and a single CoRE-RD instance can provide 
 	multiple links to individual TDs. 
 	Such a Discoverer could also support multiple Introduction mechanisms whose results are
 	merged, such as DNS-SD and CoRE-RD.
+-->
 	</p>
 	<p>
 	The following assertions describe the specific responsibilities of a Discoverer:
@@ -425,8 +426,7 @@ img.wot-diagram {
 		<li><span class="rfc2119-assertion" id="discoverer-must-support-fetching">
 			A Discoverer MUST support fetching a TD from at least one URL provided as part of the Introduction process.</span>
 			In other words, not only must a Discoverer accept URLs pointing at TDs, it must be
-			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
-			specified by way of a file URL.
+			able to fetch that TD, for example by using a GET for an HTTP URL.
 			It is permissible to split the implementation of a Discoverer into two components, one that
 			fetches/reads a TD and sets up a configuration during installation to be used by a
 			run-time component that cannot itself read TDs.
@@ -1033,6 +1033,12 @@ img.wot-diagram {
             be the same as the well-known URL used as an Introduction mechanism
             defined in <a href="#introduction-well-known"></a>.
             </p> 
+            <p>Use of secure transport is subject to assertions given in the 
+            Security Considerations and Privacy Considerations sections of the 
+            [[wot-architecture11]] and [[wot-thing-description11]] specifications, 
+            which define scenarios where secure transport is recommended or mandatory and mutual 
+            authentication is recommended.
+            </p>
             <p>
              A TD Server distributing a TD 
              using the following protocols 
@@ -1041,43 +1047,28 @@ img.wot-diagram {
             <dl>
                 <dt>HTTP</dt>
                 <dd>
-                        <p class="ednote" title="Redundant">
-                        The following two assertions on TLS and authentication
-                        are redundant and not as specific as those provided elsewhere.
-                        Suggest replacing these here (and in all exploration sections) with appropriate
-                        references to security and privacy assertions given 
-                        in [[wot-architecture11]] and [[wot-thing-description11]]
-                        and in the Security Considerations and Privacy Considerations sections of this document.
-                        </p>
-                    <p>
-                        <span class="rfc2119-assertion" id="exploration-server-http-secure"> 
-                            An HTTP-based TD Server providing a <a>TD</a> SHOULD use TLS when serving requests.
-                        </span>
-                        <span class="rfc2119-assertion" id="exploration-server-http-access-control">
-                            An HTTP-based TD Server providing a <a>TD</a> 
-                            SHOULD provide the resource only after performing necessary 
-                            authentication and authorization.
-                        </span>
-                    </p>
                     <p>
                         <span class="rfc2119-assertion" id="exploration-server-http-method"> 
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MUST serve that resource with a `GET` method.
                         </span>
-                        <span class="rfc2119-assertion" id="exploration-server-http-resp">
-                            A successful response from
-                            an HTTP-based TD Server providing a <a>TD</a> 
-                            MUST have a 200 (OK) status, contain a `application/td+json`
-                            Content-Type header, and the <a>TD</a> in the body.
-                        </span>
-                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-content">
+                        <span class="rfc2119-assertion" id="service-http-resp">
+                            A successful response from an HTTP-based TD Server providing a <a>TD</a>
+                            MUST have 200 (OK) status and the <a>TD</a> in the body.</span>
+                        <span class="rfc2119-assertion" id="service-http-resp-content-type">
+                            A successful response with JSON serialization MUST contain `application/json`
+                            or more specifically, `application/td+json` in the Content-Type header.</span>
+                        <span class="rfc2119-assertion" id="service-http-resp-json">
+                            The default serialization format for successful response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
+                        The JSON-LD syntax allows semantic extensions and processing.
+                        <span class="rfc2119-assertion" id="service-http-alternate-content">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide alternative representations through
-                            server-driven content negotiation, that is by honouring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </span>
-                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-language">
+                            server-driven content negotiation, that is by honoring the 
+                            request's Accept and Accept-Encoding headers and responding with the supported
+                            TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
+                        <span class="rfc2119-assertion" id="service-http-alternate-language">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
@@ -1112,6 +1103,59 @@ img.wot-diagram {
                         </ul>
                     </p>
                 </dd>
+            </dl>
+            <dl>
+                <dt>CoAP</dt>
+                <dd>
+                <p>
+                    <span class="rfc2119-assertion" id="service-coap-method">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        MUST serve that resource with a `GET` method.
+                    </span>
+                    <span class="rfc2119-assertion" id="service-coap-resp">
+                        A successful response from a CoAP-based TD Server providing a <a>TD</a>
+                        MUST have a 2.05 (Content) status, contain a Content-Format option
+                        with value 432 (`application/td+json`), and the <a>TD</a> in the payload.
+                    </span>
+                    Note that the payload might be split over multiple message exchanges using
+                    block-wise transfer [[RFC7959]].
+                    <span class="rfc2119-assertion" id="service-coap-alternate-content">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        MAY provide alternative representations through
+                        server-driven content negotiation, that is by honouring the
+                        request's Accept option and responding with the supported
+                        <a>TD</a> serialization and equivalent Content-Format option.
+                    </span>
+                </p>
+                <p>
+                    <span class="rfc2119-assertion" id="service-coap-size2">
+                        A CoAP-based <a>TD</a> Server providing a <a>TD</a>
+                        SHOULD respond to requests containing a Size2 option by including
+                        the size estimate of the <a>TD</a> in its next response.
+                    </span>
+                    This is relevant when obtaining a <a>TD</a> using block-wise transfer and
+                    enables clients to abort the retrieval if the total payload size should be too
+                    large for them to process.
+                </p>
+                <p>
+                    In constrained environments, a single <a>TD</a> may be too large to process
+                    for the server or clients.
+                    See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on
+                    incremental transfer of the requested payload.
+                </p>
+
+                <p>
+                    Error responses:
+                    <ul>
+                        <li>
+                            4.01 (Unauthorized): No authentication.
+                        </li>
+                        <li>
+                            4.03 (Forbidden): Insufficient rights to the resource.
+                        </li>
+                    </ul>
+                </p>
+            </dd>
             </dl>
         </section>
         
@@ -1410,14 +1454,6 @@ img.wot-diagram {
                 </p>
 
                 <p>
-<!--
-                  <span class="rfc2119-assertion" id="tdd-http-alternate-content">
-                     A Directory server MAY provide alternative representations through
-                     server-driven content negotiation, that is by honouring the 
-                     request's Accept header and responding with the supported
-                     TD serialization and equivalent Content-Type header.
-                  </span>
--->
                   <span class="rfc2119-assertion" id="tdd-http-alternate-language">
                      A Directory server MAY provide modified TDs or error responses using a different
                      default language after server-driven content negotiation, 
@@ -1471,11 +1507,20 @@ img.wot-diagram {
                                     processing.</span>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-things-additional-representation">
-                                    Directories MAY accept additional representations based on request's indicated
-                                    Content-Type or Content-Encoding, and provide additional representations through
-                                    server-driven content negotiation.</span>
-                                This is useful for applications that require serializations other than JSON.
+                                <span class="rfc2119-assertion" id="tdd-things-representation-alternate-input">
+                                    Directories MAY accept alternative representations based on request's indicated
+                                    Content-Type or Content-Encoding headers.</span>
+                                This is useful for applications that need to provide representations other than
+                                raw JSON as input to a directory.
+                            </li>
+                            <li>                       
+                                <span class="rfc2119-assertion" id="tdd-http-representation-alternate-output">
+                                    Directories MAY provide alternative representations through
+                                    server-driven content negotiation, that is by honouring the 
+                                    request's Accept and Accept-Encoding headers and responding with the supported
+                                    TD representation and equivalent Content-Type and Content-Encoding headers.</span>
+                                This is useful for applications that need to retrieve representations other than
+                                raw JSON from a directory, such as Gzip-compressed JSON.
                             </li>
                         </ul>
                     </p>
@@ -1573,9 +1618,13 @@ img.wot-diagram {
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/td+json`
-                                Content-Type header, and the requested TD in body.
+                                A successful response MUST have 200 (OK) status and the requested TD in the body.
                             </span>
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/td+json` in the Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                             <p>
                                 The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-api-spec]]].
@@ -1840,10 +1889,13 @@ img.wot-diagram {
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-things-list-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                Content-Type header, and an array of TDs in the body.
+                                A successful response MUST have 200 (OK) status and an array of TDs in the body.
                             </span>
-
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/ld+json` in the Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                         </p>
 
                         <p>
@@ -2358,8 +2410,8 @@ img.wot-diagram {
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
                         The request must contain a valid JSONPath [[?JSONPATH]] as searching parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body a set of complete TDs or a set of TD fragments.
+                        <code>application/json</code> in the Content-Type header, and
+                        a set of complete TDs or a set of TD fragments in the body.
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-api-spec]]].
 
@@ -2372,8 +2424,8 @@ img.wot-diagram {
                         at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
                         The request must contain a valid XPath 3.1 [[xpath-31]] as search parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body, the query response in JSON serialization.  The data schema for the response is defined implicitly by the query and the XPath specification.
+                        <code>application/json</code> in the Content-Type header, and
+                        the query response in JSON serialization in the body.  The data schema for the response is defined implicitly by the query and the XPath specification.
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-api-spec]]].
@@ -2395,10 +2447,10 @@ img.wot-diagram {
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp-select-ask">
-                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
+                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain <code>application/json</code> by default in the Content-Type header.
                         </span>
 			 <span class="rfc2119-assertion" id="tdd-search-sparql-resp-describe-construct">
-                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
+                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain <code>application/ld+json</code> by default in the Content-Type header.
 			 </span>
 			<span class="rfc2119-assertion" id="tdd-search-sparql-error">
 			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 400 (Bad Request).
@@ -2915,6 +2967,13 @@ img.wot-diagram {
                 <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
                 The HTTP/1.1 chunked transfer encoding is not supported in HTTP/2.
                 <!-- </span> -->
+                </li>
+                <li>
+        <!-- <span class="rfc2119-assertion" id="perf-inc-chunked-3"> -->
+                CoAP servers must suppoert block-wise transfer [[RFC7959]] when relying
+                on an unreliable transport protocol like UDP and should support it when
+                using a reliable transport protocol like TCP or WebSockets [[RFC8323]].
+               <!-- </span> -->
                 </li>
             </ul>
             <p> 
