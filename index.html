@@ -1117,9 +1117,10 @@ img.wot-diagram {
                 <dd>
                 <p>
                     <span class="rfc2119-assertion" id="service-coap-secure">
-                        A CoAP-based TD Server providing a <a>TD</a> SHOULD use the appropriate transport
-                        security mechanism for the transport protocol used (i.e., DTLS for CoAP over UDP
-                        or TLS for CoAP over TCP).
+                        A CoAP-based TD Server providing a <a>TD</a> SHOULD use the appropriate
+                        transport-layer security mechanism for the transport protocol used
+                        (e.g., DTLS for CoAP over UDP [[[RFC7252]]] and TLS for CoAP over TCP
+                        or WebSockets [[RFC8323]]).
                     </span>
                     <span class="rfc2119-assertion" id="service-coap-access-control">
                         A CoAP-based TD Server providing a <a>TD</a>
@@ -1144,16 +1145,16 @@ img.wot-diagram {
                         MAY provide alternative representations through
                         server-driven content negotiation, that is by honouring the
                         request's Accept option and responding with the supported
-                        TD serialization and equivalent Content-Format option.
+                        <a>TD</a> serialization and equivalent Content-Format option.
                     </span>
                 </p>
                 <p>
                     <span class="rfc2119-assertion" id="service-coap-size2">
-                        A CoAP-based TD Server providing a <a>TD</a>
+                        A CoAP-based <a>TD</a> Server providing a <a>TD</a>
                         SHOULD respond to requests containing a Size2 option by including
-                        the size estimate of the TD in its next response.
+                        the size estimate of the <a>TD</a> in its next response.
                     </span>
-                    This is relevant when obtaining a TD using block-wise transfer and
+                    This is relevant when obtaining a <a>TD</a> using block-wise transfer and
                     enables clients to abort the retrieval if the total payload size should be too
                     large for them to process.
                 </p>
