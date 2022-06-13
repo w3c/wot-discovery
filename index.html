@@ -1112,6 +1112,71 @@ img.wot-diagram {
                     </p>
                 </dd>
             </dl>
+            <dl>
+                <dt>CoAP</dt>
+                <dd>
+                <p>
+                    <span class="rfc2119-assertion" id="service-coap-secure">
+                        A CoAP-based TD Server providing a <a>TD</a> SHOULD use the appropriate transport
+                        security mechanism for the transport protocol used (i.e., DTLS for CoAP over UDP
+                        or TLS for CoAP over TCP).
+                    </span>
+                    <span class="rfc2119-assertion" id="service-coap-access-control">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        SHOULD provide the resource only after performing necessary
+                        authentication and authorization.
+                    </span>
+                </p>
+                <p>
+                    <span class="rfc2119-assertion" id="service-coap-method">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        MUST serve that resource with a `GET` method.
+                    </span>
+                    <span class="rfc2119-assertion" id="service-coap-resp">
+                        A successful response from a CoAP-based TD Server providing a <a>TD</a>
+                        MUST have a 2.05 (Content) status, contain a Content-Format option
+                        with value 432 (`application/td+json`), and the <a>TD</a> in the payload.
+                    </span>
+                    Note that the payload might be split over multiple message exchanges using
+                    block-wise transfer [[RFC7959]].
+                    <span class="rfc2119-assertion" id="service-coap-alternate-content">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        MAY provide alternative representations through
+                        server-driven content negotiation, that is by honouring the
+                        request's Accept option and responding with the supported
+                        TD serialization and equivalent Content-Format option.
+                    </span>
+                </p>
+                <p>
+                    <span class="rfc2119-assertion" id="service-coap-size2">
+                        A CoAP-based TD Server providing a <a>TD</a>
+                        SHOULD respond to requests containing a Size2 option by including
+                        the size estimate of the TD in its next response.
+                    </span>
+                    This is relevant when obtaining a TD using block-wise transfer and
+                    enables clients to abort the retrieval if the total payload size should be too
+                    large for them to process.
+                </p>
+                <p>
+                    In constrained environments, a single <a>TD</a> may be too large to process
+                    for the server or clients.
+                    See [[[#perf-incremental-transfer]]] for protocol-specific recommendations on
+                    incremental transfer of the requested payload.
+                </p>
+
+                <p>
+                    Error responses:
+                    <ul>
+                        <li>
+                            4.01 (Unauthorized): No authentication.
+                        </li>
+                        <li>
+                            4.03 (Forbidden): Insufficient rights to the resource.
+                        </li>
+                    </ul>
+                </p>
+            </dd>
+            </dl>
         </section>
         
         <section id="exploration-directory" class="normative">
