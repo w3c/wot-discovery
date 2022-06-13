@@ -1468,7 +1468,8 @@ img.wot-diagram {
                                 <span class="rfc2119-assertion" id="tdd-things-representation-alternate-input">
                                     Directories MAY accept alternative representations based on request's indicated
                                     Content-Type or Content-Encoding headers.</span>
-                                This is useful for applications that provide serializations other than JSON.
+                                This is useful for applications that need to provide representations other than
+                                raw JSON as input to a directory.
                             </li>
                             <li>                       
                                 <span class="rfc2119-assertion" id="tdd-http-representation-alternate-output">
@@ -1476,7 +1477,8 @@ img.wot-diagram {
                                     server-driven content negotiation, that is by honouring the 
                                     request's Accept and Accept-Encoding headers and responding with the supported
                                     TD representation and equivalent Content-Type and Content-Encoding headers.</span>
-                                This is useful for applications that expect serializations other than JSON.
+                                This is useful for applications that need to retrieve representations other than
+                                raw JSON from a directory, such as Gzip-compressed JSON.
                             </li>
                         </ul>
                     </p>
