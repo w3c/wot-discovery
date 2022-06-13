@@ -1,5 +1,7 @@
 # Web of Things (WoT) Discovery Explainer
-The purpose of WoT Discovery is to define a mechanism to distribute WoT Thing Descriptions
+The purpose of 
+[WoT Discovery](https://w3c.github.io/wot-discovery/) 
+is to define a mechanism to distribute WoT Thing Descriptions
 in a manner that is accessible but also satisfies security and privacy objectives.
 It is an optional feature of the WoT Architecture in that WoT TDs can also be 
 managed and obtained by other means, for example by using a normal database.  However, 
@@ -9,7 +11,7 @@ searched in a consistent way.
 
 ## Introduction
 WoT Discovery builds upon existing network service and IoT discovery mechanisms
-but also provides secure RESTful web service APIs for searching WoT Thing Description metadata.
+but also provides secure web service APIs for searching WoT Thing Description metadata.
 Discovery has to simultaneously satisfy many objectives which are in partial conflict:
 it needs to make data easily available, but preserve privacy; it needs to work for small
 devices and installations but also for large systems; it needs to work on small LANs and
@@ -19,12 +21,12 @@ cannot be modified and so can only be described externally.
 
 The WoT Discovery specification attempts to meet these challenges by defining
 a multistage discovery process with authorization checkpoints to meet privacy and
-security goals; by using scalable RESTful API designs; by supporting a variety of
+security goals; by using scalable network API designs; by supporting a variety of
 first-contact mechanisms suitable for different scales; and by providing optional
 semantic search and self-description capabilities.
 
 There are still a number of limitation in the current specification, which
-primarily focuses on HTTP and had to defer some important goals, such as
+primarily focuses on CoAP and HTTP and had to defer some important goals, such as
 geolocation queries.  However, the specification attempts to address the above
 core issues and is intended to serve as a foundation for future work while
 enabling, in its current form, use cases supporting IoT integration
@@ -36,7 +38,8 @@ of all normative and informative deliverables, please see the
 [WoT Architecture explainer](https://github.com/w3c/wot-architecture/blob/main/explainer/explainer11.md)
 and the [WoT Architecture document](https://www.w3.org/TR/wot-architecture11/).
 
-Since the purpose of the WoT Discovery deliverable is to normatively
+Since the purpose of the 
+[WoT Discovery deliverable](https://w3c.github.io/wot-discovery/) is to normatively
 define a mechanism to distribute WoT Thing Descriptions,
 the [WoT Thing Description 1.1 document](https://www.w3.org/TR/wot-thing-description11/) is
 especially relevant.
@@ -132,7 +135,7 @@ We did this by separating out first-contact and detailed search mechanisms,
 as described in the next section.
 The first-contact mechanisms can be chosen based on the scenario (i.e.
 broadcast mDNS-SD might be suitable on a LAN, a search engine would be suitable
-for a Smart City), while the detailed search mechanisms are RESTful web services
+for a Smart City), while the detailed search mechanisms are web services
 simple enough to implement on individual IoT devices but with good potential for scalability on
 large cloud-based systems.
 
@@ -151,9 +154,10 @@ to retreive metadata. Exploration services, however, are tasked with
 authenticating and checking the authorizations of requests, and protecting
 queries and the transmission of results, and can use best
 practices from web services to do so, including (for example) OAuth and TLS.
-One exploration service provides a directory supporting a scalable RESTful web API
+One exploration service provides a directory supporting a scalable web API
 allowing for detailed search of metadata.  Another exploration service allows
-devices to self-describe.
+individual TDs to be distributed as web resources using standard web servers 
+or to allow devices to self-describe.
 
 ### Introduction Mechanisms
 Introduction mechanisms allow for ecosystem integration and using different "first contact"
@@ -171,9 +175,12 @@ not have metadata embedded in them.  Additional authentication and authorization
 is still needed before detailed metadata is provided.
 
 ### Exploration Mechanisms
-Exploration mechanisms come in two different forms: directories and self-description.
-Both of these have HTTP-based RESTful web services and support existing mechanisms
+Exploration mechanisms come in two different forms: TD directories and TD servers.
+Both of these can be implemented as web services using HTTP, including supporting existing mechanisms
 for authentication, authorization, and secure transport.
+In addition a TD server, which is intended to distribute a single TD, can also
+use CoAP and can be used for self-describing Things as well as systems describing
+other Things.
 
 A WoT Thing Description Directory (TDD) is an HTTP-based Thing itself.
 As a class they are described with a Thing Model and any particular
@@ -187,18 +194,21 @@ use cases like a Smart City where there
 might be thousands of Things to select from.
 However, it can also be used in a Smart Home with only a few dozen Things.
 
-Self-description is another exploration mechanism that
-provides the ability of an HTTP-based Thing to
-return a TD directly.  There is also an Introduction mechanism that allows
+A TD Service is another exploration mechanism that allows a single
+TD to be distributed via either an HTTP or CoAP endpoint.
+
+Self-description is a special case of a TD Server that
+enables a Thing to host and provide a TD directly.  
+There is a complementary Introduction mechanism that allows
 the URL for self-description on a Thing to be guessed using a well-known
-URL convention based only on the base IP address of the Thing.  In this
-exploration mechanism, however, the Thing itself is responsible for managing
+URL convention based only on the base IP address of the Thing.  
+In self-description, however, the Thing itself is responsible for managing
 authentication and authorization, so it is only suitable for a small number
-of users and for managing a small number of devices.  This is an optional
-feature.  It is also worth noting that it only applies to "greenfield"
+of users and for managing a small number of devices.  
+Self-description only applies to "greenfield"
 devices built from the outset to support the Web of Things.  For "brownfield"
-devices the TD describing how to access a devices must be obtained elsewhere.
-In this case using a TDD as an exploration service is a better solution.
+devices the TD describing how to access a devices must be obtained elsewhere,
+such as a TD server based on a regular web server or a TDD.
 
 ## Non-Goals
 The following non-goals are out of scope of the current WoT Discovery
@@ -261,7 +271,7 @@ be difficult to justify.
 
 ### IDs
 The Thing Description specification includes optional IDs which are mapped onto
-the RDF @id.  However, to support SPARQL queries, an @id is necessary in the 
+the RDF `@id`.  However, to support SPARQL queries, an `@id` is necessary in the 
 information model.  Therefore
 when an "anonymous" TD without an ID is registered with a Thing Description Directory,
 a temporary ID is created that is local to the directory.
@@ -275,7 +285,7 @@ There are introduction mechanisms that can only return a URL but cannot
 associate a "type" with that URL. A client would then not know whether the URL is pointing
 at a Thing Description or a Thing Description Directory.  We resolved this by deciding that
 URLs returned by introduction mechanisms always point at Thing Descriptions,
-but Thing Descriptions for Thing Description Directories have a special @type value.
+but Thing Descriptions for Thing Description Directories have a special `@type` value.
 
 ### Static Directories
 The only required affordances in a Thing Description Directory are "retrieveThing" and "things",
@@ -317,7 +327,7 @@ introduction mechanisms and standardized query languages
 supporting geolocation search are currently lacking.
 
 However, supporting this functionality is still a long-term goal for future work,
-as it is important in many of the WoT use cases we have collected.
+as geolocation is important in many of the WoT use cases we have collected.
 IEEE P2874 is developing standardized spatial queries and the
 Open Geospatial Consortium is developing RDF information models for geolocation
 data; both of these may be relevant to future work.
@@ -363,7 +373,7 @@ are open (anything that returns a URL is acceptable) but the
 WoT Discovery specification calls out IETF standards such as the CoRE-RD service,
 DID and in particular DID document resolution, DNS-SD and mDNS, and 
 QR codes.  The "exploration services" in WoT Discovery are essentially
-normal RESTful web services and so can follow standards for such web services,
+normal web services and so can follow standards for such web services,
 including secure access controls that can be updated over time.
 
 To support semantic search (which has also been studied in the context
