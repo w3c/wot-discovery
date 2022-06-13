@@ -1,0 +1,86 @@
+ID,Status,Comment
+tdd-anonymous-td-identifier,fail,failed:TestJSONPath/filter_anonymous failed:TestXPath/filter_anonymous failed:TestCreateAnonymousThing/registration_info failed:TestListThings/anonymous_td_id
+tdd-anonymous-td-local-uuid,fail,failed:TestCreateAnonymousThing/location_header
+tdd-http-error-response,fail,failed:TestCreateAnonymousThing/reject_invalid/response failed:TestCreateThing/reject_invalid/response
+tdd-http-head,fail,failed:TestSPARQL/HEAD passed:TestListThings/HEAD
+tdd-search-jsonpath,pass,passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-method,pass,passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-parameter,pass,passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-response,fail,failed:TestJSONPath/reject_bad_query/status_code
+tdd-search-sparql,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-federation,fail,failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-get,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-post,fail,failed:TestSPARQL/search_using_POST
+tdd-search-sparql-resp-select-ask,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
+tdd-search-xpath,pass,passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-method,pass,passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-parameter,pass,passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-response,fail,failed:TestXPath/reject_bad_query/status_code
+tdd-things-create-anonymous-contenttype,pass,passed:TestCreateAnonymousThing/submit_request
+tdd-things-create-anonymous-td,fail,failed:TestCreateAnonymousThing/result passed:TestCreateAnonymousThing/submit_request
+tdd-things-create-anonymous-td-resp,fail,failed:TestCreateAnonymousThing/status_code failed:TestCreateAnonymousThing/location_header
+tdd-things-create-known-contenttype,pass,passed:TestCreateThing/submit_request
+tdd-things-create-known-td,fail,failed:TestCreateThing/result passed:TestCreateThing/submit_request
+tdd-things-create-known-td-resp,fail,failed:TestCreateThing/status_code
+tdd-things-create-known-vs-anonymous,pass,passed:TestCreateAnonymousThing/reject_PUT
+tdd-things-crud,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request
+tdd-things-crudl,fail,failed:TestListThings/submit_request passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request
+tdd-things-default-representation,fail,failed:TestListThings/content_type
+tdd-things-list-method,fail,failed:TestListThings/submit_request failed:TestListThings/status_code
+tdd-things-list-only,fail,failed:TestListThings/submit_request
+tdd-things-list-resp,fail,failed:TestListThings/content_type failed:TestListThings/payload failed:TestListThings/registration_info
+tdd-validation-response,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation
+tdd-validation-result,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation
+tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/status failed:TestCreateThing/reject_invalid/status
+tdd-http-missing-api-endpoint,null,scripted tests not available
+tdd-https,null,scripted tests not available
+tdd-notification,null,scripted tests not available
+tdd-notification-data,null,scripted tests not available
+tdd-notification-data-create-full,null,scripted tests not available
+tdd-notification-data-delete-diff,null,scripted tests not available
+tdd-notification-data-diff-unsupported,null,scripted tests not available
+tdd-notification-data-td-id,null,scripted tests not available
+tdd-notification-data-update-diff,null,scripted tests not available
+tdd-notification-data-update-id,null,scripted tests not available
+tdd-notification-event-id,null,scripted tests not available
+tdd-notification-event-types,null,scripted tests not available
+tdd-notification-filter-type,null,scripted tests not available
+tdd-notification-sse,null,scripted tests not available
+tdd-registrationinfo-expiry-config,null,scripted tests not available
+tdd-registrationinfo-expiry-purge,null,scripted tests not available
+tdd-registrationinfo-vocab-created,null,scripted tests not available
+tdd-registrationinfo-vocab-expires,null,scripted tests not available
+tdd-registrationinfo-vocab-modified,null,scripted tests not available
+tdd-registrationinfo-vocab-retrieved,null,scripted tests not available
+tdd-registrationinfo-vocab-ttl,null,scripted tests not available
+tdd-search-large-tdds,null,scripted tests not available
+tdd-search-sparql-error,null,scripted tests not available
+tdd-search-sparql-federation-version,null,scripted tests not available
+tdd-search-sparql-resp-describe-construct,null,scripted tests not available
+tdd-search-sparql-version,null,scripted tests not available
+tdd-things-additional-representation,null,scripted tests not available
+tdd-things-delete,null,scripted tests not available
+tdd-things-delete-resp,null,scripted tests not available
+tdd-things-list-pagination,null,scripted tests not available
+tdd-things-list-pagination-collection,null,scripted tests not available
+tdd-things-list-pagination-header-canonicallink,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink-attr,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink-base,null,scripted tests not available
+tdd-things-list-pagination-limit,null,scripted tests not available
+tdd-things-list-pagination-order,null,scripted tests not available
+tdd-things-list-pagination-order-default,null,scripted tests not available
+tdd-things-list-pagination-order-nextlink,null,scripted tests not available
+tdd-things-list-pagination-order-unsupported,null,scripted tests not available
+tdd-things-read-only-auth,null,scripted tests not available
+tdd-things-retrieve,null,scripted tests not available
+tdd-things-retrieve-resp,null,scripted tests not available
+tdd-things-update,null,scripted tests not available
+tdd-things-update-contenttype,null,scripted tests not available
+tdd-things-update-partial,null,scripted tests not available
+tdd-things-update-partial-contenttype,null,scripted tests not available
+tdd-things-update-partial-mergepatch,null,scripted tests not available
+tdd-things-update-partial-partialtd,null,scripted tests not available
+tdd-things-update-partial-resp,null,scripted tests not available
+tdd-things-update-resp,null,scripted tests not available
+tdd-validation-jsonschema,null,scripted tests not available
