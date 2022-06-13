@@ -569,7 +569,7 @@ img.wot-diagram {
                 to advertise its presence.</span>
                 <span class="rfc2119-assertion" id="introduction-well-known-path">If a Thing or <a>Thing Description Directory</a> use the Well-Known Uniform Resource Identifier [[RFC8615]] to advertise its presence, it MUST register its own Thing Description
                 into the following path:
-                <code>/.well-known/wot-thing-description</code>.</span>
+                <code>/.well-known/wot</code>.</span>
             <p>
                 <span class="rfc2119-assertion" id="introduction-well-known-thing-description">
                     When a request is made at the above Well-Known URI, the server MUST return
@@ -577,7 +577,7 @@ img.wot-diagram {
                 </span>
             </p>
             <p class="ednote" title="Registration of Well-known URI">
-                The service name in Well-Known URI (<code>wot-thing-description</code>) is tentative.
+                The service name in Well-Known URI (<code>wot</code>) is tentative.
                 "Well-Known URIs" registry and contents of registration request is described in Section 3.1 of [[RFC8615]].
             </p>
 
@@ -701,7 +701,7 @@ img.wot-diagram {
                             "id": "did:example:wotdiscoveryexample#td",
                             "type": "WotThingDescription",
                             "serviceEndpoint":
-                                "https://wot.example.com/.well-known/wot-thing-description"
+                                "https://wot.example.com/.well-known/wot"
                         }]
                     }
                 </pre>
@@ -2995,12 +2995,8 @@ img.wot-diagram {
                 defined in [[RFC8615]].
             </p>
             <ul>
-                <li>URI suffix: <code>wot-thing-description</code></li>
+                <li>URI suffix: <code>wot</code></li>
             </ul>
-            <p class="ednote" title="Shorter suffix">
-                We are currently discussing whether we should adopt a shorter URI suffix (such as <code>wot-td</code>)
-                in view of limited packet lengths for some protocols.
-            </p>
         </section>
         <section id="service-name">
             <h2>Service Name Registration</h2>
