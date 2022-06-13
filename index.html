@@ -380,27 +380,28 @@ img.wot-diagram {
 	and Thing Links and use specific affordances and links provided in them.  
 	Conversely, a Consumer may not support Discovery, although it is recommended
 	[[wot-architecture11]].
-        </p>
-	<p class="ednote" title="Consumers SHOULD support Discovery">
-	Note: the WoT Architecture specification only says that Consumers SHOULD support Discovery.  
-	</p>
-        <p>
+</p>
+<p>
 	The WoT Discovery process is designed so that nearly any client that can fetch a single TD 
-	given a single URI using any protocol (including "file") can be said to support WoT Discovery. 
+	given a single URI can be said to support WoT Discovery. 
 	Of course, Discoverers may support more powerful Discovery mechanisms, but some of these 
 	have additional requirements.  
+<!--
 	For example, using WoT Thing Description Directories (TDDs) requires the use of HTTP, and so
 	are only available to Discoverers that support this protocol.  
 	However, use of HTTP (and Directories)
 	is not in fact a requirement of the WoT Discovery process. 
+-->
 	Some Introduction mechanisms can return multiple URLs, 
 	each of which can in turn be used to fetch at least one TD.
 	So even without a TDD, it is possible to discover multiple TDs.
+<!--
 	For example, a Discoverer supporting only CoAP may want to use
 	CoRE-RD as one of its Introduction mechanisms, and a single CoRE-RD instance can provide 
 	multiple links to individual TDs. 
 	Such a Discoverer could also support multiple Introduction mechanisms whose results are
 	merged, such as DNS-SD and CoRE-RD.
+-->
 	</p>
 	<p>
 	The following assertions describe the specific responsibilities of a Discoverer:
@@ -424,8 +425,7 @@ img.wot-diagram {
 		<li><span class="rfc2119-assertion" id="discoverer-must-support-fetching">
 			A Discoverer MUST support fetching a TD from at least one URL provided as part of the Introduction process.</span>
 			In other words, not only must a Discoverer accept URLs pointing at TDs, it must be
-			able to fetch that TD, for example by using a GET for an HTTP URL or by reading it from a file 
-			specified by way of a file URL.
+			able to fetch that TD, for example by using a GET for an HTTP URL.
 			It is permissible to split the implementation of a Discoverer into two components, one that
 			fetches/reads a TD and sets up a configuration during installation to be used by a
 			run-time component that cannot itself read TDs.
