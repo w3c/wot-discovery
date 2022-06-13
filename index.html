@@ -1052,18 +1052,21 @@ img.wot-diagram {
                             MUST serve that resource with a `GET` method.
                         </span>
                         <span class="rfc2119-assertion" id="service-http-resp">
-                            A successful response from
-                            an HTTP-based TD Server providing a <a>TD</a> 
-                            MUST have a 200 (OK) status, contain a `application/td+json`
-                            Content-Type header, and the <a>TD</a> in the body.
-                        </span>
+                            A successful response from an HTTP-based TD Server providing a <a>TD</a>
+                            MUST have 200 (OK) status and the <a>TD</a> in the body.</span>
+                        <span class="rfc2119-assertion" id="service-http-resp-content-type">
+                            A successful response with JSON serialization MUST contain `application/json`
+                            or more specifically, `application/td+json` in the Content-Type header.</span>
+                        <span class="rfc2119-assertion" id="service-http-resp-json">
+                            The default serialization format for successful response bodies MUST be
+                            JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
+                        The JSON-LD syntax allows semantic extensions and processing.
                         <span class="rfc2119-assertion" id="service-http-alternate-content">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide alternative representations through
-                            server-driven content negotiation, that is by honouring the 
-                            request's Accept header and responding with the supported
-                            TD serialization and equivalent Content-Type header.
-                        </span>
+                            server-driven content negotiation, that is by honoring the 
+                            request's Accept and Accept-Encoding headers and responding with the supported
+                            TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
                         <span class="rfc2119-assertion" id="service-http-alternate-language">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide modified TDs or error responses 
@@ -1450,14 +1453,6 @@ img.wot-diagram {
                 </p>
 
                 <p>
-<!--
-                  <span class="rfc2119-assertion" id="tdd-http-alternate-content">
-                     A Directory server MAY provide alternative representations through
-                     server-driven content negotiation, that is by honouring the 
-                     request's Accept header and responding with the supported
-                     TD serialization and equivalent Content-Type header.
-                  </span>
--->
                   <span class="rfc2119-assertion" id="tdd-http-alternate-language">
                      A Directory server MAY provide modified TDs or error responses using a different
                      default language after server-driven content negotiation, 
@@ -1511,11 +1506,20 @@ img.wot-diagram {
                                     processing.</span>
                             </li>
                             <li>
-                                <span class="rfc2119-assertion" id="tdd-things-additional-representation">
-                                    Directories MAY accept additional representations based on request's indicated
-                                    Content-Type or Content-Encoding, and provide additional representations through
-                                    server-driven content negotiation.</span>
-                                This is useful for applications that require serializations other than JSON.
+                                <span class="rfc2119-assertion" id="tdd-things-representation-alternate-input">
+                                    Directories MAY accept alternative representations based on request's indicated
+                                    Content-Type or Content-Encoding headers.</span>
+                                This is useful for applications that need to provide representations other than
+                                raw JSON as input to a directory.
+                            </li>
+                            <li>                       
+                                <span class="rfc2119-assertion" id="tdd-http-representation-alternate-output">
+                                    Directories MAY provide alternative representations through
+                                    server-driven content negotiation, that is by honouring the 
+                                    request's Accept and Accept-Encoding headers and responding with the supported
+                                    TD representation and equivalent Content-Type and Content-Encoding headers.</span>
+                                This is useful for applications that need to retrieve representations other than
+                                raw JSON from a directory, such as Gzip-compressed JSON.
                             </li>
                         </ul>
                     </p>
@@ -1613,9 +1617,13 @@ img.wot-diagram {
                                 at `/things/{id}` endpoint, where `id` is the unique TD identifier.
                             </span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/td+json`
-                                Content-Type header, and the requested TD in body.
+                                A successful response MUST have 200 (OK) status and the requested TD in the body.
                             </span>
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/td+json` in the Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                             <p>
                                 The retrieve operation is specified as `retrieveThing` action in 
                                 [[[#directory-api-spec]]].
@@ -1880,10 +1888,13 @@ img.wot-diagram {
                             </span>
                         
                             <span class="rfc2119-assertion" id="tdd-things-list-resp">
-                                A successful response MUST have 200 (OK) status, contain `application/ld+json`
-                                Content-Type header, and an array of TDs in the body.
+                                A successful response MUST have 200 (OK) status and an array of TDs in the body.
                             </span>
-
+                            <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
+                                A successful response with JSON serialization MUST contain `application/json`
+                                or more specifically, `application/ld+json` in the Content-Type header.</span>
+                            Note that the default serialization is JSON with JSON-LD syntax,
+                            and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                         </p>
 
                         <p>
@@ -2398,8 +2409,8 @@ img.wot-diagram {
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
                         The request must contain a valid JSONPath [[?JSONPATH]] as searching parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body a set of complete TDs or a set of TD fragments.
+                        <code>application/json</code> in the Content-Type header, and
+                        a set of complete TDs or a set of TD fragments in the body.
                         The syntactic search with JSONPath is specified as `searchJSONPath` action in
                         [[[#directory-api-spec]]].
 
@@ -2412,8 +2423,8 @@ img.wot-diagram {
                         at `/search/xpath?query={query}` endpoint, where `query` is the XPath expression.
                         The request must contain a valid XPath 3.1 [[xpath-31]] as search parameter.
                         A successful response must have 200 (OK) status, contain
-                        <code>application/json</code> Content-Type header, and in
-                        the body, the query response in JSON serialization.  The data schema for the response is defined implicitly by the query and the XPath specification.
+                        <code>application/json</code> in the Content-Type header, and
+                        the query response in JSON serialization in the body.  The data schema for the response is defined implicitly by the query and the XPath specification.
                         
                         The syntactic search with XPath is specified as `searchXPath` action in
                         [[[#directory-api-spec]]].
@@ -2435,10 +2446,10 @@ img.wot-diagram {
                             at `/search/sparql` endpoint is OPTIONAL.
                         </span>
                         <span class="rfc2119-assertion" id="tdd-search-sparql-resp-select-ask">
-                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/json</code>.
+                            A successful request with a query <code>SELECT</code> or <code>ASK</code> MUST return a response 200 (OK) status, and contain <code>application/json</code> by default in the Content-Type header.
                         </span>
 			 <span class="rfc2119-assertion" id="tdd-search-sparql-resp-describe-construct">
-                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain by default as Content-Type header <code>application/ld+json</code>.
+                            A successful request with a query <code>CONSTRUCT</code> and <code>DESCRIBE</code> MUST return a response 200 (OK) status, and contain <code>application/ld+json</code> by default in the Content-Type header.
 			 </span>
 			<span class="rfc2119-assertion" id="tdd-search-sparql-error">
 			     A request with any query different from <code>SELECT</code>, <code>ASK</code>, <code>CONSTRUCT</code> or <code>DESCRIBE</code> MUST return a response 400 (Bad Request).
