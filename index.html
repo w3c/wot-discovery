@@ -1032,6 +1032,12 @@ img.wot-diagram {
             be the same as the well-known URL used as an Introduction mechanism
             defined in <a href="#introduction-well-known"></a>.
             </p> 
+            <p>Use of secure transport is subject to assertions given in the 
+            Security Considerations and Privacy Considerations sections of the 
+            [[wot-architecture11]] and [[wot-thing-description11]] specifications, 
+            which define scenarios where secure transport is recommended or mandatory and mutual 
+            authentication is recommended.
+            </p>
             <p>
              A TD Server distributing a TD 
              using the following protocols 
@@ -1040,24 +1046,6 @@ img.wot-diagram {
             <dl>
                 <dt>HTTP</dt>
                 <dd>
-                        <p class="ednote" title="Redundant">
-                        The following two assertions on TLS and authentication
-                        are redundant and not as specific as those provided elsewhere.
-                        Suggest replacing these here (and in all exploration sections) with appropriate
-                        references to security and privacy assertions given 
-                        in [[wot-architecture11]] and [[wot-thing-description11]]
-                        and in the Security Considerations and Privacy Considerations sections of this document.
-                        </p>
-                    <p>
-                        <span class="rfc2119-assertion" id="service-http-secure"> 
-                            An HTTP-based TD Server providing a <a>TD</a> SHOULD use TLS when serving requests.
-                        </span>
-                        <span class="rfc2119-assertion" id="service-http-access-control">
-                            An HTTP-based TD Server providing a <a>TD</a> 
-                            SHOULD provide the resource only after performing necessary 
-                            authentication and authorization.
-                        </span>
-                    </p>
                     <p>
                         <span class="rfc2119-assertion" id="service-http-method"> 
                             An HTTP-based TD Server providing a <a>TD</a> 
