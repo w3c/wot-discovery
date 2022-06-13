@@ -2983,8 +2983,9 @@ img.wot-diagram {
                 </li>
                 <li>
         <!-- <span class="rfc2119-assertion" id="perf-inc-chunked-3"> -->
-                CoAP servers should handle the data incrementally using
-                block-wise transfer [[RFC7959]].
+                CoAP servers must suppoert block-wise transfer [[RFC7959]] when relying
+                on an unreliable transport protocol like UDP and should support it when
+                using a reliable transport protocol like TCP or WebSockets [[RFC8323]].
                <!-- </span> -->
                 </li>
             </ul>
