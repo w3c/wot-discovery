@@ -38,13 +38,13 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3656"
-     inkscape:window-height="1818"
+     inkscape:window-width="3560"
+     inkscape:window-height="1838"
      id="namedview310"
      showgrid="false"
      inkscape:zoom="1.3926746"
-     inkscape:cx="857.68155"
-     inkscape:cy="396.21402"
+     inkscape:cx="637.96045"
+     inkscape:cy="394.77793"
      inkscape:window-x="144"
      inkscape:window-y="54"
      inkscape:window-maximized="1"
@@ -878,7 +878,7 @@
            sodipodi:role="line"
            id="tspan7948"
            x="204.62549"
-           y="443">/.well-known/wot-thing-description</tspan>
+           y="443">/.well-known/wot</tspan>
       </text>
     </switch>
   </g>
@@ -955,7 +955,7 @@
            sodipodi:role="line"
            id="tspan7950"
            x="204.62549"
-           y="443">/.well-known/wot-thing-description</tspan>
+           y="443">/.well-known/wot</tspan>
       </text>
     </switch>
   </g>
