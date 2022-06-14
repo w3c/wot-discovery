@@ -500,7 +500,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         A CoAP-based TD Server providing a TD
                         MAY provide alternative representations through
                         server-driven content negotiation, that is by honouring the
@@ -516,7 +516,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         A CoAP-based TD Server providing a TD
                         MUST serve that resource with a `GET` method.</td>
 	<td class="baseassertion"></td>
@@ -529,7 +529,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         A successful response from a CoAP-based TD Server providing a TD
                         MUST have a 2.05 (Content) status, contain a Content-Format option
                         with value 432 (`application/td+json`), and the TD in the payload.</td>
@@ -543,7 +543,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         A CoAP-based TD Server providing a TD
                         SHOULD respond to requests containing a Size2 option by including
                         the size estimate of the TD in its next response.</td>
@@ -557,7 +557,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                             An HTTP-based TD Server providing a TD 
                             MAY provide alternative representations through
                             server-driven content negotiation, that is by honoring the 
@@ -573,7 +573,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                             An HTTP-based TD Server providing a TD 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
@@ -588,7 +588,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                             A successful response from an HTTP-based TD Server providing a TD
                             MUST have 200 (OK) status and the TD in the body.</td>
 	<td class="baseassertion"></td>
@@ -601,7 +601,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                             A successful response with JSON serialization MUST contain `application/json`
                             or more specifically, `application/td+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
@@ -614,7 +614,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                             The default serialization format for successful response bodies MUST be
                             JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</td>
 	<td class="baseassertion"></td>
@@ -652,7 +652,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">An Enriched TD
+	<td class="atrisk">An Enriched TD
                         MUST contain in its @context the URI https://w3c.github.io/wot-discovery/context/discovery-context.jsonld.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -664,7 +664,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         A Directory server MAY provide modified TDs or error responses using a different
                         default language after server-driven content negotiation, 
                         that is by honouring the request's Accept-Language header.</td>
@@ -691,7 +691,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         HTTP API error responses MAY report details in different languages using
                         proactive negotiation, if the Accept-Language header field has been
                         set in the HTTP request [[RFC7231]].</td>
@@ -705,7 +705,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                         All HTTP API error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -730,7 +730,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                     Directories MAY provide alternative representations through
                                     server-driven content negotiation, that is by honouring the 
                                     request's Accept and Accept-Encoding headers and responding with the supported
@@ -1188,7 +1188,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                         Sorting order MUST always be defined using lexicographical ordering on
                                         a UTF-8 encoding of the relevant fields.</td>
 	<td class="baseassertion"></td>
@@ -1201,7 +1201,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                         A server MUST reject requests to sort on fields that do not have 
                                         values that are orderable basic types, 
                                         with a 400 (Bad Request) status.</td>
@@ -1227,7 +1227,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                     Directories MAY accept alternative representations based on request's indicated
                                     Content-Type or Content-Encoding headers.</td>
 	<td class="baseassertion"></td>
@@ -1265,7 +1265,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                 A successful response with JSON serialization MUST contain `application/json`
                                 or more specifically, `application/td+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
@@ -1278,7 +1278,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                 A successful response with JSON serialization MUST contain `application/json`
                                 or more specifically, `application/ld+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
@@ -1408,7 +1408,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                 Validation error responses MAY report details in different languages using
                                 proactive negotiation, if the Accept-Language header field has been
                                 set in the HTTP request [[RFC7231]].</td>
@@ -1422,7 +1422,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
+	<td class="atrisk">
                                 All validation error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>

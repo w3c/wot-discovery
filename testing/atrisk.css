@@ -43,25 +43,10 @@
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-http-access-control {
-  background-color: yellow;
-}
-#exploration-server-http-alternate-content {
-  background-color: yellow;
-}
-#exploration-server-http-alternate-language {
-  background-color: yellow;
-}
 #exploration-server-http-head {
   background-color: yellow;
 }
 #exploration-server-http-method {
-  background-color: yellow;
-}
-#exploration-server-http-resp {
-  background-color: yellow;
-}
-#exploration-server-http-secure {
   background-color: yellow;
 }
 #introduction-core-rd {
@@ -136,6 +121,48 @@
 #security-bootstrapping-endpoints {
   background-color: yellow;
 }
+#service-coap-alternate-content {
+  background-color: yellow;
+}
+#service-coap-method {
+  background-color: yellow;
+}
+#service-coap-resp {
+  background-color: yellow;
+}
+#service-coap-size2 {
+  background-color: yellow;
+}
+#service-http-alternate-content {
+  background-color: yellow;
+}
+#service-http-alternate-language {
+  background-color: yellow;
+}
+#service-http-resp {
+  background-color: yellow;
+}
+#service-http-resp-content-type {
+  background-color: yellow;
+}
+#service-http-resp-json {
+  background-color: yellow;
+}
+#tdd-context-injection {
+  background-color: yellow;
+}
+#tdd-http-alternate-language {
+  background-color: yellow;
+}
+#tdd-http-error-response-lang {
+  background-color: yellow;
+}
+#tdd-http-error-response-utf-8 {
+  background-color: yellow;
+}
+#tdd-http-representation-alternate-output {
+  background-color: yellow;
+}
 #tdd-notification {
   background-color: yellow;
 }
@@ -181,6 +208,27 @@
 #tdd-things-list-pagination-order-nextlink {
   background-color: yellow;
 }
+#tdd-things-list-pagination-order-utf-8 {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-orderable {
+  background-color: yellow;
+}
 #tdd-things-read-only-auth {
+  background-color: yellow;
+}
+#tdd-things-representation-alternate-input {
+  background-color: yellow;
+}
+#tdd-things-retrieve-resp-content-type-1 {
+  background-color: yellow;
+}
+#tdd-things-retrieve-resp-content-type-2 {
+  background-color: yellow;
+}
+#tdd-validation-response-lang {
+  background-color: yellow;
+}
+#tdd-validation-response-utf-8 {
   background-color: yellow;
 }
