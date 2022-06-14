@@ -180,12 +180,12 @@ pre.example {
 <h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
 <p>
   The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
-  specification entered the <a href="https://www.w3.org/TR/2019/CR-wot-discovery-20190516/">Candidate Recommendation</a> 
-  period for the second time on 6 November 2019.
+  specification entered the <a href="https://www.w3.org/TR/2022/CR-wot-discovery-202207xx/">Candidate Recommendation</a> 
+  period on xx July 2022.
 </p>
 <p>
-  The planned date for entering Proposed Recommendation is 10 December 2019.
-  This document summarizes the results from the Web of Things (WoT) TD implementer reports received and
+  The planned date for entering Proposed Recommendation is 1 November 2022.
+  This document summarizes the results from the Web of Things (WoT) Discovery implementer reports received and
   describes the process that the Web of Things (WoT) Working Group followed in preparing this <em>Implementation Report (IR)</em>.
 </p>
 
@@ -229,8 +229,8 @@ pre.example {
   Implementer reports were collected through the W3C WoT Interest Group's
   <a href="https://www.w3.org/2016/07/wot-ig-charter.html#scope">PlugFest</a> activity and collected
   in the GitHub repository
-  <a href="https://github.com/w3c/wot/tree/master/testing/tests/2019-05/">https://github.com/w3c/wot</a>
-  under <code>testing/tests/2019-05/</code>.
+  <a href="https://github.com/w3c/wot-testing/tree/master/data/input_2022/Discovery/">https://github.com/w3c/wot-testing</a>
+  under <code>data/input_2022/Discovery</code>.
 </p>
 <p>
   Comments on this document, or requests made for
@@ -268,11 +268,8 @@ pre.example {
   A total of N implementations were documented by M different organizations.
 -->
   The testimonials below indicate the broad base of support
-  for the specification. All of the required features had at least
-  two implementations.
-  All of the optional features also received at least one implementation.
-  However, these optional features do not have
-  conformance requirements that have an impact on interoperability.
+  for the specification. 
+  All features included in the specification had at least two implementations.
 </p>
 
 <h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
@@ -293,22 +290,6 @@ pre.example {
 	     <li>Implementability of the feature specification.</li>
     </ul>
   </li>
-  <li>
-    Feature status is a factor in test coverage in the report:
-    <ul>
-		  <li>
-        Required specification features must have at least two
-        implementations. Implementations that do not implement a required
-        specification feature must document the reason for not implementing
-        the feature.
-      </li>
-		  <li>
-        Optional specification features must have at least one implementation.
-        Implementations that do not implement an optional specification
-        feature should document the reason for not implementing the feature.
-      </li>
-	  </ul>
-	</li>
 </ol>
 <p>
   Feature status is in practice indicated by
@@ -316,6 +297,11 @@ pre.example {
   associated with the feature.  Features defined using any assertions
   containing the words MUST are considered required.
   Features defined using MAY and SHOULD assertions are considered optional.
+</p>
+<p>
+  Feature utility is indicated indirectly by the number of implementations
+  supporting each feature.  In general, features with fewer implementations will
+  have a narrower scope, but may still be important for specific use cases.
 </p>
 
 <h4 id="h_NotesOnTesting"><a id="NotesOnTesting" name="NotesOnTesting">5.2 Notes on testing</a></h4>
@@ -325,6 +311,11 @@ pre.example {
     the implementation with respect to each of the assertions defined in the specification.
     Possible outcomes are <code>pass</code>, <code>fail</code>, or <code>not-impl</code> (not implemented).
   </li>
+  <li>
+    In practice, implementer reports consist of CSV files for each implementation with the above
+    status assigned to each assertion in the specification.  This report was
+    then automatically generated from these input files. 
+  </li>
 </ol>
 
 <h4 id="h_out_of_scope"><a id="out_of_scope" name="out_of_scope">5.3 Out of scope</a></h4>
@@ -332,7 +323,7 @@ pre.example {
 <ul>
   <li>Conformance testing results</li>
   <li>Interoperability testing results</li>
-  <li>All possible combinations of metadata that TDs could describe</li>
+  <li>All possible combinations of features</li>
 </ul>
 
 <h2 id="h_systems"><a id="test-systems" name="test-systems">6. Systems</a></h2>
@@ -351,6 +342,8 @@ pre.example {
   independent implementations.  In cases where a substantial component
   was shared across implementations the features supported by that
   component were only counted once.
+  We did permit the same implementer to report on multiple different implementations
+  as long as the code bases were distinct.
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
@@ -404,7 +397,7 @@ pre.example {
     the <b>Context</b> column.
   </li>
   <li>
-    The <b>Context</b> column indicates that the "required" status of this feature depends on the use
+    An entry in the <b>Context</b> column indicates that the "required" status of this feature depends on the use
     of other features.
     If the context is itself optional,
     then the value of <b>Req</b> actually indicates whether the feature is required
@@ -412,20 +405,23 @@ pre.example {
   </li>
   <li>
     The <b>Assertion</b> column specifies the constraint which must be met.
-    Note that this text may contain errors as it is automatically drawn
+    Note that this text may contain errors or missing elements as it is automatically drawn
     from the specification source before ReSpec processing, so automatic
     content provided by ReSpec such as section headings will be missing.
     If the assertion is actually given in a tabular form in the
     specification, appropriate text is generated but this may not match the
-    text in the specification itself.  To fully understand the assertion please
-    look at the assertion in context in the specification using the provided
+    text in the specification itself.  
+    The assertion may also refer to other information not in the text of the assertion.
+    To fully understand the assertion please
+    refer to the assertion in context in the specification using the provided
     hyperlink.
   </li>
   <li>
-    The <b>Parent</b> column indicates another more general assertion that this one is a specialization of.
+    The <b>Parent</b> column indicates another more general assertion that the
+    particular assertion is a specialization of.
     A specialization indicates a more restrictive context or provides additional detail to facilitate testing.
-    The more general assertion is only considered to have a "pass" status if all its required
-    or implmented specializations in a given implementation have a "pass" status.
+    The more general assertion is only considered to have a "pass" status if all its 
+    specializations in a given implementation have a "pass" status.
   </li>
   <li>
     The <b>Result</b> column is annotated with the number of
@@ -452,17 +448,17 @@ pre.example {
   For such cases the "child" assertions have underscores in their names
   prior to each value tested and the table row is also rendered in a 
   different color.
+  Note that child assertions do not appear in the exact form shown in this report in
+  the specification itself, so please refer to the 
+  parent assertion for context.
 </p>
-<!--
 <p class="at-risk">
   Assertions which have been indicated as at-risk in the CR publication
   are indicated using yellow highlighting.  
   If these have insufficient implementation
-  experience (fewer than two independent implementations for mandatory features
-  and one for optional features) they
-  may be removed from the final Recommendation.
+  experience (fewer than two independent implementations)
+  they may be removed from the final Recommendation.
 </p>
--->
 
 <h3 id="h_automated_validation_results"><a id="automated_validation_results" name="automated_validation_results">8.1 Automated Validation Results</a></h3>
 <p>
