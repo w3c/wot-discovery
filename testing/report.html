@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 13 Jun 2022
+    <b>Version</b>: 14 Jun 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -505,8 +505,7 @@ pre.example {
                         MAY provide alternative representations through
                         server-driven content negotiation, that is by honouring the
                         request's Accept option and responding with the supported
-                        TD serialization and equivalent Content-Format option.
-                    </td>
+                        TD serialization and equivalent Content-Format option.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -519,8 +518,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                         A CoAP-based TD Server providing a TD
-                        MUST serve that resource with a `GET` method.
-                    </td>
+                        MUST serve that resource with a `GET` method.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -534,8 +532,7 @@ pre.example {
 	<td class="baseassertion">
                         A successful response from a CoAP-based TD Server providing a TD
                         MUST have a 2.05 (Content) status, contain a Content-Format option
-                        with value 432 (`application/td+json`), and the TD in the payload.
-                    </td>
+                        with value 432 (`application/td+json`), and the TD in the payload.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -549,8 +546,7 @@ pre.example {
 	<td class="baseassertion">
                         A CoAP-based TD Server providing a TD
                         SHOULD respond to requests containing a Size2 option by including
-                        the size estimate of the TD in its next response.
-                    </td>
+                        the size estimate of the TD in its next response.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -581,8 +577,7 @@ pre.example {
                             An HTTP-based TD Server providing a TD 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
-                            that is by honouring the request's Accept-Language header.
-                        </td>
+                            that is by honouring the request's Accept-Language header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -634,8 +629,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
-                        it MUST add the local identifier to the TD to allow local referencing.
-                    </td>
+                        it MUST add the local identifier to the TD to allow local referencing.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">3</td>
@@ -647,8 +641,7 @@ pre.example {
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                        The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].
-                    </td>
+                        The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -659,9 +652,8 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">
-			An Enriched TD MUST contain in its @context the URI https://w3c.github.io/wot-discovery/context/discovery-context.jsonld
-		    </td>
+	<td class="baseassertion">An Enriched TD
+                        MUST contain in its @context the URI https://w3c.github.io/wot-discovery/context/discovery-context.jsonld.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -673,10 +665,9 @@ pre.example {
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                     A Directory server MAY provide modified TDs or error responses using a different
-                     default language after server-driven content negotiation, 
-                     that is by honouring the request's Accept-Language header.
-                  </td>
+                        A Directory server MAY provide modified TDs or error responses using a different
+                        default language after server-driven content negotiation, 
+                        that is by honouring the request's Accept-Language header.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -689,8 +680,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion"> 
                         The HTTP API MUST use the Problem Details [[RFC7807]] format to carry
-                        error details in HTTP client error (4xx) and server error (5xx) responses.
-                    </td>
+                        error details in HTTP client error (4xx) and server error (5xx) responses.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">2</td>
@@ -704,8 +694,7 @@ pre.example {
 	<td class="baseassertion">
                         HTTP API error responses MAY report details in different languages using
                         proactive negotiation, if the Accept-Language header field has been
-                        set in the HTTP request [[RFC7231]].
-                    </td>
+                        set in the HTTP request [[RFC7231]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -717,8 +706,7 @@ pre.example {
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                        All HTTP API error responses described using Problem Details MUST be encoded using UTF-8.
-                    </td>
+                        All HTTP API error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -731,8 +719,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion"> 
                         For each HTTP endpoint that responds to the `GET` method, the server MUST accept `HEAD` 
-                        requests and return only the headers.
-                    </td>
+                        requests and return only the headers.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -759,8 +746,7 @@ pre.example {
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                                The event data MUST contain the JSON serialization of the event object.
-                            </td>
+                                The event data MUST contain the JSON serialization of the event object.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -788,8 +774,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                                         The event data object MUST at least include the identifier of the
-                                        TD created, updated, or deleted at that event in Partial TD form.
-                                    </td>
+                                        TD created, updated, or deleted at that event in Partial TD form.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -802,8 +787,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                             The server SHOULD provide an event ID as the `id` field in each event
-                            and respond to re-connecting clients by delivering all missed events.
-                        </td>
+                            and respond to re-connecting clients by delivering all missed events.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -817,8 +801,7 @@ pre.example {
 	<td class="atrisk">
                                 The server MUST produce events attributed to the lifecycle of 
                                 the Thing Descriptions within the directory using 
-                                `thing_created`, `thing_updated`, and `thing_deleted` event types.
-                            </td>
+                                `thing_created`, `thing_updated`, and `thing_deleted` event types.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -832,8 +815,7 @@ pre.example {
 	<td class="atrisk">
                             The Notification API MUST follow the Server-Sent Events (SSE) [[EVENTSOURCE]]
                             specifications to serve events to clients
-                            at `/events` endpoint.
-                        </td>
+                            at `/events` endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">2</td>
@@ -846,8 +828,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             Servers SHOULD periodically purge TDs that are past 
-                            their expiry times.
-                        </td>
+                            their expiry times.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -964,8 +945,7 @@ Type: read-only.</td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                        The Directory MAY implement semantic search with SPARQL.
-                    </td>
+                        The Directory MAY implement semantic search with SPARQL.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -977,8 +957,7 @@ Type: read-only.</td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                            A WoT Thing Description Directory MAY implement federation in its SPARQL query API.
-                        </td>
+                            A WoT Thing Description Directory MAY implement federation in its SPARQL query API.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -991,8 +970,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             The SPARQL API MUST accept queries using HTTP GET requests
-                            at `/search/sparql?query={query}` endpoint, where `query` is the SPARQL expression.
-                        </td>
+                            at `/search/sparql?query={query}` endpoint, where `query` is the SPARQL expression.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -1005,8 +983,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             The support for SPARQL search using HTTP POST method
-                            at `/search/sparql` endpoint is OPTIONAL.
-                        </td>
+                            at `/search/sparql` endpoint is OPTIONAL.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -1018,8 +995,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                            A successful request with a query SELECT or ASK MUST return a response 200 (OK) status, and contain application/json by default in the Content-Type header.
-                        </td>
+                            A successful request with a query SELECT or ASK MUST return a response 200 (OK) status, and contain application/json by default in the Content-Type header.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -1032,8 +1008,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The request SHOULD contain `application/td+json` Content-Type header for 
-                                    JSON serialization of TD.
-                                </td>
+                                    JSON serialization of TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1046,8 +1021,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     An Anonymous TD MUST be submitted to the directory in the body of
-                                    an HTTP `POST` request at `/things` endpoint.
-                                </td>
+                                    an HTTP `POST` request at `/things` endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1060,8 +1034,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
-                                    and a Location header containing a system-generated identifier for the TD.
-                                </td>
+                                    and a Location header containing a system-generated identifier for the TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1074,8 +1047,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The request SHOULD contain `application/td+json` Content-Type header for 
-                                    JSON serialization of TD.
-                                </td>
+                                    JSON serialization of TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1089,8 +1061,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                     A TD that has an `id` MUST be submitted to the directory in the body of an HTTP `PUT` request
                                     at `/things/{id}` endpoint, where `id` is the unique TD identifier,
-                                    present inside the TD object.
-                                </td>
+                                    present inside the TD object.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1103,8 +1074,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">  
                                     Upon successful processing, the server MUST respond with
-                                    201 (Created) status.                           
-                                </td>
+                                    201 (Created) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1117,8 +1087,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion"> 
                                 A TD which is identified with an `id` attribute MUST be handled 
-                                differently with one that has no identifier (Anonymous TD).
-                            </td>
+                                differently with one that has no identifier (Anonymous TD).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
@@ -1171,8 +1140,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 A delete operation MUST be done using an HTTP `DELETE` request
-                                at `/things/{id}`, where `id` is the identifier of the existing TD.
-                            </td>
+                                at `/things/{id}`, where `id` is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">1</td>
@@ -1184,8 +1152,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response MUST have 204 (No Content) status.
-                            </td>
+                                A successful response MUST have 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1198,8 +1165,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 The directory MUST allow retrieval of existing TDs using HTTP `GET` requests
-                                at the `/things` endpoint.
-                            </td>
+                                at the `/things` endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1224,8 +1190,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                         Sorting order MUST always be defined using lexicographical ordering on
-                                        a UTF-8 encoding of the relevant fields.
-                                    </td>
+                                        a UTF-8 encoding of the relevant fields.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1239,8 +1204,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                         A server MUST reject requests to sort on fields that do not have 
                                         values that are orderable basic types, 
-                                        with a 400 (Bad Request) status.
-                                    </td>
+                                        with a 400 (Bad Request) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1252,8 +1216,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status and an array of TDs in the body.
-                            </td>
+                                A successful response MUST have 200 (OK) status and an array of TDs in the body.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1279,8 +1242,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 The retrieval of an existing TD MUST be done using an HTTP `GET` request
-                                at `/things/{id}` endpoint, where `id` is the unique TD identifier.
-                            </td>
+                                at `/things/{id}` endpoint, where `id` is the unique TD identifier.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1292,8 +1254,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response MUST have 200 (OK) status and the requested TD in the body.
-                            </td>
+                                A successful response MUST have 200 (OK) status and the requested TD in the body.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1332,8 +1293,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     A modified TD MUST replace an existing one when submitted using an HTTP `PUT` request
-                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
-                                </td>
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1346,8 +1306,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The request SHOULD contain `application/td+json` Content-Type header for JSON
-                                    serialization of TD.
-                                </td>
+                                    serialization of TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1361,8 +1320,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                     An existing TD MUST be partially modified when the modified parts are submitted using an 
                                     HTTP `PATCH` request
-                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.
-                                </td>
+                                    at `/things/{id}` endpoint, where `id` is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">1</td>
@@ -1375,8 +1333,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The request MUST contain `application/merge-patch+json` Content-Type header for JSON
-                                    serialization of the merge patch document.
-                                </td>
+                                    serialization of the merge patch document.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1389,8 +1346,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The partial update MUST be processed using the JSON merge patch
-                                    format described in [[RFC7396]].
-                                </td>
+                                    format described in [[RFC7396]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">1</td>
@@ -1403,8 +1359,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     The input MUST be in Partial TD form and conform to the
-                                    original TD structure. 
-                                </td>
+                                    original TD structure.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1416,8 +1371,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                    Upon success, the server MUST respond with a 204 (No Content) status.
-                                </td>
+                                    Upon success, the server MUST respond with a 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">1</td>
@@ -1429,8 +1383,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                    Upon success, the server MUST respond with 204 (No Content) status. 
-                                </td>
+                                    Upon success, the server MUST respond with 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
@@ -1444,8 +1397,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                 The validation error MUST be described as Problem Details [[RFC7807]]
                                 with an extension field called `validationErrors`, set to an array of objects
-                                with `field` and `description` fields.
-                            </td>
+                                with `field` and `description` fields.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">2</td>
@@ -1459,8 +1411,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                 Validation error responses MAY report details in different languages using
                                 proactive negotiation, if the Accept-Language header field has been
-                                set in the HTTP request [[RFC7231]].
-                            </td>
+                                set in the HTTP request [[RFC7231]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1472,8 +1423,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                All validation error responses described using Problem Details MUST be encoded using UTF-8.
-                            </td>
+                                All validation error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result missing">0</td>
@@ -1486,8 +1436,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 If the server fails to validate the TD object, it MUST inform the client
-                                with necessary details to identify and resolve the errors.
-                            </td>
+                                with necessary details to identify and resolve the errors.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result failed">2</td>
@@ -1500,8 +1449,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 The syntactic validation of TD objects before storage is RECOMMENDED to
-                                prevent common erroneous submissions.
-                            </td>
+                                prevent common erroneous submissions.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">1</td>
@@ -1689,8 +1637,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk"> 
                         A TD which describes a Thing Description Directory instance MUST use type `ThingDirectory` from the
-                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.
-                    </td>
+                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1704,8 +1651,7 @@ Type: read-only.</td>
 	<td class="atrisk"> 
                         A Thing Link MUST define the referenced TD as a Link with
                         `describedby` link relation type, `application/td+json` media type
-                        and `href` set to the target URL.
-                    </td>
+                        and `href` set to the target URL.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1718,8 +1664,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk"> 
                         A TD which describes a reference to another TD MUST use type `ThingLink` from the
-                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.
-                    </td>
+                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1756,8 +1701,7 @@ Type: read-only.</td>
                 at an API endpoint intended to serve a TD
                 MUST include a WWW-Authenticate header
                 and any other headers
-                describing the required authorizations. 
-                </td>
+                describing the required authorizations.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1772,8 +1716,7 @@ Type: read-only.</td>
                 If the OAuth2 code flow is used during security bootstrapping, the
                 "302 (Found)" or "303 (See Other)" response code MUST be used for redirection
                 to the authentication server,
-                with access credentials eventually being represented with bearer tokens.
-                </td>
+                with access credentials eventually being represented with bearer tokens.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1787,8 +1730,7 @@ Type: read-only.</td>
 	<td class="atrisk">
                             An HTTP-based TD Server providing a TD 
                             MUST respond to `HEAD` requests by returning only the headers
-                            equivalent to those returned by a `GET` request to the same endpoint.
-                        </td>
+                            equivalent to those returned by a `GET` request to the same endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1801,8 +1743,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk"> 
                             An HTTP-based TD Server providing a TD 
-                            MUST serve that resource with a `GET` method.
-                        </td>
+                            MUST serve that resource with a `GET` method.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1840,8 +1781,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     The resource type of the Link that targets the Directory Description of the Thing Description Directory
-                    MUST be wot.directory.
-                </td>
+                    MUST be wot.directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1854,8 +1794,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     The resource type (rt) of the Link that targets the Thing Description of the Thing
-                    MUST be wot.thing. 
-                </td>
+                    MUST be wot.thing.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1880,8 +1819,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     The DID Document obtained by resolving the DID of a Thing or Thing Description Directory MUST
-                    contain a Service Endpoint which points to a Thing Description describing that Thing or Thing Description Directory.
-                </td>
+                    contain a Service Endpoint which points to a Thing Description describing that Thing or Thing Description Directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1894,8 +1832,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                    If the URL references a Thing Description Directory, this MUST be the Directory Description of the
-                    Thing Description Directory.
-                </td>
+                    Thing Description Directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1908,8 +1845,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                     A request on all such URLs MUST result in a TD as prescribed in
-                    [[[#exploration-mech]]].
-                </td>
+                    [[[#exploration-mech]]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1943,8 +1879,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                    The Service Name to indicate the Thing or Thing Description Directory MUST be _wot.
-                </td>
+                    The Service Name to indicate the Thing or Thing Description Directory MUST be _wot.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1956,8 +1891,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                    The Service Name to indicate the Thing Description Directory MUST be _directory._sub._wot.
-                </td>
+                    The Service Name to indicate the Thing Description Directory MUST be _directory._sub._wot.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1984,7 +1918,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If a Thing or Thing Description Directory use the Well-Known Uniform Resource Identifier [[RFC8615]] to advertise its presence, it MUST register its own Thing Description
                 into the following path:
-                /.well-known/wot-thing-description.</td>
+                /.well-known/wot.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1997,8 +1931,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                     When a request is made at the above Well-Known URI, the server MUST return
-                    a Thing Description as prescribed in [[[#exploration-mech]]].
-                </td>
+                    a Thing Description as prescribed in [[[#exploration-mech]]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -2023,8 +1956,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		To avoid location tracking, a WoT Thing MAY 
-		use Anonymous TDs.  
-		</td>
+		use Anonymous TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2037,8 +1969,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		To avoid location tracking, a WoT Thing MAY 
-		disable registration with public directories.
-		</td>
+		disable registration with public directories.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2052,8 +1983,7 @@ Type: read-only.</td>
 	<td class="atrisk">
 		When explicit location information is available, whether stored in a TD or available in a property,
                 additional care SHOULD be taken to only share the TD and/or access to the device with trusted partners,
-                including directories.  
-		</td>
+                including directories.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2066,8 +1996,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		If the TD must be shared with a public directory, the location information MAY be
-                stripped.
-		</td>
+                stripped.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2080,8 +2009,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		To avoid location tracking, a WoT Thing MAY 
-		periodically generate new IDs.  
-		</td>
+		periodically generate new IDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -2094,8 +2022,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		To reduce the risk of negative location inferencing, access to 
-                private directories SHOULD be limited by using access controls.  
-		</td>
+                private directories SHOULD be limited by using access controls.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2108,8 +2035,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                 When accessing a public directory, like any other public web service,
-                users and implementations SHOULD use an anonymous identity provider.
-		</td>
+                users and implementations SHOULD use an anonymous identity provider.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2124,8 +2050,7 @@ Type: read-only.</td>
 		If Things cannot be individually secured with transport security and 
 		authentication and authorization,
                 then they MAY be made available for general access via a proxy
-		that can provide suitable access controls.
-		</td>
+		that can provide suitable access controls.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2138,8 +2063,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                 PSK (pre-shared keys) SHOULD be used if possible on LANs, 
-		meaning one of the ciphersuites in [[RFC4279]].
-		</td>
+		meaning one of the ciphersuites in [[RFC4279]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2154,8 +2078,7 @@ Type: read-only.</td>
 		If Things cannot be individually secured with transport security and 
 		authentication and authorization,
 		a separate network SHOULD be set up, i.e. with an alternative SSID, and used only
-		for IoT devices.
-		</td>
+		for IoT devices.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2169,8 +2092,7 @@ Type: read-only.</td>
 	<td class="atrisk">
 		If support for multicast is required,
 		in the case of CoAP, the recommendations made in [[RFC9175]] SHOULD be
-		applied.
-		</td>
+		applied.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2184,8 +2106,7 @@ Type: read-only.</td>
 	<td class="atrisk">
 		The total size of responses to an Introduction SHOULD
 		be less than 3x the size of the total size of request, and this should 
-		include any error responses.
-		</td>
+		include any error responses.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2198,8 +2119,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
 		Introduction mechanisms on a segmented network behind a firewall
-		(e.g. a LAN) SHOULD NOT respond to requests that are (apparently) from outside that LAN.
-		</td>
+		(e.g. a LAN) SHOULD NOT respond to requests that are (apparently) from outside that LAN.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2212,8 +2132,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		Open implementations of Introduction mechanisms SHOULD NOT respond to multicast
-		requests unless this is absolutely required by the protocol.
-		</td>
+		requests unless this is absolutely required by the protocol.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2226,8 +2145,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                 Open implementations of Introduction mechanisms SHOULD NOT
-		support observe or similar extended result subprotocols.
-		</td>
+		support observe or similar extended result subprotocols.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2240,8 +2158,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
 		Introductions SHOULD rate-limit responses to any particular
-		request source.
-		</td>
+		request source.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2254,9 +2171,8 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     A WoT Thing Description Directory implementation SHOULD
-		    limit the complexity of queries (for example, the total length of the query 
-                    expression or its depth).
-		    </td>
+		            limit the complexity of queries (for example, the total length of the query 
+                    expression or its depth).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2269,9 +2185,8 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     A WoT Thing Description Directory implementation SHOULD
-	            use a watchdog timer to abort queries that take more than
-                    a certain maximum (implementation-configurable) amount of time.
-		    </td>
+	                use a watchdog timer to abort queries that take more than
+                    a certain maximum (implementation-configurable) amount of time.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2284,8 +2199,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                     A WoT Thing Description Directory implementation SHOULD
-		    limit the number of queries per unit time from the same requestor.
-		    </td>
+                    limit the number of queries per unit time from the same requestor.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2322,8 +2236,7 @@ Type: read-only.</td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                            Directories MAY implement the Notification API.
-                        </td>
+                            Directories MAY implement the Notification API.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2336,8 +2249,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                                         When `diff` query parameter is set to `true` and the event has `thing_created` type,
-                                        the server MAY return the whole TD object as event data.
-                                    </td>
+                                        the server MAY return the whole TD object as event data.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -2349,8 +2261,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                                        The `diff` query parameter MUST be ignored for `thing_deleted` events.
-                                    </td>
+                                        The `diff` query parameter MUST be ignored for `thing_deleted` events.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -2364,8 +2275,7 @@ Type: read-only.</td>
 	<td class="atrisk">
                                         When `diff` query parameter is set to `true` and the event has `thing_updated` type,
                                         the server MAY inform the client about the updated parts following the
-                                        JSON Merge Patch [[RFC7396]] format.
-                                    </td>
+                                        JSON Merge Patch [[RFC7396]] format.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -2379,8 +2289,7 @@ Type: read-only.</td>
 	<td class="atrisk">
                                         A `thing_updated` event data that is based on JSON Merge Patch [[RFC7396]]
                                         MUST always include the identifier of the TD regardless of whether it
-                                        is changed.
-                                    </td>
+                                        is changed.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -2393,8 +2302,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                                     The server MUST support event filtering based on the 
-                                    event type given by the client upon subscription. 
-                                </td>
+                                    event type given by the client upon subscription.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result failed">1</td>
@@ -2407,8 +2315,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             The servers MAY mandate or set a configurable upper limit to expiry times
-                            and refuse incompliant requests.
-                        </td>
+                            and refuse incompliant requests.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2421,8 +2328,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             It is RECOMMENDED that directories implement a search API
-                            to efficiently serve TDs based on client-specific queries.
-                        </td>
+                            to efficiently serve TDs based on client-specific queries.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2434,8 +2340,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-			     A request with any query different from SELECT, ASK, CONSTRUCT or DESCRIBE MUST return a response 400 (Bad Request).
-			</td>
+                            A request with any query different from SELECT, ASK, CONSTRUCT or DESCRIBE MUST return a response 400 (Bad Request).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2448,8 +2353,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             If implemented, the SPARQL API MUST implement the
-                            SPARQL 1.1 Federated Query standard [[sparql11-overview]].
-                        </td>
+                            SPARQL 1.1 Federated Query standard [[sparql11-overview]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2461,8 +2365,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                            A successful request with a query CONSTRUCT and DESCRIBE MUST return a response 200 (OK) status, and contain application/ld+json by default in the Content-Type header.
-			 </td>
+                            A successful request with a query CONSTRUCT and DESCRIBE MUST return a response 200 (OK) status, and contain application/ld+json by default in the Content-Type header.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2475,8 +2378,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                             If implemented, the SPARQL search API MUST allow searching TDs using
-                            the SPARQL 1.1 protocol [[sparql11-overview]].
-                        </td>
+                            the SPARQL 1.1 protocol [[sparql11-overview]].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2489,8 +2391,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                 The server MAY support pagination to return the collection
-                                in small subsets.
-                            </td>
+                                in small subsets.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2504,8 +2405,7 @@ Type: read-only.</td>
 	<td class="atrisk">
 					As an alternative to an array of TDs as the body of the response, the server MAY
 					send a more verbose payload allowing server-side information, such as pagination
-					information, to be included in addition to the actual data.
-				</td>
+					information, to be included in addition to the actual data.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -2519,8 +2419,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                         All paged responses MUST contain a `canonical` Link header [[RFC8288]]
                                         pointing to the collection and include an `etag` parameter to represent
-                                        the current state of the collection.
-                                    </td>
+                                        the current state of the collection.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2534,8 +2433,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                         When there are more TDs after a returned subset of the collection,
                                         the response MUST contain a `next` Link header [[RFC8288]]
-                                        with the URL of the next subset.
-                                    </td>
+                                        with the URL of the next subset.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2548,10 +2446,9 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                         The `next` link MUST include all arguments needed to produce the same set of
-					data and its ordering, in particular the same `limit` argument
-					given on the initial request as well as a zero-based `offset` argument anchored
-					at the beginning of the next subset.
-                                    </td>
+                                        data and its ordering, in particular the same `limit` argument
+                                        given on the initial request as well as a zero-based `offset` argument anchored
+                                        at the beginning of the next subset.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2563,8 +2460,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                    	The link MUST be absolute or relative to directory API's base URL.
-			    	    </td>
+                                        The link MUST be absolute or relative to directory API's base URL.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2578,8 +2474,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                         When the `limit` query parameter is set to a positive integer,
                                         the server MAY respond with a subset of TDs totalling
-                                        to less than or equal to the requested number.
-                                    </td>
+                                        to less than or equal to the requested number.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2594,8 +2489,7 @@ Type: read-only.</td>
                                         The server MAY support sorting by other TD attributes using
                                         query arguments: `sort_by` to select a field (e.g. `created`)
                                         and `sort_order` to choose the order
-                                        (i.e. `asc` or `desc` for ascending and descending ordering).
-                                    </td>
+                                        (i.e. `asc` or `desc` for ascending and descending ordering).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2608,8 +2502,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                         By default, the collection MUST be sorted using UTF-8 lexicographical order
-                                        by the unique identifier of TDs.
-                                    </td>
+                                        by the unique identifier of TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2621,8 +2514,7 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                                        If sorting attributes are accepted, they MUST be added consistently to all `next` links.
-                                    </td>
+                                        If sorting attributes are accepted, they MUST be added consistently to all `next` links.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2635,8 +2527,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                         If the server does not support custom sorting,
-                                        it MUST reject the request with 501 (Not Implemented) status.
-                                    </td>
+                                        it MUST reject the request with 501 (Not Implemented) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2663,8 +2554,7 @@ Type: read-only.</td>
 	<td class="baseassertion">
                                 The server MAY use
                                 Thing Description JSON Schema
-                                to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.
-                            </td>
+                                to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
