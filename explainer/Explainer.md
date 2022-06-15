@@ -194,7 +194,7 @@ use cases like a Smart City where there
 might be thousands of Things to select from.
 However, it can also be used in a Smart Home with only a few dozen Things.
 
-A TD Service is another exploration mechanism that allows a single
+A TD Server is another exploration mechanism that allows a single
 TD to be distributed via either an HTTP or CoAP endpoint.
 
 Self-description is a special case of a TD Server that
