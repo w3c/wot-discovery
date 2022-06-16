@@ -277,7 +277,7 @@
             ]
         },
         "searchJSONPath": {
-            "description": "JSONPath syntactic search",
+            "description": "JSONPath syntactic search.  This affordance is not normative and is provided for information only.",
             "uriVariables": {
                 "query": {
                     "title": "A valid JSONPath expression",
@@ -310,7 +310,7 @@
             ]
         },
         "searchXPath": {
-            "description": "XPath syntactic search",
+            "description": "XPath syntactic search.  This affordance is not normative and is provided for information only.",
             "uriVariables": {
                 "query": {
                     "title": "A valid XPath expression",
