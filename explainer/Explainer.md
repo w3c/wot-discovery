@@ -288,8 +288,8 @@ URLs returned by introduction mechanisms always point at Thing Descriptions,
 but Thing Descriptions for Thing Description Directories have a special `@type` value.
 
 ### Static Directories
-The only required affordances in a Thing Description Directory are "retrieveThing" and "things",
-which query one or all the entries in the directory (with support for incremental transfer and pagination, however,
+The only required affordance in a Thing Description Directory is "things",
+which lists all the contents of the directory (with support for pagination and incremental transfer, however,
 to deal with long responses).  The ability to register, update, and delete
 Thing Descriptions in a directory is optional.
 
