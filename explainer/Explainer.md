@@ -26,7 +26,7 @@ first-contact mechanisms suitable for different scales; and by providing optiona
 semantic search and self-description capabilities.
 
 There are still a number of limitation in the current specification, which
-primarily focuses on CoAP and HTTP and had to defer some important goals, such as
+primarily focuses on HTTP and CoAP, and had to defer some important goals, such as
 geolocation queries.  However, the specification attempts to address the above
 core issues and is intended to serve as a foundation for future work while
 enabling, in its current form, use cases supporting IoT integration
