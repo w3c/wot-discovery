@@ -60,6 +60,11 @@
                     } ]
                 }],
         localBiblio : {
+            "GDPR-Defs" : {
+                  title: "General Data Protection Regulation (GPPR) Article 4 - Definitions"
+                , href: "https://gdpr-info.eu/art-4-gdpr/"
+                , publisher: "European Union (EU) and the European Economic Area (EEA)"
+            },
             "OWASP-Top-10" : {
                   title: "OWASP Top Ten"
                 , href: "https://owasp.org/www-project-top-ten"
@@ -2688,11 +2693,17 @@ img.wot-diagram {
             be captured and would have to be managed appropriately.
         </p>
         <p>
-            With these categories established, we will now discuss some specific
+            In the following we make frequent reference to "tracking".  This term covers
+            multiple privacy risks, including location tracking and behavioral profiling.
+            In general, the definition of "profiling" given in Article 4 of the 
+            GDPR [[GDPR-Defs]] is to be considered equivalent to "tracking" as used in this document.
+        </p>
+        <p>
+            With these definitions and categories established, we will now discuss some specific
             privacy risks and potential mitigations.
         </p>
         <section id="privacy-consideration-location-tracking">
-            <h2>Location Tracking</h2>
+            <h2>Location Tracking and Profiling</h2>
             <p>
                 A discovery service may potentially allow the approximate location of a person to be determined without
                 their consent.  This risk occurs in some specific circumstances which can be avoided or
@@ -2720,6 +2731,16 @@ img.wot-diagram {
                 </ul>
                 </p>
             <p>
+            Location tracking is not the only profiling risk.
+            In general, "profiling" includes any mechanism used to evaluate
+            information about a person, including economic status, health,
+            preferences, interests, reliability, and behavior.
+            Some of the metadata in a TD can be used to infer information
+            of this kind if the described Thing can be associated with a person.
+            Some of the mitigations below are also applicable to this more
+            general definition of profiling.
+            </p>
+            <p>
                 Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
                 requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
                 address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
@@ -2729,11 +2750,12 @@ img.wot-diagram {
             <dl>
                 <dt>Mitigations:</dt>
                 <dd>
-                There are a few options to mitigate this risk:
+                There are a few options to mitigate these risks:
                 <ul>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-disable-public-directories">
-		To avoid location tracking, a WoT Thing MAY 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person MAY 
 		disable registration with public directories.</span>
 		Registration would still be possible with 
                 personal directories, for example, a home gateway, but a user could disable registration at other
@@ -2743,8 +2765,9 @@ img.wot-diagram {
                 access control limiting use to authorized users.</li>
 		<li>
 	        <span class="rfc2119-assertion" id="priv-loc-anonymous-tds">
-		To avoid location tracking, a WoT Thing MAY 
-		use Anonymous TDs.</span>
+		To avoid location tracking and other forms of profiling,
+    a WoT Thing associated with a person SHOULD use anonymous TDs
+    when registering with a public directories.</span>
 		In some cases, it may be possible to use
 		anonymous TDs and omit explicit IDs from TDs submitted to
 		a TDD.  In this case the TDD will generate a local ID valid
@@ -2755,7 +2778,8 @@ img.wot-diagram {
 		</li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-gen-ids">
-		To avoid location tracking, a WoT Thing MAY 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person MAY 
 		periodically generate new IDs.</span>
 		Using fixed IDs makes it exceptionally easy to track devices.  This problem
                 also occurs in DHCP with MAC address and there is a similar partial mitigation: 
@@ -2771,8 +2795,18 @@ img.wot-diagram {
                 inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
                 In general, however, generating new IDs at least for each service or person to which a TD is supplied
                 makes it harder to connect registration events at different locations and times.
+It is also prudent to generate new identifiers upon major changes in configuration,
+such as unregistering from a local network or hub and registering with a new one (which typically indicates
+a change in ownership).
 	        There is a related issue with long-lived IP addresses which might need to be updated periodically
 		to mitigate tracking.  In the context of ipv6 [[RFC8981]] discusses this.
+          Finally, there is a problem with devices that require immutable identifiers,
+          e.g. medical devices in such jurisdictions.  
+          This is discussed in [[wot-thing-description11]], but in summary the
+          problem can be avoided if such immutable identifiers are made available
+          only as protected properties, e.g. via affordances requiring authentication,
+          not in the TD, and the TD identifier itself (if used) is
+          independent of the immutable identifier, and so can be made mutable.
                 </li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-gen-ids">
