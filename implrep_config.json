@@ -1,0 +1,5 @@
+{
+  "report_htmlfile_rel": "report.html",
+  "src_base": "https://w3c.github.io/wot-discovery",
+  "verbosity": 3
+}

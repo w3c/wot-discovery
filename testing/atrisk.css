@@ -43,7 +43,16 @@
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-http-access-control {
+#exploration-server-coap-alternate-content {
+  background-color: yellow;
+}
+#exploration-server-coap-method {
+  background-color: yellow;
+}
+#exploration-server-coap-resp {
+  background-color: yellow;
+}
+#exploration-server-coap-size2 {
   background-color: yellow;
 }
 #exploration-server-http-alternate-content {
@@ -61,7 +70,10 @@
 #exploration-server-http-resp {
   background-color: yellow;
 }
-#exploration-server-http-secure {
+#exploration-server-http-resp-content-type {
+  background-color: yellow;
+}
+#exploration-server-http-resp-json {
   background-color: yellow;
 }
 #introduction-core-rd {
@@ -74,12 +86,6 @@
   background-color: yellow;
 }
 #introduction-core-rd-resource-type-thing {
-  background-color: yellow;
-}
-#introduction-did {
-  background-color: yellow;
-}
-#introduction-did-service-endpoint {
   background-color: yellow;
 }
 #introduction-direct-directory-description {
@@ -136,6 +142,21 @@
 #security-bootstrapping-endpoints {
   background-color: yellow;
 }
+#tdd-context-injection {
+  background-color: yellow;
+}
+#tdd-http-alternate-language {
+  background-color: yellow;
+}
+#tdd-http-error-response-lang {
+  background-color: yellow;
+}
+#tdd-http-error-response-utf-8 {
+  background-color: yellow;
+}
+#tdd-http-representation-alternate-output {
+  background-color: yellow;
+}
 #tdd-notification {
   background-color: yellow;
 }
@@ -143,9 +164,6 @@
   background-color: yellow;
 }
 #tdd-notification-data-create-full {
-  background-color: yellow;
-}
-#tdd-notification-data-delete-diff {
   background-color: yellow;
 }
 #tdd-notification-data-diff-unsupported {
@@ -181,6 +199,27 @@
 #tdd-things-list-pagination-order-nextlink {
   background-color: yellow;
 }
+#tdd-things-list-pagination-order-utf-8 {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-orderable {
+  background-color: yellow;
+}
 #tdd-things-read-only-auth {
+  background-color: yellow;
+}
+#tdd-things-representation-alternate-input {
+  background-color: yellow;
+}
+#tdd-things-retrieve-resp-content-type-1 {
+  background-color: yellow;
+}
+#tdd-things-retrieve-resp-content-type-2 {
+  background-color: yellow;
+}
+#tdd-validation-response-lang {
+  background-color: yellow;
+}
+#tdd-validation-response-utf-8 {
   background-color: yellow;
 }
