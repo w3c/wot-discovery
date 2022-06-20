@@ -607,10 +607,11 @@ img.wot-diagram {
                 To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
                 Registry [[RFC8552]] is required.
             </p>
-            <p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
+                    <p>
                     In addition, the following information MUST be included in the <code>TXT</code>
                     record that is pointed to by the Service Instance Name:
+                    </p>
                     <dl>
                         <dt><code>td</code></dt>
                         <dd>Absolute pathname of the Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.</dd>
@@ -619,7 +620,6 @@ img.wot-diagram {
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
                     </dl>
                 </div>
-            </p>
             <p class="ednote" title="Usage of a TXT record in existing implementations">
                 The following key/value pairs are used in the existing implementations:<br/>
                 <code>retrieve</code>:
