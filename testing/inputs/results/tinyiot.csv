@@ -1,0 +1,177 @@
+ID,Status,Comment
+tdd-anonymous-td-identifier,fail,failed:TestXPath/filter_anonymous passed:TestJSONPath/filter_anonymous passed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id
+tdd-anonymous-td-local-uuid,pass,passed:TestCreateAnonymousThing/location_header
+tdd-http-error-response,pass,passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response
+tdd-http-head,fail,failed:TestSPARQL/HEAD failed:TestRetrieveThing/HEAD failed:TestListThings/HEAD
+tdd-notification-data,pass,passed:TestCreateEvent/all_event_subscriber/check_event_data passed:TestUpdateEvent/all_event_subscriber/check_event_data passed:TestDeleteEvent/all_event_subscriber/check_event_data
+tdd-notification-data-diff-unsupported,fail,failed:TestCreateEvent/create_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestUpdateEvent/update_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestDeleteEvent/delete_event_with_diff_subscriber/event_subscription_diff_unsupported
+tdd-notification-data-td-id,pass,passed:TestCreateEvent/all_event_subscriber/check_event_data_td_id passed:TestUpdateEvent/all_event_subscriber/check_event_data_td_id passed:TestDeleteEvent/all_event_subscriber/check_event_data_td_id
+tdd-notification-event-id,pass,passed:TestCreateEvent/all_event_subscriber/get_event_ID passed:TestUpdateEvent/all_event_subscriber/get_event_ID passed:TestDeleteEvent/all_event_subscriber/get_event_ID
+tdd-notification-event-types,fail,failed:TestCreateEvent/all_event_subscriber/get_event_type failed:TestUpdateEvent/all_event_subscriber/get_event_type failed:TestDeleteEvent/all_event_subscriber/get_event_type
+tdd-notification-sse,fail,failed:TestCreateEvent/create_event_subscriber/event_subscription_errors failed:TestCreateEvent/all_event_subscriber/get_event_type failed:TestUpdateEvent/update_event_subscriber/event_subscription_errors failed:TestUpdateEvent/all_event_subscriber/get_event_type failed:TestDeleteEvent/delete_event_subscriber/event_subscription_errors failed:TestDeleteEvent/all_event_subscriber/get_event_type passed:TestCreateEvent/all_event_subscriber/get_event_ID passed:TestUpdateEvent/all_event_subscriber/get_event_ID passed:TestDeleteEvent/all_event_subscriber/get_event_ID
+tdd-registrationinfo-vocab-created,pass,passed:TestRetrieveThing/registration_info/created passed:TestListThings/registration_info/created
+tdd-registrationinfo-vocab-modified,pass,passed:TestRetrieveThing/registration_info/modified passed:TestListThings/registration_info/modified
+tdd-search-jsonpath,pass,passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-method,pass,passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-parameter,pass,passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request
+tdd-search-jsonpath-response,pass,passed:TestJSONPath/filter/status_code passed:TestJSONPath/filter/content_type passed:TestJSONPath/filter/payload passed:TestJSONPath/reject_bad_query/status_code
+tdd-search-sparql,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-federation,fail,failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-get,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-post,fail,failed:TestSPARQL/search_using_POST
+tdd-search-sparql-resp-select-ask,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
+tdd-search-xpath,pass,passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-method,pass,passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-parameter,pass,passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request
+tdd-search-xpath-response,fail,failed:TestXPath/filter/status_code failed:TestXPath/filter/content_type failed:TestXPath/filter/payload failed:TestXPath/reject_bad_query/status_code
+tdd-things-create-anonymous-contenttype,pass,passed:TestCreateAnonymousThing/submit_request
+tdd-things-create-anonymous-td,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateAnonymousThing/result
+tdd-things-create-anonymous-td-resp,pass,passed:TestCreateAnonymousThing/status_code passed:TestCreateAnonymousThing/location_header
+tdd-things-create-known-contenttype,pass,passed:TestCreateThing/submit_request
+tdd-things-create-known-td,pass,passed:TestCreateThing/submit_request passed:TestCreateThing/result
+tdd-things-create-known-td-resp,pass,passed:TestCreateThing/status_code
+tdd-things-create-known-vs-anonymous,pass,passed:TestCreateAnonymousThing/reject_PUT
+tdd-things-crud,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/existing/submit_request
+tdd-things-crudl,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/existing/submit_request passed:TestListThings/submit_request
+tdd-things-default-representation,pass,passed:TestRetrieveThing/content_type passed:TestListThings/content_type
+tdd-things-delete,pass,passed:TestDelete/existing/submit_request passed:TestDelete/existing/result passed:TestDelete/non-existing/submit_request
+tdd-things-delete-resp,pass,passed:TestDelete/existing/status_code passed:TestDelete/non-existing/status_code
+tdd-things-list-method,pass,passed:TestListThings/submit_request passed:TestListThings/status_code
+tdd-things-list-only,pass,passed:TestListThings/submit_request
+tdd-things-list-resp,pass,passed:TestListThings/content_type passed:TestListThings/payload passed:TestListThings/registration_info
+tdd-things-retrieve,pass,passed:TestRetrieveThing/submit_request passed:TestRetrieveThing/result
+tdd-things-retrieve-resp,pass,passed:TestRetrieveThing/status_code passed:TestRetrieveThing/content_type
+tdd-things-update,pass,passed:TestUpdateThing/submit_request passed:TestUpdateThing/result
+tdd-things-update-contenttype,pass,passed:TestUpdateThing/submit_request passed:TestUpdateThing/result
+tdd-things-update-partial,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/replace_title/result passed:TestPatch/remove_description/submit_request passed:TestPatch/remove_description/result passed:TestPatch/update_properties/submit_request passed:TestPatch/update_properties/result passed:TestPatch/replace_array/submit_request passed:TestPatch/replace_array/result
+tdd-things-update-partial-contenttype,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
+tdd-things-update-partial-mergepatch,pass,passed:TestPatch/replace_title/result passed:TestPatch/remove_description/result passed:TestPatch/update_properties/result passed:TestPatch/replace_array/result
+tdd-things-update-partial-partialtd,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
+tdd-things-update-partial-resp,pass,passed:TestPatch/replace_title/status_code passed:TestPatch/remove_description/status_code passed:TestPatch/update_properties/status_code passed:TestPatch/replace_array/status_code
+tdd-things-update-resp,pass,passed:TestUpdateThing/status_code
+tdd-validation-response,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
+tdd-validation-result,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
+tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status
+tdd-http-missing-api-endpoint,null,scripted tests not available
+tdd-https,null,scripted tests not available
+tdd-notification,null,scripted tests not available
+tdd-notification-data-create-full,null,scripted tests not available
+tdd-notification-data-delete-diff,null,scripted tests not available
+tdd-notification-data-update-diff,null,scripted tests not available
+tdd-notification-data-update-id,null,scripted tests not available
+tdd-notification-filter-type,null,scripted tests not available
+tdd-registrationinfo-expiry-config,null,scripted tests not available
+tdd-registrationinfo-expiry-purge,null,scripted tests not available
+tdd-registrationinfo-vocab-expires,null,scripted tests not available
+tdd-registrationinfo-vocab-retrieved,null,scripted tests not available
+tdd-registrationinfo-vocab-ttl,null,scripted tests not available
+tdd-search-large-tdds,null,scripted tests not available
+tdd-search-sparql-error,null,scripted tests not available
+tdd-search-sparql-federation-version,null,scripted tests not available
+tdd-search-sparql-resp-describe-construct,null,scripted tests not available
+tdd-search-sparql-version,null,scripted tests not available
+tdd-things-additional-representation,null,scripted tests not available
+tdd-things-list-pagination,null,scripted tests not available
+tdd-things-list-pagination-collection,null,scripted tests not available
+tdd-things-list-pagination-header-canonicallink,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink-attr,null,scripted tests not available
+tdd-things-list-pagination-header-nextlink-base,null,scripted tests not available
+tdd-things-list-pagination-limit,null,scripted tests not available
+tdd-things-list-pagination-order,null,scripted tests not available
+tdd-things-list-pagination-order-default,null,scripted tests not available
+tdd-things-list-pagination-order-nextlink,null,scripted tests not available
+tdd-things-list-pagination-order-unsupported,null,scripted tests not available
+tdd-things-read-only-auth,null,scripted tests not available
+tdd-validation-jsonschema,null,scripted tests not available
+"discoverer-any-order","null",
+"discoverer-fetch-iteration","null",
+"discoverer-fetch-links","null",
+"discoverer-fetch-tdd","null",
+"discoverer-may-multiple-intro","null",
+"discoverer-merge-intros","null",
+"discoverer-must-support-fetching","null",
+"discoverer-must-support-intros","null",
+"discoverer-td-identify","null",
+"discoverer-termination","null",
+"discoverer-track","null",
+"exploration-directory-description-type","null",
+"exploration-link-description-link","null",
+"exploration-link-description-type","null",
+"exploration-secboot-401","null",
+"exploration-secboot-auth","null",
+"exploration-secboot-oauth2-flows","null",
+"introduction-core-rd","null",
+"introduction-core-rd-directory","null",
+"introduction-core-rd-resource-type-directory","null",
+"introduction-core-rd-resource-type-thing","null",
+"introduction-did","null",
+"introduction-did-service-endpoint","null",
+"introduction-direct-directory-description","null",
+"introduction-direct-thing-description","null",
+"introduction-direct-url","null",
+"introduction-dns-sd","null",
+"introduction-dns-sd-service-name","null",
+"introduction-dns-sd-service-name-directory","null",
+"introduction-dns-sd-txt-record","null",
+"introduction-well-known-path","null",
+"introduction-well-known-thing-description","null",
+"introduction-well-known-uri","null",
+"priv-loc-anonymous-tds","null",
+"priv-loc-disable-public-directories","null",
+"priv-loc-explicit-care","null",
+"priv-loc-explicit-strip","null",
+"priv-loc-gen-ids-1","null",
+"priv-loc-gen-ids-2","null",
+"priv-query-anon","null",
+"sec-self-proxy","null",
+"sec-self-psk","null",
+"sec-self-segment","null",
+"sec-tdd-intro-if-multicast-required","null",
+"sec-tdd-intro-limit-response-size","null",
+"sec-tdd-intro-no-ext","null",
+"sec-tdd-intro-no-multicast","null",
+"sec-tdd-intro-no-observe","null",
+"sec-tdd-intro-throttling","null",
+"sec-tdd-limit-query-complexity","null",
+"sec-tdd-query-watchdog","null",
+"sec-tdd-throttle-queries","null",
+"security-bootstrapping-endpoints","null",
+"exploration-server-http-access-control","null",
+"exploration-server-http-alternate-content","null",
+"exploration-server-http-alternate-language","null",
+"exploration-server-http-head","null",
+"exploration-server-http-method","null",
+"exploration-server-http-resp","null",
+"exploration-server-http-secure","null",
+"tdd-http-missing-api-endpoint",fail,/search/sparql return 405
+"tdd-https","null",assertion does not exist
+"tdd-notification-data-create-full",pass,
+"tdd-notification-data-delete-diff",pass,
+"tdd-notification-data-update-diff",pass,
+"tdd-notification-data-update-id",pass,
+"tdd-notification-filter-type",pass,
+"tdd-registrationinfo-expiry-config",fail,
+"tdd-registrationinfo-expiry-purge",pass,
+"tdd-registrationinfo-vocab-expires",pass,
+"tdd-registrationinfo-vocab-retrieved",fail,
+"tdd-registrationinfo-vocab-ttl",pass,
+"tdd-search-large-tdds",fail,
+"tdd-search-sparql-error",fail,
+"tdd-search-sparql-federation-version",fail,
+"tdd-search-sparql-resp-describe-construct",fail,
+"tdd-search-sparql-version",fail,
+"tdd-things-additional-representation",fail,
+"tdd-things-list-pagination",pass,
+"tdd-things-list-pagination-collection",fail,
+"tdd-things-list-pagination-header-canonicallink",fail,
+"tdd-things-list-pagination-header-nextlink",fail,
+"tdd-things-list-pagination-header-nextlink-attr",fail,
+"tdd-things-list-pagination-header-nextlink-base",fail,
+"tdd-things-list-pagination-limit",pass,
+"tdd-things-list-pagination-order",fail,
+"tdd-things-list-pagination-order-default",pass,
+"tdd-things-list-pagination-order-nextlink",fail,
+"tdd-things-list-pagination-order-unsupported",fail,
+"tdd-things-read-only-auth",pass,
+"tdd-validation-jsonschema",pass,
