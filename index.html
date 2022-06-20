@@ -769,8 +769,11 @@ img.wot-diagram {
                 </p>
 
                 <p>
-                    Moreover, the Discovery ontology defines two new Thing Description classes
-                    that may be used to model special exploratory metadata:
+                    The Discovery ontology also defines two new Thing Description classes,
+                    described in the following sections,
+                    that may be used to model special exploratory metadata: 
+                    <a href="#exploration-td-type-thingdirectory">ThingDirectory</a> and 
+                    <a href="#exploration-td-type-thinglink">ThingLink</a>.
                 </p>
 
                 <section id="exploration-td-type-thingdirectory" class="normative">
@@ -1142,7 +1145,7 @@ img.wot-diagram {
         <section id="exploration-directory" class="normative">
             <h2>Thing Description Directory</h2>
             <p>
-             A <a>Thing Description Directory</a> (TDD or Directory for short) is a self-describing
+             A <a>Thing Description Directory</a> (TDD or Directory for short) is a 
              <a>Thing</a> that provides a service to manage a set of TDs describing other Things.
             </p>
 
@@ -2379,26 +2382,19 @@ img.wot-diagram {
 
                 <section id="directory-api-spec">
                     <h4>API Specification (Thing Model)</h1>
-
-                    <p class="issue" data-number="86">
-                        To do: add a
-                        <a href="https://w3c.github.io/wot-thing-description/#thing-model">Thing Model</a>
-                        (`directory.tm.json`)
-                        that can derive to
-                        <a href="https://github.com/w3c/wot-discovery/blob/main/implementations/example-directory-oauth2.td.json">this TD</a>
-                        as an example.
-                        The <a>TM</a> should describe all interaction affordances and indicate which ones
-                        are required (i.e. mandatory by this spec). Moreover, it should use placeholders
-                        for deployment-specific attributes.
-                        Informative affordances (JSONPath and XPath) should be defined as such.
-                    </p>
-
-                    The API of the directory is specified as a <a>Thing Model</a>.
-                    The Thing Model alone should not be considered as the reference
-                    to implement or interact with a directory.
-                    The full specification is available as human-readable text 
+                    <p>
+                    A template for the API of Thing Description Directories is given here
+                    as a <a>Thing Model</a>.
+                    The Thing Model is normative (except where noted) but should not be considered 
+                    as the sole reference to implement or interact with a Thing Description Directory.
+                    Please refer also to the specifications given 
                     in [[[#exploration-directory-api]]].
-
+                    </p>
+                    <p>
+                    The <code>searchJSONPath</code> and <code>searchXPath</code> affordances 
+                    given in this Thing Model
+                    are not normative and are provided for information only.
+                    </p>
                     <pre class="advisement json">
                         <div data-include='directory.tm.json'></div>
                     </pre>
