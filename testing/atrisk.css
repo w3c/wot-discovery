@@ -43,10 +43,37 @@
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
+#exploration-server-coap-alternate-content {
+  background-color: yellow;
+}
+#exploration-server-coap-method {
+  background-color: yellow;
+}
+#exploration-server-coap-resp {
+  background-color: yellow;
+}
+#exploration-server-coap-size2 {
+  background-color: yellow;
+}
+#exploration-server-http-alternate-content {
+  background-color: yellow;
+}
+#exploration-server-http-alternate-language {
+  background-color: yellow;
+}
 #exploration-server-http-head {
   background-color: yellow;
 }
 #exploration-server-http-method {
+  background-color: yellow;
+}
+#exploration-server-http-resp {
+  background-color: yellow;
+}
+#exploration-server-http-resp-content-type {
+  background-color: yellow;
+}
+#exploration-server-http-resp-json {
   background-color: yellow;
 }
 #introduction-core-rd {
@@ -113,33 +140,6 @@
   background-color: yellow;
 }
 #security-bootstrapping-endpoints {
-  background-color: yellow;
-}
-#service-coap-alternate-content {
-  background-color: yellow;
-}
-#service-coap-method {
-  background-color: yellow;
-}
-#service-coap-resp {
-  background-color: yellow;
-}
-#service-coap-size2 {
-  background-color: yellow;
-}
-#service-http-alternate-content {
-  background-color: yellow;
-}
-#service-http-alternate-language {
-  background-color: yellow;
-}
-#service-http-resp {
-  background-color: yellow;
-}
-#service-http-resp-content-type {
-  background-color: yellow;
-}
-#service-http-resp-json {
   background-color: yellow;
 }
 #tdd-context-injection {

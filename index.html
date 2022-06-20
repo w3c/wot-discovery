@@ -1038,23 +1038,23 @@ img.wot-diagram {
                         <span class="rfc2119-assertion" id="exploration-server-http-method"> 
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MUST serve that resource with a `GET` method.</span>
-                        <span class="rfc2119-assertion" id="service-http-resp">
+                        <span class="rfc2119-assertion" id="exploration-server-http-resp">
                             A successful response from an HTTP-based TD Server providing a <a>TD</a>
                             MUST have 200 (OK) status and the <a>TD</a> in the body.</span>
-                        <span class="rfc2119-assertion" id="service-http-resp-content-type">
+                        <span class="rfc2119-assertion" id="exploration-server-http-resp-content-type">
                             A successful response with JSON serialization MUST contain `application/json`
                             or more specifically, `application/td+json` in the Content-Type header.</span>
-                        <span class="rfc2119-assertion" id="service-http-resp-json">
+                        <span class="rfc2119-assertion" id="exploration-server-http-resp-json">
                             The default serialization format for successful response bodies MUST be
                             JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
                         The JSON-LD syntax allows semantic extensions and processing.
-                        <span class="rfc2119-assertion" id="service-http-alternate-content">
+                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-content">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide alternative representations through
                             server-driven content negotiation, that is by honoring the 
                             request's Accept and Accept-Encoding headers and responding with the supported
                             TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
-                        <span class="rfc2119-assertion" id="service-http-alternate-language">
+                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-language">
                             An HTTP-based TD Server providing a <a>TD</a> 
                             MAY provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
@@ -1092,16 +1092,16 @@ img.wot-diagram {
                 <dt>CoAP</dt>
                 <dd>
                 <p>
-                    <span class="rfc2119-assertion" id="service-coap-method">
+                    <span class="rfc2119-assertion" id="exploration-server-coap-method">
                         A CoAP-based TD Server providing a <a>TD</a>
                         MUST serve that resource with a `GET` method.</span>
-                    <span class="rfc2119-assertion" id="service-coap-resp">
+                    <span class="rfc2119-assertion" id="exploration-server-coap-resp">
                         A successful response from a CoAP-based TD Server providing a <a>TD</a>
                         MUST have a 2.05 (Content) status, contain a Content-Format option
                         with value 432 (`application/td+json`), and the <a>TD</a> in the payload.</span>
                     Note that the payload might be split over multiple message exchanges using
                     block-wise transfer [[RFC7959]].
-                    <span class="rfc2119-assertion" id="service-coap-alternate-content">
+                    <span class="rfc2119-assertion" id="exploration-server-coap-alternate-content">
                         A CoAP-based TD Server providing a <a>TD</a>
                         MAY provide alternative representations through
                         server-driven content negotiation, that is by honouring the
@@ -1109,7 +1109,7 @@ img.wot-diagram {
                         <a>TD</a> serialization and equivalent Content-Format option.</span>
                 </p>
                 <p>
-                    <span class="rfc2119-assertion" id="service-coap-size2">
+                    <span class="rfc2119-assertion" id="exploration-server-coap-size2">
                         A CoAP-based <a>TD</a> Server providing a <a>TD</a>
                         SHOULD respond to requests containing a Size2 option by including
                         the size estimate of the <a>TD</a> in its next response.</span>
