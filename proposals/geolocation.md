@@ -701,3 +701,7 @@ To Do
 * Indoor GML
 * OGC GeoSPARQL
 * IETF JSON Pointer
+* [OCG EDR](https://www.ogc.org/standards/ogcapi-edr)
+* [Owltime](https://www.w3.org/TR/owl-time/)
+* [Brick Schema](https://brickschema.org/ontology/)
+* [SDW Best Practices](https://www.w3.org/TR/sdw-bp/)
