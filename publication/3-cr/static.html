@@ -136,6 +136,754 @@ dd{margin-left:0}
            interactions an IoT device or service makes available
            over the network at a suitable level of abstraction.  
            The WoT Thing Description specification satisfies this objective.">
+<link rel="canonical" href="https://www.w3.org/TR/wot-discovery/">
+<script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en-US",
+      "w3p": "http://www.w3.org/2001/02pd/rec54#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/wot-discovery/",
+  "type": [
+    "TechArticle",
+    "w3p:CR"
+  ],
+  "name": "Web of Things (WoT) Discovery",
+  "inLanguage": "en-US",
+  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "datePublished": "2022-06-24",
+  "copyrightHolder": {
+    "name": "World Wide Web Consortium",
+    "url": "https://www.w3.org/"
+  },
+  "discussionUrl": "https://github.com/w3c/wot-discovery/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "https://www.w3.org/TR/2020/WD-wot-discovery-20201124/",
+  "description": "The W3C Web of Things (WoT) is intended to enable\n           interoperability across IoT platforms and application\n           domains.  One key mechanism for accomplishing this goal\n           is the definition and use of metadata describing the\n           interactions an IoT device or service makes available\n           over the network at a suitable level of abstraction.  \n           The WoT Thing Description specification satisfies this objective.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Andrea Cimmino",
+      "worksFor": {
+        "name": "Universidad Politécnica de Madrid",
+        "url": "https://www.upm.es/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Michael McCool",
+      "worksFor": {
+        "name": "Intel Corp.",
+        "url": "https://www.intel.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Farshid Tavakolizadeh",
+      "worksFor": {
+        "name": "Fraunhofer-Gesellschaft",
+        "url": "https://www.fraunhofer.de/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Kunihiko Toumura",
+      "worksFor": {
+        "name": "Hitachi, Ltd.",
+        "url": "https://www.hitachi.com/"
+      }
+    }
+  ],
+  "contributor": [],
+  "citation": [
+    {
+      "id": "https://www.w3.org/TR/wot-architecture11/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Architecture 1.1",
+      "url": "https://www.w3.org/TR/wot-architecture11/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Toru Kawaguchi"
+        },
+        {
+          "name": "Kunihiko Toumura"
+        },
+        {
+          "name": "Kazuo Kajimoto"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-thing-description11/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Thing Description 1.1",
+      "url": "https://www.w3.org/TR/wot-thing-description11/",
+      "creator": [
+        {
+          "name": "Sebastian Käbisch"
+        },
+        {
+          "name": "Takuki Kamiya"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Victor Charpenay"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/sparql11-overview/",
+      "type": "TechArticle",
+      "name": "SPARQL 1.1 Overview",
+      "url": "https://www.w3.org/TR/sparql11-overview/",
+      "creator": [
+        {
+          "name": "The W3C SPARQL Working Group"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://w3c.github.io/wot-usecases/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT): Use Cases",
+      "url": "https://w3c.github.io/wot-usecases/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Tomoaki Mizushima"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8615",
+      "type": "TechArticle",
+      "name": "Well-Known Uniform Resource Identifiers (URIs)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8615",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6763",
+      "type": "TechArticle",
+      "name": "DNS-Based Service Discovery",
+      "url": "https://www.rfc-editor.org/rfc/rfc6763",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6762",
+      "type": "TechArticle",
+      "name": "Multicast DNS",
+      "url": "https://www.rfc-editor.org/rfc/rfc6762",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc2782",
+      "type": "TechArticle",
+      "name": "A DNS RR for specifying the location of services (DNS SRV)",
+      "url": "https://www.rfc-editor.org/rfc/rfc2782",
+      "creator": [
+        {
+          "name": "A. Gulbrandsen"
+        },
+        {
+          "name": "P. Vixie"
+        },
+        {
+          "name": "L. Esibov"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6690",
+      "type": "TechArticle",
+      "name": "Constrained RESTful Environments (CoRE) Link Format",
+      "url": "https://www.rfc-editor.org/rfc/rfc6690",
+      "creator": [
+        {
+          "name": "Z. Shelby"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-26",
+      "type": "TechArticle",
+      "name": "CoRE Resource Directory",
+      "url": "https://tools.ietf.org/html/draft-ietf-core-resource-directory-26",
+      "creator": [
+        {
+          "name": "Christian Amsüss"
+        },
+        {
+          "name": "Zach Shelby"
+        },
+        {
+          "name": "Michael Koster"
+        },
+        {
+          "name": "Carsten Bormann"
+        },
+        {
+          "name": "Peter van der Stok"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/did-core/",
+      "type": "TechArticle",
+      "name": "Decentralized Identifiers (DIDs) v1.0",
+      "url": "https://www.w3.org/TR/did-core/",
+      "creator": [
+        {
+          "name": "Manu Sporny"
+        },
+        {
+          "name": "Amy Guy"
+        },
+        {
+          "name": "Markus Sabadello"
+        },
+        {
+          "name": "Drummond Reed"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/json-ld11/",
+      "type": "TechArticle",
+      "name": "JSON-LD 1.1",
+      "url": "https://www.w3.org/TR/json-ld11/",
+      "creator": [
+        {
+          "name": "Gregg Kellogg"
+        },
+        {
+          "name": "Pierre-Antoine Champin"
+        },
+        {
+          "name": "Dave Longley"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7959",
+      "type": "TechArticle",
+      "name": "Block-Wise Transfers in the Constrained Application Protocol (CoAP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7959",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "Z. Shelby, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc4122",
+      "type": "TechArticle",
+      "name": "A Universally Unique IDentifier (UUID) URN Namespace",
+      "url": "https://www.rfc-editor.org/rfc/rfc4122",
+      "creator": [
+        {
+          "name": "P. Leach"
+        },
+        {
+          "name": "M. Mealling"
+        },
+        {
+          "name": "R. Salz"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7807",
+      "type": "TechArticle",
+      "name": "Problem Details for HTTP APIs",
+      "url": "https://www.rfc-editor.org/rfc/rfc7807",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        },
+        {
+          "name": "E. Wilde"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7231.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content",
+      "url": "https://httpwg.org/specs/rfc7231.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7396",
+      "type": "TechArticle",
+      "name": "JSON Merge Patch",
+      "url": "https://www.rfc-editor.org/rfc/rfc7396",
+      "creator": [
+        {
+          "name": "P. Hoffman"
+        },
+        {
+          "name": "J. Snell"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc8288.html",
+      "type": "TechArticle",
+      "name": "Web Linking",
+      "url": "https://httpwg.org/specs/rfc8288.html",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/eventsource/",
+      "type": "TechArticle",
+      "name": "Server-Sent Events",
+      "url": "https://www.w3.org/TR/eventsource/",
+      "creator": [
+        {
+          "name": "Ian Hickson"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/xpath-31/",
+      "type": "TechArticle",
+      "name": "XML Path Language (XPath) 3.1",
+      "url": "https://www.w3.org/TR/xpath-31/",
+      "creator": [
+        {
+          "name": "Jonathan Robie"
+        },
+        {
+          "name": "Michael Dyck"
+        },
+        {
+          "name": "Josh Spiegel"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://owasp.org/www-project-top-ten",
+      "type": "TechArticle",
+      "name": "OWASP Top Ten",
+      "url": "https://owasp.org/www-project-top-ten",
+      "publisher": {
+        "name": "OWASP"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9175",
+      "type": "TechArticle",
+      "name": "Constrained Application Protocol (CoAP): Echo, Request-Tag, and Token Processing",
+      "url": "https://www.rfc-editor.org/rfc/rfc9175",
+      "creator": [
+        {
+          "name": "C. Amsüss"
+        },
+        {
+          "name": "J. Preuß Mattsson"
+        },
+        {
+          "name": "G. Selander"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9000",
+      "type": "TechArticle",
+      "name": "QUIC: A UDP-Based Multiplexed and Secure Transport",
+      "url": "https://www.rfc-editor.org/rfc/rfc9000",
+      "creator": [
+        {
+          "name": "J. Iyengar, Ed."
+        },
+        {
+          "name": "M. Thomson, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc4279",
+      "type": "TechArticle",
+      "name": "Pre-Shared Key Ciphersuites for Transport Layer Security (TLS)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4279",
+      "creator": [
+        {
+          "name": "P. Eronen, Ed."
+        },
+        {
+          "name": "H. Tschofenig, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8981",
+      "type": "TechArticle",
+      "name": "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6",
+      "url": "https://www.rfc-editor.org/rfc/rfc8981",
+      "creator": [
+        {
+          "name": "F. Gont"
+        },
+        {
+          "name": "S. Krishnan"
+        },
+        {
+          "name": "T. Narten"
+        },
+        {
+          "name": "R. Draves"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6335",
+      "type": "TechArticle",
+      "name": "Internet Assigned Numbers Authority (IANA) Procedures for the Management of the Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.rfc-editor.org/rfc/rfc6335",
+      "creator": [
+        {
+          "name": "M. Cotton"
+        },
+        {
+          "name": "L. Eggert"
+        },
+        {
+          "name": "J. Touch"
+        },
+        {
+          "name": "M. Westerlund"
+        },
+        {
+          "name": "S. Cheshire"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc2119",
+      "type": "TechArticle",
+      "name": "Key words for use in RFCs to Indicate Requirement Levels",
+      "url": "https://www.rfc-editor.org/rfc/rfc2119",
+      "creator": [
+        {
+          "name": "S. Bradner"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8174",
+      "type": "TechArticle",
+      "name": "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words",
+      "url": "https://www.rfc-editor.org/rfc/rfc8174",
+      "creator": [
+        {
+          "name": "B. Leiba"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8552",
+      "type": "TechArticle",
+      "name": "Scoped Interpretation of DNS Resource Records through \"Underscored\" Naming of Attribute Leaves",
+      "url": "https://www.rfc-editor.org/rfc/rfc8552",
+      "creator": [
+        {
+          "name": "D. Crocker"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "type": "TechArticle",
+      "name": "RESTful Design for Internet of Things Systems",
+      "url": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "creator": [
+        {
+          "name": "Ari Keranen"
+        },
+        {
+          "name": "Matthias Kovatsch"
+        },
+        {
+          "name": "Klaus Hartke"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/ldp-paging/",
+      "type": "TechArticle",
+      "name": "Linked Data Platform Paging 1.0",
+      "url": "https://www.w3.org/TR/ldp-paging/",
+      "creator": [
+        {
+          "name": "Steve Speicher"
+        },
+        {
+          "name": "John Arwe"
+        },
+        {
+          "name": "Ashok Malhotra"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base",
+      "type": "TechArticle",
+      "name": "JSONPath: Query expressions for JSON",
+      "url": "https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base",
+      "creator": [
+        {
+          "name": "Stefan Gössner"
+        },
+        {
+          "name": "Glyn Normington"
+        },
+        {
+          "name": "Carsten Bormann"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-security/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Security and Privacy Guidelines",
+      "url": "https://www.w3.org/TR/wot-security/",
+      "creator": [
+        {
+          "name": "Elena Reshetova"
+        },
+        {
+          "name": "Michael McCool"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7230.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing",
+      "url": "https://httpwg.org/specs/rfc7230.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7540.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol Version 2 (HTTP/2)",
+      "url": "https://httpwg.org/specs/rfc7540.html",
+      "creator": [
+        {
+          "name": "M. Belshe"
+        },
+        {
+          "name": "R. Peon"
+        },
+        {
+          "name": "M. Thomson, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8323",
+      "type": "TechArticle",
+      "name": "CoAP (Constrained Application Protocol) over TCP, TLS, and WebSockets",
+      "url": "https://www.rfc-editor.org/rfc/rfc8323",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "S. Lemay"
+        },
+        {
+          "name": "H. Tschofenig"
+        },
+        {
+          "name": "K. Hartke"
+        },
+        {
+          "name": "B. Silverajan"
+        },
+        {
+          "name": "B. Raymor, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    }
+  ]
+}</script>
 <style>
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
 .hljs-comment,.hljs-quote{color:#717277;font-style:italic}
@@ -166,7 +914,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "no-unused-dfns": false
   },
   "doJsonLd": true,
-  "specStatus": "ED",
+  "specStatus": "CR",
+  "crEnd": "2022-08-30",
+  "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
   "copyrightStart": 2017,
   "group": "wg/wot",
@@ -275,19 +1025,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   },
   "publishISODate": "2022-06-24T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 24 June 2022"
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 24 June 2022"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-CR"></head>
 <body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Discovery</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2022-06-24">24 June 2022</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#CR">W3C Candidate Recommendation Snapshot</a> <time class="dt-published" datetime="2022-06-24">24 June 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://w3c.github.io/wot-discovery/">https://w3c.github.io/wot-discovery/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2022/CR-wot-discovery-20220624/">https://www.w3.org/TR/2022/CR-wot-discovery-20220624/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a>
@@ -299,7 +1049,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     <a href="https://github.com/w3c/wot-discovery/commits/master">Commit history</a>
                   </dd>
         
-        
+        <dt>Implementation report:</dt><dd>
+                <a href="https://w3c.github.io/wot-discovery/testing/report.html">https://w3c.github.io/wot-discovery/testing/report.html</a>
+              </dd>
         
         
         
@@ -383,14 +1135,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
       https://www.w3.org/TR/.</em></p><p>
     This document was published by the <a href="https://www.w3.org/groups/wg/wot">Web of Things Working Group</a> as
-    an Editor's Draft. 
-  </p><p>Publication as an Editor's Draft does not
-  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
-    This is a draft document and may be updated, replaced or obsoleted by other
-    documents at any time. It is inappropriate to cite this document as other
-    than work in progress.
-    
-  </p><p>
+    a Candidate Recommendation Snapshot using the
+        <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation track</a>. 
+  </p><p>Publication as a Candidate Recommendation does not
+  imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. A Candidate Recommendation Snapshot has received
+        <a href="https://www.w3.org/2021/Process-20211102/#dfn-wide-review">wide review</a>, is intended to
+        gather
+        <a href="https://w3c.github.io/wot-discovery/testing/report.html">implementation experience</a>,
+        and has commitments from Working Group members to
+        <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a>
+        for implementations.</p><p>
+          This Candidate Recommendation is not expected to advance to Proposed
+          Recommendation any earlier than 30 August 2022.
+        </p><p>
     
         This document was produced by a group
         operating under the
