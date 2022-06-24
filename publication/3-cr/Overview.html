@@ -275,8 +275,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-06-20T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 20 June 2022"
+  "publishISODate": "2022-06-24T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 24 June 2022"
 }
 </script>
 <link rel="stylesheet" href=
@@ -291,7 +291,7 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <h1 id="title" class="title">Web of Things (WoT) Discovery</h1>
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#ED">W3C Editor's Draft</a>
-<time class="dt-published" datetime="2022-06-20">20 June
+<time class="dt-published" datetime="2022-06-24">24 June
 2022</time></p>
 <details open>
 <summary>More details about this document</summary>
@@ -2838,8 +2838,8 @@ TDs using HTTP <code>GET</code> requests at the
 "rfc2119-assertion" id="tdd-things-list-resp">A successful response
 <em class="rfc2119">MUST</em> have 200 (OK) status and an array of
 TDs in the body.</span> <span class="rfc2119-assertion" id=
-"tdd-things-retrieve-resp-content-type">A successful response with
-JSON serialization <em class="rfc2119">MUST</em> contain
+"tdd-things-list-resp-content-type">A successful response with JSON
+serialization <em class="rfc2119">MUST</em> contain
 <code>application/json</code> or more specifically,
 <code>application/ld+json</code> in the Content-Type header.</span>
 Note that the default serialization is JSON with JSON-LD syntax,
@@ -4827,18 +4827,19 @@ context of ipv6 [<cite><a class="bibref" data-link-type="biblio"
 href="#bib-rfc8981" title=
 "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6">RFC8981</a></cite>]
 discusses this.</li>
-<li><span class="rfc2119-assertion" id="priv-loc-gen-ids">To reduce
-the risk of negative location inferencing, access to private
-directories <em class="rfc2119">SHOULD</em> be limited by using
-access controls.</span> If an attacker cannot access the service,
-they cannot retrieve information to infer location. Access rights
-provided to guests (e.g. for Peer-to-Peer Personal scenarios)
-should be appropriately time-limited. Use of long time-to-live
-values may be appropriate in other cases. In addition, TDs should
-be updated in a directory only when they change. For example, the
-TD for a car may only be updated when new car firmware is available
-providing new services, and the time-to-live might be set at one
-month (covering most absences).</li>
+<li><span class="rfc2119-assertion" id=
+"priv-loc-priv-dir-access">To reduce the risk of negative location
+inferencing, access to private directories <em class=
+"rfc2119">SHOULD</em> be limited by using access controls.</span>
+If an attacker cannot access the service, they cannot retrieve
+information to infer location. Access rights provided to guests
+(e.g. for Peer-to-Peer Personal scenarios) should be appropriately
+time-limited. Use of long time-to-live values may be appropriate in
+other cases. In addition, TDs should be updated in a directory only
+when they change. For example, the TD for a car may only be updated
+when new car firmware is available providing new services, and the
+time-to-live might be set at one month (covering most
+absences).</li>
 <li><span class="rfc2119-assertion" id=
 "priv-loc-explicit-care">When explicit location information is
 available, whether stored in a TD or available in a property,
