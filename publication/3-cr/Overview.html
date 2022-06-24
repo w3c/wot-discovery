@@ -3326,11 +3326,11 @@ Discovery context and namespace under w3.org/ns</span></div>
 change.</div>
 </div>
 </aside>
-This is an <a href="#dfn-wot-enriched-thing-description" class=
+<p>This is an <a href="#dfn-wot-enriched-thing-description" class=
 "internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-enriched-thing-description-4">Enriched TD</a>
 which includes the registration information such as the creation
-and modification time of the TD within the directory.
+and modification time of the TD within the directory.</p>
 <p>The example below shows a retrieved <a href=
 "#dfn-wot-anonymous-thing-description" class="internalDFN"
 data-link-type="dfn" id=
@@ -3430,9 +3430,10 @@ Discovery context and namespace under w3.org/ns</span></div>
 change.</div>
 </div>
 </aside>
-For the sake of readability, the time values in this example are
+<p>For the sake of readability, the time values in this example are
 set to exact numbers. In realistic settings, time values may
-include fractions.</section>
+include fractions.</p>
+</section>
 <section id="exploration-directory-api-things-update" class=
 "normative">
 <div class="header-wrapper">
@@ -3703,8 +3704,8 @@ optional pagination of the JSON-LD array. Additional parts of
 Linked Data Paging may be implemented for examples to honour
 client's query preference or to add other link relations for
 semantic annotation and alternative navigation links.</p>
-The following example provides a walk-through of the paginated
-retrieval of TDs:
+<p>The following example provides a walk-through of the paginated
+retrieval of TDs:</p>
 <aside class="example" id="example-pagination">
 <div class="marker"><a class="self-link" href=
 "#example-pagination">Example <bdi>7</bdi></a><span class=
@@ -3846,10 +3847,10 @@ using proactive negotiation, if the <code>Accept-Language</code>
 header field has been set in the HTTP request [<cite><a class=
 "bibref" data-link-type="biblio" href="#bib-rfc7231" title=
 "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content">RFC7231</a></cite>].</span></p>
-<a href="#example-validation-error" data-matched-text=
+<p><a href="#example-validation-error" data-matched-text=
 "[[[#example-validation-error]]]" class="box-ref">Example
 <bdi>9</bdi></a> is an example error response with two validation
-errors.
+errors.</p>
 <aside class="example" id="example-validation-error">
 <div class="marker"><a class="self-link" href=
 "#example-validation-error">Example <bdi>9</bdi></a><span class=
@@ -3976,11 +3977,11 @@ deliver events of type <code>thing_created</code></li>
 <li><code>/events</code> instructs the server to deliver all
 events</li>
 </ul>
-The clients need to subscribe separately to receive a subset of the
-events (e.g. only <code>thing_created</code> and
+<p>The clients need to subscribe separately to receive a subset of
+the events (e.g. only <code>thing_created</code> and
 <code>thing_deleted</code>) from the server. When using HTTP/2,
 multiple subscriptions on the same domain (HTTP streams) get
-multiplexed on a single connection.
+multiplexed on a single connection.</p>
 <div class="issue" id="issue-container-number-176">
 <div role="heading" class="issue-title marker" id="h-issue-10"
 aria-level="6"><a href=
@@ -4000,23 +4001,25 @@ progress.</div>
 </div>
 </dd>
 <dt>Event Data</dt>
-<dd><span class="rfc2119-assertion" id="tdd-notification-data">The
+<dd>
+<p><span class="rfc2119-assertion" id="tdd-notification-data">The
 event data <em class="rfc2119">MUST</em> contain the JSON
 serialization of the event object.</span> The event data object is
 a <a href="#dfn-wot-partial-thing-description" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-partial-thing-description-2">Partial TD</a> or the
 whole <a href="#dfn-td" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-td-41">TD</a> object depending on the request:
+id="ref-for-dfn-td-41">TD</a> object depending on the request:</p>
 <ul>
-<li><span class="rfc2119-assertion" id=
+<li>
+<p><span class="rfc2119-assertion" id=
 "tdd-notification-data-td-id">The event data object <em class=
 "rfc2119">MUST</em> at least include the identifier of the TD
 created, updated, or deleted at that event in <a href=
 "#dfn-wot-partial-thing-description" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-partial-thing-description-3">Partial TD</a>
-form.</span>
+form.</span></p>
 <aside class="example" id=
 "example-creation-and-deletion-sse-events-for-a-td">
 <div class="marker"><a class="self-link" href=
@@ -4033,11 +4036,13 @@ data: {<span class="hljs-string">"id"</span>: <span class=
 "hljs-string">"urn:example:simple-td"</span>}
 id: event_2</code></pre></aside>
 </li>
-<li><span class="rfc2119-assertion" id=
+<li>
+<p><span class="rfc2119-assertion" id=
 "tdd-notification-data-create-full">When <code>diff</code> query
 parameter is set to <code>true</code> and the event has
 <code>thing_created</code> type, the server <em class=
-"rfc2119">MAY</em> return the whole TD object as event data.</span>
+"rfc2119">MAY</em> return the whole TD object as event
+data.</span></p>
 <aside class="example" id="example-create-event-full">
 <div class="marker"><a class="self-link" href=
 "#example-create-event-full">Example <bdi>11</bdi></a><span class=
@@ -4087,7 +4092,8 @@ change.</div>
 </div>
 </aside>
 </li>
-<li><span class="rfc2119-assertion" id=
+<li>
+<p><span class="rfc2119-assertion" id=
 "tdd-notification-data-update-diff">When <code>diff</code> query
 parameter is set to <code>true</code> and the event has
 <code>thing_updated</code> type, the server <em class=
@@ -4100,7 +4106,7 @@ data-link-type="biblio" href="#bib-rfc7396" title=
 Patch [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-rfc7396" title="JSON Merge Patch">RFC7396</a></cite>]
 <em class="rfc2119">MUST</em> always include the identifier of the
-TD regardless of whether it is changed.</span>
+TD regardless of whether it is changed.</span></p>
 <p>The following example shows the event triggered on update of the
 TD from <a href="#example-create-event-full" data-matched-text=
 "[[[#example-create-event-full]]]" class="box-ref">Example
@@ -4120,21 +4126,25 @@ data:     <span class="hljs-string">"title"</span>: <span class=
 data: }
 id: event_3</code></pre></aside>
 </li>
-<li><span class="rfc2119-assertion" id=
+<li>
+<p><span class="rfc2119-assertion" id=
 "tdd-notification-data-delete-diff">The <code>diff</code> query
 parameter <em class="rfc2119">MUST</em> be ignored for
 <code>thing_deleted</code> events.</span> In other words, the
 server shall not include additional properties in the payload of
 <code>thing_deleted</code> events when <code>diff</code> is set to
-<code>true</code>.</li>
-<li><span class="rfc2119-assertion" id=
+<code>true</code>.</p>
+</li>
+<li>
+<p><span class="rfc2119-assertion" id=
 "tdd-notification-data-diff-unsupported">When a server which does
 not support the <code>diff</code> query parameter is requested with
 such query parameter, it <em class="rfc2119">MUST</em> reject the
 request with 501 (Not Implemented) status.</span> This is to inform
 the clients about the lack of such functionality at the connection
 time to avoid runtime exceptions caused by missing event data
-attributes.</li>
+attributes.</p>
+</li>
 </ul>
 </dd>
 </dl>
@@ -5545,7 +5555,8 @@ say, a cafe, could use this information to track someone's phone
 and infer their location.</p>
 <dl>
 <dt>Mitigations:</dt>
-<dd>There are a few options to mitigate this risk:
+<dd>
+<p>There are a few options to mitigate this risk:</p>
 <ul>
 <li><span class="rfc2119-assertion" id=
 "priv-loc-disable-public-directories">To avoid location tracking, a
@@ -5634,12 +5645,14 @@ specific queries may also reveal personal information about an
 individual.</p>
 <dl>
 <dt>Mitigations:</dt>
-<dd><span class="rfc2119-assertion" id="priv-query-anon">When
+<dd>
+<p><span class="rfc2119-assertion" id="priv-query-anon">When
 accessing a public directory, like any other public web service,
 users and implementations <em class="rfc2119">SHOULD</em> use an
 anonymous identity provider.</span> In particular, OAuth2 can
 provide tokens which don't identify specific individuals, they just
-assert access rights proven elsewhere.</dd>
+assert access rights proven elsewhere.</p>
+</dd>
 </dl>
 </section>
 </section>
@@ -6096,7 +6109,8 @@ Note. URL: <a href=
 "Back to Top">↑</abbr></a></p>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing" aria-label=
-"Links in this document to definition: Thing">
+"Links in this document to definition: Thing"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-thing" aria-label=
 "Permalink for definition: Thing. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6115,6 +6129,7 @@ Directory</a></li>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing-description" aria-label=
 "Links in this document to definition: Thing Description">
+<span class="caret"></span>
 <div><a class="self-link" href="#dfn-thing-description" aria-label=
 "Permalink for definition: Thing Description. Activate to close this dialog.">
 Permalink</a></div>
@@ -6126,7 +6141,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-td" aria-label=
-"Links in this document to definition: TD">
+"Links in this document to definition: TD"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-td" aria-label=
 "Permalink for definition: TD. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6191,7 +6207,8 @@ Information</a> <a href="#ref-for-dfn-td-28" title=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing-model" aria-label=
-"Links in this document to definition: Thing Model">
+"Links in this document to definition: Thing Model"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-thing-model" aria-label=
 "Permalink for definition: Thing Model. Activate to close this dialog.">
 Permalink</a></div>
@@ -6204,7 +6221,8 @@ Specification (Thing Model)</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-tm" aria-label=
-"Links in this document to definition: TM">
+"Links in this document to definition: TM"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-tm" aria-label=
 "Permalink for definition: TM. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6214,7 +6232,8 @@ id="dfn-panel-for-dfn-tm" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-property" aria-label=
-"Links in this document to definition: Property">
+"Links in this document to definition: Property"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-property" aria-label=
 "Permalink for definition: Property. Activate to close this dialog.">
 Permalink</a></div>
@@ -6225,7 +6244,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-action" aria-label=
-"Links in this document to definition: Action">
+"Links in this document to definition: Action"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-action" aria-label=
 "Permalink for definition: Action. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6235,7 +6255,8 @@ id="dfn-panel-for-dfn-action" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-event" aria-label=
-"Links in this document to definition: Event">
+"Links in this document to definition: Event"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-event" aria-label=
 "Permalink for definition: Event. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6245,7 +6266,8 @@ id="dfn-panel-for-dfn-event" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-anonymous-thing-description" aria-label=
-"Links in this document to definition: Anonymous TD">
+"Links in this document to definition: Anonymous TD"><span class=
+"caret"></span>
 <div><a class="self-link" href=
 "#dfn-wot-anonymous-thing-description" aria-label=
 "Permalink for definition: Anonymous TD. Activate to close this dialog.">
@@ -6269,7 +6291,8 @@ Identifiers</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-discoverer" aria-label=
-"Links in this document to definition: Discoverer">
+"Links in this document to definition: Discoverer"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-discoverer" aria-label=
 "Permalink for definition: Discoverer. Activate to close this dialog.">
 Permalink</a></div>
@@ -6283,7 +6306,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-discovery" aria-label=
-"Links in this document to definition: Discovery">
+"Links in this document to definition: Discovery"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-discovery" aria-label=
 "Permalink for definition: Discovery. Activate to close this dialog.">
 Permalink</a></div>
@@ -6294,7 +6318,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-exploration" aria-label=
-"Links in this document to definition: Exploration">
+"Links in this document to definition: Exploration"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-exploration" aria-label=
 "Permalink for definition: Exploration. Activate to close this dialog.">
 Permalink</a></div>
@@ -6305,7 +6330,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-introduction" aria-label=
-"Links in this document to definition: Introduction">
+"Links in this document to definition: Introduction"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-introduction" aria-label=
 "Permalink for definition: Introduction. Activate to close this dialog.">
 Permalink</a></div>
@@ -6317,6 +6343,7 @@ Permalink</a></div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-thing-description-server" aria-label=
 "Links in this document to definition: Thing Description Server">
+<span class="caret"></span>
 <div><a class="self-link" href="#dfn-wot-thing-description-server"
 aria-label=
 "Permalink for definition: Thing Description Server. Activate to close this dialog.">
@@ -6328,7 +6355,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-td-server" aria-label=
-"Links in this document to definition: TD Server">
+"Links in this document to definition: TD Server"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-td-server" aria-label=
 "Permalink for definition: TD Server. Activate to close this dialog.">
 Permalink</a></div>
@@ -6341,6 +6369,7 @@ Permalink</a></div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-thing-description-directory" aria-label=
 "Links in this document to definition: Thing Description Directory">
+<span class="caret"></span>
 <div><a class="self-link" href=
 "#dfn-wot-thing-description-directory" aria-label=
 "Permalink for definition: Thing Description Directory. Activate to close this dialog.">
@@ -6410,7 +6439,8 @@ Resource Types Registration</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-tdd" aria-label=
-"Links in this document to definition: TDD">
+"Links in this document to definition: TDD"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-tdd" aria-label=
 "Permalink for definition: TDD. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6420,7 +6450,8 @@ id="dfn-panel-for-dfn-wot-tdd" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-partial-thing-description" aria-label=
-"Links in this document to definition: Partial TD">
+"Links in this document to definition: Partial TD"><span class=
+"caret"></span>
 <div><a class="self-link" href="#dfn-wot-partial-thing-description"
 aria-label=
 "Permalink for definition: Partial TD. Activate to close this dialog.">
@@ -6437,7 +6468,8 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-enriched-thing-description" aria-label=
-"Links in this document to definition: Enriched TD">
+"Links in this document to definition: Enriched TD"><span class=
+"caret"></span>
 <div><a class="self-link" href=
 "#dfn-wot-enriched-thing-description" aria-label=
 "Permalink for definition: Enriched TD. Activate to close this dialog.">
