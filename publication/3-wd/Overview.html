@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 <meta name="generator" content=
-"HTML Tidy for HTML5 for Linux version 5.8.0">
+"HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
 <meta name="generator" content="ReSpec 32.1.10">
 <meta name="viewport" content=
@@ -51,7 +51,6 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-<link rel="stylesheet" href="testing/atrisk.css">
 <title>Web of Things (WoT) Discovery</title>
 
 <style type="text/css">
@@ -160,19 +159,19 @@ dd{margin-left:0}
   "id": "https://www.w3.org/TR/wot-discovery/",
   "type": [
     "TechArticle",
-    "w3p:CR"
+    "w3p:WD"
   ],
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-06-24",
+  "datePublished": "2022-06-27",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
   },
   "discussionUrl": "https://github.com/w3c/wot-discovery/issues/",
   "alternativeHeadline": "",
-  "isBasedOn": "https://www.w3.org/TR/2020/WD-wot-discovery-20201124/",
+  "isBasedOn": "https://www.w3.org/TR/2021/WD-wot-discovery-20210602/",
   "description": "The W3C Web of Things (WoT) is intended to enable\n           interoperability across IoT platforms and application\n           domains.  One key mechanism for accomplishing this goal\n           is the definition and use of metadata describing the\n           interactions an IoT device or service makes available\n           over the network at a suitable level of abstraction.  \n           The WoT Thing Description specification satisfies this objective.",
   "editor": [
     {
@@ -916,8 +915,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "no-unused-dfns": false
   },
   "doJsonLd": true,
-  "specStatus": "CR",
-  "crEnd": "2022-08-30",
+  "specStatus": "WD",
   "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
   "copyrightStart": 2017,
@@ -927,7 +925,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "repoURL": "https://github.com/w3c/wot-discovery",
     "branch": "master"
   },
-  "previousPublishDate": "2020-11-24",
+  "previousPublishDate": "2021-06-02",
   "previousMaturity": "FPWD",
   "editors": [
     {
@@ -1026,12 +1024,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-06-24T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 24 June 2022"
+  "publishISODate": "2022-06-27T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 27 June 2022"
 }
 </script>
 <link rel="stylesheet" href=
-"https://www.w3.org/StyleSheets/TR/2021/W3C-CR">
+"https://www.w3.org/StyleSheets/TR/2021/W3C-WD">
 </head>
 <body class="h-entry toc-inline">
 <div class="head">
@@ -1041,15 +1039,15 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 "72"></a></p>
 <h1 id="title" class="title">Web of Things (WoT) Discovery</h1>
 <p id="w3c-state"><a href=
-"https://www.w3.org/standards/types#CR">W3C Candidate
-Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-06-24">24 June 2022</time></p>
-<details open>
+"https://www.w3.org/standards/types#WD">W3C Working Draft</a>
+<time class="dt-published" datetime="2022-06-27">27 June
+2022</time></p>
+<details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20220624/">https://www.w3.org/TR/2022/CR-wot-discovery-20220624/</a></dd>
+"https://www.w3.org/TR/2022/WD-wot-discovery-20220627/">https://www.w3.org/TR/2022/WD-wot-discovery-20220627/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -1163,22 +1161,15 @@ revision of this technical report can be found in the <a href=
 at https://www.w3.org/TR/.</em></p>
 <p>This document was published by the <a href=
 "https://www.w3.org/groups/wg/wot">Web of Things Working Group</a>
-as a Candidate Recommendation Snapshot using the <a href=
+as a Working Draft using the <a href=
 "https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation
 track</a>.</p>
-<p>Publication as a Candidate Recommendation does not imply
-endorsement by <abbr title="World Wide Web Consortium">W3C</abbr>
-and its Members. A Candidate Recommendation Snapshot has received
-<a href=
-"https://www.w3.org/2021/Process-20211102/#dfn-wide-review">wide
-review</a>, is intended to gather <a href=
-"https://w3c.github.io/wot-discovery/testing/report.html">implementation
-experience</a>, and has commitments from Working Group members to
-<a href=
-"https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free
-licensing</a> for implementations.</p>
-<p>This Candidate Recommendation is not expected to advance to
-Proposed Recommendation any earlier than 30 August 2022.</p>
+<p>Publication as a Working Draft does not imply endorsement by
+<abbr title="World Wide Web Consortium">W3C</abbr> and its
+Members.</p>
+<p>This is a draft document and may be updated, replaced or
+obsoleted by other documents at any time. It is inappropriate to
+cite this document as other than work in progress.</p>
 <p>This document was produced by a group operating under the
 <a href="https://www.w3.org/Consortium/Patent-Policy-20170801/">1
 August 2017 <abbr title="World Wide Web Consortium">W3C</abbr>
@@ -6109,8 +6100,7 @@ Note. URL: <a href=
 "Back to Top">↑</abbr></a></p>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing" aria-label=
-"Links in this document to definition: Thing"><span class=
-"caret"></span>
+"Links in this document to definition: Thing">
 <div><a class="self-link" href="#dfn-thing" aria-label=
 "Permalink for definition: Thing. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6129,7 +6119,6 @@ Directory</a></li>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing-description" aria-label=
 "Links in this document to definition: Thing Description">
-<span class="caret"></span>
 <div><a class="self-link" href="#dfn-thing-description" aria-label=
 "Permalink for definition: Thing Description. Activate to close this dialog.">
 Permalink</a></div>
@@ -6141,8 +6130,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-td" aria-label=
-"Links in this document to definition: TD"><span class=
-"caret"></span>
+"Links in this document to definition: TD">
 <div><a class="self-link" href="#dfn-td" aria-label=
 "Permalink for definition: TD. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6207,8 +6195,7 @@ Information</a> <a href="#ref-for-dfn-td-28" title=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-thing-model" aria-label=
-"Links in this document to definition: Thing Model"><span class=
-"caret"></span>
+"Links in this document to definition: Thing Model">
 <div><a class="self-link" href="#dfn-thing-model" aria-label=
 "Permalink for definition: Thing Model. Activate to close this dialog.">
 Permalink</a></div>
@@ -6221,8 +6208,7 @@ Specification (Thing Model)</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-tm" aria-label=
-"Links in this document to definition: TM"><span class=
-"caret"></span>
+"Links in this document to definition: TM">
 <div><a class="self-link" href="#dfn-tm" aria-label=
 "Permalink for definition: TM. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6232,8 +6218,7 @@ id="dfn-panel-for-dfn-tm" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-property" aria-label=
-"Links in this document to definition: Property"><span class=
-"caret"></span>
+"Links in this document to definition: Property">
 <div><a class="self-link" href="#dfn-property" aria-label=
 "Permalink for definition: Property. Activate to close this dialog.">
 Permalink</a></div>
@@ -6244,8 +6229,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-action" aria-label=
-"Links in this document to definition: Action"><span class=
-"caret"></span>
+"Links in this document to definition: Action">
 <div><a class="self-link" href="#dfn-action" aria-label=
 "Permalink for definition: Action. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6255,8 +6239,7 @@ id="dfn-panel-for-dfn-action" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-event" aria-label=
-"Links in this document to definition: Event"><span class=
-"caret"></span>
+"Links in this document to definition: Event">
 <div><a class="self-link" href="#dfn-event" aria-label=
 "Permalink for definition: Event. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6266,8 +6249,7 @@ id="dfn-panel-for-dfn-event" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-anonymous-thing-description" aria-label=
-"Links in this document to definition: Anonymous TD"><span class=
-"caret"></span>
+"Links in this document to definition: Anonymous TD">
 <div><a class="self-link" href=
 "#dfn-wot-anonymous-thing-description" aria-label=
 "Permalink for definition: Anonymous TD. Activate to close this dialog.">
@@ -6291,8 +6273,7 @@ Identifiers</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-discoverer" aria-label=
-"Links in this document to definition: Discoverer"><span class=
-"caret"></span>
+"Links in this document to definition: Discoverer">
 <div><a class="self-link" href="#dfn-wot-discoverer" aria-label=
 "Permalink for definition: Discoverer. Activate to close this dialog.">
 Permalink</a></div>
@@ -6306,8 +6287,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-discovery" aria-label=
-"Links in this document to definition: Discovery"><span class=
-"caret"></span>
+"Links in this document to definition: Discovery">
 <div><a class="self-link" href="#dfn-wot-discovery" aria-label=
 "Permalink for definition: Discovery. Activate to close this dialog.">
 Permalink</a></div>
@@ -6318,8 +6298,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-exploration" aria-label=
-"Links in this document to definition: Exploration"><span class=
-"caret"></span>
+"Links in this document to definition: Exploration">
 <div><a class="self-link" href="#dfn-wot-exploration" aria-label=
 "Permalink for definition: Exploration. Activate to close this dialog.">
 Permalink</a></div>
@@ -6330,8 +6309,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-introduction" aria-label=
-"Links in this document to definition: Introduction"><span class=
-"caret"></span>
+"Links in this document to definition: Introduction">
 <div><a class="self-link" href="#dfn-wot-introduction" aria-label=
 "Permalink for definition: Introduction. Activate to close this dialog.">
 Permalink</a></div>
@@ -6343,7 +6321,6 @@ Permalink</a></div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-thing-description-server" aria-label=
 "Links in this document to definition: Thing Description Server">
-<span class="caret"></span>
 <div><a class="self-link" href="#dfn-wot-thing-description-server"
 aria-label=
 "Permalink for definition: Thing Description Server. Activate to close this dialog.">
@@ -6355,8 +6332,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-td-server" aria-label=
-"Links in this document to definition: TD Server"><span class=
-"caret"></span>
+"Links in this document to definition: TD Server">
 <div><a class="self-link" href="#dfn-wot-td-server" aria-label=
 "Permalink for definition: TD Server. Activate to close this dialog.">
 Permalink</a></div>
@@ -6369,7 +6345,6 @@ Permalink</a></div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-thing-description-directory" aria-label=
 "Links in this document to definition: Thing Description Directory">
-<span class="caret"></span>
 <div><a class="self-link" href=
 "#dfn-wot-thing-description-directory" aria-label=
 "Permalink for definition: Thing Description Directory. Activate to close this dialog.">
@@ -6439,8 +6414,7 @@ Resource Types Registration</a></li>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-tdd" aria-label=
-"Links in this document to definition: TDD"><span class=
-"caret"></span>
+"Links in this document to definition: TDD">
 <div><a class="self-link" href="#dfn-wot-tdd" aria-label=
 "Permalink for definition: TDD. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
@@ -6450,8 +6424,7 @@ id="dfn-panel-for-dfn-wot-tdd" aria-label=
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-partial-thing-description" aria-label=
-"Links in this document to definition: Partial TD"><span class=
-"caret"></span>
+"Links in this document to definition: Partial TD">
 <div><a class="self-link" href="#dfn-wot-partial-thing-description"
 aria-label=
 "Permalink for definition: Partial TD. Activate to close this dialog.">
@@ -6468,8 +6441,7 @@ Permalink</a></div>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
 id="dfn-panel-for-dfn-wot-enriched-thing-description" aria-label=
-"Links in this document to definition: Enriched TD"><span class=
-"caret"></span>
+"Links in this document to definition: Enriched TD">
 <div><a class="self-link" href=
 "#dfn-wot-enriched-thing-description" aria-label=
 "Permalink for definition: Enriched TD. Activate to close this dialog.">
