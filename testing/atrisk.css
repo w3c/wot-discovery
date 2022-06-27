@@ -103,10 +103,10 @@
 #priv-loc-explicit-strip {
   background-color: yellow;
 }
-#priv-loc-gen-ids-1 {
+#priv-loc-gen-ids {
   background-color: yellow;
 }
-#priv-loc-gen-ids-2 {
+#priv-loc-priv-dir-access {
   background-color: yellow;
 }
 #priv-query-anon {
@@ -166,6 +166,9 @@
 #tdd-notification-data-create-full {
   background-color: yellow;
 }
+#tdd-notification-data-delete-diff {
+  background-color: yellow;
+}
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
@@ -205,16 +208,16 @@
 #tdd-things-list-pagination-orderable {
   background-color: yellow;
 }
+#tdd-things-list-resp-content-type {
+  background-color: yellow;
+}
 #tdd-things-read-only-auth {
   background-color: yellow;
 }
 #tdd-things-representation-alternate-input {
   background-color: yellow;
 }
-#tdd-things-retrieve-resp-content-type-1 {
-  background-color: yellow;
-}
-#tdd-things-retrieve-resp-content-type-2 {
+#tdd-things-retrieve-resp-content-type {
   background-color: yellow;
 }
 #tdd-validation-response-lang {

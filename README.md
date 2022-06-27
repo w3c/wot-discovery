@@ -36,3 +36,5 @@ For drawio a
 [desktop installation](https://github.com/jgraph/drawio-desktop) is also available.
 
 The latest editor's draft is available [here](https://w3c.github.io/wot-discovery/).
+
+The latest Implementation Report is available [here](https://w3c.github.io/wot-discovery/testing/report.html).
