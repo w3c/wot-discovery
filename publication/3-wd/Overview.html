@@ -1387,8 +1387,11 @@ Types Registration</a></li>
 "secno">A.</bdi> Recent Specification Changes</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
-"#changes-from-first-draft"><bdi class="secno">A.1</bdi> Changes
-from First Draft</a></li>
+"#changes-from-second-draft"><bdi class="secno">A.1</bdi> Changes
+from 2 June 2021 Working Draft</a></li>
+<li class="tocline"><a class="tocxref" href=
+"#changes-from-first-draft"><bdi class="secno">A.2</bdi> Changes
+from 24 November 2020 First Public Working Draft</a></li>
 </ol>
 </li>
 <li class="tocline"><a class="tocxref" href=
@@ -5664,16 +5667,51 @@ Directory</a></td>
 Recent Specification Changes</h2>
 <a class="self-link" href="#changes" aria-label=
 "Permalink for Appendix A."></a></div>
-<section id="changes-from-first-draft-0">
+<section id="changes-from-2-june-2021-working-draft">
 <div class="header-wrapper">
-<h3 id="changes-from-first-draft"><bdi class="secno">A.1</bdi>
-Changes from First Draft</h3>
-<a class="self-link" href="#changes-from-first-draft" aria-label=
+<h3 id="changes-from-second-draft"><bdi class="secno">A.1</bdi>
+Changes from 2 June 2021 Working Draft</h3>
+<a class="self-link" href="#changes-from-second-draft" aria-label=
 "Permalink for Appendix A.1"></a></div>
 <ul>
+<li>Use <code>wot</code> for well-known URI service name.</li>
+<li>Refer to TD and Architecture specs for general constraints on
+secure transport.</li>
+<li>Define requirements for CoAP-based TD Servers.</li>
+<li>Introduction of TD Server exploration, with self-description as
+a special case.</li>
+<li>Elaboration of class diagram to clarify that not all
+Directories need to be self-describing.</li>
+<li>Clarify and consolidate error codes and ontology.</li>
+<li>Add assertions for UTF-8 supporting internationalization.</li>
+<li>Update overview figure showing introduction and exploration
+mechanisms.</li>
+<li>Add Discoverer section defining requirements for discovery
+clients.</li>
+<li>Use Thing Model instead of a Thing Description example for
+Directory API.</li>
+<li>Refactor Directory Service API (td-&gt;thing, split anonymous
+create action, retrieve one and search as actions, listing as
+things property, split events)</li>
 <li>Add amplification DDOS security consideration.</li>
 <li>Split Security and Privacy Considerations into separate
 sections.</li>
+<li>Define status of search mechanisms: JSON Path, XPath, and
+SPARQL.</li>
+<li>Pagination as array and pagination as collection.</li>
+<li>Updates to events API.</li>
+<li>TD expiry management.</li>
+<li>HEAD method support.</li>
+</ul>
+</section>
+<section id=
+"changes-from-24-november-2020-first-public-working-draft">
+<div class="header-wrapper">
+<h3 id="changes-from-first-draft"><bdi class="secno">A.2</bdi>
+Changes from 24 November 2020 First Public Working Draft</h3>
+<a class="self-link" href="#changes-from-first-draft" aria-label=
+"Permalink for Appendix A.2"></a></div>
+<ul>
 <li>Update name of directory service to "Thing Description
 Directory" with acronym TDD, to avoid confusion with the acronym TD
 used for Thing Descriptions.</li>
