@@ -648,6 +648,15 @@ dd{margin-left:0}
       }
     },
     {
+      "id": "https://gdpr-info.eu/art-4-gdpr/",
+      "type": "TechArticle",
+      "name": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "url": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": {
+        "name": "European Union (EU) and the European Economic Area (EEA)"
+      }
+    },
+    {
       "id": "https://www.rfc-editor.org/rfc/rfc8981",
       "type": "TechArticle",
       "name": "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6",
@@ -963,6 +972,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   ],
   "localBiblio": {
+    "GDPR-Defs": {
+      "title": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "href": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": "European Union (EU) and the European Economic Area (EEA)",
+      "id": "gdpr-defs"
+    },
     "OWASP-Top-10": {
       "title": "OWASP Top Ten",
       "href": "https://owasp.org/www-project-top-ten/",
@@ -1165,7 +1180,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p><p>
                   This document is governed by the
                   <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4. </bdi>Architecture</a></li><li class="tocline"><a class="tocxref" href="#discoverer-process"><bdi class="secno">5. </bdi>Discoverer Process</a></li><li class="tocline"><a class="tocxref" href="#introduction-mech"><bdi class="secno">6. </bdi>Introduction Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-direct"><bdi class="secno">6.1 </bdi>Direct</a></li><li class="tocline"><a class="tocxref" href="#introduction-well-known"><bdi class="secno">6.2 </bdi>Well-Known URIs</a></li><li class="tocline"><a class="tocxref" href="#introduction-dns-sd-sec"><bdi class="secno">6.3 </bdi>DNS-Based Service Discovery</a></li><li class="tocline"><a class="tocxref" href="#introduction-core-rd-sec"><bdi class="secno">6.4 </bdi>CoRE Link Format and CoRE Resource Directory</a></li><li class="tocline"><a class="tocxref" href="#introduction-did-sec"><bdi class="secno">6.5 </bdi>DID Documents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-mech"><bdi class="secno">7. </bdi>Exploration Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-overview"><bdi class="secno">7.1 </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-ontology"><bdi class="secno">7.1.1 </bdi>Ontology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-td-type-thingdirectory"><bdi class="secno">7.1.1.1 </bdi><code>ThingDirectory</code></a></li><li class="tocline"><a class="tocxref" href="#exploration-td-type-thinglink"><bdi class="secno">7.1.1.2 </bdi><code>ThingLink</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-secboot"><bdi class="secno">7.1.2 </bdi>Security Bootstrapping</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-server"><bdi class="secno">7.2 </bdi>Thing Description Server</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory"><bdi class="secno">7.3 </bdi>Thing Description Directory</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-info"><bdi class="secno">7.3.1 </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-info"><bdi class="secno">7.3.1.1 </bdi>Registration Information</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-expiry"><bdi class="secno">7.3.1.2 </bdi>Registration Expiry</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-anonymous-td"><bdi class="secno">7.3.1.3 </bdi>Anonymous TD Identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api"><bdi class="secno">7.3.2 </bdi>Directory Service API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things"><bdi class="secno">7.3.2.1 </bdi>Things API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-creation"><bdi class="secno">7.3.2.1.1 </bdi>Creation</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-retrieval"><bdi class="secno">7.3.2.1.2 </bdi>Retrieval</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-update"><bdi class="secno">7.3.2.1.3 </bdi>Update</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-deletion"><bdi class="secno">7.3.2.1.4 </bdi>Deletion</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-listing"><bdi class="secno">7.3.2.1.5 </bdi>Listing</a></li><li class="tocline"><a class="tocxref" href="#validation"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-notification"><bdi class="secno">7.3.2.2 </bdi>Events API</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-search"><bdi class="secno">7.3.2.3 </bdi>Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonpath-semantic"><bdi class="secno">7.3.2.3.1 </bdi>Syntactic search: JSONPath</a></li><li class="tocline"><a class="tocxref" href="#xpath-semantic"><bdi class="secno">7.3.2.3.2 </bdi>Syntactic search: XPath</a></li><li class="tocline"><a class="tocxref" href="#search-semantic"><bdi class="secno">7.3.2.3.3 </bdi>Semantic search: SPARQL</a></li></ol></li><li class="tocline"><a class="tocxref" href="#directory-api-spec"><bdi class="secno">7.3.2.4 </bdi>API Specification (Thing Model)</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">8. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-consideration-dos"><bdi class="secno">8.1 </bdi>Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-amp-ddos"><bdi class="secno">8.2 </bdi>Amplification and Distributed Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-lan-self-discovery"><bdi class="secno">8.3 </bdi>Self-Discovery on LANs</a></li></ol></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">9. </bdi>Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#privacy-consideration-location-tracking"><bdi class="secno">9.1 </bdi>Location Tracking</a></li><li class="tocline"><a class="tocxref" href="#privacy-consideration-query-tracking"><bdi class="secno">9.2 </bdi>Query Tracking</a></li></ol></li><li class="tocline"><a class="tocxref" href="#performance-considerations"><bdi class="secno">10. </bdi>Performance Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#perf-incremental-transfer"><bdi class="secno">10.1 </bdi>Incremental Transfer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-considerations"><bdi class="secno">11. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#well-known-uri-suffix"><bdi class="secno">11.1 </bdi>Well-Known URI Registration</a></li><li class="tocline"><a class="tocxref" href="#service-name"><bdi class="secno">11.2 </bdi>Service Name Registration</a></li><li class="tocline"><a class="tocxref" href="#core-resource-type"><bdi class="secno">11.3 </bdi>CoRE Resource Types Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">A. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-second-draft"><bdi class="secno">A.1 </bdi>Changes from 2 June 2021 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-first-draft"><bdi class="secno">A.2 </bdi>Changes from 24 November 2020 First Public Working Draft</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4. </bdi>Architecture</a></li><li class="tocline"><a class="tocxref" href="#discoverer-process"><bdi class="secno">5. </bdi>Discoverer Process</a></li><li class="tocline"><a class="tocxref" href="#introduction-mech"><bdi class="secno">6. </bdi>Introduction Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-direct"><bdi class="secno">6.1 </bdi>Direct</a></li><li class="tocline"><a class="tocxref" href="#introduction-well-known"><bdi class="secno">6.2 </bdi>Well-Known URIs</a></li><li class="tocline"><a class="tocxref" href="#introduction-dns-sd-sec"><bdi class="secno">6.3 </bdi>DNS-Based Service Discovery</a></li><li class="tocline"><a class="tocxref" href="#introduction-core-rd-sec"><bdi class="secno">6.4 </bdi>CoRE Link Format and CoRE Resource Directory</a></li><li class="tocline"><a class="tocxref" href="#introduction-did-sec"><bdi class="secno">6.5 </bdi>DID Documents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-mech"><bdi class="secno">7. </bdi>Exploration Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-overview"><bdi class="secno">7.1 </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-ontology"><bdi class="secno">7.1.1 </bdi>Ontology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-td-type-thingdirectory"><bdi class="secno">7.1.1.1 </bdi><code>ThingDirectory</code></a></li><li class="tocline"><a class="tocxref" href="#exploration-td-type-thinglink"><bdi class="secno">7.1.1.2 </bdi><code>ThingLink</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-secboot"><bdi class="secno">7.1.2 </bdi>Security Bootstrapping</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-server"><bdi class="secno">7.2 </bdi>Thing Description Server</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory"><bdi class="secno">7.3 </bdi>Thing Description Directory</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-info"><bdi class="secno">7.3.1 </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-info"><bdi class="secno">7.3.1.1 </bdi>Registration Information</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-expiry"><bdi class="secno">7.3.1.2 </bdi>Registration Expiry</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-anonymous-td"><bdi class="secno">7.3.1.3 </bdi>Anonymous TD Identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api"><bdi class="secno">7.3.2 </bdi>Directory Service API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things"><bdi class="secno">7.3.2.1 </bdi>Things API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-creation"><bdi class="secno">7.3.2.1.1 </bdi>Creation</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-retrieval"><bdi class="secno">7.3.2.1.2 </bdi>Retrieval</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-update"><bdi class="secno">7.3.2.1.3 </bdi>Update</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-deletion"><bdi class="secno">7.3.2.1.4 </bdi>Deletion</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-listing"><bdi class="secno">7.3.2.1.5 </bdi>Listing</a></li><li class="tocline"><a class="tocxref" href="#validation"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-notification"><bdi class="secno">7.3.2.2 </bdi>Events API</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-search"><bdi class="secno">7.3.2.3 </bdi>Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonpath-semantic"><bdi class="secno">7.3.2.3.1 </bdi>Syntactic search: JSONPath</a></li><li class="tocline"><a class="tocxref" href="#xpath-semantic"><bdi class="secno">7.3.2.3.2 </bdi>Syntactic search: XPath</a></li><li class="tocline"><a class="tocxref" href="#search-semantic"><bdi class="secno">7.3.2.3.3 </bdi>Semantic search: SPARQL</a></li></ol></li><li class="tocline"><a class="tocxref" href="#directory-api-spec"><bdi class="secno">7.3.2.4 </bdi>API Specification (Thing Model)</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">8. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-consideration-dos"><bdi class="secno">8.1 </bdi>Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-amp-ddos"><bdi class="secno">8.2 </bdi>Amplification and Distributed Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-lan-self-discovery"><bdi class="secno">8.3 </bdi>Self-Discovery on LANs</a></li></ol></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">9. </bdi>Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#privacy-consideration-location-tracking"><bdi class="secno">9.1 </bdi>Location Tracking and Profiling</a></li><li class="tocline"><a class="tocxref" href="#privacy-consideration-query-tracking"><bdi class="secno">9.2 </bdi>Query Tracking</a></li></ol></li><li class="tocline"><a class="tocxref" href="#performance-considerations"><bdi class="secno">10. </bdi>Performance Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#perf-incremental-transfer"><bdi class="secno">10.1 </bdi>Incremental Transfer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-considerations"><bdi class="secno">11. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#well-known-uri-suffix"><bdi class="secno">11.1 </bdi>Well-Known URI Registration</a></li><li class="tocline"><a class="tocxref" href="#service-name"><bdi class="secno">11.2 </bdi>Service Name Registration</a></li><li class="tocline"><a class="tocxref" href="#core-resource-type"><bdi class="secno">11.3 </bdi>CoRE Resource Types Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">A. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-second-draft"><bdi class="secno">A.1 </bdi>Changes from 2 June 2021 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-first-draft"><bdi class="secno">A.2 </bdi>Changes from 24 November 2020 First Public Working Draft</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">B. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">C.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.2 </bdi>Informative references</a></li></ol></li></ol></nav>
     <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
         
         <p>The Web of Things (WoT) defines an architecture that supports the integration
@@ -4096,10 +4111,16 @@ id: event_3</code></pre>
             be captured and would have to be managed appropriately.
         </p>
         <p>
-            With these categories established, we will now discuss some specific
+            In the following we make frequent reference to "tracking".  This term covers
+            multiple privacy risks, including location tracking and behavioral profiling.
+            In general, the definition of "profiling" given in Article 4 of the 
+            GDPR [<cite><a class="bibref" data-link-type="biblio" href="#bib-gdpr-defs" title="General Data Protection Regulation (GDPR) Article 4 - Definitions">GDPR-Defs</a></cite>] is to be considered equivalent to "tracking" as used in this document.
+        </p>
+        <p>
+            With these definitions and categories established, we will now discuss some specific
             privacy risks and potential mitigations.
         </p>
-        <section id="privacy-consideration-location-tracking"><div class="header-wrapper"><h3 id="x9-1-location-tracking"><bdi class="secno">9.1 </bdi>Location Tracking</h3><a class="self-link" href="#privacy-consideration-location-tracking" aria-label="Permalink for Section 9.1"></a></div>
+        <section id="privacy-consideration-location-tracking"><div class="header-wrapper"><h3 id="x9-1-location-tracking-and-profiling"><bdi class="secno">9.1 </bdi>Location Tracking and Profiling</h3><a class="self-link" href="#privacy-consideration-location-tracking" aria-label="Permalink for Section 9.1"></a></div>
             
             <p>
                 A discovery service may potentially allow the approximate location of a person to be determined without
@@ -4128,6 +4149,16 @@ id: event_3</code></pre>
                     home.</li>
                 </ul>
             <p>
+            Location tracking is not the only profiling risk.
+            In general, "profiling" includes any mechanism used to evaluate
+            information about a person, including economic status, health,
+            preferences, interests, reliability, and behavior.
+            Some of the metadata in a TD can be used to infer information
+            of this kind if the described Thing can be associated with a person.
+            Some of the mitigations below are also applicable to this more
+            general definition of profiling.
+            </p>
+            <p>
                 Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
                 requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
                 address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
@@ -4137,13 +4168,12 @@ id: event_3</code></pre>
             <dl>
                 <dt>Mitigations:</dt>
                 <dd>
-                <p>
-                There are a few options to mitigate this risk:
-                </p>
+                There are a few options to mitigate these risks:
                 <ul>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-disable-public-directories">
-		To avoid location tracking, a WoT Thing <em class="rfc2119">MAY</em> 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person <em class="rfc2119">MAY</em> 
 		disable registration with public directories.</span>
 		Registration would still be possible with 
                 personal directories, for example, a home gateway, but a user could disable registration at other
@@ -4153,8 +4183,9 @@ id: event_3</code></pre>
                 access control limiting use to authorized users.</li>
 		<li>
 	        <span class="rfc2119-assertion" id="priv-loc-anonymous-tds">
-		To avoid location tracking, a WoT Thing <em class="rfc2119">MAY</em> 
-		use Anonymous TDs.</span>
+		To avoid location tracking and other forms of profiling,
+    a WoT Thing associated with a person <em class="rfc2119">SHOULD</em> use anonymous TDs
+    when registering with a public directories.</span>
 		In some cases, it may be possible to use
 		anonymous TDs and omit explicit IDs from TDs submitted to
 		a TDD.  In this case the TDD will generate a local ID valid
@@ -4165,7 +4196,8 @@ id: event_3</code></pre>
 		</li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-gen-ids">
-		To avoid location tracking, a WoT Thing <em class="rfc2119">MAY</em> 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person <em class="rfc2119">MAY</em> 
 		periodically generate new IDs.</span>
 		Using fixed IDs makes it exceptionally easy to track devices.  This problem
                 also occurs in DHCP with MAC address and there is a similar partial mitigation: 
@@ -4181,8 +4213,18 @@ id: event_3</code></pre>
                 inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
                 In general, however, generating new IDs at least for each service or person to which a TD is supplied
                 makes it harder to connect registration events at different locations and times.
+It is also prudent to generate new identifiers upon major changes in configuration,
+such as unregistering from a local network or hub and registering with a new one (which typically indicates
+a change in ownership).
 	        There is a related issue with long-lived IP addresses which might need to be updated periodically
 		to mitigate tracking.  In the context of ipv6 [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc8981" title="Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6">RFC8981</a></cite>] discusses this.
+          Finally, there is a problem with devices that require immutable identifiers,
+          e.g. medical devices in such jurisdictions.  
+          This is discussed in [<cite><a class="bibref" data-link-type="biblio" href="#bib-wot-thing-description11" title="Web of Things (WoT) Thing Description 1.1">wot-thing-description11</a></cite>], but in summary the
+          problem can be avoided if such immutable identifiers are made available
+          only as protected properties, e.g. via affordances requiring authentication,
+          not in the TD, and the TD identifier itself (if used) is
+          independent of the immutable identifier, and so can be made mutable.
                 </li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-priv-dir-access">
@@ -4433,6 +4475,8 @@ id: event_3</code></pre>
       <a href="https://www.w3.org/TR/did-core/"><cite>Decentralized Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus Sabadello; Drummond Reed.  W3C. 3 August 2021. W3C Proposed Recommendation. URL: <a href="https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a>
     </dd><dt id="bib-eventsource">[EVENTSOURCE]</dt><dd>
       <a href="https://www.w3.org/TR/eventsource/"><cite>Server-Sent Events</cite></a>. Ian Hickson.  W3C. 28 January 2021. W3C Recommendation. URL: <a href="https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a>
+    </dd><dt id="bib-gdpr-defs">[GDPR-Defs]</dt><dd>
+      <a href="https://gdpr-info.eu/art-4-gdpr/"><cite>General Data Protection Regulation (GDPR) Article 4 - Definitions</cite></a>.  European Union (EU) and the European Economic Area (EEA). URL: <a href="https://gdpr-info.eu/art-4-gdpr/">https://gdpr-info.eu/art-4-gdpr/</a>
     </dd><dt id="bib-json-ld11">[JSON-LD11]</dt><dd>
       <a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave Longley.  W3C. 16 July 2020. W3C Recommendation. URL: <a href="https://www.w3.org/TR/json-ld11/">https://www.w3.org/TR/json-ld11/</a>
     </dd><dt id="bib-owasp-top-10">[OWASP-Top-10]</dt><dd>

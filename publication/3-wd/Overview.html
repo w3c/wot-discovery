@@ -646,6 +646,15 @@ dd{margin-left:0}
       }
     },
     {
+      "id": "https://gdpr-info.eu/art-4-gdpr/",
+      "type": "TechArticle",
+      "name": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "url": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": {
+        "name": "European Union (EU) and the European Economic Area (EEA)"
+      }
+    },
+    {
       "id": "https://www.rfc-editor.org/rfc/rfc8981",
       "type": "TechArticle",
       "name": "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6",
@@ -965,6 +974,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   ],
   "localBiblio": {
+    "GDPR-Defs": {
+      "title": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "href": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": "European Union (EU) and the European Economic Area (EEA)",
+      "id": "gdpr-defs"
+    },
     "OWASP-Top-10": {
       "title": "OWASP Top Ten",
       "href": "https://owasp.org/www-project-top-ten/",
@@ -1353,7 +1368,7 @@ Considerations</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
 "#privacy-consideration-location-tracking"><bdi class=
-"secno">9.1</bdi> Location Tracking</a></li>
+"secno">9.1</bdi> Location Tracking and Profiling</a></li>
 <li class="tocline"><a class="tocxref" href=
 "#privacy-consideration-query-tracking"><bdi class=
 "secno">9.2</bdi> Query Tracking</a></li>
@@ -5381,12 +5396,20 @@ vehicle.</dd>
 factory automation, there is the chance that data about employee
 performance would be captured and would have to be managed
 appropriately.</p>
-<p>With these categories established, we will now discuss some
-specific privacy risks and potential mitigations.</p>
+<p>In the following we make frequent reference to "tracking". This
+term covers multiple privacy risks, including location tracking and
+behavioral profiling. In general, the definition of "profiling"
+given in Article 4 of the GDPR [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-gdpr-defs" title=
+"General Data Protection Regulation (GDPR) Article 4 - Definitions">GDPR-Defs</a></cite>]
+is to be considered equivalent to "tracking" as used in this
+document.</p>
+<p>With these definitions and categories established, we will now
+discuss some specific privacy risks and potential mitigations.</p>
 <section id="privacy-consideration-location-tracking">
 <div class="header-wrapper">
-<h3 id="x9-1-location-tracking"><bdi class="secno">9.1</bdi>
-Location Tracking</h3>
+<h3 id="x9-1-location-tracking-and-profiling"><bdi class=
+"secno">9.1</bdi> Location Tracking and Profiling</h3>
 <a class="self-link" href=
 "#privacy-consideration-location-tracking" aria-label=
 "Permalink for Section 9.1"></a></div>
@@ -5415,6 +5438,14 @@ directory, that means the device has not been present for a while,
 which could be used to infer that a person is NOT in a particular
 location, e.g. not at home.</li>
 </ul>
+<p>Location tracking is not the only profiling risk. In general,
+"profiling" includes any mechanism used to evaluate information
+about a person, including economic status, health, preferences,
+interests, reliability, and behavior. Some of the metadata in a TD
+can be used to infer information of this kind if the described
+Thing can be associated with a person. Some of the mitigations
+below are also applicable to this more general definition of
+profiling.</p>
 <p>Some of these risks are shared by similar services. For example,
 DCHP automatically responds to requests for IP addresses on a local
 network, and devices typically provide an identifier (a MAC
@@ -5424,56 +5455,71 @@ say, a cafe, could use this information to track someone's phone
 and infer their location.</p>
 <dl>
 <dt>Mitigations:</dt>
-<dd>
-<p>There are a few options to mitigate this risk:</p>
+<dd>There are a few options to mitigate these risks:
 <ul>
 <li><span class="rfc2119-assertion" id=
-"priv-loc-disable-public-directories">To avoid location tracking, a
-WoT Thing <em class="rfc2119">MAY</em> disable registration with
-public directories.</span> Registration would still be possible
-with personal directories, for example, a home gateway, but a user
-could disable registration at other locations. This has the
-disadvantage that functionality is lost: personal devices cannot be
-discovered in public locations. This could be addressed by having
+"priv-loc-disable-public-directories">To avoid location tracking
+and other forms of profiling, a WoT Thing associated with a person
+<em class="rfc2119">MAY</em> disable registration with public
+directories.</span> Registration would still be possible with
+personal directories, for example, a home gateway, but a user could
+disable registration at other locations. This has the disadvantage
+that functionality is lost: personal devices cannot be discovered
+in public locations. This could be addressed by having
 internet-accessible private discovery services. For example, the
 user's home gateway could provide an internet-accessible service,
 but with access control limiting use to authorized users.</li>
 <li><span class="rfc2119-assertion" id="priv-loc-anonymous-tds">To
-avoid location tracking, a WoT Thing <em class="rfc2119">MAY</em>
-use Anonymous TDs.</span> In some cases, it may be possible to use
-anonymous TDs and omit explicit IDs from TDs submitted to a TDD. In
-this case the TDD will generate a local ID valid only in that TDD.
-This does, however, complicate update since the client needs to
-remember the local ID assigned by the TDD. Anonymous TDs also do
-not prevent tracking by other means, such as fingerprinting.</li>
+avoid location tracking and other forms of profiling, a WoT Thing
+associated with a person <em class="rfc2119">SHOULD</em> use
+anonymous TDs when registering with a public directories.</span> In
+some cases, it may be possible to use anonymous TDs and omit
+explicit IDs from TDs submitted to a TDD. In this case the TDD will
+generate a local ID valid only in that TDD. This does, however,
+complicate update since the client needs to remember the local ID
+assigned by the TDD. Anonymous TDs also do not prevent tracking by
+other means, such as fingerprinting.</li>
 <li><span class="rfc2119-assertion" id="priv-loc-gen-ids">To avoid
-location tracking, a WoT Thing <em class="rfc2119">MAY</em>
-periodically generate new IDs.</span> Using fixed IDs makes it
-exceptionally easy to track devices. This problem also occurs in
-DHCP with MAC address and there is a similar partial mitigation:
-generate new random IDs periodically. There are however, a few
-issues. First of all, other identification information in the TD
-needs to be hidden. For example, client IDs issued by CSPs for API
-security should be omitted from TDs if they cannot be easily
-changed. Second, if the device generates a new ID, the user may
-still need to know the current ID to find the device via discovery.
-This can be accomplished however by generating new IDs using a
-deterministic cryptographic generator that is a function of the
-current time. However, note that regenerating IDs alone does not
-make tracking impossible since a TD might be fingerprinted. Also,
-updating an ID might be observable to the owner of the directory
-service, who could track and record the updated ID. Even if the TD
-is deleted and reinserted the association could be inferred. This
-is however exactly parallel to the situation with DHCP and rotation
-of MAC addresses. In general, however, generating new IDs at least
-for each service or person to which a TD is supplied makes it
-harder to connect registration events at different locations and
-times. There is a related issue with long-lived IP addresses which
-might need to be updated periodically to mitigate tracking. In the
-context of ipv6 [<cite><a class="bibref" data-link-type="biblio"
-href="#bib-rfc8981" title=
+location tracking and other forms of profiling, a WoT Thing
+associated with a person <em class="rfc2119">MAY</em> periodically
+generate new IDs.</span> Using fixed IDs makes it exceptionally
+easy to track devices. This problem also occurs in DHCP with MAC
+address and there is a similar partial mitigation: generate new
+random IDs periodically. There are however, a few issues. First of
+all, other identification information in the TD needs to be hidden.
+For example, client IDs issued by CSPs for API security should be
+omitted from TDs if they cannot be easily changed. Second, if the
+device generates a new ID, the user may still need to know the
+current ID to find the device via discovery. This can be
+accomplished however by generating new IDs using a deterministic
+cryptographic generator that is a function of the current time.
+However, note that regenerating IDs alone does not make tracking
+impossible since a TD might be fingerprinted. Also, updating an ID
+might be observable to the owner of the directory service, who
+could track and record the updated ID. Even if the TD is deleted
+and reinserted the association could be inferred. This is however
+exactly parallel to the situation with DHCP and rotation of MAC
+addresses. In general, however, generating new IDs at least for
+each service or person to which a TD is supplied makes it harder to
+connect registration events at different locations and times. It is
+also prudent to generate new identifiers upon major changes in
+configuration, such as unregistering from a local network or hub
+and registering with a new one (which typically indicates a change
+in ownership). There is a related issue with long-lived IP
+addresses which might need to be updated periodically to mitigate
+tracking. In the context of ipv6 [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-rfc8981" title=
 "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6">RFC8981</a></cite>]
-discusses this.</li>
+discusses this. Finally, there is a problem with devices that
+require immutable identifiers, e.g. medical devices in such
+jurisdictions. This is discussed in [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-wot-thing-description11" title=
+"Web of Things (WoT) Thing Description 1.1">wot-thing-description11</a></cite>],
+but in summary the problem can be avoided if such immutable
+identifiers are made available only as protected properties, e.g.
+via affordances requiring authentication, not in the TD, and the TD
+identifier itself (if used) is independent of the immutable
+identifier, and so can be made mutable.</li>
 <li><span class="rfc2119-assertion" id=
 "priv-loc-priv-dir-access">To reduce the risk of negative location
 inferencing, access to private directories <em class=
@@ -5802,6 +5848,12 @@ Recommendation. URL: <a href=
 Events</cite></a>. Ian Hickson. W3C. 28 January 2021. W3C
 Recommendation. URL: <a href=
 "https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a></dd>
+<dt id="bib-gdpr-defs">[GDPR-Defs]</dt>
+<dd><a href="https://gdpr-info.eu/art-4-gdpr/"><cite>General Data
+Protection Regulation (GDPR) Article 4 - Definitions</cite></a>.
+European Union (EU) and the European Economic Area (EEA). URL:
+<a href=
+"https://gdpr-info.eu/art-4-gdpr/">https://gdpr-info.eu/art-4-gdpr/</a></dd>
 <dt id="bib-json-ld11">[JSON-LD11]</dt>
 <dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD
 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave
