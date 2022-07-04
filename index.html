@@ -1106,7 +1106,8 @@ img.wot-diagram {
                     <span class="rfc2119-assertion" id="exploration-server-coap-resp">
                         A successful response from a CoAP-based TD Server providing a <a>TD</a>
                         MUST have a 2.05 (Content) status, contain a Content-Format option
-                        with value 432 (`application/td+json`), and the <a>TD</a> in the payload.</span>
+                        with value 50 (`application/json`) or 432 (`application/td+json`), 
+                        and the <a>TD</a> in the payload.</span>
                     Note that the payload might be split over multiple message exchanges using
                     block-wise transfer [[RFC7959]].
                     <span class="rfc2119-assertion" id="exploration-server-coap-alternate-content">
