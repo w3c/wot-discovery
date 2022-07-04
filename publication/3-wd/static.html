@@ -2060,7 +2060,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     <span class="rfc2119-assertion" id="exploration-server-coap-resp">
                         A successful response from a CoAP-based TD Server providing a <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-16">TD</a>
                         <em class="rfc2119">MUST</em> have a 2.05 (Content) status, contain a Content-Format option
-                        with value 432 (<code>application/td+json</code>), and the <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-17">TD</a> in the payload.</span>
+                        with value 50 (<code>application/json</code>) or 432 (<code>application/td+json</code>), 
+                        and the <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-17">TD</a> in the payload.</span>
                     Note that the payload might be split over multiple message exchanges using
                     block-wise transfer [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7959" title="Block-Wise Transfers in the Constrained Application Protocol (CoAP)">RFC7959</a></cite>].
                     <span class="rfc2119-assertion" id="exploration-server-coap-alternate-content">
