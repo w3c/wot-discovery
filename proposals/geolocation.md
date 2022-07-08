@@ -712,4 +712,6 @@ Both one-side and two-sided.
 * [Brick Schema](https://brickschema.org/ontology/)
 * [SDW Best Practices](https://www.w3.org/TR/sdw-bp/)
 * [WKT-CRS](https://www.ogc.org/standards/wkt-crs)
+* [Simple Features](https://www.ogc.org/standards/sfa)
+   - also used by GeoSPARQL
 
