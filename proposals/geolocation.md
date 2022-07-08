@@ -696,6 +696,7 @@ Both one-side and two-sided.
 
 ### References
 * [WGS84](https://apps.dtic.mil/sti/pdfs/ADA280358.pdf)
+   - Also known as EPSG4326
 * [W3C SSN](https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/)
 * [OGC GeoPose](https://www.ogc.org/projects/groups/geoposeswg) 
    - Draft
@@ -703,6 +704,7 @@ Both one-side and two-sided.
 * [City GML](https://www.ogc.org/standards/citygml)
    - see also [City JSON](https://docs.ogc.org/cs/20-072r2/20-072r2.html)
 * [GML (ISO 191136:2007)](https://www.iso.org/standard/32554.html) 
+   - Originate by OGC, now an ISO standard
    - used by GeoSPARQL
    - see also [OGC site](https://www.ogc.org/standards/gml)
 * [GeoSPARQL](https://www.ogc.org/standards/geosparql)
