@@ -695,13 +695,21 @@ Both one-side and two-sided.
 * Protection of queries
 
 ### References
-To Do
-* WGS84
-* OGC GeoPose
-* Indoor GML
-* OGC GeoSPARQL
-* IETF JSON Pointer
+* [WGS84](https://apps.dtic.mil/sti/pdfs/ADA280358.pdf)
+* [W3C SSN](https://www.w3.org/TR/2017/REC-vocab-ssn-20171019/)
+* [OGC GeoPose](https://www.ogc.org/projects/groups/geoposeswg) 
+   - Draft
+* [Indoor GML](https://www.ogc.org/standards/indoorgml)
+* [City GML](https://www.ogc.org/standards/citygml)
+   - see also [City JSON](https://docs.ogc.org/cs/20-072r2/20-072r2.html)
+* [GML (ISO 191136:2007)](https://www.iso.org/standard/32554.html) 
+   - used by GeoSPARQL
+   - see also [OGC site](https://www.ogc.org/standards/gml)
+* [GeoSPARQL](https://www.ogc.org/standards/geosparql)
+* [IETF JSON Pointer](https://datatracker.ietf.org/doc/html/rfc6901)
 * [OCG EDR](https://www.ogc.org/standards/ogcapi-edr)
 * [Owltime](https://www.w3.org/TR/owl-time/)
 * [Brick Schema](https://brickschema.org/ontology/)
 * [SDW Best Practices](https://www.w3.org/TR/sdw-bp/)
+* [WKT-CRS](https://www.ogc.org/standards/wkt-crs)
+
