@@ -3478,8 +3478,44 @@ a change in ownership).
         The following JSON Schema specifies the extensions used in <a>Enriched TDs</a>.
         It can be used for validating <a>TDs</a> by a <a>TDD</a>
         as prescribed in [[[#exploration-directory-api-things-validation]]].
+<!--
         <pre class="advisement json"
              data-include='validation/td-discovery-extensions-json-schema.json'></pre>
+-->
+<pre class="advisement json">
+{
+  "title": "WoT Discovery TD-extensions Schema - 21 May 2021",
+  "description": "JSON Schema for validating TD instances with WoT Discovery extensions",
+  "$schema ": "http://json-schema.org/draft/2019-09/schema#",
+  "type": "object",
+  "properties": {
+    "registration": {
+      "type": "object",
+      "properties": {
+        "created": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expires": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "retrieved": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "modified": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ttl": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
+</pre>
     </section>
 
     <section id="changes" class="appendix">

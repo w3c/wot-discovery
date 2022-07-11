@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 <meta name="generator" content=
-"HTML Tidy for HTML5 for Linux version 5.8.0">
+"HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
 <meta name="generator" content="ReSpec 32.1.10">
 <meta name="viewport" content=
@@ -164,7 +164,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-07-04",
+  "datePublished": "2022-07-11",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1039,14 +1039,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-07-04T00:00:00.000Z",
-  "generatedSubtitle": "W3C Working Draft 04 July 2022"
+  "publishISODate": "2022-07-11T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 11 July 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-WD">
 </head>
-<body class="h-entry">
+<body class="h-entry toc-inline">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1055,14 +1055,14 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <h1 id="title" class="title">Web of Things (WoT) Discovery</h1>
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#WD">W3C Working Draft</a>
-<time class="dt-published" datetime="2022-07-04">04 July
+<time class="dt-published" datetime="2022-07-11">11 July
 2022</time></p>
-<details open>
+<details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/WD-wot-discovery-20220704/">https://www.w3.org/TR/2022/WD-wot-discovery-20220704/</a></dd>
+"https://www.w3.org/TR/2022/WD-wot-discovery-20220711/">https://www.w3.org/TR/2022/WD-wot-discovery-20220711/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -1316,8 +1316,8 @@ Directory Service API</a>
 "#exploration-directory-api-things-listing"><bdi class=
 "secno">7.3.2.1.5</bdi> Listing</a></li>
 <li class="tocline"><a class="tocxref" href=
-"#validation"><bdi class="secno">7.3.2.1.6</bdi>
-Validation</a></li>
+"#exploration-directory-api-things-validation"><bdi class=
+"secno">7.3.2.1.6</bdi> Validation</a></li>
 </ol>
 </li>
 <li class="tocline"><a class="tocxref" href=
@@ -1398,28 +1398,31 @@ Registration</a></li>
 Types Registration</a></li>
 </ol>
 </li>
+<li class="tocline"><a class="tocxref" href=
+"#tdd-extensions-jsonschema"><bdi class="secno">A.</bdi> JSON
+Schema for WoT Discovery TD-extensions</a></li>
 <li class="tocline"><a class="tocxref" href="#changes"><bdi class=
-"secno">A.</bdi> Recent Specification Changes</a>
+"secno">B.</bdi> Recent Specification Changes</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
-"#changes-from-second-draft"><bdi class="secno">A.1</bdi> Changes
+"#changes-from-second-draft"><bdi class="secno">B.1</bdi> Changes
 from 2 June 2021 Working Draft</a></li>
 <li class="tocline"><a class="tocxref" href=
-"#changes-from-first-draft"><bdi class="secno">A.2</bdi> Changes
+"#changes-from-first-draft"><bdi class="secno">B.2</bdi> Changes
 from 24 November 2020 First Public Working Draft</a></li>
 </ol>
 </li>
 <li class="tocline"><a class="tocxref" href=
-"#acknowledgements"><bdi class="secno">B.</bdi>
+"#acknowledgements"><bdi class="secno">C.</bdi>
 Acknowledgments</a></li>
 <li class="tocline"><a class="tocxref" href=
-"#references"><bdi class="secno">C.</bdi> References</a>
+"#references"><bdi class="secno">D.</bdi> References</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
-"#normative-references"><bdi class="secno">C.1</bdi> Normative
+"#normative-references"><bdi class="secno">D.1</bdi> Normative
 references</a></li>
 <li class="tocline"><a class="tocxref" href=
-"#informative-references"><bdi class="secno">C.2</bdi> Informative
+"#informative-references"><bdi class="secno">D.2</bdi> Informative
 references</a></li>
 </ol>
 </li>
@@ -1586,9 +1589,9 @@ tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">TDD</dfn>),
 "dfn-wot-partial-thing-description" tabindex="0" aria-haspopup=
 "dialog" data-dfn-type="dfn">Partial TD</dfn>, <dfn class=
 "lint-ignore" data-lt="WoT Enriched Thing Description|Enriched TD"
-id="dfn-wot-enriched-thing-description" tabindex="0" aria-haspopup=
-"dialog" data-dfn-type="dfn">Enriched TD</dfn> are defined in
-<a href=
+data-plurals="enriched tds" id="dfn-wot-enriched-thing-description"
+tabindex="0" aria-haspopup="dialog" data-dfn-type="dfn">Enriched
+TD</dfn> are defined in <a href=
 "https://www.w3.org/TR/wot-architecture11/#terminology">Section
 3</a> of the WoT Architecture 1.1 specification [<cite><a class=
 "bibref" data-link-type="biblio" href="#bib-wot-architecture11"
@@ -3124,7 +3127,8 @@ Creation</h6>
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-37">TD</a> inside the directory.</p>
 <p>The TD object is validated in accordance with <a href=
-"#validation" data-matched-text="[[[#validation]]]" class=
+"#exploration-directory-api-things-validation" data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
 "sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>. Note
 that a TD may or may not be generated by the <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
@@ -3157,12 +3161,14 @@ handled differently; see below. <span class="rfc2119-assertion" id=
 "tdd-things-create-known-contenttype">The request <em class=
 "rfc2119">SHOULD</em> contain <code>application/td+json</code>
 Content-Type header for JSON serialization of TD.</span> The TD
-object is validated in accordance with <a href="#validation"
-data-matched-text="[[[#validation]]]" class="sec-ref"><bdi class=
-"secno">7.3.2.1.6</bdi> Validation</a>. <span class=
-"rfc2119-assertion" id="tdd-things-create-known-td-resp">Upon
-successful processing, the server <em class="rfc2119">MUST</em>
-respond with 201 (Created) status.</span>
+object is validated in accordance with <a href=
+"#exploration-directory-api-things-validation" data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
+"sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>.
+<span class="rfc2119-assertion" id=
+"tdd-things-create-known-td-resp">Upon successful processing, the
+server <em class="rfc2119">MUST</em> respond with 201 (Created)
+status.</span>
 <p>Note: If the target location corresponds to an existing TD, the
 request shall instead proceed as an Update operation and respond
 the appropriate status code (see Update section).</p>
@@ -3184,17 +3190,18 @@ endpoint.</span> <span class="rfc2119-assertion" id=
 "tdd-things-create-anonymous-contenttype">The request <em class=
 "rfc2119">SHOULD</em> contain <code>application/td+json</code>
 Content-Type header for JSON serialization of TD.</span> The TD
-object is validated in accordance with <a href="#validation"
-data-matched-text="[[[#validation]]]" class="sec-ref"><bdi class=
-"secno">7.3.2.1.6</bdi> Validation</a>. <span class=
-"rfc2119-assertion" id="tdd-things-create-anonymous-td-resp">Upon
-successful processing, the server <em class="rfc2119">MUST</em>
-respond with 201 (Created) status and a Location header containing
-a system-generated identifier for the TD.</span> The scheme of the
-system-generated ID is described in <a href=
-"#exploration-directory-anonymous-td" data-matched-text=
-"[[[#exploration-directory-anonymous-td]]]" class=
-"sec-ref"><bdi class="secno">7.3.1.3</bdi> Anonymous TD
+object is validated in accordance with <a href=
+"#exploration-directory-api-things-validation" data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
+"sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>.
+<span class="rfc2119-assertion" id=
+"tdd-things-create-anonymous-td-resp">Upon successful processing,
+the server <em class="rfc2119">MUST</em> respond with 201 (Created)
+status and a Location header containing a system-generated
+identifier for the TD.</span> The scheme of the system-generated ID
+is described in <a href="#exploration-directory-anonymous-td"
+data-matched-text="[[[#exploration-directory-anonymous-td]]]"
+class="sec-ref"><bdi class="secno">7.3.1.3</bdi> Anonymous TD
 Identifiers</a>.
 <p>The create operation for <a href=
 "#dfn-wot-anonymous-thing-description" class="internalDFN"
@@ -3413,12 +3420,13 @@ identifier of the existing TD.</span> <span class=
 <em class="rfc2119">SHOULD</em> contain
 <code>application/td+json</code> Content-Type header for JSON
 serialization of TD.</span> The TD object is validated in
-accordance with <a href="#validation" data-matched-text=
-"[[[#validation]]]" class="sec-ref"><bdi class=
-"secno">7.3.2.1.6</bdi> Validation</a>. <span class=
-"rfc2119-assertion" id="tdd-things-update-resp">Upon success, the
-server <em class="rfc2119">MUST</em> respond with 204 (No Content)
-status.</span>
+accordance with <a href=
+"#exploration-directory-api-things-validation" data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
+"sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>.
+<span class="rfc2119-assertion" id="tdd-things-update-resp">Upon
+success, the server <em class="rfc2119">MUST</em> respond with 204
+(No Content) status.</span>
 <p>This operation is specified as <code>updateThing</code> property
 in <a href="#directory-api-spec" data-matched-text=
 "[[[#directory-api-spec]]]" class="sec-ref"><bdi class=
@@ -3464,7 +3472,9 @@ member is added. If the member is set to <code>null</code> but
 appear in the original TD, that member is removed. Members with
 object values are processed recursively. After applying the
 modifications, the TD object is validated in accordance with
-<a href="#validation" data-matched-text="[[[#validation]]]" class=
+<a href="#exploration-directory-api-things-validation"
+data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
 "sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>.
 <span class="rfc2119-assertion" id=
 "tdd-things-update-partial-resp">Upon success, the server
@@ -3762,22 +3772,37 @@ property in <a href="#directory-api-spec" data-matched-text=
 "[[[#directory-api-spec]]]" class="sec-ref"><bdi class=
 "secno">7.3.2.4</bdi> API Specification (Thing Model)</a>.</p>
 </section>
-<section id="validation" class="normative">
+<section id="exploration-directory-api-things-validation" class=
+"normative">
 <div class="header-wrapper">
 <h6 id="x7-3-2-1-6-validation"><bdi class="secno">7.3.2.1.6</bdi>
 Validation</h6>
-<a class="self-link" href="#validation" aria-label=
+<a class="self-link" href=
+"#exploration-directory-api-things-validation" aria-label=
 "Permalink for Section 7.3.2.1.6"></a></div>
 <p><span class="rfc2119-assertion" id=
 "tdd-validation-syntactic">The syntactic validation of TD objects
 before storage is <em class="rfc2119">RECOMMENDED</em> to prevent
 common erroneous submissions.</span> <span class=
 "rfc2119-assertion" id="tdd-validation-jsonschema">The server
-<em class="rfc2119">MAY</em> use <a href=
+<em class="rfc2119">SHOULD</em> use at least <a href=
+"https://www.w3.org/TR/wot-thing-description11/#minimal-validation-serialization-json">
+Minimal Validation</a> as defined in [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-wot-thing-description11" title=
+"Web of Things (WoT) Thing Description 1.1">wot-thing-description11</a></cite>]
+to validate TDs, including use of the <a href=
 "https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">
-Thing Description JSON Schema</a> to validate standard TD
-vocabulary, or a more comprehensive JSON Schema to also validate
-extensions.</span></p>
+WoT Thing Description (1.0) JSON Schema</a> or <a href=
+"https://www.w3.org/TR/wot-thing-description11/#json-schema-for-validation">
+WoT Thing Description 1.1 JSON Schema</a>, and the JSON schema
+defined in <a href="#tdd-extensions-jsonschema" data-matched-text=
+"[[[#tdd-extensions-jsonschema]]]" class="sec-ref"><bdi class=
+"secno">A.</bdi> JSON Schema for WoT Discovery TD-extensions</a>
+for <a href="#dfn-wot-enriched-thing-description" class=
+"internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-wot-enriched-thing-description-6">Enriched TDs</a>, as
+appropriate based on the value of the
+<code>@context</code>.</span></p>
 <p>Additional forms of validation can be added to support various
 use cases. For example, a use case may require stateful validation
 of the input TDs to ensure that the <code>version</code> value is
@@ -5707,18 +5732,81 @@ Directory</a></td>
 </table>
 </section>
 </section>
+<section id="tdd-extensions-jsonschema" class="appendix">
+<div class="header-wrapper">
+<h2 id="a-json-schema-for-wot-discovery-td-extensions"><bdi class=
+"secno">A.</bdi> JSON Schema for WoT Discovery TD-extensions</h2>
+<a class="self-link" href="#tdd-extensions-jsonschema" aria-label=
+"Permalink for Appendix A."></a></div>
+The following JSON Schema specifies the extensions used in <a href=
+"#dfn-wot-enriched-thing-description" class="internalDFN"
+data-link-type="dfn" id=
+"ref-for-dfn-wot-enriched-thing-description-7">Enriched TDs</a>. It
+can be used for validating <a href="#dfn-td" class="internalDFN"
+data-link-type="dfn" id="ref-for-dfn-td-44">TDs</a> by a <a href=
+"#dfn-wot-tdd" class="internalDFN" data-link-type="dfn" id=
+"ref-for-dfn-wot-tdd-1">TDD</a> as prescribed in <a href=
+"#exploration-directory-api-things-validation" data-matched-text=
+"[[[#exploration-directory-api-things-validation]]]" class=
+"sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>.
+<pre class="advisement" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"title"</span>: <span class=
+"hljs-string">"WoT Discovery TD-extensions Schema - 21 May 2021"</span>,
+  <span class="hljs-attr">"description"</span>: <span class=
+"hljs-string">"JSON Schema for validating TD instances with WoT Discovery extensions"</span>,
+  <span class="hljs-attr">"$schema "</span>: <span class=
+"hljs-string">"http://json-schema.org/draft/2019-09/schema#"</span>,
+  <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"object"</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"registration"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"object"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"created"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class=
+"hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"expires"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class=
+"hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"retrieved"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class=
+"hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"modified"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class=
+"hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"ttl"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class=
+"hljs-string">"number"</span>
+        }
+      }
+    }
+  }
+}</code></pre></section>
 <section id="changes" class="appendix">
 <div class="header-wrapper">
-<h2 id="a-recent-specification-changes"><bdi class="secno">A.</bdi>
+<h2 id="b-recent-specification-changes"><bdi class="secno">B.</bdi>
 Recent Specification Changes</h2>
 <a class="self-link" href="#changes" aria-label=
-"Permalink for Appendix A."></a></div>
+"Permalink for Appendix B."></a></div>
 <section id="changes-from-2-june-2021-working-draft">
 <div class="header-wrapper">
-<h3 id="changes-from-second-draft"><bdi class="secno">A.1</bdi>
+<h3 id="changes-from-second-draft"><bdi class="secno">B.1</bdi>
 Changes from 2 June 2021 Working Draft</h3>
 <a class="self-link" href="#changes-from-second-draft" aria-label=
-"Permalink for Appendix A.1"></a></div>
+"Permalink for Appendix B.1"></a></div>
 <ul>
 <li>Use <code>wot</code> for well-known URI service name.</li>
 <li>Refer to TD and Architecture specs for general constraints on
@@ -5753,10 +5841,10 @@ SPARQL.</li>
 <section id=
 "changes-from-24-november-2020-first-public-working-draft">
 <div class="header-wrapper">
-<h3 id="changes-from-first-draft"><bdi class="secno">A.2</bdi>
+<h3 id="changes-from-first-draft"><bdi class="secno">B.2</bdi>
 Changes from 24 November 2020 First Public Working Draft</h3>
 <a class="self-link" href="#changes-from-first-draft" aria-label=
-"Permalink for Appendix A.2"></a></div>
+"Permalink for Appendix B.2"></a></div>
 <ul>
 <li>Update name of directory service to "Thing Description
 Directory" with acronym TDD, to avoid confusion with the acronym TD
@@ -5805,10 +5893,10 @@ normative references to RFC7396 and RFC7540.</li>
 </section>
 <section id="acknowledgements" class="appendix normative">
 <div class="header-wrapper">
-<h2 id="b-acknowledgments"><bdi class="secno">B.</bdi>
+<h2 id="c-acknowledgments"><bdi class="secno">C.</bdi>
 Acknowledgments</h2>
 <a class="self-link" href="#acknowledgements" aria-label=
-"Permalink for Appendix B."></a></div>
+"Permalink for Appendix C."></a></div>
 <p>Many thanks to the <abbr title=
 "World Wide Web Consortium">W3C</abbr> staff and all other active
 Participants of the <abbr title=
@@ -5819,15 +5907,15 @@ document.</p>
 </section>
 <section id="references" class="appendix">
 <div class="header-wrapper">
-<h2 id="c-references"><bdi class="secno">C.</bdi> References</h2>
+<h2 id="d-references"><bdi class="secno">D.</bdi> References</h2>
 <a class="self-link" href="#references" aria-label=
-"Permalink for Appendix C."></a></div>
+"Permalink for Appendix D."></a></div>
 <section id="normative-references">
 <div class="header-wrapper">
-<h3 id="c-1-normative-references"><bdi class="secno">C.1</bdi>
+<h3 id="d-1-normative-references"><bdi class="secno">D.1</bdi>
 Normative references</h3>
 <a class="self-link" href="#normative-references" aria-label=
-"Permalink for Appendix C.1"></a></div>
+"Permalink for Appendix D.1"></a></div>
 <dl class="bibliography">
 <dt id="bib-core-rd">[CoRE-RD]</dt>
 <dd><a href=
@@ -6005,10 +6093,10 @@ Spiegel. W3C. 21 March 2017. W3C Recommendation. URL: <a href=
 </section>
 <section id="informative-references">
 <div class="header-wrapper">
-<h3 id="c-2-informative-references"><bdi class="secno">C.2</bdi>
+<h3 id="d-2-informative-references"><bdi class="secno">D.2</bdi>
 Informative references</h3>
 <a class="self-link" href="#informative-references" aria-label=
-"Permalink for Appendix C.2"></a></div>
+"Permalink for Appendix D.2"></a></div>
 <dl class="bibliography">
 <dt id="bib-jsonpath">[JSONPATH]</dt>
 <dd><a href=
@@ -6159,6 +6247,9 @@ Information</a> <a href="#ref-for-dfn-td-28" title=
 7.3.2.3 Search API</a></li>
 <li><a href="#ref-for-dfn-td-43" title=
 "§ 10.1 Incremental Transfer">§ 10.1 Incremental Transfer</a></li>
+<li><a href="#ref-for-dfn-td-44" title=
+"§ A. JSON Schema for WoT Discovery TD-extensions">§ A. JSON Schema
+for WoT Discovery TD-extensions</a></li>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
@@ -6398,7 +6489,9 @@ id="dfn-panel-for-dfn-wot-tdd" aria-label=
 "Permalink for definition: TDD. Activate to close this dialog.">Permalink</a></div>
 <p><b>Referenced in:</b></p>
 <ul>
-<li>Not referenced in this document.</li>
+<li><a href="#ref-for-dfn-wot-tdd-1" title=
+"§ A. JSON Schema for WoT Discovery TD-extensions">§ A. JSON Schema
+for WoT Discovery TD-extensions</a></li>
 </ul>
 </div>
 <div class="dfn-panel" hidden="" role="dialog" aria-modal="true"
@@ -6440,6 +6533,11 @@ Information</a> <a href=
 "§ 7.3.2.1.2 Retrieval">§ 7.3.2.1.2 Retrieval</a> <a href=
 "#ref-for-dfn-wot-enriched-thing-description-5" title=
 "Reference 2">(2)</a></li>
+<li><a href="#ref-for-dfn-wot-enriched-thing-description-6" title=
+"§ 7.3.2.1.6 Validation">§ 7.3.2.1.6 Validation</a></li>
+<li><a href="#ref-for-dfn-wot-enriched-thing-description-7" title=
+"§ A. JSON Schema for WoT Discovery TD-extensions">§ A. JSON Schema
+for WoT Discovery TD-extensions</a></li>
 </ul>
 </div>
 <script id="respec-dfn-panel">
