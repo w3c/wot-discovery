@@ -2039,16 +2039,16 @@ img.wot-diagram {
                            <span class="rfc2119-assertion" id="tdd-validation-syntactic">
                                 The syntactic validation of TD objects before storage is RECOMMENDED to
                                 prevent common erroneous submissions.</span>
-                            This corresponds to 
-                            <a href="https://www.w3.org/TR/wot-thing-description11/#minimal-validation-serialization-json">Minimal Validation</a>
-                            as defined in the WoT Thing Description specification [[wot-thing-description11]].
+    
                             <span class="rfc2119-assertion" id="tdd-validation-jsonschema">
-                                The server MAY use
-                                <a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">Thing Description (1.0) JSON Schema</a> or
-                                <a href="https://www.w3.org/TR/wot-thing-description11/#json-schema-for-validation">Thing Description 1.1 JSON Schema</a>,
-                                as appropriate,
-                                to validate standard TD vocabulary, or a more comprehensive JSON Schema to also validate extensions.</span>
-                            The extensions used for <a>Enriched TDs</a> can be validated using [[[#tdd-extensions-jsonschema]]].
+				The server SHOULD use at least 
+				<a href="https://www.w3.org/TR/wot-thing-description11/#minimal-validation-serialization-json">Minimal Validation</a> 
+				as defined in [[wot-thing-description11]]
+                                to validate TDs, including use of the
+				<a href="https://www.w3.org/TR/wot-thing-description/#json-schema-for-validation">WoT Thing Description (1.0) JSON Schema</a> or
+                                <a href="https://www.w3.org/TR/wot-thing-description11/#json-schema-for-validation">WoT Thing Description 1.1 JSON Schema</a>,
+				and the JSON schema defined in [[[#tdd-extensions-jsonschema]]] for <a>Enriched TDs</a>,
+				as appropriate based on the value of the <code>@context</code>.</span>
                         </p>
                         <p>
                             Additional forms of validation can be added to support various use cases.
