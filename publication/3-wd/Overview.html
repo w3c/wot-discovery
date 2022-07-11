@@ -2,7 +2,7 @@
 <html lang="en-US">
 <head>
 <meta name="generator" content=
-"HTML Tidy for HTML5 for Linux version 5.6.0">
+"HTML Tidy for HTML5 for Linux version 5.8.0">
 <meta charset="utf-8">
 <meta name="generator" content="ReSpec 32.1.10">
 <meta name="viewport" content=
@@ -164,7 +164,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-06-27",
+  "datePublished": "2022-07-04",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -194,7 +194,7 @@ dd{margin-left:0}
       "type": "Person",
       "name": "Farshid Tavakolizadeh",
       "worksFor": {
-        "name": "Fraunhofer-Gesellschaft",
+        "name": "formerly Fraunhofer-Gesellschaft, currently Invited Expert",
         "url": "https://www.fraunhofer.de/"
       }
     },
@@ -646,6 +646,15 @@ dd{margin-left:0}
       }
     },
     {
+      "id": "https://gdpr-info.eu/art-4-gdpr/",
+      "type": "TechArticle",
+      "name": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "url": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": {
+        "name": "European Union (EU) and the European Economic Area (EEA)"
+      }
+    },
+    {
       "id": "https://www.rfc-editor.org/rfc/rfc8981",
       "type": "TechArticle",
       "name": "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6",
@@ -943,7 +952,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     {
       "name": "Farshid Tavakolizadeh",
       "w3cid": "122520",
-      "company": "Fraunhofer-Gesellschaft",
+      "company": "formerly Fraunhofer-Gesellschaft, currently Invited Expert",
       "companyURL": "https://www.fraunhofer.de/"
     },
     {
@@ -965,6 +974,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   ],
   "localBiblio": {
+    "GDPR-Defs": {
+      "title": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "href": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": "European Union (EU) and the European Economic Area (EEA)",
+      "id": "gdpr-defs"
+    },
     "OWASP-Top-10": {
       "title": "OWASP Top Ten",
       "href": "https://owasp.org/www-project-top-ten/",
@@ -1024,14 +1039,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-06-27T00:00:00.000Z",
-  "generatedSubtitle": "W3C Working Draft 27 June 2022"
+  "publishISODate": "2022-07-04T00:00:00.000Z",
+  "generatedSubtitle": "W3C Working Draft 04 July 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-WD">
 </head>
-<body class="h-entry toc-inline">
+<body class="h-entry">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1040,14 +1055,14 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <h1 id="title" class="title">Web of Things (WoT) Discovery</h1>
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#WD">W3C Working Draft</a>
-<time class="dt-published" datetime="2022-06-27">27 June
+<time class="dt-published" datetime="2022-07-04">04 July
 2022</time></p>
-<details open="">
+<details open>
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/WD-wot-discovery-20220627/">https://www.w3.org/TR/2022/WD-wot-discovery-20220627/</a></dd>
+"https://www.w3.org/TR/2022/WD-wot-discovery-20220704/">https://www.w3.org/TR/2022/WD-wot-discovery-20220704/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -1074,8 +1089,8 @@ Politécnica de Madrid</a>)</dd>
 Corp.</a>)</dd>
 <dd class="editor p-author h-card vcard" data-editor-id="122520">
 <span class="p-name fn">Farshid Tavakolizadeh</span> (<a class=
-"p-org org h-org" href=
-"https://www.fraunhofer.de/">Fraunhofer-Gesellschaft</a>)</dd>
+"p-org org h-org" href="https://www.fraunhofer.de/">formerly
+Fraunhofer-Gesellschaft, currently Invited Expert</a>)</dd>
 <dd class="editor p-author h-card vcard" data-editor-id="83488">
 <span class="p-name fn">Kunihiko Toumura</span> (<a class=
 "p-org org h-org" href="https://www.hitachi.com/">Hitachi,
@@ -1353,7 +1368,7 @@ Considerations</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
 "#privacy-consideration-location-tracking"><bdi class=
-"secno">9.1</bdi> Location Tracking</a></li>
+"secno">9.1</bdi> Location Tracking and Profiling</a></li>
 <li class="tocline"><a class="tocxref" href=
 "#privacy-consideration-query-tracking"><bdi class=
 "secno">9.2</bdi> Query Tracking</a></li>
@@ -1387,8 +1402,11 @@ Types Registration</a></li>
 "secno">A.</bdi> Recent Specification Changes</a>
 <ol class="toc">
 <li class="tocline"><a class="tocxref" href=
-"#changes-from-first-draft"><bdi class="secno">A.1</bdi> Changes
-from First Draft</a></li>
+"#changes-from-second-draft"><bdi class="secno">A.1</bdi> Changes
+from 2 June 2021 Working Draft</a></li>
+<li class="tocline"><a class="tocxref" href=
+"#changes-from-first-draft"><bdi class="secno">A.2</bdi> Changes
+from 24 November 2020 First Public Working Draft</a></li>
 </ol>
 </li>
 <li class="tocline"><a class="tocxref" href=
@@ -2627,7 +2645,8 @@ response from a CoAP-based TD Server providing a <a href="#dfn-td"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-16">TD</a> <em class="rfc2119">MUST</em> have a
 2.05 (Content) status, contain a Content-Format option with value
-432 (<code>application/td+json</code>), and the <a href="#dfn-td"
+50 (<code>application/json</code>) or 432
+(<code>application/td+json</code>), and the <a href="#dfn-td"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-17">TD</a> in the payload.</span> Note that the
 payload might be split over multiple message exchanges using
@@ -2692,13 +2711,6 @@ set of TDs describing other Things.</p>
 Information Model</h4>
 <a class="self-link" href="#exploration-directory-info" aria-label=
 "Permalink for Section 7.3.1"></a></div>
-<div class="note" id="issue-container-generatedID-3">
-<div role="heading" class="ednote-title marker" id="h-ednote-3"
-aria-level="5"><span>Editor's note</span><span class=
-"issue-label">: Directory Information Model</span></div>
-<p class="">To Do: Formal definition of information contained in a
-directory and its organization.</p>
-</div>
 As shown in <a href="#exploration-class-diagram" data-matched-text=
 "[[[#exploration-class-diagram]]]" class="fig-ref" title=
 "The high-level class diagram of the exploration mechanisms, depicting how Thing Description Servers and Thing Description Directories provide TDs. A Self-describing Thing is a special case of a Thing Description Server that is also a Thing. A Thing Description Directory acts as a Thing Description Server for each Thing Description it contains.">
@@ -2963,30 +2975,6 @@ different languages using proactive negotiation, if the
 request [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-rfc7231" title=
 "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content">RFC7231</a></cite>].</span></p>
-<div class="issue" id="issue-container-number-150">
-<div role="heading" class="issue-title marker" id="h-issue-3"
-aria-level="5"><a href=
-"https://github.com/w3c/wot-discovery/issues/150"><span class=
-"issue-number">Issue 150</span></a><span class="issue-label">:
-Definition of Problem Details error types <a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Stretch+goal%22"
-style="background-color: rgb(58, 209, 122); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Stretch goal">Stretch goal</a><a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Discuss%22"
-style="background-color: rgb(196, 229, 219); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Discuss">Discuss</a><a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%222021-10+F2F%22"
-style=
-"background-color: rgb(55, 36, 238); color: rgb(255, 255, 255);"
-aria-label="GitHub label: 2021-10 F2F">2021-10 F2F</a></span></div>
-<p class="">There are currently no WoT-specific error classes. In
-the meantime, the Problem Details error responses may omit the
-<code>type</code> field which defaults to "about:blank" and set
-<code>title</code> to the HTTP status text.</p>
-</div>
 <p>The APIs set the HTTP status codes as defined in <a href=
 "https://datatracker.ietf.org/doc/html/rfc7231#section-6">Section
 6</a> of [<cite><a class="bibref" data-link-type="biblio" href=
@@ -3226,29 +3214,6 @@ functionality as described in <a href=
 In particular, if <code>ttl</code> (relative expiry) is given
 during the creation, such servers will calculate and store the
 <code>expires</code> value.</p>
-<div class="issue" id="issue-container-number-48">
-<div role="heading" class="issue-title marker" id="h-issue-4"
-aria-level="7"><a href=
-"https://github.com/w3c/wot-discovery/issues/48"><span class=
-"issue-number">Issue 48</span></a><span class="issue-label">: How
-to avoid duplicates in a directory <a class="respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Propose+Closing%22"
-style="background-color: rgb(151, 128, 206); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Propose Closing">Propose
-Closing</a></span></div>
-<p dir="auto">Registration of TDs using non-idempotent HTTP POST
-method enables creation of anonymous TDs (TDs without <code class=
-"notranslate">id</code> attribute). The producer can distinguish
-between the created TDs using the unique-system generated IDs given
-in the response Location header.</p>
-<p dir="auto">A side-effect of this is that clients will be able to
-register duplicate TDs accidentally or on purpose.</p>
-<p dir="auto">Need to clarify:</p>
-<ul dir="auto">
-<li>What are the use cases where a duplicate TD is desired?</li>
-<li>How can we mitigate accidental duplicates (deduplication)?</li>
-</ul>
-</div>
 </section>
 <section id="exploration-directory-api-things-retrieval" class=
 "normative">
@@ -3310,7 +3275,7 @@ Model)</a>.</p>
 "hljs-string">"Simple TD"</span>
 }</code></pre>
 <div class="issue" id="issue-container-number-148-2">
-<div role="heading" class="issue-title marker" id="h-issue-5"
+<div role="heading" class="issue-title marker" id="h-issue-3"
 aria-level="7"><a href=
 "https://github.com/w3c/wot-discovery/issues/148"><span class=
 "issue-number">Issue 148</span></a><span class="issue-label">:
@@ -3364,7 +3329,7 @@ Anonymous TD</span></div>
 "hljs-string">"Anonymous TD"</span>
 }</code></pre>
 <div class="issue" id="issue-container-number-148-3">
-<div role="heading" class="issue-title marker" id="h-issue-6"
+<div role="heading" class="issue-title marker" id="h-issue-4"
 aria-level="7"><a href=
 "https://github.com/w3c/wot-discovery/issues/148"><span class=
 "issue-number">Issue 148</span></a><span class="issue-label">:
@@ -3414,7 +3379,7 @@ Enriched TD</span></div>
 "hljs-string">"Expirable TD"</span>
 }</code></pre>
 <div class="issue" id="issue-container-number-148-4">
-<div role="heading" class="issue-title marker" id="h-issue-7"
+<div role="heading" class="issue-title marker" id="h-issue-5"
 aria-level="7"><a href=
 "https://github.com/w3c/wot-discovery/issues/148"><span class=
 "issue-number">Issue 148</span></a><span class="issue-label">:
@@ -3873,32 +3838,9 @@ errors.</p>
 "hljs-string">"Invalid type. Expected: string, given: integer"</span>
         }
     ]
-}</code></pre>
-<div class="issue" id="issue-container-number-150-0">
-<div role="heading" class="issue-title marker" id="h-issue-8"
-aria-level="7"><a href=
-"https://github.com/w3c/wot-discovery/issues/150"><span class=
-"issue-number">Issue 150</span></a><span class="issue-label">:
-Definition of Problem Details error types <a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Stretch+goal%22"
-style="background-color: rgb(58, 209, 122); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Stretch goal">Stretch goal</a><a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Discuss%22"
-style="background-color: rgb(196, 229, 219); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Discuss">Discuss</a><a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%222021-10+F2F%22"
-style=
-"background-color: rgb(55, 36, 238); color: rgb(255, 255, 255);"
-aria-label="GitHub label: 2021-10 F2F">2021-10 F2F</a></span></div>
-<p class="">This example skips the <code>type</code> field due to
-the current lack of WoT-specific error types.</p>
-</div>
-</aside>
+}</code></pre></aside>
 <div class="issue" id="issue-container-number-99">
-<div role="heading" class="issue-title marker" id="h-issue-9"
+<div role="heading" class="issue-title marker" id="h-issue-6"
 aria-level="7"><a href=
 "https://github.com/w3c/wot-discovery/issues/99"><span class=
 "issue-number">Issue 99</span></a><span class="issue-label">:
@@ -3975,23 +3917,6 @@ the events (e.g. only <code>thing_created</code> and
 <code>thing_deleted</code>) from the server. When using HTTP/2,
 multiple subscriptions on the same domain (HTTP streams) get
 multiplexed on a single connection.</p>
-<div class="issue" id="issue-container-number-176">
-<div role="heading" class="issue-title marker" id="h-issue-10"
-aria-level="6"><a href=
-"https://github.com/w3c/wot-discovery/issues/176"><span class=
-"issue-number">Issue 176</span></a><span class="issue-label">:
-Event payload filtering <a class="respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Stretch+goal%22"
-style="background-color: rgb(58, 209, 122); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Stretch goal">Stretch goal</a><a class=
-"respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%222021-10+F2F%22"
-style=
-"background-color: rgb(55, 36, 238); color: rgb(255, 255, 255);"
-aria-label="GitHub label: 2021-10 F2F">2021-10 F2F</a></span></div>
-<div class="">Event filtering based on the payload is work in
-progress.</div>
-</div>
 </dd>
 <dt>Event Data</dt>
 <dd>
@@ -4075,7 +4000,7 @@ data:     <span class="hljs-string">"title"</span>: <span class=
 data: }
 id: event_1</code></pre>
 <div class="issue" id="issue-container-number-148-5">
-<div role="heading" class="issue-title marker" id="h-issue-11"
+<div role="heading" class="issue-title marker" id="h-issue-7"
 aria-level="6"><a href=
 "https://github.com/w3c/wot-discovery/issues/148"><span class=
 "issue-number">Issue 148</span></a><span class="issue-label">:
@@ -4147,8 +4072,8 @@ attributes.</p>
 "secno">7.3.2.4</bdi> API Specification (Thing Model)</a>, namely:
 <code>thingCreated</code>, <code>thingUpdated</code>, and
 <code>thingDeleted</code>.</p>
-<div class="note" id="issue-container-generatedID-4">
-<div role="heading" class="ednote-title marker" id="h-ednote-4"
+<div class="note" id="issue-container-generatedID-3">
+<div role="heading" class="ednote-title marker" id="h-ednote-3"
 aria-level="6"><span>Editor's note</span><span class=
 "issue-label">: SSE Authorization Header</span></div>
 <p class="">Some early SSE implementations (including HTML5
@@ -4166,8 +4091,8 @@ setting Authorization header.</p>
 Search API</h5>
 <a class="self-link" href="#exploration-directory-api-search"
 aria-label="Permalink for Section 7.3.2.3"></a></div>
-<div class="note" id="issue-container-generatedID-5">
-<div role="heading" class="ednote-title marker" id="h-ednote-5"
+<div class="note" id="issue-container-generatedID-4">
+<div role="heading" class="ednote-title marker" id="h-ednote-4"
 aria-level="6"><span>Editor's note</span><span class=
 "issue-label">: Search API Overview</span></div>
 <p class="">Sub-API to search a directory, e.g. issue a query.
@@ -4208,30 +4133,6 @@ based on client-specific queries.</span></p>
 <a class="self-link" href="#jsonpath-semantic" aria-label=
 "Permalink for Section 7.3.2.3.1"></a></div>
 <p><em>This section is non-normative.</em></p>
-<div class="issue" id="issue-container-number-234">
-<div role="heading" class="issue-title marker" id="h-issue-12"
-aria-level="7"><a href=
-"https://github.com/w3c/wot-discovery/issues/234"><span class=
-"issue-number">Issue 234</span></a><span class="issue-label">:
-JSONPath as a search query language <a class="respec-gh-label"
-href="https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Propose+Closing%22"
-style="background-color: rgb(151, 128, 206); color: rgb(0, 0, 0);"
-aria-label="GitHub label: Propose Closing">Propose
-Closing</a><a class="respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Consolidation%22"
-style="background-color: rgb(237, 18, 99); color: rgb(0, 0, 0);"
-aria-label=
-"GitHub label: Consolidation">Consolidation</a></span></div>
-<div class="">The standardization of JSONPath expressions is in
-progress by an independent working group. This section remains
-non-normative until the release of final JSONPath specification by
-IETF. In the meantime, clients should consider the JSONPath API as
-unstable and expect deviations across <a href=
-"#dfn-wot-thing-description-directory" class="internalDFN"
-data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-25">Thing Description
-Directory</a> implementations.</div>
-</div>
 Support for JSONPath Search API is optional. If implemented, the
 JSONPath API must allow searching TDs using an HTTP
 <code>GET</code> request at
@@ -5215,18 +5116,8 @@ provided for information only.</p>
     }
 }
 </code></pre>
-<div class="issue" id="issue-container-number-82">
-<div role="heading" class="issue-title marker" id="h-issue-13"
-aria-level="6"><a href=
-"https://github.com/w3c/wot-discovery/issues/82"><span class=
-"issue-number">Issue 82</span></a><span class="issue-label">:
-Creation of OpenAPI spec from Directory TD</span></div>
-<p class="">Need to confirm if equivalent OpenAPI spec can be
-easily created out of the TM. If yes, a sentence may be added
-indicating this possibility.</p>
-</div>
-<div class="note" id="issue-container-generatedID-6">
-<div role="heading" class="ednote-title marker" id="h-ednote-6"
+<div class="note" id="issue-container-generatedID-5">
+<div role="heading" class="ednote-title marker" id="h-ednote-5"
 aria-level="6"><span>Editor's note</span><span class=
 "issue-label">: Context URIs</span></div>
 <p class="">The context URIs are tentative and subject to
@@ -5505,12 +5396,20 @@ vehicle.</dd>
 factory automation, there is the chance that data about employee
 performance would be captured and would have to be managed
 appropriately.</p>
-<p>With these categories established, we will now discuss some
-specific privacy risks and potential mitigations.</p>
+<p>In the following we make frequent reference to "tracking". This
+term covers multiple privacy risks, including location tracking and
+behavioral profiling. In general, the definition of "profiling"
+given in Article 4 of the GDPR [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-gdpr-defs" title=
+"General Data Protection Regulation (GDPR) Article 4 - Definitions">GDPR-Defs</a></cite>]
+is to be considered equivalent to "tracking" as used in this
+document.</p>
+<p>With these definitions and categories established, we will now
+discuss some specific privacy risks and potential mitigations.</p>
 <section id="privacy-consideration-location-tracking">
 <div class="header-wrapper">
-<h3 id="x9-1-location-tracking"><bdi class="secno">9.1</bdi>
-Location Tracking</h3>
+<h3 id="x9-1-location-tracking-and-profiling"><bdi class=
+"secno">9.1</bdi> Location Tracking and Profiling</h3>
 <a class="self-link" href=
 "#privacy-consideration-location-tracking" aria-label=
 "Permalink for Section 9.1"></a></div>
@@ -5539,6 +5438,14 @@ directory, that means the device has not been present for a while,
 which could be used to infer that a person is NOT in a particular
 location, e.g. not at home.</li>
 </ul>
+<p>Location tracking is not the only profiling risk. In general,
+"profiling" includes any mechanism used to evaluate information
+about a person, including economic status, health, preferences,
+interests, reliability, and behavior. Some of the metadata in a TD
+can be used to infer information of this kind if the described
+Thing can be associated with a person. Some of the mitigations
+below are also applicable to this more general definition of
+profiling.</p>
 <p>Some of these risks are shared by similar services. For example,
 DCHP automatically responds to requests for IP addresses on a local
 network, and devices typically provide an identifier (a MAC
@@ -5548,56 +5455,71 @@ say, a cafe, could use this information to track someone's phone
 and infer their location.</p>
 <dl>
 <dt>Mitigations:</dt>
-<dd>
-<p>There are a few options to mitigate this risk:</p>
+<dd>There are a few options to mitigate these risks:
 <ul>
 <li><span class="rfc2119-assertion" id=
-"priv-loc-disable-public-directories">To avoid location tracking, a
-WoT Thing <em class="rfc2119">MAY</em> disable registration with
-public directories.</span> Registration would still be possible
-with personal directories, for example, a home gateway, but a user
-could disable registration at other locations. This has the
-disadvantage that functionality is lost: personal devices cannot be
-discovered in public locations. This could be addressed by having
+"priv-loc-disable-public-directories">To avoid location tracking
+and other forms of profiling, a WoT Thing associated with a person
+<em class="rfc2119">MAY</em> disable registration with public
+directories.</span> Registration would still be possible with
+personal directories, for example, a home gateway, but a user could
+disable registration at other locations. This has the disadvantage
+that functionality is lost: personal devices cannot be discovered
+in public locations. This could be addressed by having
 internet-accessible private discovery services. For example, the
 user's home gateway could provide an internet-accessible service,
 but with access control limiting use to authorized users.</li>
 <li><span class="rfc2119-assertion" id="priv-loc-anonymous-tds">To
-avoid location tracking, a WoT Thing <em class="rfc2119">MAY</em>
-use Anonymous TDs.</span> In some cases, it may be possible to use
-anonymous TDs and omit explicit IDs from TDs submitted to a TDD. In
-this case the TDD will generate a local ID valid only in that TDD.
-This does, however, complicate update since the client needs to
-remember the local ID assigned by the TDD. Anonymous TDs also do
-not prevent tracking by other means, such as fingerprinting.</li>
+avoid location tracking and other forms of profiling, a WoT Thing
+associated with a person <em class="rfc2119">SHOULD</em> use
+anonymous TDs when registering with a public directories.</span> In
+some cases, it may be possible to use anonymous TDs and omit
+explicit IDs from TDs submitted to a TDD. In this case the TDD will
+generate a local ID valid only in that TDD. This does, however,
+complicate update since the client needs to remember the local ID
+assigned by the TDD. Anonymous TDs also do not prevent tracking by
+other means, such as fingerprinting.</li>
 <li><span class="rfc2119-assertion" id="priv-loc-gen-ids">To avoid
-location tracking, a WoT Thing <em class="rfc2119">MAY</em>
-periodically generate new IDs.</span> Using fixed IDs makes it
-exceptionally easy to track devices. This problem also occurs in
-DHCP with MAC address and there is a similar partial mitigation:
-generate new random IDs periodically. There are however, a few
-issues. First of all, other identification information in the TD
-needs to be hidden. For example, client IDs issued by CSPs for API
-security should be omitted from TDs if they cannot be easily
-changed. Second, if the device generates a new ID, the user may
-still need to know the current ID to find the device via discovery.
-This can be accomplished however by generating new IDs using a
-deterministic cryptographic generator that is a function of the
-current time. However, note that regenerating IDs alone does not
-make tracking impossible since a TD might be fingerprinted. Also,
-updating an ID might be observable to the owner of the directory
-service, who could track and record the updated ID. Even if the TD
-is deleted and reinserted the association could be inferred. This
-is however exactly parallel to the situation with DHCP and rotation
-of MAC addresses. In general, however, generating new IDs at least
-for each service or person to which a TD is supplied makes it
-harder to connect registration events at different locations and
-times. There is a related issue with long-lived IP addresses which
-might need to be updated periodically to mitigate tracking. In the
-context of ipv6 [<cite><a class="bibref" data-link-type="biblio"
-href="#bib-rfc8981" title=
+location tracking and other forms of profiling, a WoT Thing
+associated with a person <em class="rfc2119">MAY</em> periodically
+generate new IDs.</span> Using fixed IDs makes it exceptionally
+easy to track devices. This problem also occurs in DHCP with MAC
+address and there is a similar partial mitigation: generate new
+random IDs periodically. There are however, a few issues. First of
+all, other identification information in the TD needs to be hidden.
+For example, client IDs issued by CSPs for API security should be
+omitted from TDs if they cannot be easily changed. Second, if the
+device generates a new ID, the user may still need to know the
+current ID to find the device via discovery. This can be
+accomplished however by generating new IDs using a deterministic
+cryptographic generator that is a function of the current time.
+However, note that regenerating IDs alone does not make tracking
+impossible since a TD might be fingerprinted. Also, updating an ID
+might be observable to the owner of the directory service, who
+could track and record the updated ID. Even if the TD is deleted
+and reinserted the association could be inferred. This is however
+exactly parallel to the situation with DHCP and rotation of MAC
+addresses. In general, however, generating new IDs at least for
+each service or person to which a TD is supplied makes it harder to
+connect registration events at different locations and times. It is
+also prudent to generate new identifiers upon major changes in
+configuration, such as unregistering from a local network or hub
+and registering with a new one (which typically indicates a change
+in ownership). There is a related issue with long-lived IP
+addresses which might need to be updated periodically to mitigate
+tracking. In the context of ipv6 [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-rfc8981" title=
 "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6">RFC8981</a></cite>]
-discusses this.</li>
+discusses this. Finally, there is a problem with devices that
+require immutable identifiers, e.g. medical devices in such
+jurisdictions. This is discussed in [<cite><a class="bibref"
+data-link-type="biblio" href="#bib-wot-thing-description11" title=
+"Web of Things (WoT) Thing Description 1.1">wot-thing-description11</a></cite>],
+but in summary the problem can be avoided if such immutable
+identifiers are made available only as protected properties, e.g.
+via affordances requiring authentication, not in the TD, and the TD
+identifier itself (if used) is independent of the immutable
+identifier, and so can be made mutable.</li>
 <li><span class="rfc2119-assertion" id=
 "priv-loc-priv-dir-access">To reduce the risk of negative location
 inferencing, access to private directories <em class=
@@ -5752,7 +5674,7 @@ sub-registry of the Constrained Restful Environments (CoRE)
 Parameters registry defined in [<cite><a class="bibref"
 data-link-type="biblio" href="#bib-rfc6690" title=
 "Constrained RESTful Environments (CoRE) Link Format">RFC6690</a></cite>].</p>
-<table>
+<table class="def">
 <thead>
 <tr>
 <th>Value</th>
@@ -5774,7 +5696,7 @@ Directory</a></td>
 <td>Directory Description of a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-26">Thing Description
+"ref-for-dfn-wot-thing-description-directory-25">Thing Description
 Directory</a></td>
 <td><a href="#introduction-core-rd-sec" data-matched-text=
 "[[[#introduction-core-rd-sec]]]" class="sec-ref"><bdi class=
@@ -5791,16 +5713,51 @@ Directory</a></td>
 Recent Specification Changes</h2>
 <a class="self-link" href="#changes" aria-label=
 "Permalink for Appendix A."></a></div>
-<section id="changes-from-first-draft-0">
+<section id="changes-from-2-june-2021-working-draft">
 <div class="header-wrapper">
-<h3 id="changes-from-first-draft"><bdi class="secno">A.1</bdi>
-Changes from First Draft</h3>
-<a class="self-link" href="#changes-from-first-draft" aria-label=
+<h3 id="changes-from-second-draft"><bdi class="secno">A.1</bdi>
+Changes from 2 June 2021 Working Draft</h3>
+<a class="self-link" href="#changes-from-second-draft" aria-label=
 "Permalink for Appendix A.1"></a></div>
 <ul>
+<li>Use <code>wot</code> for well-known URI service name.</li>
+<li>Refer to TD and Architecture specs for general constraints on
+secure transport.</li>
+<li>Define requirements for CoAP-based TD Servers.</li>
+<li>Introduction of TD Server exploration, with self-description as
+a special case.</li>
+<li>Elaboration of class diagram to clarify that not all
+Directories need to be self-describing.</li>
+<li>Clarify and consolidate error codes and ontology.</li>
+<li>Add assertions for UTF-8 supporting internationalization.</li>
+<li>Update overview figure showing introduction and exploration
+mechanisms.</li>
+<li>Add Discoverer section defining requirements for discovery
+clients.</li>
+<li>Use Thing Model instead of a Thing Description example for
+Directory API.</li>
+<li>Refactor Directory Service API (td-&gt;thing, split anonymous
+create action, retrieve one and search as actions, listing as
+things property, split events)</li>
 <li>Add amplification DDOS security consideration.</li>
 <li>Split Security and Privacy Considerations into separate
 sections.</li>
+<li>Define status of search mechanisms: JSON Path, XPath, and
+SPARQL.</li>
+<li>Pagination as array and pagination as collection.</li>
+<li>Updates to events API.</li>
+<li>TD expiry management.</li>
+<li>HEAD method support.</li>
+</ul>
+</section>
+<section id=
+"changes-from-24-november-2020-first-public-working-draft">
+<div class="header-wrapper">
+<h3 id="changes-from-first-draft"><bdi class="secno">A.2</bdi>
+Changes from 24 November 2020 First Public Working Draft</h3>
+<a class="self-link" href="#changes-from-first-draft" aria-label=
+"Permalink for Appendix A.2"></a></div>
+<ul>
 <li>Update name of directory service to "Thing Description
 Directory" with acronym TDD, to avoid confusion with the acronym TD
 used for Thing Descriptions.</li>
@@ -5891,6 +5848,12 @@ Recommendation. URL: <a href=
 Events</cite></a>. Ian Hickson. W3C. 28 January 2021. W3C
 Recommendation. URL: <a href=
 "https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a></dd>
+<dt id="bib-gdpr-defs">[GDPR-Defs]</dt>
+<dd><a href="https://gdpr-info.eu/art-4-gdpr/"><cite>General Data
+Protection Regulation (GDPR) Article 4 - Definitions</cite></a>.
+European Union (EU) and the European Economic Area (EEA). URL:
+<a href=
+"https://gdpr-info.eu/art-4-gdpr/">https://gdpr-info.eu/art-4-gdpr/</a></dd>
 <dt id="bib-json-ld11">[JSON-LD11]</dt>
 <dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD
 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave
@@ -6423,9 +6386,6 @@ Model</a></li>
 title="§ 7.3.1.1 Registration Information">§ 7.3.1.1 Registration
 Information</a></li>
 <li><a href="#ref-for-dfn-wot-thing-description-directory-25"
-title="§ 7.3.2.3.1 Syntactic search: JSONPath">§ 7.3.2.3.1
-Syntactic search: JSONPath</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-26"
 title="§ 11.3 CoRE Resource Types Registration">§ 11.3 CoRE
 Resource Types Registration</a></li>
 </ul>

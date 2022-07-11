@@ -43,7 +43,7 @@
         }, {
             name : "Farshid Tavakolizadeh",
             w3cid : "122520",
-            company : "Fraunhofer-Gesellschaft",
+            company : "formerly Fraunhofer-Gesellschaft, currently Invited Expert",
             companyURL : "https://www.fraunhofer.de/"
         }, {
             name : "Kunihiko Toumura",
@@ -1157,9 +1157,11 @@ img.wot-diagram {
 
             <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
+<!-- Done?
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
+-->
 
                 As shown in [[[#exploration-class-diagram]]], 
                 the <a>Thing Description Directory</a> can contain zero or more <a>TDs</a>.
@@ -1356,11 +1358,13 @@ img.wot-diagram {
                         set in the HTTP request [[RFC7231]].</span>
                 </p>
 
+<!-- Deferred
                 <p class="issue" data-number="150">
                     There are currently no WoT-specific error classes. In the meantime,
                     the Problem Details error responses may omit the `type` field which defaults
                     to "about:blank" and set `title` to the HTTP status text.
                 </p>
+-->
 
                 <p>
                     The APIs set the HTTP status codes as defined in 
@@ -1576,9 +1580,6 @@ img.wot-diagram {
                             as described in [[[#exploration-directory-registration-expiry]]].
                             In particular, if `ttl` (relative expiry) is given during the creation,
                             such servers will calculate and store the `expires` value.
-                        </p>
-                      
-                        <p class="issue" data-number="48">
                         </p>
                     </section>
 
@@ -2087,10 +2088,12 @@ img.wot-diagram {
                                     ]
                                 }                      
                             </pre>
+<!-- Deferred
                             <p class="issue" data-number="150">
                                 This example skips the `type` field 
                                 due to the current lack of WoT-specific error types.
                             </p>
+-->
                         </aside>
                         
                         
@@ -2165,10 +2168,11 @@ img.wot-diagram {
                                 get multiplexed on a single connection.
                             </p>
 
-
+<!-- Defer
                             <div class="issue" data-number="176">
                                 Event filtering based on the payload is work in progress. 
                             </div>
+-->
                         </dd>
                         <dt>Event Data</dt>
                         <dd>
@@ -2323,6 +2327,7 @@ img.wot-diagram {
 
                     <section id="jsonpath-semantic" class="informative">
                         <h4>Syntactic search: JSONPath</h4>
+<!-- Defer
                         <div class="issue" data-number="234">
                             The standardization of JSONPath expressions is in progress by an independent working group.
                             This section remains non-normative until the release of final
@@ -2331,6 +2336,7 @@ img.wot-diagram {
                             as unstable and expect deviations across
                             <a>Thing Description Directory</a> implementations.
                         </div>
+-->
                         Support for JSONPath Search API is optional.
                         If implemented, the JSONPath API must allow searching TDs using an HTTP <code>GET</code> request
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
@@ -2405,10 +2411,12 @@ img.wot-diagram {
                         <div data-include='directory.tm.json'></div>
                     </pre>
 
+<!-- Defer
                     <p class="issue" data-number="82">
                         Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
                         If yes, a sentence may be added indicating this possibility.
                     </p>
+-->
                     <p class="ednote" title="Context URIs">
                         The context URIs are tentative and subject to change. 
                     </p>
@@ -2940,7 +2948,7 @@ a change in ownership).
                 Link Target Attribute Values sub-registry of the Constrained Restful Environments (CoRE)
                 Parameters registry defined in [[RFC6690]].
             </p>
-            <table>
+            <table class="def">
                 <thead>
                     <tr>
                         <th>Value</th>

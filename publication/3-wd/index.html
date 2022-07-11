@@ -47,7 +47,7 @@
         }, {
             name : "Farshid Tavakolizadeh",
             w3cid : "122520",
-            company : "Fraunhofer-Gesellschaft",
+            company : "formerly Fraunhofer-Gesellschaft, currently Invited Expert",
             companyURL : "https://www.fraunhofer.de/"
         }, {
             name : "Kunihiko Toumura",
@@ -64,6 +64,11 @@
                     } ]
                 }],
         localBiblio : {
+            "GDPR-Defs" : {
+                  title: "General Data Protection Regulation (GDPR) Article 4 - Definitions"
+                , href: "https://gdpr-info.eu/art-4-gdpr/"
+                , publisher: "European Union (EU) and the European Economic Area (EEA)"
+            },
             "OWASP-Top-10" : {
                   title: "OWASP Top Ten"
                 , href: "https://owasp.org/www-project-top-ten/"
@@ -1107,7 +1112,8 @@ img.wot-diagram {
                     <span class="rfc2119-assertion" id="exploration-server-coap-resp">
                         A successful response from a CoAP-based TD Server providing a <a>TD</a>
                         MUST have a 2.05 (Content) status, contain a Content-Format option
-                        with value 432 (`application/td+json`), and the <a>TD</a> in the payload.</span>
+                        with value 50 (`application/json`) or 432 (`application/td+json`), 
+                        and the <a>TD</a> in the payload.</span>
                     Note that the payload might be split over multiple message exchanges using
                     block-wise transfer [[RFC7959]].
                     <span class="rfc2119-assertion" id="exploration-server-coap-alternate-content">
@@ -1157,9 +1163,11 @@ img.wot-diagram {
 
             <section id="exploration-directory-info" class="normative">
                 <h3>Information Model</h3>
+<!-- Done?
                 <p class="ednote" title="Directory Information Model">
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
+-->
 
                 As shown in [[[#exploration-class-diagram]]], 
                 the <a>Thing Description Directory</a> can contain zero or more <a>TDs</a>.
@@ -1356,11 +1364,13 @@ img.wot-diagram {
                         set in the HTTP request [[RFC7231]].</span>
                 </p>
 
+<!-- Deferred
                 <p class="issue" data-number="150">
                     There are currently no WoT-specific error classes. In the meantime,
                     the Problem Details error responses may omit the `type` field which defaults
                     to "about:blank" and set `title` to the HTTP status text.
                 </p>
+-->
 
                 <p>
                     The APIs set the HTTP status codes as defined in 
@@ -1576,9 +1586,6 @@ img.wot-diagram {
                             as described in [[[#exploration-directory-registration-expiry]]].
                             In particular, if `ttl` (relative expiry) is given during the creation,
                             such servers will calculate and store the `expires` value.
-                        </p>
-                      
-                        <p class="issue" data-number="48">
                         </p>
                     </section>
 
@@ -2089,10 +2096,12 @@ img.wot-diagram {
                                     ]
                                 }                      
                             </pre>
+<!-- Deferred
                             <p class="issue" data-number="150">
                                 This example skips the `type` field 
                                 due to the current lack of WoT-specific error types.
                             </p>
+-->
                         </aside>
                         
                         
@@ -2170,9 +2179,11 @@ img.wot-diagram {
                             </p>
 
 
+<!-- Defer
                             <div class="issue" data-number="176">
                                 Event filtering based on the payload is work in progress. 
                             </div>
+-->
                         </dd>
                         <dt>Event Data</dt>
                         <dd><p>
@@ -2329,6 +2340,7 @@ img.wot-diagram {
 
                     <section id="jsonpath-semantic" class="informative">
                         <h4>Syntactic search: JSONPath</h4>
+<!-- Defer
                         <div class="issue" data-number="234">
                             The standardization of JSONPath expressions is in progress by an independent working group.
                             This section remains non-normative until the release of final
@@ -2337,6 +2349,7 @@ img.wot-diagram {
                             as unstable and expect deviations across
                             <a>Thing Description Directory</a> implementations.
                         </div>
+-->
                         Support for JSONPath Search API is optional.
                         If implemented, the JSONPath API must allow searching TDs using an HTTP <code>GET</code> request
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
@@ -2892,10 +2905,12 @@ img.wot-diagram {
 -->
                     </pre>
 
+<!-- Defer
                     <p class="issue" data-number="82">
                         Need to confirm if equivalent OpenAPI spec can be easily created out of the TM.
                         If yes, a sentence may be added indicating this possibility.
                     </p>
+-->
                     <p class="ednote" title="Context URIs">
                         The context URIs are tentative and subject to change. 
                     </p>
@@ -3181,11 +3196,17 @@ img.wot-diagram {
             be captured and would have to be managed appropriately.
         </p>
         <p>
-            With these categories established, we will now discuss some specific
+            In the following we make frequent reference to "tracking".  This term covers
+            multiple privacy risks, including location tracking and behavioral profiling.
+            In general, the definition of "profiling" given in Article 4 of the 
+            GDPR [[GDPR-Defs]] is to be considered equivalent to "tracking" as used in this document.
+        </p>
+        <p>
+            With these definitions and categories established, we will now discuss some specific
             privacy risks and potential mitigations.
         </p>
         <section id="privacy-consideration-location-tracking">
-            <h2>Location Tracking</h2>
+            <h2>Location Tracking and Profiling</h2>
             <p>
                 A discovery service may potentially allow the approximate location of a person to be determined without
                 their consent.  This risk occurs in some specific circumstances which can be avoided or
@@ -3213,6 +3234,16 @@ img.wot-diagram {
                     home.</li>
                 </ul>
             <p>
+            Location tracking is not the only profiling risk.
+            In general, "profiling" includes any mechanism used to evaluate
+            information about a person, including economic status, health,
+            preferences, interests, reliability, and behavior.
+            Some of the metadata in a TD can be used to infer information
+            of this kind if the described Thing can be associated with a person.
+            Some of the mitigations below are also applicable to this more
+            general definition of profiling.
+            </p>
+            <p>
                 Some of these risks are shared by similar services.  For example, DCHP automatically responds to 
                 requests for IP addresses on a local network, and devices typically provide an identifier (a MAC
                 address) as part of this process, and the DHCP server maintains a registry. In theory, someone with
@@ -3222,13 +3253,12 @@ img.wot-diagram {
             <dl>
                 <dt>Mitigations:</dt>
                 <dd>
-                <p>
-                There are a few options to mitigate this risk:
-                </p>
+                There are a few options to mitigate these risks:
                 <ul>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-disable-public-directories">
-		To avoid location tracking, a WoT Thing MAY 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person MAY 
 		disable registration with public directories.</span>
 		Registration would still be possible with 
                 personal directories, for example, a home gateway, but a user could disable registration at other
@@ -3238,8 +3268,9 @@ img.wot-diagram {
                 access control limiting use to authorized users.</li>
 		<li>
 	        <span class="rfc2119-assertion" id="priv-loc-anonymous-tds">
-		To avoid location tracking, a WoT Thing MAY 
-		use Anonymous TDs.</span>
+		To avoid location tracking and other forms of profiling,
+    a WoT Thing associated with a person SHOULD use anonymous TDs
+    when registering with a public directories.</span>
 		In some cases, it may be possible to use
 		anonymous TDs and omit explicit IDs from TDs submitted to
 		a TDD.  In this case the TDD will generate a local ID valid
@@ -3250,7 +3281,8 @@ img.wot-diagram {
 		</li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-gen-ids">
-		To avoid location tracking, a WoT Thing MAY 
+		To avoid location tracking and other forms of profiling, 
+    a WoT Thing associated with a person MAY 
 		periodically generate new IDs.</span>
 		Using fixed IDs makes it exceptionally easy to track devices.  This problem
                 also occurs in DHCP with MAC address and there is a similar partial mitigation: 
@@ -3266,8 +3298,18 @@ img.wot-diagram {
                 inferred.  This is however exactly parallel to the situation with DHCP and rotation of MAC addresses.
                 In general, however, generating new IDs at least for each service or person to which a TD is supplied
                 makes it harder to connect registration events at different locations and times.
+It is also prudent to generate new identifiers upon major changes in configuration,
+such as unregistering from a local network or hub and registering with a new one (which typically indicates
+a change in ownership).
 	        There is a related issue with long-lived IP addresses which might need to be updated periodically
 		to mitigate tracking.  In the context of ipv6 [[RFC8981]] discusses this.
+          Finally, there is a problem with devices that require immutable identifiers,
+          e.g. medical devices in such jurisdictions.  
+          This is discussed in [[wot-thing-description11]], but in summary the
+          problem can be avoided if such immutable identifiers are made available
+          only as protected properties, e.g. via affordances requiring authentication,
+          not in the TD, and the TD identifier itself (if used) is
+          independent of the immutable identifier, and so can be made mutable.
                 </li>
                 <li>
 	        <span class="rfc2119-assertion" id="priv-loc-priv-dir-access">
@@ -3400,7 +3442,7 @@ img.wot-diagram {
                 Link Target Attribute Values sub-registry of the Constrained Restful Environments (CoRE)
                 Parameters registry defined in [[RFC6690]].
             </p>
-            <table>
+            <table class="def">
                 <thead>
                     <tr>
                         <th>Value</th>
@@ -3424,13 +3466,32 @@ img.wot-diagram {
 
         </section>
     </section>
-    
+
     <section id="changes" class="appendix">
       <h1>Recent Specification Changes</h1>
-      <h2 id="changes-from-first-draft">Changes from First Draft</h2>
+      <h2 id="changes-from-second-draft">Changes from 2 June 2021 Working Draft</h2>
       <ul>
+      <li>Use <code>wot</code> for well-known URI service name.</li>
+      <li>Refer to TD and Architecture specs for general constraints on secure transport.</li>
+      <li>Define requirements for CoAP-based TD Servers.</li>
+      <li>Introduction of TD Server exploration, with self-description as a special case.</li>
+      <li>Elaboration of class diagram to clarify that not all Directories need to be self-describing.</li>
+      <li>Clarify and consolidate error codes and ontology.</li>
+      <li>Add assertions for UTF-8 supporting internationalization.</li>
+      <li>Update overview figure showing introduction and exploration mechanisms.</li>
+      <li>Add Discoverer section defining requirements for discovery clients.</li>
+      <li>Use Thing Model instead of a Thing Description example for Directory API.</li>
+      <li>Refactor Directory Service API (td->thing, split anonymous create action, retrieve one and search as actions, listing as things property, split events)</li>
       <li>Add amplification DDOS security consideration.</li>
       <li>Split Security and Privacy Considerations into separate sections.</li>
+      <li>Define status of search mechanisms: JSON Path, XPath, and SPARQL.</li>
+      <li>Pagination as array and pagination as collection.</li> 
+      <li>Updates to events API.</li>
+      <li>TD expiry management.</li>
+      <li>HEAD method support.</li>
+      </ul>
+      <h2 id="changes-from-first-draft">Changes from 24 November 2020 First Public Working Draft</h2>
+      <ul>
       <li>Update name of directory service to "Thing Description Directory" with acronym TDD, 
       to avoid confusion with the acronym TD used for Thing Descriptions.
       </li>
@@ -3479,7 +3540,6 @@ img.wot-diagram {
       </li>
       </ul>
     </section>
-
     <section id="acknowledgements" class="appendix normative">
         <h1>Acknowledgments</h1>
 <!--
