@@ -80,6 +80,7 @@
 "tdd-search-sparql-resp-describe-construct","null",
 "tdd-search-sparql-version","null",
 "tdd-things-create-known-contenttype","null",
+"tdd-things-update-contenttype","null",
 "tdd-things-list-pagination","null",
 "tdd-things-list-pagination-collection","null",
 "tdd-things-list-pagination-header-canonicallink","null",
