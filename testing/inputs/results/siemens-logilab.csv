@@ -1,4 +1,43 @@
-"ID","Status","Comment"
+ID,Status,Comment
+tdd-anonymous-td-identifier,pass,passed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id
+tdd-anonymous-td-local-uuid,pass,passed:TestCreateAnonymousThing/location_header
+tdd-http-error-response,pass,passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response
+tdd-http-head,pass,passed:TestSPARQL/HEAD passed:TestRetrieveThing/HEAD passed:TestListThings/HEAD
+tdd-notification-data-diff-unsupported,fail,failed:TestCreateEvent/create_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestUpdateEvent/update_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestDeleteEvent/delete_event_with_diff_subscriber/event_subscription_diff_unsupported
+tdd-notification-sse,fail,failed:TestCreateEvent/create_event_subscriber/event_subscription_errors failed:TestCreateEvent/all_event_subscriber/event_subscription_errors failed:TestUpdateEvent/update_event_subscriber/event_subscription_errors failed:TestUpdateEvent/all_event_subscriber/event_subscription_errors failed:TestDeleteEvent/delete_event_subscriber/event_subscription_errors failed:TestDeleteEvent/all_event_subscriber/event_subscription_errors
+tdd-registrationinfo-vocab-created,pass,passed:TestRetrieveThing/registrationInfo_created passed:TestListThings/registrationInfo_created
+tdd-registrationinfo-vocab-modified,pass,passed:TestRetrieveThing/registrationInfo_modified passed:TestListThings/registrationInfo_modified
+tdd-search-sparql,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-federation,pass,passed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-get,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/federated_search_using_GET
+tdd-search-sparql-method-post,pass,passed:TestSPARQL/search_using_POST
+tdd-search-sparql-resp-select-ask,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET
+tdd-things-create-anonymous-contenttype,pass,passed:TestCreateAnonymousThing/submit_request
+tdd-things-create-anonymous-td,pass,passed:TestCreateAnonymousThing/submit_request
+tdd-things-create-anonymous-td-resp,pass,passed:TestCreateAnonymousThing/status_code passed:TestCreateAnonymousThing/location_header
+tdd-things-create-known-td,pass,passed:TestCreateThing/request
+tdd-things-create-known-td-resp,pass,passed:TestCreateThing/status_code
+tdd-things-create-known-vs-anonymous,pass,passed:TestCreateAnonymousThing/reject_PUT
+tdd-things-crud,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/submit_request
+tdd-things-crudl,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/submit_request passed:TestListThings/submit_request
+tdd-things-default-representation,pass,passed:TestRetrieveThing/content_type passed:TestListThings/content_type
+tdd-things-delete,pass,passed:TestDelete/submit_request
+tdd-things-delete-resp,pass,passed:TestDelete/status_code
+tdd-things-list-method,pass,passed:TestListThings/submit_request passed:TestListThings/status_code
+tdd-things-list-only,pass,passed:TestListThings/submit_request
+tdd-things-list-resp,pass,passed:TestListThings/content_type passed:TestListThings/payload
+tdd-things-retrieve,pass,passed:TestRetrieveThing/submit_request passed:TestRetrieveThing/payload
+tdd-things-retrieve-resp,pass,passed:TestRetrieveThing/status_code passed:TestRetrieveThing/content_type
+tdd-things-update,pass,passed:TestUpdateThing/submit_request passed:TestUpdateThing/payload
+tdd-things-update-partial,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/replace_title/result passed:TestPatch/remove_description/submit_request passed:TestPatch/remove_description/result passed:TestPatch/update_properties/submit_request passed:TestPatch/update_properties/result passed:TestPatch/replace_array/submit_request passed:TestPatch/replace_array/result
+tdd-things-update-partial-contenttype,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
+tdd-things-update-partial-mergepatch,pass,passed:TestPatch/replace_title/result passed:TestPatch/remove_description/result passed:TestPatch/update_properties/result passed:TestPatch/replace_array/result
+tdd-things-update-partial-partialtd,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
+tdd-things-update-partial-resp,pass,passed:TestPatch/replace_title/status_code passed:TestPatch/remove_description/status_code passed:TestPatch/update_properties/status_code passed:TestPatch/replace_array/status_code
+tdd-things-update-resp,pass,passed:TestUpdateThing/status_code
+tdd-validation-response,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
+tdd-validation-result,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
+tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status
 "discoverer-any-order","not-impl","not implemented"
 "discoverer-fetch-iteration","not-impl","not implemented"
 "discoverer-fetch-links","not-impl","not implemented"
@@ -10,7 +49,7 @@
 "discoverer-td-identify","not-impl","not implemented"
 "discoverer-termination","not-impl","not implemented"
 "discoverer-track","not-impl","not implemented"
-"exploration-directory-description-type","not-impl","not implemented"
+"exploration-directory-description-type","pass",
 "exploration-link-description-link","not-impl","not implemented"
 "exploration-link-description-type","not-impl","not implemented"
 "exploration-secboot-401","not-impl","not implemented"
@@ -90,52 +129,3 @@
 "tdd-things-list-pagination-order-unsupported","pass",
 "tdd-things-read-only-auth","not-impl","not implemented"
 "tdd-validation-jsonschema","pass",
-"tdd-anonymous-td-identifier","fail","failed:TestJSONPath/filter_anonymous failed:TestXPath/filter_anonymous passed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id"
-"tdd-anonymous-td-local-uuid","pass","passed:TestCreateAnonymousThing/location_header"
-"tdd-http-error-response","pass","passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response"
-"tdd-http-head","pass","passed:TestSPARQL/HEAD passed:TestRetrieveThing/HEAD passed:TestListThings/HEAD"
-"tdd-notification-data-diff-unsupported","fail","failed:TestCreateEvent/create_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestUpdateEvent/update_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestDeleteEvent/delete_event_with_diff_subscriber/event_subscription_diff_unsupported"
-"tdd-notification-sse","fail","failed:TestCreateEvent/create_event_subscriber/event_subscription_errors failed:TestCreateEvent/all_event_subscriber/event_subscription_errors failed:TestUpdateEvent/update_event_subscriber/event_subscription_errors failed:TestUpdateEvent/all_event_subscriber/event_subscription_errors failed:TestDeleteEvent/delete_event_subscriber/event_subscription_errors failed:TestDeleteEvent/all_event_subscriber/event_subscription_errors"
-"tdd-registrationinfo-vocab-created","pass","passed:TestRetrieveThing/registration_info/created passed:TestListThings/registration_info/created"
-"tdd-registrationinfo-vocab-modified","pass","passed:TestRetrieveThing/registration_info/modified passed:TestListThings/registration_info/modified"
-"tdd-search-jsonpath","pass","passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request"
-"tdd-search-jsonpath-method","pass","passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request"
-"tdd-search-jsonpath-parameter","pass","passed:TestJSONPath/filter/submit_request passed:TestJSONPath/reject_bad_query/submit_request"
-"tdd-search-jsonpath-response","fail","failed:TestJSONPath/filter/status_code failed:TestJSONPath/filter/content_type failed:TestJSONPath/filter/payload failed:TestJSONPath/reject_bad_query/status_code"
-"tdd-search-sparql","pass","passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET"
-"tdd-search-sparql-federation","pass","passed:TestSPARQL/federated_search_using_GET"
-"tdd-search-sparql-method-get","pass","passed:TestSPARQL/search_using_GET passed:TestSPARQL/federated_search_using_GET"
-"tdd-search-sparql-method-post","pass","passed:TestSPARQL/search_using_POST"
-"tdd-search-sparql-resp-select-ask","pass","passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET"
-"tdd-search-xpath","pass","passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request"
-"tdd-search-xpath-method","pass","passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request"
-"tdd-search-xpath-parameter","pass","passed:TestXPath/filter/submit_request passed:TestXPath/reject_bad_query/submit_request"
-"tdd-search-xpath-response","fail","failed:TestXPath/filter/status_code failed:TestXPath/filter/content_type failed:TestXPath/filter/payload failed:TestXPath/reject_bad_query/status_code"
-"tdd-things-create-anonymous-contenttype","pass","passed:TestCreateAnonymousThing/submit_request"
-"tdd-things-create-anonymous-td","pass","passed:TestCreateAnonymousThing/submit_request passed:TestCreateAnonymousThing/result"
-"tdd-things-create-anonymous-td-resp","pass","passed:TestCreateAnonymousThing/status_code passed:TestCreateAnonymousThing/location_header"
-"tdd-things-create-known-contenttype","pass","passed:TestCreateThing/submit_request"
-"tdd-things-create-known-td","pass","passed:TestCreateThing/submit_request passed:TestCreateThing/result"
-"tdd-things-create-known-td-resp","pass","passed:TestCreateThing/status_code"
-"tdd-things-create-known-vs-anonymous","pass","passed:TestCreateAnonymousThing/reject_PUT"
-"tdd-things-crud","pass","passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/existing/submit_request"
-"tdd-things-crudl","pass","passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/existing/submit_request passed:TestListThings/submit_request"
-"tdd-things-default-representation","pass","passed:TestRetrieveThing/content_type passed:TestListThings/content_type"
-"tdd-things-delete","pass","passed:TestDelete/existing/submit_request passed:TestDelete/existing/result passed:TestDelete/non-existing/submit_request"
-"tdd-things-delete-resp","pass","passed:TestDelete/existing/status_code passed:TestDelete/non-existing/status_code"
-"tdd-things-list-method","pass","passed:TestListThings/submit_request passed:TestListThings/status_code"
-"tdd-things-list-only","pass","passed:TestListThings/submit_request"
-"tdd-things-list-resp","pass","passed:TestListThings/content_type passed:TestListThings/payload passed:TestListThings/registration_info"
-"tdd-things-retrieve","pass","passed:TestRetrieveThing/submit_request passed:TestRetrieveThing/result"
-"tdd-things-retrieve-resp","pass","passed:TestRetrieveThing/status_code passed:TestRetrieveThing/content_type"
-"tdd-things-update","pass","passed:TestUpdateThing/submit_request passed:TestUpdateThing/result"
-"tdd-things-update-contenttype","pass","passed:TestUpdateThing/submit_request passed:TestUpdateThing/result"
-"tdd-things-update-partial","pass","passed:TestPatch/replace_title/submit_request passed:TestPatch/replace_title/result passed:TestPatch/remove_description/submit_request passed:TestPatch/remove_description/result passed:TestPatch/update_properties/submit_request passed:TestPatch/update_properties/result passed:TestPatch/replace_array/submit_request passed:TestPatch/replace_array/result"
-"tdd-things-update-partial-contenttype","pass","passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request"
-"tdd-things-update-partial-mergepatch","pass","passed:TestPatch/replace_title/result passed:TestPatch/remove_description/result passed:TestPatch/update_properties/result passed:TestPatch/replace_array/result"
-"tdd-things-update-partial-partialtd","pass","passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request"
-"tdd-things-update-partial-resp","pass","passed:TestPatch/replace_title/status_code passed:TestPatch/remove_description/status_code passed:TestPatch/update_properties/status_code passed:TestPatch/replace_array/status_code"
-"tdd-things-update-resp","pass","passed:TestUpdateThing/status_code"
-"tdd-validation-response","pass","passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation"
-"tdd-validation-result","pass","passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation"
-"tdd-validation-syntactic","pass","passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status"
