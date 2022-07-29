@@ -25,9 +25,6 @@
 #discoverer-track {
   background-color: yellow;
 }
-#exploration-directory-description-type {
-  background-color: yellow;
-}
 #exploration-link-description-link {
   background-color: yellow;
 }
@@ -59,15 +56,6 @@
   background-color: yellow;
 }
 #exploration-server-http-alternate-language {
-  background-color: yellow;
-}
-#exploration-server-http-head {
-  background-color: yellow;
-}
-#exploration-server-http-method {
-  background-color: yellow;
-}
-#exploration-server-http-resp {
   background-color: yellow;
 }
 #exploration-server-http-resp-content-type {
@@ -151,46 +139,10 @@
 #tdd-http-error-response-lang {
   background-color: yellow;
 }
-#tdd-http-error-response-utf-8 {
-  background-color: yellow;
-}
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
-#tdd-notification {
-  background-color: yellow;
-}
-#tdd-notification-data {
-  background-color: yellow;
-}
-#tdd-notification-data-create-full {
-  background-color: yellow;
-}
-#tdd-notification-data-delete-diff {
-  background-color: yellow;
-}
 #tdd-notification-data-diff-unsupported {
-  background-color: yellow;
-}
-#tdd-notification-data-td-id {
-  background-color: yellow;
-}
-#tdd-notification-data-update-diff {
-  background-color: yellow;
-}
-#tdd-notification-data-update-id {
-  background-color: yellow;
-}
-#tdd-notification-event-id {
-  background-color: yellow;
-}
-#tdd-notification-event-types {
-  background-color: yellow;
-}
-#tdd-notification-filter-type {
-  background-color: yellow;
-}
-#tdd-notification-sse {
   background-color: yellow;
 }
 #tdd-things-list-pagination-collection {
@@ -208,21 +160,9 @@
 #tdd-things-list-pagination-orderable {
   background-color: yellow;
 }
-#tdd-things-list-resp-content-type {
-  background-color: yellow;
-}
-#tdd-things-read-only-auth {
-  background-color: yellow;
-}
 #tdd-things-representation-alternate-input {
   background-color: yellow;
 }
-#tdd-things-retrieve-resp-content-type {
-  background-color: yellow;
-}
 #tdd-validation-response-lang {
-  background-color: yellow;
-}
-#tdd-validation-response-utf-8 {
   background-color: yellow;
 }
