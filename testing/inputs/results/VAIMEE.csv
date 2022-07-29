@@ -1,8 +1,8 @@
 ID,Status,Comment
-tdd-anonymous-td-identifier,pass,passed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id
+tdd-anonymous-td-identifier,fail,failed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id
 tdd-anonymous-td-local-uuid,pass,passed:TestCreateAnonymousThing/location_header
-tdd-http-error-response,pass,passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response
-tdd-http-head,fail,failed:TestSPARQL/HEAD failed:TestRetrieveThing/HEAD failed:TestListThings/HEAD
+tdd-http-error-response,fail,failed:TestCreateAnonymousThing/reject_invalid/response failed:TestCreateThing/reject_invalid/response failed:TestUpdateThing/reject_invalid/response failed:TestPatch/reject_invalid/response
+tdd-http-head,fail,failed:TestSPARQL/HEAD passed:TestRetrieveThing/HEAD passed:TestListThings/HEAD
 tdd-notification,pass,passed:TestCreateEvent/create_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_subscriber/get_event_ID passed:TestDeleteEvent/delete_event_subscriber/get_event_ID
 tdd-notification-data,pass,passed:TestCreateEvent/create_event_subscriber/check_event_data passed:TestCreateEvent/create_event_with_diff_subscriber/check_event_data passed:TestCreateEvent/all_event_subscriber/check_event_data passed:TestUpdateEvent/update_event_subscriber/check_event_data passed:TestUpdateEvent/update_event_with_diff_subscriber/check_event_data passed:TestUpdateEvent/all_event_subscriber/check_event_data passed:TestDeleteEvent/delete_event_subscriber/check_event_data passed:TestDeleteEvent/delete_event_with_diff_subscriber/check_event_data passed:TestDeleteEvent/all_event_subscriber/check_event_data
 tdd-notification-data-create-full,pass,passed:TestCreateEvent/create_event_with_diff_subscriber/check_event_data_create_full
@@ -14,8 +14,8 @@ tdd-notification-event-id,pass,passed:TestCreateEvent/create_event_subscriber/ge
 tdd-notification-event-types,pass,passed:TestCreateEvent/create_event_subscriber/get_event_type passed:TestCreateEvent/create_event_with_diff_subscriber/get_event_type passed:TestCreateEvent/all_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_with_diff_subscriber/get_event_type passed:TestUpdateEvent/all_event_subscriber/get_event_type passed:TestDeleteEvent/delete_event_subscriber/get_event_type passed:TestDeleteEvent/delete_event_with_diff_subscriber/get_event_type passed:TestDeleteEvent/all_event_subscriber/get_event_type
 tdd-notification-filter-type,pass,passed:TestCreateEvent/create_event_subscriber/get_event_type passed:TestCreateEvent/create_event_with_diff_subscriber/get_event_type passed:TestUpdateEvent/update_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_with_diff_subscriber/get_event_type passed:TestDeleteEvent/delete_event_subscriber/get_event_type passed:TestDeleteEvent/delete_event_with_diff_subscriber/get_event_type
 tdd-notification-sse,pass,passed:TestCreateEvent/create_event_subscriber/get_event_ID passed:TestCreateEvent/create_event_subscriber/get_event_type passed:TestCreateEvent/create_event_with_diff_subscriber/get_event_ID passed:TestCreateEvent/create_event_with_diff_subscriber/get_event_type passed:TestCreateEvent/all_event_subscriber/get_event_ID passed:TestCreateEvent/all_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_subscriber/get_event_ID passed:TestUpdateEvent/update_event_subscriber/get_event_type passed:TestUpdateEvent/update_event_with_diff_subscriber/get_event_ID passed:TestUpdateEvent/update_event_with_diff_subscriber/get_event_type passed:TestUpdateEvent/all_event_subscriber/get_event_ID passed:TestUpdateEvent/all_event_subscriber/get_event_type passed:TestDeleteEvent/delete_event_subscriber/get_event_ID passed:TestDeleteEvent/delete_event_subscriber/get_event_type passed:TestDeleteEvent/delete_event_with_diff_subscriber/get_event_ID passed:TestDeleteEvent/delete_event_with_diff_subscriber/get_event_type passed:TestDeleteEvent/all_event_subscriber/get_event_ID passed:TestDeleteEvent/all_event_subscriber/get_event_type
-tdd-registrationinfo-vocab-created,pass,passed:TestRetrieveThing/registrationInfo_created passed:TestListThings/registrationInfo_created
-tdd-registrationinfo-vocab-modified,pass,passed:TestRetrieveThing/registrationInfo_modified passed:TestListThings/registrationInfo_modified
+tdd-registrationinfo-vocab-created,fail,failed:TestRetrieveThing/registrationInfo_created failed:TestListThings/registrationInfo_created
+tdd-registrationinfo-vocab-modified,fail,failed:TestRetrieveThing/registrationInfo_modified failed:TestListThings/registrationInfo_modified
 tdd-search-sparql,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
 tdd-search-sparql-federation,fail,failed:TestSPARQL/federated_search_using_GET
 tdd-search-sparql-method-get,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/federated_search_using_GET
@@ -44,8 +44,8 @@ tdd-things-update-partial-mergepatch,pass,passed:TestPatch/replace_title/result 
 tdd-things-update-partial-partialtd,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
 tdd-things-update-partial-resp,pass,passed:TestPatch/replace_title/status_code passed:TestPatch/remove_description/status_code passed:TestPatch/update_properties/status_code passed:TestPatch/replace_array/status_code
 tdd-things-update-resp,pass,passed:TestUpdateThing/status_code
-tdd-validation-response,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
-tdd-validation-result,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
+tdd-validation-response,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation failed:TestUpdateThing/reject_invalid/validation failed:TestPatch/reject_invalid/validation
+tdd-validation-result,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation failed:TestUpdateThing/reject_invalid/validation failed:TestPatch/reject_invalid/validation
 tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status
 "discoverer-any-order","null",
 "discoverer-fetch-iteration","null",
@@ -58,10 +58,10 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "discoverer-td-identify","null",
 "discoverer-termination","null",
 "discoverer-track","null",
-"exploration-directory-description-type","null",
+"exploration-directory-description-type","pass",
 "exploration-link-description-link","null",
 "exploration-link-description-type","null",
-"exploration-secboot-401","null",
+"exploration-secboot-401","pass",
 "exploration-secboot-auth","null",
 "exploration-secboot-oauth2-flows","null",
 "exploration-server-coap-alternate-content","null",
@@ -70,11 +70,11 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "exploration-server-coap-size2","null",
 "exploration-server-http-alternate-content","null",
 "exploration-server-http-alternate-language","null",
-"exploration-server-http-head","null",
-"exploration-server-http-method","null",
-"exploration-server-http-resp","null",
-"exploration-server-http-resp-content-type","null",
-"exploration-server-http-resp-json","null",
+"exploration-server-http-head","pass",
+"exploration-server-http-method","pass",
+"exploration-server-http-resp","pass",
+"exploration-server-http-resp-content-type","pass",
+"exploration-server-http-resp-json","pass",
 "introduction-core-rd","null",
 "introduction-core-rd-directory","null",
 "introduction-core-rd-resource-type-directory","null",
@@ -87,10 +87,10 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "introduction-dns-sd","pass",
 "introduction-dns-sd-service-name","null",
 "introduction-dns-sd-service-name-directory","pass",
-"introduction-dns-sd-txt-record","null",
-"introduction-well-known-path","null",
-"introduction-well-known-thing-description","null",
-"introduction-well-known-uri","null",
+"introduction-dns-sd-txt-record","pass",
+"introduction-well-known-path","pass",
+"introduction-well-known-thing-description","pass",
+"introduction-well-known-uri","pass",
 "priv-loc-anonymous-tds","null",
 "priv-loc-disable-public-directories","null",
 "priv-loc-explicit-care","null",
@@ -111,17 +111,17 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "sec-tdd-query-watchdog","null",
 "sec-tdd-throttle-queries","null",
 "security-bootstrapping-endpoints","null",
-"tdd-context-injection","null",
+"tdd-context-injection","pass",
 "tdd-http-alternate-language","null",
 "tdd-http-error-response-lang","null",
 "tdd-http-error-response-utf-8","pass",
-"tdd-http-missing-api-endpoint","null",
+"tdd-http-missing-api-endpoint","pass",
 "tdd-http-representation-alternate-output","null",
 "tdd-registrationinfo-expiry-config","null",
-"tdd-registrationinfo-expiry-purge","pass",
-"tdd-registrationinfo-vocab-expires","pass",
-"tdd-registrationinfo-vocab-retrieved","null",
-"tdd-registrationinfo-vocab-ttl","pass",
+"tdd-registrationinfo-expiry-purge","null",
+"tdd-registrationinfo-vocab-expires","null",
+"tdd-registrationinfo-vocab-retrieved","pass",
+"tdd-registrationinfo-vocab-ttl","null",
 "tdd-search-large-tdds","pass",
 "tdd-search-sparql-error","null",
 "tdd-search-sparql-federation-version","null",
@@ -135,9 +135,9 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "tdd-things-list-pagination-header-nextlink","null",
 "tdd-things-list-pagination-header-nextlink-attr","null",
 "tdd-things-list-pagination-header-nextlink-base","null",
-"tdd-things-list-pagination-limit","pass",
+"tdd-things-list-pagination-limit","null",
 "tdd-things-list-pagination-order","null",
-"tdd-things-list-pagination-order-default","pass",
+"tdd-things-list-pagination-order-default","null",
 "tdd-things-list-pagination-order-nextlink","null",
 "tdd-things-list-pagination-order-unsupported","null",
 "tdd-things-list-pagination-order-utf-8","null",
