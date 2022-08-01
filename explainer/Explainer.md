@@ -359,7 +359,8 @@ mechanisms have been incorporated into many Thing implementations.
 
 ## Related Work
 Discovery in IoT has been extensively studied and there are a number of 
-existing standards.  As with WoT Thing Description, our goal was to build on
+existing standards (please see the WoT Discovery document for links).  
+As with WoT Thing Description, our goal was to build on
 these, not replace them.  However, many of the existing standards are
 specialized to particular constrained use cases, such as discovery on a LAN,
 or to IoT-specific protocols. Also, some of the existing standards have
