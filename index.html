@@ -1168,7 +1168,7 @@ img.wot-diagram {
                 To Do: Formal definition of information contained in a directory and its organization.
                 </p>
 -->
-
+                <p>
                 As shown in [[[#exploration-class-diagram]]], 
                 the <a>Thing Description Directory</a> can contain zero or more <a>TDs</a>.
                 For every TD, the directory maintains additional metadata
@@ -1178,6 +1178,15 @@ img.wot-diagram {
                 [[[#exploration-directory-anonymous-td]]].
                 A <a>TD</a> that embeds such additional metadata as part of the
                 interaction with the directory is called an <a>Enriched TD</a>.
+                </p>
+                <p>
+                <span class="rfc2119-assertion" id="tdd-absolute-time">In the Thing Description
+                Directory information model, whenever an absolute time is expressed
+                using the <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime">dateTime</a> 
+                and the (optional)
+                <a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#vp-dt-timezone">timezoneOffset</a>
+                is omitted, it MUST be interpreted as 0, that is, UTC.</span>
+                </p>
 
                 <section id="exploration-directory-registration-info" class="normative">
                     <h4>Registration Information</h4>
@@ -1207,7 +1216,7 @@ img.wot-diagram {
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-created">
                                 <td><code>created</code></td>
                                 <td>
-                                    Provides information when the TD instance was
+                                    Provides the absolute time when the TD instance was
                                     created inside the directory.
                                     <p>
                                         This MAY be set by the directory and returned to consumers.
@@ -1220,7 +1229,7 @@ img.wot-diagram {
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-modified">
                                 <td><code>modified</code></td>
                                 <td>
-                                    Provides information when the TD instance was
+                                    Provides the absolute time when the TD instance was
                                     last modified inside the directory.
                                     <p>
                                         This MAY be set by the directory and returned to consumers.
@@ -1233,7 +1242,7 @@ img.wot-diagram {
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-expires">
                                 <td><code>expires</code></td>
                                 <td>
-                                    Provides the absolute time for when the TD instance registration expires.
+                                    Provides the absolute time when the TD instance registration expires.
                                     <p>
                                         The producer MAY set this to indicate the absolute expiry time
                                         during the registration.
@@ -1269,7 +1278,7 @@ img.wot-diagram {
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-retrieved">
                                 <td><code>retrieved</code></td>
                                 <td>
-                                    The time at which the TD was retrieved from the server.
+                                    The absolute time at which the TD was retrieved from the server.
                                     <p>
                                         This is useful for clients that intend to process other absolute timestamps but
                                         do not have an internal clock or other means of acquiring the current time.
