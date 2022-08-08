@@ -1330,7 +1330,7 @@ img.wot-diagram {
                     to enable management and retrieval of such TDs from the directory.
                     <span class="rfc2119-assertion" id="tdd-anonymous-td-identifier">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
-                        it MUST add the local identifier to the TD to allow local referencing.</span>
+                        it MUST add the local identifier as `id` of the TD to allow local referencing.</span>
 
                     <span class="rfc2119-assertion" id="tdd-anonymous-td-local-uuid">
                         The local identifier SHOULD be a UUID Version 4, presented as a URN [[RFC4122]].</span>
@@ -1569,10 +1569,16 @@ img.wot-diagram {
                                     The request SHOULD contain `application/td+json` Content-Type header for 
                                     JSON serialization of TD.</span>
                                 The TD object is validated in accordance with [[[#exploration-directory-api-things-validation]]].
+                                <span class="rfc2119-assertion" id="tdd-things-create-anonymous-id">
+                                    The directory MUST assign a local identifier to any <a>Anonymous TD</a>
+                                    to enable local management and retrieval from the directory.</span>
+                                The scheme of the system-generated ID is described in [[[#exploration-directory-anonymous-td]]].
+
                                 <span class="rfc2119-assertion" id="tdd-things-create-anonymous-td-resp">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
-                                    and a Location header containing a system-generated identifier for the TD.</span>
-                                The scheme of the system-generated ID is described in [[[#exploration-directory-anonymous-td]]].
+                                    and a Location header containing the system-generated URI of created TD resource.</span>
+                                The system-generated URI includes the system-generated identifier of the TD and
+                                can be used subsequently to query the TD from the directory.
 
                                 <p>
                                     The create operation for <a>Anonymous TDs</a> is specified as `createAnonymousThing` action in
