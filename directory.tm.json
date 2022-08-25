@@ -9,11 +9,22 @@
     ],
     "title": "Thing Description Directory (TDD) Thing Model",
     "version": {
-        "model": "1.0.0-beta.2"
+        "model": "1.0.0-beta.3"
     },
     "base": "{{DIRECTORY_BASE_URL}}",
-    "tm:required": [
-        "#/properties/things"
+    "tm:optional": [
+        "#/actions/createThing",
+        "#/actions/createAnonymousThing",
+        "#/actions/retrieveThing",
+        "#/actions/updateThing",
+        "#/actions/partiallyUpdateThing",
+        "#/actions/deleteThing",
+        "#/actions/searchJSONPath",
+        "#/actions/searchXPath",
+        "#/actions/searchSPARQL",
+        "#/events/thingCreated",
+        "#/events/thingUpdated",
+        "#/events/thingDeleted"
     ],
     "properties": {
         "things": {
