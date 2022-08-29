@@ -130,6 +130,9 @@
 #security-bootstrapping-endpoints {
   background-color: yellow;
 }
+#tdd-absolute-time {
+  background-color: yellow;
+}
 #tdd-context-injection {
   background-color: yellow;
 }
@@ -143,6 +146,9 @@
   background-color: yellow;
 }
 #tdd-notification-data-diff-unsupported {
+  background-color: yellow;
+}
+#tdd-things-create-anonymous-id {
   background-color: yellow;
 }
 #tdd-things-list-pagination-collection {
