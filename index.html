@@ -1430,6 +1430,18 @@ img.wot-diagram {
                 </p>
 
                 <p>
+                    To ensure the safe transmission of data over the URL, it is expected that
+                    both client and server percent encode/decode characters that conflict with
+                    delimiters in the rest of the URL.
+                    These characters are defined as <i>unsafe</i> in
+                    <a href="https://datatracker.ietf.org/doc/html/rfc1738#section-2.2">Section 2.2</a>
+                    of [[RFC1738]].
+                    Unsafe characters can result in unexpected behavior if they appear in the URL, for example,
+                    when the resource ID included in the path is a URL by itself, or
+                    in the search query string.
+                </p>
+
+                <p>
                     The directory APIs include mandatory, recommended, and optional
                     features. 
                     Directories that don't offer recommended or optional features
