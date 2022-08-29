@@ -13,18 +13,18 @@
     },
     "base": "{{DIRECTORY_BASE_URL}}",
     "tm:optional": [
-        "#/actions/createThing",
-        "#/actions/createAnonymousThing",
-        "#/actions/retrieveThing",
-        "#/actions/updateThing",
-        "#/actions/partiallyUpdateThing",
-        "#/actions/deleteThing",
-        "#/actions/searchJSONPath",
-        "#/actions/searchXPath",
-        "#/actions/searchSPARQL",
-        "#/events/thingCreated",
-        "#/events/thingUpdated",
-        "#/events/thingDeleted"
+        "/actions/createThing",
+        "/actions/createAnonymousThing",
+        "/actions/retrieveThing",
+        "/actions/updateThing",
+        "/actions/partiallyUpdateThing",
+        "/actions/deleteThing",
+        "/actions/searchJSONPath",
+        "/actions/searchXPath",
+        "/actions/searchSPARQL",
+        "/events/thingCreated",
+        "/events/thingUpdated",
+        "/events/thingDeleted"
     ],
     "properties": {
         "things": {
