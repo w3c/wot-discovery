@@ -1056,8 +1056,10 @@ img.wot-diagram {
                             A successful response from an HTTP-based TD Server providing a <a>TD</a>
                             MUST have 200 (OK) status and the <a>TD</a> in the body.</span>
                         <span class="rfc2119-assertion" id="exploration-server-http-resp-content-type">
-                            A successful response with JSON serialization MUST contain `application/json`
-                            or more specifically, `application/td+json` in the Content-Type header.</span>
+                            A successful response with JSON serialization MUST contain either `application/json`
+                            or `application/td+json` in the Content-Type header.</span>
+                            Here `application/td+json` is preferred as it is 
+                            more specific and implies `application/json`.
                         <span class="rfc2119-assertion" id="exploration-server-http-resp-json">
                             The default serialization format for successful response bodies MUST be
                             JSON, with JSON-LD 1.1 [[JSON-LD11]] syntax.</span>
@@ -1114,6 +1116,7 @@ img.wot-diagram {
                         MUST have a 2.05 (Content) status, contain a Content-Format option
                         with value 50 (`application/json`) or 432 (`application/td+json`), 
                         and the <a>TD</a> in the payload.</span>
+                    Content-Format 432 is preferred as it is more specific and implies Content-Format 50.
                     Note that the payload might be split over multiple message exchanges using
                     block-wise transfer [[RFC7959]].
                     <span class="rfc2119-assertion" id="exploration-server-coap-alternate-content">
@@ -1620,8 +1623,10 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp">
                                 A successful response MUST have 200 (OK) status and the requested TD in the body.</span>
                             <span class="rfc2119-assertion" id="tdd-things-retrieve-resp-content-type">
-                                A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/td+json` in the Content-Type header.</span>
+                                A successful response with JSON serialization MUST contain either `application/json`
+                                or `application/td+json` in the Content-Type header.</span>
+                            Here `application/td+json` is preferred as it is 
+                            more specific and implies `application/json`.
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                             <p>
@@ -1879,8 +1884,10 @@ img.wot-diagram {
                             <span class="rfc2119-assertion" id="tdd-things-list-resp">
                                 A successful response MUST have 200 (OK) status and an array of TDs in the body.</span>
                             <span class="rfc2119-assertion" id="tdd-things-list-resp-content-type">
-                                A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/ld+json` in the Content-Type header.</span>
+                                A successful response with JSON serialization MUST contain either `application/json`
+                                or `application/ld+json` in the Content-Type header.</span>
+                            Here `application/td+json` is preferred as it is 
+                            more specific and implies `application/json`.
                             Note that the default serialization is JSON with JSON-LD syntax,
                             and alternative serializations can be negotiated; see [[[#exploration-directory-api-things]]].
                         </p>
