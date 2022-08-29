@@ -2570,11 +2570,13 @@ img.wot-diagram {
 		<li>
 		Limit the size of responses to the minimum.  
 	        <span class="rfc2119-assertion" id="sec-tdd-intro-limit-response-size">
-		The total size of responses to an Introduction SHOULD
+		The total size of responses to an Introduction on the public internet (outside
+    of a protected local network) SHOULD
 		be less than 3x the size of the total size of request, and this should 
 		include any error responses.</span>
 		This is consistent with DDOS mitigations in [[RFC9000]] (QUIC) and HTTP/3.
-		Here "total size" includes any headers required by the protocol itself.
+		Here "total size" includes any headers required by the protocol itself,
+    as well as padding in the request to allow for a larger response.
 		</li>
 		<li>
 	        <span class="rfc2119-assertion" id="sec-tdd-intro-throttling">
