@@ -695,7 +695,8 @@ img.wot-diagram {
             <p>
                 <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
                     The DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> MUST
-                    contain a Service Endpoint which points to a Thing Description describing that Thing (using the WotThing service name) or <a>Thing Description Directory</a> (using the <code>WotDirectory</code> service name).</span>
+                    contain a Service Endpoint which points to a <a>TD</a> describing that Thing (using the <code>WotThing</code> service name) 
+		    or a <a>TD</a> of a <a>Thing Description Directory</a> (using the <code>WotDirectory</code> service name).</span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
@@ -721,9 +722,6 @@ img.wot-diagram {
                     }
                 </pre>
             </aside>
-<!--
-            <div class="issue" data-number="65"></div>
--->
         </section>
     </section>
     <section id="exploration-mech" class="normative">
