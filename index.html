@@ -569,7 +569,7 @@ img.wot-diagram {
                     [[[#exploration-mech]]].</span>
                 For self-describing Things, this can be the TD of the Thing itself.
                 <span class="rfc2119-assertion" id="introduction-direct-directory-description">
-                   If the URL references a <a>Thing Description Directory</a>, this MUST be the Directory Description of the
+                   If the URL references a <a>Thing Description Directory</a>, this MUST be the Thing Description of the
                     <a>Thing Description Directory</a>.</span>
             </p>
         </section>
@@ -627,7 +627,7 @@ img.wot-diagram {
                     </p>
                     <dl>
                         <dt><code>td</code></dt>
-                        <dd>Absolute pathname of the Thing Description of the Thing or Directory Description of the <a>Thing Description Directory</a>.</dd>
+                        <dd>Absolute pathname of the Thing Description of the Thing or Thing Description of the <a>Thing Description Directory</a>.</dd>
                         <dt><code>type</code></dt>
                         <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
@@ -639,7 +639,7 @@ img.wot-diagram {
                         Absolute path name of the API to get an array of Thing Description IDs
                         from the directory service.<br/>
                 <code>register</code>:
-                    Absolute path name of the API to register a Directory Description with the <a>Thing Description Directory</a>.<br/>
+                    Absolute path name of the API to register a Thing Description with the <a>Thing Description Directory</a>.<br/>
                 <code>path</code>:
                     The URI of the thing description on the Web Thing's web server<br/>
                 <code>td</code>:
@@ -673,15 +673,15 @@ img.wot-diagram {
                 <span class="rfc2119-assertion" id="introduction-core-rd">A Thing or <a>Thing Description Directory</a> MAY advertise its presence using the
                 Constrained RESTful Environment (CoRE) Link Format [[RFC6690]].</span>
                 <span class="rfc2119-assertion" id="introduction-core-rd-directory">
-                A Thing or <a>Thing Description Directory</a> MAY use the CoRE Resource Directory [[CoRE-RD]]
-                to register a link to the Thing or Directory Description.</span>
+                A <a>Thing</a> or <a>Thing Description Directory</a> MAY use the CoRE Resource Directory [[CoRE-RD]]
+                to register a link to its corresponding Thing Description.</span>
             </p>
             <p>
                 <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-thing">
                     The resource type (<code>rt</code>) of the Link that targets the Thing Description of the Thing
                     MUST be <code>wot.thing</code>.</span>
                 <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-directory">
-                    The resource type of the Link that targets the Directory Description of the <a>Thing Description Directory</a>
+                    The resource type of the Link that targets the Thing Description of the <a>Thing Description Directory</a>
                     MUST be <code>wot.directory</code>.</span>
             </p>
             <p class="ednote">
@@ -696,22 +696,34 @@ img.wot-diagram {
             </p>
             <p>
                 <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
-                    The DID Document obtained by resolving the DID of a Thing or <a>Thing Description Directory</a> MUST
-                    contain a Service Endpoint which points to a Thing Description describing that Thing or <a>Thing Description Directory</a>.</span>
+                    The DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> MUST
+                    contain a Service Endpoint which points to a <a>TD</a> describing that Thing (using the <code>WotThing</code> service name) 
+		    or a <a>TD</a> of a <a>Thing Description Directory</a> (using the <code>WotDirectory</code> service name).</span>
             </p>
-            <aside class="example" title="A Example Service Endpoint in a DID Document">
+            <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
                     {
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#td",
-                            "type": "WotThingDescription",
+                            "type": "WotThing",
                             "serviceEndpoint":
                                 "https://wot.example.com/.well-known/wot"
                         }]
                     }
                 </pre>
             </aside>
-            <div class="issue" data-number="65"></div>
+            <aside class="example" title="A Example Service Endpoint in a DID Document - WotDirectory">
+                <pre>
+                    {
+                        "service": [{
+                            "id": "did:example:wotdiscoveryexample#tdd",
+                            "type": "WotDirectory",
+                            "serviceEndpoint":
+                                "https://wot.example.com/tdd"
+                        }]
+                    }
+                </pre>
+            </aside>
         </section>
     </section>
     <section id="exploration-mech" class="normative">
@@ -3005,8 +3017,40 @@ a change in ownership).
                     </tr>
                     <tr>
                         <td><code>wot.directory</code></td>
-                        <td>Directory Description of a <a>Thing Description Directory</a></td>
+                        <td>Thing Description of a <a>Thing Description Directory</a></td>
                         <td>[[[#introduction-core-rd-sec]]]</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </section>
+    <section id="other-name-considerations" class="normative">
+        <h1>Other Name Registration Considerations</h1>
+        <section id="did-service-name">
+            <h2>DID Service Name Registration</h2>
+            <p>
+                The following values will be allocated for the Service Type 
+                used in DID Documents.
+            </p>
+            <table class="def">
+                <thead>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                        <th>Reference</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>WotThing</code></td>
+                        <td>Thing Description of a Thing</td>
+                        <td>[[[#introduction-did-sec]]]</td>
+                    </tr>
+                    <tr>
+                        <td><code>WotDirectory</code></td>
+                        <td>Thing Description of a <a>Thing Description Directory</a></td>
+                        <td>[[[#introduction-did-sec]]]</td>
                     </tr>
                 </tbody>
             </table>
