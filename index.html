@@ -691,14 +691,19 @@ img.wot-diagram {
         </section>
         <section id="introduction-did-sec" class="normative">
             <h2>DID Documents</h2>
-            <p><span class="rfc2119-assertion" id="introduction-did">A Thing or <a>Thing Description Directory</a> MAY advertise its presence using 
-                the Decentralized Identifier (DID) [[DID-CORE]].</span>
+            <p><span class="rfc2119-assertion" id="introduction-did">A <a>Thing</a> or <a>Thing Description Directory</a> 
+                using a Decentralized Identifier (DID) [[DID-CORE]] MAY advertise the location of its <a>TD</a>
+                by including a DID Service Endpoint of type 
+                <code>WotThing</code> or <code>WotDirectory</code>, respectively, in the DID Document that 
+                the TD's identifier resolves to.</span>
             </p>
-            <p>
-                <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
-                    The DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> MUST
-                    contain a Service Endpoint which points to a <a>TD</a> describing that Thing (using the <code>WotThing</code> service name) 
-		    or a <a>TD</a> of a <a>Thing Description Directory</a> (using the <code>WotDirectory</code> service name).</span>
+            <p><span class="rfc2119-assertion" id="introduction-did-service-endpoint">
+                If the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> 
+                contains a Service Endpoint of type <code>WotThing</code> or <code>WotDirectory</code>, respectively,
+                then this Service Endpoint MUST refer to the <a>TD</a> describing that Thing 
+                (when using the <code>WotThing</code> service name) 
+		            or the <a>TD</a> describing that <a>Thing Description Directory</a> (when using the <code>WotDirectory</code> service name),
+                respectively.</span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
