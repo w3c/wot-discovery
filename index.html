@@ -586,10 +586,6 @@ img.wot-diagram {
                     When a request is made at the above Well-Known URI, the server MUST return
                     a Thing Description as prescribed in [[[#exploration-mech]]].</span>
             </p>
-            <p class="ednote" title="Registration of Well-known URI">
-                The service name in Well-Known URI (<code>wot</code>) is tentative.
-                "Well-Known URIs" registry and contents of registration request is described in Section 3.1 of [[RFC8615]].
-            </p>
 
         </section>
         <section id="introduction-dns-sd-sec" class="normative">
@@ -598,27 +594,39 @@ img.wot-diagram {
                 This can be also be used on the same local network in combination with Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
-                In DNS-SD, the format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
-                The Service part is a pair of labels following the conventions of [[RFC2782]].
-                The first label has an underscore followed by the Service Name,
-                and the second label describes the protocol.
-            </p>
-            <p>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name">
-                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.</span>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
-                    The Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.</span>
-            </p>
-            <p class="ednote" title="Service Names in existing implementations">
-                The Service Names <code>_wot</code> and <code>_directory._sub._wot</code>
-                are tentative. The following Service Names are used in the existing implementations:
-                <code>_wot</code>,
-                <code>_device._sub._wot</code>,
-                <code>_directory._sub._wot</code>,
-                <code>_webthing</code>,
-                <code>_wot-servient</code>.
-                To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
-                Registry [[RFC8552]] is required.
+                The following table lists the service names and protocols for advertising their presense.
+                <table class="def">
+                    <thead>
+                        <tr>
+                            <th>Service name</th>
+                            <th>Thing or TDD</th>
+                            <th>Protocol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name">
+                            <td><code>_wot._tcp</code></td>
+                            <td>Thing</td>
+                            <td>HTTP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory">
+                            <td><code>_directory._sub._wot._tcp</code></td>
+                            <td>TDD</td>
+                            <td>HTTP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-coap">
+                            <td><code>_wot._udp</code></td>
+                            <td>Thing</td>
+                            <td>CoAP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory-coap">
+                            <td><code>_directory._sub._wot._udp</code></td>
+                            <td>TDD</td>
+                            <td>CoAP</td>
+                        </tr>
+                    </tbody>
+
+                </table>
             </p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
                     <p>
@@ -633,37 +641,23 @@ img.wot-diagram {
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
                     </dl>
                 </div>
-            <p class="ednote" title="Usage of a TXT record in existing implementations">
-                The following key/value pairs are used in the existing implementations:<br/>
-                <code>retrieve</code>:
-                        Absolute path name of the API to get an array of Thing Description IDs
-                        from the directory service.<br/>
-                <code>register</code>:
-                    Absolute path name of the API to register a Thing Description with the <a>Thing Description Directory</a>.<br/>
-                <code>path</code>:
-                    The URI of the thing description on the Web Thing's web server<br/>
-                <code>td</code>:
-                    Prefix of directory service API<br/>
-                <code>tls</code>:
-                    Value of 1 if the Web Thing supports connections via HTTPS.<br/>
-            </p>
             <p>
                 <a href="#sequence-dnssd-thing"></a> and <a href="#sequence-dnssd-directory"></a> shows example sequences
-                of discovery of Thing and <a>Thing Description Directory</a> using DNS-SD and mDNS. 
+                supporting discovery of a Thing or a <a>Thing Description Directory</a> using DNS-SD and mDNS. 
             </p>
             <figure id="sequence-dnssd-thing">
                 <img src="images/sequence-dnssd-thing.png"
                     srcset="images/sequence-dnssd-thing.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of Thing using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of Thing using DNS-SD and mDNS</figcaption>
+                <figcaption>Using mDNS for discovery of the Thing Description of a Thing</figcaption>
             </figure>
             <figure id="sequence-dnssd-directory">
                 <img src="images/sequence-dnssd-directory.png"
                     srcset="images/sequence-dnssd-directory.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of directory service using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of <a>Thing Description Directory</a> using DNS-SD and mDNS</figcaption>
+                <figcaption>Using mDNS for discovery of the Thing Description of a Thing Description Directory (TDD)</figcaption>
             </figure>
 
         </section>
@@ -683,10 +677,6 @@ img.wot-diagram {
                 <span class="rfc2119-assertion" id="introduction-core-rd-resource-type-directory">
                     The resource type of the Link that targets the Thing Description of the <a>Thing Description Directory</a>
                     MUST be <code>wot.directory</code>.</span>
-            </p>
-            <p class="ednote">
-                The resource types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
-                See also <a href="#iana-considerations"></a>.
             </p>
         </section>
         <section id="introduction-did-sec" class="normative">
@@ -2998,9 +2988,9 @@ a change in ownership).
             <ul>
                 <li>Service Name: <code>wot</code></li>
                 <li>Transport Protocol: TCP, UDP</li>
-                <li>Description: Service name to search a Thing or a Thing Description Directory of W3C Web of Things</li>
+                <li>Description: Service name to search for the Thing Description of a Thing or a Thing Description Directory in the W3C Web of Things</li>
                 <li>Port Number: N/A</li>
-                <li>Assignment notes: PTR, SRV, TXT RR types are used</li>
+                <li>Assignment notes: We use <code>_directory</code> subtype for a Thing Description Directory.</li>
             </ul>
         </section>
         <section id="core-resource-type">
