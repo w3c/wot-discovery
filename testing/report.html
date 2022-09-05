@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 29 Jul 2022
+    <b>Version</b>: 29 Aug 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -178,13 +178,22 @@ pre.example {
 </ul>
 
 <h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
+<!--
 <p>
   The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
   specification entered the <a href="https://www.w3.org/TR/2022/CR-wot-discovery-202207xx/">Candidate Recommendation</a> 
   period on xx July 2022.
 </p>
+-->
 <p>
+  The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
+  document was last published as a
+  <a href="https://www.w3.org/TR/2022/WD-wot-discovery-20220810/">Working Draft</a> 
+  on 10 August 2022.
+  The planned date for entering Candidate Recommendation is 22 September 2022.
   The planned date for entering Proposed Recommendation is 1 November 2022.
+</p>
+<p>
   This document summarizes the results from the Web of Things (WoT) Discovery implementer reports received and
   describes the process that the Web of Things (WoT) Working Group followed in preparing this <em>Implementation Report (IR)</em>.
 </p>
@@ -206,7 +215,7 @@ pre.example {
 
 <h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work during the Candidate Recommendation period</a></h2>
 <p>
-  During the CR period, the Working Group carried out the following activities:
+  During the CR period, the Working Group will carry out the following activities:
 </p>
 <ol>
 	<li>Clarification and improvement through the exposition of the specification</li>
@@ -491,6 +500,19 @@ pre.example {
     </tr>
 -->
   
+<tr id="tdd-absolute-time" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-absolute-time">tdd-absolute-time</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">Whenever an absolute time is expressed
+                    using dateTime 
+                    it MUST be interpreted as date-time as specified in [[RFC3339]].</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-anonymous-td-identifier" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-identifier">tdd-anonymous-td-identifier</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -499,7 +521,7 @@ pre.example {
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                         In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search),
-                        it MUST add the local identifier to the TD to allow local referencing.</td>
+                        it MUST add the local identifier as `id` of the TD to allow local referencing.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result failed">2</td>
@@ -724,7 +746,7 @@ pre.example {
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">created: 
-                                    Provides information when the TD instance was
+                                    Provides the absolute time when the TD instance was
                                     created inside the directory.
                                     
                                         This MAY be set by the directory and returned to consumers.
@@ -744,7 +766,7 @@ Type: optional.</td>
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">modified: 
-                                    Provides information when the TD instance was
+                                    Provides the absolute time when the TD instance was
                                     last modified inside the directory.
                                     
                                         This MAY be set by the directory and returned to consumers.
@@ -838,6 +860,19 @@ Type: optional.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td></tr>
+<tr id="tdd-things-create-anonymous-id" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-id">tdd-things-create-anonymous-id</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">Y</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                                    The directory MUST assign a local identifier to any Anonymous TD
+                                    to enable local management and retrieval from the directory.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-things-create-anonymous-td" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-td">tdd-things-create-anonymous-td</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -860,7 +895,7 @@ Type: optional.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                     Upon successful processing, the server MUST respond with 201 (Created) status
-                                    and a Location header containing a system-generated identifier for the TD.</td>
+                                    and a Location header containing the system-generated URI of created TD resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
 	<td class="result failed">1</td>
@@ -2262,7 +2297,7 @@ Type: optional.</td>
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">expires: 
-                                    Provides the absolute time for when the TD instance registration expires.
+                                    Provides the absolute time when the TD instance registration expires.
                                     
                                         The producer MAY set this to indicate the absolute expiry time
                                         during the registration.
@@ -2287,7 +2322,7 @@ Type: optional.</td>
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
 	<td class="tabassertion">retrieved: 
-                                    The time at which the TD was retrieved from the server.
+                                    The absolute time at which the TD was retrieved from the server.
                                     
                                         This is useful for clients that intend to process other absolute timestamps but
                                         do not have an internal clock or other means of acquiring the current time.
