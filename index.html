@@ -192,7 +192,9 @@ img.wot-diagram {
            to make WoT Thing Descriptions available.
            Specifically, WoT Discovery has to allow authenticated and authorized entities
            (and only those entities) to find WoT Thing Descriptions satisfying a set of
-           criteria, such as being near a certain location, or having certain semantics,
+           criteria, such as 
+          <!-- being near a certain location, or -->
+           having certain semantics,
            or containing certain interactions.  Conversely, in order to support
            security and privacy objectives, the WoT Discovery process must not
            leak information to unauthorized entities.  This includes leaking information
@@ -1454,27 +1456,24 @@ img.wot-diagram {
                 <p>
                     The directory APIs include mandatory, recommended, and optional
                     features. 
-                    Directories that don't offer recommended or optional features
-                    inform the clients about the absence of those features
-                    according to the following rules:
-                </p>
+                    <span class="rfc2119-assertion" id="tdd-http-unsupported-feature">
+                        When a directory is unable to answer a request because of unsupported
+                        recommended or optional features, it SHOULD inform the client about the
+                        absence of those features by returning appropriate HTTP errors.</span>
+                    The following examples can be used as guideline for implementations:
                     <ul>
                         <li>
-                            If the missing feature is to customize existing functionality of an
-                            API, the server will respond with 501 (Not Implemented)
-                            HTTP status.
-                            For example, if a client requests a list of
-                            items with a particular sorting order, the server either
-                            respects that request and returns the list with the requested
-                            order, or rejects the request and does not return the list.
-                            The server will return the list with the default order
-                            if and only if custom sorting is not requested.
-                            The normative behavior is prescribed in the respective sections.
+                            If the missing feature is to customize functionality of an
+                            existing API (e.g. custom sort ordering when listing),
+                            use 400 (Bad Request) or 501 (Not Implemented).
                         </li>
                         <li>
-                            <span class="rfc2119-assertion" id="tdd-http-missing-api-endpoint">
-                            If an API endpoint is not provided, the server SHOULD respond with 
-                            404 (Not Found).</span>
+                            If an API endpoint is not provided (e.g. `/search/sparql` endpoint),
+                            use 404 (Not Found).
+                        </li>
+                        <li>
+                            If a method is not supported on an existing API endpoint
+                            (e.g. `PATCH` for `/things` endpoint), use 405 (Method Not Allowed).
                         </li>
                     </ul>
 
@@ -1956,7 +1955,7 @@ img.wot-diagram {
                                     The clients may rely on the `etag` value to know whether the collection
                                     remains consistent across paginated retrieval of the collection.
                                     For example, creation or deletion of TDs or update of TD fields used for
-                                    ordering may make shift the calculated paging window.
+                                    ordering may shift the calculated paging window.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
@@ -1969,11 +1968,10 @@ img.wot-diagram {
                                         (i.e. `asc` or `desc` for ascending and descending ordering).</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
                                         A server MUST reject requests to sort on fields that do not have 
-                                        values that are orderable basic types, 
-                                        with a 400 (Bad Request) status.</span>
+                                        values that are orderable basic types.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-unsupported">
                                         If the server does not support custom sorting,
-                                        it MUST reject the request with 501 (Not Implemented) status.</span>
+                                        it MUST reject the request.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
@@ -2325,7 +2323,8 @@ img.wot-diagram {
                                     <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
                                         When a server which does not support the `diff` query parameter 
                                         is requested with such query parameter, it MUST
-                                        reject the request with 501 (Not Implemented) status.</span>
+                                        reject the request.
+                                    </span>
                                     This is to inform the clients about the lack of such functionality at the
                                     connection time to avoid runtime exceptions caused by missing
                                     event data attributes.
