@@ -5,7 +5,7 @@ participant "Consumer" as Consumer
 participant "Thing" as Thing
 
 Consumer --> Thing : mDNS query\n"_wot._tcp.local PTR"
-Thing ->  Consumer : mDNS response\n"_wot._tcp.local PTR lamp._wot._tcp.local"\n"lamp._wot._tcp.local SRV 1 0 80 lamp.local"\n"lamp._wot._tcp.local TXT td=/path/to/td;type=Thing"
+Thing ->  Consumer : mDNS response\n"_wot._tcp.local PTR lamp._wot._tcp.local"\n"lamp._wot._tcp.local SRV 1 0 80 lamp.local"\n"lamp._wot._tcp.local TXT td=/path/to/td;type=Thing;scheme=http"
 Consumer -> Thing  : HTTP GET\n"http://lamp.local:80/path/to/td"
 Thing ->  Consumer : HTTP 200 OK\nThing Description: '{"@context":...}'
 @enduml

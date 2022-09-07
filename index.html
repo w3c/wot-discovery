@@ -609,22 +609,22 @@ img.wot-diagram {
                         <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name">
                             <td><code>_wot._tcp</code></td>
                             <td>Thing</td>
-                            <td>HTTP</td>
+                            <td>HTTP over TCP, HTTP over TLS/TCP, CoAP over TCP, or CoAP over TLS/TCP</td>
                         </tr>
                         <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory">
                             <td><code>_directory._sub._wot._tcp</code></td>
                             <td>TDD</td>
-                            <td>HTTP</td>
+                            <td>HTTP over TCP, HTTP over TLS/TCP, CoAP over TCP, or CoAP over TLS/TCP</td>
                         </tr>
-                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-coap">
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-udp">
                             <td><code>_wot._udp</code></td>
                             <td>Thing</td>
-                            <td>CoAP</td>
+                            <td>CoAP over UDP or CoAP over DTLS/UDP</td>
                         </tr>
-                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory-coap">
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory-udp">
                             <td><code>_directory._sub._wot._udp</code></td>
                             <td>TDD</td>
-                            <td>CoAP</td>
+                            <td>CoAP over UDP or CoAP over DTLS/UDP</td>
                         </tr>
                     </tbody>
 
@@ -641,6 +641,9 @@ img.wot-diagram {
                         <dt><code>type</code></dt>
                         <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                        <dt><code>scheme</code></dt>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over TLS/TCP), <code>coap</code> (CoAP over UDP), <code>coaps</code> CoAP over DTLS/UDP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
+                        If omitted, the scheme is assumed to be <code>http</code> for TCP and <code>coap</code> for UDP. </dd>
                     </dl>
                 </div>
             <p>
