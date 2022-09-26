@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 29 Aug 2022
+    <b>Version</b>: 26 Sep 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -500,6 +500,32 @@ pre.example {
     </tr>
 -->
   
+<tr id="introduction-dns-sd-service-name-directory-udp" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name-directory-udp">introduction-dns-sd-service-name-directory-udp</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">N</td>
+	<td class="tabassertion"></td>
+	<td class="atrisk">_directory._sub._wot._udp: TDD
+MAY be included.
+Type: undefined.</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
+<tr id="introduction-dns-sd-service-name-udp" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name-udp">introduction-dns-sd-service-name-udp</a></td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">N</td>
+	<td class="tabassertion"></td>
+	<td class="atrisk">_wot._udp: Thing
+MAY be included.
+Type: undefined.</td>
+	<td class="tabassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-absolute-time" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-absolute-time">tdd-absolute-time</a></td>
 	<td class="baseassertion"></td>
@@ -568,6 +594,20 @@ pre.example {
 	<td class="result failed">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">5</td></tr>
+<tr id="tdd-http-unsupported-feature" class="baseassertion">
+	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-unsupported-feature">tdd-http-unsupported-feature</a></td>
+	<td class="baseassertion"></td>
+	<td class="baseassertion">N</td>
+	<td class="baseassertion"></td>
+	<td class="atrisk">
+                        When a directory is unable to answer a request because of unsupported
+                        recommended or optional features, it SHOULD inform the client about the
+                        absence of those features by returning appropriate HTTP errors.</td>
+	<td class="baseassertion"></td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td>
+	<td class="result missing">0</td></tr>
 <tr id="tdd-notification" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-notification">tdd-notification</a></td>
 	<td class="baseassertion">TD Directory - Notification</td>
@@ -630,7 +670,7 @@ pre.example {
 	<td class="atrisk">
                                         When a server which does not support the `diff` query parameter 
                                         is requested with such query parameter, it MUST
-                                        reject the request with 501 (Not Implemented) status.
+                                        reject the request.
                                     </td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1642,8 +1682,8 @@ Type: optional.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                            A successful response with JSON serialization MUST contain `application/json`
-                            or more specifically, `application/td+json` in the Content-Type header.</td>
+                            A successful response with JSON serialization MUST contain either `application/json`
+                            or `application/td+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
@@ -1684,7 +1724,7 @@ Type: optional.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                 A Thing or Thing Description Directory MAY use the CoRE Resource Directory [[CoRE-RD]]
-                to register a link to the Thing or Directory Description.</td>
+                to register a link to its corresponding Thing Description.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -1696,7 +1736,7 @@ Type: optional.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                    The resource type of the Link that targets the Directory Description of the Thing Description Directory
+                    The resource type of the Link that targets the Thing Description of the Thing Description Directory
                     MUST be wot.directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1723,8 +1763,11 @@ Type: optional.</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">A Thing or Thing Description Directory MAY advertise its presence using 
-                the Decentralized Identifier (DID) [[DID-CORE]].</td>
+	<td class="baseassertion">A Thing or Thing Description Directory 
+                using a Decentralized Identifier (DID) [[DID-CORE]] MAY advertise the location of its TD
+                by including a DID Service Endpoint of type 
+                WotThing or WotDirectory, respectively, in the DID Document that 
+                the TD's identifier resolves to.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1737,8 +1780,12 @@ Type: optional.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                    The DID Document obtained by resolving the DID of a Thing or Thing Description Directory MUST
-                    contain a Service Endpoint which points to a Thing Description describing that Thing or Thing Description Directory.</td>
+                If the DID Document obtained by resolving the DID of a Thing or Thing Description Directory 
+                contains a Service Endpoint of type WotThing or WotDirectory, respectively,
+                then this Service Endpoint MUST refer to the TD describing that Thing 
+                (when using the WotThing service name) 
+		            or the TD describing that Thing Description Directory (when using the WotDirectory service name),
+                respectively.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -1751,7 +1798,7 @@ Type: optional.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-                   If the URL references a Thing Description Directory, this MUST be the Directory Description of the
+                   If the URL references a Thing Description Directory, this MUST be the Thing Description of the
                     Thing Description Directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
@@ -1796,32 +1843,34 @@ Type: optional.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">7</td></tr>
-<tr id="introduction-dns-sd-service-name" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name">introduction-dns-sd-service-name</a></td>
-	<td class="baseassertion">Introduction - DNS-SD</td>
+<tr id="introduction-dns-sd-service-name" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name">introduction-dns-sd-service-name</a></td>
+	<td class="tabassertion">Introduction - DNS-SD</td>
 
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                    The Service Name to indicate the Thing or Thing Description Directory MUST be _wot.</td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
-<tr id="introduction-dns-sd-service-name-directory" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name-directory">introduction-dns-sd-service-name-directory</a></td>
-	<td class="baseassertion">Introduction - DNS-SD</td>
+	<td class="tabassertion">N</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">_wot._tcp: Thing
+MAY be included.
+Type: undefined.</td>
+	<td class="tabassertion"></td>
+	<td class="result tabassertion">3</td>
+	<td class="result tabassertion">0</td>
+	<td class="result tabassertion">2</td>
+	<td class="result tabassertion">5</td></tr>
+<tr id="introduction-dns-sd-service-name-directory" class="tabassertion">
+	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name-directory">introduction-dns-sd-service-name-directory</a></td>
+	<td class="tabassertion">Introduction - DNS-SD</td>
 
-	<td class="baseassertion">Y</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                    The Service Name to indicate the Thing Description Directory MUST be _directory._sub._wot.</td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="tabassertion">N</td>
+	<td class="tabassertion"></td>
+	<td class="tabassertion">_directory._sub._wot._tcp: TDD
+MAY be included.
+Type: undefined.</td>
+	<td class="tabassertion"></td>
+	<td class="result tabassertion">4</td>
+	<td class="result tabassertion">0</td>
+	<td class="result tabassertion">2</td>
+	<td class="result tabassertion">6</td></tr>
 <tr id="introduction-dns-sd-txt-record" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-txt-record">introduction-dns-sd-txt-record</a></td>
 	<td class="baseassertion">Introduction - DND-SD</td>
@@ -1835,10 +1884,13 @@ Type: optional.</td>
                     
                     
                         td
-                        Absolute pathname of the Thing Description of the Thing or Directory Description of the Thing Description Directory.
+                        Absolute pathname of the Thing Description of the Thing or Thing Description of the Thing Description Directory.
                         type
                         Type of the Thing Description, i.e. Thing or Directory.
                         If omitted, the type is assumed to be Thing.
+                        scheme
+                        Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: http (HTTP over TCP),https (HTTP over TLS/TCP), coap (CoAP over UDP), coaps CoAP over DTLS/UDP), coap+tcp (CoAP over TCP), or coaps+tcp (CoAP over TLS/TCP).
+                        If omitted, the scheme is assumed to be http for TCP and coap for UDP. 
                     
                 </td>
 	<td class="baseassertion"></td>
@@ -2055,7 +2107,8 @@ Type: optional.</td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
-		The total size of responses to an Introduction SHOULD
+		The total size of responses to an Introduction on the public internet (outside
+    of a protected local network) SHOULD
 		be less than 3x the size of the total size of request, and this should 
 		include any error responses.</td>
 	<td class="baseassertion"></td>
@@ -2232,20 +2285,6 @@ Type: optional.</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td></tr>
-<tr id="tdd-http-missing-api-endpoint" class="baseassertion">
-	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-missing-api-endpoint">tdd-http-missing-api-endpoint</a></td>
-	<td class="baseassertion">TD Directory</td>
-
-	<td class="baseassertion">N</td>
-	<td class="baseassertion"></td>
-	<td class="baseassertion">
-                            If an API endpoint is not provided, the server SHOULD respond with 
-                            404 (Not Found).</td>
-	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-http-representation-alternate-output" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-representation-alternate-output">tdd-http-representation-alternate-output</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -2596,7 +2635,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
                                         If the server does not support custom sorting,
-                                        it MUST reject the request with 501 (Not Implemented) status.</td>
+                                        it MUST reject the request.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2624,8 +2663,7 @@ Type: read-only.</td>
 	<td class="baseassertion"></td>
 	<td class="atrisk">
                                         A server MUST reject requests to sort on fields that do not have 
-                                        values that are orderable basic types, 
-                                        with a 400 (Bad Request) status.</td>
+                                        values that are orderable basic types.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
@@ -2637,8 +2675,8 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/ld+json` in the Content-Type header.</td>
+                                A successful response with JSON serialization MUST contain either `application/json`
+                                or `application/ld+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2678,8 +2716,8 @@ Type: read-only.</td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
 	<td class="baseassertion">
-                                A successful response with JSON serialization MUST contain `application/json`
-                                or more specifically, `application/td+json` in the Content-Type header.</td>
+                                A successful response with JSON serialization MUST contain either `application/json`
+                                or `application/td+json` in the Content-Type header.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
