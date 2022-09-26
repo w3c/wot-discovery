@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="288px" preserveAspectRatio="none" style="width:787px;height:288px;" version="1.1" viewBox="0 0 787 288" width="787px" zoomAndPan="magnify"><defs><filter height="300%" id="fxexld0kt51ra" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[a598e0069ddc6f15d8d67ebcdc90e466]
+entity ##9--><!--MD5=[1053da7555f32ea3c982e01119b403ff]
+class Thing--><rect codeLine="4" fill="#F0FFFF" filter="url(#fxexld0kt51ra)" height="32" id="Thing" style="stroke:#A80036;stroke-width:1.5;" width="80" x="249" y="33.5"/><ellipse cx="264" cy="49.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M266.4731,55.6431 Q265.8921,55.9419 265.2529,56.0913 Q264.6138,56.2407 263.9082,56.2407 Q261.4014,56.2407 260.0815,54.5889 Q258.7617,52.937 258.7617,49.8159 Q258.7617,46.6865 260.0815,45.0347 Q261.4014,43.3828 263.9082,43.3828 Q264.6138,43.3828 265.2612,43.5322 Q265.9087,43.6816 266.4731,43.9805 L266.4731,46.7031 Q265.8423,46.1221 265.2488,45.8523 Q264.6553,45.5825 264.0244,45.5825 Q262.6797,45.5825 261.9949,46.6492 Q261.3101,47.7158 261.3101,49.8159 Q261.3101,51.9077 261.9949,52.9744 Q262.6797,54.041 264.0244,54.041 Q264.6553,54.041 265.2488,53.7712 Q265.8423,53.5015 266.4731,52.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="48" x="278" y="54.0352">td:Thing</text><path d="M50,37 L50,62.3105 A0,0 0 0 0 50,62.3105 L214,62.3105 A0,0 0 0 0 214,62.3105 L214,55 L248.9594,49.5 L214,47 L214,47 L204,37 L50,37 A0,0 0 0 0 50,37 " fill="#FBFB77" filter="url(#fxexld0kt51ra)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M204,37 L204,47 L214,47 L204,37 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="143" x="56" y="54.5684">Thing Description (TD)</text><!--MD5=[5f26c86091fa2c90ec21445571d1772b]
+class ThingDirectory--><rect codeLine="6" fill="#F0FFFF" filter="url(#fxexld0kt51ra)" height="32" id="ThingDirectory" style="stroke:#A80036;stroke-width:1.5;" width="174" x="7" y="206.5"/><ellipse cx="22" cy="222.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M24.4731,228.6431 Q23.8921,228.9419 23.2529,229.0913 Q22.6138,229.2407 21.9082,229.2407 Q19.4014,229.2407 18.0815,227.5889 Q16.7617,225.937 16.7617,222.8159 Q16.7617,219.6865 18.0815,218.0347 Q19.4014,216.3828 21.9082,216.3828 Q22.6138,216.3828 23.2612,216.5322 Q23.9087,216.6816 24.4731,216.9805 L24.4731,219.7031 Q23.8423,219.1221 23.2488,218.8523 Q22.6553,218.5825 22.0244,218.5825 Q20.6797,218.5825 19.9949,219.6492 Q19.3101,220.7158 19.3101,222.8159 Q19.3101,224.9077 19.9949,225.9744 Q20.6797,227.041 22.0244,227.041 Q22.6553,227.041 23.2488,226.7712 Q23.8423,226.5015 24.4731,225.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142" x="36" y="227.0352">discovery:ThingDirectory</text><!--MD5=[02e2853ccf748be19475c5f2583b6311]
+class ThingLink--><rect codeLine="7" fill="#F0FFFF" filter="url(#fxexld0kt51ra)" height="32" id="ThingLink" style="stroke:#A80036;stroke-width:1.5;" width="145" x="216.5" y="206.5"/><ellipse cx="231.5" cy="222.5" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M233.9731,228.6431 Q233.3921,228.9419 232.7529,229.0913 Q232.1138,229.2407 231.4082,229.2407 Q228.9014,229.2407 227.5815,227.5889 Q226.2617,225.937 226.2617,222.8159 Q226.2617,219.6865 227.5815,218.0347 Q228.9014,216.3828 231.4082,216.3828 Q232.1138,216.3828 232.7612,216.5322 Q233.4087,216.6816 233.9731,216.9805 L233.9731,219.7031 Q233.3423,219.1221 232.7488,218.8523 Q232.1553,218.5825 231.5244,218.5825 Q230.1797,218.5825 229.4949,219.6492 Q228.8101,220.7158 228.8101,222.8159 Q228.8101,224.9077 229.4949,225.9744 Q230.1797,227.041 231.5244,227.041 Q232.1553,227.041 232.7488,226.7712 Q233.3423,226.5015 233.9731,225.9204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="113" x="245.5" y="227.0352">discovery:ThingLink</text><!--MD5=[378b90cc04bfe2ab5b7bdbd324672d28]
+class RegInfo--><rect codeLine="9" fill="#F0FFFF" filter="url(#fxexld0kt51ra)" height="104.7754" id="RegInfo" style="stroke:#A80036;stroke-width:1.5;" width="223" x="396.5" y="170"/><ellipse cx="411.5" cy="186" fill="#ADD1B2" rx="11" ry="11" style="stroke:#A80036;stroke-width:1.0;"/><path d="M413.9731,192.1431 Q413.3921,192.4419 412.7529,192.5913 Q412.1138,192.7407 411.4082,192.7407 Q408.9014,192.7407 407.5815,191.0889 Q406.2617,189.437 406.2617,186.3159 Q406.2617,183.1865 407.5815,181.5347 Q408.9014,179.8828 411.4082,179.8828 Q412.1138,179.8828 412.7612,180.0322 Q413.4087,180.1816 413.9731,180.4805 L413.9731,183.2031 Q413.3423,182.6221 412.7488,182.3523 Q412.1553,182.0825 411.5244,182.0825 Q410.1797,182.0825 409.4949,183.1492 Q408.8101,184.2158 408.8101,186.3159 Q408.8101,188.4077 409.4949,189.4744 Q410.1797,190.541 411.5244,190.541 Q412.1553,190.541 412.7488,190.2712 Q413.3423,190.0015 413.9731,189.4204 Z " fill="#000000"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="191" x="425.5" y="190.5352">discovery:RegistrationInformation</text><line style="stroke:#A80036;stroke-width:1.5;" x1="397.5" x2="618.5" y1="202" y2="202"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="190" x="402.5" y="216.6348">schema:dateCreated : xsd:dateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="194" x="402.5" y="229.5898">schema:dateModified : xsd:dateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="165" x="402.5" y="242.5449">schema:expires : xsd:dateTime</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="162" x="402.5" y="255.5">discovery:ttl : xsd:unsignedInt</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="184" x="402.5" y="268.4551">discovery:retrieved : xsd:dateTime</text><path d="M409.5,6 L409.5,92.5527 L778.5,92.5527 L778.5,16 L768.5,6 L409.5,6 " fill="#FBFB77" filter="url(#fxexld0kt51ra)" style="stroke:#A80036;stroke-width:1.0;"/><path d="M768.5,6 L768.5,16 L778.5,16 L768.5,6 " fill="#FBFB77" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="54" x="415.5" y="23.5684">Prefixes:</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="246" x="423.5" y="38.8789">td: https://www.w3.org/2019/wot/td#</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="340" x="423.5" y="54.1895">discovery: https://www.w3.org/2021/wot/discovery#</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="180" x="423.5" y="69.5">schema: http://schema.org/</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="280" x="423.5" y="84.8105">xsd: http://www.w3.org/2001/XMLSchema#</text><!--MD5=[d5f59610cc0cc723c8bbc515566a052f]
+reverse link Thing to ThingDirectory--><path codeLine="18" d="M255.4998,79.2207 C214.0132,116.0267 144.8338,177.4013 112.1543,206.3939 " fill="none" id="Thing-backto-ThingDirectory" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="251.0484,73.8121,270.6549,65.7754,260.3395,84.2848,251.0484,73.8121" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[b583c48d99aa5b3cf0e91b6eadef3db4]
+reverse link Thing to ThingLink--><path codeLine="19" d="M289,86.0242 C289,123.0861 289,178.7793 289,206.1418 " fill="none" id="Thing-backto-ThingLink" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="282.0001,85.7755,289,65.7754,296.0001,85.7754,282.0001,85.7755" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[89fe35fb0672e043d63e3ff0bff4df4b]
+link Thing to RegInfo--><path codeLine="21" d="M309.603,65.7754 C338.5435,88.6371 392.667,131.3922 437.081,166.4772 " fill="none" id="Thing-to-RegInfo" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="441.0748,169.6322,436.492,160.9145,437.1513,166.5328,431.533,167.1921,441.0748,169.6322" style="stroke:#A80036;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="236" x="400" y="136.5684">discovery:hasRegistrationInformation</text><!--MD5=[da15784ce35d776b9ebbed46ae4df196]
+@startuml discovery-class-diagram-ontology
+hide members
+skinparam classBackgroundColor Azure
+
+class Thing as "td:Thing"
+note left: Thing Description (TD)
+class ThingDirectory as "discovery:ThingDirectory"
+class ThingLink as "discovery:ThingLink"
+
+class RegInfo as "discovery:RegistrationInformation" #Azure {
+  schema:dateCreated : xsd:dateTime
+  schema:dateModified : xsd:dateTime
+  schema:expires : xsd:dateTime
+  discovery:ttl : xsd:unsignedInt
+  discovery:retrieved : xsd:dateTime
+}
+show RegInfo attributes
+together {
+  Thing <|- - ThingDirectory
+  Thing <|- - ThingLink
+}
+Thing - -> RegInfo : "discovery:hasRegistrationInformation"
+
+note as Prefixes
+Prefixes:
+  td: https://www.w3.org/2019/wot/td#
+  discovery: https://www.w3.org/2021/wot/discovery#
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+end note
+
+' note as Aliases
+' discovery:
+'   ThingDirectory: discovery:ThingDirectory
+'   ThingLink: discovery:ThingLink
+'   created: schema:dateCreated
+'   modified: schema:dateModified
+'   expires: schema:expires
+'   ttl: discovery:ttl
+'   retrieved: retrieved: dateTime
+' end note
+
+@enduml
+
+@startuml discovery-class-diagram-ontology
+hide members
+skinparam classBackgroundColor Azure
+
+class Thing as "td:Thing"
+note left: Thing Description (TD)
+class ThingDirectory as "discovery:ThingDirectory"
+class ThingLink as "discovery:ThingLink"
+
+class RegInfo as "discovery:RegistrationInformation" #Azure {
+  schema:dateCreated : xsd:dateTime
+  schema:dateModified : xsd:dateTime
+  schema:expires : xsd:dateTime
+  discovery:ttl : xsd:unsignedInt
+  discovery:retrieved : xsd:dateTime
+}
+show RegInfo attributes
+together {
+  Thing <|- - ThingDirectory
+  Thing <|- - ThingLink
+}
+Thing - -> RegInfo : "discovery:hasRegistrationInformation"
+
+note as Prefixes
+Prefixes:
+  td: https://www.w3.org/2019/wot/td#
+  discovery: https://www.w3.org/2021/wot/discovery#
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+end note
+
+
+@enduml
+
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
