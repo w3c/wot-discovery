@@ -192,7 +192,9 @@ img.wot-diagram {
            to make WoT Thing Descriptions available.
            Specifically, WoT Discovery has to allow authenticated and authorized entities
            (and only those entities) to find WoT Thing Descriptions satisfying a set of
-           criteria, such as being near a certain location, or having certain semantics,
+           criteria, such as 
+          <!-- being near a certain location, or -->
+           having certain semantics,
            or containing certain interactions.  Conversely, in order to support
            security and privacy objectives, the WoT Discovery process must not
            leak information to unauthorized entities.  This includes leaking information
@@ -586,10 +588,6 @@ img.wot-diagram {
                     When a request is made at the above Well-Known URI, the server MUST return
                     a Thing Description as prescribed in [[[#exploration-mech]]].</span>
             </p>
-            <p class="ednote" title="Registration of Well-known URI">
-                The service name in Well-Known URI (<code>wot</code>) is tentative.
-                "Well-Known URIs" registry and contents of registration request is described in Section 3.1 of [[RFC8615]].
-            </p>
 
         </section>
         <section id="introduction-dns-sd-sec" class="normative">
@@ -598,27 +596,39 @@ img.wot-diagram {
                 This can be also be used on the same local network in combination with Multicast DNS (mDNS)[[RFC6762]].
             </p>
             <p>
-                In DNS-SD, the format of the Service Instance Name is <code>Instance.Service.Domain</code>. 
-                The Service part is a pair of labels following the conventions of [[RFC2782]].
-                The first label has an underscore followed by the Service Name,
-                and the second label describes the protocol.
-            </p>
-            <p>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name">
-                    The Service Name to indicate the Thing or <a>Thing Description Directory</a> MUST be <code>_wot</code>.</span>
-                <span class="rfc2119-assertion" id="introduction-dns-sd-service-name-directory">
-                    The Service Name to indicate the <a>Thing Description Directory</a> MUST be <code>_directory._sub._wot</code>.</span>
-            </p>
-            <p class="ednote" title="Service Names in existing implementations">
-                The Service Names <code>_wot</code> and <code>_directory._sub._wot</code>
-                are tentative. The following Service Names are used in the existing implementations:
-                <code>_wot</code>,
-                <code>_device._sub._wot</code>,
-                <code>_directory._sub._wot</code>,
-                <code>_webthing</code>,
-                <code>_wot-servient</code>.
-                To use a Service Name, registration to "Underscored and Globally Scoped DNS Node Names"
-                Registry [[RFC8552]] is required.
+                The following table lists the service names and protocols for advertising their presense.
+                <table class="def">
+                    <thead>
+                        <tr>
+                            <th>Service name</th>
+                            <th>Thing or TDD</th>
+                            <th>Protocol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name">
+                            <td><code>_wot._tcp</code></td>
+                            <td>Thing</td>
+                            <td>HTTP over TCP, HTTP over TLS/TCP, CoAP over TCP, or CoAP over TLS/TCP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory">
+                            <td><code>_directory._sub._wot._tcp</code></td>
+                            <td>TDD</td>
+                            <td>HTTP over TCP, HTTP over TLS/TCP, CoAP over TCP, or CoAP over TLS/TCP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-udp">
+                            <td><code>_wot._udp</code></td>
+                            <td>Thing</td>
+                            <td>CoAP over UDP or CoAP over DTLS/UDP</td>
+                        </tr>
+                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory-udp">
+                            <td><code>_directory._sub._wot._udp</code></td>
+                            <td>TDD</td>
+                            <td>CoAP over UDP or CoAP over DTLS/UDP</td>
+                        </tr>
+                    </tbody>
+
+                </table>
             </p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
                     <p>
@@ -631,39 +641,28 @@ img.wot-diagram {
                         <dt><code>type</code></dt>
                         <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                        <dt><code>scheme</code></dt>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over TLS/TCP), <code>coap</code> (CoAP over UDP), <code>coaps</code> CoAP over DTLS/UDP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
+                        If omitted, the scheme is assumed to be <code>http</code> for TCP and <code>coap</code> for UDP. </dd>
                     </dl>
                 </div>
-            <p class="ednote" title="Usage of a TXT record in existing implementations">
-                The following key/value pairs are used in the existing implementations:<br/>
-                <code>retrieve</code>:
-                        Absolute path name of the API to get an array of Thing Description IDs
-                        from the directory service.<br/>
-                <code>register</code>:
-                    Absolute path name of the API to register a Thing Description with the <a>Thing Description Directory</a>.<br/>
-                <code>path</code>:
-                    The URI of the thing description on the Web Thing's web server<br/>
-                <code>td</code>:
-                    Prefix of directory service API<br/>
-                <code>tls</code>:
-                    Value of 1 if the Web Thing supports connections via HTTPS.<br/>
-            </p>
             <p>
                 <a href="#sequence-dnssd-thing"></a> and <a href="#sequence-dnssd-directory"></a> shows example sequences
-                of discovery of Thing and <a>Thing Description Directory</a> using DNS-SD and mDNS. 
+                supporting discovery of a Thing or a <a>Thing Description Directory</a> using DNS-SD and mDNS. 
             </p>
             <figure id="sequence-dnssd-thing">
                 <img src="images/sequence-dnssd-thing.png"
                     srcset="images/sequence-dnssd-thing.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of Thing using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of Thing using DNS-SD and mDNS</figcaption>
+                <figcaption>Using mDNS for discovery of the Thing Description of a Thing</figcaption>
             </figure>
             <figure id="sequence-dnssd-directory">
                 <img src="images/sequence-dnssd-directory.png"
                     srcset="images/sequence-dnssd-directory.svg"
                     class="wot-diagram"
                     alt="An example sequence of discovery of directory service using DNS-SD and mDNS" />
-                <figcaption>An example sequence of discovery of <a>Thing Description Directory</a> using DNS-SD and mDNS</figcaption>
+                <figcaption>Using mDNS for discovery of the Thing Description of a Thing Description Directory (TDD)</figcaption>
             </figure>
 
         </section>
@@ -684,21 +683,22 @@ img.wot-diagram {
                     The resource type of the Link that targets the Thing Description of the <a>Thing Description Directory</a>
                     MUST be <code>wot.directory</code>.</span>
             </p>
-            <p class="ednote">
-                The resource types <code>wot.thing</code> and <code>wot.directory</code> are tentative.
-                See also <a href="#iana-considerations"></a>.
-            </p>
         </section>
         <section id="introduction-did-sec" class="normative">
             <h2>DID Documents</h2>
-            <p><span class="rfc2119-assertion" id="introduction-did">A Thing or <a>Thing Description Directory</a> MAY advertise its presence using 
-                the Decentralized Identifier (DID) [[DID-CORE]].</span>
+            <p><span class="rfc2119-assertion" id="introduction-did">A <a>Thing</a> or <a>Thing Description Directory</a> 
+                using a Decentralized Identifier (DID) [[DID-CORE]] MAY advertise the location of its <a>TD</a>
+                by including a DID Service Endpoint of type 
+                <code>WotThing</code> or <code>WotDirectory</code>, respectively, in the DID Document that 
+                the TD's identifier resolves to.</span>
             </p>
-            <p>
-                <span class="rfc2119-assertion" id="introduction-did-service-endpoint">
-                    The DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> MUST
-                    contain a Service Endpoint which points to a <a>TD</a> describing that Thing (using the <code>WotThing</code> service name) 
-		    or a <a>TD</a> of a <a>Thing Description Directory</a> (using the <code>WotDirectory</code> service name).</span>
+            <p><span class="rfc2119-assertion" id="introduction-did-service-endpoint">
+                If the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> 
+                contains a Service Endpoint of type <code>WotThing</code> or <code>WotDirectory</code>, respectively,
+                then this Service Endpoint MUST refer to the <a>TD</a> describing that Thing 
+                (when using the <code>WotThing</code> service name) 
+		            or the <a>TD</a> describing that <a>Thing Description Directory</a> (when using the <code>WotDirectory</code> service name),
+                respectively.</span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
@@ -1459,27 +1459,24 @@ img.wot-diagram {
                 <p>
                     The directory APIs include mandatory, recommended, and optional
                     features. 
-                    Directories that don't offer recommended or optional features
-                    inform the clients about the absence of those features
-                    according to the following rules:
-                </p>
+                    <span class="rfc2119-assertion" id="tdd-http-unsupported-feature">
+                        When a directory is unable to answer a request because of unsupported
+                        recommended or optional features, it SHOULD inform the client about the
+                        absence of those features by returning appropriate HTTP errors.</span>
+                    The following examples can be used as guideline for implementations:
                     <ul>
                         <li>
-                            If the missing feature is to customize existing functionality of an
-                            API, the server will respond with 501 (Not Implemented)
-                            HTTP status.
-                            For example, if a client requests a list of
-                            items with a particular sorting order, the server either
-                            respects that request and returns the list with the requested
-                            order, or rejects the request and does not return the list.
-                            The server will return the list with the default order
-                            if and only if custom sorting is not requested.
-                            The normative behavior is prescribed in the respective sections.
+                            If the missing feature is to customize functionality of an
+                            existing API (e.g. custom sort ordering when listing),
+                            use 400 (Bad Request) or 501 (Not Implemented).
                         </li>
                         <li>
-                            <span class="rfc2119-assertion" id="tdd-http-missing-api-endpoint">
-                            If an API endpoint is not provided, the server SHOULD respond with 
-                            404 (Not Found).</span>
+                            If an API endpoint is not provided (e.g. `/search/sparql` endpoint),
+                            use 404 (Not Found).
+                        </li>
+                        <li>
+                            If a method is not supported on an existing API endpoint
+                            (e.g. `PATCH` for `/things` endpoint), use 405 (Method Not Allowed).
                         </li>
                     </ul>
 
@@ -1961,7 +1958,7 @@ img.wot-diagram {
                                     The clients may rely on the `etag` value to know whether the collection
                                     remains consistent across paginated retrieval of the collection.
                                     For example, creation or deletion of TDs or update of TD fields used for
-                                    ordering may make shift the calculated paging window.
+                                    ordering may shift the calculated paging window.
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
@@ -1974,11 +1971,10 @@ img.wot-diagram {
                                         (i.e. `asc` or `desc` for ascending and descending ordering).</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
                                         A server MUST reject requests to sort on fields that do not have 
-                                        values that are orderable basic types, 
-                                        with a 400 (Bad Request) status.</span>
+                                        values that are orderable basic types.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-unsupported">
                                         If the server does not support custom sorting,
-                                        it MUST reject the request with 501 (Not Implemented) status.</span>
+                                        it MUST reject the request.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
@@ -2330,7 +2326,8 @@ img.wot-diagram {
                                     <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
                                         When a server which does not support the `diff` query parameter 
                                         is requested with such query parameter, it MUST
-                                        reject the request with 501 (Not Implemented) status.</span>
+                                        reject the request.
+                                    </span>
                                     This is to inform the clients about the lack of such functionality at the
                                     connection time to avoid runtime exceptions caused by missing
                                     event data attributes.
@@ -2998,9 +2995,9 @@ a change in ownership).
             <ul>
                 <li>Service Name: <code>wot</code></li>
                 <li>Transport Protocol: TCP, UDP</li>
-                <li>Description: Service name to search a Thing or a Thing Description Directory of W3C Web of Things</li>
+                <li>Description: Service name to search for the Thing Description of a Thing or a Thing Description Directory in the W3C Web of Things</li>
                 <li>Port Number: N/A</li>
-                <li>Assignment notes: PTR, SRV, TXT RR types are used</li>
+                <li>Assignment notes: We use <code>_directory</code> subtype for a Thing Description Directory.</li>
             </ul>
         </section>
         <section id="core-resource-type">

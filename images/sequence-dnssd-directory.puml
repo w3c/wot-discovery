@@ -1,10 +1,11 @@
 @startuml
+skin rose
 skinparam defaultFontName "Noto Sans"
 participant "Consumer" as Consumer
 participant "Directory" as Directory
 
 Consumer --> Directory : mDNS query\n"_directory._sub._wot._tcp.local PTR"
-Directory ->  Consumer : mDNS resp.\n"_directory._sub._wot._tcp.local PTR dir._wot._tcp.local"\n"dir._wot._tcp.local SRV 1 0 80 tdir.local"\n"dir._wot._tcp.local TXT td=/.well-known/wot-thing-description;type=Directory"
-Consumer -> Directory  : HTTP GET\n"http://tdir.local:80/.well-known/wot-thing-description"
+Directory ->  Consumer : mDNS response\n"_directory._sub._wot._tcp.local PTR dir._wot._tcp.local"\n"dir._wot._tcp.local SRV 1 0 80 tdir.local"\n"dir._wot._tcp.local TXT td=/path/to/td;type=Directory;scheme=http"
+Consumer -> Directory  : HTTP GET\n"http://tdir.local:80/path/to/td"
 Directory ->  Consumer : HTTP 200 OK\nThing Description: '{"@context":...}'
 @enduml
