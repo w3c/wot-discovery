@@ -79,6 +79,12 @@
 #introduction-direct-directory-description {
   background-color: yellow;
 }
+#introduction-dns-sd-service-name-directory-udp {
+  background-color: yellow;
+}
+#introduction-dns-sd-service-name-udp {
+  background-color: yellow;
+}
 #priv-loc-anonymous-tds {
   background-color: yellow;
 }
@@ -143,6 +149,9 @@
   background-color: yellow;
 }
 #tdd-http-representation-alternate-output {
+  background-color: yellow;
+}
+#tdd-http-unsupported-feature {
   background-color: yellow;
 }
 #tdd-notification-data-diff-unsupported {
