@@ -1,0 +1,183 @@
+#discoverer-any-order {
+  background-color: yellow;
+}
+#discoverer-fetch-iteration {
+  background-color: yellow;
+}
+#discoverer-fetch-links {
+  background-color: yellow;
+}
+#discoverer-fetch-tdd {
+  background-color: yellow;
+}
+#discoverer-merge-intros {
+  background-color: yellow;
+}
+#discoverer-must-support-intros {
+  background-color: yellow;
+}
+#discoverer-td-identify {
+  background-color: yellow;
+}
+#discoverer-termination {
+  background-color: yellow;
+}
+#discoverer-track {
+  background-color: yellow;
+}
+#exploration-link-description-link {
+  background-color: yellow;
+}
+#exploration-link-description-type {
+  background-color: yellow;
+}
+#exploration-secboot-401 {
+  background-color: yellow;
+}
+#exploration-secboot-auth {
+  background-color: yellow;
+}
+#exploration-secboot-oauth2-flows {
+  background-color: yellow;
+}
+#exploration-server-coap-alternate-content {
+  background-color: yellow;
+}
+#exploration-server-coap-method {
+  background-color: yellow;
+}
+#exploration-server-coap-resp {
+  background-color: yellow;
+}
+#exploration-server-coap-size2 {
+  background-color: yellow;
+}
+#exploration-server-http-alternate-content {
+  background-color: yellow;
+}
+#exploration-server-http-alternate-language {
+  background-color: yellow;
+}
+#exploration-server-http-resp-content-type {
+  background-color: yellow;
+}
+#exploration-server-http-resp-json {
+  background-color: yellow;
+}
+#introduction-core-rd {
+  background-color: yellow;
+}
+#introduction-core-rd-directory {
+  background-color: yellow;
+}
+#introduction-core-rd-resource-type-directory {
+  background-color: yellow;
+}
+#introduction-core-rd-resource-type-thing {
+  background-color: yellow;
+}
+#introduction-direct-directory-description {
+  background-color: yellow;
+}
+#introduction-dns-sd-service-name-directory-udp {
+  background-color: yellow;
+}
+#introduction-dns-sd-service-name-udp {
+  background-color: yellow;
+}
+#priv-loc-anonymous-tds {
+  background-color: yellow;
+}
+#priv-loc-disable-public-directories {
+  background-color: yellow;
+}
+#priv-loc-explicit-care {
+  background-color: yellow;
+}
+#priv-loc-explicit-strip {
+  background-color: yellow;
+}
+#priv-loc-gen-ids {
+  background-color: yellow;
+}
+#priv-loc-priv-dir-access {
+  background-color: yellow;
+}
+#priv-query-anon {
+  background-color: yellow;
+}
+#sec-self-proxy {
+  background-color: yellow;
+}
+#sec-tdd-intro-if-multicast-required {
+  background-color: yellow;
+}
+#sec-tdd-intro-limit-response-size {
+  background-color: yellow;
+}
+#sec-tdd-intro-no-multicast {
+  background-color: yellow;
+}
+#sec-tdd-intro-no-observe {
+  background-color: yellow;
+}
+#sec-tdd-intro-throttling {
+  background-color: yellow;
+}
+#sec-tdd-limit-query-complexity {
+  background-color: yellow;
+}
+#sec-tdd-query-watchdog {
+  background-color: yellow;
+}
+#sec-tdd-throttle-queries {
+  background-color: yellow;
+}
+#security-bootstrapping-endpoints {
+  background-color: yellow;
+}
+#tdd-absolute-time {
+  background-color: yellow;
+}
+#tdd-context-injection {
+  background-color: yellow;
+}
+#tdd-http-alternate-language {
+  background-color: yellow;
+}
+#tdd-http-error-response-lang {
+  background-color: yellow;
+}
+#tdd-http-representation-alternate-output {
+  background-color: yellow;
+}
+#tdd-http-unsupported-feature {
+  background-color: yellow;
+}
+#tdd-notification-data-diff-unsupported {
+  background-color: yellow;
+}
+#tdd-things-create-anonymous-id {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-collection {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-order {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-order-nextlink {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-order-utf-8 {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-orderable {
+  background-color: yellow;
+}
+#tdd-things-representation-alternate-input {
+  background-color: yellow;
+}
+#tdd-validation-response-lang {
+  background-color: yellow;
+}
