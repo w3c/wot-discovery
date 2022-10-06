@@ -1,6 +1,3 @@
-#discoverer-any-order {
-  background-color: yellow;
-}
 #discoverer-fetch-iteration {
   background-color: yellow;
 }
@@ -10,16 +7,7 @@
 #discoverer-fetch-tdd {
   background-color: yellow;
 }
-#discoverer-merge-intros {
-  background-color: yellow;
-}
-#discoverer-must-support-intros {
-  background-color: yellow;
-}
 #discoverer-td-identify {
-  background-color: yellow;
-}
-#discoverer-termination {
   background-color: yellow;
 }
 #discoverer-track {

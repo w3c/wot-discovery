@@ -119,7 +119,7 @@ pre.example {
     Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 3 Oct 2022
+    <b>Version</b>: 6 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -510,8 +510,8 @@ MAY be included.
 Type: undefined.</td>
 	<td class="tabassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result tabassertion">0</td>
+	<td class="result tabassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="introduction-dns-sd-service-name-udp" class="tabassertion">
 	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd-service-name-udp">introduction-dns-sd-service-name-udp</a></td>
@@ -523,8 +523,8 @@ MAY be included.
 Type: undefined.</td>
 	<td class="tabassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result tabassertion">0</td>
+	<td class="result tabassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="tdd-absolute-time" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-absolute-time">tdd-absolute-time</a></td>
@@ -536,8 +536,8 @@ Type: undefined.</td>
                     it MUST be interpreted as date-time as specified in [[RFC3339]].</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="tdd-anonymous-td-identifier" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-identifier">tdd-anonymous-td-identifier</a></td>
@@ -605,8 +605,8 @@ Type: undefined.</td>
                         absence of those features by returning appropriate HTTP errors.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="tdd-notification" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-notification">tdd-notification</a></td>
@@ -910,8 +910,8 @@ Type: optional.</td>
                                     to enable local management and retrieval from the directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result missing">0</td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">0</td>
 	<td class="result missing">0</td></tr>
 <tr id="tdd-things-create-anonymous-td" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-td">tdd-things-create-anonymous-td</a></td>
@@ -1299,14 +1299,14 @@ Type: optional.</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 			A Discoverer MAY fetch additional TDs by following links or fetching
 			additional TDs from Exploration mechanisms (e.g. TDDs) in any order.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="discoverer-fetch-iteration" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-iteration">discoverer-fetch-iteration</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1319,8 +1319,8 @@ Type: optional.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">4</td></tr>
 <tr id="discoverer-fetch-links" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-links">discoverer-fetch-links</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1333,8 +1333,8 @@ Type: optional.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">4</td></tr>
 <tr id="discoverer-fetch-tdd" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-tdd">discoverer-fetch-tdd</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1348,8 +1348,8 @@ Type: optional.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">4</td></tr>
 <tr id="discoverer-may-multiple-intro" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-may-multiple-intro">discoverer-may-multiple-intro</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1359,25 +1359,25 @@ Type: optional.</td>
 	<td class="baseassertion">
 			A Discoverer MAY support multiple invocations of the same Introduction mechanism.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-merge-intros" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-merge-intros">discoverer-merge-intros</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 			A Discoverer MUST be able to merge URLs resulting from 
 			multiple Introduction mechanisms, multiple results from a single Introduction mechanism,
 			and multiple Introduction invocations into a single set.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-must-support-fetching" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-must-support-fetching">discoverer-must-support-fetching</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1387,23 +1387,23 @@ Type: optional.</td>
 	<td class="baseassertion">
 			A Discoverer MUST support fetching a TD from at least one URL provided as part of the Introduction process.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-must-support-intros" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-must-support-intros">discoverer-must-support-intros</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 			A Discoverer MUST support at least one Introduction mechanism.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="discoverer-td-identify" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-td-identify">discoverer-td-identify</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1416,23 +1416,23 @@ Type: optional.</td>
             or Thing Link type.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-termination" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-termination">discoverer-termination</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">
+	<td class="baseassertion">
 			A Discoverer MAY terminate fetching additional TDs at any point or for
 			any reason.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-track" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-track">discoverer-track</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1444,9 +1444,9 @@ Type: optional.</td>
 			have already been fetched and avoid fetching duplicate results.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="exploration-directory-description-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-directory-description-type">exploration-directory-description-type</a></td>
 	<td class="baseassertion">TD Directory</td>
