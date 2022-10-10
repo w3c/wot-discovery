@@ -136,9 +136,6 @@
 #tdd-http-error-response-lang {
   background-color: yellow;
 }
-#tdd-http-head {
-  background-color: yellow;
-}
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
@@ -151,37 +148,10 @@
 #tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
-#tdd-search-sparql {
-  background-color: yellow;
-}
-#tdd-search-sparql-error {
-  background-color: yellow;
-}
-#tdd-search-sparql-federation {
-  background-color: yellow;
-}
-#tdd-search-sparql-federation-version {
-  background-color: yellow;
-}
-#tdd-search-sparql-method-get {
-  background-color: yellow;
-}
-#tdd-search-sparql-method-post {
-  background-color: yellow;
-}
-#tdd-search-sparql-resp-describe-construct {
-  background-color: yellow;
-}
-#tdd-search-sparql-resp-select-ask {
-  background-color: yellow;
-}
 #tdd-search-sparql-version {
   background-color: yellow;
 }
 #tdd-things-create-anonymous-id {
-  background-color: yellow;
-}
-#tdd-things-create-known-contenttype {
   background-color: yellow;
 }
 #tdd-things-list-pagination {
@@ -218,9 +188,6 @@
   background-color: yellow;
 }
 #tdd-things-representation-alternate-input {
-  background-color: yellow;
-}
-#tdd-things-update-contenttype {
   background-color: yellow;
 }
 #tdd-validation-response-lang {
