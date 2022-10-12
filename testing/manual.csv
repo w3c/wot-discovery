@@ -79,6 +79,7 @@
 "tdd-search-sparql-federation-version","null",
 "tdd-search-sparql-resp-describe-construct","null",
 "tdd-search-sparql-version","null",
+"tdd-things-create-anonymous-id","null",
 "tdd-things-create-known-contenttype","null",
 "tdd-things-update-contenttype","null",
 "tdd-things-list-pagination","null",
