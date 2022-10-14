@@ -38,17 +38,17 @@ tdd-things-update-resp,pass,passed:TestUpdateThing/status_code
 tdd-validation-response,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
 tdd-validation-result,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
 tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status
-"discoverer-any-order","not-impl","not implemented"
-"discoverer-fetch-iteration","not-impl","not implemented"
-"discoverer-fetch-links","not-impl","not implemented"
-"discoverer-fetch-tdd","not-impl","not implemented"
-"discoverer-may-multiple-intro","not-impl","not implemented"
-"discoverer-merge-intros","not-impl","not implemented"
-"discoverer-must-support-fetching","not-impl","not implemented"
-"discoverer-must-support-intros","not-impl","not implemented"
-"discoverer-td-identify","not-impl","not implemented"
-"discoverer-termination","not-impl","not implemented"
-"discoverer-track","not-impl","not implemented"
+"discoverer-any-order","null",
+"discoverer-fetch-iteration","null",
+"discoverer-fetch-links","null",
+"discoverer-fetch-tdd","null",
+"discoverer-may-multiple-intro","null",
+"discoverer-merge-intros","null",
+"discoverer-must-support-fetching","null",
+"discoverer-must-support-intros","null",
+"discoverer-td-identify","null",
+"discoverer-termination","null",
+"discoverer-track","null",
 "exploration-directory-description-type","pass",
 "exploration-link-description-link","not-impl","not implemented"
 "exploration-link-description-type","not-impl","not implemented"

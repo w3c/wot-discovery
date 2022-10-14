@@ -1,6 +1,3 @@
-#discoverer-any-order {
-  background-color: yellow;
-}
 #discoverer-fetch-iteration {
   background-color: yellow;
 }
@@ -10,16 +7,7 @@
 #discoverer-fetch-tdd {
   background-color: yellow;
 }
-#discoverer-merge-intros {
-  background-color: yellow;
-}
-#discoverer-must-support-intros {
-  background-color: yellow;
-}
 #discoverer-td-identify {
-  background-color: yellow;
-}
-#discoverer-termination {
   background-color: yellow;
 }
 #discoverer-track {
@@ -157,16 +145,40 @@
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
+#tdd-registrationinfo-expiry-config {
+  background-color: yellow;
+}
+#tdd-search-sparql-version {
+  background-color: yellow;
+}
 #tdd-things-create-anonymous-id {
   background-color: yellow;
 }
+#tdd-things-list-pagination {
+  background-color: yellow;
+}
 #tdd-things-list-pagination-collection {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-header-canonicallink {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-header-nextlink {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-header-nextlink-attr {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-header-nextlink-base {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order-nextlink {
+  background-color: yellow;
+}
+#tdd-things-list-pagination-order-unsupported {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order-utf-8 {
