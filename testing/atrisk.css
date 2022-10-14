@@ -46,12 +46,6 @@
 #exploration-server-http-alternate-language {
   background-color: yellow;
 }
-#exploration-server-http-resp-content-type {
-  background-color: yellow;
-}
-#exploration-server-http-resp-json {
-  background-color: yellow;
-}
 #introduction-core-rd {
   background-color: yellow;
 }
@@ -127,9 +121,6 @@
 #tdd-absolute-time {
   background-color: yellow;
 }
-#tdd-context-injection {
-  background-color: yellow;
-}
 #tdd-http-alternate-language {
   background-color: yellow;
 }
@@ -139,9 +130,6 @@
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
-#tdd-http-unsupported-feature {
-  background-color: yellow;
-}
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
@@ -149,9 +137,6 @@
   background-color: yellow;
 }
 #tdd-search-sparql-version {
-  background-color: yellow;
-}
-#tdd-things-create-anonymous-id {
   background-color: yellow;
 }
 #tdd-things-list-pagination {
@@ -185,9 +170,6 @@
   background-color: yellow;
 }
 #tdd-things-list-pagination-orderable {
-  background-color: yellow;
-}
-#tdd-things-representation-alternate-input {
   background-color: yellow;
 }
 #tdd-validation-response-lang {
