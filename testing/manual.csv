@@ -39,6 +39,8 @@
 "introduction-dns-sd","null",
 "introduction-dns-sd-service-name","null",
 "introduction-dns-sd-service-name-directory","null",
+"introduction-dns-sd-service-name-directory-udp","null",
+"introduction-dns-sd-service-name-udp","null",
 "introduction-dns-sd-txt-record","null",
 "introduction-well-known-path","null",
 "introduction-well-known-thing-description","null",
