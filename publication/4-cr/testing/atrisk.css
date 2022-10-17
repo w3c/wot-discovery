@@ -1,6 +1,3 @@
-#discoverer-any-order {
-  background-color: yellow;
-}
 #discoverer-fetch-iteration {
   background-color: yellow;
 }
@@ -8,18 +5,6 @@
   background-color: yellow;
 }
 #discoverer-fetch-tdd {
-  background-color: yellow;
-}
-#discoverer-merge-intros {
-  background-color: yellow;
-}
-#discoverer-must-support-intros {
-  background-color: yellow;
-}
-#discoverer-td-identify {
-  background-color: yellow;
-}
-#discoverer-termination {
   background-color: yellow;
 }
 #discoverer-track {
@@ -56,12 +41,6 @@
   background-color: yellow;
 }
 #exploration-server-http-alternate-language {
-  background-color: yellow;
-}
-#exploration-server-http-resp-content-type {
-  background-color: yellow;
-}
-#exploration-server-http-resp-json {
   background-color: yellow;
 }
 #introduction-core-rd {
@@ -139,9 +118,6 @@
 #tdd-absolute-time {
   background-color: yellow;
 }
-#tdd-context-injection {
-  background-color: yellow;
-}
 #tdd-http-alternate-language {
   background-color: yellow;
 }
@@ -151,13 +127,10 @@
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
-#tdd-http-unsupported-feature {
-  background-color: yellow;
-}
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
-#tdd-things-create-anonymous-id {
+#tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
 #tdd-things-list-pagination-collection {
@@ -173,9 +146,6 @@
   background-color: yellow;
 }
 #tdd-things-list-pagination-orderable {
-  background-color: yellow;
-}
-#tdd-things-representation-alternate-input {
   background-color: yellow;
 }
 #tdd-validation-response-lang {
