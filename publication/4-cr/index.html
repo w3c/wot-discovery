@@ -14,9 +14,6 @@
 #discoverer-fetch-tdd {
   background-color: yellow;
 }
-#discoverer-td-identify {
-  background-color: yellow;
-}
 #discoverer-track {
   background-color: yellow;
 }
@@ -143,34 +140,13 @@
 #tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
-#tdd-search-sparql-version {
-  background-color: yellow;
-}
-#tdd-things-list-pagination {
-  background-color: yellow;
-}
 #tdd-things-list-pagination-collection {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-canonicallink {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink-attr {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink-base {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order-nextlink {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-order-unsupported {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order-utf-8 {
@@ -363,14 +339,11 @@ img.wot-diagram {
     <li>Discoverer behavior when fetching additional results from 
     Exploration services and Thing Links, including tracking of
     already fetched results.</li>
-    <li>Discoverer use of <code>@type</code> to identify TDs for 
-    TDDs and Thing Links.</li>
     <li>Security bootstrapping.</li>
     <li>CoAP-based TD Server support.</li>
     <li>Alternative content and language support.</li>
     <li>Support for CoRE-RD and CoRE Link Format.</li>
-    <li>Pagination support.</li>
-    <li>Sorting support.</li>
+    <li>Sorting support during pagination.</li>
     </ul>
     <p>In addition, a number of assertions in the Privacy Considerations 
     and Security Considerations sections are at risk.  These represent best
@@ -2090,7 +2063,7 @@ img.wot-diagram {
 
                     <section id="exploration-directory-api-things-listing" class="normative">
                         <h4>Listing</h4>
-            <p class="at-risk">The pagination mechanism described in this
+            <p class="at-risk">The sorting mechanism described in this
             section is at risk.</p>
                         <p>
                             The listing endpoint provides different ways to query the collection of full TD objects

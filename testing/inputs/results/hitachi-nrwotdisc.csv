@@ -7,7 +7,7 @@
 "discoverer-merge-intros","pass",
 "discoverer-must-support-fetching","pass",
 "discoverer-must-support-intros","pass",
-"discoverer-td-identify","fail",
+"discoverer-td-identify","pass",
 "discoverer-termination","pass",
 "discoverer-track","fail",
 "exploration-directory-description-type","null",
