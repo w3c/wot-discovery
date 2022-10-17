@@ -310,6 +310,9 @@ img.wot-diagram {
 .rfc2119-assertion {
   background-color: rgb(230,230,230)
 }
+.at-risk {
+  background-color: yellow
+}
 </style>
 </head>
 <body>
@@ -348,7 +351,33 @@ img.wot-diagram {
         </p>
     </section>
     <!-- The following will be filled in by ReSpec -->
-    <section id="sotd"></section>
+    <section id="sotd">
+    <p>At the time of CR transition, due to insufficient implementation
+    experience the following features and sections are at risk:</p>
+    <ul>
+    <li>DNS-SD support for UDP protocols, specifically support for 
+    the <code>_wot._udp</code> service type.</li>
+    <li>Mandatory use of RFC3339 format for date-time.</li>
+    <li>Mandatory rejection of query with <code>diff</code> parameter if
+    <code>diff</code> is not supported.</li>
+    <li>Discoverer behavior when fetching additional results from 
+    Exploration services and Thing Links, including tracking of
+    already fetched results.</li>
+    <li>Discoverer use of <code>@type</code> to identify TDs for 
+    TDDs and Thing Links.</li>
+    <li>Security bootstrapping.</li>
+    <li>CoAP-based TD Server support.</li>
+    <li>Alternative content and language support.</li>
+    </ul>
+    <p>In addition, a number of assertions in the Privacy Considerations 
+    and Security Considerations sections are at risk.  These represent best
+    practices but often relate to deployments rather than implementations
+    and in some cases are difficult to validate.  The intention is to complete
+    as many of these as possible by PR; those that cannot be validated but
+    that represent best-practice recommendations will be converted into
+    informative statements.</p>
+    <p>At-risk assertions are marked with a <span class="at-risk">yellow highlight.</span></p>
+    </section>
     <section id="introduction">
         <h1>Introduction</h1>
         <p>The Web of Things (WoT) defines an architecture that supports the integration
@@ -1542,7 +1571,7 @@ img.wot-diagram {
                 and need to provide appropriate security and privacy protections.
                 The use of secure transport protocols and access controls for
                 authenticity and confidentiality in implementations of the WoT Directory Service API are governed by
-                the Security Consideration and Privacy Consierations given in [[wot-architecture11]].
+                the Security Consideration and Privacy Considerations given in [[wot-architecture11]].
                 </p> 
                 <p>
                     The HTTP API responses must use appropriate status codes described in 
@@ -3154,6 +3183,12 @@ img.wot-diagram {
 
     <section id="security-considerations">
         <h1>Security Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
 	<p>
             Security is a cross-cutting issue that needs to be considered
             in all WoT building blocks and WoT implementations. 
@@ -3361,6 +3396,12 @@ img.wot-diagram {
     </section>
     <section id="privacy-considerations">
         <h1>Privacy Considerations</h1>
+        <p class="at-risk">Several assertions in the following are at risk, as indicated
+        by yellow highlighting.  These represent best practices but at the
+        time of CR transition have insufficient implementation experience.
+        These will be converted to informative statements if sufficient
+        implementation experience is not obtained by time of PR transition.
+        </p>
         <p>
             Privacy is a cross-cutting issue that needs to be considered
             in all WoT building blocks and WoT implementations. 
