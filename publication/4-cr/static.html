@@ -1810,6 +1810,8 @@ and
             
             <p class="at-risk">The DNS-SD mechanism for 
             UDP discovery described in this section is at risk.</p>
+            <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="4"><span>Editor's note</span></div><p class="">The DNS-SD service names are still subject to IANA approval.  If necessary they may have to be
+            changed prior to PR if IANA requires different names.</p></div>
             <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a href="#dfn-wot-thing-description-directory" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-thing-description-directory-7">Thing Description Directory</a> <em class="rfc2119">MAY</em> use DNS-Based Service Discovery (DNS-SD)[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6763" title="DNS-Based Service Discovery">RFC6763</a></cite>].</span>
                 This can be also be used on the same local network in combination with Multicast DNS (mDNS)[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc6762" title="Multicast DNS">RFC6762</a></cite>].
             </p>
@@ -2406,7 +2408,7 @@ and
                     it <em class="rfc2119">MUST</em> be interpreted as date-time as specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>].</span>
                     Specifically, the timezone offset is not optional.
                     </p>
-                    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="6"><span>Editor's note</span><span class="issue-label">: dateTime vs. date-time</span></div><p class="">We should update the ontology to 
+                    <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="6"><span>Editor's note</span><span class="issue-label">: dateTime vs. date-time</span></div><p class="">We should update the ontology to 
                     only use date-time and RFC3339 and
                     not this odd combination of dateTime and date-time, 
                     but this should also be resolved in the TD specification.
@@ -3514,7 +3516,7 @@ id: event_3</code></pre>
                         <code>thingCreated</code>, <code>thingUpdated</code>, and <code>thingDeleted</code>.
                     </p>
 
-                    <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="6"><span>Editor's note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
+                    <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="6"><span>Editor's note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
@@ -3529,7 +3531,7 @@ id: event_3</code></pre>
                 <section id="exploration-directory-api-search" class="normative"><div class="header-wrapper"><h5 id="x7-3-2-3-search-api"><bdi class="secno">7.3.2.3 </bdi>Search API</h5><a class="self-link" href="#exploration-directory-api-search" aria-label="Permalink for Section 7.3.2.3"></a></div>
                     
                     
-                    <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="6"><span>Editor's note</span><span class="issue-label">: Search API Overview</span></div><p class="">
+                    <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span><span class="issue-label">: Search API Overview</span></div><p class="">
                         Sub-API to search a directory, e.g. issue a query.
                         There are different forms and levels of query possible, for example,
                         syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
@@ -4122,7 +4124,7 @@ id: event_3</code></pre>
 
 
 
-                    <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span><span class="issue-label">: Context URIs</span></div><p class="">
+                    <div class="note" id="issue-container-generatedID-3"><div role="heading" class="ednote-title marker" id="h-ednote-3" aria-level="6"><span>Editor's note</span><span class="issue-label">: Context URIs</span></div><p class="">
                         The context URIs are tentative and subject to change. 
                     </p></div>
                 </section>
