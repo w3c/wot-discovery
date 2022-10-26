@@ -25,15 +25,6 @@
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-coap-alternate-content {
-  background-color: yellow;
-}
-#exploration-server-coap-method {
-  background-color: yellow;
-}
-#exploration-server-coap-resp {
-  background-color: yellow;
-}
 #exploration-server-coap-size2 {
   background-color: yellow;
 }
@@ -43,16 +34,7 @@
 #exploration-server-http-alternate-language {
   background-color: yellow;
 }
-#introduction-core-rd {
-  background-color: yellow;
-}
-#introduction-core-rd-directory {
-  background-color: yellow;
-}
 #introduction-core-rd-resource-type-directory {
-  background-color: yellow;
-}
-#introduction-core-rd-resource-type-thing {
   background-color: yellow;
 }
 #introduction-direct-directory-description {

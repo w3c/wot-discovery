@@ -75,15 +75,6 @@ dfn{cursor:pointer}
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-coap-alternate-content {
-  background-color: yellow;
-}
-#exploration-server-coap-method {
-  background-color: yellow;
-}
-#exploration-server-coap-resp {
-  background-color: yellow;
-}
 #exploration-server-coap-size2 {
   background-color: yellow;
 }
@@ -93,16 +84,7 @@ dfn{cursor:pointer}
 #exploration-server-http-alternate-language {
   background-color: yellow;
 }
-#introduction-core-rd {
-  background-color: yellow;
-}
-#introduction-core-rd-directory {
-  background-color: yellow;
-}
 #introduction-core-rd-resource-type-directory {
-  background-color: yellow;
-}
-#introduction-core-rd-resource-type-thing {
   background-color: yellow;
 }
 #introduction-direct-directory-description {
@@ -325,7 +307,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-10-17",
+  "datePublished": "2022-10-21",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1098,7 +1080,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   },
   "doJsonLd": true,
   "specStatus": "CR",
-  "crEnd": "2022-12-22",
+  "crEnd": "2023-01-11",
   "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
   "copyrightStart": 2017,
@@ -1207,20 +1189,20 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-10-17T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 17 October 2022"
+  "publishISODate": "2022-10-21T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 21 October 2022"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-CR"></head>
 <body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Discovery</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#CR">W3C Candidate Recommendation Snapshot</a> <time class="dt-published" datetime="2022-10-17">17 October 2022</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#CR">W3C Candidate Recommendation Snapshot</a> <time class="dt-published" datetime="2022-10-21">21 October 2022</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2022/CR-wot-discovery-20221017/">https://www.w3.org/TR/2022/CR-wot-discovery-20221017/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2022/CR-wot-discovery-20221021/">https://www.w3.org/TR/2022/CR-wot-discovery-20221021/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a>
@@ -1325,22 +1307,63 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     experience the following features and sections are at risk:</p>
     <ul>
     <li>DNS-SD support for UDP protocols, specifically support for 
-    the <code>_wot._udp</code> service type.</li>
+    the <code>_wot._udp</code> service type.
+<a href="#introduction-dns-sd-service-name-directory-udp">introduction-dns-sd-service-name-directory-udp</a> and
+<a href="#introduction-dns-sd-service-name-udp">introduction-dns-sd-service-name-udp</a>.
+    </li>
     <li>Mandatory use of RFC3339 format for date-time.</li>
+<a href="#tdd-absolute-time">tdd-absolute-time</a>.
+    
     <li>Mandatory rejection of query with <code>diff</code> parameter if
-    <code>diff</code> is not supported.</li>
+    <code>diff</code> is not supported.
+<a href="#tdd-notification-data-diff-unsupported">tdd-notification-data-diff-unsupported</a>.
+    </li>
     <li>Discoverer behavior when fetching additional results from 
     Exploration services and Thing Links, including tracking of
-    already fetched results.</li>
-    <li>Security bootstrapping.</li>
-    <li>CoAP-based TD Server support.</li>
-    <li>Alternative content and language support.</li>
-    <li>Support for CoRE-RD and CoRE Link Format.</li>
-    <li>Sorting support during pagination.</li>
+    already fetched results:
+<a href="#discoverer-fetch-iteration">discoverer-fetch-iteration</a>,
+<a href="#discoverer-fetch-links">discoverer-fetch-links</a>,
+<a href="#discoverer-fetch-tdd">discoverer-fetch-tdd</a>, 
+and
+<a href="#discoverer-track">discoverer-track</a>.
+    </li>
+    <li>Security bootstrapping.
+<a href="#exploration-secboot-401">exploration-secboot-401</a>,
+<a href="#exploration-secboot-auth">exploration-secboot-auth</a>,
+<a href="#exploration-secboot-oauth2-flows">exploration-secboot-oauth2-flows</a>, and
+<a href="#security-bootstrapping-endpoints">security-bootstrapping-endpoints</a>.
+    </li>
+    <li>CoAP-based TD Server support.
+<a href="#exploration-server-coap-size2">exploration-server-coap-size2</a>.
+    </li>
+    <li>Alternative content and language support.
+<a href="#exploration-server-http-alternate-content">exploration-server-http-alternate-content</a>,
+<a href="#exploration-server-http-alternate-language">exploration-server-http-alternate-language</a>,
+<a href="#tdd-http-alternate-language">tdd-http-alternate-language</a>, 
+<a href="#tdd-http-error-response-lang">tdd-http-error-response-lang</a>,
+<a href="#tdd-http-representation-alternate-output">tdd-http-representation-alternate-output</a>, and
+<a href="#tdd-validation-response-lang">tdd-validation-response-lang</a>.
+    </li>
+    <li>Support for CoRE-RD and CoRE Link Format.
+<a href="#introduction-core-rd-resource-type-directory">introduction-core-rd-resource-type-directory</a>, and
+    </li>
+    <li>Sorting support during pagination.
+<a href="#tdd-things-list-pagination-collection">tdd-things-list-pagination-collection</a>,
+<a href="#tdd-things-list-pagination-order">tdd-things-list-pagination-order</a>,
+<a href="#tdd-things-list-pagination-order-nextlink">tdd-things-list-pagination-order-nextlink</a>,
+<a href="#tdd-things-list-pagination-order-utf-8">tdd-things-list-pagination-order-utf-8</a>, and
+<a href="#tdd-things-list-pagination-orderable">tdd-things-list-pagination-orderable</a>.
+    </li>
+    <li>Others:
+<a href="#exploration-link-description-link">exploration-link-description-link</a>,
+<a href="#exploration-link-description-type">exploration-link-description-type</a>,
+<a href="#introduction-direct-directory-description">introduction-direct-directory-description</a>, and
+<a href="#tdd-registrationinfo-expiry-config">tdd-registrationinfo-expiry-config</a>.
+    </li>
     </ul>
     <p>In addition, a number of assertions in the Privacy Considerations 
     and Security Considerations sections are at risk.  These represent best
-    practices but often relate to deployments rather than implementations
+    practices but often relate to deployment policy rather than implementations
     and in some cases are difficult to validate.  The intention is to complete
     as many of these as possible by PR; those that cannot be validated but
     that represent best-practice recommendations will be converted into
@@ -1359,7 +1382,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <a href="https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free licensing</a>
         for implementations.</p><p>
           This Candidate Recommendation is not expected to advance to Proposed
-          Recommendation any earlier than 22 December 2022.
+          Recommendation any earlier than 11 January 2023.
         </p><p>
     
         This document was produced by a group
