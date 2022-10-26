@@ -7,9 +7,6 @@
 #discoverer-fetch-tdd {
   background-color: yellow;
 }
-#discoverer-td-identify {
-  background-color: yellow;
-}
 #discoverer-track {
   background-color: yellow;
 }
@@ -28,15 +25,6 @@
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-coap-alternate-content {
-  background-color: yellow;
-}
-#exploration-server-coap-method {
-  background-color: yellow;
-}
-#exploration-server-coap-resp {
-  background-color: yellow;
-}
 #exploration-server-coap-size2 {
   background-color: yellow;
 }
@@ -46,22 +34,7 @@
 #exploration-server-http-alternate-language {
   background-color: yellow;
 }
-#exploration-server-http-resp-content-type {
-  background-color: yellow;
-}
-#exploration-server-http-resp-json {
-  background-color: yellow;
-}
-#introduction-core-rd {
-  background-color: yellow;
-}
-#introduction-core-rd-directory {
-  background-color: yellow;
-}
 #introduction-core-rd-resource-type-directory {
-  background-color: yellow;
-}
-#introduction-core-rd-resource-type-thing {
   background-color: yellow;
 }
 #introduction-direct-directory-description {
@@ -127,9 +100,6 @@
 #tdd-absolute-time {
   background-color: yellow;
 }
-#tdd-context-injection {
-  background-color: yellow;
-}
 #tdd-http-alternate-language {
   background-color: yellow;
 }
@@ -139,37 +109,13 @@
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
-#tdd-http-unsupported-feature {
-  background-color: yellow;
-}
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
 #tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
-#tdd-search-sparql-version {
-  background-color: yellow;
-}
-#tdd-things-create-anonymous-id {
-  background-color: yellow;
-}
-#tdd-things-list-pagination {
-  background-color: yellow;
-}
 #tdd-things-list-pagination-collection {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-canonicallink {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink-attr {
-  background-color: yellow;
-}
-#tdd-things-list-pagination-header-nextlink-base {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order {
@@ -178,16 +124,10 @@
 #tdd-things-list-pagination-order-nextlink {
   background-color: yellow;
 }
-#tdd-things-list-pagination-order-unsupported {
-  background-color: yellow;
-}
 #tdd-things-list-pagination-order-utf-8 {
   background-color: yellow;
 }
 #tdd-things-list-pagination-orderable {
-  background-color: yellow;
-}
-#tdd-things-representation-alternate-input {
   background-color: yellow;
 }
 #tdd-validation-response-lang {

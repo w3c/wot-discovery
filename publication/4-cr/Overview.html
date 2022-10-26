@@ -4,7 +4,7 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.2.4">
+<meta name="generator" content="ReSpec 32.3.0">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -54,9 +54,6 @@ dfn{cursor:pointer}
 
 <style>
 
-#discoverer-any-order {
-  background-color: yellow;
-}
 #discoverer-fetch-iteration {
   background-color: yellow;
 }
@@ -64,18 +61,6 @@ dfn{cursor:pointer}
   background-color: yellow;
 }
 #discoverer-fetch-tdd {
-  background-color: yellow;
-}
-#discoverer-merge-intros {
-  background-color: yellow;
-}
-#discoverer-must-support-intros {
-  background-color: yellow;
-}
-#discoverer-td-identify {
-  background-color: yellow;
-}
-#discoverer-termination {
   background-color: yellow;
 }
 #discoverer-track {
@@ -96,15 +81,6 @@ dfn{cursor:pointer}
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
-#exploration-server-coap-alternate-content {
-  background-color: yellow;
-}
-#exploration-server-coap-method {
-  background-color: yellow;
-}
-#exploration-server-coap-resp {
-  background-color: yellow;
-}
 #exploration-server-coap-size2 {
   background-color: yellow;
 }
@@ -114,22 +90,7 @@ dfn{cursor:pointer}
 #exploration-server-http-alternate-language {
   background-color: yellow;
 }
-#exploration-server-http-resp-content-type {
-  background-color: yellow;
-}
-#exploration-server-http-resp-json {
-  background-color: yellow;
-}
-#introduction-core-rd {
-  background-color: yellow;
-}
-#introduction-core-rd-directory {
-  background-color: yellow;
-}
 #introduction-core-rd-resource-type-directory {
-  background-color: yellow;
-}
-#introduction-core-rd-resource-type-thing {
   background-color: yellow;
 }
 #introduction-direct-directory-description {
@@ -195,9 +156,6 @@ dfn{cursor:pointer}
 #tdd-absolute-time {
   background-color: yellow;
 }
-#tdd-context-injection {
-  background-color: yellow;
-}
 #tdd-http-alternate-language {
   background-color: yellow;
 }
@@ -207,13 +165,10 @@ dfn{cursor:pointer}
 #tdd-http-representation-alternate-output {
   background-color: yellow;
 }
-#tdd-http-unsupported-feature {
-  background-color: yellow;
-}
 #tdd-notification-data-diff-unsupported {
   background-color: yellow;
 }
-#tdd-things-create-anonymous-id {
+#tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
 #tdd-things-list-pagination-collection {
@@ -229,9 +184,6 @@ dfn{cursor:pointer}
   background-color: yellow;
 }
 #tdd-things-list-pagination-orderable {
-  background-color: yellow;
-}
-#tdd-things-representation-alternate-input {
   background-color: yellow;
 }
 #tdd-validation-response-lang {
@@ -254,6 +206,9 @@ img.wot-diagram {
 }
 .rfc2119-assertion {
   background-color: rgb(230,230,230)
+}
+.at-risk {
+  background-color: yellow
 }
 
 </style>
@@ -350,7 +305,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-09-26",
+  "datePublished": "2022-10-21",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1127,7 +1082,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   },
   "doJsonLd": true,
   "specStatus": "CR",
-  "crEnd": "2022-12-22",
+  "crEnd": "2023-01-11",
   "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
   "copyrightStart": 2017,
@@ -1236,14 +1191,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-09-26T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 26 September 2022"
+  "publishISODate": "2022-10-21T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 21 October 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-CR">
 </head>
-<body class="h-entry">
+<body class="h-entry toc-inline">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1253,13 +1208,13 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#CR">W3C Candidate
 Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-09-26">26 September 2022</time></p>
+"2022-10-21">21 October 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20220926/">https://www.w3.org/TR/2022/CR-wot-discovery-20220926/</a></dd>
+"https://www.w3.org/TR/2022/CR-wot-discovery-20221021/">https://www.w3.org/TR/2022/CR-wot-discovery-20221021/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -1376,6 +1331,78 @@ revision of this technical report can be found in the <a href=
 "https://www.w3.org/TR/"><abbr title=
 "World Wide Web Consortium">W3C</abbr> technical reports index</a>
 at https://www.w3.org/TR/.</em></p>
+<p>At the time of CR transition, due to insufficient implementation
+experience the following features and sections are at risk:</p>
+<ul>
+<li>DNS-SD support for UDP protocols, specifically support for the
+<code>_wot._udp</code> service type. <a href=
+"#introduction-dns-sd-service-name-directory-udp">introduction-dns-sd-service-name-directory-udp</a>
+and <a href=
+"#introduction-dns-sd-service-name-udp">introduction-dns-sd-service-name-udp</a>.</li>
+<li>Mandatory use of RFC3339 format for date-time.</li>
+<a href="#tdd-absolute-time">tdd-absolute-time</a>.
+<li>Mandatory rejection of query with <code>diff</code> parameter
+if <code>diff</code> is not supported. <a href=
+"#tdd-notification-data-diff-unsupported">tdd-notification-data-diff-unsupported</a>.</li>
+<li>Discoverer behavior when fetching additional results from
+Exploration services and Thing Links, including tracking of already
+fetched results: <a href=
+"#discoverer-fetch-iteration">discoverer-fetch-iteration</a>,
+<a href="#discoverer-fetch-links">discoverer-fetch-links</a>,
+<a href="#discoverer-fetch-tdd">discoverer-fetch-tdd</a>, and
+<a href="#discoverer-track">discoverer-track</a>.</li>
+<li>Security bootstrapping. <a href=
+"#exploration-secboot-401">exploration-secboot-401</a>, <a href=
+"#exploration-secboot-auth">exploration-secboot-auth</a>, <a href=
+"#exploration-secboot-oauth2-flows">exploration-secboot-oauth2-flows</a>,
+and <a href=
+"#security-bootstrapping-endpoints">security-bootstrapping-endpoints</a>.</li>
+<li>CoAP-based TD Server support. <a href=
+"#exploration-server-coap-size2">exploration-server-coap-size2</a>.</li>
+<li>Alternative content and language support. <a href=
+"#exploration-server-http-alternate-content">exploration-server-http-alternate-content</a>,
+<a href=
+"#exploration-server-http-alternate-language">exploration-server-http-alternate-language</a>,
+<a href=
+"#tdd-http-alternate-language">tdd-http-alternate-language</a>,
+<a href=
+"#tdd-http-error-response-lang">tdd-http-error-response-lang</a>,
+<a href=
+"#tdd-http-representation-alternate-output">tdd-http-representation-alternate-output</a>,
+and <a href=
+"#tdd-validation-response-lang">tdd-validation-response-lang</a>.</li>
+<li>Support for CoRE-RD and CoRE Link Format. <a href=
+"#introduction-core-rd-resource-type-directory">introduction-core-rd-resource-type-directory</a>,
+and</li>
+<li>Sorting support during pagination. <a href=
+"#tdd-things-list-pagination-collection">tdd-things-list-pagination-collection</a>,
+<a href=
+"#tdd-things-list-pagination-order">tdd-things-list-pagination-order</a>,
+<a href=
+"#tdd-things-list-pagination-order-nextlink">tdd-things-list-pagination-order-nextlink</a>,
+<a href=
+"#tdd-things-list-pagination-order-utf-8">tdd-things-list-pagination-order-utf-8</a>,
+and <a href=
+"#tdd-things-list-pagination-orderable">tdd-things-list-pagination-orderable</a>.</li>
+<li>Others: <a href=
+"#exploration-link-description-link">exploration-link-description-link</a>,
+<a href=
+"#exploration-link-description-type">exploration-link-description-type</a>,
+<a href=
+"#introduction-direct-directory-description">introduction-direct-directory-description</a>,
+and <a href=
+"#tdd-registrationinfo-expiry-config">tdd-registrationinfo-expiry-config</a>.</li>
+</ul>
+<p>In addition, a number of assertions in the Privacy
+Considerations and Security Considerations sections are at risk.
+These represent best practices but often relate to deployment
+policy rather than implementations and in some cases are difficult
+to validate. The intention is to complete as many of these as
+possible by PR; those that cannot be validated but that represent
+best-practice recommendations will be converted into informative
+statements.</p>
+<p class="at-risk">At-risk assertions are marked with yellow
+highlighting.</p>
 <p>This document was published by the <a href=
 "https://www.w3.org/groups/wg/wot">Web of Things Working Group</a>
 as a Candidate Recommendation Snapshot using the <a href=
@@ -1393,7 +1420,7 @@ experience</a>, and has commitments from Working Group members to
 "https://www.w3.org/Consortium/Patent-Policy/#sec-Requirements">royalty-free
 licensing</a> for implementations.</p>
 <p>This Candidate Recommendation is not expected to advance to
-Proposed Recommendation any earlier than 22 December 2022.</p>
+Proposed Recommendation any earlier than 11 January 2023.</p>
 <p>This document was produced by a group operating under the
 <a href="https://www.w3.org/Consortium/Patent-Policy/"><abbr title=
 "World Wide Web Consortium">W3C</abbr> Patent Policy</a>.
@@ -2164,6 +2191,8 @@ at the above Well-Known URI, the server <em class=
 "secno">6.3</bdi> DNS-Based Service Discovery</h3>
 <a class="self-link" href="#introduction-dns-sd-sec" aria-label=
 "Permalink for Section 6.3"></a></div>
+<p class="at-risk">The DNS-SD mechanism for UDP discovery described
+in this section is at risk.</p>
 <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing
 or <a href="#dfn-wot-thing-description-directory" class=
 "internalDFN" data-link-type="dfn" id=
@@ -2281,6 +2310,7 @@ Thing Description Directory (TDD)</span></figcaption>
 Directory</h3>
 <a class="self-link" href="#introduction-core-rd-sec" aria-label=
 "Permalink for Section 6.4"></a></div>
+<p class="at-risk">This section is at risk.</p>
 <p><span class="rfc2119-assertion" id="introduction-core-rd">A
 Thing or <a href="#dfn-wot-thing-description-directory" class=
 "internalDFN" data-link-type="dfn" id=
@@ -2495,11 +2525,10 @@ aria-level="6"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The type URIs used below are tentative and subject to
 change.</div>
 </div>
@@ -2520,6 +2549,8 @@ see <a href="#directory-api-spec" data-matched-text=
 <code>ThingLink</code></h5>
 <a class="self-link" href="#exploration-td-type-thinglink"
 aria-label="Permalink for Section 7.1.1.2"></a></div>
+<p class="at-risk">The Think Link type described in this section is
+at risk.</p>
 <div class="issue" id="issue-container-number-148-0">
 <div role="heading" class="issue-title marker" id="h-issue-0"
 aria-level="6"><a href=
@@ -2527,11 +2558,10 @@ aria-level="6"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The type URIs used below are tentative and subject to
 change.</div>
 </div>
@@ -2590,11 +2620,10 @@ aria-level="6"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The context URIs are tentative and subject to
 change.</div>
 </div>
@@ -2859,6 +2888,7 @@ payload.</p>
 <dl>
 <dt>CoAP</dt>
 <dd>
+<p class="at-risk">CoAP-based TD Servers are at risk.</p>
 <p><span class="rfc2119-assertion" id=
 "exploration-server-coap-method">A CoAP-based TD Server providing a
 <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
@@ -3195,7 +3225,7 @@ User Data</a> and need to provide appropriate security and privacy
 protections. The use of secure transport protocols and access
 controls for authenticity and confidentiality in implementations of
 the WoT Directory Service API are governed by the Security
-Consideration and Privacy Consierations given in [<cite><a class=
+Consideration and Privacy Considerations given in [<cite><a class=
 "bibref" data-link-type="biblio" href="#bib-wot-architecture11"
 title=
 "Web of Things (WoT) Architecture 1.1">wot-architecture11</a></cite>].</p>
@@ -3551,11 +3581,10 @@ aria-level="7"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The context URIs are tentative and subject to
 change.</div>
 </div>
@@ -3611,11 +3640,10 @@ aria-level="7"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The context URIs are tentative and subject to
 change.</div>
 </div>
@@ -3667,11 +3695,10 @@ aria-level="7"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The context URIs are tentative and subject to
 change.</div>
 </div>
@@ -3840,6 +3867,8 @@ Listing</h6>
 <a class="self-link" href=
 "#exploration-directory-api-things-listing" aria-label=
 "Permalink for Section 7.3.2.1.5"></a></div>
+<p class="at-risk">The sorting mechanism described in this section
+is at risk.</p>
 <p>The listing endpoint provides different ways to query the
 collection of full TD objects from the directory.</p>
 <p>In many scenarios, retrieving parts instead of full TD objects
@@ -4212,14 +4241,18 @@ multiplexed on a single connection.</p>
 </dd>
 <dt>Event Data</dt>
 <dd>
-<p><span class="rfc2119-assertion" id="tdd-notification-data">The
+<p></p>
+<p class="at-risk">The <code>diff</code> query parameter and
+mechanism described in this section is at risk.</p>
+<span class="rfc2119-assertion" id="tdd-notification-data">The
 event data <em class="rfc2119">MUST</em> contain the JSON
 serialization of the event object.</span> The event data object is
 a <a href="#dfn-wot-partial-thing-description" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-partial-thing-description-2">Partial TD</a> or the
 whole <a href="#dfn-td" class="internalDFN" data-link-type="dfn"
-id="ref-for-dfn-td-44">TD</a> object depending on the request:</p>
+id="ref-for-dfn-td-44">TD</a> object depending on the request:
+<p></p>
 <ul>
 <li><span class="rfc2119-assertion" id=
 "tdd-notification-data-td-id">The event data object <em class=
@@ -4295,11 +4328,10 @@ aria-level="6"><a href=
 "issue-number">Issue 148</span></a><span class="issue-label">:
 Discovery context and namespace under w3.org/ns <a class=
 "respec-gh-label" href=
-"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22Resolve+by+CR%22"
-style=
-"background-color: rgb(147, 19, 13); color: rgb(255, 255, 255);"
-aria-label="GitHub label: Resolve by CR">Resolve by
-CR</a></span></div>
+"https://github.com/w3c/wot-discovery/issues/?q=is%3Aissue+is%3Aopen+label%3A%22resolve+by+PR%22"
+style="background-color: rgb(245, 73, 223); color: rgb(0, 0, 0);"
+aria-label="GitHub label: resolve by PR">resolve by
+PR</a></span></div>
 <div class="">The context URIs are tentative and subject to
 change.</div>
 </div>
@@ -5435,6 +5467,12 @@ change.</p>
 Security Considerations</h2>
 <a class="self-link" href="#security-considerations" aria-label=
 "Permalink for Section 8."></a></div>
+<p class="at-risk">Several assertions in the following are at risk,
+as indicated by yellow highlighting. These represent best practices
+but at the time of CR transition have insufficient implementation
+experience. These will be converted to informative statements if
+sufficient implementation experience is not obtained by time of PR
+transition.</p>
 <p>Security is a cross-cutting issue that needs to be considered in
 all WoT building blocks and WoT implementations. This chapter
 summarizes some general issues and guidelines to help preserve the
@@ -5639,6 +5677,12 @@ that can provide suitable access controls.</span></p>
 Privacy Considerations</h2>
 <a class="self-link" href="#privacy-considerations" aria-label=
 "Permalink for Section 9."></a></div>
+<p class="at-risk">Several assertions in the following are at risk,
+as indicated by yellow highlighting. These represent best practices
+but at the time of CR transition have insufficient implementation
+experience. These will be converted to informative statements if
+sufficient implementation experience is not obtained by time of PR
+transition.</p>
 <p>Privacy is a cross-cutting issue that needs to be considered in
 all WoT building blocks and WoT implementations. This chapter
 summarizes some general issues and guidelines to help preserve the
