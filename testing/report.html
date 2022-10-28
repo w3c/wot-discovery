@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 26 Oct 2022
+    <b>Version</b>: 28 Oct 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -153,7 +153,27 @@ pre.example {
         <!--
     <li class="tocline">6.x <a href="#impl-ORG">ORG</a></li>
         -->
-  </ul>
+  <li class="tocline">
+	6.1 <a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
+<li class="tocline">
+	6.2 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+<li class="tocline">
+	6.3 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+<li class="tocline">
+	6.4 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+<li class="tocline">
+	6.5 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
+<li class="tocline">
+	6.6 <a href="#impl-intel-proxy">intel-proxy: Intermediary</a></li>
+<li class="tocline">
+	6.7 <a href="#impl-intel-wot-ha">intel-wot-ha: TD Directory and TD Exposer</a></li>
+<li class="tocline">
+	6.8 <a href="#impl-nodewot">Eclipse node-wot: Consumer and Exposer</a></li>
+<li class="tocline">
+	6.9 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+<li class="tocline">
+	6.10 <a href="#impl-wothive">WoT Hive directory</a></li>
+</ul>
   <li class="tocline">7. <a href="#security">Security</a></li>
   <li class="tocline">8. <a href="#test_results">Test results</a>
     <ul>
@@ -190,8 +210,8 @@ pre.example {
   document was last published as a
   <a href="https://www.w3.org/TR/2022/WD-wot-discovery-20220810/">Working Draft</a> 
   on 10 August 2022.
-  The planned date for entering Candidate Recommendation is 22 September 2022.
-  The planned date for entering Proposed Recommendation is 1 November 2022.
+  The planned date for entering Candidate Recommendation is 26 October 2022.
+  The planned date for entering Proposed Recommendation is 11 January 2022.
 </p>
 <p>
   This document summarizes the results from the Web of Things (WoT) Discovery implementer reports received and
@@ -213,9 +233,9 @@ pre.example {
   test reports.
 </p>
 
-<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work during the Candidate Recommendation period</a></h2>
+<h2 id="h_cr_work"><a id="cr_work" name="cr_work">2. Work planned for the Candidate Recommendation period</a></h2>
 <p>
-  During the CR period, the Working Group will carry out the following activities:
+  During the CR period, the Working Group plans to carry out the following activities:
 </p>
 <ol>
 	<li>Clarification and improvement through the exposition of the specification</li>
@@ -229,7 +249,7 @@ pre.example {
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2019/CR-wot-discovery-20190516/">Web of Things (WoT) Discovery Candidate Recommendation</a>
+  <a href="https://www.w3.org/TR/2022/CR-wot-discovery-20221026/">Web of Things (WoT) Discovery Candidate Recommendation</a>
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#automated_validation_results">table below</a>.
@@ -271,14 +291,15 @@ pre.example {
   </li>
 </ol>
 <p>
-  All three of these criteria have been met.
+In order to be included in the PR all features, whether optional or required, need to have received at least two implementations. At the time of publication of this report there are some gaps, as documented in the Status of this Document section of the CR. It is the intention of the working group to gather additional implementation evidence for these features during the CR period.
 <!--
+  All three of these criteria have been met.
   Hard to count since some implementations have multiple components, and some are shared.  Omit.
   A total of N implementations were documented by M different organizations.
--->
   The testimonials below indicate the broad base of support
   for the specification. 
   All features included in the specification had at least two implementations.
+-->
 </p>
 
 <h2 id="h_report_reqs"><a id="report_reqs" name="report_reqs">5. Implementation Report requirements</a></h2>
@@ -356,7 +377,131 @@ pre.example {
 </p>
 <div id="systems-impl">
   <!-- system implementation descriptions will be inserted here -->
-</div>
+<div class="impl" id="impl-dart_wot">
+  <h4 id="impl-dart_wot">dart_wot: Consumer and Discoverer</h4>
+  <p>
+    The library <code>dart_wot</code> is a WoT Scripting API implementation written in the Dart programming language, aimed at bringing Web of Things support to the Dart/Flutter ecosystem.
+  </p>
+  <p>
+    It supports consuming and discovering TDs, providing protocol bindings for HTTP, CoAP, and MQTT.
+    Its supported security mechanisms include DTLS (CoAP), TLS (HTTP, MQTT), Basic and Bearer authentication (HTTP), PSK (CoAP), and username/password authentication (MQTT).
+    Furthermore, <code>dart_wot</code>'s CoAP binding offers experimental support for ACE-OAuth (RFC 9200), an authorization and authentication framework for constrained environments.
+  </p>
+  <p>
+    <strong>Usage:</strong> <code>dart_wot</code> can be included in Dart and Flutter projects as a dependency. In Flutter apps, all platforms are supported, with macOS and iOS (where CoAPS support is limited) and Web browsers (where CoAP is not supported at all) as partial exceptions.
+  </p>
+  <p>
+    <strong>Public Repository:</strong> https://github.com/namib-project/dart_wot
+  </p>
+  <p>
+    <strong>pub.dev Entry:</strong> https://pub.dev/packages/dart_wot
+  </p>
+  <p>
+    <strong>Contributing Member Organizations:</strong> Invited Experts
+  </p>
+</div><div class="impl" id="impl-hitachi-esp-idf">
+  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>This is a sample Thing implementation in C++.</p>
+</div><div class="impl" id="impl-hitachi-node-red">
+  <h4>LED lamp: TD Exposer</h4>
+  <p>This is a sample Thing implementation in Node-RED.</p>
+</div><div class="impl" id="impl-hitachi-nrwotdisc">
+  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
+    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  </p>
+</div><div class="impl" id="impl-intel-nodejs">
+  <h4>intel-nodejs: TD Exposer</h4>
+  <p>
+  Two services based on a shared NodeJS codebase (not using node-wot):
+  </p><ul>
+	 <li>A simple camera service that interfaces 
+	 with V4L (Video for Linux) to capture still images
+         from a USB camera.
+	 </li>
+	 <li>A simple text-to-speech output service based on espeak.
+	 </li>
+  </ul>
+  <p></p>
+</div><div class="impl" id="impl-intel-proxy">intel-proxy: Intermediary
+  <h4>intel-proxy: Intermediary</h4>
+  <p>
+  This is a reverse proxy service that provides
+  authentication (via various mechanisms indicated by the schemes indicated in the Thing
+  Description) and encrypted transport (TLS) termination.
+  The reverse proxy service was made accessible over a secure tunnel, 
+  and depending on the circumstances,
+  can be run in the cloud, on a gateway computer, or locally on a device.
+  </p>
+  <p>
+  The secure endpoints provided by this service are not given in TDs for the 
+  service itself, but added to the TDs for the Things it services.
+  </p>
+</div><div class="impl" id="impl-intel-wot-ha">
+  <h4>intel-wot-ha: TD Directory and TD Exposer</h4>
+  <p>
+  A simple integration of WoT into Home Assistant.
+  A service interrogates the metadata made available from Home Assistant on
+  its external RESTful API. It then generates TDs for Home Assistant entities
+  that can be accessed via this API and makes then available via
+  a TD Directory service that follows the WoT Discovery specification.
+  WoT Consumers can then access the TD Directory to find TDs for
+  entities supported by Home Assistant and access these services
+  using WoT affordance abstractions.
+  </p>
+</div><div class="impl" id="impl-nodewot">
+  <h4 id="impl-node-wot">Eclipse node-wot: Consumer and Exposer</h4>
+  <p>
+    The Eclipse node-wot implementation is a Node.js-based framework for WoT Servients.
+    It features an implementation of the WoT Scripting API to both consume TDs
+    to instantiate Consumed Things and produce Exposed Things that provide a TD.
+    The Eclipse node-wot implementation supports several Protocol Bindings including
+    HTTP, CoAP, WebSockets, MQTT, Firestore, OPC-UA, Modbus, M-Bus and NETCONF with 
+    corresponding security mechanisms such as DTLS (CoAP); TLS (HTTP, MQTT), Basic, 
+    Digest, and Bearer Token authentication (HTTP), PSK (CoAP), and 
+    username/password authentication (MQTT). 
+  </p>
+  <p>
+    <b>Usage:</b> It can be included in bigger projects as a dependency, 
+    used as a Command Line Interface or as a browser library.
+  </p>
+  <p>
+    <b>Public Repository:</b> https://github.com/eclipse/thingweb.node-wot
+  </p>
+  <p>
+    <b>Contributing Member Organizations:</b> Siemens AG, Invited Experts
+  </p>
+</div><div class="impl" id="impl-tinyiot">
+  <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
+  <p>
+    This is an implementation of the W3C Web of Things (WoT) Thing Description Directory (TDD).
+    This directory is designed to be lightweight and portable, enabling deployment on the edge.
+    It uses a layered architecture to allows the addition of different storage backends to server high scalability needs.
+    </p><p>
+    The directory advertises itself in local networks using DNS-SD.
+    It comes with the Things and Notification APIs, as well as JSONPath search support (non-normative).
+    The directory performs fine-grained access control with the help of locally defined rules and an OpenID Connect server.
+  </p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/TinyIoT/thing-directory</p>
+  <p>
+    <b>Website:</b> https://github.com/TinyIoT
+  </p>
+  <p><b>Contributing Member Organizations:</b> The parent fork has been developed as part of LinkSmart by Fraunhofer-Gesellschaft</p>
+
+</div><div class="impl" id="impl-wothive">
+  <h4 id="impl-wothive-dir">WoT Hive directory</h4>
+  <p>
+   WoT Hive is an implementation of a W3C Web of Things directory. This implementation is compliant with the standard specification but aims at providing enriched features thanks to the usage of other W3C standards related to Semantic Web technologies.
+  </p>
+  <p><b>Usage:</b> Directory</p>
+  <p><b>Public Repository:</b> https://github.com/oeg-upm/wot-hive</p>
+  <p>
+    <b>Website:</b> https://github.com/oeg-upm/wot-hive
+  </p>
+  <p><b>Contributing Member Organizations:</b> Universidad Politécnica de Madrid</p>
+
+</div></div>
 
 <h2 id="h_security"><a id="security" name="security">7. Security</a></h2>
 <p>
