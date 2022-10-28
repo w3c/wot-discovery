@@ -1,72 +1,46 @@
-ID,Status,Comment
-tdd-anonymous-td-identifier,pass,passed:TestCreateAnonymousThing/registration_info passed:TestListThings/anonymous_td_id
-tdd-anonymous-td-local-uuid,pass,passed:TestCreateAnonymousThing/location_header
-tdd-http-error-response,pass,passed:TestCreateAnonymousThing/reject_invalid/response passed:TestCreateThing/reject_invalid/response passed:TestUpdateThing/reject_invalid/response passed:TestPatch/reject_invalid/response
-tdd-http-head,pass,passed:TestSPARQL/HEAD passed:TestRetrieveThing/HEAD passed:TestListThings/HEAD
-tdd-notification-data-diff-unsupported,fail,failed:TestCreateEvent/create_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestUpdateEvent/update_event_with_diff_subscriber/event_subscription_diff_unsupported failed:TestDeleteEvent/delete_event_with_diff_subscriber/event_subscription_diff_unsupported
-tdd-notification-sse,fail,failed:TestCreateEvent/create_event_subscriber/event_subscription_errors failed:TestCreateEvent/all_event_subscriber/event_subscription_errors failed:TestUpdateEvent/update_event_subscriber/event_subscription_errors failed:TestUpdateEvent/all_event_subscriber/event_subscription_errors failed:TestDeleteEvent/delete_event_subscriber/event_subscription_errors failed:TestDeleteEvent/all_event_subscriber/event_subscription_errors
-tdd-registrationinfo-vocab-created,pass,passed:TestRetrieveThing/registrationInfo_created passed:TestListThings/registrationInfo_created
-tdd-registrationinfo-vocab-modified,pass,passed:TestRetrieveThing/registrationInfo_modified passed:TestListThings/registrationInfo_modified
-tdd-search-sparql,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-federation,pass,passed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-method-get,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-method-post,pass,passed:TestSPARQL/search_using_POST
-tdd-search-sparql-resp-select-ask,pass,passed:TestSPARQL/search_using_GET passed:TestSPARQL/search_using_POST passed:TestSPARQL/federated_search_using_GET
-tdd-things-create-anonymous-contenttype,pass,passed:TestCreateAnonymousThing/submit_request
-tdd-things-create-anonymous-td,pass,passed:TestCreateAnonymousThing/submit_request
-tdd-things-create-anonymous-td-resp,pass,passed:TestCreateAnonymousThing/status_code passed:TestCreateAnonymousThing/location_header
-tdd-things-create-known-td,pass,passed:TestCreateThing/request
-tdd-things-create-known-td-resp,pass,passed:TestCreateThing/status_code
-tdd-things-create-known-vs-anonymous,pass,passed:TestCreateAnonymousThing/reject_PUT
-tdd-things-crud,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/submit_request
-tdd-things-crudl,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/request passed:TestRetrieveThing/submit_request passed:TestUpdateThing/submit_request passed:TestDelete/submit_request passed:TestListThings/submit_request
-tdd-things-default-representation,pass,passed:TestRetrieveThing/content_type passed:TestListThings/content_type
-tdd-things-delete,pass,passed:TestDelete/submit_request
-tdd-things-delete-resp,pass,passed:TestDelete/status_code
-tdd-things-list-method,pass,passed:TestListThings/submit_request passed:TestListThings/status_code
-tdd-things-list-only,pass,passed:TestListThings/submit_request
-tdd-things-list-resp,pass,passed:TestListThings/content_type passed:TestListThings/payload
-tdd-things-retrieve,pass,passed:TestRetrieveThing/submit_request passed:TestRetrieveThing/payload
-tdd-things-retrieve-resp,pass,passed:TestRetrieveThing/status_code passed:TestRetrieveThing/content_type
-tdd-things-update,pass,passed:TestUpdateThing/submit_request passed:TestUpdateThing/payload
-tdd-things-update-partial,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/replace_title/result passed:TestPatch/remove_description/submit_request passed:TestPatch/remove_description/result passed:TestPatch/update_properties/submit_request passed:TestPatch/update_properties/result passed:TestPatch/replace_array/submit_request passed:TestPatch/replace_array/result
-tdd-things-update-partial-contenttype,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
-tdd-things-update-partial-mergepatch,pass,passed:TestPatch/replace_title/result passed:TestPatch/remove_description/result passed:TestPatch/update_properties/result passed:TestPatch/replace_array/result
-tdd-things-update-partial-partialtd,pass,passed:TestPatch/replace_title/submit_request passed:TestPatch/remove_description/submit_request passed:TestPatch/update_properties/submit_request passed:TestPatch/replace_array/submit_request
-tdd-things-update-partial-resp,pass,passed:TestPatch/replace_title/status_code passed:TestPatch/remove_description/status_code passed:TestPatch/update_properties/status_code passed:TestPatch/replace_array/status_code
-tdd-things-update-resp,pass,passed:TestUpdateThing/status_code
-tdd-validation-response,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
-tdd-validation-result,pass,passed:TestCreateAnonymousThing/reject_invalid/validation passed:TestCreateThing/reject_invalid/validation passed:TestUpdateThing/reject_invalid/validation passed:TestPatch/reject_invalid/validation
-tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/status passed:TestCreateThing/reject_invalid/status passed:TestUpdateThing/reject_invalid/status passed:TestPatch/reject_invalid/status
-"discoverer-any-order","not-impl","not implemented"
-"discoverer-fetch-iteration","not-impl","not implemented"
-"discoverer-fetch-links","not-impl","not implemented"
-"discoverer-fetch-tdd","not-impl","not implemented"
-"discoverer-may-multiple-intro","not-impl","not implemented"
-"discoverer-merge-intros","not-impl","not implemented"
-"discoverer-must-support-fetching","not-impl","not implemented"
-"discoverer-must-support-intros","not-impl","not implemented"
-"discoverer-td-identify","not-impl","not implemented"
-"discoverer-termination","not-impl","not implemented"
-"discoverer-track","not-impl","not implemented"
+"ID","Status","Comment"
+"discoverer-any-order","null",
+"discoverer-fetch-iteration","null",
+"discoverer-fetch-links","null",
+"discoverer-fetch-tdd","null",
+"discoverer-may-multiple-intro","null",
+"discoverer-merge-intros","null",
+"discoverer-must-support-fetching","null",
+"discoverer-must-support-intros","null",
+"discoverer-td-identify","null",
+"discoverer-termination","null",
+"discoverer-track","null",
 "exploration-directory-description-type","pass",
 "exploration-link-description-link","not-impl","not implemented"
 "exploration-link-description-type","not-impl","not implemented"
 "exploration-secboot-401","not-impl","not implemented"
 "exploration-secboot-auth","not-impl","not implemented"
 "exploration-secboot-oauth2-flows","not-impl","not implemented"
+"exploration-server-coap-alternate-content","not-impl","not implemented"
+"exploration-server-coap-method","not-impl","not implemented"
+"exploration-server-coap-resp","not-impl","not implemented"
+"exploration-server-coap-size2","not-impl","not implemented"
+"exploration-server-http-alternate-content","pass",
+"exploration-server-http-alternate-language","not-impl","not implemented"
+"exploration-server-http-head","pass",
+"exploration-server-http-method","pass",
+"exploration-server-http-resp","pass",
+"exploration-server-http-resp-content-type","pass",
+"exploration-server-http-resp-json","pass",
 "introduction-core-rd","not-impl","not implemented"
 "introduction-core-rd-directory","not-impl","not implemented"
 "introduction-core-rd-resource-type-directory","not-impl","not implemented"
 "introduction-core-rd-resource-type-thing","not-impl","not implemented"
 "introduction-did","not-impl","not implemented"
 "introduction-did-service-endpoint","not-impl","not implemented"
-"introduction-direct-directory-description","not-impl","not implemented"
+"introduction-direct-directory-description","pass",
 "introduction-direct-thing-description","not-impl","not implemented"
 "introduction-direct-url","not-impl","not implemented"
 "introduction-dns-sd","not-impl","not implemented"
 "introduction-dns-sd-service-name","not-impl","not implemented"
 "introduction-dns-sd-service-name-directory","not-impl","not implemented"
+"introduction-dns-sd-service-name-directory-udp","not-impl","not implemented"
+"introduction-dns-sd-service-name-udp","not-impl","not implemented"
 "introduction-dns-sd-txt-record","not-impl","not implemented"
 "introduction-well-known-path","not-impl","not implemented"
 "introduction-well-known-thing-description","not-impl","not implemented"
@@ -75,8 +49,8 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "priv-loc-disable-public-directories","not-impl","not implemented"
 "priv-loc-explicit-care","not-impl","not implemented"
 "priv-loc-explicit-strip","not-impl","not implemented"
-"priv-loc-gen-ids-1","not-impl","not implemented"
-"priv-loc-gen-ids-2","not-impl","not implemented"
+"priv-loc-gen-ids","not-impl","not implemented"
+"priv-loc-priv-dir-access","not-impl","not implemented"
 "priv-query-anon","not-impl","not implemented"
 "sec-self-proxy","not-impl","not implemented"
 "sec-self-psk","not-impl","not implemented"
@@ -91,31 +65,61 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "sec-tdd-query-watchdog","not-impl","not implemented"
 "sec-tdd-throttle-queries","not-impl","not implemented"
 "security-bootstrapping-endpoints","not-impl","not implemented"
-"exploration-server-http-access-control","not-impl","not implemented"
-"exploration-server-http-alternate-content","pass",
-"exploration-server-http-alternate-language","not-impl","not implemented"
-"exploration-server-http-head","pass",
-"exploration-server-http-method","pass",
-"exploration-server-http-resp","pass",
-"exploration-server-http-secure","pass",
-"tdd-http-missing-api-endpoint","pass",
-"tdd-https","pass",
-"tdd-notification-data-create-full","not-impl","not implemented"
-"tdd-notification-data-delete-diff","not-impl","not implemented"
-"tdd-notification-data-update-diff","not-impl","not implemented"
-"tdd-notification-data-update-id","not-impl","not implemented"
-"tdd-notification-filter-type","not-impl","not implemented"
+"tdd-absolute-time","pass",
+"tdd-anonymous-td-identifier","pass",
+"tdd-anonymous-td-local-uuid","pass",
+"tdd-context-injection","pass",
+"tdd-http-alternate-language","not-impl",
+"tdd-http-error-response","pass",
+"tdd-http-error-response-lang","not-impl",
+"tdd-http-error-response-utf-8","pass",
+"tdd-http-head","pass",
+"tdd-http-representation-alternate-output","pass",
+"tdd-http-unsupported-feature","pass",
+"tdd-notification","not-impl",
+"tdd-notification-data","not-impl",
+"tdd-notification-data-create-full","not-impl",
+"tdd-notification-data-delete-diff","not-impl",
+"tdd-notification-data-diff-unsupported","not-impl",
+"tdd-notification-data-td-id","not-impl",
+"tdd-notification-data-update-diff","not-impl",
+"tdd-notification-data-update-id","not-impl",
+"tdd-notification-event-id","not-impl",
+"tdd-notification-event-types","not-impl",
+"tdd-notification-filter-type","not-impl",
+"tdd-notification-sse","not-impl",
 "tdd-registrationinfo-expiry-config","pass",
 "tdd-registrationinfo-expiry-purge","pass",
+"tdd-registrationinfo-vocab-created","pass",
 "tdd-registrationinfo-vocab-expires","pass",
+"tdd-registrationinfo-vocab-modified","pass",
 "tdd-registrationinfo-vocab-retrieved","pass",
 "tdd-registrationinfo-vocab-ttl","pass",
 "tdd-search-large-tdds","pass",
+"tdd-search-sparql","pass",
 "tdd-search-sparql-error","pass",
+"tdd-search-sparql-federation","pass",
 "tdd-search-sparql-federation-version","pass",
+"tdd-search-sparql-method-get","pass",
+"tdd-search-sparql-method-post","pass",
 "tdd-search-sparql-resp-describe-construct","pass",
+"tdd-search-sparql-resp-select-ask","pass",
 "tdd-search-sparql-version","pass",
-"tdd-things-additional-representation","pass",
+"tdd-things-create-anonymous-contenttype","pass",
+"tdd-things-create-anonymous-id","pass",
+"tdd-things-create-anonymous-td","pass",
+"tdd-things-create-anonymous-td-resp","pass",
+"tdd-things-create-known-contenttype","pass",
+"tdd-things-create-known-td","pass",
+"tdd-things-create-known-td-resp","pass",
+"tdd-things-create-known-vs-anonymous","pass",
+"tdd-things-crud","pass",
+"tdd-things-crudl","pass",
+"tdd-things-default-representation","pass",
+"tdd-things-delete","pass",
+"tdd-things-delete-resp","pass",
+"tdd-things-list-method","pass",
+"tdd-things-list-only","pass",
 "tdd-things-list-pagination","pass",
 "tdd-things-list-pagination-collection","pass",
 "tdd-things-list-pagination-header-canonicallink","pass",
@@ -123,9 +127,30 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "tdd-things-list-pagination-header-nextlink-attr","pass",
 "tdd-things-list-pagination-header-nextlink-base","pass",
 "tdd-things-list-pagination-limit","pass",
-"tdd-things-list-pagination-order","not-impl","not implemented"
+"tdd-things-list-pagination-order","not-impl",
 "tdd-things-list-pagination-order-default","pass",
-"tdd-things-list-pagination-order-nextlink","not-impl","not implemented"
+"tdd-things-list-pagination-order-nextlink","not-impl",
 "tdd-things-list-pagination-order-unsupported","pass",
-"tdd-things-read-only-auth","not-impl","not implemented"
+"tdd-things-list-pagination-order-utf-8","pass",
+"tdd-things-list-pagination-orderable","not-impl",
+"tdd-things-list-resp","pass",
+"tdd-things-list-resp-content-type","pass",
+"tdd-things-read-only-auth","not-impl",
+"tdd-things-representation-alternate-input","pass",
+"tdd-things-retrieve","pass",
+"tdd-things-retrieve-resp","pass",
+"tdd-things-retrieve-resp-content-type","pass",
+"tdd-things-update","pass",
+"tdd-things-update-contenttype","pass",
+"tdd-things-update-partial","pass",
+"tdd-things-update-partial-contenttype","pass",
+"tdd-things-update-partial-mergepatch","pass",
+"tdd-things-update-partial-partialtd","pass",
+"tdd-things-update-partial-resp","pass",
+"tdd-things-update-resp","pass",
 "tdd-validation-jsonschema","pass",
+"tdd-validation-response","pass",
+"tdd-validation-response-lang","not-impl",
+"tdd-validation-response-utf-8","pass",
+"tdd-validation-result","pass",
+"tdd-validation-syntactic","pass",
