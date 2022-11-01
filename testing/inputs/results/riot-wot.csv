@@ -16,7 +16,7 @@
 "exploration-server-coap-alternate-content","pass",
 "exploration-server-coap-method","pass",
 "exploration-server-coap-resp","pass",
-"exploration-server-coap-size2","fail",
+"exploration-server-coap-size2","pass",
 "sec-tdd-intro-no-observe","pass",
 "sec-tdd-intro-limit-response-size","null",
 "introduction-core-rd","pass",
