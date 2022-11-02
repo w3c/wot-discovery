@@ -8,7 +8,7 @@
 "exploration-secboot-401","HELP, pass=1"
 "exploration-secboot-auth","HELP, pass undefined"
 "exploration-secboot-oauth2-flows","HELP, pass undefined"
-"exploration-server-coap-size2","HELP, pass undefined"
+"exploration-server-coap-size2","HELP, pass=1"
 "exploration-server-http-alternate-content","HELP, pass=1"
 "exploration-server-http-alternate-language","HELP, pass undefined"
 "introduction-core-rd-resource-type-directory","HELP, pass undefined"
