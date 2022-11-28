@@ -305,7 +305,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-11-02",
+  "datePublished": "2022-11-28",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1191,14 +1191,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-11-02T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 02 November 2022"
+  "publishISODate": "2022-11-28T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 28 November 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-CR">
 </head>
-<body class="h-entry toc-inline">
+<body class="h-entry">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1208,13 +1208,13 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#CR">W3C Candidate
 Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-11-02">02 November 2022</time></p>
+"2022-11-28">28 November 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20221102/">https://www.w3.org/TR/2022/CR-wot-discovery-20221102/</a></dd>
+"https://www.w3.org/TR/2022/CR-wot-discovery-20221128/">https://www.w3.org/TR/2022/CR-wot-discovery-20221128/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -3275,7 +3275,7 @@ User Data</a> and need to provide appropriate security and privacy
 protections. The use of secure transport protocols and access
 controls for authenticity and confidentiality in implementations of
 the WoT Directory Service API are governed by the Security
-Consideration and Privacy Considerations given in [<cite><a class=
+Considerations and Privacy Considerations given in [<cite><a class=
 "bibref" data-link-type="biblio" href="#bib-wot-architecture11"
 title=
 "Web of Things (WoT) Architecture 1.1">wot-architecture11</a></cite>].</p>
@@ -4001,8 +4001,8 @@ deletion of TDs or update of TD fields used for ordering may shift
 the calculated paging window.</li>
 <li><span class="rfc2119-assertion" id=
 "tdd-things-list-pagination-order-default">By default, the
-collection <em class="rfc2119">MUST</em> be sorted using UTF-8
-lexicographical order by the unique identifier of TDs.</span>
+collection <em class="rfc2119">MUST</em> be sorted using Unicode
+code point order by the unique identifier of TDs.</span>
 <span class="rfc2119-assertion" id=
 "tdd-things-list-pagination-order">The server <em class=
 "rfc2119">MAY</em> support sorting by other TD attributes using
@@ -4022,8 +4022,8 @@ are accepted, they <em class="rfc2119">MUST</em> be added
 consistently to all <code>next</code> links.</span> <span class=
 "rfc2119-assertion" id=
 "tdd-things-list-pagination-order-utf-8">Sorting order <em class=
-"rfc2119">MUST</em> always be defined using lexicographical
-ordering on a UTF-8 encoding of the relevant fields.</span></li>
+"rfc2119">MUST</em> always be defined based on Unicode code points
+on the relevant fields.</span></li>
 </ul>
 <p>This above specification follows a subset of Linked Data Paging
 [<cite><a class="bibref" data-link-type="biblio" href=
@@ -6227,6 +6227,7 @@ Changes from 10 August 2022 Working Draft</h3>
 <a class="self-link" href="#changes-from-third-draft" aria-label=
 "Permalink for Appendix B.1"></a></div>
 <ul>
+<li>Define sorting order to be based on Unicode code points.</li>
 <li>Clarify 3x rule for DDoS migitation to allow padding in
 request, and require it only outside of protected local
 networks.</li>
