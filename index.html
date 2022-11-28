@@ -1951,7 +1951,7 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
-                                        By default, the collection MUST be sorted using UTF-8 lexicographical order
+                                        By default, the collection MUST be sorted using Unicode code point order
                                         by the unique identifier of TDs.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order">
                                         The server MAY support sorting by other TD attributes using
@@ -1967,8 +1967,8 @@ img.wot-diagram {
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-nextlink">
                                         If sorting attributes are accepted, they MUST be added consistently to all `next` links.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
-                                        Sorting order MUST always be defined using lexicographical ordering on
-                                        a UTF-8 encoding of the relevant fields.</span>
+                                        Sorting order MUST always be defined based on Unicode code points on
+                                        the relevant fields.</span>
                                 </li>
                             </ul>
                             <p>
@@ -3066,6 +3066,7 @@ a change in ownership).
       <h1>Recent Specification Changes</h1>
       <h2 id="changes-from-third-draft">Changes from 10 August 2022 Working Draft</h2>
       <ul>
+      <li>Define sorting order to be based on Unicode code points.</li>
       <li>Clarify 3x rule for DDoS migitation to allow padding in request, and require it only outside of protected local networks.</li>
       <li>Define content types to be used for CoAP servers, paralleling TD servers.</li>
       <li>Update DID service names and refine DID assertions and add examples to clarify use for Introductions.</li>
