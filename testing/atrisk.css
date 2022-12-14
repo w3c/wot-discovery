@@ -19,9 +19,6 @@
 #introduction-dns-sd-service-name-directory-udp {
   background-color: yellow;
 }
-#introduction-core-rd-resource-type-directory {
-  background-color: yellow;
-}
 #exploration-link-description-type {
   background-color: yellow;
 }
@@ -58,6 +55,9 @@
 #tdd-http-error-response-lang {
   background-color: yellow;
 }
+#tdd-http-head {
+  background-color: yellow;
+}
 #tdd-http-alternate-language {
   background-color: yellow;
 }
@@ -83,6 +83,21 @@
   background-color: yellow;
 }
 #tdd-notification-data-diff-unsupported {
+  background-color: yellow;
+}
+#tdd-search-sparql {
+  background-color: yellow;
+}
+#tdd-search-sparql-method-get {
+  background-color: yellow;
+}
+#tdd-search-sparql-method-post {
+  background-color: yellow;
+}
+#tdd-search-sparql-resp-select-ask {
+  background-color: yellow;
+}
+#tdd-search-sparql-federation {
   background-color: yellow;
 }
 #sec-tdd-throttle-queries {

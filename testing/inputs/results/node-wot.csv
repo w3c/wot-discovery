@@ -19,7 +19,7 @@
 "exploration-server-coap-alternate-content","pass",
 "exploration-server-coap-method","pass",
 "exploration-server-coap-resp","pass",
-"exploration-server-coap-size2","null",
+"exploration-server-coap-size2","pass",
 "exploration-server-http-alternate-content","null",
 "exploration-server-http-alternate-language","null",
 "exploration-server-http-head","null",
