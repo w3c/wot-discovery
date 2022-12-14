@@ -4,7 +4,7 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.3.0">
+<meta name="generator" content="ReSpec 32.5.1">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -305,7 +305,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-11-28",
+  "datePublished": "2022-12-14",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -720,17 +720,29 @@ dd{margin-left:0}
       }
     },
     {
-      "id": "https://www.w3.org/TR/eventsource/",
+      "id": "https://html.spec.whatwg.org/multipage/",
       "type": "TechArticle",
-      "name": "Server-Sent Events",
-      "url": "https://www.w3.org/TR/eventsource/",
+      "name": "HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
       "creator": [
         {
+          "name": "Anne van Kesteren"
+        },
+        {
+          "name": "Domenic Denicola"
+        },
+        {
           "name": "Ian Hickson"
+        },
+        {
+          "name": "Philip Jägenstedt"
+        },
+        {
+          "name": "Simon Pieters"
         }
       ],
       "publisher": {
-        "name": "W3C"
+        "name": "WHATWG"
       }
     },
     {
@@ -1191,14 +1203,14 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-11-28T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 28 November 2022"
+  "publishISODate": "2022-12-14T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 14 December 2022"
 }
 </script>
 <link rel="stylesheet" href=
 "https://www.w3.org/StyleSheets/TR/2021/W3C-CR">
 </head>
-<body class="h-entry toc-inline">
+<body class="h-entry">
 <div class="head">
 <p class="logos"><a class="logo" href=
 "https://www.w3.org/"><img crossorigin="" alt="W3C" height="48"
@@ -1208,13 +1220,13 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#CR">W3C Candidate
 Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-11-28">28 November 2022</time></p>
+"2022-12-14">14 December 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20221128/">https://www.w3.org/TR/2022/CR-wot-discovery-20221128/</a></dd>
+"https://www.w3.org/TR/2022/CR-wot-discovery-20221214/">https://www.w3.org/TR/2022/CR-wot-discovery-20221214/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -4241,17 +4253,17 @@ API.</span></p>
 <p><span class="rfc2119-assertion" id="tdd-notification-sse">The
 Notification API <em class="rfc2119">MUST</em> follow the
 Server-Sent Events (SSE) [<cite><a class="bibref" data-link-type=
-"biblio" href="#bib-eventsource" title=
-"Server-Sent Events">EVENTSOURCE</a></cite>] specifications to
-serve events to clients at <code>/events</code> endpoint.</span> In
-particular, the server responds to successful requests with 200
-(OK) status and <code>text/event-stream</code> Content Type.
-Re-connecting clients may continue from the last event by providing
-the last event ID as <code>Last-Event-ID</code> header value.
-<span class="rfc2119-assertion" id="tdd-notification-event-id">The
-server <em class="rfc2119">SHOULD</em> provide an event ID as the
-<code>id</code> field in each event and respond to re-connecting
-clients by delivering all missed events.</span></p>
+"biblio" href="#bib-html" title="HTML Standard">HTML</a></cite>]
+specifications to serve events to clients at <code>/events</code>
+endpoint.</span> In particular, the server responds to successful
+requests with 200 (OK) status and <code>text/event-stream</code>
+Content Type. Re-connecting clients may continue from the last
+event by providing the last event ID as <code>Last-Event-ID</code>
+header value. <span class="rfc2119-assertion" id=
+"tdd-notification-event-id">The server <em class=
+"rfc2119">SHOULD</em> provide an event ID as the <code>id</code>
+field in each event and respond to re-connecting clients by
+delivering all missed events.</span></p>
 <p>The rest of this section describes the implementation details on
 top of the SSE protocol. Realizing the notification functionality
 using other protocols such as MQTT are possible and may be
@@ -6361,17 +6373,18 @@ Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus
 Sabadello; Drummond Reed. W3C. 19 July 2022. W3C Recommendation.
 URL: <a href=
 "https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd>
-<dt id="bib-eventsource">[EVENTSOURCE]</dt>
-<dd><a href="https://www.w3.org/TR/eventsource/"><cite>Server-Sent
-Events</cite></a>. Ian Hickson. W3C. 28 January 2021. W3C
-Recommendation. URL: <a href=
-"https://www.w3.org/TR/eventsource/">https://www.w3.org/TR/eventsource/</a></dd>
 <dt id="bib-gdpr-defs">[GDPR-Defs]</dt>
 <dd><a href="https://gdpr-info.eu/art-4-gdpr/"><cite>General Data
 Protection Regulation (GDPR) Article 4 - Definitions</cite></a>.
 European Union (EU) and the European Economic Area (EEA). URL:
 <a href=
 "https://gdpr-info.eu/art-4-gdpr/">https://gdpr-info.eu/art-4-gdpr/</a></dd>
+<dt id="bib-html">[HTML]</dt>
+<dd><a href="https://html.spec.whatwg.org/multipage/"><cite>HTML
+Standard</cite></a>. Anne van Kesteren; Domenic Denicola; Ian
+Hickson; Philip Jägenstedt; Simon Pieters. WHATWG. Living Standard.
+URL: <a href=
+"https://html.spec.whatwg.org/multipage/">https://html.spec.whatwg.org/multipage/</a></dd>
 <dt id="bib-json-ld11">[JSON-LD11]</dt>
 <dd><a href="https://www.w3.org/TR/json-ld11/"><cite>JSON-LD
 1.1</cite></a>. Gregg Kellogg; Pierre-Antoine Champin; Dave
