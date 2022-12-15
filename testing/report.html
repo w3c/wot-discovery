@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 25 Nov 2022
+    <b>Version</b>: 15 Dec 2022
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -1081,7 +1081,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">The Notification API MUST follow the Server-Sent Events (SSE) [EVENTSOURCE] specifications to serve events to clients at /events endpoint.</td>
+	<td class="baseassertion">The Notification API MUST follow the Server-Sent Events (SSE) [HTML] specifications to serve events to clients at /events endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result failed">1</td>
@@ -1594,10 +1594,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A Thing or Thing Description Directory MAY use the CoRE Resource Directory [RFC9176] to register a link to its corresponding Thing Description.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">7</td></tr>
 <tr id="introduction-core-rd-resource-type-thing" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-core-rd-resource-type-thing">26: introduction-core-rd-resource-type-thing</a></td>
 	<td class="baseassertion">Introduction - CoRE RD</td>
@@ -1615,12 +1615,12 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">The resource type of the Link that targets the Thing Description of the Thing Description Directory MUST be wot.directory.</td>
+	<td class="baseassertion">The resource type of the Link that targets the Thing Description of the Thing Description Directory MUST be wot.directory.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">5</td></tr>
 <tr id="introduction-did" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-did">28: introduction-did</a></td>
 	<td class="baseassertion">Introduction - DID</td>
@@ -1713,10 +1713,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">If security bootstrapping is enabled on an exploration service using one of the following IANA-registered HTTP Authentication Schemes: Basic, Bearer, or Digest, then a 401 HTTP response at an API endpoint intended to serve a TD MUST include a WWW-Authenticate header and any other headers describing the required authorizations.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="exploration-secboot-oauth2-flows" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-oauth2-flows">36: exploration-secboot-oauth2-flows</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
@@ -1849,9 +1849,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">A CoAP-based TD Server providing a TD SHOULD respond to requests containing a Size2 option by including the size estimate of the TD in its next response.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-context-injection" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-context-injection">48: tdd-context-injection</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -2142,7 +2142,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">By default, the collection MUST be sorted using UTF-8 lexicographical order by the unique identifier of TDs.</td>
+	<td class="baseassertion">By default, the collection MUST be sorted using Unicode code point order by the unique identifier of TDs.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
@@ -2202,7 +2202,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Sorting order MUST always be defined using lexicographical ordering on a UTF-8 encoding of the relevant fields.</td>
+	<td class="atrisk">Sorting order MUST always be defined based on Unicode code points on the relevant fields.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
