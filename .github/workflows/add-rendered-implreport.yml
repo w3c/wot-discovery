@@ -10,7 +10,7 @@ jobs:
   add-link:
      runs-on: ubuntu-latest
      permissions:
-       pull_requests: write
+       pull-requests: write
      steps:
        - name: add comment
          env:
