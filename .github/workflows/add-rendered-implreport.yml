@@ -1,0 +1,22 @@
+name: Add rendered version of implementation report
+on:
+  pull_request:
+    branches:
+      - main
+      - test-actions
+    paths:
+      - 'testing/report.html'
+jobs:
+  add-link:
+     runs-on: ubuntu-latest
+     permissions:
+       pull_requests: write
+     steps:
+       - name: add comment
+         env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           SHA: ${{ github.event.pull_request.head.sha }}
+         run: |
+           echo gh pr comment ${{ github.event.pull_request.number }} \
+              --repo ${{ github.repository }} \
+              --body '[Rendered version (${SHA})](https://cdn.statically.io/gh/${{ github.repository }}/${SHA}/testing/report.html)'
