@@ -1,6 +1,6 @@
 {
   "report_htmlfile_rel": "report.html",
   "src_base": "https://w3c.github.io/wot-discovery",
-  "src_htmlfile": "publication/4-cr/Overview.html",
+  "src_htmlfile": "static.html",
   "verbosity": 3
 }

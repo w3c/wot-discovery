@@ -4,7 +4,7 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.5.1">
+<meta name="generator" content="ReSpec 32.6.0">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -305,7 +305,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-12-14",
+  "datePublished": "2022-12-21",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -1203,8 +1203,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-12-14T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 14 December 2022"
+  "publishISODate": "2022-12-21T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 21 December 2022"
 }
 </script>
 <link rel="stylesheet" href=
@@ -1220,13 +1220,13 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#CR">W3C Candidate
 Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-12-14">14 December 2022</time></p>
+"2022-12-21">21 December 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20221214/">https://www.w3.org/TR/2022/CR-wot-discovery-20221214/</a></dd>
+"https://www.w3.org/TR/2022/CR-wot-discovery-20221221/">https://www.w3.org/TR/2022/CR-wot-discovery-20221221/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -2308,7 +2308,7 @@ TLS/TCP</td>
 </table>
 <p></p>
 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
-<p>In addition, the following information <em class=
+<p>For TCP-based services, the following information <em class=
 "rfc2119">MUST</em> be included in the <code>TXT</code> record that
 is pointed to by the Service Instance Name:</p>
 <dl>
@@ -2330,11 +2330,37 @@ specified, with the standard registered URI interpretations
 "#bib-rfc7595" title=
 "Guidelines and Registration Procedures for URI Schemes">RFC7595</a></cite>]:
 <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over
-TLS/TCP), <code>coap</code> (CoAP over UDP), <code>coaps</code>
-CoAP over DTLS/UDP), <code>coap+tcp</code> (CoAP over TCP), or
+TLS/TCP), <code>coap+tcp</code> (CoAP over TCP), or
 <code>coaps+tcp</code> (CoAP over TLS/TCP). If omitted, the scheme
-is assumed to be <code>http</code> for TCP and <code>coap</code>
-for UDP.</dd>
+is assumed to be <code>http</code>.</dd>
+</dl>
+</div>
+<div class="rfc2119-assertion" id=
+"introduction-dns-sd-txt-record-udp">
+<p>For UDP-based services, the following information <em class=
+"rfc2119">MUST</em> be included in the <code>TXT</code> record that
+is pointed to by the Service Instance Name:</p>
+<dl>
+<dt><code>td</code></dt>
+<dd>Absolute pathname of the Thing Description of the Thing or
+Thing Description of the <a href=
+"#dfn-wot-thing-description-directory" class="internalDFN"
+data-link-type="dfn" id=
+"ref-for-dfn-wot-thing-description-directory-9">Thing Description
+Directory</a>.</dd>
+<dt><code>type</code></dt>
+<dd>Type of the Thing Description, i.e. <code>Thing</code> or
+<code>Directory</code>. If omitted, the type is assumed to be
+<code>Thing</code>.</dd>
+<dt><code>scheme</code></dt>
+<dd>Scheme part of URL. One of the following values can be
+specified, with the standard registered URI interpretations
+[<cite><a class="bibref" data-link-type="biblio" href=
+"#bib-rfc7595" title=
+"Guidelines and Registration Procedures for URI Schemes">RFC7595</a></cite>]:
+<code>coap</code> (CoAP over UDP), <code>coaps</code> (CoAP over
+DTLS/UDP). If omitted, the scheme is assumed to be
+<code>coap</code>.</dd>
 </dl>
 </div>
 <p><a href="#sequence-dnssd-thing" class="fig-ref" title=
@@ -2346,7 +2372,7 @@ Figure <bdi class="figno">3</bdi></a> shows example sequences
 supporting discovery of a Thing or a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-9">Thing Description
+"ref-for-dfn-wot-thing-description-directory-10">Thing Description
 Directory</a> using DNS-SD and mDNS.</p>
 <figure id="sequence-dnssd-thing"><img src=
 "images/sequence-dnssd-thing.png" srcset=
@@ -2376,7 +2402,7 @@ Directory</h3>
 <p><span class="rfc2119-assertion" id="introduction-core-rd">A
 Thing or <a href="#dfn-wot-thing-description-directory" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-10">Thing Description
+"ref-for-dfn-wot-thing-description-directory-11">Thing Description
 Directory</a> <em class="rfc2119">MAY</em> advertise its presence
 using the Constrained RESTful Environment (CoRE) Link Format
 [<cite><a class="bibref" data-link-type="biblio" href=
@@ -2388,7 +2414,7 @@ using the Constrained RESTful Environment (CoRE) Link Format
 "ref-for-dfn-thing-1">Thing</a> or <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-11">Thing Description
+"ref-for-dfn-wot-thing-description-directory-12">Thing Description
 Directory</a> <em class="rfc2119">MAY</em> use the CoRE Resource
 Directory [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-rfc9176" title=
@@ -2404,7 +2430,7 @@ the Thing <em class="rfc2119">MUST</em> be
 the Link that targets the Thing Description of the <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-12">Thing Description
+"ref-for-dfn-wot-thing-description-directory-13">Thing Description
 Directory</a> <em class="rfc2119">MUST</em> be
 <code>wot.directory</code>.</span></p>
 </section>
@@ -2419,7 +2445,7 @@ Documents</h3>
 "ref-for-dfn-thing-2">Thing</a> or <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-13">Thing Description
+"ref-for-dfn-wot-thing-description-directory-14">Thing Description
 Directory</a> using a Decentralized Identifier (DID)
 [<cite><a class="bibref" data-link-type="biblio" href=
 "#bib-did-core" title=
@@ -2436,7 +2462,7 @@ resolving the DID of a <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-3">Thing</a> or <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-14">Thing Description
+"ref-for-dfn-wot-thing-description-directory-15">Thing Description
 Directory</a> contains a Service Endpoint of type
 <code>WotThing</code> or <code>WotDirectory</code>, respectively,
 then this Service Endpoint <em class="rfc2119">MUST</em> refer to
@@ -2446,7 +2472,7 @@ the <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "internalDFN" data-link-type="dfn" id="ref-for-dfn-td-3">TD</a>
 describing that <a href="#dfn-wot-thing-description-directory"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-15">Thing Description
+"ref-for-dfn-wot-thing-description-directory-16">Thing Description
 Directory</a> (when using the <code>WotDirectory</code> service
 name), respectively.</span></p>
 <aside class="example" id=
@@ -2522,11 +2548,11 @@ information model for <a href="#dfn-wot-td-server" class=
 including those for self-description) and <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-16">Thing Description
+"ref-for-dfn-wot-thing-description-directory-17">Thing Description
 Directory</a> services. A <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-17">Thing Description
+"ref-for-dfn-wot-thing-description-directory-18">Thing Description
 Directory</a> may contain <a href="#dfn-td" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-td-5">TDs</a> and at the same
 time is also a Thing, which means it has its own TD. A directory
@@ -3017,7 +3043,7 @@ payload.</p>
 "Permalink for Section 7.3"></a></div>
 <p>A <a href="#dfn-wot-thing-description-directory" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-18">Thing Description
+"ref-for-dfn-wot-thing-description-directory-19">Thing Description
 Directory</a> (TDD or Directory for short) is a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-5">Thing</a> that provides a service to manage a
@@ -3035,7 +3061,7 @@ data-matched-text="[[[#exploration-class-diagram]]]" class=
 Figure <bdi class="figno">4</bdi></a>, the <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-19">Thing Description
+"ref-for-dfn-wot-thing-description-directory-20">Thing Description
 Directory</a> can contain zero or more <a href="#dfn-td" class=
 "internalDFN" data-link-type="dfn" id="ref-for-dfn-td-28">TDs</a>.
 For every TD, the directory maintains additional metadata for
@@ -3089,7 +3115,7 @@ In this table, client refers to the producer or consumer of a
 "ref-for-dfn-td-33">TD</a> and server refers to the <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-20">Thing Description
+"ref-for-dfn-wot-thing-description-directory-21">Thing Description
 Directory</a>.</p>
 <p><span class="rfc2119-assertion" id="tdd-absolute-time">Whenever
 an absolute time is expressed using <a href=
@@ -6105,7 +6131,7 @@ Directory</a></td>
 <td>Thing Description of a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-21">Thing Description
+"ref-for-dfn-wot-thing-description-directory-22">Thing Description
 Directory</a></td>
 <td><a href="#introduction-core-rd-sec" data-matched-text=
 "[[[#introduction-core-rd-sec]]]" class="sec-ref"><bdi class=
@@ -6151,7 +6177,7 @@ in DID Documents.</p>
 <td>Thing Description of a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-22">Thing Description
+"ref-for-dfn-wot-thing-description-directory-23">Thing Description
 Directory</a></td>
 <td><a href="#introduction-did-sec" data-matched-text=
 "[[[#introduction-did-sec]]]" class="sec-ref"><bdi class=
@@ -6908,37 +6934,39 @@ Discovery</a> <a href=
 "#ref-for-dfn-wot-thing-description-directory-8" title=
 "Reference 2">(2)</a> <a href=
 "#ref-for-dfn-wot-thing-description-directory-9" title=
-"Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-10"
+"Reference 3">(3)</a> <a href=
+"#ref-for-dfn-wot-thing-description-directory-10" title=
+"Reference 4">(4)</a></li>
+<li><a href="#ref-for-dfn-wot-thing-description-directory-11"
 title="§ 6.4 CoRE Link Format and CoRE Resource Directory">§ 6.4
 CoRE Link Format and CoRE Resource Directory</a> <a href=
-"#ref-for-dfn-wot-thing-description-directory-11" title=
-"Reference 2">(2)</a> <a href=
 "#ref-for-dfn-wot-thing-description-directory-12" title=
-"Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-13"
-title="§ 6.5 DID Documents">§ 6.5 DID Documents</a> <a href=
-"#ref-for-dfn-wot-thing-description-directory-14" title=
 "Reference 2">(2)</a> <a href=
-"#ref-for-dfn-wot-thing-description-directory-15" title=
+"#ref-for-dfn-wot-thing-description-directory-13" title=
 "Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-16"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-14"
+title="§ 6.5 DID Documents">§ 6.5 DID Documents</a> <a href=
+"#ref-for-dfn-wot-thing-description-directory-15" title=
+"Reference 2">(2)</a> <a href=
+"#ref-for-dfn-wot-thing-description-directory-16" title=
+"Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-wot-thing-description-directory-17"
 title="§ 7.1 Overview">§ 7.1 Overview</a> <a href=
-"#ref-for-dfn-wot-thing-description-directory-17" title=
+"#ref-for-dfn-wot-thing-description-directory-18" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-18"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-19"
 title="§ 7.3 Thing Description Directory">§ 7.3 Thing Description
 Directory</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-19"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-20"
 title="§ 7.3.1 Information Model">§ 7.3.1 Information
 Model</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-20"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-21"
 title="§ 7.3.1.1 Registration Information">§ 7.3.1.1 Registration
 Information</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-21"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-22"
 title="§ 11.3 CoRE Resource Types Registration">§ 11.3 CoRE
 Resource Types Registration</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-22"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-23"
 title="§ 12.1 DID Service Name Registration">§ 12.1 DID Service
 Name Registration</a></li>
 </ul>
