@@ -692,24 +692,36 @@ img.wot-diagram {
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#td",
                             "type": "WotThing",
                             "serviceEndpoint":
                                 "https://wot.example.com/.well-known/wot"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotDirectory">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#tdd",
                             "type": "WotDirectory",
                             "serviceEndpoint":
                                 "https://wot.example.com/tdd"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
