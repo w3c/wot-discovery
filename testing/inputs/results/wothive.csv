@@ -91,6 +91,7 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "introduction-core-rd-resource-type-thing","not-impl",
 "introduction-did","not-impl",
 "introduction-did-service-endpoint","not-impl",
+"introduction-did-service-context","not-impl",
 "introduction-direct-directory-description","not-impl",
 "introduction-direct-thing-description","not-impl",
 "introduction-direct-url","not-impl",

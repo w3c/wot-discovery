@@ -33,6 +33,7 @@
 "introduction-core-rd-resource-type-thing","not-impl","not implemented"
 "introduction-did","not-impl","not implemented"
 "introduction-did-service-endpoint","not-impl","not implemented"
+"introduction-did-service-context","not-impl","not implemented"
 "introduction-direct-directory-description","pass",
 "introduction-direct-thing-description","not-impl","not implemented"
 "introduction-direct-url","not-impl","not implemented"

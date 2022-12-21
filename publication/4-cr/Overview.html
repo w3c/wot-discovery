@@ -4,7 +4,7 @@
 <meta name="generator" content=
 "HTML Tidy for HTML5 for Linux version 5.6.0">
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 32.5.1">
+<meta name="generator" content="ReSpec 32.6.0">
 <meta name="viewport" content=
 "width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
@@ -100,6 +100,9 @@ dfn{cursor:pointer}
   background-color: yellow;
 }
 #introduction-dns-sd-service-name-udp {
+  background-color: yellow;
+}
+#introduction-did-service-context {
   background-color: yellow;
 }
 #priv-loc-anonymous-tds {
@@ -305,7 +308,7 @@ dd{margin-left:0}
   "name": "Web of Things (WoT) Discovery",
   "inLanguage": "en-US",
   "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
-  "datePublished": "2022-12-14",
+  "datePublished": "2022-12-21",
   "copyrightHolder": {
     "name": "World Wide Web Consortium",
     "url": "https://www.w3.org/"
@@ -554,6 +557,26 @@ dd{margin-left:0}
         },
         {
           "name": "Drummond Reed"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/did-spec-registries/",
+      "type": "TechArticle",
+      "name": "DID Specification Registries",
+      "url": "https://www.w3.org/TR/did-spec-registries/",
+      "creator": [
+        {
+          "name": "Orie Steele"
+        },
+        {
+          "name": "Manu Sporny"
+        },
+        {
+          "name": "Michael Prorock"
         }
       ],
       "publisher": {
@@ -1203,8 +1226,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "wot-usecases"
     }
   },
-  "publishISODate": "2022-12-14T00:00:00.000Z",
-  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 14 December 2022"
+  "publishISODate": "2022-12-21T00:00:00.000Z",
+  "generatedSubtitle": "W3C Candidate Recommendation Snapshot 21 December 2022"
 }
 </script>
 <link rel="stylesheet" href=
@@ -1220,13 +1243,13 @@ src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width=
 <p id="w3c-state"><a href=
 "https://www.w3.org/standards/types#CR">W3C Candidate
 Recommendation Snapshot</a> <time class="dt-published" datetime=
-"2022-12-14">14 December 2022</time></p>
+"2022-12-21">21 December 2022</time></p>
 <details open="">
 <summary>More details about this document</summary>
 <dl>
 <dt>This version:</dt>
 <dd><a class="u-url" href=
-"https://www.w3.org/TR/2022/CR-wot-discovery-20221214/">https://www.w3.org/TR/2022/CR-wot-discovery-20221214/</a></dd>
+"https://www.w3.org/TR/2022/CR-wot-discovery-20221221/">https://www.w3.org/TR/2022/CR-wot-discovery-20221221/</a></dd>
 <dt>Latest published version:</dt>
 <dd><a href=
 "https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a></dd>
@@ -1351,6 +1374,9 @@ experience the following features and sections are at risk:</p>
 "#introduction-dns-sd-service-name-directory-udp">introduction-dns-sd-service-name-directory-udp</a>
 and <a href=
 "#introduction-dns-sd-service-name-udp">introduction-dns-sd-service-name-udp</a>.</li>
+<li>Discovery via DID documents, due to missing JSON-LD context in
+implementations. <a href=
+"#introduction-did-service-context">introduction-did-service-context</a>.</li>
 <li>Mandatory use of RFC3339 format for date-time.</li>
 <a href="#tdd-absolute-time">tdd-absolute-time</a>.
 <li>Mandatory rejection of query with <code>diff</code> parameter
@@ -2414,6 +2440,7 @@ Directory</a> <em class="rfc2119">MUST</em> be
 Documents</h3>
 <a class="self-link" href="#introduction-did-sec" aria-label=
 "Permalink for Section 6.5"></a></div>
+<p class="at-risk">This section is at risk.</p>
 <p><span class="rfc2119-assertion" id="introduction-did">A <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-thing-2">Thing</a> or <a href=
@@ -2431,12 +2458,25 @@ type <code>WotThing</code> or <code>WotDirectory</code>,
 respectively, in the DID Document that the TD's identifier resolves
 to.</span></p>
 <p><span class="rfc2119-assertion" id=
-"introduction-did-service-endpoint">If the DID Document obtained by
-resolving the DID of a <a href="#dfn-thing" class="internalDFN"
+"introduction-did-service-context">In order to define Service
+Endpoints for WoT Discovery, the DID Document obtained by resolving
+the DID of a <a href="#dfn-thing" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-thing-3">Thing</a> or <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
 "ref-for-dfn-wot-thing-description-directory-14">Thing Description
+Directory</a> <em class="rfc2119">MUST</em> include the URL
+<code>https://www.w3.org/2021/wot/discovery/did</code> in its
+<code>@context</code> [<cite><a class="bibref" data-link-type=
+"biblio" href="#bib-did-spec-registries" title=
+"DID Specification Registries">did-spec-registries</a></cite>].</span></p>
+<p><span class="rfc2119-assertion" id=
+"introduction-did-service-endpoint">If the DID Document obtained by
+resolving the DID of a <a href="#dfn-thing" class="internalDFN"
+data-link-type="dfn" id="ref-for-dfn-thing-4">Thing</a> or <a href=
+"#dfn-wot-thing-description-directory" class="internalDFN"
+data-link-type="dfn" id=
+"ref-for-dfn-wot-thing-description-directory-15">Thing Description
 Directory</a> contains a Service Endpoint of type
 <code>WotThing</code> or <code>WotDirectory</code>, respectively,
 then this Service Endpoint <em class="rfc2119">MUST</em> refer to
@@ -2446,25 +2486,35 @@ the <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "internalDFN" data-link-type="dfn" id="ref-for-dfn-td-3">TD</a>
 describing that <a href="#dfn-wot-thing-description-directory"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-15">Thing Description
+"ref-for-dfn-wot-thing-description-directory-16">Thing Description
 Directory</a> (when using the <code>WotDirectory</code> service
-name), respectively.</span></p>
+name), respectively [<cite><a class="bibref" data-link-type=
+"biblio" href="#bib-did-spec-registries" title=
+"DID Specification Registries">did-spec-registries</a></cite>].</span></p>
 <aside class="example" id=
 "example-a-example-service-endpoint-in-a-did-document-wotthing">
 <div class="marker"><a class="self-link" href=
 "#example-a-example-service-endpoint-in-a-did-document-wotthing">Example
 <bdi>1</bdi></a><span class="example-title">: A Example Service
 Endpoint in a DID Document - WotThing</span></div>
-<pre aria-busy="false"><code class="hljs json">{
-    <span class="hljs-attr">"service"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class=
+<pre aria-busy="false"><code class="hljs javascript">{
+    <span class="hljs-string">"@context"</span>:[
+        <span class=
+"hljs-string">"https://www.w3.org/ns/did/v1"</span>,
+        <span class=
+"hljs-string">"https://www.w3.org/2021/wot/discovery/did"</span>
+    ],
+    ...
+    <span class="hljs-string">"service"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class=
 "hljs-string">"did:example:wotdiscoveryexample#td"</span>,
-        <span class="hljs-attr">"type"</span>: <span class=
+        <span class="hljs-string">"type"</span>: <span class=
 "hljs-string">"WotThing"</span>,
-        <span class="hljs-attr">"serviceEndpoint"</span>:
+        <span class="hljs-string">"serviceEndpoint"</span>:
             <span class=
 "hljs-string">"https://wot.example.com/.well-known/wot"</span>
     }]
+    ...
 }</code></pre></aside>
 <aside class="example" id=
 "example-a-example-service-endpoint-in-a-did-document-wotdirectory">
@@ -2472,16 +2522,24 @@ Endpoint in a DID Document - WotThing</span></div>
 "#example-a-example-service-endpoint-in-a-did-document-wotdirectory">
 Example <bdi>2</bdi></a><span class="example-title">: A Example
 Service Endpoint in a DID Document - WotDirectory</span></div>
-<pre aria-busy="false"><code class="hljs json">{
-    <span class="hljs-attr">"service"</span>: [{
-        <span class="hljs-attr">"id"</span>: <span class=
+<pre aria-busy="false"><code class="hljs javascript">{
+    <span class="hljs-string">"@context"</span>:[
+        <span class=
+"hljs-string">"https://www.w3.org/ns/did/v1"</span>,
+        <span class=
+"hljs-string">"https://www.w3.org/2021/wot/discovery/did"</span>
+    ],
+    ...
+    <span class="hljs-string">"service"</span>: [{
+        <span class="hljs-string">"id"</span>: <span class=
 "hljs-string">"did:example:wotdiscoveryexample#tdd"</span>,
-        <span class="hljs-attr">"type"</span>: <span class=
+        <span class="hljs-string">"type"</span>: <span class=
 "hljs-string">"WotDirectory"</span>,
-        <span class="hljs-attr">"serviceEndpoint"</span>:
+        <span class="hljs-string">"serviceEndpoint"</span>:
             <span class=
 "hljs-string">"https://wot.example.com/tdd"</span>
     }]
+    ...
 }</code></pre></aside>
 </section>
 </section>
@@ -2522,11 +2580,11 @@ information model for <a href="#dfn-wot-td-server" class=
 including those for self-description) and <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-16">Thing Description
+"ref-for-dfn-wot-thing-description-directory-17">Thing Description
 Directory</a> services. A <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-17">Thing Description
+"ref-for-dfn-wot-thing-description-directory-18">Thing Description
 Directory</a> may contain <a href="#dfn-td" class="internalDFN"
 data-link-type="dfn" id="ref-for-dfn-td-5">TDs</a> and at the same
 time is also a Thing, which means it has its own TD. A directory
@@ -2857,7 +2915,7 @@ Thing. In particular, a TD can be hosted on an ordinary web server
 and referenced by its URL.</p>
 <p>A TD Server can be used to support self-description. For
 self-description, a <a href="#dfn-thing" class="internalDFN"
-data-link-type="dfn" id="ref-for-dfn-thing-4">Thing</a> hosts its
+data-link-type="dfn" id="ref-for-dfn-thing-5">Thing</a> hosts its
 own <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-td-9">TD</a> and makes it available via a web resource
 identified with a URL. Such a web resource however is not included
@@ -3017,10 +3075,10 @@ payload.</p>
 "Permalink for Section 7.3"></a></div>
 <p>A <a href="#dfn-wot-thing-description-directory" class=
 "internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-18">Thing Description
+"ref-for-dfn-wot-thing-description-directory-19">Thing Description
 Directory</a> (TDD or Directory for short) is a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-5">Thing</a> that provides a service to manage a
+"ref-for-dfn-thing-6">Thing</a> that provides a service to manage a
 set of TDs describing other Things.</p>
 <section id="exploration-directory-info" class="normative">
 <div class="header-wrapper">
@@ -3035,7 +3093,7 @@ data-matched-text="[[[#exploration-class-diagram]]]" class=
 Figure <bdi class="figno">4</bdi></a>, the <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-19">Thing Description
+"ref-for-dfn-wot-thing-description-directory-20">Thing Description
 Directory</a> can contain zero or more <a href="#dfn-td" class=
 "internalDFN" data-link-type="dfn" id="ref-for-dfn-td-28">TDs</a>.
 For every TD, the directory maintains additional metadata for
@@ -3089,7 +3147,7 @@ In this table, client refers to the producer or consumer of a
 "ref-for-dfn-td-33">TD</a> and server refers to the <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-20">Thing Description
+"ref-for-dfn-wot-thing-description-directory-21">Thing Description
 Directory</a>.</p>
 <p><span class="rfc2119-assertion" id="tdd-absolute-time">Whenever
 an absolute time is expressed using <a href=
@@ -3473,13 +3531,13 @@ class="internalDFN" data-link-type="dfn" id=
 "sec-ref"><bdi class="secno">7.3.2.1.6</bdi> Validation</a>. Note
 that a TD may or may not be generated by the <a href="#dfn-thing"
 class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-6">Thing</a> it describes. For brownfield
+"ref-for-dfn-thing-7">Thing</a> it describes. For brownfield
 devices in particular a separate <a href="#dfn-wot-discoverer"
 class="internalDFN" data-link-type="dfn" id=
 "ref-for-dfn-wot-discoverer-2">Discoverer</a> process or service
 may be required that generates and registers a TD for a <a href=
 "#dfn-thing" class="internalDFN" data-link-type="dfn" id=
-"ref-for-dfn-thing-7">Thing</a> on its behalf.</p>
+"ref-for-dfn-thing-8">Thing</a> on its behalf.</p>
 <p><span class="rfc2119-assertion" id=
 "tdd-things-create-known-vs-anonymous">A TD which is identified
 with an <code>id</code> attribute <em class="rfc2119">MUST</em> be
@@ -6105,7 +6163,7 @@ Directory</a></td>
 <td>Thing Description of a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-21">Thing Description
+"ref-for-dfn-wot-thing-description-directory-22">Thing Description
 Directory</a></td>
 <td><a href="#introduction-core-rd-sec" data-matched-text=
 "[[[#introduction-core-rd-sec]]]" class="sec-ref"><bdi class=
@@ -6151,7 +6209,7 @@ in DID Documents.</p>
 <td>Thing Description of a <a href=
 "#dfn-wot-thing-description-directory" class="internalDFN"
 data-link-type="dfn" id=
-"ref-for-dfn-wot-thing-description-directory-22">Thing Description
+"ref-for-dfn-wot-thing-description-directory-23">Thing Description
 Directory</a></td>
 <td><a href="#introduction-did-sec" data-matched-text=
 "[[[#introduction-did-sec]]]" class="sec-ref"><bdi class=
@@ -6373,6 +6431,12 @@ Identifiers (DIDs) v1.0</cite></a>. Manu Sporny; Amy Guy; Markus
 Sabadello; Drummond Reed. W3C. 19 July 2022. W3C Recommendation.
 URL: <a href=
 "https://www.w3.org/TR/did-core/">https://www.w3.org/TR/did-core/</a></dd>
+<dt id="bib-did-spec-registries">[did-spec-registries]</dt>
+<dd><a href="https://www.w3.org/TR/did-spec-registries/"><cite>DID
+Specification Registries</cite></a>. Orie Steele; Manu Sporny;
+Michael Prorock. W3C. 9 August 2022. W3C Working Group Note. URL:
+<a href=
+"https://www.w3.org/TR/did-spec-registries/">https://www.w3.org/TR/did-spec-registries/</a></dd>
 <dt id="bib-gdpr-defs">[GDPR-Defs]</dt>
 <dd><a href="https://gdpr-info.eu/art-4-gdpr/"><cite>General Data
 Protection Regulation (GDPR) Article 4 - Definitions</cite></a>.
@@ -6619,15 +6683,16 @@ id="dfn-panel-for-dfn-thing" aria-label=
 Link Format and CoRE Resource Directory</a></li>
 <li><a href="#ref-for-dfn-thing-2" title="§ 6.5 DID Documents">§
 6.5 DID Documents</a> <a href="#ref-for-dfn-thing-3" title=
-"Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-thing-4" title=
+"Reference 2">(2)</a> <a href="#ref-for-dfn-thing-4" title=
+"Reference 3">(3)</a></li>
+<li><a href="#ref-for-dfn-thing-5" title=
 "§ 7.2 Thing Description Server">§ 7.2 Thing Description
 Server</a></li>
-<li><a href="#ref-for-dfn-thing-5" title=
+<li><a href="#ref-for-dfn-thing-6" title=
 "§ 7.3 Thing Description Directory">§ 7.3 Thing Description
 Directory</a></li>
-<li><a href="#ref-for-dfn-thing-6" title="§ 7.3.2.1.1 Creation">§
-7.3.2.1.1 Creation</a> <a href="#ref-for-dfn-thing-7" title=
+<li><a href="#ref-for-dfn-thing-7" title="§ 7.3.2.1.1 Creation">§
+7.3.2.1.1 Creation</a> <a href="#ref-for-dfn-thing-8" title=
 "Reference 2">(2)</a></li>
 </ul>
 </div>
@@ -6921,24 +6986,26 @@ title="§ 6.5 DID Documents">§ 6.5 DID Documents</a> <a href=
 "#ref-for-dfn-wot-thing-description-directory-14" title=
 "Reference 2">(2)</a> <a href=
 "#ref-for-dfn-wot-thing-description-directory-15" title=
-"Reference 3">(3)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-16"
+"Reference 3">(3)</a> <a href=
+"#ref-for-dfn-wot-thing-description-directory-16" title=
+"Reference 4">(4)</a></li>
+<li><a href="#ref-for-dfn-wot-thing-description-directory-17"
 title="§ 7.1 Overview">§ 7.1 Overview</a> <a href=
-"#ref-for-dfn-wot-thing-description-directory-17" title=
+"#ref-for-dfn-wot-thing-description-directory-18" title=
 "Reference 2">(2)</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-18"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-19"
 title="§ 7.3 Thing Description Directory">§ 7.3 Thing Description
 Directory</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-19"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-20"
 title="§ 7.3.1 Information Model">§ 7.3.1 Information
 Model</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-20"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-21"
 title="§ 7.3.1.1 Registration Information">§ 7.3.1.1 Registration
 Information</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-21"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-22"
 title="§ 11.3 CoRE Resource Types Registration">§ 11.3 CoRE
 Resource Types Registration</a></li>
-<li><a href="#ref-for-dfn-wot-thing-description-directory-22"
+<li><a href="#ref-for-dfn-wot-thing-description-directory-23"
 title="§ 12.1 DID Service Name Registration">§ 12.1 DID Service
 Name Registration</a></li>
 </ul>
