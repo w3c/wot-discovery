@@ -621,7 +621,8 @@ img.wot-diagram {
             </p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
                     <p>
-                    In addition, the following information MUST be included in the <code>TXT</code>
+                    For TCP-based services,
+                    the following information MUST be included in the <code>TXT</code>
                     record that is pointed to by the Service Instance Name:
                     </p>
                     <dl>
@@ -631,8 +632,25 @@ img.wot-diagram {
                         <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
                         <dt><code>scheme</code></dt>
-                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over TLS/TCP), <code>coap</code> (CoAP over UDP), <code>coaps</code> CoAP over DTLS/UDP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
-                        If omitted, the scheme is assumed to be <code>http</code> for TCP and <code>coap</code> for UDP. </dd>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over TLS/TCP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
+                        If omitted, the scheme is assumed to be <code>http</code>.</dd>
+                    </dl>
+                </div>
+                <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record-udp">
+                    <p>
+                    For UDP-based services,
+                    the following information MUST be included in the <code>TXT</code>
+                    record that is pointed to by the Service Instance Name:
+                    </p>
+                    <dl>
+                        <dt><code>td</code></dt>
+                        <dd>Absolute pathname of the Thing Description of the Thing or Thing Description of the <a>Thing Description Directory</a>.</dd>
+                        <dt><code>type</code></dt>
+                        <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                        If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                        <dt><code>scheme</code></dt>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>coap</code> (CoAP over UDP), <code>coaps</code> (CoAP over DTLS/UDP).
+                        If omitted, the scheme is assumed to be <code>coap</code>.</dd>
                     </dl>
                 </div>
             <p>
