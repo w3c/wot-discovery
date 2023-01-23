@@ -681,35 +681,54 @@ img.wot-diagram {
                 <code>WotThing</code> or <code>WotDirectory</code>, respectively, in the DID Document that 
                 the TD's identifier resolves to.</span>
             </p>
+            <p><span class="rfc2119-assertion" id="introduction-did-service-context">In order to define Service Endpoints
+                for WoT Discovery, the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a>
+                MUST include the URL <code>https://www.w3.org/2021/wot/discovery/did</code> in its <code>@context</code> 
+                [[did-spec-registries]].
+            </span>
+            </p>
             <p><span class="rfc2119-assertion" id="introduction-did-service-endpoint">
                 If the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> 
                 contains a Service Endpoint of type <code>WotThing</code> or <code>WotDirectory</code>, respectively,
                 then this Service Endpoint MUST refer to the <a>TD</a> describing that Thing 
                 (when using the <code>WotThing</code> service name) 
 		            or the <a>TD</a> describing that <a>Thing Description Directory</a> (when using the <code>WotDirectory</code> service name),
-                respectively.</span>
+                respectively
+                [[did-spec-registries]].</span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#td",
                             "type": "WotThing",
                             "serviceEndpoint":
                                 "https://wot.example.com/.well-known/wot"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotDirectory">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#tdd",
                             "type": "WotDirectory",
                             "serviceEndpoint":
                                 "https://wot.example.com/tdd"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
