@@ -579,8 +579,6 @@ img.wot-diagram {
         </section>
         <section id="introduction-dns-sd-sec" class="normative">
             <h2>DNS-Based Service Discovery</h2>
-            <p class="ednote">The DNS-SD service names are still subject to IANA approval.  If necessary they may have to be
-            changed prior to PR if IANA requires different names.</p>
             <p><span class="rfc2119-assertion" id="introduction-dns-sd">A Thing or <a>Thing Description Directory</a> MAY use DNS-Based Service Discovery (DNS-SD)[[RFC6763]].</span>
                 This can be also be used on the same local network in combination with Multicast DNS (mDNS)[[RFC6762]].
             </p>
@@ -621,7 +619,8 @@ img.wot-diagram {
             </p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
                     <p>
-                    In addition, the following information MUST be included in the <code>TXT</code>
+                    For TCP-based services,
+                    the following information MUST be included in the <code>TXT</code>
                     record that is pointed to by the Service Instance Name:
                     </p>
                     <dl>
@@ -631,8 +630,25 @@ img.wot-diagram {
                         <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
                         If omitted, the type is assumed to be <code>Thing</code>.</dd>
                         <dt><code>scheme</code></dt>
-                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP),<code>https</code> (HTTP over TLS/TCP), <code>coap</code> (CoAP over UDP), <code>coaps</code> CoAP over DTLS/UDP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
-                        If omitted, the scheme is assumed to be <code>http</code> for TCP and <code>coap</code> for UDP. </dd>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>http</code> (HTTP over TCP), <code>https</code> (HTTP over TLS/TCP), <code>coap+tcp</code> (CoAP over TCP), or <code>coaps+tcp</code> (CoAP over TLS/TCP).
+                        If omitted, the scheme is assumed to be <code>http</code>.</dd>
+                    </dl>
+                </div>
+                <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record-udp">
+                    <p>
+                    For UDP-based services,
+                    the following information MUST be included in the <code>TXT</code>
+                    record that is pointed to by the Service Instance Name:
+                    </p>
+                    <dl>
+                        <dt><code>td</code></dt>
+                        <dd>Absolute pathname of the Thing Description of the Thing or Thing Description of the <a>Thing Description Directory</a>.</dd>
+                        <dt><code>type</code></dt>
+                        <dd>Type of the Thing Description, i.e. <code>Thing</code> or <code>Directory</code>.
+                        If omitted, the type is assumed to be <code>Thing</code>.</dd>
+                        <dt><code>scheme</code></dt>
+                        <dd>Scheme part of URL.  One of the following values can be specified, with the standard registered URI interpretations [[RFC7595]]: <code>coap</code> (CoAP over UDP) or <code>coaps</code> (CoAP over DTLS/UDP).
+                        If omitted, the scheme is assumed to be <code>coap</code>.</dd>
                     </dl>
                 </div>
             <p>
@@ -681,35 +697,54 @@ img.wot-diagram {
                 <code>WotThing</code> or <code>WotDirectory</code>, respectively, in the DID Document that 
                 the TD's identifier resolves to.</span>
             </p>
+            <p><span class="rfc2119-assertion" id="introduction-did-service-context">In order to define Service Endpoints
+                for WoT Discovery, the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a>
+                MUST include the URL <code>https://www.w3.org/2021/wot/discovery/did</code> in its <code>@context</code> 
+                [[did-spec-registries]].
+            </span>
+            </p>
             <p><span class="rfc2119-assertion" id="introduction-did-service-endpoint">
                 If the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a> 
                 contains a Service Endpoint of type <code>WotThing</code> or <code>WotDirectory</code>, respectively,
                 then this Service Endpoint MUST refer to the <a>TD</a> describing that Thing 
                 (when using the <code>WotThing</code> service name) 
 		            or the <a>TD</a> describing that <a>Thing Description Directory</a> (when using the <code>WotDirectory</code> service name),
-                respectively.</span>
+                respectively
+                [[did-spec-registries]].</span>
             </p>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotThing">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#td",
                             "type": "WotThing",
                             "serviceEndpoint":
                                 "https://wot.example.com/.well-known/wot"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
             <aside class="example" title="A Example Service Endpoint in a DID Document - WotDirectory">
                 <pre>
                     {
+                        "@context":[
+                            "https://www.w3.org/ns/did/v1",
+                            "https://www.w3.org/2021/wot/discovery/did"
+                        ],
+                        ...
                         "service": [{
                             "id": "did:example:wotdiscoveryexample#tdd",
                             "type": "WotDirectory",
                             "serviceEndpoint":
                                 "https://wot.example.com/tdd"
                         }]
+                        ...
                     }
                 </pre>
             </aside>
