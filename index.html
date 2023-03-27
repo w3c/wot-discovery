@@ -2620,14 +2620,10 @@ img.wot-diagram {
 	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-multicast">
 		Open implementations of Introduction mechanisms SHOULD NOT respond to multicast
 		requests unless this is absolutely required by the protocol.</span>
-	        <span class="rfc2119-assertion" id="sec-tdd-intro-if-multicast-required">
 		If support for multicast is required,
-		in the case of CoAP, the recommendations made in [[RFC9175]] SHOULD be
-		applied.</span>
-		Note however that in the case of discovery the number of servers that
-		might respond to a multicast request will generally not be known in
-		advance, in which case the mitigations proposed in [[RFC9175]] may
-		not be effective.
+		in the case of CoAP, the observations made in [[AMPLIFICATION-ATTACKS]] are relevant,
+		since the number of servers that might respond to a multicast request during
+		discovery will generally not be known in advance.
 		</li>
 		<li>
 		Limit the size of responses to the minimum.  
