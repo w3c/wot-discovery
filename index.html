@@ -699,7 +699,7 @@ img.wot-diagram {
             </p>
             <p><span class="rfc2119-assertion" id="introduction-did-service-context">In order to define Service Endpoints
                 for WoT Discovery, the DID Document obtained by resolving the DID of a <a>Thing</a> or <a>Thing Description Directory</a>
-                MUST include the URL <code>https://www.w3.org/2021/wot/discovery/did</code> in its <code>@context</code> 
+                MUST include the URL <code>https://www.w3.org/2022/wot/discovery/did</code> in its <code>@context</code> 
                 [[did-spec-registries]].
             </span>
             </p>
@@ -717,7 +717,7 @@ img.wot-diagram {
                     {
                         "@context":[
                             "https://www.w3.org/ns/did/v1",
-                            "https://www.w3.org/2021/wot/discovery/did"
+                            "https://www.w3.org/2022/wot/discovery/did"
                         ],
                         ...
                         "service": [{
@@ -735,7 +735,7 @@ img.wot-diagram {
                     {
                         "@context":[
                             "https://www.w3.org/ns/did/v1",
-                            "https://www.w3.org/2021/wot/discovery/did"
+                            "https://www.w3.org/2022/wot/discovery/did"
                         ],
                         ...
                         "service": [{
@@ -833,7 +833,7 @@ img.wot-diagram {
 
                     <span class="rfc2119-assertion" id="exploration-directory-description-type"> 
                         A TD which describes a Thing Description Directory instance MUST use type `ThingDirectory` from the
-                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingDirectory`.</span>
+                        discovery context or URI `https://www.w3.org/2022/wot/discovery/tdd#ThingDirectory`.</span>
                     <p>
                         A TD of this class can be derived from Directory's Thing Model; see [[[#directory-api-spec]]].
                     </p>
@@ -847,7 +847,7 @@ img.wot-diagram {
 
                     <span class="rfc2119-assertion" id="exploration-link-description-type"> 
                         A TD which describes a reference to another TD MUST use type `ThingLink` from the
-                        discovery context or URI `https://www.w3.org/2021/wot/discovery#ThingLink`.</span>
+                        discovery context or URI `https://www.w3.org/2022/wot/discovery/tdd#ThingLink`.</span>
                     <span class="rfc2119-assertion" id="exploration-link-description-link"> 
                         A Thing Link MUST define the referenced TD as a Link with
                         `describedby` link relation type, `application/td+json` media type
@@ -862,8 +862,8 @@ img.wot-diagram {
                         <pre>
                             {
                                 "@context": [
-                                    "http://www.w3.org/ns/td",
-                                    "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                    "https://www.w3.org/2022/wot/td/v1.1",
+                                    "https://www.w3.org/2022/wot/discovery/tdd"
                                 ],
                                 "@type": "ThingLink",
                                 "id": "urn:example:link",
@@ -1227,7 +1227,7 @@ img.wot-diagram {
                     use within <a>TDs</a> that embed or reference the Discovery context. 
                     Note that only an <a>Enriched TD</a> embeds the registration information. 
 		            <span class="rfc2119-assertion" id="tdd-context-injection">An <a>Enriched TD</a>
-                        MUST contain in its @context the URI <code>https://w3c.github.io/wot-discovery/context/discovery-context.jsonld</code>.</span>
+                        MUST contain in its @context the URI <code>https://www.w3.org/2022/wot/discovery/tdd</code>.</span>
                     In this table,
                     client refers to the producer or consumer of a <a>TD</a> and server refers to
                     the <a>Thing Description Directory</a>.
@@ -1683,8 +1683,8 @@ img.wot-diagram {
                                 <pre>
                                     {
                                         "@context": [
-                                            "http://www.w3.org/ns/td",
-                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            "https://www.w3.org/2022/wot/td/v1.1",
+                                            "https://www.w3.org/2022/wot/discovery/tdd"
                                         ],
                                         "id": "urn:example:simple-td",
                                         "security": "basic_sc",
@@ -1717,8 +1717,8 @@ img.wot-diagram {
                                 <pre>
                                     {
                                         "@context": [
-                                            "http://www.w3.org/ns/td",
-                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            "https://www.w3.org/2022/wot/td/v1.1",
+                                            "https://www.w3.org/2022/wot/discovery/tdd"
                                         ],
                                         "id": "urn:uuid:48951ff3-4019-4e67-b217-dbbf011873dc",
                                         "security": "basic_sc",
@@ -1749,8 +1749,8 @@ img.wot-diagram {
                                 <pre>
                                     {
                                         "@context": [
-                                            "http://www.w3.org/ns/td",
-                                            "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            "https://www.w3.org/2022/wot/td/v1.1",
+                                            "https://www.w3.org/2022/wot/discovery/tdd"
                                         ],
                                         "id": "urn:example:expirable-td",
                                         "security": "basic_sc",
@@ -2082,7 +2082,7 @@ img.wot-diagram {
 					title="Alternative payload format including pagination information">
 					<pre>
 						{
-							"@context": "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld",
+							"@context": "https://www.w3.org/2022/wot/discovery/tdd",
 							"@type": "ThingCollection",
 							"total": 12,
 							"members": [
@@ -2289,8 +2289,8 @@ img.wot-diagram {
                                             event: thing_created
                                             data: {
                                             data:     "@context": [
-                                            data:         "https://www.w3.org/2019/wot/td/v1",
-                                            data:         "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+                                            data:         "https://www.w3.org/2022/wot/td/v1.1",
+                                            data:         "https://www.w3.org/2022/wot/discovery/tdd"
                                             data:     ],
                                             data:     "description": "This is a new TD",
                                             data:     "id": "urn:example:simple-td",
