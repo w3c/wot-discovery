@@ -2488,6 +2488,15 @@ img.wot-diagram {
                     given in this Thing Model
                     are not normative and are provided for information only.
                     </p>
+                    <p>
+                        Note that a <code>contentType</code> is required by the WoT TD 1.1
+                        specification [[wot-thing-description11]] for instances of the
+                        <code>ExpectedResponse</code> class (i.e., the JSON object
+                        corresponding to the key <code>response</code> in a form),
+                        even when the body of the HTTP response is supposed to be empty.
+                        In this case, <code>application/x-empty</code> can be used to
+                        ensure that the TD generated from the TM below is valid.
+                    </p>
                     <pre class="advisement json"
                          data-include='directory.tm.json'></pre>
 
