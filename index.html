@@ -595,6 +595,7 @@ img.wot-diagram {
             </p>
             <p>
                 The following table lists the service names and protocols for advertising their presense.
+                These are normative since each has a valid use with existing exploration mechanisms:
                 <table class="def">
                     <thead>
                         <tr>
@@ -619,13 +620,26 @@ img.wot-diagram {
                             <td>Thing</td>
                             <td>CoAP over UDP or CoAP over DTLS/UDP</td>
                         </tr>
-                        <tr class="rfc2119-table-assertion" id="introduction-dns-sd-service-name-directory-udp">
+                </table>
+            </p>
+            <p>The following additional service name has been defined for future use.
+               This definition is however informative
+               since there is currently no defined directory service using CoAP over UDP:
+                <table class="def">
+                    <thead>
+                        <tr>
+                            <th>Service name</th>
+                            <th>Thing or TDD</th>
+                            <th>Protocol</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td><code>_directory._sub._wot._udp</code></td>
                             <td>TDD</td>
                             <td>CoAP over UDP or CoAP over DTLS/UDP</td>
                         </tr>
                     </tbody>
-
                 </table>
             </p>
                 <div class="rfc2119-assertion" id="introduction-dns-sd-txt-record">
