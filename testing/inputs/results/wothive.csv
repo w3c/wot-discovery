@@ -141,7 +141,7 @@ tdd-validation-syntactic,pass,passed:TestCreateAnonymousThing/reject_invalid/sta
 "tdd-things-create-known-contenttype","pass",
 "tdd-things-update-contenttype","pass",
 "tdd-things-list-pagination","pass",
-"tdd-things-list-pagination-collection","not-impl",
+"tdd-things-list-pagination-collection","pass",
 "tdd-things-list-pagination-header-canonicallink","pass",
 "tdd-things-list-pagination-header-nextlink","pass",
 "tdd-things-list-pagination-header-nextlink-attr","pass",

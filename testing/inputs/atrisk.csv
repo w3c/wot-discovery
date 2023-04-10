@@ -24,7 +24,6 @@
 104,"tdd-things-list-pagination-orderable","HELP, pass undefined"
 106,"tdd-things-list-pagination-order-nextlink","HELP, pass undefined"
 107,"tdd-things-list-pagination-order-utf-8","HELP, pass=1"
-108,"tdd-things-list-pagination-collection","HELP, pass=1"
 114,"tdd-validation-response-lang","HELP, pass undefined"
 126,"tdd-notification-data-diff-unsupported","HELP, pass undefined"
 137,"sec-tdd-throttle-queries","HELP, pass undefined"

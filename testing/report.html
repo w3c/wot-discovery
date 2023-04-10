@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 15 Dec 2022
+    <b>Version</b>: 10 Apr 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -685,7 +685,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">created: Provides the absolute time when the TD instance was created inside the directory. This MAY be set by the directory and returned to consumers.  MAY be included. Type: optional.</td>
+	<td class="tabassertion">created: Provides the absolute time when the TD instance was created inside the directory. This MAY be set by the directory and returned to consumers. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
 	<td class="result tabassertion">4</td>
 	<td class="result failed">1</td>
@@ -697,7 +697,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">modified: Provides the absolute time when the TD instance was last modified inside the directory. This MAY be set by the directory and returned to consumers.  MAY be included. Type: optional.</td>
+	<td class="tabassertion">modified: Provides the absolute time when the TD instance was last modified inside the directory. This MAY be set by the directory and returned to consumers. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
 	<td class="result tabassertion">4</td>
 	<td class="result failed">1</td>
@@ -1567,7 +1567,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">In addition, the following information MUST be included in the TXT record that is pointed to by the Service Instance Name:  td Absolute pathname of the Thing Description of the Thing or Thing Description of the Thing Description Directory. type Type of the Thing Description, i.e. Thing or Directory. If omitted, the type is assumed to be Thing. scheme Scheme part of URL. One of the following values can be specified, with the standard registered URI interpretations [RFC7595]: http (HTTP over TCP),https (HTTP over TLS/TCP), coap (CoAP over UDP), coaps CoAP over DTLS/UDP), coap+tcp (CoAP over TCP), or coaps+tcp (CoAP over TLS/TCP). If omitted, the scheme is assumed to be http for TCP and coap for UDP.</td>
+	<td class="baseassertion">In addition, the following information MUST be included in the TXT record that is pointed to by the Service Instance Name: td Absolute pathname of the Thing Description of the Thing or Thing Description of the Thing Description Directory. type Type of the Thing Description, i.e. Thing or Directory. If omitted, the type is assumed to be Thing. scheme Scheme part of URL. One of the following values can be specified, with the standard registered URI interpretations [RFC7595]: http (HTTP over TCP),https (HTTP over TLS/TCP), coap (CoAP over UDP), coaps CoAP over DTLS/UDP), coap+tcp (CoAP over TCP), or coaps+tcp (CoAP over TLS/TCP). If omitted, the scheme is assumed to be http for TCP and coap for UDP.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
@@ -1870,7 +1870,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">expires: Provides the absolute time when the TD instance registration expires. The producer MAY set this to indicate the absolute expiry time during the registration. For servers that support expirable TDs: If ttl (relative expiry) is present, the server MUST ignore client assignments to expires and instead compute and set it internally.  MAY be included. Type: optional.</td>
+	<td class="tabassertion">expires: Provides the absolute time when the TD instance registration expires. The producer MAY set this to indicate the absolute expiry time during the registration. For servers that support expirable TDs: If ttl (relative expiry) is present, the server MUST ignore client assignments to expires and instead compute and set it internally. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
 	<td class="result tabassertion">2</td>
 	<td class="result tabassertion">0</td>
@@ -1882,7 +1882,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="tabassertion">Y</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">ttl: Time-to-live: relative amount of time in seconds from the registration time until when the TD instance registration expires. The producer MAY set this to indicate the relative expiry time during the registration. For servers that support expirable TDs: The server MUST use ttl to calculate the expires (absolute expiry) value.  MAY be included. Type: read-only.</td>
+	<td class="tabassertion">ttl: Time-to-live: relative amount of time in seconds from the registration time until when the TD instance registration expires. The producer MAY set this to indicate the relative expiry time during the registration. For servers that support expirable TDs: The server MUST use ttl to calculate the expires (absolute expiry) value. MAY be included. Type: read-only.</td>
 	<td class="tabassertion"></td>
 	<td class="result tabassertion">2</td>
 	<td class="result tabassertion">0</td>
@@ -1894,7 +1894,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="tabassertion">N</td>
 	<td class="tabassertion"></td>
-	<td class="tabassertion">retrieved: The absolute time at which the TD was retrieved from the server. This is useful for clients that intend to process other absolute timestamps but do not have an internal clock or other means of acquiring the current time.  MAY be included. Type: optional.</td>
+	<td class="tabassertion">retrieved: The absolute time at which the TD was retrieved from the server. This is useful for clients that intend to process other absolute timestamps but do not have an internal clock or other means of acquiring the current time. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
 	<td class="result tabassertion">2</td>
 	<td class="result tabassertion">0</td>
@@ -2214,11 +2214,11 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">As an alternative to an array of TDs as the body of the response, the server MAY send a more verbose payload allowing server-side information, such as pagination information, to be included in addition to the actual data.</td>
+	<td class="baseassertion">As an alternative to an array of TDs as the body of the response, the server MAY send a more verbose payload allowing server-side information, such as pagination information, to be included in addition to the actual data.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
+	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td></tr>
 <tr id="tdd-validation-jsonschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-jsonschema">110: tdd-validation-jsonschema</a></td>
@@ -2226,7 +2226,7 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="baseassertion">The server SHOULD use at least  Minimal Validation as defined in [wot-thing-description11] to validate TDs, including use of the  WoT Thing Description (1.0) JSON Schema or  WoT Thing Description 1.1 JSON Schema, and the JSON schema defined in A. JSON Schema for WoT Discovery TD-extensions for Enriched TDs, as appropriate based on the value of the @context.</td>
+	<td class="baseassertion">The server SHOULD use at least Minimal Validation as defined in [wot-thing-description11] to validate TDs, including use of the WoT Thing Description (1.0) JSON Schema or WoT Thing Description 1.1 JSON Schema, and the JSON schema defined in A. JSON Schema for WoT Discovery TD-extensions for Enriched TDs, as appropriate based on the value of the @context.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
