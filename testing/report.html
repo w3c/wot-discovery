@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 25 Apr 2023
+    <b>Version</b>: 26 Apr 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -1439,10 +1439,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">To obtain an URL of an exploration service, any mechanism that results in a single URL MAY be used.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="introduction-direct-thing-description" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-thing-description">13: introduction-direct-thing-description</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
@@ -1451,10 +1451,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A request on all such URLs MUST result in a TD as prescribed in 7. Exploration Mechanisms.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="introduction-direct-directory-description" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-directory-description">14: introduction-direct-directory-description</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
@@ -1689,34 +1689,34 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">Security bootstrapping MAY be provided on any HTTP endpoint that serves a TD.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="exploration-secboot-401" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-401">34: exploration-secboot-401</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If security bootstrapping is enabled on an exploration service, after initial contact using the URL provided by an introduction mechanism, the exploration service MUST reply with either an HTTP "401 (Unauthorized)" response code or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate authentication information has not been provided but access can be granted when it is.</td>
+	<td class="baseassertion">If security bootstrapping is enabled on an exploration service, after initial contact using the URL provided by an introduction mechanism, the exploration service MUST reply with either an HTTP "401 (Unauthorized)" response code or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate authentication information has not been provided but access can be granted when it is.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="exploration-secboot-auth" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-auth">35: exploration-secboot-auth</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If security bootstrapping is enabled on an exploration service using one of the following IANA-registered HTTP Authentication Schemes: Basic, Bearer, or Digest, then a 401 HTTP response at an API endpoint intended to serve a TD MUST include a WWW-Authenticate header and any other headers describing the required authorizations.</td>
+	<td class="baseassertion">If security bootstrapping is enabled on an exploration service using one of the following IANA-registered HTTP Authentication Schemes: Basic, Bearer, or Digest, then a 401 HTTP response at an API endpoint intended to serve a TD MUST include a WWW-Authenticate header and any other headers describing the required authorizations.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="exploration-secboot-oauth2-flows" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-oauth2-flows">36: exploration-secboot-oauth2-flows</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
@@ -2444,10 +2444,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If Things cannot be individually secured with transport security and authentication and authorization, a separate network SHOULD be set up, i.e. with an alternative SSID, and used only for IoT devices.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="sec-self-proxy" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-self-proxy">148: sec-self-proxy</a></td>
 	<td class="baseassertion">Security</td>
