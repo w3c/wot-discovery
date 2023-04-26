@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 10 Apr 2023
+    <b>Version</b>: 26 Apr 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -673,12 +673,12 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Whenever an absolute time is expressed using dateTime it MUST be interpreted as date-time as specified in [RFC3339].</td>
+	<td class="baseassertion">Whenever an absolute time is expressed using dateTime it MUST be interpreted as date-time as specified in [RFC3339].</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">2</td></tr>
 <tr id="tdd-registrationinfo-vocab-created" class="tabassertion">
 	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-registrationinfo-vocab-created">50: tdd-registrationinfo-vocab-created</a></td>
 	<td class="tabassertion">TD Directory - Info</td>
@@ -687,10 +687,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="tabassertion"></td>
 	<td class="tabassertion">created: Provides the absolute time when the TD instance was created inside the directory. This MAY be set by the directory and returned to consumers. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
-	<td class="result tabassertion">4</td>
+	<td class="result tabassertion">5</td>
 	<td class="result failed">1</td>
 	<td class="result tabassertion">1</td>
-	<td class="result tabassertion">6</td></tr>
+	<td class="result tabassertion">7</td></tr>
 <tr id="tdd-registrationinfo-vocab-modified" class="tabassertion">
 	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-registrationinfo-vocab-modified">51: tdd-registrationinfo-vocab-modified</a></td>
 	<td class="tabassertion">TD Directory - Info</td>
@@ -699,10 +699,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="tabassertion"></td>
 	<td class="tabassertion">modified: Provides the absolute time when the TD instance was last modified inside the directory. This MAY be set by the directory and returned to consumers. MAY be included. Type: optional.</td>
 	<td class="tabassertion"></td>
-	<td class="result tabassertion">4</td>
+	<td class="result tabassertion">5</td>
 	<td class="result failed">1</td>
 	<td class="result tabassertion">1</td>
-	<td class="result tabassertion">6</td></tr>
+	<td class="result tabassertion">7</td></tr>
 <tr id="tdd-anonymous-td-identifier" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-identifier">57: tdd-anonymous-td-identifier</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -712,9 +712,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">In situations where the server exposes an Anonymous TD (e.g. retrieval, listing, search), it MUST add the local identifier as id of the TD to allow local referencing.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
-	<td class="result failed">2</td>
+	<td class="result failed">3</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-anonymous-td-local-uuid" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-anonymous-td-local-uuid">58: tdd-anonymous-td-local-uuid</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -724,9 +724,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">The local identifier SHOULD be a UUID Version 4, presented as a URN [RFC4122].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result failed">1</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-http-error-response" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-error-response">59: tdd-http-error-response</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -735,10 +735,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The HTTP API MUST use the Problem Details [RFC7807] format to carry error details in HTTP client error (4xx) and server error (5xx) responses.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result failed">2</td>
+	<td class="result baseassertion">5</td>
+	<td class="result failed">3</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-http-head" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-head">62: tdd-http-head</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -747,10 +747,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">For each HTTP endpoint that responds to the GET method, the server MUST accept HEAD requests and return only the headers.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
-	<td class="result failed">3</td>
+	<td class="result baseassertion">3</td>
+	<td class="result failed">4</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-list-only" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-only">65: tdd-things-list-only</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -759,10 +759,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The API MUST provide the interface to list TDs.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-crud" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-crud">66: tdd-things-crud</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -771,10 +771,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The API MAY provide the interfaces to create, read, update, and delete (CRUD) individual TDs.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-things-crudl" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-crudl">67: tdd-things-crudl</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -783,10 +783,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Full HTTP directories SHOULD implement all of CRUDL (create, read, update, delete, and list) interfaces.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">6</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-default-representation" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-default-representation">69: tdd-things-default-representation</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -795,10 +795,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The default serialization format for all request and success response bodies MUST be JSON, with JSON-LD 1.1 [JSON-LD11] syntax to support extensions and semantic processing.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">5</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-create-known-vs-anonymous" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-known-vs-anonymous">72: tdd-things-create-known-vs-anonymous</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -808,9 +808,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">A TD which is identified with an id attribute MUST be handled differently with one that has no identifier (Anonymous TD).</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">6</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-things-create-known-td" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-known-td">73: tdd-things-create-known-td</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -819,10 +819,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A TD that has an id MUST be submitted to the directory in the body of an HTTP PUT request at /things/{id} endpoint, where id is the unique TD identifier, present inside the TD object.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">6</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-things-create-known-td-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-known-td-resp">75: tdd-things-create-known-td-resp</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -831,10 +831,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Upon successful processing, the server MUST respond with 201 (Created) status.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-things-create-anonymous-td" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-td">76: tdd-things-create-anonymous-td</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -844,9 +844,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">An Anonymous TD MUST be submitted to the directory in the body of an HTTP POST request at /things endpoint.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result failed">1</td>
+	<td class="result failed">3</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-things-create-anonymous-contenttype" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-contenttype">77: tdd-things-create-anonymous-contenttype</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -856,9 +856,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">The request SHOULD contain application/td+json Content-Type header for JSON serialization of TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-things-create-anonymous-td-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-td-resp">79: tdd-things-create-anonymous-td-resp</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -868,9 +868,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">Upon successful processing, the server MUST respond with 201 (Created) status and a Location header containing the system-generated URI of created TD resource.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result failed">1</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-retrieve" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve">80: tdd-things-retrieve</a></td>
 	<td class="baseassertion">TD Directory - Retrieve</td>
@@ -879,10 +879,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The retrieval of an existing TD MUST be done using an HTTP GET request at /things/{id} endpoint, where id is the unique TD identifier.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-retrieve-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve-resp">81: tdd-things-retrieve-resp</a></td>
 	<td class="baseassertion">TD Directory - Retrieve</td>
@@ -891,10 +891,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response MUST have 200 (OK) status and the requested TD in the body.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update">83: tdd-things-update</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -904,9 +904,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">A modified TD MUST replace an existing one when submitted using an HTTP PUT request at /things/{id} endpoint, where id is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-resp">85: tdd-things-update-resp</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -916,9 +916,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">Upon success, the server MUST respond with 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-partial" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-partial">86: tdd-things-update-partial</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -927,10 +927,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An existing TD MUST be partially modified when the modified parts are submitted using an HTTP PATCH request at /things/{id} endpoint, where id is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-partial-mergepatch" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-partial-mergepatch">87: tdd-things-update-partial-mergepatch</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -939,10 +939,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The partial update MUST be processed using the JSON merge patch format described in [RFC7396].</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">6</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-partial-contenttype" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-partial-contenttype">88: tdd-things-update-partial-contenttype</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -951,10 +951,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The request MUST contain application/merge-patch+json Content-Type header for JSON serialization of the merge patch document.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">6</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-partial-partialtd" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-partial-partialtd">89: tdd-things-update-partial-partialtd</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -963,10 +963,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The input MUST be in Partial TD form and conform to the original TD structure.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-update-partial-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-partial-resp">90: tdd-things-update-partial-resp</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -975,10 +975,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">Upon success, the server MUST respond with a 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
-	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">6</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-delete" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-delete">91: tdd-things-delete</a></td>
 	<td class="baseassertion">TD Directory - Delete</td>
@@ -987,10 +987,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A delete operation MUST be done using an HTTP DELETE request at /things/{id}, where id is the identifier of the existing TD.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-delete-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-delete-resp">92: tdd-things-delete-resp</a></td>
 	<td class="baseassertion">TD Directory - Delete</td>
@@ -999,10 +999,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response MUST have 204 (No Content) status.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">6</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="tdd-things-list-method" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-method">93: tdd-things-list-method</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -1011,10 +1011,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The directory MUST allow retrieval of existing TDs using HTTP GET requests at the /things endpoint.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-things-list-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-resp">94: tdd-things-list-resp</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -1023,10 +1023,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response MUST have 200 (OK) status and an array of TDs in the body.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-validation-syntactic" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-syntactic">109: tdd-validation-syntactic</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
@@ -1035,10 +1035,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The syntactic validation of TD objects before storage is RECOMMENDED to prevent common erroneous submissions.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">5</td>
+	<td class="result baseassertion">7</td>
 	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-validation-result" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-result">111: tdd-validation-result</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
@@ -1047,10 +1047,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If the server fails to validate the TD object, it MUST inform the client with necessary details to identify and resolve the errors.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-validation-response" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-response">112: tdd-validation-response</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
@@ -1059,10 +1059,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The validation error MUST be described as Problem Details [RFC7807] with an extension field called validationErrors, set to an array of objects with field and description fields.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result failed">2</td>
+	<td class="result baseassertion">5</td>
+	<td class="result failed">3</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="tdd-notification" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-notification">115: tdd-notification</a></td>
 	<td class="baseassertion">TD Directory - Notification</td>
@@ -1307,10 +1307,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A Discoverer MUST support at least one Introduction mechanism.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-must-support-fetching" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-must-support-fetching">2: discoverer-must-support-fetching</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1319,10 +1319,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A Discoverer MUST support fetching a TD from at least one URL provided as part of the Introduction process.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-may-multiple-intro" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-may-multiple-intro">3: discoverer-may-multiple-intro</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1344,9 +1344,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">A Discoverer MUST be able to merge URLs resulting from multiple Introduction mechanisms, multiple results from a single Introduction mechanism, and multiple Introduction invocations into a single set.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-td-identify" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-td-identify">5: discoverer-td-identify</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1356,9 +1356,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">A Discoverer MUST be able to identify whether a TD fetched from an Introduction URL has Thing Directory or Thing Link type.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-fetch-tdd" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-tdd">6: discoverer-fetch-tdd</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1428,9 +1428,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">A Discoverer MUST track which TDs describing links or Exploration mechanisms have already been fetched and avoid fetching duplicate results.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
-	<td class="result failed">1</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="introduction-direct-url" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-url">12: introduction-direct-url</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
@@ -1439,10 +1439,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">To obtain an URL of an exploration service, any mechanism that results in a single URL MAY be used.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="introduction-direct-thing-description" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-thing-description">13: introduction-direct-thing-description</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
@@ -1451,22 +1451,22 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A request on all such URLs MUST result in a TD as prescribed in 7. Exploration Mechanisms.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">8</td></tr>
 <tr id="introduction-direct-directory-description" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-directory-description">14: introduction-direct-directory-description</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If the URL references a Thing Description Directory, this MUST be the Thing Description of the Thing Description Directory.</td>
+	<td class="baseassertion">If the URL references a Thing Description Directory, this MUST be the Thing Description of the Thing Description Directory.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="introduction-well-known-uri" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-well-known-uri">15: introduction-well-known-uri</a></td>
 	<td class="baseassertion">Introduction - Well-Known URI</td>
@@ -1475,10 +1475,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A Thing or Thing Description Directory MAY use the Well-Known Uniform Resource Identifier [RFC8615] to advertise its presence.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">8</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="introduction-well-known-path" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-well-known-path">16: introduction-well-known-path</a></td>
 	<td class="baseassertion">Introduction - Well-Known URI</td>
@@ -1487,10 +1487,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If a Thing or Thing Description Directory use the Well-Known Uniform Resource Identifier [RFC8615] to advertise its presence, it MUST register its own Thing Description into the following path: /.well-known/wot.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">8</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="introduction-well-known-thing-description" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-well-known-thing-description">17: introduction-well-known-thing-description</a></td>
 	<td class="baseassertion">Introduction - Well-Known URI</td>
@@ -1499,10 +1499,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">When a request is made at the above Well-Known URI, the server MUST return a Thing Description as prescribed in 7. Exploration Mechanisms.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">6</td>
+	<td class="result baseassertion">8</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">7</td></tr>
+	<td class="result baseassertion">9</td></tr>
 <tr id="introduction-dns-sd" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-dns-sd">18: introduction-dns-sd</a></td>
 	<td class="baseassertion">Introduction - DNS-SD</td>
@@ -1653,10 +1653,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A TD which describes a Thing Description Directory instance MUST use type ThingDirectory from the discovery context or URI https://www.w3.org/2021/wot/discovery#ThingDirectory.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="exploration-link-description-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-link-description-type">31: exploration-link-description-type</a></td>
 	<td class="baseassertion">Link</td>
@@ -1687,36 +1687,36 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Security bootstrapping MAY be provided on any HTTP endpoint that serves a TD.</td>
+	<td class="baseassertion">Security bootstrapping MAY be provided on any HTTP endpoint that serves a TD.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="exploration-secboot-401" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-401">34: exploration-secboot-401</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If security bootstrapping is enabled on an exploration service, after initial contact using the URL provided by an introduction mechanism, the exploration service MUST reply with either an HTTP "401 (Unauthorized)" response code or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate authentication information has not been provided but access can be granted when it is.</td>
+	<td class="baseassertion">If security bootstrapping is enabled on an exploration service, after initial contact using the URL provided by an introduction mechanism, the exploration service MUST reply with either an HTTP "401 (Unauthorized)" response code or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate authentication information has not been provided but access can be granted when it is.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-secboot-auth" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-auth">35: exploration-secboot-auth</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If security bootstrapping is enabled on an exploration service using one of the following IANA-registered HTTP Authentication Schemes: Basic, Bearer, or Digest, then a 401 HTTP response at an API endpoint intended to serve a TD MUST include a WWW-Authenticate header and any other headers describing the required authorizations.</td>
+	<td class="baseassertion">If security bootstrapping is enabled on an exploration service using one of the following IANA-registered HTTP Authentication Schemes: Basic, Bearer, or Digest, then a 401 HTTP response at an API endpoint intended to serve a TD MUST include a WWW-Authenticate header and any other headers describing the required authorizations.</td>
 	<td class="baseassertion"></td>
+	<td class="result baseassertion">3</td>
 	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-secboot-oauth2-flows" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-secboot-oauth2-flows">36: exploration-secboot-oauth2-flows</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
@@ -1737,10 +1737,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An HTTP-based TD Server providing a TD MUST serve that resource with a GET method.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-server-http-resp" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-resp">38: exploration-server-http-resp</a></td>
 	<td class="baseassertion"></td>
@@ -1748,10 +1748,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response from an HTTP-based TD Server providing a TD MUST have 200 (OK) status and the TD in the body.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-server-http-resp-content-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-resp-content-type">39: exploration-server-http-resp-content-type</a></td>
 	<td class="baseassertion"></td>
@@ -1759,10 +1759,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response with JSON serialization MUST contain either application/json or application/td+json in the Content-Type header.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-server-http-resp-json" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-resp-json">40: exploration-server-http-resp-json</a></td>
 	<td class="baseassertion"></td>
@@ -1770,10 +1770,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The default serialization format for successful response bodies MUST be JSON, with JSON-LD 1.1 [JSON-LD11] syntax.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="exploration-server-http-alternate-content" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-content">41: exploration-server-http-alternate-content</a></td>
 	<td class="baseassertion"></td>
@@ -1781,10 +1781,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An HTTP-based TD Server providing a TD MAY provide alternative representations through server-driven content negotiation, that is by honoring the request's Accept and Accept-Encoding headers and responding with the supported TD serialization and equivalent Content-Type and Content-Encoding headers.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="exploration-server-http-alternate-language" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-alternate-language">42: exploration-server-http-alternate-language</a></td>
 	<td class="baseassertion"></td>
@@ -1792,10 +1792,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">An HTTP-based TD Server providing a TD MAY provide modified TDs or error responses using a different default language after server-driven content negotiation, that is by honouring the request's Accept-Language header.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="exploration-server-http-head" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-http-head">43: exploration-server-http-head</a></td>
 	<td class="baseassertion">TD Server - HTTP</td>
@@ -1804,10 +1804,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An HTTP-based TD Server providing a TD MUST respond to HEAD requests by returning only the headers equivalent to those returned by a GET request to the same endpoint.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="exploration-server-coap-method" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-server-coap-method">44: exploration-server-coap-method</a></td>
 	<td class="baseassertion"></td>
@@ -1860,10 +1860,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">An Enriched TD MUST contain in its @context the URI https://w3c.github.io/wot-discovery/context/discovery-context.jsonld.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-registrationinfo-vocab-expires" class="tabassertion">
 	<td class="tabassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-registrationinfo-vocab-expires">52: tdd-registrationinfo-vocab-expires</a></td>
 	<td class="tabassertion">TD Directory - Info</td>
@@ -1909,9 +1909,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">Servers SHOULD periodically purge TDs that are past their expiry times.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="tdd-registrationinfo-expiry-config" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-registrationinfo-expiry-config">56: tdd-registrationinfo-expiry-config</a></td>
 	<td class="baseassertion">TD Directory - Info</td>
@@ -1932,10 +1932,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">All HTTP API error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="tdd-http-error-response-lang" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-error-response-lang">61: tdd-http-error-response-lang</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -1944,10 +1944,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">HTTP API error responses MAY report details in different languages using proactive negotiation, if the Accept-Language header field has been set in the HTTP request [RFC7231].</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-http-unsupported-feature" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-unsupported-feature">63: tdd-http-unsupported-feature</a></td>
 	<td class="baseassertion"></td>
@@ -1955,10 +1955,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">When a directory is unable to answer a request because of unsupported recommended or optional features, it SHOULD inform the client about the absence of those features by returning appropriate HTTP errors.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="tdd-http-alternate-language" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-alternate-language">64: tdd-http-alternate-language</a></td>
 	<td class="baseassertion">TD Directory</td>
@@ -2001,12 +2001,12 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Directories MAY provide alternative representations through server-driven content negotiation, that is by honouring the request's Accept and Accept-Encoding headers and responding with the supported TD representation and equivalent Content-Type and Content-Encoding headers.</td>
+	<td class="baseassertion">Directories MAY provide alternative representations through server-driven content negotiation, that is by honouring the request's Accept and Accept-Encoding headers and responding with the supported TD representation and equivalent Content-Type and Content-Encoding headers.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-create-known-contenttype" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-known-contenttype">74: tdd-things-create-known-contenttype</a></td>
 	<td class="baseassertion">TD Directory - Create</td>
@@ -2015,10 +2015,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The request SHOULD contain application/td+json Content-Type header for JSON serialization of TD.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">5</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-things-create-anonymous-id" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-create-anonymous-id">78: tdd-things-create-anonymous-id</a></td>
 	<td class="baseassertion"></td>
@@ -2027,9 +2027,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">The directory MUST assign a local identifier to any Anonymous TD to enable local management and retrieval from the directory.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="tdd-things-retrieve-resp-content-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-retrieve-resp-content-type">82: tdd-things-retrieve-resp-content-type</a></td>
 	<td class="baseassertion"></td>
@@ -2037,10 +2037,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response with JSON serialization MUST contain either application/json or application/td+json in the Content-Type header.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="tdd-things-update-contenttype" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-update-contenttype">84: tdd-things-update-contenttype</a></td>
 	<td class="baseassertion">TD Directory - Update</td>
@@ -2050,9 +2050,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">The request SHOULD contain application/td+json Content-Type header for JSON serialization of TD.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-things-list-resp-content-type" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-resp-content-type">95: tdd-things-list-resp-content-type</a></td>
 	<td class="baseassertion"></td>
@@ -2060,10 +2060,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A successful response with JSON serialization MUST contain either application/json or application/ld+json in the Content-Type header.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">6</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="tdd-things-list-pagination" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination">96: tdd-things-list-pagination</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2229,9 +2229,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">The server SHOULD use at least Minimal Validation as defined in [wot-thing-description11] to validate TDs, including use of the WoT Thing Description (1.0) JSON Schema or WoT Thing Description 1.1 JSON Schema, and the JSON schema defined in A. JSON Schema for WoT Discovery TD-extensions for Enriched TDs, as appropriate based on the value of the @context.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-validation-response-utf-8" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-response-utf-8">113: tdd-validation-response-utf-8</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
@@ -2240,10 +2240,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">All validation error responses described using Problem Details MUST be encoded using UTF-8.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">4</td>
+	<td class="result baseassertion">5</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="tdd-validation-response-lang" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-response-lang">114: tdd-validation-response-lang</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
@@ -2265,9 +2265,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">It is RECOMMENDED that directories implement a search API to efficiently serve TDs based on client-specific queries.</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">7</td></tr>
 <tr id="tdd-search-sparql-version" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-search-sparql-version">129: tdd-search-sparql-version</a></td>
 	<td class="baseassertion">TD Directory - Search - SPARQL</td>
@@ -2325,9 +2325,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">A WoT Thing Description Directory implementation SHOULD limit the number of queries per unit time from the same requestor.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="sec-tdd-limit-query-complexity" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-tdd-limit-query-complexity">138: sec-tdd-limit-query-complexity</a></td>
 	<td class="baseassertion">Security</td>
@@ -2337,9 +2337,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">A WoT Thing Description Directory implementation SHOULD limit the complexity of queries (for example, the total length of the query expression or its depth).</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="sec-tdd-query-watchdog" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-tdd-query-watchdog">139: sec-tdd-query-watchdog</a></td>
 	<td class="baseassertion">Security</td>
@@ -2349,9 +2349,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">A WoT Thing Description Directory implementation SHOULD use a watchdog timer to abort queries that take more than a certain maximum (implementation-configurable) amount of time.</td>
 	<td class="baseassertion"></td>
 	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="sec-tdd-intro-no-observe" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-tdd-intro-no-observe">140: sec-tdd-intro-no-observe</a></td>
 	<td class="baseassertion">Security</td>
@@ -2397,9 +2397,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">The total size of responses to an Introduction on the public internet (outside of a protected local network) SHOULD be less than 3x the size of the total size of request, and this should include any error responses.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="sec-tdd-intro-throttling" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-tdd-intro-throttling">144: sec-tdd-intro-throttling</a></td>
 	<td class="baseassertion">Security</td>
@@ -2409,9 +2409,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="atrisk">Introductions SHOULD rate-limit responses to any particular request source.</td>
 	<td class="baseassertion"></td>
 	<td class="result missing">0</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">2</td>
 	<td class="result baseassertion">4</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="sec-tdd-intro-no-ext" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-tdd-intro-no-ext">145: sec-tdd-intro-no-ext</a></td>
 	<td class="baseassertion">Security</td>
@@ -2433,9 +2433,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion">PSK (pre-shared keys) SHOULD be used if possible on LANs, meaning one of the ciphersuites in [RFC4279].</td>
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="sec-self-segment" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-self-segment">147: sec-self-segment</a></td>
 	<td class="baseassertion">Security</td>
@@ -2444,10 +2444,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">If Things cannot be individually secured with transport security and authentication and authorization, a separate network SHOULD be set up, i.e. with an alternative SSID, and used only for IoT devices.</td>
 	<td class="baseassertion"></td>
+	<td class="result baseassertion">3</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="sec-self-proxy" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#sec-self-proxy">148: sec-self-proxy</a></td>
 	<td class="baseassertion">Security</td>
@@ -2456,10 +2456,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">If Things cannot be individually secured with transport security and authentication and authorization, then they MAY be made available for general access via a proxy that can provide suitable access controls.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="priv-loc-disable-public-directories" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#priv-loc-disable-public-directories">149: priv-loc-disable-public-directories</a></td>
 	<td class="baseassertion">Privacy</td>
@@ -2500,24 +2500,24 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">To reduce the risk of negative location inferencing, access to private directories SHOULD be limited by using access controls.</td>
+	<td class="baseassertion">To reduce the risk of negative location inferencing, access to private directories SHOULD be limited by using access controls.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="priv-loc-explicit-care" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#priv-loc-explicit-care">153: priv-loc-explicit-care</a></td>
 	<td class="baseassertion">Privacy</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">When explicit location information is available, whether stored in a TD or available in a property, additional care SHOULD be taken to only share the TD and/or access to the device with trusted partners, including directories.</td>
+	<td class="baseassertion">When explicit location information is available, whether stored in a TD or available in a property, additional care SHOULD be taken to only share the TD and/or access to the device with trusted partners, including directories.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result failed">1</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="priv-loc-explicit-strip" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#priv-loc-explicit-strip">154: priv-loc-explicit-strip</a></td>
 	<td class="baseassertion">Privacy</td>

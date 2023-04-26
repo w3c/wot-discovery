@@ -1,37 +1,4 @@
-ID,Status,Comment
-tdd-anonymous-td-identifier,fail,failed:TestJSONPath/filter_anonymous failed:TestXPath/filter_anonymous failed:TestCreateAnonymousThing/registration_info failed:TestListThings/anonymous_td_id
-tdd-anonymous-td-local-uuid,fail,failed:TestCreateAnonymousThing/location_header
-tdd-http-error-response,fail,failed:TestCreateAnonymousThing/reject_invalid/response failed:TestCreateThing/reject_invalid/response
-tdd-http-head,fail,failed:TestSPARQL/HEAD passed:TestListThings/HEAD
-tdd-search-jsonpath,pass,passed:TestJSONPath/reject_bad_query/submit_request
-tdd-search-jsonpath-method,pass,passed:TestJSONPath/reject_bad_query/submit_request
-tdd-search-jsonpath-parameter,pass,passed:TestJSONPath/reject_bad_query/submit_request
-tdd-search-jsonpath-response,fail,failed:TestJSONPath/reject_bad_query/status_code
-tdd-search-sparql,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-federation,fail,failed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-method-get,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/federated_search_using_GET
-tdd-search-sparql-method-post,fail,failed:TestSPARQL/search_using_POST
-tdd-search-sparql-resp-select-ask,fail,failed:TestSPARQL/search_using_GET failed:TestSPARQL/search_using_POST failed:TestSPARQL/federated_search_using_GET
-tdd-search-xpath,pass,passed:TestXPath/reject_bad_query/submit_request
-tdd-search-xpath-method,pass,passed:TestXPath/reject_bad_query/submit_request
-tdd-search-xpath-parameter,pass,passed:TestXPath/reject_bad_query/submit_request
-tdd-search-xpath-response,fail,failed:TestXPath/reject_bad_query/status_code
-tdd-things-create-anonymous-contenttype,pass,passed:TestCreateAnonymousThing/submit_request
-tdd-things-create-anonymous-td,fail,failed:TestCreateAnonymousThing/result passed:TestCreateAnonymousThing/submit_request
-tdd-things-create-anonymous-td-resp,fail,failed:TestCreateAnonymousThing/status_code failed:TestCreateAnonymousThing/location_header
-tdd-things-create-known-contenttype,pass,passed:TestCreateThing/submit_request
-tdd-things-create-known-td,fail,failed:TestCreateThing/result passed:TestCreateThing/submit_request
-tdd-things-create-known-td-resp,fail,failed:TestCreateThing/status_code
-tdd-things-create-known-vs-anonymous,pass,passed:TestCreateAnonymousThing/reject_PUT
-tdd-things-crud,pass,passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request
-tdd-things-crudl,fail,failed:TestListThings/submit_request passed:TestCreateAnonymousThing/submit_request passed:TestCreateThing/submit_request
-tdd-things-default-representation,fail,failed:TestListThings/content_type
-tdd-things-list-method,fail,failed:TestListThings/submit_request failed:TestListThings/status_code
-tdd-things-list-only,fail,failed:TestListThings/submit_request
-tdd-things-list-resp,fail,failed:TestListThings/content_type failed:TestListThings/payload failed:TestListThings/registration_info
-tdd-validation-response,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation
-tdd-validation-result,fail,failed:TestCreateAnonymousThing/reject_invalid/validation failed:TestCreateThing/reject_invalid/validation
-tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/status failed:TestCreateThing/reject_invalid/status
+"ID","Status","Comment"
 "discoverer-any-order","null",
 "discoverer-fetch-iteration","null",
 "discoverer-fetch-links","null",
@@ -46,15 +13,15 @@ tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/sta
 "exploration-directory-description-type","null",
 "exploration-link-description-link","null",
 "exploration-link-description-type","null",
-"exploration-secboot-401","null",
-"exploration-secboot-auth","null",
+"exploration-secboot-401","pass",
+"exploration-secboot-auth","pass",
 "exploration-secboot-oauth2-flows","null",
 "exploration-server-coap-alternate-content","null",
 "exploration-server-coap-method","null",
 "exploration-server-coap-resp","null",
 "exploration-server-coap-size2","null",
 "exploration-server-http-alternate-content","null",
-"exploration-server-http-alternate-language","pass",
+"exploration-server-http-alternate-language","null",
 "exploration-server-http-head","null",
 "exploration-server-http-method","null",
 "exploration-server-http-resp","null",
@@ -66,7 +33,7 @@ tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/sta
 "introduction-core-rd-resource-type-thing","null",
 "introduction-did","null",
 "introduction-did-service-endpoint","null",
-"introduction-direct-directory-description","pass",
+"introduction-direct-directory-description","null",
 "introduction-direct-thing-description","pass",
 "introduction-direct-url","pass",
 "introduction-dns-sd","null",
@@ -75,9 +42,9 @@ tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/sta
 "introduction-dns-sd-service-name-directory-udp","null",
 "introduction-dns-sd-service-name-udp","null",
 "introduction-dns-sd-txt-record","null",
-"introduction-well-known-path","pass",
-"introduction-well-known-thing-description","pass",
-"introduction-well-known-uri","pass",
+"introduction-well-known-path","null",
+"introduction-well-known-thing-description","null",
+"introduction-well-known-uri","null",
 "priv-loc-anonymous-tds","null",
 "priv-loc-disable-public-directories","null",
 "priv-loc-explicit-care","null",
@@ -87,7 +54,7 @@ tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/sta
 "priv-query-anon","null",
 "sec-self-proxy","null",
 "sec-self-psk","null",
-"sec-self-segment","null",
+"sec-self-segment","pass",
 "sec-tdd-intro-if-multicast-required","null",
 "sec-tdd-intro-limit-response-size","null",
 "sec-tdd-intro-no-ext","null",
@@ -97,11 +64,11 @@ tdd-validation-syntactic,fail,failed:TestCreateAnonymousThing/reject_invalid/sta
 "sec-tdd-limit-query-complexity","null",
 "sec-tdd-query-watchdog","null",
 "sec-tdd-throttle-queries","null",
-"security-bootstrapping-endpoints","null",
+"security-bootstrapping-endpoints","pass",
 "tdd-context-injection","null",
 "tdd-http-alternate-language","null",
-"tdd-http-error-response-lang","pass",
-"tdd-http-error-response-utf-8","pass",
+"tdd-http-error-response-lang","null",
+"tdd-http-error-response-utf-8","null",
 "tdd-http-representation-alternate-output","null",
 "tdd-http-unsupported-feature","null",
 "tdd-registrationinfo-expiry-config","null",
