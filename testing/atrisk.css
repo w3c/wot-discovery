@@ -22,9 +22,6 @@
 #exploration-link-description-link {
   background-color: yellow;
 }
-#security-bootstrapping-endpoints {
-  background-color: yellow;
-}
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
@@ -34,9 +31,6 @@
 #exploration-server-coap-size2 {
   background-color: yellow;
 }
-#tdd-absolute-time {
-  background-color: yellow;
-}
 #tdd-registrationinfo-expiry-config {
   background-color: yellow;
 }
@@ -44,9 +38,6 @@
   background-color: yellow;
 }
 #tdd-http-alternate-language {
-  background-color: yellow;
-}
-#tdd-http-representation-alternate-output {
   background-color: yellow;
 }
 #tdd-things-list-pagination-order {
@@ -98,12 +89,6 @@
   background-color: yellow;
 }
 #priv-loc-gen-ids {
-  background-color: yellow;
-}
-#priv-loc-priv-dir-access {
-  background-color: yellow;
-}
-#priv-loc-explicit-care {
   background-color: yellow;
 }
 #priv-loc-explicit-strip {
