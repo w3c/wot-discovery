@@ -9,7 +9,6 @@
 32,"exploration-link-description-link","HELP, pass=1"
 36,"exploration-secboot-oauth2-flows","HELP, pass undefined"
 42,"exploration-server-http-alternate-language","HELP, pass=1"
-47,"exploration-server-coap-size2","HELP, pass=1"
 56,"tdd-registrationinfo-expiry-config","HELP, pass=1"
 61,"tdd-http-error-response-lang","HELP, pass=1"
 64,"tdd-http-alternate-language","HELP, pass undefined"
