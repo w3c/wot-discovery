@@ -1,25 +1,7 @@
-#discoverer-fetch-tdd {
-  background-color: yellow;
-}
-#discoverer-fetch-links {
-  background-color: yellow;
-}
-#discoverer-fetch-iteration {
-  background-color: yellow;
-}
-#discoverer-track {
-  background-color: yellow;
-}
 #introduction-dns-sd-service-name-udp {
   background-color: yellow;
 }
 #introduction-dns-sd-service-name-directory-udp {
-  background-color: yellow;
-}
-#exploration-link-description-type {
-  background-color: yellow;
-}
-#exploration-link-description-link {
   background-color: yellow;
 }
 #exploration-secboot-oauth2-flows {
@@ -29,9 +11,6 @@
   background-color: yellow;
 }
 #tdd-registrationinfo-expiry-config {
-  background-color: yellow;
-}
-#tdd-http-error-response-lang {
   background-color: yellow;
 }
 #tdd-http-alternate-language {
