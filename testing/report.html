@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 3 May 2023
+    <b>Version</b>: 15 May 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -1365,36 +1365,36 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A Discoverer MAY fetch additional TDs from any Exploration mechanism described in its initial set of TDs (including, in particular, Thing Description Directories) and add them into the set of TD results.</td>
+	<td class="baseassertion">A Discoverer MAY fetch additional TDs from any Exploration mechanism described in its initial set of TDs (including, in particular, Thing Description Directories) and add them into the set of TD results.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-fetch-links" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-links">7: discoverer-fetch-links</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A Discoverer MAY fetch source TDs from the targets of the links in a Thing Link described in its initial set of TDs and add them into the set of TD results.</td>
+	<td class="baseassertion">A Discoverer MAY fetch source TDs from the targets of the links in a Thing Link described in its initial set of TDs and add them into the set of TD results.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-fetch-iteration" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-fetch-iteration">8: discoverer-fetch-iteration</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A Discoverer MAY fetch additional TDs iteratively from any Thing Link or Exploration mechanism described in its set of TDs and add them into the set of TD results.</td>
+	<td class="baseassertion">A Discoverer MAY fetch additional TDs iteratively from any Thing Link or Exploration mechanism described in its set of TDs and add them into the set of TD results.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">3</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-termination" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-termination">9: discoverer-termination</a></td>
 	<td class="baseassertion">Discoverer</td>
@@ -1415,22 +1415,22 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">A Discoverer MAY fetch additional TDs by following links or fetching additional TDs from Exploration mechanisms (e.g. TDDs) in any order.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="discoverer-track" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#discoverer-track">11: discoverer-track</a></td>
 	<td class="baseassertion">Discoverer</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A Discoverer MUST track which TDs describing links or Exploration mechanisms have already been fetched and avoid fetching duplicate results.</td>
+	<td class="baseassertion">A Discoverer MUST track which TDs describing links or Exploration mechanisms have already been fetched and avoid fetching duplicate results.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result failed">2</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">5</td></tr>
+	<td class="result baseassertion">6</td></tr>
 <tr id="introduction-direct-url" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#introduction-direct-url">12: introduction-direct-url</a></td>
 	<td class="baseassertion">Introduction - Direct</td>
@@ -1663,24 +1663,24 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A TD which describes a reference to another TD MUST use type ThingLink from the discovery context or URI https://www.w3.org/2021/wot/discovery#ThingLink.</td>
+	<td class="baseassertion">A TD which describes a reference to another TD MUST use type ThingLink from the discovery context or URI https://www.w3.org/2021/wot/discovery#ThingLink.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="exploration-link-description-link" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#exploration-link-description-link">32: exploration-link-description-link</a></td>
 	<td class="baseassertion">Link</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A Thing Link MUST define the referenced TD as a Link with describedby link relation type, application/td+json media type and href set to the target URL.</td>
+	<td class="baseassertion">A Thing Link MUST define the referenced TD as a Link with describedby link relation type, application/td+json media type and href set to the target URL.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="security-bootstrapping-endpoints" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#security-bootstrapping-endpoints">33: security-bootstrapping-endpoints</a></td>
 	<td class="baseassertion">Security Bootstrapping</td>
@@ -1942,11 +1942,11 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">HTTP API error responses MAY report details in different languages using proactive negotiation, if the Accept-Language header field has been set in the HTTP request [RFC7231].</td>
+	<td class="baseassertion">HTTP API error responses MAY report details in different languages using proactive negotiation, if the Accept-Language header field has been set in the HTTP request [RFC7231].</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
-	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">0</td>
+	<td class="result baseassertion">1</td>
 	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-http-unsupported-feature" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-http-unsupported-feature">63: tdd-http-unsupported-feature</a></td>
@@ -2156,9 +2156,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">The server MAY support sorting by other TD attributes using query arguments: sort_by to select a field (e.g. created) and sort_order to choose the order (i.e. asc or desc for ascending and descending ordering).</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-things-list-pagination-orderable" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-orderable">104: tdd-things-list-pagination-orderable</a></td>
@@ -2168,9 +2168,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">A server MUST reject requests to sort on fields that do not have values that are orderable basic types.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">1</td>
 	<td class="result baseassertion">2</td></tr>
 <tr id="tdd-things-list-pagination-order-unsupported" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order-unsupported">105: tdd-things-list-pagination-order-unsupported</a></td>
@@ -2192,9 +2192,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">If sorting attributes are accepted, they MUST be added consistently to all next links.</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-things-list-pagination-order-utf-8" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order-utf-8">107: tdd-things-list-pagination-order-utf-8</a></td>
@@ -2252,9 +2252,9 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="atrisk">Validation error responses MAY report details in different languages using proactive negotiation, if the Accept-Language header field has been set in the HTTP request [RFC7231].</td>
 	<td class="baseassertion"></td>
-	<td class="result missing">0</td>
+	<td class="result failed">1</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">1</td>
 	<td class="result baseassertion">2</td></tr>
 <tr id="tdd-search-large-tdds" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-search-large-tdds">128: tdd-search-large-tdds</a></td>
