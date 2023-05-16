@@ -2072,10 +2072,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The server MAY support pagination to return the collection in small subsets.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-limit" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-limit">97: tdd-things-list-pagination-limit</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2084,10 +2084,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">When the limit query parameter is set to a positive integer, the server MAY respond with a subset of TDs totalling to less than or equal to the requested number.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">3</td>
+	<td class="result baseassertion">4</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="tdd-things-list-pagination-header-nextlink" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-header-nextlink">98: tdd-things-list-pagination-header-nextlink</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2096,10 +2096,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">When there are more TDs after a returned subset of the collection, the response MUST contain a next Link header [RFC8288] with the URL of the next subset.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-header-nextlink-attr" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-header-nextlink-attr">99: tdd-things-list-pagination-header-nextlink-attr</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2108,10 +2108,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The next link MUST include all arguments needed to produce the same set of data and its ordering, in particular the same limit argument given on the initial request as well as a zero-based offset argument anchored at the beginning of the next subset.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-header-nextlink-base" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-header-nextlink-base">100: tdd-things-list-pagination-header-nextlink-base</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2120,10 +2120,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">The link MUST be absolute or relative to directory API's base URL.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-header-canonicallink" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-header-canonicallink">101: tdd-things-list-pagination-header-canonicallink</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2132,10 +2132,10 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">All paged responses MUST contain a canonical Link header [RFC8288] pointing to the collection and include an etag parameter to represent the current state of the collection.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-order-default" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order-default">102: tdd-things-list-pagination-order-default</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2144,34 +2144,34 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="baseassertion">By default, the collection MUST be sorted using Unicode code point order by the unique identifier of TDs.</td>
 	<td class="baseassertion"></td>
-	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">3</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">4</td></tr>
+	<td class="result baseassertion">5</td></tr>
 <tr id="tdd-things-list-pagination-order" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order">103: tdd-things-list-pagination-order</a></td>
 	<td class="baseassertion">TD Directory - List</td>
 
 	<td class="baseassertion">N</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">The server MAY support sorting by other TD attributes using query arguments: sort_by to select a field (e.g. created) and sort_order to choose the order (i.e. asc or desc for ascending and descending ordering).</td>
+	<td class="baseassertion">The server MAY support sorting by other TD attributes using query arguments: sort_by to select a field (e.g. created) and sort_order to choose the order (i.e. asc or desc for ascending and descending ordering).</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-orderable" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-orderable">104: tdd-things-list-pagination-orderable</a></td>
 	<td class="baseassertion">TD Directory - List</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">A server MUST reject requests to sort on fields that do not have values that are orderable basic types.</td>
+	<td class="baseassertion">A server MUST reject requests to sort on fields that do not have values that are orderable basic types.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-things-list-pagination-order-unsupported" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order-unsupported">105: tdd-things-list-pagination-order-unsupported</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2190,24 +2190,24 @@ In order to be included in the PR all features, whether optional or required, ne
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">If sorting attributes are accepted, they MUST be added consistently to all next links.</td>
+	<td class="baseassertion">If sorting attributes are accepted, they MUST be added consistently to all next links.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">2</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-things-list-pagination-order-utf-8" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-order-utf-8">107: tdd-things-list-pagination-order-utf-8</a></td>
 	<td class="baseassertion">TD Directory - List</td>
 
 	<td class="baseassertion">Y</td>
 	<td class="baseassertion"></td>
-	<td class="atrisk">Sorting order MUST always be defined based on Unicode code points on the relevant fields.</td>
+	<td class="baseassertion">Sorting order MUST always be defined based on Unicode code points on the relevant fields.</td>
 	<td class="baseassertion"></td>
-	<td class="result failed">1</td>
+	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
 	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">2</td></tr>
+	<td class="result baseassertion">3</td></tr>
 <tr id="tdd-things-list-pagination-collection" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-things-list-pagination-collection">108: tdd-things-list-pagination-collection</a></td>
 	<td class="baseassertion">TD Directory - List</td>
@@ -2218,8 +2218,8 @@ In order to be included in the PR all features, whether optional or required, ne
 	<td class="baseassertion"></td>
 	<td class="result baseassertion">2</td>
 	<td class="result baseassertion">0</td>
-	<td class="result baseassertion">1</td>
-	<td class="result baseassertion">3</td></tr>
+	<td class="result baseassertion">2</td>
+	<td class="result baseassertion">4</td></tr>
 <tr id="tdd-validation-jsonschema" class="baseassertion">
 	<td class="baseassertion"><a target="spec" href="https://w3c.github.io/wot-discovery#tdd-validation-jsonschema">110: tdd-validation-jsonschema</a></td>
 	<td class="baseassertion">TD Directory - Validation</td>
