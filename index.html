@@ -988,12 +988,14 @@ img.wot-diagram {
                 are several authentication schemes registered with IANA.</a>
                 However, not all of these are in wide use, some are experimental, and there is only
                 partial overlap with the schemes supported by TDs.
+<!-- See below - need to take out due to insufficient implementation experience.  Remove reference to OAuth1 as well.
                 Also, note that the <code>oauth</code> scheme in the IANA registration refers
                 to OAuth1, which is deprecated, so it should not be used.
                 The relevant OAuth2 flow, the <code>code</code> flow, instead of a 401 response
                 begins with a redirection to an authentication
                 server, eventually resulting in credentials (bearer tokens in the case of WoT)
                 that can be used for access.
+-->
                 </p>
                 <p>
                 Given these considerations,
@@ -1005,8 +1007,9 @@ img.wot-diagram {
                 If security bootstrapping is enabled on an exploration service,
                 after initial contact using the URL provided
                 by an introduction mechanism, the exploration service
-                MUST reply with either an HTTP "401 (Unauthorized)" response code 
-                or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate
+                MUST reply with <!-- either --> an HTTP "401 (Unauthorized)" response code 
+                <!-- or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code -->
+                if appropriate
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -1030,6 +1033,8 @@ img.wot-diagram {
                 describing the required authorizations.</span>
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
+<!-- Not enough implementations, but without this assertion we have to take out OAuth2 flows 
+     for security bootstrapping completely, which is unfortunate.
                 <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
                 If the OAuth2 <code>code</code> flow is used during security bootstrapping, the
                 "302 (Found)" or "303 (See Other)" response code MUST be used for redirection
@@ -1039,6 +1044,7 @@ img.wot-diagram {
                 <code>client</code> and <code>device</code>, both expect the initial access
                 to be to the authentication server, not the final endpoint, and so cannot be
                 used via security bootstrapping.
+-->
                 These requirements also apply only to endpoints of exploration services that might need
                 to support security bootstrapping, that is those that serve TDs,
                 not to other endpoints that might be
