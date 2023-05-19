@@ -2566,21 +2566,24 @@ img.wot-diagram {
                     <dt>Mitigations:</dt><dd>
                     <ul>
                     <li>
-	            <span class="rfc2119-assertion" id="sec-tdd-throttle-queries">
-                    A WoT Thing Description Directory implementation SHOULD
-                    limit the number of queries per unit time from the same requestor.</span>
+	            <!-- <span class="rfc2119-assertion" id="sec-tdd-throttle-queries"> -->
+                    A WoT Thing Description Directory implementation should
+                    limit the number of queries per unit time from the same requestor.
+              <!-- </span> -->
 		    </li>
                     <li>
-	            <span class="rfc2119-assertion" id="sec-tdd-limit-query-complexity">
-                    A WoT Thing Description Directory implementation SHOULD
+	            <!-- <span class="rfc2119-assertion" id="sec-tdd-limit-query-complexity"> -->
+                    A WoT Thing Description Directory implementation should
 		            limit the complexity of queries (for example, the total length of the query 
-                    expression or its depth).</span>
+                    expression or its depth).
+              <!-- </span> -->
 		    </li>
                     <li>
-	            <span class="rfc2119-assertion" id="sec-tdd-query-watchdog">
-                    A WoT Thing Description Directory implementation SHOULD
+	            <!-- <span class="rfc2119-assertion" id="sec-tdd-query-watchdog"> -->
+                    A WoT Thing Description Directory implementation should
 	                use a watchdog timer to abort queries that take more than
-                    a certain maximum (implementation-configurable) amount of time.</span>
+                    a certain maximum (implementation-configurable) amount of time.
+              <!-- </span> -->
 		    </li> 
                     </ul>
                     </dd>
@@ -2626,9 +2629,9 @@ img.wot-diagram {
 		support observe or similar extended result subprotocols.</span>
 		</li>
 		<li>
-	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-multicast">
-		Open implementations of Introduction mechanisms SHOULD NOT respond to multicast
-		requests unless this is absolutely required by the protocol.</span>
+	  <!-- <span class="rfc2119-assertion" id="sec-tdd-intro-no-multicast"> -->
+		Open implementations of Introduction mechanisms should not respond to multicast
+		requests unless this is absolutely required by the protocol.<!-- </span> -->
 		If support for multicast is required,
 		in the case of CoAP, the observations made in [[AMPLIFICATION-ATTACKS]] are relevant,
 		since the number of servers that might respond to a multicast request during
@@ -2636,19 +2639,19 @@ img.wot-diagram {
 		</li>
 		<li>
 		Limit the size of responses to the minimum.  
-	        <span class="rfc2119-assertion" id="sec-tdd-intro-limit-response-size">
+	  <!-- <span class="rfc2119-assertion" id="sec-tdd-intro-limit-response-size"> -->
 		The total size of responses to an Introduction on the public internet (outside
-    of a protected local network) SHOULD
+    of a protected local network) should
 		be less than 3x the size of the total size of request, and this should 
-		include any error responses.</span>
+		include any error responses.<!-- </span> -->
 		This is consistent with DDOS mitigations in [[RFC9000]] (QUIC) and HTTP/3.
 		Here "total size" includes any headers required by the protocol itself,
     as well as padding in the request to allow for a larger response.
 		</li>
 		<li>
-	        <span class="rfc2119-assertion" id="sec-tdd-intro-throttling">
-		Introductions SHOULD rate-limit responses to any particular
-		request source.</span>
+	  <!-- <span class="rfc2119-assertion" id="sec-tdd-intro-throttling"> -->
+		Introductions should rate-limit responses to any particular
+		request source.<!-- </span> -->
 		</li>
 		<li>
 	        <span class="rfc2119-assertion" id="sec-tdd-intro-no-ext">
@@ -2727,11 +2730,11 @@ img.wot-diagram {
 		the proxy service locally 
 		and exposing a public URL using e.g. dynamic DNS if the
 		local server is connected through an ISP.
-	        <span class="rfc2119-assertion" id="sec-self-proxy">
+	  <!-- <span class="rfc2119-assertion" id="sec-self-proxy"> -->
 		If Things cannot be individually secured with transport security and 
 		authentication and authorization,
-                then they MAY be made available for general access via a proxy
-		that can provide suitable access controls.</span>
+                then they may be made available for general access via a proxy
+		that can provide suitable access controls.<!-- </span> -->
                 </dd>
             </dl>
         </section>
