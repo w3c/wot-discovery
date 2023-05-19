@@ -2000,7 +2000,11 @@ img.wot-diagram {
                                         by the unique identifier of TDs.</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order">
                                         The server MAY support sorting by other TD attributes using
-                                        query arguments: `sort_by` to select a field (e.g. `created`)
+                                        query arguments: `sort_by` to select a field using 
+                                        either 
+                                          a top-level field name (e.g. `title`) 
+                                        or 
+                                          a JSON Pointer [[RFC6901] (e.g. `/title`)
                                         and `sort_order` to choose the order
                                         (i.e. `asc` or `desc` for ascending and descending ordering).</span>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
