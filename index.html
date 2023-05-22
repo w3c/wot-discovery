@@ -1135,11 +1135,14 @@ img.wot-diagram {
                             server-driven content negotiation, that is by honoring the 
                             request's Accept and Accept-Encoding headers and responding with the supported
                             TD serialization and equivalent Content-Type and Content-Encoding headers.</span>
-                        <span class="rfc2119-assertion" id="exploration-server-http-alternate-language">
-                            An HTTP-based TD Server providing a <a>TD</a> 
-                            MAY provide modified TDs or error responses 
+                        <!-- <span class="rfc2119-assertion" id="exploration-server-http-alternate-language"> -->
+                        <!-- See also tdd-http-alternate-language -->
+                            In addition, following the process normatively defined in the WoT Thing Description 1.1 specification
+                            [[wot-thing-description11]],
+                            an HTTP-based TD Server providing a <a>TD</a> 
+                            may provide modified TDs or error responses 
                             using a different default language after server-driven content negotiation, 
-                            that is by honouring the request's Accept-Language header.</span>
+                            that is by honouring the request's Accept-Language header.<!-- </span> -->
                     </p>
                     <p>
                         <span class="rfc2119-assertion" id="exploration-server-http-head">
@@ -1539,8 +1542,7 @@ img.wot-diagram {
                     <!-- This assertion was removed but technically the process of transforming TDs to
                          use a different default language is covered, normatively, by the TD 1.1 spec,
                          and by the interpretation of a TDD as a TD Processor. 
-                         See also the related exploration-server-http-alternate-language for TD Servers - 
-                         but each endpoint in a TDD providing a single TD can be considered a TD Server, so... -->
+                         See also the related exploration-server-http-alternate-language for TD Servers. -->
                         Using this process,
                         a Directory server may provide modified TDs, or its own TD, using a different
                         default language after server-driven content negotiation, 
