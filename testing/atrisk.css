@@ -1,60 +1,12 @@
-#introduction-dns-sd-service-name-directory-udp {
+#introduction-dns-sd-txt-record-udp {
+  background-color: yellow;
+}
+#introduction-did-service-context {
   background-color: yellow;
 }
 #exploration-secboot-oauth2-flows {
   background-color: yellow;
 }
 #exploration-server-http-alternate-language {
-  background-color: yellow;
-}
-#tdd-registrationinfo-expiry-config {
-  background-color: yellow;
-}
-#tdd-http-alternate-language {
-  background-color: yellow;
-}
-#tdd-validation-response-lang {
-  background-color: yellow;
-}
-#tdd-notification-data-diff-unsupported {
-  background-color: yellow;
-}
-#sec-tdd-throttle-queries {
-  background-color: yellow;
-}
-#sec-tdd-limit-query-complexity {
-  background-color: yellow;
-}
-#sec-tdd-query-watchdog {
-  background-color: yellow;
-}
-#sec-tdd-intro-no-multicast {
-  background-color: yellow;
-}
-#sec-tdd-intro-if-multicast-required {
-  background-color: yellow;
-}
-#sec-tdd-intro-limit-response-size {
-  background-color: yellow;
-}
-#sec-tdd-intro-throttling {
-  background-color: yellow;
-}
-#sec-self-proxy {
-  background-color: yellow;
-}
-#priv-loc-disable-public-directories {
-  background-color: yellow;
-}
-#priv-loc-anonymous-tds {
-  background-color: yellow;
-}
-#priv-loc-gen-ids {
-  background-color: yellow;
-}
-#priv-loc-explicit-strip {
-  background-color: yellow;
-}
-#priv-query-anon {
   background-color: yellow;
 }
