@@ -2875,10 +2875,10 @@ img.wot-diagram {
                 There are a few options to mitigate these risks:
                 <ul>
                 <li>
-	        <span class="rfc2119-assertion" id="priv-loc-disable-public-directories">
+	        <!-- <span class="rfc2119-assertion" id="priv-loc-disable-public-directories"> -->
 		To avoid location tracking and other forms of profiling, 
-    a WoT Thing associated with a person MAY 
-		disable registration with public directories.</span>
+    a WoT Thing associated with a person may 
+		disable registration with public directories.<!-- </span> -->
 		Registration would still be possible with 
                 personal directories, for example, a home gateway, but a user could disable registration at other
                 locations.  This has the disadvantage that functionality is lost: personal devices cannot be
@@ -2886,10 +2886,10 @@ img.wot-diagram {
                 discovery services. For example, the user's home gateway could provide an internet-accessible service, but with
                 access control limiting use to authorized users.</li>
 		<li>
-	        <span class="rfc2119-assertion" id="priv-loc-anonymous-tds">
+	  <!-- <span class="rfc2119-assertion" id="priv-loc-anonymous-tds"> -->
 		To avoid location tracking and other forms of profiling,
-    a WoT Thing associated with a person SHOULD use anonymous TDs
-    when registering with a public directories.</span>
+    a WoT Thing associated with a person should use anonymous TDs
+    when registering with a public directories.<!-- </span> -->
 		In some cases, it may be possible to use
 		anonymous TDs and omit explicit IDs from TDs submitted to
 		a TDD.  In this case the TDD will generate a local ID valid
@@ -2899,10 +2899,10 @@ img.wot-diagram {
 		fingerprinting.
 		</li>
                 <li>
-	        <span class="rfc2119-assertion" id="priv-loc-gen-ids">
+	  <!-- <span class="rfc2119-assertion" id="priv-loc-gen-ids"> -->
 		To avoid location tracking and other forms of profiling, 
-    a WoT Thing associated with a person MAY 
-		periodically generate new IDs.</span>
+    a WoT Thing associated with a person may 
+		periodically generate new IDs.<!-- </span> -->
 		Using fixed IDs makes it exceptionally easy to track devices.  This problem
                 also occurs in DHCP with MAC address and there is a similar partial mitigation: 
                 generate new random IDs periodically.
@@ -2949,9 +2949,9 @@ a change in ownership).
 		When explicit location information is available, whether stored in a TD or available in a property,
                 additional care SHOULD be taken to only share the TD and/or access to the device with trusted partners,
                 including directories.</span>
-	        <span class="rfc2119-assertion" id="priv-loc-explicit-strip">
-		If the TD must be shared with a public directory, the location information MAY be
-                stripped.</span>
+	  <!-- <span class="rfc2119-assertion" id="priv-loc-explicit-strip"> -->
+		If the TD must be shared with a public directory, the location information may be
+                stripped.<!-- </span> -->
                 </ul>
                 </dd>
             </dl>
@@ -2968,9 +2968,9 @@ a change in ownership).
             <dl>
                 <dt>Mitigations:</dt>
                 <dd><p>
-	        <span class="rfc2119-assertion" id="priv-query-anon">
+	        <!-- <span class="rfc2119-assertion" id="priv-query-anon"> -->
                 When accessing a public directory, like any other public web service,
-                users and implementations SHOULD use an anonymous identity provider.</span>
+                users and implementations should use an anonymous identity provider.<!-- </span> -->
                 In particular, OAuth2 can provide tokens which don't identify specific individuals,
                 they just assert access rights proven elsewhere.
                 </p></dd>
