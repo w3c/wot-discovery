@@ -2370,13 +2370,12 @@ img.wot-diagram {
                                     the payload of `thing_deleted` events when `diff` is set to `true`. 
                                 </li>
                                 <li>
-                                    <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported">
+                                    <!-- <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported"> -->
                                         When a server which does not support the `diff` query parameter 
-                                        is requested with such query parameter, it MUST
-                                        reject the request.
-                                    </span>
-                                    This is to inform the clients about the lack of such functionality at the
-                                    connection time to avoid runtime exceptions caused by missing
+                                        is requested with such query parameter, it should reject the request.
+                                    <!-- span -->
+                                    This is to inform clients about the lack of such functionality at 
+                                    connection time and avoid runtime exceptions caused by missing
                                     event data attributes.
                                 </li>
                             </ul>
