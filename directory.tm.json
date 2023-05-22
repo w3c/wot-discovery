@@ -47,25 +47,11 @@
                         "collection"
                     ],
                     "default": "array"
-                },
-                "sort_by": {
-                    "title": "Comparator TD attribute for collection sorting",
-                    "type": "string",
-                    "default": "id"
-                },
-                "sort_order": {
-                    "title": "Sorting order",
-                    "type": "string",
-                    "enum": [
-                        "asc",
-                        "desc"
-                    ],
-                    "default": "asc"
                 }
             },
             "forms": [
                 {
-                    "href": "/things{?offset,limit,format,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,format}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
