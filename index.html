@@ -2358,8 +2358,8 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <!-- <span class="rfc2119-assertion" id="tdd-notification-data-diff-unsupported"> -->
-                                    If a server does not support the `diff` query parameter 
-                                    it is recommended that implementations reject such requests with an error.
+                                        When a server which does not support the `diff` query parameter 
+                                        is requested with such query parameter, it should reject the request.
                                     <!-- span -->
                                     This is to inform clients about the lack of such functionality at 
                                     connection time and avoid runtime exceptions caused by missing
