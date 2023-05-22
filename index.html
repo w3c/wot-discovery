@@ -1502,7 +1502,7 @@ img.wot-diagram {
                     <ul>
                         <li>
                             If the missing feature is to customize functionality of an
-                            existing API (e.g. custom sort ordering when listing),
+                            existing API
                             use 400 (Bad Request) or 501 (Not Implemented).
                         </li>
                         <li>
@@ -2004,13 +2004,21 @@ img.wot-diagram {
                                 </li>
                                 <li>
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-default">
-                                        By default, the collection MUST be sorted using Unicode code point order
+                                        The collection MUST be sorted in ascending order using Unicode code point order
                                         by the unique identifier of TDs.</span>
+                            <!-- Made informative since underspecified in the original, e.g. how a field should be selected was
+                                 not clearly stated.  This revision says JSON pointer to be clear, but that version only had one
+                                 implementation (that I know of).  However, taking out the selection of custom fields makes all the
+                                 other assertions here not-so-useful.  Sort order might be useful even on id but it's mixed in
+                                 with another assertion, so we don't have separate test data for it.
+
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order">
                                         The server MAY support sorting by other TD attributes using
-                                        query arguments: `sort_by` to select a field (e.g. `created`)
+                                        query arguments: `sort_by` to select a field 
+                                          [!-- older example, assumes plain field syntax, top-level fields only? --] (e.g. `created`)
+                                          [!-- proposed --] using a JSON Pointer [[RFC6901] (e.g. `/title`) [!-- to be discussed; + "plain field" syntax? --]
                                         and `sort_order` to choose the order
-                                        (i.e. `asc` or `desc` for ascending and descending ordering).</span>
+                                        (i.e. `asc` or `desc` for ascending and descending ordering).</span> 
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-orderable">
                                         A server MUST reject requests to sort on fields that do not have 
                                         values that are orderable basic types.</span>
@@ -2022,6 +2030,7 @@ img.wot-diagram {
                                     <span class="rfc2119-assertion" id="tdd-things-list-pagination-order-utf-8">
                                         Sorting order MUST always be defined based on Unicode code points on
                                         the relevant fields.</span>
+			    -->
                                 </li>
                             </ul>
                             <p>
