@@ -297,15 +297,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "amplification-attacks"
     }
   },
-  "publishISODate": "2023-05-22T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 22 May 2023"
+  "publishISODate": "2023-05-23T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 23 May 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 <body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Discovery</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-05-22">22 May 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-05-23">23 May 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -1233,8 +1233,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                 If security bootstrapping is enabled on an exploration service,
                 after initial contact using the URL provided
                 by an introduction mechanism, the exploration service
-                <em class="rfc2119">MUST</em> reply with either an HTTP "401 (Unauthorized)" response code 
-                or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate
+                <em class="rfc2119">MUST</em> reply with an HTTP response code 
+                appropriate for one of the Basic, Bearer, Digest, or OAuth2 security schemes if
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -1247,24 +1247,25 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                 appropriate if the TD served as a response does not contain and cannot be used to infer 
                 Personally Identifiable Information; see <a href="#privacy-considerations" class="sec-ref"><bdi class="secno">9. </bdi>Privacy Considerations</a>.
                 </li>
-                <li><span class="rfc2119-assertion" id="exploration-secboot-auth">
+                <li>
                 If security bootstrapping is enabled on an exploration service
                 using one of the following IANA-registered
-                HTTP Authentication Schemes: Basic, Bearer, or Digest,
-                then a 401 HTTP response 
+                HTTP Authentication Schemes: Basic, Bearer, or Digest, 
+                then (following the standards for these authentication schemes) a 401 HTTP response 
                 at an API endpoint intended to serve a TD
-                <em class="rfc2119">MUST</em> include a <code>WWW-Authenticate</code> header
+                must include a <code>WWW-Authenticate</code> header
                 and any other headers
-                describing the required authorizations.</span>
+                describing the required authorizations.
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
-                <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
-                If the OAuth2 <code>code</code> flow is used during security bootstrapping, the
+                
+                Likewise, following the OAuth2 specifications,
+                if the OAuth2 <code>code</code> flow is used during security bootstrapping, the
                 "302 (Found)" or "303 (See Other)" response code <em class="rfc2119">MUST</em> be used for redirection
                 to the authentication server,
-                with access credentials eventually being represented with bearer tokens.</span>
-                Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
-                <code>client</code> and <code>device</code>, both expect the initial access
+                with access credentials eventually being represented with bearer tokens.
+                Note that the other OAuth2 flow supported in WoT Thing Description 1.1,
+                <code>client</code>, both expect the initial access
                 to be to the authentication server, not the final endpoint, and so cannot be
                 used via security bootstrapping.
                 These requirements also apply only to endpoints of exploration services that might need
@@ -2682,7 +2683,7 @@ id: event_3</code></pre>
                         In this case, <code>application/x-empty</code> can be used to
                         ensure that the TD generated from the TM below is valid.
                     </p>
-                    <pre class="advisement json respec-offending-element" data-include="directory.tm.json" data-include-id="include-3605688233412083" title="`data-include` failed: `directory.tm.json` (Failed to fetch)." id="respec-offender-data-include-failed-directory-tm-json-failed-to-fetch"></pre>
+                    <pre class="advisement json respec-offending-element" data-include="directory.tm.json" data-include-id="include-06105031191804855" title="`data-include` failed: `directory.tm.json` (Failed to fetch)." id="respec-offender-data-include-failed-directory-tm-json-failed-to-fetch"></pre>
 
 
                     <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span><span class="issue-label">: Context URIs</span></div><p class="">
@@ -3272,7 +3273,7 @@ a change in ownership).
         The following JSON Schema specifies the extensions used in <a href="#dfn-wot-enriched-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-enriched-thing-description-7">Enriched TDs</a>.
         It can be used for validating <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-47">TDs</a> by a <a href="#dfn-wot-tdd" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-tdd-1">TDD</a>
         as prescribed in <a href="#exploration-directory-api-things-validation" data-matched-text="[[[#exploration-directory-api-things-validation]]]" class="sec-ref"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a>.
-        <pre class="advisement json respec-offending-element" data-include="validation/td-discovery-extensions-json-schema.json" data-include-id="include-27325185311589073" title="`data-include` failed: `validation/td-discovery-extensions-json-schema.json` (Failed to fetch)." id="respec-offender-data-include-failed-validation-td-discovery-extensions-json-schema-json-failed-to-fetch"></pre>
+        <pre class="advisement json respec-offending-element" data-include="validation/td-discovery-extensions-json-schema.json" data-include-id="include-40396447125739665" title="`data-include` failed: `validation/td-discovery-extensions-json-schema.json` (Failed to fetch)." id="respec-offender-data-include-failed-validation-td-discovery-extensions-json-schema-json-failed-to-fetch"></pre>
     </section>
     
     <section id="changes" class="appendix"><div class="header-wrapper"><h2 id="b-recent-specification-changes"><bdi class="secno">B. </bdi>Recent Specification Changes</h2><a class="self-link" href="#changes" aria-label="Permalink for Appendix B."></a></div>
