@@ -1021,8 +1021,8 @@ img.wot-diagram {
                 If security bootstrapping is enabled on an exploration service,
                 after initial contact using the URL provided
                 by an introduction mechanism, the exploration service
-                MUST reply with either an HTTP "401 (Unauthorized)" response code 
-                or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate
+                MUST reply with an HTTP response code 
+                appropriate for one of the Basic, Bearer, Digest, or OAuth2 security schemes if
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -1052,8 +1052,8 @@ img.wot-diagram {
                 "302 (Found)" or "303 (See Other)" response code MUST be used for redirection
                 to the authentication server,
                 with access credentials eventually being represented with bearer tokens.<!-- </span> -->
-                Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
-                <code>client</code> and <code>device</code>, both expect the initial access
+                Note that the other OAuth2 flow supported in WoT Thing Description 1.1,
+                <code>client</code>, both expect the initial access
                 to be to the authentication server, not the final endpoint, and so cannot be
                 used via security bootstrapping.
                 These requirements also apply only to endpoints of exploration services that might need
