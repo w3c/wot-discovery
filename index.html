@@ -1021,8 +1021,8 @@ img.wot-diagram {
                 If security bootstrapping is enabled on an exploration service,
                 after initial contact using the URL provided
                 by an introduction mechanism, the exploration service
-                MUST reply with either an HTTP "401 (Unauthorized)" response code 
-                or (in the case of OAuth2) with either a HTTP "302 (Found)" or "303 (See Other)" response code if appropriate
+                MUST reply with an HTTP response code 
+                appropriate for one of the Basic, Bearer, Digest, or OAuth2 security schemes if
                 authentication information has not been provided but access can be granted
                 when it is.</span>
                 Note that if the exploration service does not want to provide access for
@@ -1035,24 +1035,25 @@ img.wot-diagram {
                 appropriate if the TD served as a response does not contain and cannot be used to infer 
                 Personally Identifiable Information; see <a href="#privacy-considerations"></a>.
                 </li>
-                <li><span class="rfc2119-assertion" id="exploration-secboot-auth">
+                <li><!-- <span class="rfc2119-assertion" id="exploration-secboot-auth"> -->
                 If security bootstrapping is enabled on an exploration service
                 using one of the following IANA-registered
-                HTTP Authentication Schemes: Basic, Bearer, or Digest,
-                then a 401 HTTP response 
+                HTTP Authentication Schemes: Basic, Bearer, or Digest, 
+                then (following the standards for these authentication schemes) a 401 HTTP response 
                 at an API endpoint intended to serve a TD
-                MUST include a <code>WWW-Authenticate</code> header
+                must include a <code>WWW-Authenticate</code> header
                 and any other headers
-                describing the required authorizations.</span>
+                describing the required authorizations.<!-- </span> -->
                 For details of the requirements, the IANA registry should be consulted for
                 each of the above authentication schemes.  
-                <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows">
-                If the OAuth2 <code>code</code> flow is used during security bootstrapping, the
-                "302 (Found)" or "303 (See Other)" response code MUST be used for redirection
+                <!-- <span class="rfc2119-assertion" id="exploration-secboot-oauth2-flows"> -->
+                Likewise, following the OAuth2 specifications,
+                if the OAuth2 <code>code</code> flow is used during security bootstrapping, the
+                "302 (Found)" or "303 (See Other)" response code must be used for redirection
                 to the authentication server,
-                with access credentials eventually being represented with bearer tokens.</span>
-                Note that the other OAuth2 flows supported in WoT Thing Description 1.1,
-                <code>client</code> and <code>device</code>, both expect the initial access
+                with access credentials eventually being represented with bearer tokens.<!-- </span> -->
+                Note that the other OAuth2 flow supported in WoT Thing Description 1.1,
+                <code>client</code>, expects the initial access
                 to be to the authentication server, not the final endpoint, and so cannot be
                 used via security bootstrapping.
                 These requirements also apply only to endpoints of exploration services that might need
