@@ -21,6 +21,7 @@
 "introduction-core-rd-resource-type-directory","not-impl",
 "introduction-core-rd-resource-type-thing","not-impl",
 "introduction-did","pass",
+"introduction-did-service-context","pass",
 "introduction-did-service-endpoint","pass",
 "introduction-direct-directory-description","null",
 "introduction-direct-thing-description","pass",
