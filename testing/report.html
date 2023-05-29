@@ -172,9 +172,11 @@ pre.example {
 <li class="tocline">
 	6.9 <a href="#impl-riot-wot">RIOT WoT Implementation: TD Exposer</a></li>
 <li class="tocline">
-	6.10 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+	6.10 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-wothive">WoT Hive directory</a></li>
+	6.11 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+<li class="tocline">
+	6.12 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
   <li class="tocline">7. <a href="#security">Security</a></li>
   <li class="tocline">8. <a href="#test_results">Test results</a>
@@ -210,7 +212,7 @@ pre.example {
 <p>
   The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
   document was last published as a
-  <a href="https://www.w3.org/TR/2022/WD-wot-discovery-20220810/">Working Draft</a> 
+  <a href="https://www.w3.org/TR/2023/CR-wot-discovery-20230119/">Candidate Recommendation Snapshot</a> 
   on 19 January 2023.
   The planned date for entering Proposed Recommendation is 21 June 2023.
 </p>
@@ -251,7 +253,7 @@ pre.example {
 <h2 id="h_participate"><a id="participate" name="participate">3. Participating in the Implementation Report</a></h2>
 <p>
   Implementers were invited to contribute to the assessment of the
-  <a href="https://www.w3.org/TR/2022/CR-wot-discovery-20221026/">Web of Things (WoT) Discovery Candidate Recommendation</a>
+  <a href="https://www.w3.org/TR/2023/CR-wot-discovery-20230119/">Web of Things (WoT) Discovery Candidate Recommendation</a>
   by submitting implementer reports describing the
   coverage of their implementations with respect to the test assertions outlined
   in the <a href="#automated_validation_results">table below</a>.
@@ -491,6 +493,17 @@ all assertions have met this requirement.
   <p>
     <strong>Contributing Member Organizations:</strong> Invited Experts
   </p>
+</div><div class="impl" id="impl-siemens-logilab">
+  <h4 id="impl-siemens-logilab-WoT">SparTDD: Thing Description Directory</h4>
+  <p>
+    SparTDD is an implementation of the W3C Web of Things
+    Thing Description Directory. There are two main components.
+    The API of the TDD is written in Python using <a href="https://flask.palletsprojects.com/">Flask</a>.
+    The data is stored in RDF in a <a href="https://jena.apache.org/documentation/archive/serving_data/fuseki1.html">Apache Jena Fuseki</a>
+    SPARQL endpoint. A demo can be found <a href="https://siemens-wot.demo.logilab.fr/">here</a>.
+  </p>
+  <p><b>Usage:</b>Directory</p>
+  <p><b>Contributing Member Organizations:</b>Siemens</p>
 </div><div class="impl" id="impl-tinyiot">
   <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
   <p>
