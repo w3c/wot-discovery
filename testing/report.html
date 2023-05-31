@@ -119,7 +119,7 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 30 May 2023
+    <b>Version</b>: 31 May 2023
   </p>
   <p>
     <b>Editors</b>:<br>
@@ -156,11 +156,11 @@ pre.example {
   <li class="tocline">
 	6.1 <a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	6.2 <a href="#impl-hitachi-esp-idf">hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	6.3 <a href="#impl-hitachi-nodered">hitachi-nodered: LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	6.4 <a href="#impl-hitachi-nrwotdisc">hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
 	6.5 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
@@ -174,7 +174,7 @@ pre.example {
 <li class="tocline">
 	6.10 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+	6.11 <a href="#impl-tinyiot">tiny-iot: TinyIoT Thing Directory</a></li>
 <li class="tocline">
 	6.12 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
@@ -391,21 +391,35 @@ all assertions have met this requirement.
     <strong>Contributing Member Organizations:</strong> Invited Experts
   </p>
 </div><div class="impl" id="impl-hitachi-esp-idf">
-  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
-  <p>This is a sample Thing implementation in C++.</p>
-</div><div class="impl" id="impl-hitachi-node-red">
-  <h4>LED lamp: TD Exposer</h4>
-  <p>This is a sample Thing implementation in Node-RED.</p>
+  <h4>hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented on a microcontroller. 
+    It can exporting the Thing's sensor reading via HTTP REST API,
+    and advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
+</div><div class="impl" id="impl-hitachi-nodered">
+  <h4>hitachi-nodered: LED lamp: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented in Node-RED.
+    It can turn on and off a LED connected to Raspberry Pi's GPIOs
+    and notify changes in LED status.
+    It can also advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
 </div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
-  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
-    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  <h4>hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>
+    This plugin uses wot-discovery functionality
+    and make it easy to import Things into Node-RED flow editor.
+    The plugin discovers Things connected on the local area network or registered 
+    in the Thing Description Directory, and converts them into functional blocks 
+    that can be used in Node-RED.
   </p>
 </div><div class="impl" id="impl-intel-nodejs">
   <h4>intel-nodejs: TD Exposer</h4>
   <p>
   Two services based on a shared NodeJS codebase (not using node-wot):
-  </p><ul>
+  </p>
+  <ul>
 	 <li>A simple camera service that interfaces 
 	 with V4L (Video for Linux) to capture still images
          from a USB camera.
@@ -413,7 +427,8 @@ all assertions have met this requirement.
 	 <li>A simple text-to-speech output service based on espeak.
 	 </li>
   </ul>
-  <p></p>
+  <p><b>Usage:</b> Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-proxy">intel-proxy: Intermediary
   <h4>intel-proxy: Intermediary</h4>
   <p>
@@ -428,6 +443,8 @@ all assertions have met this requirement.
   The secure endpoints provided by this service are not given in TDs for the 
   service itself, but added to the TDs for the Things it services.
   </p>
+  <p><b>Usage:</b> Intermediary</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-wot-ha">
   <h4>intel-wot-ha: TD Directory and TD Exposer</h4>
   <p>
@@ -440,6 +457,8 @@ all assertions have met this requirement.
   entities supported by Home Assistant and access these services
   using WoT affordance abstractions.
   </p>
+  <p><b>Usage:</b> Directory and Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-nodewot">
   <h4 id="impl-node-wot">Eclipse node-wot: Consumer and Exposer</h4>
   <p>
@@ -498,7 +517,7 @@ all assertions have met this requirement.
   <p><b>Usage:</b>Directory</p>
   <p><b>Contributing Member Organizations:</b>Siemens</p>
 </div><div class="impl" id="impl-tinyiot">
-  <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
+  <h4 id="impl-tinyiot">tiny-iot: TinyIoT Thing Directory</h4>
   <p>
     This is an implementation of the W3C Web of Things (WoT) Thing Description Directory (TDD).
     This directory is designed to be lightweight and portable, enabling deployment on the edge.
