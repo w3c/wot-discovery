@@ -2336,12 +2336,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     it <em class="rfc2119">MUST</em> be interpreted as date-time as specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>].</span>
                     Specifically, the timezone offset is not optional.
                     </p>
-                    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="6"><span>Editor's note</span><span class="issue-label">: dateTime vs. date-time</span></div><p class="">We should update the ontology to 
-                    only use date-time and RFC3339 and
-                    not this odd combination of dateTime and date-time, 
-                    but this should also be resolved in the TD specification.
-                    However, we would need a new SHACL shape with this additional restriction.
-                    </p></div>
+
                     
                     <table class="def">
                         <thead>
@@ -3417,7 +3412,7 @@ id: event_3</code></pre>
                         <code>thingCreated</code>, <code>thingUpdated</code>, and <code>thingDeleted</code>.
                     </p>
 
-                    <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="6"><span>Editor's note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
+                    <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="6"><span>Note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
@@ -3432,22 +3427,7 @@ id: event_3</code></pre>
                 <section id="exploration-directory-api-search" class="normative"><div class="header-wrapper"><h5 id="x7-3-2-3-search-api"><bdi class="secno">7.3.2.3 </bdi>Search API</h5><a class="self-link" href="#exploration-directory-api-search" aria-label="Permalink for Section 7.3.2.3"></a></div>
                     
                     
-                    <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="6"><span>Editor's note</span><span class="issue-label">: Search API Overview</span></div><p class="">
-                        Sub-API to search a directory, e.g. issue a query.
-                        There are different forms and levels of query possible, for example,
-                        syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
-                        and the more advanced query types may not be 
-                        supported by all directories.   
-                        So this API will have further subsections,
-                        some of which will be optional.
-                        Search also includes a sub-API for managing listing the contents (e.g. returned by
-                        a query) including handling pagination, etc.
-                        Note that one special form of query will be able to return everything.
-                        Results may be subject to the requestor's authorization.
-                        <br>
-                        To discuss further:
-                        Federated queries to other TDDs, Spatial and network-limited queries, Links
-                    </p></div>
+
                     This specification describes three search APIs: syntactic search with JSONPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-jsonpath" title="JSONPath: Query expressions for JSON">JSONPATH</a></cite>],
                     syntactic search with XPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-xpath-31" title="XML Path Language (XPath) 3.1">xpath-31</a></cite>], and semantic search with SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-sparql11-overview" title="SPARQL 1.1 Overview">sparql11-overview</a></cite>].
                     <span class="rfc2119-assertion" id="tdd-search-sparql">

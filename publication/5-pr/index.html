@@ -1282,12 +1282,14 @@ img.wot-diagram {
                     it MUST be interpreted as date-time as specified in [[RFC3339]].</span>
                     Specifically, the timezone offset is not optional.
                     </p>
+<!--
                     <p class="ednote" title="dateTime vs. date-time">We should update the ontology to 
                     only use date-time and RFC3339 and
                     not this odd combination of dateTime and date-time, 
                     but this should also be resolved in the TD specification.
                     However, we would need a new SHACL shape with this additional restriction.
                     </p>
+-->
                     
                     <table class="def">
                         <thead>
@@ -2416,7 +2418,7 @@ img.wot-diagram {
                         `thingCreated`, `thingUpdated`, and `thingDeleted`.
                     </p>
 
-                    <p class="ednote" title="SSE Authorization Header">
+                    <p class="note" title="SSE Authorization Header">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
@@ -2431,6 +2433,7 @@ img.wot-diagram {
                 <section id="exploration-directory-api-search" class="normative">
                     <h4>Search API</h4>
                     
+<!--
                     <p class="ednote" title="Search API Overview">
                         Sub-API to search a directory, e.g. issue a query.
                         There are different forms and levels of query possible, for example,
@@ -2447,6 +2450,7 @@ img.wot-diagram {
                         To discuss further:
                         Federated queries to other TDDs, Spatial and network-limited queries, Links
                     </p>
+-->
                     This specification describes three search APIs: syntactic search with JSONPath [[?JSONPATH]],
                     syntactic search with XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
                     <span class="rfc2119-assertion" id="tdd-search-sparql">
