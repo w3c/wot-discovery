@@ -133,6 +133,831 @@ dd{margin-left:0}
            interactions an IoT device or service makes available
            over the network at a suitable level of abstraction.  
            The WoT Thing Description specification satisfies this objective.">
+<link rel="canonical" href="https://www.w3.org/TR/wot-discovery/">
+<script type="application/ld+json">{
+  "@context": [
+    "http://schema.org",
+    {
+      "@vocab": "http://schema.org/",
+      "@language": "en-US",
+      "w3p": "http://www.w3.org/2001/02pd/rec54#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "datePublished": {
+        "@type": "http://www.w3.org/2001/XMLSchema#date"
+      },
+      "inLanguage": {
+        "@language": null
+      },
+      "isBasedOn": {
+        "@type": "@id"
+      },
+      "license": {
+        "@type": "@id"
+      }
+    }
+  ],
+  "id": "https://www.w3.org/TR/wot-discovery/",
+  "type": [
+    "TechArticle",
+    "w3p:PR"
+  ],
+  "name": "Web of Things (WoT) Discovery",
+  "inLanguage": "en-US",
+  "license": "https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document",
+  "datePublished": "2023-06-09",
+  "copyrightHolder": {
+    "name": "World Wide Web Consortium",
+    "url": "https://www.w3.org/"
+  },
+  "discussionUrl": "https://github.com/w3c/wot-discovery/issues/",
+  "alternativeHeadline": "",
+  "isBasedOn": "https://www.w3.org/TR/2022/WD-wot-discovery-20220810/",
+  "description": "The W3C Web of Things (WoT) is intended to enable\n           interoperability across IoT platforms and application\n           domains.  One key mechanism for accomplishing this goal\n           is the definition and use of metadata describing the\n           interactions an IoT device or service makes available\n           over the network at a suitable level of abstraction.  \n           The WoT Thing Description specification satisfies this objective.",
+  "editor": [
+    {
+      "type": "Person",
+      "name": "Andrea Cimmino",
+      "worksFor": {
+        "name": "Universidad Politécnica de Madrid",
+        "url": "https://www.upm.es/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Michael McCool",
+      "worksFor": {
+        "name": "Intel Corp.",
+        "url": "https://www.intel.com/"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Farshid Tavakolizadeh",
+      "worksFor": {
+        "name": "Invited Expert"
+      }
+    },
+    {
+      "type": "Person",
+      "name": "Kunihiko Toumura",
+      "worksFor": {
+        "name": "Hitachi, Ltd.",
+        "url": "https://www.hitachi.com/"
+      }
+    }
+  ],
+  "contributor": [],
+  "citation": [
+    {
+      "id": "https://www.w3.org/TR/wot-architecture11/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Architecture 1.1",
+      "url": "https://www.w3.org/TR/wot-architecture11/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Kunihiko Toumura"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-thing-description11/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Thing Description 1.1",
+      "url": "https://www.w3.org/TR/wot-thing-description11/",
+      "creator": [
+        {
+          "name": "Sebastian Käbisch"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ege Korkan"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://dl.acm.org/doi/10.1145/2991561.2991570",
+      "type": "TechArticle",
+      "name": "A Categorization of Discovery Technologies for the Internet of Things",
+      "url": "https://dl.acm.org/doi/10.1145/2991561.2991570",
+      "creator": [
+        {
+          "name": "Arne Broering"
+        },
+        {
+          "name": "Soumya Kanti Datta"
+        },
+        {
+          "name": "Christian Bonnet"
+        }
+      ],
+      "publisher": {
+        "name": "Association of Computing Machinery (ACM): IoT'16 Proceedings"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/sparql11-overview/",
+      "type": "TechArticle",
+      "name": "SPARQL 1.1 Overview",
+      "url": "https://www.w3.org/TR/sparql11-overview/",
+      "creator": [
+        {
+          "name": "The W3C SPARQL Working Group"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://w3c.github.io/wot-usecases/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT): Use Cases",
+      "url": "https://w3c.github.io/wot-usecases/",
+      "creator": [
+        {
+          "name": "Michael Lagally"
+        },
+        {
+          "name": "Michael McCool"
+        },
+        {
+          "name": "Ryuichi Matsukura"
+        },
+        {
+          "name": "Tomoaki Mizushima"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8615",
+      "type": "TechArticle",
+      "name": "Well-Known Uniform Resource Identifiers (URIs)",
+      "url": "https://www.rfc-editor.org/rfc/rfc8615",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6763",
+      "type": "TechArticle",
+      "name": "DNS-Based Service Discovery",
+      "url": "https://www.rfc-editor.org/rfc/rfc6763",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6762",
+      "type": "TechArticle",
+      "name": "Multicast DNS",
+      "url": "https://www.rfc-editor.org/rfc/rfc6762",
+      "creator": [
+        {
+          "name": "S. Cheshire"
+        },
+        {
+          "name": "M. Krochmal"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7595",
+      "type": "TechArticle",
+      "name": "Guidelines and Registration Procedures for URI Schemes",
+      "url": "https://www.rfc-editor.org/rfc/rfc7595",
+      "creator": [
+        {
+          "name": "D. Thaler, Ed."
+        },
+        {
+          "name": "T. Hansen"
+        },
+        {
+          "name": "T. Hardie"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6690",
+      "type": "TechArticle",
+      "name": "Constrained RESTful Environments (CoRE) Link Format",
+      "url": "https://www.rfc-editor.org/rfc/rfc6690",
+      "creator": [
+        {
+          "name": "Z. Shelby"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9176",
+      "type": "TechArticle",
+      "name": "Constrained RESTful Environments (CoRE) Resource Directory",
+      "url": "https://www.rfc-editor.org/rfc/rfc9176",
+      "creator": [
+        {
+          "name": "C. Amsüss, Ed."
+        },
+        {
+          "name": "Z. Shelby"
+        },
+        {
+          "name": "M. Koster"
+        },
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "P. van der Stok"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/did-core/",
+      "type": "TechArticle",
+      "name": "Decentralized Identifiers (DIDs) v1.0",
+      "url": "https://www.w3.org/TR/did-core/",
+      "creator": [
+        {
+          "name": "Manu Sporny"
+        },
+        {
+          "name": "Amy Guy"
+        },
+        {
+          "name": "Markus Sabadello"
+        },
+        {
+          "name": "Drummond Reed"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/did-spec-registries/",
+      "type": "TechArticle",
+      "name": "DID Specification Registries",
+      "url": "https://www.w3.org/TR/did-spec-registries/",
+      "creator": [
+        {
+          "name": "Orie Steele"
+        },
+        {
+          "name": "Manu Sporny"
+        },
+        {
+          "name": "Michael Prorock"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/json-ld11/",
+      "type": "TechArticle",
+      "name": "JSON-LD 1.1",
+      "url": "https://www.w3.org/TR/json-ld11/",
+      "creator": [
+        {
+          "name": "Gregg Kellogg"
+        },
+        {
+          "name": "Pierre-Antoine Champin"
+        },
+        {
+          "name": "Dave Longley"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7959",
+      "type": "TechArticle",
+      "name": "Block-Wise Transfers in the Constrained Application Protocol (CoAP)",
+      "url": "https://www.rfc-editor.org/rfc/rfc7959",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "Z. Shelby, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc3339",
+      "type": "TechArticle",
+      "name": "Date and Time on the Internet: Timestamps",
+      "url": "https://www.rfc-editor.org/rfc/rfc3339",
+      "creator": [
+        {
+          "name": "G. Klyne"
+        },
+        {
+          "name": "C. Newman"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc4122",
+      "type": "TechArticle",
+      "name": "A Universally Unique IDentifier (UUID) URN Namespace",
+      "url": "https://www.rfc-editor.org/rfc/rfc4122",
+      "creator": [
+        {
+          "name": "P. Leach"
+        },
+        {
+          "name": "M. Mealling"
+        },
+        {
+          "name": "R. Salz"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7807",
+      "type": "TechArticle",
+      "name": "Problem Details for HTTP APIs",
+      "url": "https://www.rfc-editor.org/rfc/rfc7807",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        },
+        {
+          "name": "E. Wilde"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7231.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content",
+      "url": "https://httpwg.org/specs/rfc7231.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc1738",
+      "type": "TechArticle",
+      "name": "Uniform Resource Locators (URL)",
+      "url": "https://www.rfc-editor.org/rfc/rfc1738",
+      "creator": [
+        {
+          "name": "T. Berners-Lee"
+        },
+        {
+          "name": "L. Masinter"
+        },
+        {
+          "name": "M. McCahill"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc7396",
+      "type": "TechArticle",
+      "name": "JSON Merge Patch",
+      "url": "https://www.rfc-editor.org/rfc/rfc7396",
+      "creator": [
+        {
+          "name": "P. Hoffman"
+        },
+        {
+          "name": "J. Snell"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc8288.html",
+      "type": "TechArticle",
+      "name": "Web Linking",
+      "url": "https://httpwg.org/specs/rfc8288.html",
+      "creator": [
+        {
+          "name": "M. Nottingham"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://html.spec.whatwg.org/multipage/",
+      "type": "TechArticle",
+      "name": "HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/",
+      "creator": [
+        {
+          "name": "Anne van Kesteren"
+        },
+        {
+          "name": "Domenic Denicola"
+        },
+        {
+          "name": "Ian Hickson"
+        },
+        {
+          "name": "Philip Jägenstedt"
+        },
+        {
+          "name": "Simon Pieters"
+        }
+      ],
+      "publisher": {
+        "name": "WHATWG"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/xpath-31/",
+      "type": "TechArticle",
+      "name": "XML Path Language (XPath) 3.1",
+      "url": "https://www.w3.org/TR/xpath-31/",
+      "creator": [
+        {
+          "name": "Jonathan Robie"
+        },
+        {
+          "name": "Michael Dyck"
+        },
+        {
+          "name": "Josh Spiegel"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://owasp.org/www-project-top-ten/",
+      "type": "TechArticle",
+      "name": "OWASP Top Ten",
+      "url": "https://owasp.org/www-project-top-ten/",
+      "publisher": {
+        "name": "OWASP"
+      }
+    },
+    {
+      "id": "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-amplification-attacks",
+      "type": "TechArticle",
+      "name": "Amplification Attacks Using the Constrained Application Protocol (CoAP)",
+      "url": "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-amplification-attacks",
+      "creator": [
+        {
+          "name": "John Preuß Mattsson"
+        },
+        {
+          "name": "Göran Selander"
+        },
+        {
+          "name": "Christian Amsüss"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc9000",
+      "type": "TechArticle",
+      "name": "QUIC: A UDP-Based Multiplexed and Secure Transport",
+      "url": "https://www.rfc-editor.org/rfc/rfc9000",
+      "creator": [
+        {
+          "name": "J. Iyengar, Ed."
+        },
+        {
+          "name": "M. Thomson, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc4279",
+      "type": "TechArticle",
+      "name": "Pre-Shared Key Ciphersuites for Transport Layer Security (TLS)",
+      "url": "https://www.rfc-editor.org/rfc/rfc4279",
+      "creator": [
+        {
+          "name": "P. Eronen, Ed."
+        },
+        {
+          "name": "H. Tschofenig, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://gdpr-info.eu/art-4-gdpr/",
+      "type": "TechArticle",
+      "name": "General Data Protection Regulation (GDPR) Article 4 - Definitions",
+      "url": "https://gdpr-info.eu/art-4-gdpr/",
+      "publisher": {
+        "name": "European Union (EU) and the European Economic Area (EEA)"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8981",
+      "type": "TechArticle",
+      "name": "Temporary Address Extensions for Stateless Address Autoconfiguration in IPv6",
+      "url": "https://www.rfc-editor.org/rfc/rfc8981",
+      "creator": [
+        {
+          "name": "F. Gont"
+        },
+        {
+          "name": "S. Krishnan"
+        },
+        {
+          "name": "T. Narten"
+        },
+        {
+          "name": "R. Draves"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc6335",
+      "type": "TechArticle",
+      "name": "Internet Assigned Numbers Authority (IANA) Procedures for the Management of the Service Name and Transport Protocol Port Number Registry",
+      "url": "https://www.rfc-editor.org/rfc/rfc6335",
+      "creator": [
+        {
+          "name": "M. Cotton"
+        },
+        {
+          "name": "L. Eggert"
+        },
+        {
+          "name": "J. Touch"
+        },
+        {
+          "name": "M. Westerlund"
+        },
+        {
+          "name": "S. Cheshire"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc2119",
+      "type": "TechArticle",
+      "name": "Key words for use in RFCs to Indicate Requirement Levels",
+      "url": "https://www.rfc-editor.org/rfc/rfc2119",
+      "creator": [
+        {
+          "name": "S. Bradner"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8174",
+      "type": "TechArticle",
+      "name": "Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words",
+      "url": "https://www.rfc-editor.org/rfc/rfc8174",
+      "creator": [
+        {
+          "name": "B. Leiba"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06",
+      "type": "TechArticle",
+      "name": "RESTful Design for Internet of Things Systems",
+      "url": "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06",
+      "creator": [
+        {
+          "name": "Ari Keranen"
+        },
+        {
+          "name": "Matthias Kovatsch"
+        },
+        {
+          "name": "Klaus Hartke"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/ldp-paging/",
+      "type": "TechArticle",
+      "name": "Linked Data Platform Paging 1.0",
+      "url": "https://www.w3.org/TR/ldp-paging/",
+      "creator": [
+        {
+          "name": "Steve Speicher"
+        },
+        {
+          "name": "John Arwe"
+        },
+        {
+          "name": "Ashok Malhotra"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base",
+      "type": "TechArticle",
+      "name": "JSONPath: Query expressions for JSON",
+      "url": "https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base",
+      "creator": [
+        {
+          "name": "Stefan Gössner"
+        },
+        {
+          "name": "Glyn Normington"
+        },
+        {
+          "name": "Carsten Bormann"
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.w3.org/TR/wot-security/",
+      "type": "TechArticle",
+      "name": "Web of Things (WoT) Security and Privacy Guidelines",
+      "url": "https://www.w3.org/TR/wot-security/",
+      "creator": [
+        {
+          "name": "Elena Reshetova"
+        },
+        {
+          "name": "Michael McCool"
+        }
+      ],
+      "publisher": {
+        "name": "W3C"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7230.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing",
+      "url": "https://httpwg.org/specs/rfc7230.html",
+      "creator": [
+        {
+          "name": "R. Fielding, Ed."
+        },
+        {
+          "name": "J. Reschke, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://httpwg.org/specs/rfc7540.html",
+      "type": "TechArticle",
+      "name": "Hypertext Transfer Protocol Version 2 (HTTP/2)",
+      "url": "https://httpwg.org/specs/rfc7540.html",
+      "creator": [
+        {
+          "name": "M. Belshe"
+        },
+        {
+          "name": "R. Peon"
+        },
+        {
+          "name": "M. Thomson, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    },
+    {
+      "id": "https://www.rfc-editor.org/rfc/rfc8323",
+      "type": "TechArticle",
+      "name": "CoAP (Constrained Application Protocol) over TCP, TLS, and WebSockets",
+      "url": "https://www.rfc-editor.org/rfc/rfc8323",
+      "creator": [
+        {
+          "name": "C. Bormann"
+        },
+        {
+          "name": "S. Lemay"
+        },
+        {
+          "name": "H. Tschofenig"
+        },
+        {
+          "name": "K. Hartke"
+        },
+        {
+          "name": "B. Silverajan"
+        },
+        {
+          "name": "B. Raymor, Ed."
+        }
+      ],
+      "publisher": {
+        "name": "IETF"
+      }
+    }
+  ]
+}</script>
 <style>
 .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
 .hljs-comment,.hljs-quote{color:#717277;font-style:italic}
@@ -166,7 +991,8 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   "noLegacyStyle": true,
   "inlineCSS": true,
   "noIDLIn": true,
-  "specStatus": "ED",
+  "specStatus": "PR",
+  "crEnd": "2023-06-07",
   "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
   "copyrightStart": 2017,
@@ -313,19 +1139,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     }
   },
   "publishISODate": "2023-06-09T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 09 June 2023"
+  "generatedSubtitle": "W3C Proposed Recommendation 09 June 2023"
 }</script>
-<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
+<link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-PR"></head>
 <body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Discovery</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-06-09">09 June 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#PR">W3C Proposed Recommendation</a> <time class="dt-published" datetime="2023-06-09">09 June 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://w3c.github.io/wot-discovery/">https://w3c.github.io/wot-discovery/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2023/PR-wot-discovery-20230609/">https://www.w3.org/TR/2023/PR-wot-discovery-20230609/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/wot-discovery/">https://www.w3.org/TR/wot-discovery/</a>
@@ -428,16 +1254,26 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       document at the time of its publication. A list of current <abbr title="World Wide Web Consortium">W3C</abbr>
       publications and the latest revision of this technical report can be found
       in the <a href="https://www.w3.org/TR/"><abbr title="World Wide Web Consortium">W3C</abbr> technical reports index</a> at
-      https://www.w3.org/TR/.</em></p><p>
+      https://www.w3.org/TR/.</em></p>
+<p>Future updates to this specification may incorporate <a href="https://www.w3.org/2021/Process-20211102/#allow-new-features">new features</a>.</p>
+    <p>
     This document was published by the <a href="https://www.w3.org/groups/wg/wot">Web of Things Working Group</a> as
-    an Editor's Draft. 
-  </p><p>Publication as an Editor's Draft does not
+    a Proposed Recommendation using the
+        <a href="https://www.w3.org/2021/Process-20211102/#recs-and-notes">Recommendation track</a>. 
+  </p><p>Publication as a Proposed Recommendation does not
   imply endorsement by <abbr title="World Wide Web Consortium">W3C</abbr> and its Members. </p><p>
     This is a draft document and may be updated, replaced or obsoleted by other
     documents at any time. It is inappropriate to cite this document as other
     than work in progress.
     
   </p><p>
+        The <abbr title="World Wide Web Consortium">W3C</abbr> Membership and other interested parties are invited to review
+        the document and send comments through 09 June 2023.
+        Advisory Committee Representatives should consult their
+        <a href="https://www.w3.org/2002/09/wbs/myQuestionnaires">WBS questionnaires</a>. Note that substantive technical comments were expected during the
+        Candidate Recommendation review period that ended
+        07 June 2023.
+      </p><p>
     
         This document was produced by a group
         operating under the
@@ -1500,12 +2336,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                     it <em class="rfc2119">MUST</em> be interpreted as date-time as specified in [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc3339" title="Date and Time on the Internet: Timestamps">RFC3339</a></cite>].</span>
                     Specifically, the timezone offset is not optional.
                     </p>
-                    <div class="note" id="issue-container-generatedID"><div role="heading" class="ednote-title marker" id="h-ednote" aria-level="6"><span>Editor's note</span><span class="issue-label">: dateTime vs. date-time</span></div><p class="">We should update the ontology to 
-                    only use date-time and RFC3339 and
-                    not this odd combination of dateTime and date-time, 
-                    but this should also be resolved in the TD specification.
-                    However, we would need a new SHACL shape with this additional restriction.
-                    </p></div>
+
                     
                     <table class="def">
                         <thead>
@@ -2581,7 +3412,7 @@ id: event_3</code></pre>
                         <code>thingCreated</code>, <code>thingUpdated</code>, and <code>thingDeleted</code>.
                     </p>
 
-                    <div class="note" id="issue-container-generatedID-0"><div role="heading" class="ednote-title marker" id="h-ednote-0" aria-level="6"><span>Editor's note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
+                    <div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="6"><span>Note</span><span class="issue-label">: SSE Authorization Header</span></div><p class="">
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
@@ -2596,22 +3427,7 @@ id: event_3</code></pre>
                 <section id="exploration-directory-api-search" class="normative"><div class="header-wrapper"><h5 id="x7-3-2-3-search-api"><bdi class="secno">7.3.2.3 </bdi>Search API</h5><a class="self-link" href="#exploration-directory-api-search" aria-label="Permalink for Section 7.3.2.3"></a></div>
                     
                     
-                    <div class="note" id="issue-container-generatedID-1"><div role="heading" class="ednote-title marker" id="h-ednote-1" aria-level="6"><span>Editor's note</span><span class="issue-label">: Search API Overview</span></div><p class="">
-                        Sub-API to search a directory, e.g. issue a query.
-                        There are different forms and levels of query possible, for example,
-                        syntactic (JSONPath, XPath) vs. semantic (SPARQL), 
-                        and the more advanced query types may not be 
-                        supported by all directories.   
-                        So this API will have further subsections,
-                        some of which will be optional.
-                        Search also includes a sub-API for managing listing the contents (e.g. returned by
-                        a query) including handling pagination, etc.
-                        Note that one special form of query will be able to return everything.
-                        Results may be subject to the requestor's authorization.
-                        <br>
-                        To discuss further:
-                        Federated queries to other TDDs, Spatial and network-limited queries, Links
-                    </p></div>
+
                     This specification describes three search APIs: syntactic search with JSONPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-jsonpath" title="JSONPath: Query expressions for JSON">JSONPATH</a></cite>],
                     syntactic search with XPath [<cite><a class="bibref" data-link-type="biblio" href="#bib-xpath-31" title="XML Path Language (XPath) 3.1">xpath-31</a></cite>], and semantic search with SPARQL [<cite><a class="bibref" data-link-type="biblio" href="#bib-sparql11-overview" title="SPARQL 1.1 Overview">sparql11-overview</a></cite>].
                     <span class="rfc2119-assertion" id="tdd-search-sparql">
@@ -2705,12 +3521,485 @@ id: event_3</code></pre>
                         In this case, <code>application/x-empty</code> can be used to
                         ensure that the TD generated from the TM below is valid.
                     </p>
-                    <pre class="advisement json respec-offending-element" data-include="directory.tm.json" data-include-id="include-5089887745428754" title="`data-include` failed: `directory.tm.json` (Failed to fetch)." id="respec-offender-data-include-failed-directory-tm-json-failed-to-fetch"></pre>
+
+<pre class="advisement" aria-busy="false"><code class="hljs json">{
+    <span class="hljs-attr">"@context"</span>: [
+        <span class="hljs-string">"https://www.w3.org/2022/wot/td/v1.1"</span>,
+        <span class="hljs-string">"https://www.w3.org/2022/wot/discovery"</span>
+    ],
+    <span class="hljs-attr">"@type"</span>: [
+        <span class="hljs-string">"tm:ThingModel"</span>,
+        <span class="hljs-string">"ThingDirectory"</span>
+    ],
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description Directory (TDD) Thing Model"</span>,
+    <span class="hljs-attr">"version"</span>: {
+        <span class="hljs-attr">"model"</span>: <span class="hljs-string">"1.0.0"</span>
+    },
+    <span class="hljs-attr">"base"</span>: <span class="hljs-string">"{{DIRECTORY_BASE_URL}}"</span>,
+    <span class="hljs-attr">"tm:optional"</span>: [
+        <span class="hljs-string">"/actions/createThing"</span>,
+        <span class="hljs-string">"/actions/createAnonymousThing"</span>,
+        <span class="hljs-string">"/actions/retrieveThing"</span>,
+        <span class="hljs-string">"/actions/updateThing"</span>,
+        <span class="hljs-string">"/actions/partiallyUpdateThing"</span>,
+        <span class="hljs-string">"/actions/deleteThing"</span>,
+        <span class="hljs-string">"/actions/searchJSONPath"</span>,
+        <span class="hljs-string">"/actions/searchXPath"</span>,
+        <span class="hljs-string">"/actions/searchSPARQL"</span>,
+        <span class="hljs-string">"/events/thingCreated"</span>,
+        <span class="hljs-string">"/events/thingUpdated"</span>,
+        <span class="hljs-string">"/events/thingDeleted"</span>
+    ],
+    <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"things"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Retrieve all Thing Descriptions"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"offset"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Number of TDs to skip before the page"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>,
+                    <span class="hljs-attr">"default"</span>: <span class="hljs-number">0</span>
+                },
+                <span class="hljs-attr">"limit"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Number of TDs in a page"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+                },
+                <span class="hljs-attr">"format"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Payload format"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"enum"</span>: [
+                        <span class="hljs-string">"array"</span>,
+                        <span class="hljs-string">"collection"</span>
+                    ],
+                    <span class="hljs-attr">"default"</span>: <span class="hljs-string">"array"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things{?offset,limit,format}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/ld+json"</span>,
+                        <span class="hljs-attr">"htv:headers"</span>: [
+                            {
+                                <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Link"</span>
+                            }
+                        ]
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid query arguments"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    <span class="hljs-attr">"actions"</span>: {
+        <span class="hljs-attr">"createThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Create a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"ThingID"</span>,
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"input"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema is implied by the content type"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PUT"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">201</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid serialization or TD"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"createAnonymousThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Create an anonymous Thing Description"</span>,
+            <span class="hljs-attr">"input"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema is implied by the content type"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"POST"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response including the system-generated URI"</span>,
+                        <span class="hljs-attr">"htv:headers"</span>: [
+                            {
+                                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"System-generated URI"</span>,
+                                <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Location"</span>
+                            }
+                        ],
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">201</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid serialization or TD"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"retrieveThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Retrieve a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"ThingID"</span>,
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"output"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema is implied by the content type"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"safe"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"idempotent"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"TD with the given id not found"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">404</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"updateThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Update a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"ThingID"</span>,
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"input"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema is implied by the content type"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PUT"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/td+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid serialization or TD"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"partiallyUpdateThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Partially update a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"ThingID"</span>,
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"input"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema is implied by the content type"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"PATCH"</span>,
+                    <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/merge-patch+json"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Invalid serialization or TD"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        },
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"TD with the given id not found"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">404</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"deleteThing"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Delete a Thing Description"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"id"</span>: {
+                    <span class="hljs-attr">"@type"</span>: <span class="hljs-string">"ThingID"</span>,
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Thing Description ID"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+                    <span class="hljs-attr">"format"</span>: <span class="hljs-string">"iri-reference"</span>
+                }
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/things/{id}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"DELETE"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">204</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"TD with the given id not found"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">404</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"searchJSONPath"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"JSONPath syntactic search.  This affordance is not normative and is provided for information only."</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"query"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid JSONPath expression"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+                }
+            },
+            <span class="hljs-attr">"output"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema depends on the given query"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"safe"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"idempotent"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/jsonpath?query={query}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/json"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"JSONPath expression not provided or contains syntax errors"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"searchXPath"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"XPath syntactic search.  This affordance is not normative and is provided for information only."</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"query"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid XPath expression"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+                }
+            },
+            <span class="hljs-attr">"output"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema depends on the given query"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"safe"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"idempotent"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/xpath?query={query}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/json"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"XPath expression not provided or contains syntax errors"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        },
+        <span class="hljs-attr">"searchSPARQL"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"SPARQL semantic search"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"query"</span>: {
+                    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"A valid SPARQL 1.1. query"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>
+                }
+            },
+            <span class="hljs-attr">"output"</span>: {
+                <span class="hljs-attr">"description"</span>: <span class="hljs-string">"The schema depends on the given query"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"safe"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"idempotent"</span>: <span class="hljs-literal">true</span>,
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/sparql?query={query}"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"GET"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/json"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"SPARQL query not provided or contains syntax errors"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                },
+                {
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/search/sparql"</span>,
+                    <span class="hljs-attr">"htv:methodName"</span>: <span class="hljs-string">"POST"</span>,
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Success response"</span>,
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/json"</span>,
+                        <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">200</span>
+                    },
+                    <span class="hljs-attr">"additionalResponses"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"SPARQL query not provided or contains syntax errors"</span>,
+                            <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"application/problem+json"</span>,
+                            <span class="hljs-attr">"htv:statusCodeValue"</span>: <span class="hljs-number">400</span>
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    <span class="hljs-attr">"events"</span>: {
+        <span class="hljs-attr">"thingCreated"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Registration of Thing Descriptions inside the directory"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"diff"</span>: {
+                    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Receive the full created TD as event data"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"boolean"</span>
+                }
+            },
+            <span class="hljs-attr">"data"</span>: {
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Partial/Full TD"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"op"</span>: <span class="hljs-string">"subscribeevent"</span>,
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/events/thing_created{?diff}"</span>,
+                    <span class="hljs-attr">"subprotocol"</span>: <span class="hljs-string">"sse"</span>,
+                    <span class="hljs-attr">"htv:headers"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of the last event for reconnection"</span>,
+                            <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Last-Event-ID"</span>
+                        }
+                    ],
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"text/event-stream"</span>
+                    }
+                }
+            ]
+        },
+        <span class="hljs-attr">"thingUpdated"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Updates to Thing Descriptions within the directory"</span>,
+            <span class="hljs-attr">"uriVariables"</span>: {
+                <span class="hljs-attr">"diff"</span>: {
+                    <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Include TD changes inside event data"</span>,
+                    <span class="hljs-attr">"type"</span>: <span class="hljs-string">"boolean"</span>
+                }
+            },
+            <span class="hljs-attr">"data"</span>: {
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Partial TD"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+                <span class="hljs-attr">"contentMediaType"</span>: <span class="hljs-string">"application/merge-patch+json"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"op"</span>: <span class="hljs-string">"subscribeevent"</span>,
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/events/thing_updated{?diff}"</span>,
+                    <span class="hljs-attr">"subprotocol"</span>: <span class="hljs-string">"sse"</span>,
+                    <span class="hljs-attr">"htv:headers"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of the last event for reconnection"</span>,
+                            <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Last-Event-ID"</span>
+                        }
+                    ],
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"text/event-stream"</span>
+                    }
+                }
+            ]
+        },
+        <span class="hljs-attr">"thingDeleted"</span>: {
+            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Deletion of Thing Descriptions from the directory"</span>,
+            <span class="hljs-attr">"data"</span>: {
+                <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Partial TD"</span>,
+                <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>
+            },
+            <span class="hljs-attr">"forms"</span>: [
+                {
+                    <span class="hljs-attr">"op"</span>: <span class="hljs-string">"subscribeevent"</span>,
+                    <span class="hljs-attr">"href"</span>: <span class="hljs-string">"/events/thing_deleted"</span>,
+                    <span class="hljs-attr">"subprotocol"</span>: <span class="hljs-string">"sse"</span>,
+                    <span class="hljs-attr">"htv:headers"</span>: [
+                        {
+                            <span class="hljs-attr">"description"</span>: <span class="hljs-string">"ID of the last event for reconnection"</span>,
+                            <span class="hljs-attr">"htv:fieldName"</span>: <span class="hljs-string">"Last-Event-ID"</span>
+                        }
+                    ],
+                    <span class="hljs-attr">"response"</span>: {
+                        <span class="hljs-attr">"contentType"</span>: <span class="hljs-string">"text/event-stream"</span>
+                    }
+                }
+            ]
+        }
+    }
+}</code></pre>
 
 
-                    <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span><span class="issue-label">: Context URIs</span></div><p class="">
-                        The context URIs are tentative and subject to change. 
-                    </p></div>
                 </section>
             </section>
 	    
@@ -3295,7 +4584,39 @@ a change in ownership).
         The following JSON Schema specifies the extensions used in <a href="#dfn-wot-enriched-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-enriched-thing-description-7">Enriched TDs</a>.
         It can be used for validating <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-47">TDs</a> by a <a href="#dfn-wot-tdd" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-tdd-1">TDD</a>
         as prescribed in <a href="#exploration-directory-api-things-validation" data-matched-text="[[[#exploration-directory-api-things-validation]]]" class="sec-ref"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a>.
-        <pre class="advisement json respec-offending-element" data-include="validation/td-discovery-extensions-json-schema.json" data-include-id="include-22626105964539622" title="`data-include` failed: `validation/td-discovery-extensions-json-schema.json` (Failed to fetch)." id="respec-offender-data-include-failed-validation-td-discovery-extensions-json-schema-json-failed-to-fetch"></pre>
+
+<pre class="advisement" aria-busy="false"><code class="hljs json">{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"WoT Discovery TD-extensions Schema - 21 May 2021"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"JSON Schema for validating TD instances with WoT Discovery extensions"</span>,
+  <span class="hljs-attr">"$schema "</span>: <span class="hljs-string">"https://json-schema.org/draft/2019-09/schema#"</span>,
+  <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+  <span class="hljs-attr">"properties"</span>: {
+    <span class="hljs-attr">"registration"</span>: {
+      <span class="hljs-attr">"type"</span>: <span class="hljs-string">"object"</span>,
+      <span class="hljs-attr">"properties"</span>: {
+        <span class="hljs-attr">"created"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"expires"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"retrieved"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"modified"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"string"</span>,
+          <span class="hljs-attr">"format"</span>: <span class="hljs-string">"date-time"</span>
+        },
+        <span class="hljs-attr">"ttl"</span>: {
+          <span class="hljs-attr">"type"</span>: <span class="hljs-string">"number"</span>
+        }
+      }
+    }
+  }
+}</code></pre>
     </section>
     
     <section id="changes" class="appendix"><div class="header-wrapper"><h2 id="b-recent-specification-changes"><bdi class="secno">B. </bdi>Recent Specification Changes</h2><a class="self-link" href="#changes" aria-label="Permalink for Appendix B."></a></div>
