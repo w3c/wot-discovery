@@ -1,0 +1,32 @@
+line 4852 column 7 - Warning: <div> proprietary attribute "aria-modal"
+line 4872 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4884 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4922 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4934 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4944 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4954 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4964 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4974 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 4990 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5004 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5014 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5024 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5034 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5044 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5056 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5090 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5102 column 11 - Warning: <div> proprietary attribute "aria-modal"
+line 5116 column 11 - Warning: <div> proprietary attribute "aria-modal"
+Info: Document content looks like HTML5
+Tidy found 19 warnings and 0 errors!
+
+About HTML Tidy: https://github.com/htacg/tidy-html5
+Bug reports and comments: https://github.com/htacg/tidy-html5/issues
+Official mailing list: https://lists.w3.org/Archives/Public/public-htacg/
+Latest HTML specification: http://dev.w3.org/html5/spec-author-view/
+Validate your HTML documents: http://validator.w3.org/nu/
+Lobby your company to join the W3C: http://www.w3.org/Consortium
+
+Do you speak a language other than English, or a different variant of 
+English? Consider helping us to localize HTML Tidy. For details please see 
+https://github.com/htacg/tidy-html5/blob/master/README/LOCALIZE.md
