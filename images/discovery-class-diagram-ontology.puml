@@ -23,10 +23,10 @@ Thing --> RegInfo : "discovery:hasRegistrationInformation"
 
 note as Prefixes
 Prefixes:
-  td: https://www.w3.org/2019/wot/td#
-  discovery: https://www.w3.org/2021/wot/discovery#
-  schema: http://schema.org/
-  xsd: http://www.w3.org/2001/XMLSchema#
+  td: https://www.w3.org/2022/wot/td/v1.1#
+  discovery: https://www.w3.org/2022/wot/discovery#
+  schema: https://schema.org/#
+  xsd: https://www.w3.org/2001/XMLSchema#
 end note
 
 ' note as Aliases
