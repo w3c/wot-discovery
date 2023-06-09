@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-<link rel="stylesheet" href="testing/atrisk.css">
+<!-- link rel="stylesheet" href="testing/atrisk.css" -->
 <meta charset="utf-8" />
 <title>Web of Things (WoT) Discovery</title>
 <script 
@@ -19,6 +19,9 @@
             "no-unused-dfns": false
         },
         doJsonLd : true,
+        noLegacyStyle: true,
+        inlineCSS: true,
+        noIDLIn: true,
         specStatus : "ED",
         // crEnd: "2022-08-30",
         implementationReportURI: "https://w3c.github.io/wot-discovery/testing/report.html",
@@ -59,14 +62,22 @@
             companyURL : "https://www.fraunhofer.de/",
             retiredDate: "2021-09-30"
         } ],
-        otherLinks : [
-                {
-                    key : "Contributors",
-                    data : [ {
-                        value : "In the GitHub repository",
-                        href : "https://github.com/w3c/wot-discovery/graphs/contributors"
-                    } ]
-                }],
+        otherLinks : [ {
+            key : "Contributors",
+            data : [ {
+              value : "In the GitHub repository",
+              href : "https://github.com/w3c/wot-discovery/graphs/contributors"
+            } ]
+        }, {
+          key: "Repository",
+          data: [ {
+            value: "We are on GitHub",
+            href: "https://github.com/w3c/wot-discovery/"
+          }, {
+            value: "File a bug",
+            href: "https://github.com/w3c/wot-discovery/issues"
+          } ]
+        } ],
         localBiblio : {
             "Discovery-Categorization-IoT" : {
                   title: "A Categorization of Discovery Technologies for the Internet of Things"
@@ -91,7 +102,7 @@
             },
 	    "REST-IOT" : {
                   title: "RESTful Design for Internet of Things Systems"
-                , href: "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06"
+                , href: "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06"
                 , authors:  [
                     "Ari Keranen"
                   , "Matthias Kovatsch"
@@ -887,7 +898,7 @@ img.wot-diagram {
                         [[[#example-td-link-type]]] is an example Thing Link.
                     </p>
 
-                    <!-- Using https://tools.ietf.org/html/rfc6963 for ID of examples -->
+                    <!-- Using https://datatracker.ietf.org/doc/html/rfc6963 for ID of examples -->
                     <aside class="example" id="example-td-link-type" title="Example of a Thing Link, referencing a remote TD">
                         <pre>
                             {
@@ -1298,7 +1309,7 @@ img.wot-diagram {
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-modified">
                                 <td><code>modified</code></td>
@@ -1311,7 +1322,7 @@ img.wot-diagram {
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-expires">
                                 <td><code>expires</code></td>
@@ -1329,7 +1340,7 @@ img.wot-diagram {
                                 </td>
                                 <td>optional</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-ttl">
                                 <td><code>ttl</code></td>
@@ -1360,7 +1371,7 @@ img.wot-diagram {
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -2407,7 +2418,7 @@ img.wot-diagram {
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
-                        <a href="https://tools.ietf.org/html/rfc6750#section-2.3">not advised</a>.
+                        <a href="https://datatracker.ietf.org/doc/html/rfc6750#section-2.3">not advised</a>.
 
                         There are polyfills for browsers and modern libraries which allow 
                         setting Authorization header.
@@ -3015,14 +3026,14 @@ a change in ownership).
                 <li>
 		<!-- span class="not-a-rfc2119-assertion" id="perf-inc-chunked-1" -->
                 HTTP/1.1 servers should support `chunked` 
-                <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
+                <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [[RFC7230]]
                 to receive and server data incrementally.
 		<!-- /span -->
                 </li>
                 <li>
 		<!-- span class="not-a-rfc2119-assertion" id="perf-inc-chunked-2" -->
                 HTTP/2 servers should handle the data incrementally using 
-                <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
+                <a href="https://datatracker.ietf.org/doc/html/rfc7540#section-4">HTTP Frames</a> [[RFC7540]].
                 The HTTP/1.1 chunked transfer encoding is not supported in HTTP/2.
                 <!-- /span -->
                 </li>
