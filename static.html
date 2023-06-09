@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en-US"><head>
 <meta charset="utf-8">
-<meta name="generator" content="ReSpec 34.1.1">
+<meta name="generator" content="ReSpec 34.1.2">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <style>
 span.example-title{text-transform:none}
@@ -45,7 +45,6 @@ dfn{cursor:pointer}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
 
-<link rel="stylesheet" href="testing/atrisk.css">
 
 
 <title>Web of Things (WoT) Discovery</title>
@@ -164,6 +163,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     "no-unused-dfns": false
   },
   "doJsonLd": true,
+  "noLegacyStyle": true,
+  "inlineCSS": true,
+  "noIDLIn": true,
   "specStatus": "ED",
   "implementationReportURI": "https://w3c.github.io/wot-discovery/testing/report.html",
   "shortName": "wot-discovery",
@@ -219,6 +221,19 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           "href": "https://github.com/w3c/wot-discovery/graphs/contributors"
         }
       ]
+    },
+    {
+      "key": "Repository",
+      "data": [
+        {
+          "value": "We are on GitHub",
+          "href": "https://github.com/w3c/wot-discovery/"
+        },
+        {
+          "value": "File a bug",
+          "href": "https://github.com/w3c/wot-discovery/issues"
+        }
+      ]
     }
   ],
   "localBiblio": {
@@ -248,7 +263,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     },
     "REST-IOT": {
       "title": "RESTful Design for Internet of Things Systems",
-      "href": "https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06",
+      "href": "https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06",
       "authors": [
         "Ari Keranen",
         "Matthias Kovatsch",
@@ -297,15 +312,15 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "amplification-attacks"
     }
   },
-  "publishISODate": "2023-05-24T00:00:00.000Z",
-  "generatedSubtitle": "W3C Editor's Draft 24 May 2023"
+  "publishISODate": "2023-06-09T00:00:00.000Z",
+  "generatedSubtitle": "W3C Editor's Draft 09 June 2023"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-ED"></head>
 <body class="h-entry toc-inline"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Web of Things (WoT) Discovery</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-05-24">24 May 2023</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#ED">W3C Editor's Draft</a> <time class="dt-published" datetime="2023-06-09">09 June 2023</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
@@ -352,6 +367,10 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         
         <dt>Contributors</dt><dd>
     <a href="https://github.com/w3c/wot-discovery/graphs/contributors">In the GitHub repository</a>
+  </dd><dt>Repository</dt><dd>
+    <a href="https://github.com/w3c/wot-discovery/">We are on GitHub</a>
+  </dd><dd>
+    <a href="https://github.com/w3c/wot-discovery/issues">File a bug</a>
   </dd>
       </dl>
     </details>
@@ -439,7 +458,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
   </p><p>
                   This document is governed by the
                   <a id="w3c_process_revision" href="https://www.w3.org/2021/Process-20211102/">2 November 2021 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
-                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4. </bdi>Architecture</a></li><li class="tocline"><a class="tocxref" href="#discoverer-process"><bdi class="secno">5. </bdi>Discoverer Process</a></li><li class="tocline"><a class="tocxref" href="#introduction-mech"><bdi class="secno">6. </bdi>Introduction Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-direct"><bdi class="secno">6.1 </bdi>Direct</a></li><li class="tocline"><a class="tocxref" href="#introduction-well-known"><bdi class="secno">6.2 </bdi>Well-Known URIs</a></li><li class="tocline"><a class="tocxref" href="#introduction-dns-sd-sec"><bdi class="secno">6.3 </bdi>DNS-Based Service Discovery</a></li><li class="tocline"><a class="tocxref" href="#introduction-core-rd-sec"><bdi class="secno">6.4 </bdi>CoRE Link Format and CoRE Resource Directory</a></li><li class="tocline"><a class="tocxref" href="#introduction-did-sec"><bdi class="secno">6.5 </bdi>DID Documents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-mech"><bdi class="secno">7. </bdi>Exploration Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-overview"><bdi class="secno">7.1 </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-ontology"><bdi class="secno">7.1.1 </bdi>Ontology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-td-type-thingdirectory"><bdi class="secno">7.1.1.1 </bdi><code>ThingDirectory</code></a></li><li class="tocline"><a class="tocxref" href="#exploration-td-type-thinglink"><bdi class="secno">7.1.1.2 </bdi><code>ThingLink</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-secboot"><bdi class="secno">7.1.2 </bdi>Security Bootstrapping</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-server"><bdi class="secno">7.2 </bdi>Thing Description Server</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory"><bdi class="secno">7.3 </bdi>Thing Description Directory</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-info"><bdi class="secno">7.3.1 </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-info"><bdi class="secno">7.3.1.1 </bdi>Registration Information</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-expiry"><bdi class="secno">7.3.1.2 </bdi>Registration Expiry</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-anonymous-td"><bdi class="secno">7.3.1.3 </bdi>Anonymous TD Identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api"><bdi class="secno">7.3.2 </bdi>Directory Service API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things"><bdi class="secno">7.3.2.1 </bdi>Things API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-creation"><bdi class="secno">7.3.2.1.1 </bdi>Creation</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-retrieval"><bdi class="secno">7.3.2.1.2 </bdi>Retrieval</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-update"><bdi class="secno">7.3.2.1.3 </bdi>Update</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-deletion"><bdi class="secno">7.3.2.1.4 </bdi>Deletion</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-listing"><bdi class="secno">7.3.2.1.5 </bdi>Listing</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-validation"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-notification"><bdi class="secno">7.3.2.2 </bdi>Events API</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-search"><bdi class="secno">7.3.2.3 </bdi>Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonpath-semantic"><bdi class="secno">7.3.2.3.1 </bdi>Syntactic search: JSONPath</a></li><li class="tocline"><a class="tocxref" href="#xpath-semantic"><bdi class="secno">7.3.2.3.2 </bdi>Syntactic search: XPath</a></li><li class="tocline"><a class="tocxref" href="#search-semantic"><bdi class="secno">7.3.2.3.3 </bdi>Semantic search: SPARQL</a></li></ol></li><li class="tocline"><a class="tocxref" href="#directory-api-spec"><bdi class="secno">7.3.2.4 </bdi>API Specification (Thing Model)</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">8. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-consideration-dos"><bdi class="secno">8.1 </bdi>Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-amp-ddos"><bdi class="secno">8.2 </bdi>Amplification and Distributed Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-lan-self-discovery"><bdi class="secno">8.3 </bdi>Self-Discovery on LANs</a></li></ol></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">9. </bdi>Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#privacy-consideration-location-tracking"><bdi class="secno">9.1 </bdi>Location Tracking and Profiling</a></li><li class="tocline"><a class="tocxref" href="#privacy-consideration-query-tracking"><bdi class="secno">9.2 </bdi>Query Tracking</a></li></ol></li><li class="tocline"><a class="tocxref" href="#performance-considerations"><bdi class="secno">10. </bdi>Performance Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#perf-incremental-transfer"><bdi class="secno">10.1 </bdi>Incremental Transfer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-considerations"><bdi class="secno">11. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#well-known-uri-suffix"><bdi class="secno">11.1 </bdi>Well-Known URI Registration</a></li><li class="tocline"><a class="tocxref" href="#service-name"><bdi class="secno">11.2 </bdi>Service Name Registration</a></li><li class="tocline"><a class="tocxref" href="#core-resource-type"><bdi class="secno">11.3 </bdi>CoRE Resource Types Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#other-name-considerations"><bdi class="secno">12. </bdi>Other Name Registration Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#did-service-name"><bdi class="secno">12.1 </bdi>DID Service Name Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tdd-extensions-jsonschema"><bdi class="secno">A. </bdi>JSON Schema for WoT Discovery TD-extensions</a></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">B. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-third-draft"><bdi class="secno">B.1 </bdi>Changes from 10 August 2022 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-second-draft"><bdi class="secno">B.2 </bdi>Changes from 2 June 2021 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-first-draft"><bdi class="secno">B.3 </bdi>Changes from 24 November 2020 First Public Working Draft</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">C. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2 </bdi>Informative references</a></li></ol></li></ol></nav>
+                </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">2. </bdi>Conformance</a></li><li class="tocline"><a class="tocxref" href="#terminology"><bdi class="secno">3. </bdi>Terminology</a></li><li class="tocline"><a class="tocxref" href="#architecture"><bdi class="secno">4. </bdi>Architecture</a></li><li class="tocline"><a class="tocxref" href="#discoverer-process"><bdi class="secno">5. </bdi>Discoverer Process</a></li><li class="tocline"><a class="tocxref" href="#introduction-mech"><bdi class="secno">6. </bdi>Introduction Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#introduction-direct"><bdi class="secno">6.1 </bdi>Direct</a></li><li class="tocline"><a class="tocxref" href="#introduction-well-known"><bdi class="secno">6.2 </bdi>Well-Known URIs</a></li><li class="tocline"><a class="tocxref" href="#introduction-dns-sd-sec"><bdi class="secno">6.3 </bdi>DNS-Based Service Discovery</a></li><li class="tocline"><a class="tocxref" href="#introduction-core-rd-sec"><bdi class="secno">6.4 </bdi>CoRE Link Format and CoRE Resource Directory</a></li><li class="tocline"><a class="tocxref" href="#introduction-did-sec"><bdi class="secno">6.5 </bdi>DID Documents</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-mech"><bdi class="secno">7. </bdi>Exploration Mechanisms</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-overview"><bdi class="secno">7.1 </bdi>Overview</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-ontology"><bdi class="secno">7.1.1 </bdi>Ontology</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-td-type-thingdirectory"><bdi class="secno">7.1.1.1 </bdi><code>ThingDirectory</code></a></li><li class="tocline"><a class="tocxref" href="#exploration-td-type-thinglink"><bdi class="secno">7.1.1.2 </bdi><code>ThingLink</code></a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-secboot"><bdi class="secno">7.1.2 </bdi>Security Bootstrapping</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-server"><bdi class="secno">7.2 </bdi>Thing Description Server</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory"><bdi class="secno">7.3 </bdi>Thing Description Directory</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-info"><bdi class="secno">7.3.1 </bdi>Information Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-info"><bdi class="secno">7.3.1.1 </bdi>Registration Information</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-registration-expiry"><bdi class="secno">7.3.1.2 </bdi>Registration Expiry</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-anonymous-td"><bdi class="secno">7.3.1.3 </bdi>Anonymous TD Identifiers</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api"><bdi class="secno">7.3.2 </bdi>Directory Service API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things"><bdi class="secno">7.3.2.1 </bdi>Things API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-creation"><bdi class="secno">7.3.2.1.1 </bdi>Creation</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-retrieval"><bdi class="secno">7.3.2.1.2 </bdi>Retrieval</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-update"><bdi class="secno">7.3.2.1.3 </bdi>Update</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-deletion"><bdi class="secno">7.3.2.1.4 </bdi>Deletion</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-listing"><bdi class="secno">7.3.2.1.5 </bdi>Listing</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-things-validation"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a></li></ol></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-notification"><bdi class="secno">7.3.2.2 </bdi>Events API</a></li><li class="tocline"><a class="tocxref" href="#exploration-directory-api-search"><bdi class="secno">7.3.2.3 </bdi>Search API</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#jsonpath-semantic"><bdi class="secno">7.3.2.3.1 </bdi>Syntactic search: JSONPath</a></li><li class="tocline"><a class="tocxref" href="#xpath-semantic"><bdi class="secno">7.3.2.3.2 </bdi>Syntactic search: XPath</a></li><li class="tocline"><a class="tocxref" href="#search-semantic"><bdi class="secno">7.3.2.3.3 </bdi>Semantic search: SPARQL</a></li></ol></li><li class="tocline"><a class="tocxref" href="#directory-api-spec"><bdi class="secno">7.3.2.4 </bdi>API Specification (Thing Model)</a></li></ol></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#security-considerations"><bdi class="secno">8. </bdi>Security Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#security-consideration-dos"><bdi class="secno">8.1 </bdi>Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-amp-ddos"><bdi class="secno">8.2 </bdi>Amplification and Distributed Denial of Service</a></li><li class="tocline"><a class="tocxref" href="#security-consideration-lan-self-discovery"><bdi class="secno">8.3 </bdi>Self-Discovery on LANs</a></li></ol></li><li class="tocline"><a class="tocxref" href="#privacy-considerations"><bdi class="secno">9. </bdi>Privacy Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#privacy-consideration-location-tracking"><bdi class="secno">9.1 </bdi>Location Tracking and Profiling</a></li><li class="tocline"><a class="tocxref" href="#privacy-consideration-query-tracking"><bdi class="secno">9.2 </bdi>Query Tracking</a></li></ol></li><li class="tocline"><a class="tocxref" href="#performance-considerations"><bdi class="secno">10. </bdi>Performance Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#perf-incremental-transfer"><bdi class="secno">10.1 </bdi>Incremental Transfer</a></li></ol></li><li class="tocline"><a class="tocxref" href="#iana-considerations"><bdi class="secno">11. </bdi>IANA Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#well-known-uri-suffix"><bdi class="secno">11.1 </bdi>Well-Known URI Registration</a></li><li class="tocline"><a class="tocxref" href="#service-name"><bdi class="secno">11.2 </bdi>Service Name Registration</a></li><li class="tocline"><a class="tocxref" href="#core-resource-type"><bdi class="secno">11.3 </bdi>CoRE Resource Types Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#other-name-considerations"><bdi class="secno">12. </bdi>Other Name Registration Considerations</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#did-service-name"><bdi class="secno">12.1 </bdi>DID Service Name Registration</a></li></ol></li><li class="tocline"><a class="tocxref" href="#tdd-extensions-jsonschema"><bdi class="secno">A. </bdi>JSON Schema for WoT Discovery TD-extensions</a></li><li class="tocline"><a class="tocxref" href="#changes"><bdi class="secno">B. </bdi>Recent Specification Changes</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#changes-from-cr"><bdi class="secno">B.1 </bdi>Changes from 19 January 2023 Candidate Recommendation</a></li><li class="tocline"><a class="tocxref" href="#changes-from-third-draft"><bdi class="secno">B.2 </bdi>Changes from 10 August 2022 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-second-draft"><bdi class="secno">B.3 </bdi>Changes from 2 June 2021 Working Draft</a></li><li class="tocline"><a class="tocxref" href="#changes-from-first-draft"><bdi class="secno">B.4 </bdi>Changes from 24 November 2020 First Public Working Draft</a></li></ol></li><li class="tocline"><a class="tocxref" href="#acknowledgements"><bdi class="secno">C. </bdi>Acknowledgments</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">D. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normative-references"><bdi class="secno">D.1 </bdi>Normative references</a></li><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">D.2 </bdi>Informative references</a></li></ol></li></ol></nav>
     <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
         
         <p>The Web of Things (WoT) defines an architecture that supports the integration
@@ -1510,7 +1529,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-modified">
                                 <td><code>modified</code></td>
@@ -1523,7 +1542,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-expires">
                                 <td><code>expires</code></td>
@@ -1541,7 +1560,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                                 </td>
                                 <td>optional</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                             <tr class="rfc2119-table-assertion" id="tdd-registrationinfo-vocab-ttl">
                                 <td><code>ttl</code></td>
@@ -1572,7 +1591,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
                                 </td>
                                 <td>read-only</td>
                                 <td>optional</td>
-                                <td><a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
+                                <td><a href="https://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/#dateTime"><code>dateTime</code></a></td>
                             </tr>
                         </tbody>
                     </table>
@@ -2566,7 +2585,7 @@ id: event_3</code></pre>
                         Some early SSE implementations (including HTML5 EventSource) do not allow
                         setting custom headers in the initial HTTP request. Authorization header 
                         is required in few OAuth2 flows and passing it as a query parameter is
-                        <a href="https://tools.ietf.org/html/rfc6750#section-2.3">not advised</a>.
+                        <a href="https://datatracker.ietf.org/doc/html/rfc6750#section-2.3">not advised</a>.
 
                         There are polyfills for browsers and modern libraries which allow 
                         setting Authorization header.
@@ -2686,7 +2705,7 @@ id: event_3</code></pre>
                         In this case, <code>application/x-empty</code> can be used to
                         ensure that the TD generated from the TM below is valid.
                     </p>
-                    <pre class="advisement json respec-offending-element" data-include="directory.tm.json" data-include-id="include-716524622026792" title="`data-include` failed: `directory.tm.json` (Failed to fetch)." id="respec-offender-data-include-failed-directory-tm-json-failed-to-fetch"></pre>
+                    <pre class="advisement json respec-offending-element" data-include="directory.tm.json" data-include-id="include-5089887745428754" title="`data-include` failed: `directory.tm.json` (Failed to fetch)." id="respec-offender-data-include-failed-directory-tm-json-failed-to-fetch"></pre>
 
 
                     <div class="note" id="issue-container-generatedID-2"><div role="heading" class="ednote-title marker" id="h-ednote-2" aria-level="6"><span>Editor's note</span><span class="issue-label">: Context URIs</span></div><p class="">
@@ -3152,14 +3171,14 @@ a change in ownership).
                 <li>
 		
                 HTTP/1.1 servers should support <code>chunked</code> 
-                <a href="https://tools.ietf.org/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7230" title="Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing">RFC7230</a></cite>]
+                <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-3.3.1">Transfer-Encoding</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7230" title="Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing">RFC7230</a></cite>]
                 to receive and server data incrementally.
 		
                 </li>
                 <li>
 		
                 HTTP/2 servers should handle the data incrementally using 
-                <a href="https://tools.ietf.org/html/rfc7540#section-4">HTTP Frames</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7540" title="Hypertext Transfer Protocol Version 2 (HTTP/2)">RFC7540</a></cite>].
+                <a href="https://datatracker.ietf.org/doc/html/rfc7540#section-4">HTTP Frames</a> [<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7540" title="Hypertext Transfer Protocol Version 2 (HTTP/2)">RFC7540</a></cite>].
                 The HTTP/1.1 chunked transfer encoding is not supported in HTTP/2.
                 
                 </li>
@@ -3276,12 +3295,21 @@ a change in ownership).
         The following JSON Schema specifies the extensions used in <a href="#dfn-wot-enriched-thing-description" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-enriched-thing-description-7">Enriched TDs</a>.
         It can be used for validating <a href="#dfn-td" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-td-47">TDs</a> by a <a href="#dfn-wot-tdd" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-wot-tdd-1">TDD</a>
         as prescribed in <a href="#exploration-directory-api-things-validation" data-matched-text="[[[#exploration-directory-api-things-validation]]]" class="sec-ref"><bdi class="secno">7.3.2.1.6 </bdi>Validation</a>.
-        <pre class="advisement json respec-offending-element" data-include="validation/td-discovery-extensions-json-schema.json" data-include-id="include-4852841508030161" title="`data-include` failed: `validation/td-discovery-extensions-json-schema.json` (Failed to fetch)." id="respec-offender-data-include-failed-validation-td-discovery-extensions-json-schema-json-failed-to-fetch"></pre>
+        <pre class="advisement json respec-offending-element" data-include="validation/td-discovery-extensions-json-schema.json" data-include-id="include-22626105964539622" title="`data-include` failed: `validation/td-discovery-extensions-json-schema.json` (Failed to fetch)." id="respec-offender-data-include-failed-validation-td-discovery-extensions-json-schema-json-failed-to-fetch"></pre>
     </section>
     
     <section id="changes" class="appendix"><div class="header-wrapper"><h2 id="b-recent-specification-changes"><bdi class="secno">B. </bdi>Recent Specification Changes</h2><a class="self-link" href="#changes" aria-label="Permalink for Appendix B."></a></div>
       
-      <section id="changes-from-10-august-2022-working-draft"><div class="header-wrapper"><h3 id="changes-from-third-draft"><bdi class="secno">B.1 </bdi>Changes from 10 August 2022 Working Draft</h3><a class="self-link" href="#changes-from-third-draft" aria-label="Permalink for Appendix B.1"></a></div>
+      <section id="changes-from-19-january-2023-candidate-recommendation"><div class="header-wrapper"><h3 id="changes-from-cr"><bdi class="secno">B.1 </bdi>Changes from 19 January 2023 Candidate Recommendation</h3><a class="self-link" href="#changes-from-cr" aria-label="Permalink for Appendix B.1"></a></div>
+      <ul>
+      <li>No normative changes from Candidate Recommendation.</li>
+      <li>Add reference to IoT'16 paper by Arne Broering, Soumya Kanti Datta, and Christian Bonnet.</li>
+      <li>At-risk assertions that did not receive sufficient implementations were removed or
+          converted to informative statements.</li>
+      <li><a href="https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2023%2FCR-wot-discovery-20230119%2F&amp;doc2=https%3A%2F%2Fraw.githubusercontent.com%2Fw3c%2Fwot-discovery%2Fpr-candidate%2Fstatic.html">HTML Diff</a></li>
+
+      </ul>
+      </section><section id="changes-from-10-august-2022-working-draft"><div class="header-wrapper"><h3 id="changes-from-third-draft"><bdi class="secno">B.2 </bdi>Changes from 10 August 2022 Working Draft</h3><a class="self-link" href="#changes-from-third-draft" aria-label="Permalink for Appendix B.2"></a></div>
       <ul>
       <li>Define sorting order to be based on Unicode code points.</li>
       <li>Clarify 3x rule for DDoS migitation to allow padding in request, and require it only outside of protected local networks.</li>
@@ -3290,7 +3318,7 @@ a change in ownership).
       <li>Update DNS-SD section to include explicit scheme in TXT field.</li>
       <li>Replace reference to draft CoRE-RD with final specification published as RFC9176.</li>
       </ul>
-      </section><section id="changes-from-2-june-2021-working-draft"><div class="header-wrapper"><h3 id="changes-from-second-draft"><bdi class="secno">B.2 </bdi>Changes from 2 June 2021 Working Draft</h3><a class="self-link" href="#changes-from-second-draft" aria-label="Permalink for Appendix B.2"></a></div>
+      </section><section id="changes-from-2-june-2021-working-draft"><div class="header-wrapper"><h3 id="changes-from-second-draft"><bdi class="secno">B.3 </bdi>Changes from 2 June 2021 Working Draft</h3><a class="self-link" href="#changes-from-second-draft" aria-label="Permalink for Appendix B.3"></a></div>
       <ul>
       <li>Use <code>wot</code> for well-known URI service name.</li>
       <li>Refer to TD and Architecture specs for general constraints on secure transport.</li>
@@ -3311,7 +3339,7 @@ a change in ownership).
       <li>TD expiry management.</li>
       <li>HEAD method support.</li>
       </ul>
-      </section><section id="changes-from-24-november-2020-first-public-working-draft"><div class="header-wrapper"><h3 id="changes-from-first-draft"><bdi class="secno">B.3 </bdi>Changes from 24 November 2020 First Public Working Draft</h3><a class="self-link" href="#changes-from-first-draft" aria-label="Permalink for Appendix B.3"></a></div>
+      </section><section id="changes-from-24-november-2020-first-public-working-draft"><div class="header-wrapper"><h3 id="changes-from-first-draft"><bdi class="secno">B.4 </bdi>Changes from 24 November 2020 First Public Working Draft</h3><a class="self-link" href="#changes-from-first-draft" aria-label="Permalink for Appendix B.4"></a></div>
       <ul>
       <li>Update name of directory service to "Thing Description Directory" with acronym TDD, 
       to avoid confusion with the acronym TD used for Thing Descriptions.
@@ -3468,7 +3496,7 @@ a change in ownership).
     </dd><dt id="bib-ldp-paging">[LDP-Paging]</dt><dd>
       <a href="https://www.w3.org/TR/ldp-paging/"><cite>Linked Data Platform Paging 1.0</cite></a>. Steve Speicher; John Arwe; Ashok Malhotra.  W3C. 30 June 2015. W3C Working Group Note. URL: <a href="https://www.w3.org/TR/ldp-paging/">https://www.w3.org/TR/ldp-paging/</a>
     </dd><dt id="bib-rest-iot">[REST-IOT]</dt><dd>
-      <a href="https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06"><cite>RESTful Design for Internet of Things Systems</cite></a>. Ari Keranen; Matthias Kovatsch; Klaus Hartke.  IETF. 11 May 2020. URL: <a href="https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06">https://tools.ietf.org/html/draft-irtf-t2trg-rest-iot-06</a>
+      <a href="https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06"><cite>RESTful Design for Internet of Things Systems</cite></a>. Ari Keranen; Matthias Kovatsch; Klaus Hartke.  IETF. 11 May 2020. URL: <a href="https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06">https://datatracker.ietf.org/doc/html/draft-irtf-t2trg-rest-iot-06</a>
     </dd><dt id="bib-rfc7230">[RFC7230]</dt><dd>
       <a href="https://httpwg.org/specs/rfc7230.html"><cite>Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing</cite></a>. R. Fielding, Ed.; J. Reschke, Ed..  IETF. June 2014. Proposed Standard. URL: <a href="https://httpwg.org/specs/rfc7230.html">https://httpwg.org/specs/rfc7230.html</a>
     </dd><dt id="bib-rfc7540">[RFC7540]</dt><dd>
