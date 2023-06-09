@@ -119,15 +119,24 @@ pre.example {
     DRAFT Implementation Report
   </h1>
   <p>
-    <b>Version</b>: 29 May 2023
+    <b>Version</b>: 31 May 2023
   </p>
   <p>
     <b>Editors</b>:<br>
     Michael McCool (Intel)
   </p>
 
-  <p class="copyright"><a href="http://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a> © 2019 <a href="http://www.w3.org/"><acronym title="World Wide Web Consortium">W3C</acronym></a><sup>®</sup> (<a href="http://www.csail.mit.edu/"><acronym title="Massachusetts Institute of Technology">MIT</acronym></a>, <a href="http://www.ercim.org/"><acronym title="European Research Consortium for Informatics and Mathematics">ERCIM</acronym></a>, <a href="http://www.keio.ac.jp/">Keio</a>), All Rights Reserved. W3C <a href="http://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>, <a href="http://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and <a href="http://www.w3.org/Consortium/Legal/copyright-documents">document use</a> rules apply.</p>
-  <hr title="Separator for header">
+    <p class="copyright">
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Copyright">Copyright</a>
+    ©
+    2017-2023
+
+    <a href="https://www.w3.org/">World Wide Web Consortium</a>.
+    <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#Legal_Disclaimer">liability</a>,
+    <a href="https://www.w3.org/Consortium/Legal/ipr-notice#W3C_Trademarks">trademark</a> and
+    <a rel="license" href="https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document" title="W3C Software and Document Notice and License">permissive document license</a> rules apply.
+  </p><hr title="Separator for header">
 </div>
 
 <h2 id="h_toc"><a id="toc" name="toc">Table of Contents</a></h2>
@@ -156,11 +165,11 @@ pre.example {
   <li class="tocline">
 	6.1 <a href="#impl-dart_wot">dart_wot: Consumer and Discoverer</a></li>
 <li class="tocline">
-	6.2 <a href="#impl-hitachi-esp-idf">Air quality sensor and acclerometer: TD Exposer</a></li>
+	6.2 <a href="#impl-hitachi-esp-idf">hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</a></li>
 <li class="tocline">
-	6.3 <a href="#impl-hitachi-node-red">LED lamp: TD Exposer</a></li>
+	6.3 <a href="#impl-hitachi-nodered">hitachi-nodered: LED lamp: TD Exposer</a></li>
 <li class="tocline">
-	6.4 <a href="#impl-hitachi-nrwotdisc">WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
+	6.4 <a href="#impl-hitachi-nrwotdisc">hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</a></li>
 <li class="tocline">
 	6.5 <a href="#impl-intel-nodejs">intel-nodejs: TD Exposer</a></li>
 <li class="tocline">
@@ -174,7 +183,7 @@ pre.example {
 <li class="tocline">
 	6.10 <a href="#impl-siemens-logilab">SparTDD: Thing Description Directory</a></li>
 <li class="tocline">
-	6.11 <a href="#impl-tinyiot">TinyIoT Thing Directory</a></li>
+	6.11 <a href="#impl-tinyiot">tiny-iot: TinyIoT Thing Directory</a></li>
 <li class="tocline">
 	6.12 <a href="#impl-wothive">WoT Hive directory</a></li>
 </ul>
@@ -202,13 +211,6 @@ pre.example {
 </ul>
 
 <h2 id="h_intro"><a id="intro" name="intro">1. Introduction</a> </h2>
-<!--
-<p>
-  The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
-  specification entered the <a href="https://www.w3.org/TR/2022/CR-wot-discovery-202207xx/">Candidate Recommendation</a> 
-  period on xx July 2022.
-</p>
--->
 <p>
   The <a href="http://www.w3.org/TR/wot-discovery/">Web of Things (WoT) Discovery</a>
   document was last published as a
@@ -398,21 +400,35 @@ all assertions have met this requirement.
     <strong>Contributing Member Organizations:</strong> Invited Experts
   </p>
 </div><div class="impl" id="impl-hitachi-esp-idf">
-  <h4>Air quality sensor and acclerometer: TD Exposer</h4>
-  <p>This is a sample Thing implementation in C++.</p>
-</div><div class="impl" id="impl-hitachi-node-red">
-  <h4>LED lamp: TD Exposer</h4>
-  <p>This is a sample Thing implementation in Node-RED.</p>
+  <h4>hitachi-esp-idf: Air quality sensor and acclerometer: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented on a microcontroller. 
+    It can exporting the Thing's sensor reading via HTTP REST API,
+    and advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
+</div><div class="impl" id="impl-hitachi-nodered">
+  <h4>hitachi-nodered: LED lamp: TD Exposer</h4>
+  <p>
+    This is an example of a Thing implemented in Node-RED.
+    It can turn on and off a LED connected to Raspberry Pi's GPIOs
+    and notify changes in LED status.
+    It can also advertise its own Thing Description using DNS-SD/mDNS.
+  </p>
 </div><div class="impl" id="impl-hitachi-nrwotdisc">
-  <h4>WoT-Discovery Plugin for Node-RED: Discoverer</h4>
-  <p>This is a plug-in for Node-RED to integrate Node-RED and WoT-Discovery.
-    You canexplore the surrounding Thing from Node-RED's Editor and install a node to interact with that Thing.
+  <h4>hitachi-nrwotdisc: WoT-Discovery Plugin for Node-RED: Discoverer</h4>
+  <p>
+    This plugin uses wot-discovery functionality
+    and make it easy to import Things into Node-RED flow editor.
+    The plugin discovers Things connected on the local area network or registered 
+    in the Thing Description Directory, and converts them into functional blocks 
+    that can be used in Node-RED.
   </p>
 </div><div class="impl" id="impl-intel-nodejs">
   <h4>intel-nodejs: TD Exposer</h4>
   <p>
   Two services based on a shared NodeJS codebase (not using node-wot):
-  </p><ul>
+  </p>
+  <ul>
 	 <li>A simple camera service that interfaces 
 	 with V4L (Video for Linux) to capture still images
          from a USB camera.
@@ -420,7 +436,8 @@ all assertions have met this requirement.
 	 <li>A simple text-to-speech output service based on espeak.
 	 </li>
   </ul>
-  <p></p>
+  <p><b>Usage:</b> Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-proxy">intel-proxy: Intermediary
   <h4>intel-proxy: Intermediary</h4>
   <p>
@@ -435,6 +452,8 @@ all assertions have met this requirement.
   The secure endpoints provided by this service are not given in TDs for the 
   service itself, but added to the TDs for the Things it services.
   </p>
+  <p><b>Usage:</b> Intermediary</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-intel-wot-ha">
   <h4>intel-wot-ha: TD Directory and TD Exposer</h4>
   <p>
@@ -447,6 +466,8 @@ all assertions have met this requirement.
   entities supported by Home Assistant and access these services
   using WoT affordance abstractions.
   </p>
+  <p><b>Usage:</b> Directory and Exposer</p>
+  <p><b>Contributing Member Organizations:</b> Intel</p>
 </div><div class="impl" id="impl-nodewot">
   <h4 id="impl-node-wot">Eclipse node-wot: Consumer and Exposer</h4>
   <p>
@@ -505,7 +526,7 @@ all assertions have met this requirement.
   <p><b>Usage:</b>Directory</p>
   <p><b>Contributing Member Organizations:</b>Siemens</p>
 </div><div class="impl" id="impl-tinyiot">
-  <h4 id="impl-tinyiot">TinyIoT Thing Directory</h4>
+  <h4 id="impl-tinyiot">tiny-iot: TinyIoT Thing Directory</h4>
   <p>
     This is an implementation of the W3C Web of Things (WoT) Thing Description Directory (TDD).
     This directory is designed to be lightweight and portable, enabling deployment on the edge.
@@ -2281,7 +2302,8 @@ The Web of Things Working Group would like to acknowledge the contributions to
 the making of this document from the following individuals in various capacities,
 including contributions to past testing inputs which were used for compatibility testing:</p>
 <ul>
-<li>Luca Barbato (Sifis/wot-rust)</li>
+<li>Cristiano Aguzzi (Invited Expert)</li>
+<li>Luca Barbato (Luminem)</li>
 <li>Philipp Blum (Invited Expert)</li>
 <li>Victor Charpenay (Siemens)</li>
 <li>Andrea Cimmino (Universidad Politécnica de Madrid)</li>
@@ -2297,7 +2319,7 @@ including contributions to past testing inputs which were used for compatibility
 <li>Michael Lagally (Oracle)</li>
 <li>Ryuichi Matsukura (Fujitsu)</li>
 <li>Michael McCool (Intel)</li>
-<li>Murloc6 (Siemens/Logilab)</li>
+<li>Fabien Amarger  (Logilab)</li>
 <li>Kevin Olotu (Bosch/Vorto)</li>
 <li>Daniel Peintner(Siemens)</li>
 <li>Cu Pham (ECHONET)</li>
@@ -2306,9 +2328,9 @@ including contributions to past testing inputs which were used for compatibility
 <li>Takeshi Sano (Fujitsu)</li>
 <li>Fady Salama (Technical University of Munich)</li>
 <li>Takahisa Suzuki (Fujitsu)</li>
-<li>Marcus Wolf Schmidt (?)</li>
+<li>Marcus Wolf Schmidt (Technical University of Munich)</li>
 <li>Farshid Tavakolizadeh (Fraunhofer-Gesellschaft)</li>
-<li>Elodie Thieblin (Siemens/Logilab)</li>
+<li>Elodie Thieblin (Siemens and Logilab)</li>
 <li>Kunihiko Toumura (Hitachi)</li>
 <li>Takeshi Yamada (Panasonic)</li>
 </ul>
