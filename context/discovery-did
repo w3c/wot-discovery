@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "discovery": "https://www.w3.org/2021/wot/discovery#",
+    "WotDirectory": {
+      "@id": "discovery:WotDirectory",
+      "@type": "@id"
+    },
+    "WotThing": {
+      "@id": "discovery:WotThing",
+      "@type": "@id"
+    }
+  }
+}
