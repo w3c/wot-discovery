@@ -1,7 +1,7 @@
 {
     "@context": [
-        "http://www.w3.org/ns/td",
-        "https://w3c.github.io/wot-discovery/context/discovery-context.jsonld"
+        "https://www.w3.org/2022/wot/td/v1.1",
+        "https://www.w3.org/2022/wot/discovery"
     ],
     "@type": [
         "tm:ThingModel",
@@ -9,7 +9,7 @@
     ],
     "title": "Thing Description Directory (TDD) Thing Model",
     "version": {
-        "model": "1.0.0-beta.3"
+        "model": "1.0.0"
     },
     "base": "{{DIRECTORY_BASE_URL}}",
     "tm:optional": [
@@ -47,25 +47,11 @@
                         "collection"
                     ],
                     "default": "array"
-                },
-                "sort_by": {
-                    "title": "Comparator TD attribute for collection sorting",
-                    "type": "string",
-                    "default": "id"
-                },
-                "sort_order": {
-                    "title": "Sorting order",
-                    "type": "string",
-                    "enum": [
-                        "asc",
-                        "desc"
-                    ],
-                    "default": "asc"
                 }
             },
             "forms": [
                 {
-                    "href": "/things{?offset,limit,format,sort_by,sort_order}",
+                    "href": "/things{?offset,limit,format}",
                     "htv:methodName": "GET",
                     "response": {
                         "description": "Success response",
