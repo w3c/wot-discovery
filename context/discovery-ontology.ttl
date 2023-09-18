@@ -118,7 +118,8 @@ discovery:WotThingDIDService rdf:type owl:Class ;
 ### discovery:WotDirectory
 discovery:WotDirectoryDIDService rdf:type owl:Class ;
 
-	rdfs:comment "Class for DID documents";
+	rdfs:comment "Class used in DID documents that labels a URL for a service returning a TD that must describe a TD Directory";
+
         rdfs:subClassOf did:Service ;
 	rdfs:label "WotDirectoryDIDService".
 
