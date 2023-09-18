@@ -106,22 +106,17 @@ discovery:ThingDirectory rdf:type owl:Class ;
 discovery:ThingCollection rdf:type owl:Class ;
 	rdfs:label "ThingCollection".
 
-### discovery:WotThing
+### discovery:WotThingDIDService
 discovery:WotThingDIDService rdf:type owl:Class ;
-
-	rdfs:comment "Class used in DID documents that labels a URL for a service returning a TD";
-
+	rdfs:comment "Class used in DID documents that labels a URL for a service returning a WoT TD";
 	rdfs:subClassOf did:Service ;
-	rdfs:label "WotThingDIDService".
+	rdfs:label "WotThingDIDService" .
 
-
-### discovery:WotDirectory
+### discovery:WotDirectoryDIDService
 discovery:WotDirectoryDIDService rdf:type owl:Class ;
-
-	rdfs:comment "Class used in DID documents that labels a URL for a service returning a TD that must describe a TD Directory";
-
+	rdfs:comment "Class used in DID documents that labels a URL for a service returning a WoT TD that must describe a WoT TD Directory";
         rdfs:subClassOf did:Service ;
-	rdfs:label "WotDirectoryDIDService".
+	rdfs:label "WotDirectoryDIDService" .
 
 
 #################################################################
