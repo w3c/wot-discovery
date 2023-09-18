@@ -8,6 +8,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix discovery: <https://github.com/w3c/wot-discovery#> .
 @prefix td: <https://www.w3.org/2019/wot/td#> .
+@prefix did: <https://www.w3.org/ns/did#> .
 @prefix schema: <http://schema.org/> .
 @base <https://github.com/w3c/wot-discovery#> .
 
@@ -104,6 +105,19 @@ discovery:ThingDirectory rdf:type owl:Class ;
 ### discovery:ThingCollection
 discovery:ThingCollection rdf:type owl:Class ;
 	rdfs:label "ThingCollection".
+
+### discovery:WotThingDIDService
+discovery:WotThingDIDService rdf:type owl:Class ;
+	rdfs:comment "Class used in DID documents that labels a URL for a service returning a WoT TD";
+	rdfs:subClassOf did:Service ;
+	rdfs:label "WotThingDIDService" .
+
+### discovery:WotDirectoryDIDService
+discovery:WotDirectoryDIDService rdf:type owl:Class ;
+	rdfs:comment "Class used in DID documents that labels a URL for a service returning a WoT TD that must describe a WoT TD Directory";
+        rdfs:subClassOf did:Service ;
+	rdfs:label "WotDirectoryDIDService" .
+
 
 #################################################################
 # Instances
