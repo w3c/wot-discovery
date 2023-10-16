@@ -6,13 +6,13 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix discovery: <https://www.w3.org/2021/wot/discovery-ontology#> .
+@prefix discovery: <https://www.w3.org/2022/wot/discovery-ontology#> .
 @prefix td: <https://www.w3.org/2019/wot/td#> .
 @prefix did: <https://www.w3.org/ns/did#> .
 @prefix schema: <http://schema.org/> .
-@base <https://www.w3.org/2021/wot/discovery-ontology#> .
+@base <https://www.w3.org/2022/wot/discovery-ontology#> .
 
-<https://www.w3.org/2021/wot/discovery-ontology#> rdf:type owl:Ontology ;
+<https://www.w3.org/2022/wot/discovery-ontology#> rdf:type owl:Ontology ;
 	dc:creator "Andrea Cimmino" ;
 	dc:creator "Farshid Tavakolizadeh" ;
 	owl:versionInfo "0.1.2" ;
