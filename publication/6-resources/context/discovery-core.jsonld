@@ -1,6 +1,6 @@
 {
   "@context": {
-    "discovery": "https://www.w3.org/2021/wot/discovery-ontology#",
+    "discovery": "https://www.w3.org/2022/wot/discovery-ontology#",
     "ThingDirectory": {
       "@id": "discovery:ThingDirectory",
       "@type": "@id"
