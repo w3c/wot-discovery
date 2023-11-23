@@ -10,52 +10,52 @@
 "width=device-width, initial-scale=1, shrink-to-fit=no" />
 <style>
 <![CDATA[
-  span.example-title{text-transform:none}
-  :is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
-  div.illegal-example{color:red}
-  div.illegal-example p{color:#000}
-  :is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
-  aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
-  .example pre{background-color:rgba(0,0,0,.03)}
+span.example-title{text-transform:none}
+:is(aside,div).example,div.illegal-example{padding:.5em;margin:1em 0;position:relative;clear:both}
+div.illegal-example{color:red}
+div.illegal-example p{color:#000}
+:is(aside,div).example{border-left-width:.5em;border-left-style:solid;border-color:#e0cb52;background:#fcfaee}
+aside.example div.example{border-left-width:.1em;border-color:#999;background:#fff}
+.example pre{background-color:rgba(0,0,0,.03)}
 ]]>
 </style>
 
 <style>
 <![CDATA[
-  .issue-label{text-transform:initial}
-  .warning>p:first-child{margin-top:0}
-  .warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
-  span.warning{padding:.1em .5em .15em}
-  .issue.closed span.issue-number{text-decoration:line-through}
-  .issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
-  .warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
-  .warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
-  li.task-list-item{list-style:none}
-  input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
-  .issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-width:.2em;border-style:solid;background:#fbe9e9}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
 ]]>
 </style>
 
 <style>
 <![CDATA[
-  dfn{cursor:pointer}
-  .dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
-  .dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
-  .dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
-  .dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
-  .dfn-panel *{margin:0}
-  .dfn-panel b{display:block;color:#000;margin-top:.25em}
-  .dfn-panel ul a[href]{color:#333}
-  .dfn-panel>div{display:flex}
-  .dfn-panel a.self-link{font-weight:700;margin-right:auto}
-  .dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
-  .dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
-  .dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
-  .dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
-  .dfn-panel a[href]:hover{border-bottom-width:1px}
-  .dfn-panel ul{padding:0}
-  .dfn-panel li{margin-left:1em}
-  .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;color:#000;box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;margin-top:.25em}
+.dfn-panel ul a[href]{color:#333}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 ]]>
 </style>
 <title>Web of Things (WoT) Discovery</title>
@@ -63,80 +63,80 @@
 <style>
 <![CDATA[
 
-  a[href].internalDFN {
+a[href].internalDFN {
         color: inherit;
         border-bottom: 1px solid #99c;
         text-decoration: none;
-  }
-  img.wot-diagram {
+}
+img.wot-diagram {
     max-width: 90%;
     height: auto;
-  }
-  .rfc2119-assertion {
+}
+.rfc2119-assertion {
   background-color: rgb(230,230,230)
-  }
+}
 
 ]]>
 </style>
 
 <style id="respec-mainstyle">
 <![CDATA[
-  @keyframes pop{
-  0%{transform:scale(1,1)}
-  25%{transform:scale(1.25,1.25);opacity:.75}
-  100%{transform:scale(1,1)}
-  }
-  :is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
-  dfn{font-weight:700}
-  a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
-  a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
-  a.bibref{text-decoration:none}
-  .respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
-  .respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
-  @supports not (text-decoration:red wavy underline){
-  .respec-offending-element:not(pre){display:inline-block}
-  .respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
-  }
-  #references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
-  cite .bibref{font-style:normal}
-  a[href].orcid{padding-left:4px;padding-right:4px}
-  a[href].orcid>svg{margin-bottom:-2px}
-  .toc a,.tof a{text-decoration:none}
-  a .figno,a .secno{color:#000}
-  ol.tof,ul.tof{list-style:none outside none}
-  .caption{margin-top:.5em;font-style:italic}
-  table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
-  .simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
-  .simple th a{color:#fff;padding:3px 5px;text-align:left}
-  .simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
-  .simple td{padding:3px 10px;border-top:1px solid #ddd}
-  .simple tr:nth-child(even){background:#f0f6ff}
-  .section dd>p:first-child{margin-top:0}
-  .section dd>p:last-child{margin-bottom:0}
-  .section dd{margin-bottom:1em}
-  .section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
-  #issue-summary>ul{column-count:2}
-  #issue-summary li{list-style:none;display:inline-block}
-  details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
-  details.respec-tests-details>*{padding-right:2em}
-  details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
-  details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
-  details.respec-tests-details>ul{width:100%;margin-top:-.3em}
-  details.respec-tests-details>li{padding-left:1em}
-  .self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
-  aside.example .marker>a.self-link{color:inherit}
-  .header-wrapper{display:flex;align-items:baseline}
-  :is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
-  :is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
-  :is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
-  :is(h2,h3)+a.self-link{top:-.2em}
-  :is(h4,h5,h6)+a.self-link::before{color:#000}
-  @media (max-width:767px){
-  dd{margin-left:0}
-  }
-  @media print{
-  .removeOnSave{display:none}
-  }
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+:is(h1,h2,h3,h4,h5,h6,a) abbr{border:none}
+dfn{font-weight:700}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+cite .bibref{font-style:normal}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+.toc a,.tof a{text-decoration:none}
+a .figno,a .secno{color:#000}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+table.simple{border-spacing:0;border-collapse:collapse;border-bottom:3px solid #005a9c}
+.simple th{background:#005a9c;color:#fff;padding:3px 5px;text-align:left}
+.simple th a{color:#fff;padding:3px 5px;text-align:left}
+.simple th[scope=row]{background:inherit;color:inherit;border-top:1px solid #ddd}
+.simple td{padding:3px 10px;border-top:1px solid #ddd}
+.simple tr:nth-child(even){background:#f0f6ff}
+.section dd>p:first-child{margin-top:0}
+.section dd>p:last-child{margin-bottom:0}
+.section dd{margin-bottom:1em}
+.section dl.attrs dd,.section dl.eldef dd{margin-bottom:0}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none;display:inline-block}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-1.1em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
 ]]>
 </style>
 <meta name="description" content=
@@ -145,7 +145,7 @@
 "https://www.w3.org/TR/wot-discovery/" />
 <script type="application/ld+json">
 <![CDATA[
-  {
+{
   "@context": [
     "http://schema.org",
     {
@@ -965,39 +965,39 @@
       }
     }
   ]
-  }
+}
 ]]>
 </script>
 <style>
 <![CDATA[
-  .hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
-  .hljs-comment,.hljs-quote{color:#717277;font-style:italic}
-  .hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
-  .hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
-  .hljs-literal{color:#0b76c5}
-  .hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
-  .hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
-  .hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
-  .hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
-  .hljs-emphasis{font-style:italic}
-  .hljs-strong{font-weight:700}
-  .hljs-link{text-decoration:underline}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;background:#fafafa}
+.hljs-comment,.hljs-quote{color:#717277;font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;font-weight:700}
+.hljs-literal{color:#0b76c5}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
 ]]>
 </style>
 
 <style>
 <![CDATA[
-  var{position:relative;cursor:pointer}
-  var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
-  var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
-  var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
-  var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
+var{position:relative;cursor:pointer}
+var[data-type]::after,var[data-type]::before{position:absolute;left:50%;top:-6px;opacity:0;transition:opacity .4s;pointer-events:none}
+var[data-type]::before{content:"";transform:translateX(-50%);border-width:4px 6px 0 6px;border-style:solid;border-color:transparent;border-top-color:#000}
+var[data-type]::after{content:attr(data-type);transform:translateX(-50%) translateY(-100%);background:#000;text-align:center;font-family:"Dank Mono","Fira Code",monospace;font-style:normal;padding:6px;border-radius:3px;color:#daca88;text-indent:0;font-weight:400}
+var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
 ]]>
 </style>
 
 <script id="initialUserConfig" type="application/json">
 <![CDATA[
-  {
+{
   "lint": {
     "check-punctuation": true,
     "local-refs-exist": true,
@@ -1159,7 +1159,7 @@
   },
   "publishISODate": "2023-11-30T00:00:00.000Z",
   "generatedSubtitle": "W3C Recommendation 30 November 2023"
-  }
+}
 ]]>
 </script>
 <link rel="stylesheet" href=
@@ -2648,12 +2648,23 @@ Changes
 </a>
 <ol class="toc">
 <li class="tocline">
-<a class="tocxref" href= "#changes-from-cr">
+<a class="tocxref" href= "#changes-from-pr">
 <bdi class="secno">
 B.1
 </bdi>
 Changes
 from
+<ins class="diff-new">11
+July
+2023
+Proposed
+Recommendation
+</ins></a></li><li class="tocline"><a class="tocxref" href= "#changes-from-cr"><bdi class="secno"><ins class="diff-new">
+B.2
+</ins></bdi><ins class="diff-new">
+Changes
+from
+</ins>
 19
 January
 2023
@@ -2664,7 +2675,10 @@ Recommendation
 <li class="tocline">
 <a class="tocxref" href= "#changes-from-third-draft">
 <bdi class="secno">
-B.2
+<del class="diff-old">B.2
+</del>
+<ins class="diff-chg">B.3
+</ins>
 </bdi>
 Changes
 from
@@ -2678,7 +2692,10 @@ Draft
 <li class="tocline">
 <a class="tocxref" href= "#changes-from-second-draft">
 <bdi class="secno">
-B.3
+<del class="diff-old">B.3
+</del>
+<ins class="diff-chg">B.4
+</ins>
 </bdi>
 Changes
 from
@@ -2692,7 +2709,10 @@ Draft
 <li class="tocline">
 <a class="tocxref" href= "#changes-from-first-draft">
 <bdi class="secno">
-B.4
+<del class="diff-old">B.4
+</del>
+<ins class="diff-chg">B.5
+</ins>
 </bdi>
 Changes
 from
@@ -21868,11 +21888,70 @@ Changes
 <a class="self-link" href="#changes" aria-label= "Permalink for Appendix B.">
 </a>
 </div>
+<section id="changes-from-11-july-2023-proposed-recommendation">
+<div class="header-wrapper">
+<h3 id="changes-from-pr">
+<bdi class="secno">
+<ins class="diff-new">B.1
+</ins></bdi><ins class="diff-new">
+Changes
+from
+11
+July
+2023
+Proposed
+Recommendation
+</ins></h3><a class="self-link" href="#changes-from-pr" aria-label= "Permalink for Appendix B.1"></a></div><ul><li><ins class="diff-new">
+No
+normative
+changes
+from
+Proposed
+Recommendation.
+</ins></li><li><ins class="diff-new">
+Add
+errata
+link.
+</ins></li><li><ins class="diff-new">
+Update
+process
+link
+to
+3
+November
+2023.
+</ins></li><li><ins class="diff-new">
+Remove
+Editors'
+notes
+regarding
+date-time
+and
+Search
+API
+overview.
+</ins></li><li><ins class="diff-new">
+Update
+references
+to
+DID
+registry
+and
+other
+WoT
+documents.
+</ins></li><li><a href= "https://services.w3.org/htmldiff?doc1=https%3A%2F%2Fwww.w3.org%2FTR%2F2023%2FPR-wot-discovery-20230711%2F&amp;doc2=https%3A%2F%2Fraw.githubusercontent.com%2Fw3c%2Fwot-discovery%2Fmain%2Fpublication%2F6-rec%2FOverview.html"><ins class="diff-new">
+HTML
+Diff
+</ins></a></li></ul></section>
 <section id= "changes-from-19-january-2023-candidate-recommendation">
 <div class="header-wrapper">
 <h3 id="changes-from-cr">
 <bdi class="secno">
-B.1
+<del class="diff-old">B.1
+</del>
+<ins class="diff-chg">B.2
+</ins>
 </bdi>
 Changes
 from
@@ -21882,7 +21961,7 @@ January
 Candidate
 Recommendation
 </h3>
-<a class="self-link" href="#changes-from-cr" aria-label= "Permalink for Appendix B.1">
+<a class="self-link" href="#changes-from-cr" aria-label= "Permalink for Appendix B.2">
 </a>
 </div>
 <ul>
@@ -21939,7 +22018,10 @@ Diff
 <div class="header-wrapper">
 <h3 id="changes-from-third-draft">
 <bdi class="secno">
-B.2
+<del class="diff-old">B.2
+</del>
+<ins class="diff-chg">B.3
+</ins>
 </bdi>
 Changes
 from
@@ -21949,7 +22031,7 @@ August
 Working
 Draft
 </h3>
-<a class="self-link" href="#changes-from-third-draft" aria-label= "Permalink for Appendix B.2">
+<a class="self-link" href="#changes-from-third-draft" aria-label= "Permalink for Appendix B.3">
 </a>
 </div>
 <ul>
@@ -22050,7 +22132,10 @@ RFC9176.
 <div class="header-wrapper">
 <h3 id="changes-from-second-draft">
 <bdi class="secno">
-B.3
+<del class="diff-old">B.3
+</del>
+<ins class="diff-chg">B.4
+</ins>
 </bdi>
 Changes
 from
@@ -22060,7 +22145,7 @@ June
 Working
 Draft
 </h3>
-<a class="self-link" href="#changes-from-second-draft" aria-label= "Permalink for Appendix B.3">
+<a class="self-link" href="#changes-from-second-draft" aria-label= "Permalink for Appendix B.4">
 </a>
 </div>
 <ul>
@@ -22260,7 +22345,10 @@ support.
 <div class="header-wrapper">
 <h3 id="changes-from-first-draft">
 <bdi class="secno">
-B.4
+<del class="diff-old">B.4
+</del>
+<ins class="diff-chg">B.5
+</ins>
 </bdi>
 Changes
 from
@@ -22272,7 +22360,7 @@ Public
 Working
 Draft
 </h3>
-<a class="self-link" href="#changes-from-first-draft" aria-label= "Permalink for Appendix B.4">
+<a class="self-link" href="#changes-from-first-draft" aria-label= "Permalink for Appendix B.5">
 </a>
 </div>
 <ul>
@@ -23652,8 +23740,8 @@ W3C.
 <del class="diff-old">19
 January
 </del>
-<ins class="diff-chg">11
-July
+<ins class="diff-chg">30
+November
 </ins>
 2023.
 W3C
@@ -23692,8 +23780,8 @@ W3C.
 <del class="diff-old">19
 January
 </del>
-<ins class="diff-chg">11
-July
+<ins class="diff-chg">30
+November
 </ins>
 2023.
 W3C
