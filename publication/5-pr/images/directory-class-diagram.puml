@@ -1,0 +1,24 @@
+@startuml directory-class-diagram
+/' global configurations '/
+hide methods
+
+class Directory <<service>>
+hide Directory members
+
+class TD as "td:Thing"
+hide TD members
+note left: Thing Description (TD)
+
+class RI as "tdd:RegistrationInfo" {
+    tdd:created {readOnly}
+    ' tdd:expires
+    tdd:id {readOnly}
+    tdd:modified {readOnly}
+    ' tdd:ttl
+}
+
+Directory "1" o-- "0..*" TD: contains
+TD "1" *-- "0..1" RI
+
+
+@enduml
