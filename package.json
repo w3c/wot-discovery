@@ -1,0 +1,14 @@
+{
+  "name": "wot-discovery",
+  "version": "0.0.0",
+  "author": "w3c",
+  "main": "render.js",
+  "scripts": {
+    "render": "node context/renderOntology.js"
+  },
+  "dependencies": {
+    "sttl": "github:vcharpenay/STTL.js#90a3dfc"
+  },
+  "license": "W3C-20150513",
+  "type": "module"
+}
