@@ -1,9 +1,11 @@
+prefix adms: <http://www.w3.org/ns/adms#>
 prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 prefix owl: <http://www.w3.org/2002/07/owl#>
 prefix schema: <http://schema.org/>
 prefix vann: <http://purl.org/vocab/vann/>
 prefix st: <http://ns.inria.fr/sparql-template/>
+prefix ontology: <https://github.com/w3c/wot-discovery#>
 prefix : <https://github.com/w3c/wot-discovery/ontology#>
 
 template :main(?prefix) {
@@ -15,6 +17,7 @@ template :main-discovery (?prefix) {
     format {
         <file://./context/discovery-ontology.template.html>
         st:call-template(:axioms, ?prefix)
+        st:call-template(:changelog, ?prefix)
     }
 } where {}
 
@@ -47,6 +50,20 @@ template :axioms(?prefix) {
        vann:preferredNamespaceUri ?ns ;
        vann:preferredNamespacePrefix ?prefix .
 }
+
+template :changelog(?prefix) {
+    "<dt>"
+        ?vi
+    "</dt>"
+    "<dd>"
+        ?vn
+    "</dd>"
+} where {
+
+    ?cl a ontology:changeLogEntry ;
+        adms:versionNotes ?vn ;
+        owl:versionInfo ?vi .
+} order by desc(?vi)
 
 template :individuals-section(?ns ?prefix) {
     "<section>"
