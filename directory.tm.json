@@ -29,6 +29,47 @@
     "properties": {
         "things": {
             "description": "Retrieve all Thing Descriptions",
+            "oneOf": [
+                {
+                    "description": "Plain list of Thing Descriptions",
+                    "type": "array",
+                    "items": {
+                        "description": "Thing Description",
+                        "type": "object"
+                    }
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "@context": {
+                            "const": "https://www.w3.org/2022/wot/discovery"
+                        },
+                        "@type": {
+                            "const": "ThingCollection"
+                        },
+                        "@id": {
+                            "description": "URI of this collection",
+                            "type": "string"
+                        },
+                        "members": {
+                            "description": "Thing Descriptions",
+                            "type": "array",
+                            "items": {
+                                "description": "Thing Description",
+                                "type": "object"
+                            }
+                        },
+                        "total": {
+                            "description": "Total number of Thing Descriptions in this collection",
+                            "type": "number"
+                        },
+                        "next": {
+                            "description": "URI of the next page",
+                            "type": "string"
+                        }
+                    }
+                }
+            ],
             "uriVariables": {
                 "offset": {
                     "title": "Number of TDs to skip before the page",
