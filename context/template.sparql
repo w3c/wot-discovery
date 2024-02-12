@@ -52,18 +52,15 @@ template :axioms(?prefix) {
 }
 
 template :changelog(?prefix) {
-    "<dt>"
-        ?vi
-    "</dt>"
-    "<dd>"
-        ?vn
-    "</dd>"
+    format { "<dt>%s</dt>" ?versionInfo }
+    format { "<dd>%s</dd>" ?changes }
 } where {
-
-    ?cl a ontology:changeLogEntry ;
-        adms:versionNotes ?vn ;
-        owl:versionInfo ?vi .
-} order by desc(?vi)
+    ?o a owl:Ontology ;
+         owl:versionInfo ?versionInfo ;
+         owl:priorVersion ?priorVersion ;
+         vann:changes ?changes .
+    # TODO: Call template with priorVersion URL
+}
 
 template :individuals-section(?ns ?prefix) {
     "<section>"
