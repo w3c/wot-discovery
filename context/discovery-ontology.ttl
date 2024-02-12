@@ -17,7 +17,7 @@
 	owl:versionInfo "1.0.1" ;
 	# TODO: Add proper owl:priorVersion
 	owl:priorVersion "https://example.org/todo";
-    vann:changes "Script used to render HTML from TTL. TTL updated to include annotations and comments, and defining default namespace." ;
+	vann:changes "Script used to render HTML from TTL. TTL updated to include annotations and comments, and defining default namespace." ;
 	vann:preferredNamespacePrefix "discovery" ;
 	vann:preferredNamespaceUri "https://github.com/w3c/wot-discovery#" ;
 	dc:title "WoT discovery ontology" ;
