@@ -89,8 +89,6 @@ async function obtainChangeLog() {
 
     await reset({ fullReset: true });
 
-    await loadPriorVersion(priorVersionUrl);
-
     priorVersionUrl = await obtainPriorVersionUrl();
     await reset();
   }
