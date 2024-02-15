@@ -17,7 +17,6 @@ template :main-discovery (?prefix) {
     format {
         <file://./context/discovery-ontology.template.html>
         st:call-template(:axioms, ?prefix)
-        st:call-template(:changelog, ?prefix)
     }
 } where {}
 
@@ -49,17 +48,6 @@ template :axioms(?prefix) {
     ?o a owl:Ontology ;
        vann:preferredNamespaceUri ?ns ;
        vann:preferredNamespacePrefix ?prefix .
-}
-
-template :changelog(?prefix) {
-    format { "<dt>%s</dt>" ?versionInfo }
-    format { "<dd>%s</dd>" ?changes }
-} where {
-    ?o a owl:Ontology ;
-         owl:versionInfo ?versionInfo ;
-         owl:priorVersion ?priorVersion ;
-         vann:changes ?changes .
-    # TODO: Call template with priorVersion URL
 }
 
 template :individuals-section(?ns ?prefix) {
