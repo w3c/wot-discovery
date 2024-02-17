@@ -89,6 +89,8 @@ async function obtainChangeLog() {
 
     await reset({ fullReset: true });
 
+    await loadPriorVersion(priorVersionUrl);
+
     priorVersionUrl = await obtainPriorVersionUrl();
     await reset();
   }
@@ -122,7 +124,7 @@ let renderedOntology = await sttl.callTemplate(
 const changeLog = await obtainChangeLog();
 
 renderedOntology = renderedOntology.replace(
-  "%",
+  "%s",
   changeLog.join("\n                ")
 );
 
