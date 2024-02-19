@@ -30,7 +30,9 @@ async function obtainVersionInfo() {
 }
 
 async function obtainChanges(options) {
-  const changes = await obtainOntologyMetaData("http://purl.org/vocab/vann/changes");
+  const changes = await obtainOntologyMetaData(
+    "http://purl.org/vocab/vann/changes"
+  );
 
   if (changes.length === 0 && options?.useDefault === true) {
     return "Initial version";
@@ -50,7 +52,7 @@ async function obtainChangeLogEntry(options) {
 }
 
 async function loadPriorVersion(priorVersion) {
-  const response = await fetch(priorVersion)
+  const response = await fetch(priorVersion);
   const ontology = await response.text();
   await load(ontology);
 }
@@ -82,7 +84,7 @@ async function obtainChangeLog() {
   while (priorVersionUrl != null && priorVersionUrl.length > 0) {
     await loadPriorVersion(priorVersionUrl);
 
-    const changeLogEntry = await obtainChangeLogEntry({useDefault: true});
+    const changeLogEntry = await obtainChangeLogEntry({ useDefault: true });
     changeLog.push(changeLogEntry);
 
     await loadPriorVersion(priorVersionUrl);
