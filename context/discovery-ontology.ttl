@@ -14,9 +14,9 @@
 : rdf:type owl:Ontology ;
 	dc:creator "Andrea Cimmino" ;
 	dc:creator "Farshid Tavakolizadeh" ;
-	owl:versionInfo "1.0.1" ;
+	owl:versionInfo "1.0.1-a1" ;
 	# TODO: Add proper owl:priorVersion
-	owl:priorVersion "https://example.org/todo";
+	owl:priorVersion "https://raw.githubusercontent.com/w3c/wot-discovery/main/publication/6-resources/ontology/discovery-ontology.ttl";
 	vann:changes "Script used to render HTML from TTL. TTL updated to include annotations and comments, and defining default namespace." ;
 	vann:preferredNamespacePrefix "discovery" ;
 	vann:preferredNamespaceUri "https://github.com/w3c/wot-discovery#" ;
