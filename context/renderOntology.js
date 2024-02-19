@@ -6,6 +6,8 @@ import { readFileSync, writeFileSync } from "fs";
 import sttl from "sttl";
 import { load, query, clear } from "urdf";
 
+const initialVersionString = "Initial release. Placeholder HTML only."
+
 async function obtainOntologyMetaData(termIri) {
   const template = `
     template {
@@ -35,7 +37,7 @@ async function obtainChanges(options) {
   );
 
   if (changes.length === 0 && options?.useDefault === true) {
-    return "Initial version";
+    return initialVersionString;
   }
 
   return changes;
