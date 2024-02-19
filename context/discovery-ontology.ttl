@@ -26,14 +26,14 @@
 
 ### discovery:hasRegistrationInformation
 :hasRegistrationInformation rdf:type owl:ObjectProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Used to provide information on the registration with a Thing Description Directory in a TD."@en ;
 	rdfs:domain td:Thing ;
 	rdfs:range :RegistrationInformation ;
 	rdfs:label "registration" .
 
 ### discovery:nextThingCollection
 :nextThingCollection rdf:type owl:ObjectProperty;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Used to provide a link for retrieving a URL for retrieving the next page of a ThingCollection. "@en ;
 	rdfs:domain :ThingCollection;
 	rdfs:range :ThingCollection;
 	rdfs:label "next ThingCollection" .
@@ -41,7 +41,7 @@
 
 ### discovery:hasCollectionMember
 :hasCollectionMember rdf:type owl:ObjectProperty;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "The array of Thing Descriptions contained in a ThingCollection."@en ;
 	rdfs:domain :ThingCollection;
 	rdfs:range td:Thing;
 	rdfs:label "ThingCollection members" .
@@ -54,42 +54,42 @@
 
 ### discovery:dateCreated
 :dateCreated rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Provides the absolute time when the TD instance was created inside the directory. "@en ;
 	rdfs:domain :RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "created"@en .
 
 ### discovery:dateModified
 :dateModified rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Provides the absolute time when the TD instance was last modified inside the directory."@en ;
 	rdfs:domain :RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "modified"@en .
 
 ### discovery:expires
 :expires rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Provides the absolute time when the TD instance registration expires."@en ;
 	rdfs:domain :RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "expires"@en .
 
 ### discovery:ttl
 :ttl rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Time-to-live: relative amount of time in seconds from the registration time until when the TD instance registration expires."@en ;
 	rdfs:domain :RegistrationInformation ;
 	rdfs:range xsd:unsignedInt ;
 	rdfs:label "ttl"@en .
 
 ### discovery:retrieve
 :retrieved rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "The absolute time at which the TD was retrieved from the server."@en ;
 	rdfs:domain :RegistrationInformation ;
 	rdfs:range xsd:dateTime ;
 	rdfs:label "retrieved"@en .
 
 ### discovery:contains
 :contains rdf:type owl:DatatypeProperty ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Refers to the total number of Things contained in a ThingCollection."@en ;
 	rdfs:domain :ThingCollection;
 	rdfs:range xsd:integer;
 	rdfs:label "total number of things contained in the collection"@en .
@@ -101,24 +101,24 @@
 
 ### discovery:RegistrationInformation
 :RegistrationInformation rdf:type owl:Class ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Associated with TDs that are stored in a directory, providing additional information set during the registration with the TDD."@en ;
 	rdfs:label "RegistrationInformation" .
 
 ### discovery:ThingLink
 :ThingLink rdf:type owl:Class ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Class of Thing Descriptions that refer to another TD."@en ;
 	rdfs:label "ThingLink" ;
 	rdfs:subClassOf td:Thing .
 
 ### discovery:ThingDirectory
 :ThingDirectory rdf:type owl:Class ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "Class of Thing Descriptions that describe a Thing Description Directory."@en ;
 	rdfs:label "ThingDirectory" ;
 	rdfs:subClassOf td:Thing .
 
 ### discovery:ThingCollection
 :ThingCollection rdf:type owl:Class ;
-	rdfs:comment "TODO"@en ;
+	rdfs:comment "A collection of TDs containing pagination information."@en ;
 	rdfs:label "ThingCollection".
 
 ### discovery:WotThingDIDService
