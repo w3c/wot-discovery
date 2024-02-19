@@ -50,7 +50,7 @@ async function obtainChangeLogEntry(options) {
   const changes = await obtainChanges(options);
   await reset({ fullReset: true });
 
-  return `<dd>${versionInfo}</dd><dt>${changes}</dt>`;
+  return `<dt>${versionInfo}</dt><dd>${changes}</dd>`;
 }
 
 async function loadPriorVersion(priorVersion) {
