@@ -111,17 +111,6 @@
                 , publisher: "IETF"
                 , date: "11 May 2020"
             },
-            "JSONPATH": {
-                title: "JSONPath: Query expressions for JSON"
-                , href: "https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base"
-                , authors: [
-                    "Stefan Gössner"
-                    , "Glyn Normington"
-                    , "Carsten Bormann"
-                ]
-                , publisher: "IETF"
-                , status: "DRAFT",
-            },
             "wot-usecases" : {
                   title: "Web of Things (WoT): Use Cases"
                 , href: "https://w3c.github.io/wot-usecases/"
@@ -2445,7 +2434,7 @@ img.wot-diagram {
                         To discuss further:
                         Federated queries to other TDDs, Spatial and network-limited queries, Links
                     </p>
-                    This specification describes three search APIs: syntactic search with JSONPath [[?JSONPATH]],
+                    This specification describes three search APIs: syntactic search with JSONPath [[?RFC9535]],
                     syntactic search with XPath [[xpath-31]], and semantic search with SPARQL [[sparql11-overview]].
                     <span class="rfc2119-assertion" id="tdd-search-sparql">
                         The Directory MAY implement semantic search with SPARQL.</span>
@@ -2471,7 +2460,7 @@ img.wot-diagram {
                         Support for JSONPath Search API is optional.
                         If implemented, the JSONPath API must allow searching TDs using an HTTP <code>GET</code> request
                         at `/search/jsonpath?query={query}` endpoint, where `query` is the JSONPath expression.
-                        The request must contain a valid JSONPath [[?JSONPATH]] as searching parameter.
+                        The request must contain a valid JSONPath [[?RFC9535]] as searching parameter.
                         A successful response must have 200 (OK) status, contain
                         <code>application/json</code> in the Content-Type header, and
                         a set of complete TDs or a set of TD fragments in the body.
