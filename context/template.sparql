@@ -16,9 +16,17 @@ template :main(?prefix) {
 template :main-discovery (?prefix) {
     format {
         <file://./context/discovery-ontology.template.html>
+        st:call-template(:versionNumber, ?prefix)
         st:call-template(:axioms, ?prefix)
     }
 } where {}
+
+template :versionNumber(?prefix) {
+    format { "%s" ?versionInfo }
+} where {
+    ?o a owl:Ontology ;
+       owl:versionInfo ?versionInfo .
+}
 
 template :axioms(?prefix) {
     "<section>"
