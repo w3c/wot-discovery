@@ -1,4 +1,4 @@
-4# WoT Discovery
+# WoT Discovery
 ## Implementations
 The following are the implementations of directories in the current spec and will be used for validation of the directory service specification.
 
