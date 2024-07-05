@@ -6,7 +6,7 @@ The following are the implementations of directories in the current spec and wil
 |---|---|---|---|---|
 | Fraunhofer | [LinkSmart Thing Directory][1] | Apache 2 | Go | Registration, Notification, Search (JSONPath, XPath) |
 | UPM | [WoT Hive][2] | Apache 2 | Java | Registration, Notification, Search (JSONPath, SPARQL) |
-| Siemens | Logilab TDD | Proprietary | Python | Registration, Search (SPARQL) |
+| Siemens | [Domus TDD API][4] | EPL-2.0 OR W3C-20150513 | Python | Registration, Search (SPARQL) |
 
 
 A detailed table of supported features for each implementation will be listed in Implementation Report.  Link TBD.
@@ -30,3 +30,4 @@ In addition, the following introduction mechanisms have been implemented and tes
 [1]: https://github.com/linksmart/thing-directory
 [2]: https://github.com/oeg-upm/wot-hive
 [3]: https://github.com/wot-rust/wot-discovery
+[4]: https://github.com/eclipse-thingweb/domus-tdd-api
